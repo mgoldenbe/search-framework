@@ -1,11 +1,13 @@
 #include "Pancake.h"
 #include "OL.h"
 #include "OCL.h"
+#include <map>
 
 extern constexpr double a = 0.2;
 
-template <template <class Node, typename FType=typename Node::CostType>
-          class OL>
+template <class Node>
+using MyOpen = OL<Node, BUCKETED(2)>;
+
 void testOL() {
     using Node = AStarNode<Pancake>;
     using NodeUP = std::unique_ptr<Node>;
@@ -14,7 +16,7 @@ void testOL() {
     auto n3 = NodeUP(new Node(Pancake(0))); n3->f = 3;
     auto n4 = NodeUP(new Node(Pancake(0))); n4->f = 4;
     auto n5 = NodeUP(new Node(Pancake(0))); n5->f = 5;
-    OL<Node, BUCKETED(2)> ol;
+    MyOpen<Node> ol;
     ol.add(n5.get());
     ol.add(n4.get());
     ol.add(n2.get());
@@ -63,6 +65,6 @@ void testOCL() {
 }
 
 int main() {
-    testOCL<OL>();
+    testOL();
     return 0;
 }

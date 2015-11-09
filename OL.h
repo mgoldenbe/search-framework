@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <map>
 #include "utilities.h"
 
 //#include "prettyprint.h"
@@ -13,10 +12,15 @@
    -- faster update by using hints
 */
 
-template <typename Node_, typename FType // Possible to achieve bucketing by
-                                         // specifying Bucketed
-                                         // By default: CostType of the node
-                          = typename Node_::CostType>
+template <typename Key, typename T>
+using OLMap =
+    std::map<Key, T, std::less<Key>, std::allocator<std::pair<const Key, T>>>;
+
+template <class Node_, typename FType // Possible to achieve bucketing by
+                                      // specifying Bucketed
+                                      // By default: CostType of the node
+                       = typename Node_::CostType,
+          template <typename, typename> class Container = OLMap>
 struct OL {
     using OLLocation = int; // must be defined by all OL variants
     using Node = Node_;
@@ -59,7 +63,7 @@ struct OL {
     }
 
 private:
-    std::map<FType, std::vector<Node *>> buckets;
+    Container<FType, std::vector<Node *>> buckets;
     int size_ = 0;
     Node *erase(FType bucketNum) {
         return erase(bucketNum, buckets[bucketNum].size()-1);
