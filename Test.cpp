@@ -7,6 +7,7 @@ extern constexpr double a = 0.2;
 template <class Node>
 using MyOpen = OL<Node>;
 
+
 void testOL() {
     using Node = AStarNode<Pancake>;
     using NodeUP = std::unique_ptr<Node>;

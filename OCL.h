@@ -10,6 +10,16 @@ struct StateHash {
     }
 };
 
+// See here the discussion of whether nodes should be passed by pointers or by
+// references: http://stackoverflow.com/q/33616355/2725810
+//
+// A quote from the comment by the author of the accepted answer:
+// "Implementation detail is what you call an implementation detail. If your
+// container goal is to store pointers (as method add assumes), storing pointers
+// is hardly irrelevant for outside world."
+//
+// A useful quote for another answer: "references are better used as transparent
+// aliases that don't have to live for very long."
 template <class OL> struct OCL {
     using Node = typename OL::Node;
     using Priority = typename OL::Priority;
