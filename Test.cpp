@@ -33,8 +33,6 @@ void testOL() {
     //std::cout << *n1 << std::endl;
 }
 
-template <template <class Node, typename FType=typename Node::CostType>
-          class OL>
 void testOCL() {
     using Node = AStarNode<Pancake>;
     using NodeUP = std::unique_ptr<Node>;
@@ -48,16 +46,18 @@ void testOCL() {
     auto n3 = NodeUP(new Node(s3)); n3->f = 3;
     auto n4 = NodeUP(new Node(s4)); n4->f = 4;
     auto n5 = NodeUP(new Node(s5)); n5->f = 5;
-    OCL<OL<Node, BUCKETED(2)>> ocl;
+    OCL<OL<Node>> ocl;
     ocl.add(std::move(n5));
     ocl.add(std::move(n4));
     ocl.add(std::move(n2));
     ocl.add(std::move(n1));
     ocl.add(std::move(n3));
 
-    ocl.update(ocl.getNode(s2), 100);
+    auto myNode = ocl.getNode(s2);
+    auto oldPriority = DefaultPriority<Node>(*myNode);
+    myNode->f = 100;
+    ocl.update(myNode, oldPriority);
     ocl.dump();
-
 
     for (auto i = 0U; i != 5; i++)
         std::cout << *ocl.minNode() << std::endl;
@@ -66,6 +66,6 @@ void testOCL() {
 }
 
 int main() {
-    testOL();
+    testOCL();
     return 0;
 }

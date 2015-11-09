@@ -12,6 +12,7 @@ struct StateHash {
 
 template <class OL> struct OCL {
     using Node = typename OL::Node;
+    using Priority = typename OL::Priority;
     using CostType = typename Node::CostType;
     using NodeUP = typename Node::NodeUP;
     using State = typename Node::State;
@@ -41,8 +42,8 @@ template <class OL> struct OCL {
         return (it->second).get();
     }
 
-    void update(Node *n, CostType newCost) {
-        ol.update(n, newCost);
+    void update(Node *n, const Priority &oldPriority) {
+        ol.update(n, oldPriority);
     }
 
     void add(NodeUP &&n) {
@@ -53,7 +54,7 @@ template <class OL> struct OCL {
 
     Node *minNode() { return ol.deleteMin(); }
 
-    void close(Node *n) { n->olIndex = -1; }
+    void close(Node *n) { n->setBucketPosition(-1); }
 
 private:
     OL ol;
