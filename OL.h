@@ -3,32 +3,61 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include "utilities.h"
 
 //#include "prettyprint.h"
 
 /* TODO:
-   -- ability to break ties based on g-value
    -- faster update by using hints
 */
 
-template <typename Key, typename T>
+template <typename Key, typename T, class Compare = std::less<Key>>
 using OLMap =
-    std::map<Key, T, std::less<Key>, std::allocator<std::pair<const Key, T>>>;
+    std::map<Key, T, Compare, std::allocator<std::pair<const Key, T>>>;
 
-template <class Node_, typename FType // Possible to achieve bucketing by
-                                      // specifying Bucketed
-                                      // By default: CostType of the node
-                       = typename Node_::CostType,
-          template <typename, typename> class Container = OLMap>
+template <class Node>
+struct DefaultPriority {
+    using CostType = typename Node::CostType;
+    CostType g, f;
+    DefaultPriority(const Node &n) : g(n.g), f(n.f) {}
+};
+template <class Node>
+bool operator==(const DefaultPriority<Node> &p1,
+                const DefaultPriority<Node> &p2) {
+    return p1.f == p2.f && p1.g == p2.g;
+}
+template <class Node>
+std::ostream& operator<< (std::ostream& o, const DefaultPriority<Node> &p) {
+    o << " (" << "g: " << p.g << ", " << "f: " << p.f << ")";
+    return o;
+}
+
+template <class Priority>
+struct GreaterPriority_SmallF_LargeG {
+    bool operator() (const Priority &p1, const Priority &p2) {
+        if (p1.f < p2.f) return true;
+        if (p1.f > p2.f) return false;
+        if (p1.g > p2.g) return true;
+        return false;
+    }
+};
+
+template <class Node_, template <class Node> class Priority_ = DefaultPriority,
+          template <class Priority> class GreaterPriority_ =
+              GreaterPriority_SmallF_LargeG,
+          template <typename, typename, typename> class Container = OLMap>
 struct OL {
-    using OLLocation = int; // must be defined by all OL variants
+    using BucketPosition = int; // must be defined by all OL variants
     using Node = Node_;
+    using Priority = Priority_<Node>;
+    using GreaterPriority = GreaterPriority_<Priority>;
     using CostType = typename Node::CostType;
 
     void add(Node *n) {
-        buckets[n->f].push_back(n);
-        n->setOLLocation(buckets[n->f].size() - 1);
+        auto &myBucket = buckets[Priority(*n)];
+        myBucket.push_back(n);
+        n->setBucketPosition(myBucket.size() - 1);
         size_++;
     }
 
@@ -36,13 +65,13 @@ struct OL {
 
     bool empty() const {return size() == 0;}
 
-    void update(Node *n, CostType newF) {
-        if (FType(newF) == FType(n->f)) {
+    void update(Node *n, const Priority &oldPriority) {
+        Priority newPriority(*n);
+        if (newPriority == oldPriority) {
             //std::cout << "Nothing needs to be done in update" << std::endl;
             return;
         }
-        erase(n->f, n->olLocation());
-        n->f = newF;
+        erase(oldPriority, n->bucketPosition());
         add(n);
     }
 
@@ -51,35 +80,35 @@ struct OL {
     }
 
     // the smallest possible f-value in the current bucket
-    FType curF() { return buckets.begin()->first; }
+    const Priority &curPriority() { return buckets.begin()->first; }
 
     void dump() const {
         for (auto b : buckets) {
             std::cout << b.first << ": ";
             for (auto n: b.second)
-                std::cout << n->f << "(" << n->olLocation() << ") ";
+                std::cout << *n << "(bucketPos: " << n->bucketPosition() << ") ";
             std::cout << std::endl;
         }
     }
 
 private:
-    Container<FType, std::vector<Node *>> buckets;
+    Container<Priority, std::vector<Node *>, GreaterPriority> buckets;
     int size_ = 0;
-    Node *erase(FType bucketNum) {
-        return erase(bucketNum, buckets[bucketNum].size()-1);
+    Node *erase(const Priority &priority) {
+        return erase(priority, buckets[priority].size()-1);
     }
 
-    Node *erase(FType bucketNum, OLLocation pos) {
-        auto &bucket = buckets[bucketNum];
+    Node *erase(const Priority &priority, const BucketPosition &pos) {
+        auto &bucket = buckets[priority];
         auto res = bucket[pos];
 
         // copy the last node of the bucket here
         bucket[pos] = bucket.back();
-        bucket[pos]->setOLLocation(pos);
+        bucket[pos]->setBucketPosition(pos);
 
         // remove the last node of the bucket
         bucket.pop_back();
-        if (bucket.empty()) buckets.erase(bucketNum);
+        if (bucket.empty()) buckets.erase(priority);
 
         // the client code wants to take care of it
         // remember to re-institute this line in the generic library B"H

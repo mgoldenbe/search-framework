@@ -1,20 +1,19 @@
 #include "Pancake.h"
 #include "OL.h"
 #include "OCL.h"
-#include <map>
 
 extern constexpr double a = 0.2;
 
 template <class Node>
-using MyOpen = OL<Node, BUCKETED(2)>;
+using MyOpen = OL<Node>;
 
 void testOL() {
     using Node = AStarNode<Pancake>;
     using NodeUP = std::unique_ptr<Node>;
     auto n1 = NodeUP(new Node(Pancake(0))); n1->f = 1;
-    auto n2 = NodeUP(new Node(Pancake(0))); n2->f = 2;
-    auto n3 = NodeUP(new Node(Pancake(0))); n3->f = 3;
-    auto n4 = NodeUP(new Node(Pancake(0))); n4->f = 4;
+    auto n2 = NodeUP(new Node(Pancake(0))); n2->f = 3; n2->g = 30;
+    auto n3 = NodeUP(new Node(Pancake(0))); n3->f = 3; n3->g = 20;
+    auto n4 = NodeUP(new Node(Pancake(0))); n4->f = 3; n4->g = 50;
     auto n5 = NodeUP(new Node(Pancake(0))); n5->f = 5;
     MyOpen<Node> ol;
     ol.add(n5.get());
@@ -22,11 +21,13 @@ void testOL() {
     ol.add(n2.get());
     ol.add(n1.get());
     ol.add(n3.get());
-    ol.update(n1.get(), 100);
+    auto oldPriority = DefaultPriority<Node>(*n1);
+    n1->f = 100;
+    ol.update(n1.get(), oldPriority);
     ol.dump();
     for (auto i = 0U; i != 5; i++) {
-        std::cout << ol.curF() << std::endl;
-        std::cout << *ol.deleteMin() << std::endl;
+        std::cout << "Greatest priority: " << ol.curPriority() << std::endl;
+        std::cout << "Selected for expansion: " << *ol.deleteMin() << std::endl;
     }
 
     //std::cout << *n1 << std::endl;

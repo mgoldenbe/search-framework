@@ -39,7 +39,7 @@ private:
 struct NoNodeData {};
 
 template <typename State_, typename NodeData = NoNodeData,
-          typename OLLocation = int>
+          typename BucketPosition = int>
 struct AStarNode : public NodeData {
     using State = State_;
     using StateUP = std::unique_ptr<const State>;
@@ -67,8 +67,8 @@ struct AStarNode : public NodeData {
     }
     */
     const State &state() const { return *state_; }
-    const OLLocation &olLocation() const { return olLocation_; }
-    void setOLLocation(OLLocation l) { olLocation_ = l; }
+    const BucketPosition &bucketPosition() const { return bucketPosition_; }
+    void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }
     CostType g = CostType(0), f = CostType(0); // These are public for ease of
                                                // access. I don't see any reason
                                                // for making them private and
@@ -76,7 +76,7 @@ struct AStarNode : public NodeData {
 private:
     StateUP state_;
     MyType *parent_ = nullptr;
-    OLLocation olLocation_;
+    BucketPosition bucketPosition_;
 };
 
 template <typename State, typename NodeData>
