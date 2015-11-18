@@ -32,7 +32,7 @@ struct Pancake {
         return this;
     }
 
-    std::vector<Neighbor> neighbors() const {
+    std::vector<Neighbor> successors() const {
         std::vector<Neighbor> res;
         for (auto i = 1U; i != pancakes.size(); ++i) {
             Neighbor cur((new Pancake(*this)) -> move(i));
@@ -44,11 +44,20 @@ struct Pancake {
 private:
     std::vector<int> pancakes;
 };
-
 std::ostream& operator<< (std::ostream& o, const Pancake &p) {
     return o << p.getPancakes();}
+void dump(const Pancake &p) {std::cerr << p << std::endl;}
+template void dump<Pancake>(const AStarNode<Pancake> &);
 
 bool operator== (const Pancake &p1, const Pancake &p2) {
     return p1.pancakes == p2.pancakes;}
+
+//------------------------- HEURISTICS ------------------//
+
+struct GapHeuristic {
+    GapHeuristic(const Pancake &goal) : goal_(goal) {}
+private:
+    Pancake goal_;
+};
 
 #endif

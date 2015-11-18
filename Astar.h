@@ -1,42 +1,67 @@
-/* Design issues:
-   1. On the one hand, generation of neighbors is logically the operation of State. On the other hand, it produces costs that need to be taken into accout when forming nodes. In addition, forming a vector of nodes from a vector of states has an overhead.
-   2. State logically pertains to the domain, while g pertains to search, so it does not make logical sense to put g together with State.
-   3. We need to enable different kinds of node information, e.g. nodes that maintain both static and stored f-values.
-   4. Storing a pointer to State with Node adds a level of indirection.
+#ifndef ASTAR
+#define ASTAR
 
-   Solution 1:
-   1. Note that, once the node is generated, we access State only to generate it's neighbors. The cost of indirection for this access is very small compared to the actual generation of the neighbots. Hence, we can afford storing the pointer to State with the node.
-   2. Assigning a state pointer is not a large overhead, so we'll put up with it for now.
-   3. We'll define a type for storing both a state and a cost of the transfer to this state from the parent.
-*/
+#include <vector>
 
-template <typename CostType>
-struct DefaultNodeData {
-    CostType g, f;
-    DefaultNodeData<CostType> *parent;
+template <class State>
+struct SingleGoalHandler {
+    SingleGoalHandler(const State &goal) : goal_(goal) {}
+    void update(const State &s) {
+        if (s == goal_) done_ = true;
+    }
+    bool done() const {return done_;}
+private:
+    State goal_;
+    bool done_ = false;
 };
 
-template <typename StateP, typename NodeData = DefaultNodeData>
-struct AStarNode: public NodeData {
-    using StateP = StateP;
-    using NodeData = NodeData;
-    StateP pstate;
+// Heuristic should have a static compute() member function
+template <class Open, class Heuristic, template <class State> class GoalHandler = SingleGoalHandler>
+struct Astar {
+    using Node = typename Open::Node;
+    using CostType = typename Node::CostType;
+    using NodeUP = typename Node::NodeUP;
+    using State = typename Node::State;
+    using StateUP = typename Node::StateUP;
+    using Neighbor = typename State::Neighbor;
+
+    Astar(const State &start, const GoalHandler<State> &goalHandler)
+        : start_(start), goalHandler_(goalHandler), oc_(),
+          cur_(nullptr), children_() {}
+
+    void run() {
+        NodeUP startNode(new Node(start_));
+        oc_.add(startNode);
+        while (!oc_.empty() && !goalHandler_.done()) expand();
+    }
+
+    void expand() {
+        cur_ = oc_.minNode();
+        std::cout << "Selected: " << *cur_ << std::endl;
+        goalHandler_.update(cur_->state());
+        if (goalHandler_.done()) {
+            std::cout << "Done!" << std::endl;
+            return;
+        }
+        children_ = (cur_->state()).successors();
+        for (auto &child : children_)
+            handleChild(child.state(), cur_->g + child.cost());
+    }
+
+    void handleChild(StateUP &child, CostType g) {
+        auto childNode = oc_.getNode(*child);
+        if (childNode) return;
+        NodeUP newNode(new Node(child)); newNode->g = g;
+        std::cout << "    Generated: " << *newNode << std::endl;
+        oc_.add(newNode);
+    }
+
+private:
+    State start_;
+    GoalHandler<State> goalHandler_;
+    OCL<Open> oc_;
+    Node *cur_;
+    std::vector<Neighbor> children_;
 };
 
-template <typename AStarNodeP> struct AstarData {
-    AStarNodeP getCurNode() const { return curNode; }
-protected:
-    AStarNodeP curNode;
-};
-
-template <typename StateP>
-struct AStar {
-
-}
-
-main {
-    if
-        asd;
-    asd;
-
-}
+#endif

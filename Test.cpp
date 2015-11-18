@@ -1,12 +1,13 @@
 #include "Pancake.h"
 #include "OL.h"
 #include "OCL.h"
+#include "Astar.h"
+#include "Graph.h"
 
 extern constexpr double a = 0.2;
 
 template <class Node>
 using MyOpen = OL<Node>;
-
 
 void testOL() {
     using Node = AStarNode<Pancake>;
@@ -47,12 +48,12 @@ void testOCL() {
     auto n3 = NodeUP(new Node(s3)); n3->f = 3;
     auto n4 = NodeUP(new Node(s4)); n4->f = 4;
     auto n5 = NodeUP(new Node(s5)); n5->f = 5;
-    OCL<OL<Node>> ocl;
-    ocl.add(std::move(n5));
-    ocl.add(std::move(n4));
-    ocl.add(std::move(n2));
-    ocl.add(std::move(n1));
-    ocl.add(std::move(n3));
+    OCL<MyOpen<Node>> ocl;
+    ocl.add(n5);
+    ocl.add(n4);
+    ocl.add(n2);
+    ocl.add(n1);
+    ocl.add(n3);
 
     auto myNode = ocl.getNode(s2);
     auto oldPriority = DefaultPriority<Node>(*myNode);
@@ -66,7 +67,26 @@ void testOCL() {
     //std::cout << *n1 << std::endl;
 }
 
+void testAstar() {
+    using Node = AStarNode<Pancake>;
+    Pancake goal(4), start(goal);
+    start.shuffle();
+    Astar<OL<Node, DefaultPriority, GreaterPriority_SmallG>, GapHeuristic>
+    myAstar(start, SingleGoalHandler<Pancake>(goal));
+    myAstar.run();
+}
+
+void testGraph() {
+    using Neighbor = Pancake::Neighbor;
+    StateGraph<Neighbor> g;
+    Pancake goal(4), start(goal);
+    start.shuffle();
+    g.add(start);
+    g.dump();
+}
+
 int main() {
-    testOCL();
+    //testAstar();
+    testGraph();
     return 0;
 }

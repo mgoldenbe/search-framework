@@ -43,6 +43,14 @@ struct GreaterPriority_SmallF_LargeG {
     }
 };
 
+template <class Priority>
+struct GreaterPriority_SmallG {
+    bool operator() (const Priority &p1, const Priority &p2) {
+        if (p1.g < p2.g) return true;
+        return false;
+    }
+};
+
 template <class Node_, template <class Node> class Priority_ = DefaultPriority,
           template <class Priority> class GreaterPriority_ =
               GreaterPriority_SmallF_LargeG,

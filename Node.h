@@ -13,8 +13,9 @@
    3. We'll define a type for storing both a state and a cost of the transfer to this state from the parent.
 */
 
-template <typename State, bool uniformFlag=true>
+template <typename State_, bool uniformFlag=true>
 struct StateNeighbor {
+    using State = State_;
     using StateUP = std::unique_ptr<State>;
     using CostType = typename State::CostType;
     StateNeighbor(State *s, CostType c) : scPair_(s, c) {}
@@ -24,8 +25,9 @@ private:
     std::pair<StateUP, CostType> scPair_;
 };
 
-template <typename State>
-struct StateNeighbor<State, true> {
+template <typename State_>
+struct StateNeighbor<State_, true> {
+    using State = State_;
     using StateUP = std::unique_ptr<const State>;
     using CostType = typename State::CostType;
     StateNeighbor(State *s) : state_(s) {}
@@ -38,10 +40,11 @@ private:
 
 struct NoNodeData {};
 
-template <typename State_, typename NodeData = NoNodeData,
+template <typename State_, typename NodeData_ = NoNodeData,
           typename BucketPosition = int>
-struct AStarNode : public NodeData {
+struct AStarNode : public NodeData_ {
     using State = State_;
+    using NodeData = NodeData_;
     using StateUP = std::unique_ptr<const State>;
     using CostType = typename State::CostType;
     using MyType = AStarNode<State, NodeData>;
@@ -49,7 +52,7 @@ struct AStarNode : public NodeData {
 
     AStarNode(const State &s) : state_(new State(s)) {} // For testing only
     AStarNode(const State *s) : state_(s) {}            // For testing only
-    AStarNode(StateUP &&s) : state_(s) {}
+    AStarNode(StateUP &s) : state_(std::move(s)) {}
 
     template <typename State1, typename NodeData1>
     friend bool operator==(const AStarNode<State1, NodeData1> &n1,
@@ -84,6 +87,9 @@ std::ostream& operator<< (std::ostream& o, const AStarNode<State, NodeData> &n) 
     o << (n.state()) << " (" << "g: " << n.g << ", " << "f: " << n.f << ")";
     return o;
 }
+template <typename State, typename NodeData>
+void dump(const AStarNode<State, NodeData> &n) {std::cerr << n << std::endl;}
+
 
 template <typename State, typename NodeData>
 bool operator==(const AStarNode<State, NodeData> &n1,

@@ -56,7 +56,7 @@ template <class OL> struct OCL {
         ol.update(n, oldPriority);
     }
 
-    void add(NodeUP &&n) {
+    void add(NodeUP &n) {
         ol.add(n.get());
         auto key = n->state();
         hash[key] = std::move(n);
