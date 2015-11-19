@@ -82,6 +82,7 @@ void testGraph() {
     Pancake goal(4), start(goal);
     start.shuffle();
     g.add(start);
+    for (auto &el: start.successors()) g.add(start, el);
     g.dump();
 }
 

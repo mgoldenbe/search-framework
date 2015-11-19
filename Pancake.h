@@ -15,7 +15,10 @@ struct Pancake {
         for (auto i = 0; i != n; ++i)
             pancakes[i] = i;
     }
+    //Pancake() = default;
     Pancake (const Pancake &p) = default;
+    Pancake &operator=(const Pancake &rhs) = default;
+
     Pancake (Pancake &&p) = default;
     Pancake &operator= (Pancake &&rhs) = default;
 
@@ -41,12 +44,17 @@ struct Pancake {
         return res;
     }
 
+    std::ostream &dump(std::ostream &o) const { return o << pancakes; }
+    void dump() const;
+
 private:
     std::vector<int> pancakes;
 };
-std::ostream& operator<< (std::ostream& o, const Pancake &p) {
-    return o << p.getPancakes();}
-void dump(const Pancake &p) {std::cerr << p << std::endl;}
+
+void Pancake::dump() const { dump(std::cerr) << std::endl; }
+
+std::ostream &operator<<(std::ostream &o, const Pancake &p) {
+    return p.dump(o);}
 template void dump<Pancake>(const AStarNode<Pancake> &);
 
 bool operator== (const Pancake &p1, const Pancake &p2) {

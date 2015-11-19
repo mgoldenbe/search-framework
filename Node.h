@@ -20,6 +20,7 @@ struct StateNeighbor {
     using CostType = typename State::CostType;
     StateNeighbor(State *s, CostType c) : scPair_(s, c) {}
     StateUP &state() {return scPair_.first;}
+    State stateCopy() const { return *(scPair_.first); }
     CostType cost() const {return scPair_.second;}
 private:
     std::pair<StateUP, CostType> scPair_;
@@ -32,6 +33,7 @@ struct StateNeighbor<State_, true> {
     using CostType = typename State::CostType;
     StateNeighbor(State *s) : state_(s) {}
     StateUP &state() { return state_; }
+    State stateCopy() const { return *state_; }
     CostType cost() const {return 1;}
 private:
     StateUP state_;
