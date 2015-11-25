@@ -1,7 +1,9 @@
-#include "type.hpp"
-#include <iostream>
-//#include <vector>
+#ifndef DRAWER
+#define DRAWER
 
+// http://stackoverflow.com/a/33421942/2725810
+// http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
+// http://www.lemoda.net/c/xlib-resize/   // Draw only on Expose event!
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -49,8 +51,13 @@ cairo_surface_t *create_x11_surface(Display *d, int *x, int *y) {
     return sfc;
 }
 
+template <class Graph>
 struct Drawer {
-    Drawer() {
+    using VertexDescriptor = typename Graph::VertexDescriptor;
+    using Point = square_topology<>::point_type;
+    using PointMap = std::map<VertexDescriptor, Point>;
+
+    Drawer(const Graph &g): g_(g), pointMap_(g.template layout<PointMap>()) {
         d = XOpenDisplay(NULL);
         if (d == NULL) {
             fprintf(stderr, "Failed to open display\n");
@@ -61,15 +68,28 @@ struct Drawer {
         int x=500, y=500;
         surface = create_x11_surface(d, &x, &y);
         cr = cairo_create(surface);
+
+        scaleLayout(x, y, 20, 20);
     }
 
     // http://stackoverflow.com/a/19308254/2725810
     ~Drawer() {
+        //std::cout << "In ~Drawer" << std::endl;
         cairo_destroy(cr);
         cairo_surface_destroy(surface);
         XCloseDisplay(d);
+        cairo_debug_reset_static_data();
     }
 
+    void run() {
+        while (1) {
+            if (!processEvents()) break;
+            draw();
+            sleep(0.1);
+        }
+    }
+
+private:
     // Returns true if need to continue or false if quiting
     bool processEvents() {
         XEvent e;
@@ -113,13 +133,20 @@ struct Drawer {
         cairo_set_source_rgb(cr, 0, 0, 0);
         cairo_paint(cr);
 
-        cairo_set_source_rgb(cr, 0, 1, 0);
-        cairo_move_to(cr, 0, 0);
-        cairo_line_to(cr, 256, 256);
-        cairo_move_to(cr, 256, 0);
-        cairo_line_to(cr, 0, 256);
-        cairo_set_line_width(cr, 10.0);
-        cairo_stroke(cr);
+        cairo_set_source_rgb(cr, 0.5, 0.5, 0.5);
+        for (auto vd : g_.vertexRange()) {
+            cairo_set_line_width(cr, 1.0);
+            cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1], 10, 0,
+                      2 * M_PI);
+            cairo_fill(cr);
+            cairo_stroke(cr);
+            for (auto vd_n : g_.adjacentVertexRange(vd)) {
+                cairo_set_line_width(cr, 5.0);
+                cairo_move_to(cr, pointMap_[vd][0], pointMap_[vd][1]);
+                cairo_line_to(cr, pointMap_[vd_n][0], pointMap_[vd_n][1]);
+                cairo_stroke(cr);
+            }
+        }
 
         cairo_pop_group_to_source(cr);
         cairo_paint(cr);
@@ -127,15 +154,37 @@ struct Drawer {
         XFlush(d);
     }
 
-    void run() {
-        while (1) {
-            if (!processEvents()) break;
-            draw();
-            sleep(0.1);
+    void scaleLayout(int x, int y, int marginX = 0, int marginY = 0) {
+        std::vector<double> xs, ys;
+        for (auto el: pointMap_) {
+            xs.push_back((el.second)[0]);
+            ys.push_back((el.second)[1]);
+        }
+        double minX = *std::min_element(xs.begin(), xs.end()),
+               maxX = *std::max_element(xs.begin(), xs.end()),
+               minY = *std::min_element(ys.begin(), ys.end()),
+               maxY = *std::max_element(ys.begin(), ys.end());
+
+        for (auto vd : g_.vertexRange()) {
+            pointMap_[vd][0] =
+                (pointMap_[vd][0] - minX) * (x - 2 * marginX) / (maxX - minX) +
+                marginX;
+            pointMap_[vd][1] =
+                (pointMap_[vd][1] - minY) * (y - 2 * marginY) / (maxY - minY) +
+                marginY;
         }
     }
 
+    void dumpLayout() {
+        std::cout << "The Layout:" << std::endl;
+        for (auto vd: make_iterator_range(vertices(g_)))
+            std::cout << g_[vd] << ":" << pointMap_[vd][0] << " "
+                      << pointMap_[vd][1] << std::endl;
+    }
+
 private:
+    const Graph &g_;
+    PointMap pointMap_;
     Display *d;
     cairo_surface_t* surface;
     cairo_t* cr;
@@ -143,9 +192,4 @@ private:
     int drag_start_x, drag_start_y;
 };
 
-int main() {
-    Drawer d;
-    d.run();
-    //std::cout << demangle(typeid(A<decltype(x)>).name()) << std::endl;
-    return 0;
-}
+#endif

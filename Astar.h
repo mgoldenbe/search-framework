@@ -2,6 +2,14 @@
 #define ASTAR
 
 #include <vector>
+#include "Graph.h"
+
+template <class State>
+struct NoGoalHandler {
+    NoGoalHandler(const State &goal) {(void)goal;}
+    void update(const State &s) {(void)s;}
+    bool done() const {return false;}
+};
 
 template <class State>
 struct SingleGoalHandler {
@@ -16,7 +24,9 @@ private:
 };
 
 // Heuristic should have a static compute() member function
-template <class Open, class Heuristic, template <class State> class GoalHandler = SingleGoalHandler>
+template <class Open, class Heuristic,
+          template <class State> class GoalHandler = SingleGoalHandler,
+          template <class StateNeighbor> class Graph = NoGraph>
 struct Astar {
     using Node = typename Open::Node;
     using CostType = typename Node::CostType;
@@ -25,9 +35,13 @@ struct Astar {
     using StateUP = typename Node::StateUP;
     using Neighbor = typename State::Neighbor;
 
-    Astar(const State &start, const GoalHandler<State> &goalHandler)
-        : start_(start), goalHandler_(goalHandler), oc_(),
-          cur_(nullptr), children_() {}
+    Astar(const State &start, const GoalHandler<State> &goalHandler, Graph<Neighbor> &graph)
+        : start_(start), goalHandler_(goalHandler), graph_(graph), oc_(),
+          cur_(nullptr), children_() {
+        graph_.add(start); // When Graph is instantiated to be NoGraph, the
+                           // binary should be the same with or without this
+                           // line!
+    }
 
     void run() {
         NodeUP startNode(new Node(start_));
@@ -44,8 +58,10 @@ struct Astar {
             return;
         }
         children_ = (cur_->state()).successors();
-        for (auto &child : children_)
+        for (auto &child : children_) {
+            graph_.add(cur_->state(), child);
             handleChild(child.state(), cur_->g + child.cost());
+        }
     }
 
     void handleChild(StateUP &child, CostType g) {
@@ -59,6 +75,7 @@ struct Astar {
 private:
     State start_;
     GoalHandler<State> goalHandler_;
+    Graph<Neighbor> &graph_;
     OCL<Open> oc_;
     Node *cur_;
     std::vector<Neighbor> children_;
