@@ -1,0 +1,16 @@
+The purpose of this document is to design the Logging capability for AStar
+
+* /Graph/ has a /GraphProperties/ member. 
+- I considered inheritance, but /GraphProperties/ is templated on VertexDescriptor and the type-work is pretty awkward.
+* /Graph::add(const State &)/ calls /GraphProperties::add/ to add an entry for the new vertex.
+* /Graph/ provides /AStar/ with the following interface to change properties:  
+- /setProperty(const State &, GraphProperties::VStatus, std::string change="")/
+- /setProperty(const State &, GraphProperties::VRole)/
+  - /AStar/ will call this in the constructor to set start and goal states.
+- /setProperty(const State &, const State & parent)/
+* All these member functions do the following:
++ Convert state(s) to vertex descriptor(s) (plural is for the change of parent)
++ Call /GraphProperties::setProperty/, passing to it the vertex descriptor(s), info of the state and forwarding all other parameters.
+* /Graph/ has a /GraphLogger/ member. /GraphLogger/ is templated on /GraphProperties/.
+* /Graph/ has member functions /activateLogger/ and /deactivateLogger/, which set and unset, respectively, a Boolean member variable of /Graph/.
+* If the log is activated, then all overloads of /Graph::setProperty/ call /GraphLogger::add/. For this purpose, /VertexProperties GraphProperties::get(VertexDescriptor)/ needs to be provided.  

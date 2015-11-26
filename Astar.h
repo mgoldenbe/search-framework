@@ -51,10 +51,10 @@ struct Astar {
 
     void expand() {
         cur_ = oc_.minNode();
-        std::cout << "Selected: " << *cur_ << std::endl;
+        //std::cout << "Selected: " << *cur_ << std::endl;
         goalHandler_.update(cur_->state());
         if (goalHandler_.done()) {
-            std::cout << "Done!" << std::endl;
+            //std::cout << "Done!" << std::endl;
             return;
         }
         children_ = (cur_->state()).successors();
@@ -68,7 +68,7 @@ struct Astar {
         auto childNode = oc_.getNode(*child);
         if (childNode) return;
         NodeUP newNode(new Node(child)); newNode->g = g;
-        std::cout << "    Generated: " << *newNode << std::endl;
+        //std::cout << "    Generated: " << *newNode << std::endl;
         oc_.add(newNode);
     }
 
