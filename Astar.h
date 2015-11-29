@@ -32,7 +32,7 @@ struct Astar {
     using CostType = typename Node::CostType;
     using NodeUP = typename Node::NodeUP;
     using State = typename Node::State;
-    using StateUP = typename Node::StateUP;
+    //using StateSP = typename Node::StateSP;
     using Neighbor = typename State::Neighbor;
 
     Astar(const State &start, const GoalHandler<State> &goalHandler, Graph<Neighbor> &graph)
@@ -51,7 +51,7 @@ struct Astar {
 
     void expand() {
         cur_ = oc_.minNode();
-        //std::cout << "Selected: " << *cur_ << std::endl;
+        std::cout << "Selected: " << *cur_ << std::endl;
         goalHandler_.update(cur_->state());
         if (goalHandler_.done()) {
             //std::cout << "Done!" << std::endl;
@@ -64,7 +64,7 @@ struct Astar {
         }
     }
 
-    void handleChild(StateUP &child, CostType g) {
+    void handleChild(UniqueStatePtr<State> &child, CostType g) {
         auto childNode = oc_.getNode(*child);
         if (childNode) return;
         NodeUP newNode(new Node(child)); newNode->g = g;

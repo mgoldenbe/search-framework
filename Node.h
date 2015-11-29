@@ -39,64 +39,77 @@ private:
     StateUP state_;
 };
 
-
-struct NoNodeData {};
-
-template <typename State_, typename NodeData_ = NoNodeData,
-          typename BucketPosition = int>
-struct AStarNode : public NodeData_ {
+template <typename State_>
+struct NodeBase {
     using State = State_;
-    using NodeData = NodeData_;
-    using StateUP = std::unique_ptr<const State>;
     using CostType = typename State::CostType;
-    using MyType = AStarNode<State, NodeData>;
-    using NodeUP = std::unique_ptr<MyType>;
-
-    AStarNode(const State &s) : state_(new State(s)) {} // For testing only
-    AStarNode(const State *s) : state_(s) {}            // For testing only
-    AStarNode(StateUP &s) : state_(std::move(s)) {}
-
-    template <typename State1, typename NodeData1>
-    friend bool operator==(const AStarNode<State1, NodeData1> &n1,
-                           const AStarNode<State1, NodeData1> &n2);
-
-    /*
-    std::vector<NodeUP> neighbors() const {
-        auto stateNeighbors = StateUP.neighbors();
-        std::vector<NodeUP> res;
-        auto pos = -1;
-        for (auto &s: stateNeighbors) {
-            NodeUP cur(new MyType(std::move(s), g+1));
-        }
-        return res;
-    }
-    */
-    const State &state() const { return *state_; }
-    const BucketPosition &bucketPosition() const { return bucketPosition_; }
-    void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }
     CostType g = CostType(0), f = CostType(0); // These are public for ease of
                                                // access. I don't see any reason
                                                // for making them private and
                                                // having getters and setters.
+    std::ostream &dump(std::ostream &o) const {
+        o << " (" << "g: " << g << ", " << "f: " << f << ")";
+        return o;
+    }
+};
+template <typename State>
+std::ostream &operator<< (std::ostream &o, const NodeBase<State> &n) {
+    return n.dump(o);
+}
+
+template <typename State_>
+struct NoNodeData: public NodeBase<State_> {};
+
+template<typename State>
+using UniqueStatePtr = std::unique_ptr<const State>;
+template<typename State>
+using SharedStatePtr = std::shared_ptr<const State>;
+template<typename State>
+using DefaultStatePtr = UniqueStatePtr<const State>;
+
+template <typename State_, template <class> class NodeData_ = NoNodeData,
+          template <class> class SmartStatePtr = DefaultStatePtr,
+          typename BucketPosition = int>
+struct AStarNode : public NodeData_<State_> {
+    using State = State_;
+    using StateSP = SmartStatePtr<const State>;
+    using NodeData = NodeData_<State>;
+    using MyType = AStarNode<State, NodeData_, SmartStatePtr, BucketPosition>;
+    using NodeUP = std::unique_ptr<MyType>;
+
+    AStarNode(const State &s) : state_(new State(s)) {} // For testing only
+    AStarNode(const State *s) : state_(s) {}            // For testing only
+    AStarNode(UniqueStatePtr<State> &s) : state_(std::move(s)) {}
+
+    bool operator==(const MyType &rhs) {
+        return *(this->state()) == *(rhs.state());
+    }
+
+    const State &state() const { return *state_; }
+    const BucketPosition &bucketPosition() const { return bucketPosition_; }
+    void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }
+
+    std::ostream& dump(std::ostream& o) const {
+        o << *state_ << (NodeData)*this;
+        return o;
+    }
+
+    void dump() const {
+        dump(std::cerr);
+    }
 private:
-    StateUP state_;
+    StateSP state_;
     MyType *parent_ = nullptr;
     BucketPosition bucketPosition_;
 };
 
-template <typename State, typename NodeData>
-std::ostream& operator<< (std::ostream& o, const AStarNode<State, NodeData> &n) {
-    o << (n.state()) << " (" << "g: " << n.g << ", " << "f: " << n.f << ")";
-    return o;
-}
-template <typename State, typename NodeData>
-void dump(const AStarNode<State, NodeData> &n) {std::cerr << n << std::endl;}
-
-
-template <typename State, typename NodeData>
-bool operator==(const AStarNode<State, NodeData> &n1,
-                const AStarNode<State, NodeData> &n2) {
-    return *(n1.state()) == *(n2.state());
+template <typename State, template <class> class NodeData = NoNodeData,
+          template <class> class SmartStatePtr = DefaultStatePtr,
+          typename BucketPosition = int>
+std::ostream &operator<<(
+    std::ostream &o,
+    const AStarNode<State, NodeData, SmartStatePtr, BucketPosition> &n) {
+    return n.dump(o);
 }
 
 /*

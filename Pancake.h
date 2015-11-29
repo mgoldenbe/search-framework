@@ -45,17 +45,14 @@ struct Pancake {
     }
 
     std::ostream &dump(std::ostream &o) const { return o << pancakes; }
-    void dump() const;
+    void dump() const {dump(std::cerr) << std::endl;}
 
 private:
     std::vector<int> pancakes;
 };
 
-void Pancake::dump() const { dump(std::cerr) << std::endl; }
-
 std::ostream &operator<<(std::ostream &o, const Pancake &p) {
     return p.dump(o);}
-template void dump<Pancake>(const AStarNode<Pancake> &);
 
 bool operator== (const Pancake &p1, const Pancake &p2) {
     return p1.pancakes == p2.pancakes;}

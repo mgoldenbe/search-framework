@@ -2,31 +2,71 @@
 #define GRAPH_PROPERTIES
 
 template <class Graph>
-struct GraphProperties {
+struct Logger {
     using VertexDescriptor = Graph::VertexDescriptor;
-    enum class VStatus { INVISIBLE, VISIBLE, OPEN, CLOSED, FOCUSED };
+    enum class VStatus { INVISIBLE, VISIBLE, OPEN, CLOSED, SELECTED };
     enum class VRole { REGULAR, START, GOAL };
     using VParent = VertexDescriptor;
-    using VInfo = std::string;
-    using VChange = std::string;
-    using VertexProperties = struct {
+    using VInfo = struct {
+        std::string str_;
+    };
+    using VChange = struct {
+        std::string str_;
+    };
+    using VProperties = struct {
         VStatus status;
         VRole role;
         VParent parent;
         VInfo info;
         VChange change;
+        VProperties(bool visibleFlag) {
+            status = visibleFlag ? VStatus::VISIBLE : VStatus::INVISIBLE;
+            role = REGULAR;
+            parent = nullptr;
+            info = vp.change = "";
+        }
+    };
+    using LogEntry = struct {
+        VertexDescriptor vd;
+        VertexDescriptor selected;
+        VProperties properties;
+        LogEntry(bool visibleFlag)
+            : properties(visibleFlag) {
+            vd = nullptr;
+            selected = nullptr;
+        }
     };
 
-    GraphProperties(const Graph &g, bool visibleFlag) {
-        VertexProperties vp;
-        vp.status = visibleFlag ? VStatus::VISIBLE : VStatus::INVISIBLE;
-        vp.role = REGULAR;
-        vp.parent = nullptr;
-        vp.info = vp.change = "";
-        for (auto vd: g.VertexRange()) p_[vd] = vp;
+    Logger(Graph g, bool newVisibleFlag)
+        : g_(g), newVisibleFlag_(newVisibleFlag) {
+        // insert a dummy first entry
+        log.push_back(LogEntry(newVisibleFlag_));
+        cur_ = 0;
     }
 
-    VStatus status(VertexDescriptor vd) {return p_[vd].status;}
+    void addVertex(VertexDescriptor vd) {
+        propertiesMap[vd] = VProperties(vd, newVisibleFlag_);
+    }
+
+    void setRole(VertexDescriptor vd, VRole role) {
+        propertiesMap[vd].role = role;
+    }
+
+    void log(VertexDescriptor vd, VStatus status, VChange change = "") {
+        LogEntry entry(log_[cur_]);
+        entry.vd = vd;
+        if (status == VStatus::CLOSED) selected = nullptr;
+        if (status == VStatus::OPEN) selected = vd;
+
+        VProperties &properties = entry.properties;
+        properties.status = status;
+        if (change != "") {
+            assert(status = VStatus::OPEN);
+            properties.change = change;
+        }
+        log.push_back(entry);
+    }
+
     VStatus status(VertexDescriptor vd, VStatus status) {
         auto res = status(vd);
         p_[vd].status = status;
@@ -62,7 +102,10 @@ struct GraphProperties {
     }
 
 private:
-    std::map<VertexDescriptor, VertexProperties> p_;
+    const Graph &g_;
+    std::map<VertexDescriptor, VProperties> propertiesMap_;
+    std::vector<LogEntry> log_;
+    int curStep_ = -1;
 };
 
 template <class Graph>
@@ -95,11 +138,7 @@ struct GraphLog {
         return cur_;
     }
 
-private:
-    const Graph &g_;
-    std::vector<VertexProperties> log_;
-    VertexProperties cur_;
-    int curIndex_ = -1;
+
 }
 
 #endif
