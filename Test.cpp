@@ -8,7 +8,7 @@
 #endif
 
 using State = Pancake;
-using Neighbor = State::Neighbor;
+using CostType = State::CostType;
 using Node = AStarNode<State>;
 
 template <class State>
@@ -18,10 +18,10 @@ using GoalHandler = GoalHandlerT<State>;
 
 using MyOL = OL<Node, DefaultPriority, GreaterPriority_SmallG>;
 
-template <class Neighbor>
-using GraphT = StateGraph<Neighbor>;
-//using GraphT = NoGraph<Neighbor>;
-using Graph = GraphT<Neighbor>;
+template <class State, typename CostType>
+using GraphT = StateGraph<State, CostType>;
+//using GraphT = NoGraph<State, CostType>;
+using Graph = GraphT<State, CostType>;
 
 void testAstar() {
     Pancake goal(4), start(goal);

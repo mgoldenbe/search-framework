@@ -16,14 +16,27 @@
 #include <boost/property_map/transform_value_property_map.hpp>
 //#include <boost/test/unit_test.hpp> // BOOST_CHECK
 
+#include "utilities.h"
+
 using namespace boost;
 
-template <class StateNeighbor> struct NoGraph {
-    using State = typename StateNeighbor::State;
+template <class State, typename CostType> struct NoGraph {
+    using StateUniquePtr = std::unique_ptr<const State>;
+    using StateSharedPtr = std::shared_ptr<const State>;
 
-    void add(const State &s) const {(void)s;}
+    void add(const StateUniquePtr &s) const {(void)s;}
+    void add(const StateSharedPtr &s) const {(void)s;}
 
-    void add(const State &parent, const StateNeighbor &n) const {(void)parent; (void)n;}
+    void add(const StateUniquePtr &parent, const StateUniquePtr &n, CostType cost) const {
+        (void)parent;
+        (void)n;
+        (void)cost;
+    }
+    void add(const StateSharedPtr &parent, const StateSharedPtr &n, CostType cost) const {
+        (void)parent;
+        (void)n;
+        (void)cost;
+    }
 
     void dump() { std::cout << "NoGraph!" << std::endl; }
 };
@@ -60,11 +73,11 @@ template <typename Graph> struct kamada_kawai_done {
     std::map<VertexDescriptor, std::vector<double>> history;
 };
 
-template<class StateNeighbor>
+template <class State, typename CostType>
 struct StateGraph {
-    using State = typename StateNeighbor::State;
-    using CostType = typename StateNeighbor::CostType;
-    using Graph = boost::adjacency_list<vecS, setS, directedS, State, CostType>;
+    using StateSharedPtr = std::shared_ptr<const State>;
+    using Graph =
+        boost::adjacency_list<vecS, setS, directedS, StateSharedPtr, CostType>;
     using VertexIterator = typename graph_traits<Graph>::vertex_iterator;
     using VertexDescriptor = typename graph_traits<Graph>::vertex_descriptor;
 
@@ -81,7 +94,7 @@ struct StateGraph {
         return make_iterator_range(adjacent_vertices(vd, g_));
     }
 
-    VertexDescriptor add(const State &s) {
+    VertexDescriptor add(StateSharedPtr s) {
         auto it = stov_.find(s);
         if (it != stov_.end()) return it->second;
         auto vd = add_vertex(s, g_);
@@ -89,10 +102,10 @@ struct StateGraph {
         return vd;
     }
 
-    void add(const State &parent, const StateNeighbor &n) {
+    void add(const StateSharedPtr &parent, const StateSharedPtr n, CostType cost) {
         auto from = stov_[parent];
-        auto to = add(n.stateCopy());
-        if (!edge(from, to, g_).second) add_edge(from, to, n.cost(), g_);
+        auto to = add(n);
+        if (!edge(from, to, g_).second) add_edge(from, to, cost, g_);
     }
 
     void dump() const {
@@ -130,9 +143,11 @@ struct StateGraph {
         for (auto from: vertexRange()) {
             for (auto to: adjacentVertexRange(from)) {
                 auto lfrom = myMap[from], lto = myMap[to];
-                if (!edge(lfrom, lto, lg).second)
-                    add_edge(lfrom, lto, (double)(g_[edge(to, from, g_).first]),
+                if (!edge(lfrom, lto, lg).second) {
+                    auto edgePair = edge(from, to, g_);
+                    add_edge(lfrom, lto, (double)(g_[edgePair.first]),
                              lg);
+                }
             }
         }
         using LayoutPointMap =
@@ -181,7 +196,8 @@ struct StateGraph {
 
 private:
     Graph g_;
-    std::unordered_map<State, VertexDescriptor, StateHash<State>> stov_;
+    std::unordered_map<StateSharedPtr, VertexDescriptor,
+                       StateSharedPtrHash<State>> stov_;
 };
 
 #endif

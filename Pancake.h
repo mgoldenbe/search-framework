@@ -54,8 +54,14 @@ private:
 std::ostream &operator<<(std::ostream &o, const Pancake &p) {
     return p.dump(o);}
 
-bool operator== (const Pancake &p1, const Pancake &p2) {
-    return p1.pancakes == p2.pancakes;}
+bool operator==(const Pancake &p1, const Pancake &p2) {
+    return p1.pancakes == p2.pancakes;
+}
+
+bool operator==(const std::shared_ptr<const Pancake> &p1,
+                const std::shared_ptr<const Pancake> &p2) {
+    return *p1 == *p2;
+}
 
 //------------------------- HEURISTICS ------------------//
 

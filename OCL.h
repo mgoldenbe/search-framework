@@ -2,13 +2,7 @@
 #define OCL_FILE
 
 #include <unordered_map>
-
-template <class State>
-struct StateHash {
-    std::size_t operator()(const State &s) const {
-        return s.hash();
-    }
-};
+#include "utilities.h"
 
 // See here the discussion of whether nodes should be passed by pointers or by
 // references: http://stackoverflow.com/q/33616355/2725810
@@ -24,7 +18,7 @@ template <class OL> struct OCL {
     using Node = typename OL::Node;
     using Priority = typename OL::Priority;
     using CostType = typename Node::CostType;
-    using NodeUP = typename Node::NodeUP;
+    using NodeUniquePtr = typename Node::NodeUniquePtr;
     using State = typename Node::State;
 
     void dump() const {
@@ -56,7 +50,7 @@ template <class OL> struct OCL {
         ol.update(n, oldPriority);
     }
 
-    void add(NodeUP &n) {
+    void add(NodeUniquePtr &n) {
         ol.add(n.get());
         auto key = n->state();
         hash[key] = std::move(n);
@@ -68,7 +62,7 @@ template <class OL> struct OCL {
 
 private:
     OL ol;
-    std::unordered_map<State, NodeUP, StateHash<State>>
+    std::unordered_map<State, NodeUniquePtr, StateHash<State>>
     hash; // State needs to implement moving
           // copy constructor for insertions
           // to be effecient.

@@ -16,27 +16,27 @@
 template <typename State_, bool uniformFlag=true>
 struct StateNeighbor {
     using State = State_;
-    using StateUP = std::unique_ptr<State>;
+    using StateUniquePtr = std::unique_ptr<State>;
     using CostType = typename State::CostType;
     StateNeighbor(State *s, CostType c) : scPair_(s, c) {}
-    StateUP &state() {return scPair_.first;}
+    StateUniquePtr &state() {return scPair_.first;}
     State stateCopy() const { return *(scPair_.first); }
     CostType cost() const {return scPair_.second;}
 private:
-    std::pair<StateUP, CostType> scPair_;
+    std::pair<StateUniquePtr, CostType> scPair_;
 };
 
 template <typename State_>
 struct StateNeighbor<State_, true> {
     using State = State_;
-    using StateUP = std::unique_ptr<const State>;
+    using StateUniquePtr = std::unique_ptr<const State>;
     using CostType = typename State::CostType;
     StateNeighbor(State *s) : state_(s) {}
-    StateUP &state() { return state_; }
+    StateUniquePtr &state() { return state_; }
     State stateCopy() const { return *state_; }
     CostType cost() const {return 1;}
 private:
-    StateUP state_;
+    StateUniquePtr state_;
 };
 
 template <typename State_>
@@ -61,31 +61,33 @@ template <typename State_>
 struct NoNodeData: public NodeBase<State_> {};
 
 template<typename State>
-using UniqueStatePtr = std::unique_ptr<const State>;
+using StateUniquePtrT = std::unique_ptr<const State>;
 template<typename State>
-using SharedStatePtr = std::shared_ptr<const State>;
+using StateSharedPtrT = std::shared_ptr<const State>;
 template<typename State>
-using DefaultStatePtr = UniqueStatePtr<const State>;
+using DefaultStateSmartPtrT = StateUniquePtrT<State>;
+//using DefaultStateSmartPtrT = StateSharedPtrT<State>;
 
 template <typename State_, template <class> class NodeData_ = NoNodeData,
-          template <class> class SmartStatePtr = DefaultStatePtr,
+          template <class> class StateSmartPtrT = DefaultStateSmartPtrT,
           typename BucketPosition = int>
 struct AStarNode : public NodeData_<State_> {
     using State = State_;
-    using StateSP = SmartStatePtr<const State>;
+    using StateSmartPtr = StateSmartPtrT<State>;
     using NodeData = NodeData_<State>;
-    using MyType = AStarNode<State, NodeData_, SmartStatePtr, BucketPosition>;
-    using NodeUP = std::unique_ptr<MyType>;
+    using MyType = AStarNode<State, NodeData_, StateSmartPtrT, BucketPosition>;
+    using NodeUniquePtr = std::unique_ptr<MyType>;
 
     AStarNode(const State &s) : state_(new State(s)) {} // For testing only
     AStarNode(const State *s) : state_(s) {}            // For testing only
-    AStarNode(UniqueStatePtr<State> &s) : state_(std::move(s)) {}
+    AStarNode(StateUniquePtrT<State> &s) : state_(std::move(s)) {}
 
     bool operator==(const MyType &rhs) {
         return *(this->state()) == *(rhs.state());
     }
 
     const State &state() const { return *state_; }
+    StateSmartPtr &shareState() { return state_; }
     const BucketPosition &bucketPosition() const { return bucketPosition_; }
     void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }
 
@@ -98,17 +100,17 @@ struct AStarNode : public NodeData_<State_> {
         dump(std::cerr);
     }
 private:
-    StateSP state_;
+    StateSmartPtr state_;
     MyType *parent_ = nullptr;
     BucketPosition bucketPosition_;
 };
 
 template <typename State, template <class> class NodeData = NoNodeData,
-          template <class> class SmartStatePtr = DefaultStatePtr,
+          template <class> class SmartStatePtrT = DefaultStateSmartPtrT,
           typename BucketPosition = int>
 std::ostream &operator<<(
     std::ostream &o,
-    const AStarNode<State, NodeData, SmartStatePtr, BucketPosition> &n) {
+    const AStarNode<State, NodeData, SmartStatePtrT, BucketPosition> &n) {
     return n.dump(o);
 }
 
