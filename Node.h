@@ -65,8 +65,8 @@ using StateUniquePtrT = std::unique_ptr<const State>;
 template<typename State>
 using StateSharedPtrT = std::shared_ptr<const State>;
 template<typename State>
-using DefaultStateSmartPtrT = StateUniquePtrT<State>;
-//using DefaultStateSmartPtrT = StateSharedPtrT<State>;
+//using DefaultStateSmartPtrT = StateUniquePtrT<State>;
+using DefaultStateSmartPtrT = StateSharedPtrT<State>;
 
 template <typename State_, template <class> class NodeData_ = NoNodeData,
           template <class> class StateSmartPtrT = DefaultStateSmartPtrT,

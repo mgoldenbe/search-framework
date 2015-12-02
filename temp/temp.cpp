@@ -1,20 +1,15 @@
 #include "type.hpp"
 #include <iostream>
-//#include <vector>
+#include <vector>
+#include <string>
 
-template <typename T_>
-struct A {
-    using T=T_;
-};
+#include <sstream>
 
-template <typename T_>
-struct B: public A<T_> {
-    typename A<T_>::T a;
-};
+enum class E { ONE, TWO };
 
 int main() {
-    B<int>::T b;
-    (void)b;
-    //std::cout << demangle(typeid(A<decltype(x)>).name()) << std::endl;
+    E e = E();
+    std::cout << (e == E::ONE) << std::endl;
+    (void)e;
     return 0;
 }
