@@ -3,13 +3,14 @@
 #include <vector>
 #include <string>
 
-#include <sstream>
-
-enum class E { ONE, TWO };
+struct A {
+    constexpr A(): x(0), y(0), z(0) {}
+    int x;
+    int y;
+    int z;
+};
 
 int main() {
-    E e = E();
-    std::cout << (e == E::ONE) << std::endl;
-    (void)e;
+    constexpr A a = {1,2,3};
     return 0;
 }

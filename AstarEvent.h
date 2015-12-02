@@ -54,6 +54,8 @@ template <class State, class NodeData> struct AstarEvent {
     }
 
     void dump() const { dump(std::cerr); }
+    const EventType &type() const {return type_;}
+    const StateRole &role() const { return role_; }
 
 private:
     StateSharedPtr state_;

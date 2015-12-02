@@ -44,6 +44,7 @@ template <class State, typename CostType> struct NoGraph {
 template <typename Graph> struct kamada_kawai_done {
     using VertexDescriptor =
         typename boost::graph_traits<Graph>::vertex_descriptor;
+
     kamada_kawai_done() : last_delta() {}
 
     bool operator()(double delta_p, VertexDescriptor vd, const Graph & /*g*/,
@@ -80,6 +81,7 @@ struct StateGraph {
         boost::adjacency_list<vecS, setS, directedS, StateSharedPtr, CostType>;
     using VertexIterator = typename graph_traits<Graph>::vertex_iterator;
     using VertexDescriptor = typename graph_traits<Graph>::vertex_descriptor;
+    using EdgeDescriptor = typename boost::graph_traits<Graph>::edge_descriptor;
 
     //const Graph &graph() {return g_;}
 
@@ -194,6 +196,11 @@ struct StateGraph {
         return res;
     }
 
+    VertexDescriptor vertex(const StateSharedPtr &s) const {
+        auto it =  stov_.find(s);
+        assert(it != stov_.end());
+        return it->second;
+    }
 private:
     Graph g_;
     std::unordered_map<StateSharedPtr, VertexDescriptor,

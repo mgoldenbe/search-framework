@@ -8,8 +8,8 @@ struct NoAlgorithmLogger {
     using AlgorithmEvent = AlgorithmEvent_;
     using StateSharedPtr = typename AlgorithmEvent::StateSharedPtr;
 
-    void log(const StateSharedPtr &s, const AlgorithmEvent &e) {
-        (void)s; (void)e;
+    void log(const AlgorithmEvent e) {
+        (void)e;
     }
     void dump() { std::cout << "NoLogger!" << std::endl; }
 };
@@ -38,6 +38,8 @@ struct AlgorithmLogger {
         for (auto el: stateToLastEventStep_)
             std::cout << *(el.first) << ": " << el.second << std::endl;
     }
+
+    const std::vector<AlgorithmEvent> &events() const {return events_;}
 private:
     // -1 means no previous event
     std::unordered_map<StateSharedPtr, int> stateToLastEventStep_;

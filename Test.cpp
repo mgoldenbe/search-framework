@@ -5,6 +5,8 @@
 #include "Graph.h"
 #include "AlgorithmLogger.h"
 #include "AstarEvent.h"
+#include "VisualLog.h"
+#include "AstarVisualEvent.h"
 #ifndef NO_DRAWER
 #include "Drawer.h"
 #endif
@@ -29,6 +31,8 @@ using Event =
     AstarEvent<Node::State, Node::NodeData>;
 using MyLogger = AlgorithmLogger<Event>;
 
+using VisualEvent = AstarVisualEvent<Graph, Event>;
+
 void testAstar() {
     Pancake goal(4), start(goal);
     start.shuffle();
@@ -39,6 +43,8 @@ void testAstar() {
     myAstar.run();
     logger.dump();
     //g.dump();
+    VisualLog<VisualEvent> visualLog(logger, g);
+    (void)visualLog;
 #ifndef NO_DRAWER
     Drawer<Graph> d(g);
     d.run();
