@@ -35,7 +35,7 @@ using VisualEvent = AstarVisualEvent<Graph, Event>;
 using MyVisualLog = VisualLog<VisualEvent>;
 
 void testAstar() {
-    Pancake goal(6), start(goal);
+    Pancake goal(4), start(goal);
     start.shuffle();
     Graph g;
     MyLogger logger;
