@@ -2,15 +2,19 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <map>
 
-struct A {
-    constexpr A(): x(0), y(0), z(0) {}
-    int x;
-    int y;
-    int z;
+enum class NUMS {ONE, TWO};
+
+class A {
+public:
+    NUMS n;
 };
 
+
 int main() {
-    constexpr A a = {1,2,3};
+    A a;
+    //a.n = NUMS();
+    std::cout << static_cast<int>(a.n) << std::endl;
     return 0;
 }

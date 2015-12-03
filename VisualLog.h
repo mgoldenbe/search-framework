@@ -20,47 +20,46 @@ struct VisualLog {
     using Graph = typename VisualEvent::Graph;
     using VertexDescriptor = typename Graph::VertexDescriptor;
     using EdgeDescriptor = typename Graph::EdgeDescriptor;
+    using VertexStyle = typename VisualEvent::VertexStyle;
+    using EdgeStyle = typename VisualEvent::EdgeStyle;
 
     template <class AlgorithmLog>
     VisualLog(const AlgorithmLog &log_, const Graph &g) : g_(g) {
+        for (auto vd : g_.vertexRange())
+            vertexStyles_[vd] = VisualEvent::defaultVertexStyle();
+        for (auto ed : g_.edgeRange())
+            edgeStyles_[ed] = VisualEvent::defaultEdgeStyle();
         for (auto &e: log_.events())
-            log(VisualEvent(g_, e));
+            log(VisualEvent(g_, e, (*this)));
+    }
+
+    const VertexStyle &vertexStyle(VertexDescriptor vd) const {
+        auto it = vertexStyles_.find(vd);
+        if (it == vertexStyles_.end()) assert(0);
+        return it->second;
+    }
+    const EdgeStyle &edgeStyle(EdgeDescriptor ed) const {
+        auto it = edgeStyles_.find(ed);
+        if (it == edgeStyles_.end()) assert(0);
+        return it->second;
     }
 
 private:
     const Graph &g_;
 
     // -1 means no previous event
-    std::unordered_map<VertexDescriptor, int> vertexToLastEventStep_;
+    std::unordered_map<VertexDescriptor, VertexStyle> vertexStyles_;
 
-    // unordered_map with EdgeDescriptor does not seem to work
-    std::map<EdgeDescriptor, int> edgeToLastEventStep_;
+    // EdgeDescriptor cannot be a key for unordered_map
+    std::map<EdgeDescriptor, EdgeStyle> edgeStyles_;
 
     std::vector<VisualEvent> events_;
 
-    const VisualEvent &getLastVertexEvent(VertexDescriptor vd) {
-        return events_[vertexToLastEventStep_[vd]];
-    }
-    const VisualEvent &getLastEdgeEvent(EdgeDescriptor ed) {
-        return events_[edgeToLastEventStep_[ed]];
-    }
     void log(VisualEvent e) {
-        for (auto &vertexChange: e.vertexChanges()) {
-            auto vd = vertexChange.vd;
-            vertexToLastEventStep_[vd] = events_.size();
-            auto it = vertexToLastEventStep_.find(vd);
-            vertexChange.lastEventStep = -1;
-            if (it != vertexToLastEventStep_.end())
-                vertexChange.lastEventStep = it->second;
-        }
-        for (auto &edgeChange : e.edgeChanges()) {
-            auto ed = edgeChange.ed;
-            edgeToLastEventStep_[ed] = events_.size();
-            auto it = edgeToLastEventStep_.find(ed);
-            edgeChange.lastEventStep = -1;
-            if (it != edgeToLastEventStep_.end())
-                edgeChange.lastEventStep = it->second;
-        }
+        for (auto &vertexChange: e.vertexChanges())
+            vertexStyles_[vertexChange.vd] = vertexChange.now;
+        for (auto &edgeChange : e.edgeChanges())
+            edgeStyles_[edgeChange.ed] = edgeChange.now;
         events_.push_back(e);
     }
 };

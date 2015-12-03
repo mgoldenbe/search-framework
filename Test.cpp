@@ -32,21 +32,21 @@ using Event =
 using MyLogger = AlgorithmLogger<Event>;
 
 using VisualEvent = AstarVisualEvent<Graph, Event>;
+using MyVisualLog = VisualLog<VisualEvent>;
 
 void testAstar() {
-    Pancake goal(4), start(goal);
+    Pancake goal(6), start(goal);
     start.shuffle();
     Graph g;
     MyLogger logger;
     Astar<MyOL, GapHeuristic, GoalHandlerT, GraphT, MyLogger>
         myAstar(start, GoalHandler(goal), g, logger);
     myAstar.run();
-    logger.dump();
+    //logger.dump();
     //g.dump();
-    VisualLog<VisualEvent> visualLog(logger, g);
-    (void)visualLog;
 #ifndef NO_DRAWER
-    Drawer<Graph> d(g);
+    MyVisualLog visualLog(logger, g);
+    Drawer<Graph, MyVisualLog> d(g, visualLog);
     d.run();
 #endif
 }

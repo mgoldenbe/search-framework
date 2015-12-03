@@ -29,6 +29,7 @@ The purpose of this document is to design the Logging and Visualization capabili
 - Now we have the graph and the log stored and we want to perform visualization.
 * /VisualLog/. 
 We need an entity that is parallel to log, but has events in graphical terms. Let us call this entity /VisualLog/. This entity is templated on both /Logger/ and /AlgorithmVisualEvent/. The latter is responsible for translating an algorithmic event to a visual event. So, we have: /using AStarVisualLog = VisualLog<AstarVisualEvent>/.
+- THE FOLLOWING IS NOT UP-TO-DAT: THE CURRENT CODE USES A DIFFERENT SIMPLER DESIGN
 - /AstarVisualEvent/ is templated on Graph:
   + /const Graph &/
   + vd of the event 

@@ -13,6 +13,8 @@
 #include <X11/Xutil.h>
 #include <unistd.h>
 
+#include "VisualizationUtilities.h"
+
 //This function should give us a new x11 surface to draw on.
 cairo_surface_t *create_x11_surface(Display *d, int *x, int *y) {
     Drawable da;
@@ -51,13 +53,14 @@ cairo_surface_t *create_x11_surface(Display *d, int *x, int *y) {
     return sfc;
 }
 
-template <class Graph>
+template <class Graph, class VisualLog>
 struct Drawer {
     using VertexDescriptor = typename Graph::VertexDescriptor;
     using Point = square_topology<>::point_type;
     using PointMap = std::map<VertexDescriptor, Point>;
 
-    Drawer(const Graph &g): g_(g), pointMap_(g.template layout<PointMap>()) {
+    Drawer(const Graph &g, const VisualLog &log)
+        : g_(g), log_(log), pointMap_(g.template layout<PointMap>()) {
         d = XOpenDisplay(NULL);
         if (d == NULL) {
             fprintf(stderr, "Failed to open display\n");
@@ -126,6 +129,21 @@ private:
         return true;
     }
 
+    void drawVertex(VertexDescriptor vd, const VertexStyle &style) {
+        Color fc = style.fillColor;
+        cairo_set_source_rgb(cr, RGB::red(fc), RGB::green(fc), RGB::blue(fc));
+        cairo_set_line_width(cr, 1.0);
+        switch(style.shape) {
+        case VertexShape::CIRCLE:
+            cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1], style.size, 0,
+                      2 * M_PI);
+            cairo_fill(cr);
+            cairo_stroke(cr);
+            break;
+        default: assert(0);
+        }
+    }
+
     void draw() {
         cairo_push_group(cr);
 
@@ -133,13 +151,8 @@ private:
         cairo_set_source_rgb(cr, 0, 0, 0);
         cairo_paint(cr);
 
-        cairo_set_source_rgb(cr, 0.5, 0.5, 0.5);
         for (auto vd : g_.vertexRange()) {
-            cairo_set_line_width(cr, 1.0);
-            cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1], 10, 0,
-                      2 * M_PI);
-            cairo_fill(cr);
-            cairo_stroke(cr);
+            drawVertex(vd, log_.vertexStyle(vd));
             for (auto vd_n : g_.adjacentVertexRange(vd)) {
                 cairo_set_line_width(cr, 5.0);
                 cairo_move_to(cr, pointMap_[vd][0], pointMap_[vd][1]);
@@ -184,6 +197,7 @@ private:
 
 private:
     const Graph &g_;
+    const VisualLog &log_;
     PointMap pointMap_;
     Display *d;
     cairo_surface_t* surface;

@@ -1,58 +1,54 @@
 #ifndef ASTAR_VISUAL_EVENT
 #define ASTAR_VISUAL_EVENT
 
-#include "Colors.h"
+#include "VisualizationUtilities.h"
 
-struct RGB {
-    static int red(int color) { return color >> 16; }
-    static int green(int color) { return (color >> 8) % 256; }
-    static int blue(int color) { return color % 256; }
-};
-
-struct VertexStyle {
-    Color fillColor;
-    Color circleColor;
-    int circleWidth;
-};
-
-struct VertexStyles {
-    static VertexStyle start() {
-        return {Color(), Color::NAVY_BLUE, 2};
+struct DefaultAstarStyles {
+    static VertexStyle defaultVertexStyle() {return ::defaultVertexStyle();}
+    static EdgeStyle defaultEdgeStyle() {return ::defaultEdgeStyle();}
+    static void roleStart(VertexStyle &style) {
+        style.emphasisColor = Color::VIVID_BLUE;
+        style.emphasisWidth = 2;
     }
 };
 
-struct EdgeStyle {};
-
-template <class Graph_, class Event>
+template <class Graph_, class Event, class Styles = DefaultAstarStyles>
 struct AstarVisualEvent {
     using Graph = Graph_;
     using VertexDescriptor = typename Graph::VertexDescriptor;
     using EdgeDescriptor = typename Graph::EdgeDescriptor;
+    using VertexStyle = ::VertexStyle;
+    using EdgeStyle = ::EdgeStyle;
     using VertexChange = struct {
         VertexDescriptor vd;
-        VertexStyle style;
-        int lastEventStep; // just put -1 here. The log will need to take care
+        VertexStyle now;
+        VertexStyle before;
     };
     using EdgeChange = struct {
         EdgeDescriptor ed;
-        EdgeStyle style;
-        int lastEventStep; // just put -1 here. The log will need to take care
+        EdgeStyle now;
+        EdgeStyle before;
     };
 
-    AstarVisualEvent(const Graph &g, const Event &e) : g_(g) {
+    template <typename VisualLog>
+    AstarVisualEvent(const Graph &g, const Event &e, const VisualLog log)
+        : g_(g) {
+
+        const auto &state = e.state();
+        auto vd = g_.vertex(state);
+
         switch (e.type()) {
         case Event::EventType::ROLE: {
-            VertexStyle style;
+            VertexStyle before = log.vertexStyle(vd);
+            VertexStyle now = before;
             switch (e.role()) {
             case Event::StateRole::START:
-                style = VertexStyles::start();
+                Styles::roleStart(now);
                 break;
             default:
                 ;
             }
-            auto s = e.state();
-            auto vd = g_.vertex(s);
-            vertexChanges_.push_back({vd, style, -1});
+            vertexChanges_.push_back({vd, now, before});
             break;
         }
         default:
@@ -60,10 +56,27 @@ struct AstarVisualEvent {
         }
     }
 
-    // VisualLog will need to modify the returned value
-    std::vector<VertexChange> &vertexChanges() {return vertexChanges_;}
-    std::vector<EdgeChange> &edgeChanges() {return edgeChanges_;}
+    static VertexStyle defaultVertexStyle() {
+        return Styles::defaultVertexStyle();
+    }
+    static EdgeStyle defaultEdgeStyle() {
+        return Styles::defaultEdgeStyle();
+    }
 
+    // Returns style now and style before
+    std::pair<VertexStyle, VertexStyle> vertexChange(VertexDescriptor vd) {
+        for (auto el: vertexChanges_)
+            if (el.vd == vd) return std::make_pair(el.now, el.before);
+        assert(0);
+    }
+    std::pair<EdgeStyle, EdgeStyle> edgeChange(EdgeDescriptor ed) {
+        for (auto el: edgeChanges_)
+            if (el.ed == ed) return std::make_pair(el.now, el.before);
+        assert(0);
+    }
+
+    const std::vector<VertexChange> &vertexChanges() {return vertexChanges_;}
+    const std::vector<EdgeChange> &edgeChanges() {return edgeChanges_;}
 private:
     const Graph &g_;
     std::vector<VertexChange> vertexChanges_;
