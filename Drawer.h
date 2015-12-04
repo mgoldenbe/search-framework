@@ -12,8 +12,28 @@
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <unistd.h>
+//#include <boost/thread/thread.hpp>
+#include<time.h>
+#include<signal.h>
 
 #include "VisualizationUtilities.h"
+
+// http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/
+void __nsleep(const struct timespec *req, struct timespec *rem) {
+    struct timespec temp_rem;
+    if (nanosleep(req, rem) == -1)
+        __nsleep(rem, &temp_rem);
+}
+
+int msleep(unsigned long milisec) {
+    struct timespec req = {0,0}, rem = {0,0};
+    time_t sec = (int)(milisec / 1000);
+    milisec = milisec - (sec * 1000);
+    req.tv_sec = sec;
+    req.tv_nsec = milisec * 1000000L;
+    __nsleep(&req, &rem);
+    return 1;
+}
 
 //This function should give us a new x11 surface to draw on.
 cairo_surface_t *create_x11_surface(Display *d, int *x, int *y) {
@@ -59,7 +79,8 @@ struct Drawer {
     using Point = square_topology<>::point_type;
     using PointMap = std::map<VertexDescriptor, Point>;
 
-    Drawer(const Graph &g, const VisualLog &log)
+    // VisualLog is not const, since we will move in time...
+    Drawer(const Graph &g, VisualLog &log)
         : g_(g), log_(log), pointMap_(g.template layout<PointMap>()) {
         d = XOpenDisplay(NULL);
         if (d == NULL) {
@@ -85,10 +106,14 @@ struct Drawer {
     }
 
     void run() {
+        int iteration = 0;
         while (1) {
+            // std::cout << "Iteration " << iteration << std::endl;
             if (!processEvents()) break;
             draw();
-            sleep(0.1);
+            // boost::this_thread::sleep( boost::posix_time::milliseconds(100));
+            msleep(1);
+            if (++iteration % 250 == 0) log_.next();
         }
     }
 
@@ -129,19 +154,52 @@ private:
         return true;
     }
 
-    void drawVertex(VertexDescriptor vd, const VertexStyle &style) {
+
+    void fillVertex(VertexDescriptor vd, const VertexStyle &style) {
         Color fc = style.fillColor;
+        if (fc == Color::NOVAL) return;
         cairo_set_source_rgb(cr, RGB::red(fc), RGB::green(fc), RGB::blue(fc));
         cairo_set_line_width(cr, 1.0);
         switch(style.shape) {
         case VertexShape::CIRCLE:
             cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1], style.size, 0,
                       2 * M_PI);
-            cairo_fill(cr);
-            cairo_stroke(cr);
             break;
         default: assert(0);
         }
+        cairo_fill(cr);
+        cairo_stroke(cr);
+    }
+
+    void emphasizeVertex(VertexDescriptor vd, const VertexStyle &style) {
+        Color ec = style.emphasisColor;
+        if (ec == Color::NOVAL) return;
+        cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
+        cairo_set_line_width(cr, style.emphasisWidth);
+        switch(style.shape) {
+        case VertexShape::CIRCLE:
+            cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1], style.size * 1.25,
+                      0, 2 * M_PI);
+            break;
+        default: assert(0);
+        }
+        cairo_stroke(cr);
+    }
+
+    void drawVertex(VertexDescriptor vd, const VertexStyle &style) {
+        fillVertex(vd, style);
+        emphasizeVertex(vd, style);
+    }
+
+    void drawEdge(VertexDescriptor from, VertexDescriptor to,
+                  const EdgeStyle &style) {
+        Color ec = style.color;
+        if (ec == Color::NOVAL) return;
+        cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
+        cairo_set_line_width(cr, style.width);
+        cairo_move_to(cr, pointMap_[from][0], pointMap_[from][1]);
+        cairo_line_to(cr, pointMap_[to][0], pointMap_[to][1]);
+        cairo_stroke(cr);
     }
 
     void draw() {
@@ -151,15 +209,16 @@ private:
         cairo_set_source_rgb(cr, 0, 0, 0);
         cairo_paint(cr);
 
-        for (auto vd : g_.vertexRange()) {
-            drawVertex(vd, log_.vertexStyle(vd));
-            for (auto vd_n : g_.adjacentVertexRange(vd)) {
-                cairo_set_line_width(cr, 5.0);
-                cairo_move_to(cr, pointMap_[vd][0], pointMap_[vd][1]);
-                cairo_line_to(cr, pointMap_[vd_n][0], pointMap_[vd_n][1]);
-                cairo_stroke(cr);
+        cairo_set_source_rgb(cr, 56, 128, 4);
+        for (auto from : g_.vertexRange()) {
+            for (auto to : g_.adjacentVertexRange(from)) {
+                auto ed = g_.edge(from, to);
+                drawEdge(from, to, log_.edgeStyle(ed));
             }
         }
+        for (auto vd : g_.vertexRange())
+            drawVertex(vd, log_.vertexStyle(vd));
+
 
         cairo_pop_group_to_source(cr);
         cairo_paint(cr);
@@ -197,7 +256,7 @@ private:
 
 private:
     const Graph &g_;
-    const VisualLog &log_;
+    VisualLog &log_;
     PointMap pointMap_;
     Display *d;
     cairo_surface_t* surface;

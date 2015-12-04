@@ -4,14 +4,14 @@
 #include "Colors.h"
 
 struct RGB {
-    static int red(Color color) {
-        return RGBValues[static_cast<int>(color)] >> 16;
+    static double red(Color color) {
+        return (double)(RGBValues[static_cast<int>(color)] >> 16)/255;
     }
-    static int green(Color color) {
-        return (RGBValues[static_cast<int>(color)] >> 8) % 256;
+    static double green(Color color) {
+        return (double)((RGBValues[static_cast<int>(color)] >> 8) % 256)/255;
     }
-    static int blue(Color color) {
-        return RGBValues[static_cast<int>(color)] % 256;
+    static double blue(Color color) {
+        return (double)(RGBValues[static_cast<int>(color)] % 256)/255;
     }
 };
 
@@ -37,7 +37,7 @@ VertexStyle defaultVertexStyle() {
     res.shape = VertexShape();
     res.pattern = VertexFillPattern();
     res.size = 10;
-    res.fillColor = Color::COOL_GREY;
+    res.fillColor = Color::WARM_GREY;
     res.borderColor = Color();
     res.borderWidth = 0;
     res.emphasisColor = Color();
@@ -56,7 +56,7 @@ EdgeStyle defaultEdgeStyle() {
     EdgeStyle res;
     res.shape = EdgeShape();
     res.dash = EdgeDash();
-    res.color = Color::COOL_GREY;
+    res.color = Color::BROWN_GREY;
     res.width = 5;
     return res;
 }

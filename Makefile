@@ -3,11 +3,15 @@ INCLUDE=-isystem ~/boost_1_59_0 -I /usr/include/cairomm-1.0/ -I /usr/include/cai
 
 GRAPHICS_LIB=-lcairo -lX11
 
+# http://stackoverflow.com/q/15280882/2725810
+#GRAPHICS_LIB=-DBOOST_SYSTEM_NO_DEPRECATED -lcairo -lX11
+#GRAPHICS_LIB=-DBOOST_SYSTEM_NO_DEPRECATED -L~/boost_1_59_0/boost/libs -lboost_system -lcairo -lX11
+
 COMMON=g++ -Wall -Wextra -Werror -fmax-errors=2 -std=c++11 -pedantic $(INCLUDE) -o Test Test.cpp
 
 BUILD_DEBUG=$(COMMON) -g -DNO_DRAWER
 BUILD_DEBUG_DRAWER=$(COMMON) -g $(GRAPHICS_LIB)
-BUILD_PRODUCTION=$(COMMON) -DNDEBUG -O2 -DNO_DRAWER
+BUILD_PRODUCTION=$(COMMON) -DNDEBUG -O2 -DNO_DRAWER 
 BUILD_PRODUCTION_DRAWER=$(COMMON) -DNDEBUG -O2 $(GRAPHICS_LIB)
 
 default: debug-drawer

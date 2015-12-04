@@ -80,10 +80,10 @@ PointMap StateGraph<State, CostType>::layout() const {
     for (auto from : vertexRange()) {
         for (auto to : adjacentVertexRange(from)) {
             auto lfrom = myMap[from], lto = myMap[to];
-            if (!edge(lfrom, lto, lg).second) {
+            if (!boost::edge(lfrom, lto, lg).second) {
                 // std::cout << "Connecting: " << lg[lfrom] << "-->" <<
                 // lg[lto] << std::endl;
-                auto edgePair = edge(from, to, g_);
+                auto edgePair = boost::edge(from, to, g_);
                 add_edge(lfrom, lto, (double)(g_[edgePair.first]), lg);
             }
         }
@@ -96,11 +96,11 @@ PointMap StateGraph<State, CostType>::layout() const {
 
     minstd_rand gen;
     rectangle_topology<> rect_top(gen, 0, 0, 100, 100);
-    random_graph_layout(lg, temp, rect_top);
+    //random_graph_layout(lg, temp, rect_top);
 
     // Kamada-Kawai depends on position in the circle
     // E.g. for this graph: 0->1, 0->2, 1->3, 2->4, 3->5, 4->5
-    // circle_graph_layout(lg, temp, 50.0);
+    circle_graph_layout(lg, temp, 50.0);
 
     kamada_kawai_spring_layout(lg, temp, get(edge_bundle, lg),
                                square_topology<>(100.0), side_length(100.0),
@@ -114,7 +114,7 @@ PointMap StateGraph<State, CostType>::layout() const {
 
     using Topology = square_topology<>;
     Topology topology(gen, 100.0);
-    /*
+
     std::vector<Topology::point_difference_type> displacements(
         num_vertices(lg));
     fruchterman_reingold_force_directed_layout
@@ -127,13 +127,13 @@ PointMap StateGraph<State, CostType>::layout() const {
          make_iterator_property_map(displacements.begin(),
                                     get(vertex_index, lg),
                                     Topology::point_difference_type()));
-    */
-    /* It actually spoils the perfect symmetry for 4-pancake
-    fruchterman_reingold_force_directed_layout(
-         lg, temp, topology,
-         attractive_force(square_distance_attractive_force())
-             .cooling(linear_cooling<double>(100)));
-    */
+
+    // It can actually spoil the perfect symmetry for 4-pancake
+    // fruchterman_reingold_force_directed_layout(
+    //      lg, temp, topology,
+    //      attractive_force(square_distance_attractive_force())
+    //          .cooling(linear_cooling<double>(100)));
+
     for (auto el : intermediateResults) res[myReverseMap[el.first]] = el.second;
 
     return res;

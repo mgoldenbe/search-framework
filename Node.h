@@ -87,6 +87,10 @@ struct AStarNode : public NodeData_<State_> {
     }
 
     const State &state() const { return *state_; }
+
+    // not const, since will call shareState() on the return value
+    MyType *parent() { return parent_; }
+    void setParent(MyType *parent) { parent_ = parent; }
     StateSmartPtr &shareState() { return state_; }
     const BucketPosition &bucketPosition() const { return bucketPosition_; }
     void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }

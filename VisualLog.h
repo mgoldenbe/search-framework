@@ -15,7 +15,7 @@ struct NoVisualLog {
     }
 };
 
-template <class VisualEvent>
+template <class AlgorithmLog, class VisualEvent>
 struct VisualLog {
     using Graph = typename VisualEvent::Graph;
     using VertexDescriptor = typename Graph::VertexDescriptor;
@@ -23,14 +23,20 @@ struct VisualLog {
     using VertexStyle = typename VisualEvent::VertexStyle;
     using EdgeStyle = typename VisualEvent::EdgeStyle;
 
-    template <class AlgorithmLog>
-    VisualLog(const AlgorithmLog &log_, const Graph &g) : g_(g) {
+    VisualLog(const AlgorithmLog &log, const Graph &g) : log_(log), g_(g) {
         for (auto vd : g_.vertexRange())
             vertexStyles_[vd] = VisualEvent::defaultVertexStyle();
         for (auto ed : g_.edgeRange())
             edgeStyles_[ed] = VisualEvent::defaultEdgeStyle();
-        for (auto &e: log_.events())
-            log(VisualEvent(g_, e, (*this)));
+
+        step_ = 0;
+        for (auto &e: log.events()) {
+            auto ve = VisualEvent(g_, e, (*this));
+            this->log(ve);
+        }
+        // rewind to the beginning
+        while (step_ > 0)
+            prev();
     }
 
     const VertexStyle &vertexStyle(VertexDescriptor vd) const {
@@ -44,7 +50,20 @@ struct VisualLog {
         return it->second;
     }
 
+    void next() {
+        if (step_ >= events_.size()) return;
+        auto e = events_[step_++];
+        applyEvent(e);
+    }
+
+    void prev() {
+        if (step_ <= 0) return;
+        auto e = events_[--step_];
+        unApplyEvent(e);
+    }
+
 private:
+    const AlgorithmLog &log_;
     const Graph &g_;
 
     // -1 means no previous event
@@ -54,13 +73,26 @@ private:
     std::map<EdgeDescriptor, EdgeStyle> edgeStyles_;
 
     std::vector<VisualEvent> events_;
+    int step_; // the event to be applied when next() is called.
 
-    void log(VisualEvent e) {
+    void applyEvent(const VisualEvent &e) {
         for (auto &vertexChange: e.vertexChanges())
             vertexStyles_[vertexChange.vd] = vertexChange.now;
         for (auto &edgeChange : e.edgeChanges())
             edgeStyles_[edgeChange.ed] = edgeChange.now;
+    }
+
+    void unApplyEvent(const VisualEvent &e) {
+        for (auto &vertexChange: e.vertexChanges())
+            vertexStyles_[vertexChange.vd] = vertexChange.before;
+        for (auto &edgeChange : e.edgeChanges())
+            edgeStyles_[edgeChange.ed] = edgeChange.before;
+    }
+
+    void log(const VisualEvent &e) {
+        applyEvent(e);
         events_.push_back(e);
+        step_++;
     }
 };
 

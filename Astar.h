@@ -63,7 +63,9 @@ struct Astar {
 
     void expand() {
         cur_ = oc_.minNode();
-        logger_.log(Event(cur_->shareState()));
+        auto parent = cur_->parent() ? cur_->parent()->shareState() : nullptr;
+        logger_.log(
+            Event(cur_->shareState(), Event::EventType::SELECTED, parent));
         goalHandler_.update(cur_->state());
         if (goalHandler_.done()) {
             //std::cout << "Done!" << std::endl;
@@ -73,20 +75,36 @@ struct Astar {
         for (auto &child : children_) {
             handleChild(child.state(), child.cost());
         }
+        logger_.log(
+            Event(cur_->shareState(), Event::EventType::CLOSED, parent));
     }
 
     void handleChild(StateUniquePtrT<State> &child, CostType cost) {
         auto childNode = oc_.getNode(*child);
         if (childNode) {
             graph_.add(cur_->shareState(), childNode->shareState(), cost);
-            logger_.log(Event(childNode->shareState(), cur_->shareState(),
-                              (NodeData)*childNode));
+            /*
+            logger_.log(Event(childNode->shareState(),
+                              Event::EventType::BEGIN_GENERATE,
+                              cur_->shareState(), (NodeData) * childNode));
+            logger_.log(Event(childNode->shareState(),
+                              Event::EventType::END_GENERATE,
+                              cur_->shareState(), (NodeData) * childNode));
+            */
             return;
         }
-        NodeUniquePtr newNode(new Node(child)); newNode->g = cur_->g + cost;
+        NodeUniquePtr newNode(new Node(child));
+        newNode->g = cur_->g + cost;
+        newNode->setParent(cur_);
         graph_.add(cur_->shareState(), newNode->shareState(), cost);
-        logger_.log(Event(newNode->shareState(), cur_->shareState(),
-                          (NodeData)*newNode));
+        logger_.log(Event(newNode->shareState(),
+                          Event::EventType::BEGIN_GENERATE, cur_->shareState(),
+                          (NodeData) * newNode));
+        logger_.log( // needed so currently generated node changes color
+            // cannot be after adding to OL, since std::move is
+            // performed there!
+            Event(newNode->shareState(), Event::EventType::END_GENERATE,
+                  cur_->shareState(), (NodeData) * newNode));
         oc_.add(newNode);
     }
 

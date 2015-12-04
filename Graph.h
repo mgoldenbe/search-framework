@@ -60,6 +60,12 @@ struct StateGraph {
         return make_iterator_range(edges(g_));
     }
 
+    EdgeDescriptor edge(VertexDescriptor from, VertexDescriptor to) const {
+        auto res = boost::edge(from, to, g_);
+        if (!res.second) assert(0);
+        return res.first;
+    }
+
     auto adjacentVertexRange(VertexDescriptor vd) const
         -> decltype(make_iterator_range(
             adjacent_vertices(vd, std::declval<Graph>()))) {
@@ -78,7 +84,7 @@ struct StateGraph {
              CostType cost) {
         auto from = stov_[parent];
         auto to = add(n);
-        if (!edge(from, to, g_).second) add_edge(from, to, cost, g_);
+        if (!boost::edge(from, to, g_).second) add_edge(from, to, cost, g_);
     }
 
     void dump() const {

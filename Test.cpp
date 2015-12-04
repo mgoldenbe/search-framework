@@ -32,7 +32,7 @@ using Event =
 using MyLogger = AlgorithmLogger<Event>;
 
 using VisualEvent = AstarVisualEvent<Graph, Event>;
-using MyVisualLog = VisualLog<VisualEvent>;
+using MyVisualLog = VisualLog<MyLogger, VisualEvent>;
 
 void testAstar() {
     Pancake goal(4), start(goal);

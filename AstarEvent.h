@@ -5,22 +5,30 @@ template <class State, class NodeData> struct AstarEvent {
     using StateSharedPtr = std::shared_ptr<const State>;
     using MyType = AstarEvent<State, NodeData>;
 
-    enum class EventType { NOVAL, ROLE, SELECTED, GENERATED, CHANGED_PARENT };
+    enum class EventType {
+        NOVAL,
+        ROLE,
+        BEGIN_GENERATE,
+        END_GENERATE,
+        SELECTED,
+        CLOSED,
+        CHANGED_PARENT
+    };
     enum class StateRole { NOVAL, START, GOAL, DONE_GOAL };
 
     // ROLE event
     AstarEvent(const StateSharedPtr &state, const StateRole &role)
         : AstarEvent(state, EventType::ROLE, role, nullptr, NodeData()) {}
 
-    // SELECTED event
-    AstarEvent(const StateSharedPtr &state)
-        : AstarEvent(state, EventType::SELECTED, StateRole(), nullptr,
-                     NodeData()) {}
+    // SELECTED or CLOSED
+    AstarEvent(const StateSharedPtr &state, EventType type,
+               const StateSharedPtr &parent)
+        : AstarEvent(state, type, StateRole(), parent, NodeData()) {}
 
-    // GENERATED event
-    AstarEvent(const StateSharedPtr &state, const StateSharedPtr &parent,
-               const NodeData &nodeData)
-        : AstarEvent(state, EventType::GENERATED, StateRole(), parent,
+    // BEGIN_GENERATE or END_GENERATE
+    AstarEvent(const StateSharedPtr &state, EventType type,
+               const StateSharedPtr &parent, const NodeData &nodeData)
+        : AstarEvent(state, type, StateRole(), parent,
                      nodeData) {}
 
     const StateSharedPtr &state() const { return state_; }
@@ -43,7 +51,7 @@ template <class State, class NodeData> struct AstarEvent {
             break;
         case EventType::SELECTED:
             break;
-        case EventType::GENERATED:
+        case EventType::BEGIN_GENERATE:
             o << "Parent: " << *parent_ << "   Node: " << nodeData_;
             break;
         default:
@@ -56,6 +64,7 @@ template <class State, class NodeData> struct AstarEvent {
     void dump() const { dump(std::cerr); }
     const EventType &type() const {return type_;}
     const StateRole &role() const { return role_; }
+    const StateSharedPtr &parent() const {return parent_;}
 
 private:
     StateSharedPtr state_;
