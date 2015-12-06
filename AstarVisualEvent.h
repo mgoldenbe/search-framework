@@ -1,6 +1,7 @@
 #ifndef ASTAR_VISUAL_EVENT
 #define ASTAR_VISUAL_EVENT
 
+#include <vector>
 #include "VisualizationUtilities.h"
 
 struct DefaultAstarStyles {
@@ -9,6 +10,16 @@ struct DefaultAstarStyles {
     static void roleStart(VertexStyle &style) {
         style.emphasisColor = Color::VIVID_GREEN;
         style.emphasisWidth = defaultVertexStyle().size/2;
+    }
+    static void roleGoal(VertexStyle &style) {
+        style.emphasisColor = Color::DEEP_BLUE;
+        style.emphasisWidth = defaultVertexStyle().size/2;
+    }
+    static void roleDoneGoalBegin(VertexStyle &style) {
+        style.fillColor = Color::VIVID_GREEN;
+    }
+    static void roleDoneGoalBegin(EdgeStyle &style) {
+        style.color = Color::VIVID_GREEN;
     }
     static void beginGenerate(VertexStyle &vertexStyle, EdgeStyle &edgeStyle) {
         vertexStyle.fillColor = Color::SUNSHINE_YELLOW;
@@ -63,6 +74,27 @@ struct AstarVisualEvent {
             case Event::StateRole::START:
                 Styles::roleStart(now);
                 break;
+            case Event::StateRole::GOAL:
+                Styles::roleGoal(now);
+                break;
+            case Event::StateRole::DONE_GOAL: {
+                Styles::roleDoneGoalBegin(now);
+                bool firstIterationFlag = true;
+                typename Event::StateSharedPtr last = nullptr;
+                for (auto &s : e.path(state, log.getAlgorithmLog())) {
+                    if (!firstIterationFlag) {
+                        EdgeDescriptor ed =
+                            g_.edge(g_.vertex(last), g_.vertex(s));
+                        auto edgeBefore = log.edgeStyle(ed);
+                        auto edgeNow = edgeBefore;
+                        Styles::roleDoneGoalBegin(edgeNow);
+                        edgeChanges_.push_back({ed, edgeNow, edgeBefore});
+                    }
+                    last = s;
+                    firstIterationFlag = false;
+                }
+                break;
+            }
             default:
                 ;
             }
@@ -76,8 +108,8 @@ struct AstarVisualEvent {
                     break;
                 }
             std::vector<EdgeDescriptor> eds = {
-                g_.edge(g_.vertex(e.parent()), vd),
-                g_.edge(vd, g_.vertex(e.parent()))};
+                g_.edge(g_.vertex(e.parent()), vd)};
+            //g_.edge(vd, g_.vertex(e.parent()))};
             for (auto ed: eds) {
                 EdgeStyle edgeBefore = log.edgeStyle(ed);
                 EdgeStyle edgeNow = edgeBefore;

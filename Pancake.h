@@ -44,12 +44,22 @@ struct Pancake {
         return res;
     }
 
+    int gapHeuristic() const {
+        int res = 0;
+        for (unsigned i = 0U; i < pancakes.size() - 1; i++)
+            if (abs(pancakes[i] - pancakes[i + 1]) > 1) res++;
+        if (pancakes.back() != (int)pancakes.size() - 1) res++;
+        return res;
+    }
+
     std::ostream &dump(std::ostream &o) const { return o << pancakes; }
     void dump() const {dump(std::cerr) << std::endl;}
 
 private:
     std::vector<int> pancakes;
 };
+
+void dump(const Pancake &p) {p.dump();}
 
 std::ostream &operator<<(std::ostream &o, const Pancake &p) {
     return p.dump(o);}
@@ -66,9 +76,7 @@ bool operator==(const std::shared_ptr<const Pancake> &p1,
 //------------------------- HEURISTICS ------------------//
 
 struct GapHeuristic {
-    GapHeuristic(const Pancake &goal) : goal_(goal) {}
-private:
-    Pancake goal_;
+    int operator()(const Pancake &s) const { return s.gapHeuristic(); }
 };
 
 #endif

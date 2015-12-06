@@ -13,6 +13,8 @@
    3. We'll define a type for storing both a state and a cost of the transfer to this state from the parent.
 */
 
+#include <vector>
+
 template <typename State_, bool uniformFlag=true>
 struct StateNeighbor {
     using State = State_;
@@ -91,7 +93,22 @@ struct AStarNode : public NodeData_<State_> {
     // not const, since will call shareState() on the return value
     MyType *parent() { return parent_; }
     void setParent(MyType *parent) { parent_ = parent; }
-    StateSmartPtr &shareState() { return state_; }
+    const StateSmartPtr &shareState() const { return state_; }
+    const StateSmartPtr &shareParentState() const {
+        static StateSmartPtr nullResult = StateSmartPtr(nullptr);
+        if (!parent_) return nullResult;
+        return parent_->state_;
+    }
+    std::vector<State> path() {
+        std::vector<State> res;
+        MyType *cur = this;
+        while (cur) {
+            res.push_back(cur->state());
+            cur = cur->parent_;
+        }
+        std::reverse(res.begin(), res.end());
+        return res;
+    }
     const BucketPosition &bucketPosition() const { return bucketPosition_; }
     void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }
 

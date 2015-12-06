@@ -46,6 +46,13 @@ VertexStyle defaultVertexStyle() {
 }
 
 struct EdgeStyle {
+    bool operator==(const EdgeStyle &rhs) {
+        if (shape != rhs.shape) return false;
+        if (dash != rhs.dash) return false;
+        if (color != rhs.color) return false;
+        if (width != rhs.width) return false;
+        return true;
+    };
     EdgeShape shape;
     EdgeDash dash;
     Color color;

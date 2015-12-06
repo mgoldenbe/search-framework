@@ -3,28 +3,10 @@
 
 #include <vector>
 #include <type_traits>
+#include <memory>
 #include "Graph.h"
 #include "AlgorithmLogger.h"
 #include "AstarEvent.h"
-
-template <class State>
-struct NoGoalHandler {
-    NoGoalHandler(const State &goal) {(void)goal;}
-    void update(const State &s) {(void)s;}
-    bool done() const {return false;}
-};
-
-template <class State>
-struct SingleGoalHandler {
-    SingleGoalHandler(const State &goal) : goal_(goal) {}
-    void update(const State &s) {
-        if (s == goal_) done_ = true;
-    }
-    bool done() const {return done_;}
-private:
-    State goal_;
-    bool done_ = false;
-};
 
 // Heuristic should have a static compute() member function
 template <class Open, class Heuristic,
@@ -49,14 +31,17 @@ struct Astar {
                   "*shared pointer*, not a *unique pointer* to state.");
 
     Astar(const State &start, const GoalHandler<State> &goalHandler,
-          Graph<State, CostType> &graph, AlgorithmLogger &logger)
-        : start_(start), goalHandler_(goalHandler), graph_(graph),
-          logger_(logger), oc_(), cur_(nullptr), children_() {}
+          const Heuristic &heuristic, Graph<State, CostType> &graph,
+          AlgorithmLogger &logger)
+        : start_(start), goalHandler_(goalHandler), heuristic_(heuristic),
+          graph_(graph), logger_(logger), oc_(), cur_(nullptr), children_() {}
 
     void run() {
         NodeUniquePtr startNode(new Node(start_));
         graph_.add(startNode->shareState());
-        logger_.log(Event(startNode->shareState(), Event::StateRole::START));
+        logger_.log(
+            Event(startNode->shareState(), Event::StateRole::START, nullptr));
+        goalHandler_.logInit(logger_);
         oc_.add(startNode);
         while (!oc_.empty() && !goalHandler_.done()) expand();
     }
@@ -66,7 +51,7 @@ struct Astar {
         auto parent = cur_->parent() ? cur_->parent()->shareState() : nullptr;
         logger_.log(
             Event(cur_->shareState(), Event::EventType::SELECTED, parent));
-        goalHandler_.update(cur_->state());
+        goalHandler_.update(cur_, logger_);
         if (goalHandler_.done()) {
             //std::cout << "Done!" << std::endl;
             return;
@@ -95,6 +80,7 @@ struct Astar {
         }
         NodeUniquePtr newNode(new Node(child));
         newNode->g = cur_->g + cost;
+        newNode->f = newNode->g + heuristic_(newNode->state());
         newNode->setParent(cur_);
         graph_.add(cur_->shareState(), newNode->shareState(), cost);
         logger_.log(Event(newNode->shareState(),
@@ -111,6 +97,7 @@ struct Astar {
 private:
     State start_;
     GoalHandler<State> goalHandler_;
+    const Heuristic &heuristic_;
     Graph<State, CostType> &graph_;
     AlgorithmLogger &logger_;
     OCL<Open> oc_;

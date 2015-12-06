@@ -1,7 +1,8 @@
 #ifndef ASTAR_EVENT
 #define ASTAR_EVENT
 
-template <class State, class NodeData> struct AstarEvent {
+template <class State_, class NodeData> struct AstarEvent {
+    using State = State_;
     using StateSharedPtr = std::shared_ptr<const State>;
     using MyType = AstarEvent<State, NodeData>;
 
@@ -17,8 +18,9 @@ template <class State, class NodeData> struct AstarEvent {
     enum class StateRole { NOVAL, START, GOAL, DONE_GOAL };
 
     // ROLE event
-    AstarEvent(const StateSharedPtr &state, const StateRole &role)
-        : AstarEvent(state, EventType::ROLE, role, nullptr, NodeData()) {}
+    AstarEvent(const StateSharedPtr &state, const StateRole &role,
+               const StateSharedPtr &parent)
+        : AstarEvent(state, EventType::ROLE, role, parent, NodeData()) {}
 
     // SELECTED or CLOSED
     AstarEvent(const StateSharedPtr &state, EventType type,
@@ -36,12 +38,26 @@ template <class State, class NodeData> struct AstarEvent {
     // -1 means no previous event
     void setLastEventStep(int step) { lastEventStep_ = step; }
 
+    template <class AlgorithmLog>
+    std::vector<StateSharedPtr> path(const StateSharedPtr &state,
+                                     const AlgorithmLog &log) const {
+        std::vector<StateSharedPtr> res;
+        StateSharedPtr s = state;
+        while (s) {
+            res.push_back(s);
+            s = log.getLastEvent(s).parent();
+        }
+        std::reverse(res.begin(), res.end());
+        return res;
+    }
+
     std::ostream &dump(std::ostream &o) const {
         // There is an alternative here:
         // http://stackoverflow.com/a/23402871/2725810
         // Drawback: has to be declared outside of any class
-        std::vector<std::string> eventTypeStr = {"NOVAL", "ROLE", "SELECTED",
-                                                 "GENERATED", "CHANGED_PARENT"};
+        std::vector<std::string> eventTypeStr = {
+            "NOVAL",    "ROLE",   "BEGIN_GENERATE", "END_GENERATE",
+            "SELECTED", "CLOSED", "CHANGED_PARENT"};
         std::vector<std::string> stateRoleStr = {"NOVAL", "START", "GOAL",
                                                  "DONE_GOAL"};
         o << *state_ << ": " << eventTypeStr[static_cast<int>(type_)] << ": ";
@@ -51,11 +67,13 @@ template <class State, class NodeData> struct AstarEvent {
             break;
         case EventType::SELECTED:
             break;
-        case EventType::BEGIN_GENERATE:
+        case EventType::BEGIN_GENERATE: case EventType::END_GENERATE:
             o << "Parent: " << *parent_ << "   Node: " << nodeData_;
             break;
+        case EventType::CLOSED:
+            break;
         default:
-            o << "Unhandled EventType" << std::endl;
+            o << "Unhandled EventType";
             assert(0);
         }
         return o;

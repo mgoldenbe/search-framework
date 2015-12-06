@@ -107,13 +107,14 @@ struct Drawer {
 
     void run() {
         int iteration = 0;
+        //msleep(10000);
         while (1) {
             // std::cout << "Iteration " << iteration << std::endl;
             if (!processEvents()) break;
             draw();
             // boost::this_thread::sleep( boost::posix_time::milliseconds(100));
             msleep(1);
-            if (++iteration % 250 == 0) log_.next();
+            if (++iteration % 500 == 0) log_.next();
         }
     }
 
@@ -210,10 +211,13 @@ private:
         cairo_paint(cr);
 
         cairo_set_source_rgb(cr, 56, 128, 4);
-        for (auto from : g_.vertexRange()) {
-            for (auto to : g_.adjacentVertexRange(from)) {
-                auto ed = g_.edge(from, to);
-                drawEdge(from, to, log_.edgeStyle(ed));
+        for (int defaultFlag = 1; defaultFlag >= 0; --defaultFlag)
+            for (auto from : g_.vertexRange()) {
+                for (auto to : g_.adjacentVertexRange(from)) {
+                    auto ed = g_.edge(from, to);
+                    auto style = log_.edgeStyle(ed);
+                    if ((style == VisualLog::VisualEvent::defaultEdgeStyle()) == defaultFlag)
+                        drawEdge(from, to, log_.edgeStyle(ed));
             }
         }
         for (auto vd : g_.vertexRange())

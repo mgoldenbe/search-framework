@@ -40,15 +40,19 @@ struct AlgorithmLogger {
     }
 
     const std::vector<AlgorithmEvent> &events() const {return events_;}
+
+    const AlgorithmEvent &getLastEvent(const StateSharedPtr &s) const {
+        auto it = stateToLastEventStep_.find(s);
+        if (it == stateToLastEventStep_.end()) assert(0);
+        return events_[it->second];
+    }
 private:
     // -1 means no previous event
-    std::unordered_map<StateSharedPtr, int> stateToLastEventStep_;
+    std::unordered_map<StateSharedPtr, int,
+                       StateSharedPtrHash<typename AlgorithmEvent::State>>
+    stateToLastEventStep_;
 
     std::vector<AlgorithmEvent> events_;
-
-    const AlgorithmEvent &getLastEvent(const StateSharedPtr &s) {
-        return events_[stateToLastEventStep_[s]];
-    }
 };
 
 #endif

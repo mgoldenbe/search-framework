@@ -1,6 +1,7 @@
 #include "Pancake.h"
 #include "OL.h"
 #include "OCL.h"
+#include "GoalHandler.h"
 #include "Astar.h"
 #include "Graph.h"
 #include "AlgorithmLogger.h"
@@ -16,11 +17,12 @@ using CostType = State::CostType;
 using Node = AStarNode<State>;
 
 template <class State>
-//using GoalHandlerT = SingleGoalHandler<State>;
-using GoalHandlerT = NoGoalHandler<State>;
+using GoalHandlerT = SingleGoalHandler<State>;
+//using GoalHandlerT = NoGoalHandler<State>;
 using GoalHandler = GoalHandlerT<State>;
 
-using MyOL = OL<Node, DefaultPriority, GreaterPriority_SmallG>;
+using MyBFSOL = OL<Node, DefaultPriority, GreaterPriority_SmallG>;
+using MyOL = OL<Node, DefaultPriority, GreaterPriority_SmallF_LargeG>;
 
 template <class State, typename CostType>
 using GraphT = StateGraph<State, CostType>;
@@ -38,11 +40,18 @@ void testAstar() {
     Pancake goal(4), start(goal);
     start.shuffle();
     Graph g;
-    MyLogger logger;
+    MyLogger logger1, logger;
+
+    // Build graph
+    Astar<MyBFSOL, GapHeuristic, GoalHandlerT, GraphT, MyLogger>
+        myAstar1(start, GoalHandler(goal), GapHeuristic(), g, logger1);
+    myAstar1.run();
+
+    // Real search
     Astar<MyOL, GapHeuristic, GoalHandlerT, GraphT, MyLogger>
-        myAstar(start, GoalHandler(goal), g, logger);
+        myAstar(start, GoalHandler(goal), GapHeuristic(), g, logger);
     myAstar.run();
-    //logger.dump();
+    logger.dump();
     //g.dump();
 #ifndef NO_DRAWER
     MyVisualLog visualLog(logger, g);

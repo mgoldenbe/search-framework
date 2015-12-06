@@ -15,8 +15,10 @@ struct NoVisualLog {
     }
 };
 
-template <class AlgorithmLog, class VisualEvent>
+template <class AlgorithmLog_, class VisualEvent_>
 struct VisualLog {
+    using AlgorithmLog = AlgorithmLog_;
+    using VisualEvent = VisualEvent_;
     using Graph = typename VisualEvent::Graph;
     using VertexDescriptor = typename Graph::VertexDescriptor;
     using EdgeDescriptor = typename Graph::EdgeDescriptor;
@@ -61,6 +63,8 @@ struct VisualLog {
         auto e = events_[--step_];
         unApplyEvent(e);
     }
+
+    const AlgorithmLog &getAlgorithmLog() const { return log_; }
 
 private:
     const AlgorithmLog &log_;
