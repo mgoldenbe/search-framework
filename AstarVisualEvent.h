@@ -21,16 +21,29 @@ struct DefaultAstarStyles {
     static void roleDoneGoalBegin(EdgeStyle &style) {
         style.color = Color::VIVID_GREEN;
     }
-    static void beginGenerate(VertexStyle &vertexStyle, EdgeStyle &edgeStyle) {
-        vertexStyle.fillColor = Color::SUNSHINE_YELLOW;
-        edgeStyle.color = Color::SUNSHINE_YELLOW;
+    static void beginGenerate(VertexStyle &style) {
+        style.fillColor = Color::SUNSHINE_YELLOW;
     }
-    static void endGenerate(VertexStyle &vertexStyle, EdgeStyle &edgeStyle) {
-        vertexStyle.fillColor = Color::PALE_YELLOW;
-        edgeStyle.color = Color::PALE_YELLOW;
+    static void beginGenerate(EdgeStyle &style) {
+        style.color = Color::SUNSHINE_YELLOW;
+    }
+    static void endGenerate(VertexStyle &style) {
+        style.fillColor = Color::PALE_YELLOW;
+    }
+    static void endGenerate(EdgeStyle &style) {
+        style.color = Color::PALE_YELLOW;
     }
     static void selected(VertexStyle &style) {
         style.fillColor = Color::VIVID_PURPLE;
+    }
+    static void suspendedExpansion(VertexStyle &style) {
+        style.fillColor = Color::ORANGE;
+    }
+    static void resumedExpansion(VertexStyle &style) {
+        selected(style);
+    }
+    static void deniedExpansion(VertexStyle &style) {
+        endGenerate(style);
     }
     static void closed(VertexStyle &style) { // for the start node
         style.fillColor = Color::WARM_BROWN;
@@ -115,10 +128,12 @@ struct AstarVisualEvent {
                 EdgeStyle edgeNow = edgeBefore;
                 switch(e.type()) {
                 case Event::EventType::BEGIN_GENERATE:
-                    Styles::beginGenerate(now, edgeNow);
+                    Styles::beginGenerate(now);
+                    Styles::beginGenerate(edgeNow);
                     break;
                 case Event::EventType::END_GENERATE:
-                    Styles::endGenerate(now, edgeNow);
+                    Styles::endGenerate(now);
+                    Styles::endGenerate(edgeNow);
                     break;
                 case Event::EventType::CLOSED:
                     Styles::closed(now, edgeNow);
@@ -131,6 +146,15 @@ struct AstarVisualEvent {
         }
         case Event::EventType::SELECTED:
             Styles::selected(now);
+            break;
+        case Event::EventType::SUSPENDED_EXPANSION:
+            Styles::suspendedExpansion(now);
+            break;
+        case Event::EventType::RESUMED_EXPANSION:
+            Styles::resumedExpansion(now);
+            break;
+        case Event::EventType::DENIED_EXPANSION:
+            Styles::deniedExpansion(now);
             break;
         default:
             ;

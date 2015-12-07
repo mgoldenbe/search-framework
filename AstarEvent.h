@@ -1,6 +1,8 @@
 #ifndef ASTAR_EVENT
 #define ASTAR_EVENT
 
+#include <sstream>
+
 template <class State_, class NodeData> struct AstarEvent {
     using State = State_;
     using StateSharedPtr = std::shared_ptr<const State>;
@@ -12,26 +14,27 @@ template <class State_, class NodeData> struct AstarEvent {
         BEGIN_GENERATE,
         END_GENERATE,
         SELECTED,
+        SUSPENDED_EXPANSION,
+        RESUMED_EXPANSION,
+        DENIED_EXPANSION,
         CLOSED,
         CHANGED_PARENT
     };
     enum class StateRole { NOVAL, START, GOAL, DONE_GOAL };
 
     // ROLE event
-    AstarEvent(const StateSharedPtr &state, const StateRole &role,
-               const StateSharedPtr &parent)
-        : AstarEvent(state, EventType::ROLE, role, parent, NodeData()) {}
+    template <class Node>
+    AstarEvent(const Node *n, const StateRole &role,
+               const std::string &additional = "")
+        : AstarEvent(n->shareState(), EventType::ROLE, role,
+                     n->shareParentState(), additional) {}
 
-    // SELECTED or CLOSED
-    AstarEvent(const StateSharedPtr &state, EventType type,
-               const StateSharedPtr &parent)
-        : AstarEvent(state, type, StateRole(), parent, NodeData()) {}
-
-    // BEGIN_GENERATE or END_GENERATE
-    AstarEvent(const StateSharedPtr &state, EventType type,
-               const StateSharedPtr &parent, const NodeData &nodeData)
-        : AstarEvent(state, type, StateRole(), parent,
-                     nodeData) {}
+    // NON-ROLE event
+    template <class Node>
+    AstarEvent(const Node *n, const EventType &type,
+               const std::string &additional = "")
+        : AstarEvent(n->shareState(), type, StateRole(),
+                     n->shareParentState(), additional) {}
 
     const StateSharedPtr &state() const { return state_; }
 
@@ -51,31 +54,42 @@ template <class State_, class NodeData> struct AstarEvent {
         return res;
     }
 
+    static std::ostream &dumpTitle(std::ostream &o) {
+        o << std::setw(18) << "State" << std::setw(20) << "Event"
+          << std::setw(12) << "Role" << std::setw(18) << "Parent"
+          << std::setw(12) << "Note" << std::endl;
+        return o;
+    }
+
     std::ostream &dump(std::ostream &o) const {
         // There is an alternative here:
         // http://stackoverflow.com/a/23402871/2725810
         // Drawback: has to be declared outside of any class
         std::vector<std::string> eventTypeStr = {
-            "NOVAL",    "ROLE",   "BEGIN_GENERATE", "END_GENERATE",
-            "SELECTED", "CLOSED", "CHANGED_PARENT"};
+            "NOVAL",             "ROLE",             "BEGIN_GENERATE",
+            "END_GENERATE",      "SELECTED",         "SUSPENDED_EXPANSION",
+            "RESUMED_EXPANSION", "DENIED_EXPANSION", "CLOSED",
+            "CHANGED_PARENT"};
         std::vector<std::string> stateRoleStr = {"NOVAL", "START", "GOAL",
                                                  "DONE_GOAL"};
-        o << *state_ << ": " << eventTypeStr[static_cast<int>(type_)] << ": ";
-        switch (type_) {
-        case EventType::ROLE:
-            o << stateRoleStr[static_cast<int>(role_)];
-            break;
-        case EventType::SELECTED:
-            break;
-        case EventType::BEGIN_GENERATE: case EventType::END_GENERATE:
-            o << "Parent: " << *parent_ << "   Node: " << nodeData_;
-            break;
-        case EventType::CLOSED:
-            break;
-        default:
-            o << "Unhandled EventType";
-            assert(0);
+        std::ostringstream so;
+        so << *state_;
+        o  << std::setw(18) << so.str()
+          << std::setw(20) << eventTypeStr[static_cast<int>(type_)];
+
+        if (type_ == EventType::ROLE)
+            o << std::setw(12) << stateRoleStr[static_cast<int>(role_)];
+        else
+            o << std::setw(12) << "n/a";
+
+        if (parent_) {
+            std::ostringstream so;
+            so << *parent_;
+            o << std::setw(18) << so.str();
         }
+        else
+            o << std::setw(18) << "n/a";
+        o << std::setw(12) << additional_;
         return o;
     }
 
@@ -89,14 +103,14 @@ private:
     const EventType type_;
     const StateRole role_;
     StateSharedPtr parent_;
-    const NodeData nodeData_;
+    const std::string additional_;
     std::size_t lastEventStep_;
 
     AstarEvent(const StateSharedPtr &state, const EventType &type,
                const StateRole &role, const StateSharedPtr &parent,
-               const NodeData &nodeData)
+               const std::string &additional)
         : state_(state), type_(type), role_(role), parent_(parent),
-          nodeData_(nodeData) {}
+          additional_(additional) {}
 };
 
 template <class State, class NodeData>

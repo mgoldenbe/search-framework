@@ -29,11 +29,15 @@ struct AlgorithmLogger {
             e.setLastEventStep(it->second);
         events_.push_back(e);
     }
-    void dump() {
-        std::cout << "Events in order:" << std::endl;
+    void dump(bool dumpLastEvents = false) {
+        std::cout << std::right << std::setfill(' ') << "ALGORITHM LOG"
+                  << std::endl;
+        std::cout << std::setw(4) << "Num.";
+        AlgorithmEvent::dumpTitle(std::cout);
         int i = 0;
         for (auto el: events_)
-            std::cout << "Event " << i++ << ". " << el << std::endl;
+            std::cout << std::setw(4) << i++ << el << std::endl;
+        if (!dumpLastEvents) return;
         std::cout << "\nLast events:" << std::endl;
         for (auto el: stateToLastEventStep_)
             std::cout << *(el.first) << ": " << el.second << std::endl;

@@ -28,7 +28,12 @@ struct Pancake {
         return v_hash(pancakes);
     }
 
-    void shuffle() {std::random_shuffle(pancakes.begin(), pancakes.end());}
+    void shuffle() {
+        auto old = pancakes;
+        while (old == pancakes)
+            std::random_shuffle(pancakes.begin(), pancakes.end());
+    }
+
     const std::vector<int> &getPancakes() const {return pancakes;}
     Pancake *move(int pos) {
         std::reverse(pancakes.begin(), pancakes.begin() + pos + 1);
@@ -50,6 +55,16 @@ struct Pancake {
             if (abs(pancakes[i] - pancakes[i + 1]) > 1) res++;
         if (pancakes.back() != (int)pancakes.size() - 1) res++;
         return res;
+    }
+
+    int gapHeuristic(const Pancake &goal) const {
+        Pancake temp = *this;
+        std::vector<int> transform(goal.pancakes.size());
+        for (auto i = 0U; i < goal.pancakes.size(); ++i)
+            transform[goal.pancakes[i]] = i;
+        for (auto i = 0U; i < temp.pancakes.size(); ++i)
+            temp.pancakes[i] = transform[temp.pancakes[i]];
+        return temp.gapHeuristic();
     }
 
     std::ostream &dump(std::ostream &o) const { return o << pancakes; }
@@ -77,6 +92,12 @@ bool operator==(const std::shared_ptr<const Pancake> &p1,
 
 struct GapHeuristic {
     int operator()(const Pancake &s) const { return s.gapHeuristic(); }
+};
+
+struct GapHeuristicToGoal {
+    int operator()(const Pancake &s, const Pancake &goal) const {
+        return s.gapHeuristic(goal);
+    }
 };
 
 #endif

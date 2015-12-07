@@ -107,7 +107,7 @@ struct Drawer {
 
     void run() {
         int iteration = 0;
-        //msleep(10000);
+        msleep(10000);
         while (1) {
             // std::cout << "Iteration " << iteration << std::endl;
             if (!processEvents()) break;

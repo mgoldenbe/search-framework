@@ -56,6 +56,10 @@ template <class OL> struct OCL {
         hash[key] = std::move(n);
     }
 
+    void reInsert(Node *n) {
+        ol.add(n);
+    }
+
     Node *minNode() { return ol.deleteMin(); }
 
     void close(Node *n) { n->setBucketPosition(-1); }

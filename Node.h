@@ -70,13 +70,13 @@ template<typename State>
 //using DefaultStateSmartPtrT = StateUniquePtrT<State>;
 using DefaultStateSmartPtrT = StateSharedPtrT<State>;
 
-template <typename State_, template <class> class NodeData_ = NoNodeData,
+template <typename State_, class NodeData_ = NoNodeData<State_>,
           template <class> class StateSmartPtrT = DefaultStateSmartPtrT,
           typename BucketPosition = int>
-struct AStarNode : public NodeData_<State_> {
+struct AStarNode : public NodeData_ {
     using State = State_;
     using StateSmartPtr = StateSmartPtrT<State>;
-    using NodeData = NodeData_<State>;
+    using NodeData = NodeData_;
     using MyType = AStarNode<State, NodeData_, StateSmartPtrT, BucketPosition>;
     using NodeUniquePtr = std::unique_ptr<MyType>;
 
@@ -126,7 +126,7 @@ private:
     BucketPosition bucketPosition_;
 };
 
-template <typename State, template <class> class NodeData = NoNodeData,
+template <typename State, class NodeData = NoNodeData<State>,
           template <class> class SmartStatePtrT = DefaultStateSmartPtrT,
           typename BucketPosition = int>
 std::ostream &operator<<(
