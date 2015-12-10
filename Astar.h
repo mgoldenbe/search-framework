@@ -40,35 +40,40 @@ struct Astar {
         logger_.log(Event(startNode.get(), Event::StateRole::START));
         goalHandler_.template logInit<Node>();
         oc_.add(startNode);
-        while (!oc_.empty() && !goalHandler_.done()) expand();
+        while (!oc_.empty() && !goalHandler_.done()) {
+            cur_ = oc_.minNode();
+            logger_.log(Event(cur_, Event::EventType::SELECTED));
+            onSelectAndExpand(std::integral_constant<
+                bool, std::is_same<decltype(goalHandler_.onSelect(cur_)),
+                                   bool>::value>());
+        }
+    }
+
+private:
+    void onSelectAndExpand(std::true_type) {
+        if (!goalHandler_.onSelect(cur_)) {
+            // The following code will need to become more generic
+            auto oldCost = cur_->f;
+            cur_->f = cur_->g + heuristic_(cur_);
+            if (cur_->f > oldCost) {
+                // Need to give info about the change of node information!
+                logger_.log(Event(cur_, Event::EventType::DENIED_EXPANSION));
+                oc_.reInsert(cur_);
+                return;
+            } else
+                logger_.log(Event(cur_, Event::EventType::RESUMED_EXPANSION));
+        }
+        expand();
+    }
+
+    void onSelectAndExpand(std::false_type) {
+        goalHandler_.onSelect(cur_);
+        expand();
     }
 
     void expand() {
-        cur_ = oc_.minNode();
-        logger_.log(Event(cur_, Event::EventType::SELECTED));
-        if (!std::is_same<decltype(goalHandler_.update(cur_)),
-            void>::value) {
-            if (!goalHandler_.update(cur_)) {
-                // The following code will need to become more generic
-                auto oldCost = cur_->f;
-                cur_->f = cur_->g + heuristic_(cur_);
-                if (cur_->f > oldCost) {
-                    // Need to give info about the change of node information!
-                    logger_.log(
-                        Event(cur_, Event::EventType::DENIED_EXPANSION));
-                    oc_.reInsert(cur_);
-                    return;
-                }
-                else
-                    logger_.log(
-                        Event(cur_, Event::EventType::RESUMED_EXPANSION));
-            }
-        }
-        else // goalHandler_.update() does not return a value
-            goalHandler_.update(cur_);
-
         if (goalHandler_.done()) {
-            //std::cout << "Done!" << std::endl;
+            // std::cout << "Done!" << std::endl;
             return;
         }
         children_ = (cur_->state()).successors();
@@ -105,13 +110,14 @@ struct Astar {
         oc_.add(newNode);
     }
 
-private:
-    State start_;
+    State start_; // We should consider making this local
     GoalHandler goalHandler_;
     const Heuristic &heuristic_;
     Graph &graph_;
     AlgorithmLogger &logger_;
     OCL<Open> oc_;
+
+    // We should consider making these local
     Node *cur_;
     std::vector<Neighbor> children_;
 };

@@ -1,3 +1,6 @@
+///@file
+///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
+
 #include "Pancake.h"
 #include "OL.h"
 #include "OCL.h"

@@ -1,11 +1,11 @@
+///@file
+///@brief INTERFACES CHECKED.
+
 #ifndef GOAL_HANDLER
 #define GOAL_HANDLER
 
 struct NoGoalHandler {
-    template <class Node> bool update(const Node *n) {
-        (void)n;
-        return true;
-    }
+    template <class Node> void onSelect(const Node *n) { (void)n; }
     bool done() const {return false;}
 
     template <class Node> void logInit() {}
@@ -15,14 +15,13 @@ template <class State, class Logger>
 struct SingleGoalHandler {
     SingleGoalHandler(const State &goal, Logger &logger)
         : goal_(goal), logger_(logger) {}
-    template <class Node> bool update(const Node *n) {
+    template <class Node> void onSelect(const Node *n) {
         using Event = typename Logger::AlgorithmEvent;
         if (n->state() == goal_) {
             done_ = true;
             logger_.log(Event(n->shareState(), Event::StateRole::DONE_GOAL,
                               n->shareParentState()));
         }
-        return true;
     }
     bool done() const {return done_;}
 
@@ -43,7 +42,7 @@ template <class State, class Logger>
 struct MultipleGoalHandler {
     MultipleGoalHandler(std::vector<State> &goals, Logger &logger)
         : goals_(goals), logger_(logger) {}
-    template <class Node> bool update(const Node *n) {
+    template <class Node> bool onSelect(const Node *n) {
         using Event = typename Logger::AlgorithmEvent;
         { // Check identity of goal resposible for heuristic
             auto it = std::find(doneGoals_.begin(), doneGoals_.end(),

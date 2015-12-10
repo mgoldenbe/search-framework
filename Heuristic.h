@@ -1,3 +1,6 @@
+///@file
+///@brief INTERFACES CHECKED.
+
 #ifndef HEURISTIC
 #define HEURISTIC
 
@@ -9,8 +12,10 @@ template <typename CostType> struct ZeroHeuristic {
 template <class State, class Heuristic>
 struct MinHeuristicToGoals {
     using CostType = typename State::CostType;
+
     MinHeuristicToGoals(std::vector<State> &goals, const Heuristic &heuristic)
         : goals_(goals), heuristic_(heuristic) {}
+
     template<class Node>
     CostType operator()(Node *n) const {
         auto &s = n->state();
@@ -27,6 +32,7 @@ struct MinHeuristicToGoals {
         return res;
     }
 private:
+    // the goals can be changed by a third party, e.g. the GoalHandler
     std::vector<State> &goals_;
     const Heuristic &heuristic_;
 };
