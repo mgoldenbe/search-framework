@@ -52,12 +52,17 @@ std::string nodesDiff(
     typename std::enable_if<!std::is_same<typename Node::Base1, void>::value &&
                                 std::is_same<typename Node::Base2, void>::value,
                             int>::type = 0) {
+    std::string res = "(";
+    res += nodesDiff((typename Node::Base1 &)n1, (typename Node::Base1 &)n2);
+    res.erase(0, 1);
+    res.erase(res.size()-1, 1);
+
     int index = 0;
     std::ostringstream so;
-    so << "(";
     print_fields_comparison(n1, n2, so, index);
-    print_fields_comparison((typename Node::Base1 &)n1,
-                            (typename Node::Base1 &)n2, so, index);
-    so << ")";
-    return so.str();
+    if (so.str().size() > 0) res += "  ";
+    res += so.str();
+
+    res += ")";
+    return res;
 }

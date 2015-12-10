@@ -19,16 +19,45 @@ void print_fields(T &x, std::basic_ostream<CharT> &o, int &index) {
     visit_each(x, a);
 }
 
+template <class Node>
+std::string
+nodeStr(const Node &n,
+        typename std::enable_if<std::is_same<typename Node::Base1, void>::value,
+                                int>::type = 0) {
+    int index = 0;
+    std::ostringstream so;
+    so << "(";
+    print_fields(n, so, index);
+    so << ")";
+    return so.str();
+}
+
+template <class Node>
+std::string nodeStr(const Node &n, typename std::enable_if<
+                        !std::is_same<typename Node::Base1, void>::value &&
+                            std::is_same<typename Node::Base2, void>::value,
+                        int>::type = 0) {
+    std::string res = "(";
+    res += nodeStr((typename Node::Base1 &)n);
+    res.erase(0, 1);
+    res.erase(res.size()-1, 1);
+
+    int index = 0;
+    std::ostringstream so;
+    print_fields(n, so, index);
+    if (so.str().size() > 0) res += "  ";
+    res += so.str();
+
+    res += ")";
+    return res;
+}
+
 template <typename CharT, class Node>
 std::basic_ostream<CharT> &
 dumpNode(std::basic_ostream<CharT> &o, const Node &n,
          typename std::enable_if<
              std::is_same<typename Node::Base1, void>::value, int>::type = 0) {
-    int index = 0;
-    o << "(";
-    print_fields(n, o, index);
-    o << ")";
-    return o;
+    return o << nodeStr(n);
 }
 
 template <typename CharT, class Node>
@@ -37,12 +66,7 @@ std::basic_ostream<CharT> &dumpNode(
     typename std::enable_if<!std::is_same<typename Node::Base1, void>::value &&
                                 std::is_same<typename Node::Base2, void>::value,
                             int>::type = 0) {
-    int index = 0;
-    o << "(";
-    print_fields(n, o, index);
-    print_fields((typename Node::Base1 &)n, o, index);
-    o << ")";
-    return o;
+    return o << nodeStr(n);
 }
 
 template <typename charT, class Node>
