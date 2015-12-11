@@ -12,11 +12,11 @@ struct print_visitor {
     }
 };
 
-template <class T, typename CharT>
-void print_fields(T &x, std::basic_ostream<CharT> &o, int &index) {
+template <class Node, typename CharT>
+void print_fields(Node &n, std::basic_ostream<CharT> &o, int &index) {
     auto a = std::bind(print_visitor(), std::placeholders::_1, std::ref(o),
                        std::ref(index));
-    visit_each(x, a);
+    visit_each(n, a);
 }
 
 template <class Node>
@@ -45,7 +45,7 @@ std::string nodeStr(const Node &n, typename std::enable_if<
     int index = 0;
     std::ostringstream so;
     print_fields(n, so, index);
-    if (so.str().size() > 0) res += "  ";
+    if (so.str().size() > 0 && res.size() > 1) res += "  ";
     res += so.str();
 
     res += ")";

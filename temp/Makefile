@@ -4,3 +4,6 @@ all:
 	g++ -Wall -Wextra -Werror -std=c++11 -pedantic $(INCLUDE) -g -c temp.cpp
 	g++ -Wall -Wextra -Werror -std=c++11 -pedantic  -c type.cpp
 	g++ -Wall -Wextra -Werror -std=c++11 -pedantic  -o temp temp.o type.o -lcairo -lX11
+
+preprocessor:
+	g++ -Wall -Wextra -Werror -std=c++11 -pedantic $(INCLUDE) -E temp.cpp

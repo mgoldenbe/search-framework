@@ -60,7 +60,7 @@ std::string nodesDiff(
     int index = 0;
     std::ostringstream so;
     print_fields_comparison(n1, n2, so, index);
-    if (so.str().size() > 0) res += "  ";
+    if (so.str().size() > 0 && res.size() > 1) res += "  ";
     res += so.str();
 
     res += ")";

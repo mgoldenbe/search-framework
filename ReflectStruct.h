@@ -42,12 +42,24 @@ template <class M, class T> struct make_const<const M, T> {
     typedef typename boost::add_const<T>::type type;
 };
 
-#define REFLECTABLE(...)                                                       \
+// http://stackoverflow.com/a/2831966/2725810
+#define REFLECTABLE_0(...)                                                     \
     static const int fields_n = BOOST_PP_VARIADIC_SIZE(__VA_ARGS__);           \
     friend struct reflector;                                                   \
     template <int N, class Self> struct field_data {};                         \
     BOOST_PP_SEQ_FOR_EACH_I(REFLECT_EACH, data,                                \
                             BOOST_PP_VARIADIC_TO_SEQ(__VA_ARGS__))
+
+#define REFLECTABLE_1(...)                                                     \
+    static const int fields_n = 0;
+
+#define REFLECTABLE_CONST2(b, ...) REFLECTABLE_##b(__VA_ARGS__)
+
+#define REFLECTABLE_CONST(b, ...) REFLECTABLE_CONST2(b,__VA_ARGS__)
+
+
+#define REFLECTABLE(...) REFLECTABLE_CONST(BOOST_PP_IS_EMPTY(__VA_ARGS__), __VA_ARGS__)
+
 
 #define REFLECT_EACH(r, data, i, x)                                            \
     PAIR(x);                                                                   \
