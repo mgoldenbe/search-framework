@@ -1,7 +1,13 @@
+///@file
+///@brief INTERFACES CHECKED.
+
+#ifndef NODE_2_STREAM
+#define NODE_2_STREAM
+
 #include <iostream>
 #include <sstream>
 #include <functional>
-#include "../utilities.h"
+#include "utilities.h"
 #include "ReflectStruct.h"
 
 struct print_visitor {
@@ -74,3 +80,5 @@ auto operator<<(std::basic_ostream<charT> &o, const Node &n)
     -> decltype(dumpNode(o, n)) {
     return dumpNode(o, n);
 }
+
+#endif

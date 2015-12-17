@@ -1,7 +1,13 @@
+///@file
+///@brief INTERFACES CHECKED.
+
+#ifndef NODES_DIFF
+#define NODES_DIFF
+
 #include <iostream>
 #include <sstream>
 #include <functional>
-#include "../utilities.h"
+#include "utilities.h"
 #include "ReflectStruct.h"
 
 struct second_node_visitor {
@@ -66,3 +72,5 @@ std::string nodesDiff(
     res += ")";
     return res;
 }
+
+#endif

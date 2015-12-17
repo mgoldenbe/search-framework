@@ -42,6 +42,8 @@ template <class M, class T> struct make_const<const M, T> {
     typedef typename boost::add_const<T>::type type;
 };
 
+// The following is my addition to handle empty argument list
+// http://stackoverflow.com/a/34220519/2725810
 // http://stackoverflow.com/a/2831966/2725810
 #define REFLECTABLE_0(...)                                                     \
     static const int fields_n = BOOST_PP_VARIADIC_SIZE(__VA_ARGS__);           \
@@ -108,14 +110,5 @@ template <class C, class Visitor> void visit_each(C &c, Visitor v) {
     boost::mpl::for_each<range>(
         boost::bind<void>(field_visitor(), boost::ref(c), v, _1));
 }
-
-/*
-template <class C1, class C2, class Visitor>
-void visit_each_2(C1 &c1, C2 &c2, Visitor v) {
-    typedef boost::mpl::range_c<int, 0, reflector::fields<C1>::n> range;
-    boost::mpl::for_each<range>(boost::bind<void>(field_visitor_2(), v, _1, _2)(
-        boost::ref(c1), boost::ref(c2)));
-}
-*/
 
 #endif
