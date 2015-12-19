@@ -19,28 +19,37 @@ struct AlgorithmLogger {
     using AlgorithmEvent = AlgorithmEvent_;
     using StateSharedPtr = typename AlgorithmEvent::StateSharedPtr;
 
+    ///@name Construction and Assignment
+    //@{
     void log(AlgorithmEvent e) {
         const StateSharedPtr &s = e.state();
         stateToLastEventStep_[s] = events_.size();
         auto it = stateToLastEventStep_.find(s);
 
-        e.setLastEventStep(-1);
+        e.setStep(events_.size(), -1);
         if (it != stateToLastEventStep_.end())
-            e.setLastEventStep(it->second);
+            e.setStep(events_.size(), it->second);
         events_.push_back(e);
     }
-    void dump(bool dumpLastEvents = false) {
-        std::cout << std::right << std::setfill(' ') << "ALGORITHM LOG"
+    //@}
+
+    const AlgorithmEvent &event(int step) const { return events_[step]; }
+
+    template <typename charT>
+    std::basic_ostream<charT> &dump(std::basic_ostream<charT> &o,
+                                    bool dumpLastEvents = false) const {
+        o << std::right << std::setfill(' ') << "ALGORITHM LOG"
                   << std::endl;
-        std::cout << std::setw(4) << "Num.";
-        AlgorithmEvent::dumpTitle(std::cout);
+        o << std::setw(4) << "Num.";
+        AlgorithmEvent::dumpTitle(o);
         int i = 0;
         for (auto el: events_)
-            std::cout << std::setw(4) << i++ << el << std::endl;
-        if (!dumpLastEvents) return;
-        std::cout << "\nLast events:" << std::endl;
+            o << el << std::endl;
+        if (!dumpLastEvents) return o;
+        o << "\nLast events:" << std::endl;
         for (auto el: stateToLastEventStep_)
-            std::cout << *(el.first) << ": " << el.second << std::endl;
+            o << *(el.first) << ": " << el.second << std::endl;
+        return o;
     }
 
     const std::vector<AlgorithmEvent> &events() const {return events_;}

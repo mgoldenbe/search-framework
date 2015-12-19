@@ -1,5 +1,5 @@
-#ifndef COLORS
-#define COLORS
+#ifndef COLORS_H
+#define COLORS_H
 
 #include <vector>
 

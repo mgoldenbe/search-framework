@@ -13,7 +13,7 @@
 #include "VisualLog.h"
 #include "AstarVisualEvent.h"
 #ifndef NO_DRAWER
-#include "Drawer.h"
+#include "Visualizer.h"
 #endif
 
 using MyState = Pancake;
@@ -64,7 +64,7 @@ void testAstar() {
 
     // Real search
     std::vector<MyState> myGoals = {goal1, goal2};
-    std::cout << goal1 << " " << goal2 << std::endl;
+    //std::cout << goal1 << " " << goal2 << std::endl;
     auto myGoalHandler = MyGoalHandler(myGoals, logger);
     Astar<MyOL, MyGoalHandler, MyHeuristic, MyGraph, MyLogger> myAstar(
         start, myGoalHandler, MyHeuristic(myGoals, GapHeuristicToGoal()), g,
@@ -75,8 +75,8 @@ void testAstar() {
     //g.dump();
 #ifndef NO_DRAWER
     MyVisualLog visualLog(logger, g);
-    Drawer<MyGraph, MyVisualLog> d(g, visualLog);
-    d.run();
+    Visualizer<MyGraph, MyVisualLog> vis(g, visualLog);
+    vis.run();
 #endif
 }
 

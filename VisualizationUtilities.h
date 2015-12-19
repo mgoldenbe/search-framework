@@ -1,6 +1,7 @@
 #ifndef VISUALIZATION_UTILITIES
 #define VISUALIZATION_UTILITIES
 
+#include <cairo-xlib.h>
 #include "Colors.h"
 
 struct RGB {
@@ -66,6 +67,44 @@ EdgeStyle defaultEdgeStyle() {
     res.color = Color::BROWN_GREY;
     res.width = 5;
     return res;
+}
+
+//This function should give us a new x11 surface to draw on.
+cairo_surface_t *create_x11_surface(Display *d, int *x, int *y) {
+    Drawable da;
+    int screen;
+    cairo_surface_t *sfc;
+    Screen *scr;
+
+    screen = DefaultScreen(d);
+    scr = DefaultScreenOfDisplay(d);
+    if (!*x || !*y) {
+        *x = WidthOfScreen(scr) / 2;
+        *y = HeightOfScreen(scr) / 2;
+        da =
+            XCreateSimpleWindow(d, DefaultRootWindow(d), 0, 0, *x, *y, 0, 0, 0);
+    } else
+        da =
+            XCreateSimpleWindow(d, DefaultRootWindow(d), 0, 0, *x, *y, 0, 0, 0);
+
+    XSelectInput(d, da, ButtonPressMask | ButtonReleaseMask | KeyPressMask |
+                            ButtonMotionMask | StructureNotifyMask);
+
+    // http://www.lemoda.net/c/xlib-wmclose/index.html
+    /* "wm_delete_window" is the Atom which corresponds to the delete
+           window message sent by the window manager. */
+    Atom wm_delete_window;
+    wm_delete_window = XInternAtom(d, "WM_DELETE_WINDOW", False);
+    /* Set up the window manager protocols. The third argument here is
+       meant to be an array, and the fourth argument is the size of
+       the array. */
+
+    XSetWMProtocols(d, da, &wm_delete_window, 1);
+    XMapWindow(d, da);
+
+    sfc = cairo_xlib_surface_create(d, da, DefaultVisual(d, screen), *x, *y);
+
+    return sfc;
 }
 
 #endif

@@ -1,7 +1,10 @@
+///@file
+///@brief INTERFACES CHECKED.
+
 #ifndef ASTAR_EVENT
 #define ASTAR_EVENT
 
-#include <sstream>
+#include "AlgorithmLogger.h"
 
 template <class State_, class NodeData> struct AstarEvent {
     using State = State_;
@@ -22,46 +25,40 @@ template <class State_, class NodeData> struct AstarEvent {
     };
     enum class StateRole { NOVAL, START, GOAL, DONE_GOAL };
 
-    // ROLE event
+    ///@name Construction and Assignment
+    //@{
     template <class Node>
-    AstarEvent(const Node *n, const StateRole &role,
-               const std::string &additional = "")
-        : AstarEvent(n->shareState(), EventType::ROLE, role,
-                     n->shareParentState(), additional) {}
+    AstarEvent(const AlgorithmLogger<AstarEvent> &logger, const Node *n,
+               EventType type, StateRole role = StateRole::NOVAL)
+        : logger_(logger), state_(n->shareState()), type_(type), role_(role),
+          parent_(n->shareParentState()), nodeData_(*n) {}
+    //@}
 
-    // NON-ROLE event
-    template <class Node>
-    AstarEvent(const Node *n, const EventType &type,
-               const std::string &additional = "")
-        : AstarEvent(n->shareState(), type, StateRole(),
-                     n->shareParentState(), additional) {}
-
+    ///@name Read-Only Services
+    //@{
+    const AlgorithmLogger<AstarEvent> &logger() const { return logger_; }
     const StateSharedPtr &state() const { return state_; }
+    const MyType &lastEvent() const {
+        return logger_.event(lastEventStep_);
+    }
+    const EventType &type() const { return type_; }
+    const StateRole &role() const { return role_; }
+    const StateSharedPtr &parent() const { return parent_; }
+    const NodeData &nodeData() const { return nodeData_; }
 
-    // -1 means no previous event
-    void setLastEventStep(int step) { lastEventStep_ = step; }
-
-    template <class AlgorithmLog>
-    std::vector<StateSharedPtr> path(const StateSharedPtr &state,
-                                     const AlgorithmLog &log) const {
+    std::vector<StateSharedPtr> path(const StateSharedPtr &state) const {
         std::vector<StateSharedPtr> res;
         StateSharedPtr s = state;
         while (s) {
             res.push_back(s);
-            s = log.getLastEvent(s).parent();
+            s = logger_.getLastEvent(s).parent();
         }
         std::reverse(res.begin(), res.end());
         return res;
     }
 
-    static std::ostream &dumpTitle(std::ostream &o) {
-        o << std::setw(18) << "State" << std::setw(20) << "Event"
-          << std::setw(12) << "Role" << std::setw(18) << "Parent"
-          << std::setw(12) << "Note" << std::endl;
-        return o;
-    }
-
-    std::ostream &dump(std::ostream &o) const {
+    template <typename CharT>
+    std::basic_ostream<CharT> &dump(std::basic_ostream<CharT> &o) const {
         // There is an alternative here:
         // http://stackoverflow.com/a/23402871/2725810
         // Drawback: has to be declared outside of any class
@@ -72,45 +69,50 @@ template <class State_, class NodeData> struct AstarEvent {
             "CHANGED_PARENT"};
         std::vector<std::string> stateRoleStr = {"NOVAL", "START", "GOAL",
                                                  "DONE_GOAL"};
-        std::ostringstream so;
-        so << *state_;
-        o  << std::setw(18) << so.str()
-          << std::setw(20) << eventTypeStr[static_cast<int>(type_)];
+        o << std::setw(6) << step_;
+        o << std::setw(18) << str(*state_) << std::setw(20)
+          << eventTypeStr[static_cast<int>(type_)];
 
         if (type_ == EventType::ROLE)
             o << std::setw(12) << stateRoleStr[static_cast<int>(role_)];
         else
             o << std::setw(12) << "n/a";
 
-        if (parent_) {
-            std::ostringstream so;
-            so << *parent_;
-            o << std::setw(18) << so.str();
-        }
+        if (parent_)
+            o << std::setw(18) << str(*parent_);
         else
             o << std::setw(18) << "n/a";
-        o << std::setw(12) << additional_;
+        o << std::setw(12) << nodeData_;
         return o;
     }
-
     void dump() const { dump(std::cerr); }
-    const EventType &type() const {return type_;}
-    const StateRole &role() const { return role_; }
-    const StateSharedPtr &parent() const {return parent_;}
+    //@}
 
+    ///@name Modification
+    //@{
+    // lastEventStep=-1 means no previous event
+    void setStep(int step, int lastEventStep) {
+        step_ = step;
+        lastEventStep_ = lastEventStep;
+    }
+    //@}
+
+    template <typename CharT>
+    static std::basic_ostream<CharT> &dumpTitle(std::basic_ostream<CharT> &o) {
+        o << std::setw(6) << "Step" << std::setw(18) << "State" << std::setw(20)
+          << "Event" << std::setw(12) << "Role" << std::setw(18) << "Parent"
+          << std::setw(12) << "Note" << std::endl;
+        return o;
+    }
 private:
+    const AlgorithmLogger<AstarEvent> &logger_;
     StateSharedPtr state_;
     const EventType type_;
     const StateRole role_;
     StateSharedPtr parent_;
-    const std::string additional_;
-    std::size_t lastEventStep_;
-
-    AstarEvent(const StateSharedPtr &state, const EventType &type,
-               const StateRole &role, const StateSharedPtr &parent,
-               const std::string &additional)
-        : state_(state), type_(type), role_(role), parent_(parent),
-          additional_(additional) {}
+    NodeData nodeData_;
+    int step_;
+    int lastEventStep_;
 };
 
 template <class State, class NodeData>

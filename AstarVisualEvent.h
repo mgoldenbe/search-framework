@@ -94,7 +94,7 @@ struct AstarVisualEvent {
                 Styles::roleDoneGoalBegin(now);
                 bool firstIterationFlag = true;
                 typename Event::StateSharedPtr last = nullptr;
-                for (auto &s : e.path(state, log.getAlgorithmLog())) {
+                for (auto &s : e.path(state)) {
                     if (!firstIterationFlag) {
                         EdgeDescriptor ed =
                             g_.edge(g_.vertex(last), g_.vertex(s));

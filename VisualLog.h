@@ -64,7 +64,9 @@ struct VisualLog {
         unApplyEvent(e);
     }
 
-    const AlgorithmLog &getAlgorithmLog() const { return log_; }
+    int step() const { return step_; }
+
+    const AlgorithmLog &algorithmLog() const { return log_; }
 
 private:
     const AlgorithmLog &log_;
