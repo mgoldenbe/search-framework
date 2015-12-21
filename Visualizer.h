@@ -38,6 +38,29 @@ struct Visualizer {
     }
 
 private:
+    void scale(cairo_t *cr, double factor) {
+        double centerXUser_before = sizex_ / 2,
+            centerYUser_before = sizey_ / 2;
+        cairo_device_to_user(cr, &centerXUser_before,
+                             &centerYUser_before);
+        scale_ *= factor;
+        cairo_scale(cr, factor, factor);
+        double centerXDevice_after = centerXUser_before,
+            centerYDevice_after = centerYUser_before;
+        cairo_user_to_device(cr, &centerXDevice_after,
+                             &centerYDevice_after);
+        cairo_translate(cr, (sizex_ / 2 - centerXDevice_after) / scale_,
+                        (sizey_ / 2 - centerYDevice_after) / scale_);
+    }
+
+    void scaleUp(cairo_t *cr) {
+        scale(cr, scaleStep_);
+    }
+
+    void scaleDown(cairo_t *cr) {
+        scale(cr, 1.0/scaleStep_);
+    }
+
     // Returns true if need to continue or false if quiting
     bool processEvents() {
         XEvent e;
@@ -49,14 +72,12 @@ private:
             switch (e.type) {
             case KeyPress:
                 if (e.xkey.state == 4)  { // Ctrl is pressed
-                    if (e.xkey.keycode == 21)  { // scale up
-                        scale_ *= scaleStep_;
-                        cairo_scale(cr, scaleStep_, scaleStep_);
+                    if (e.xkey.keycode == 21)  {
+                        scaleUp(cr);
                         break;
                     }
-                    if (e.xkey.keycode == 20) { // scale down
-                        scale_ /= scaleStep_;
-                        cairo_scale(cr, 1.0/scaleStep_, 1.0/scaleStep_);
+                    if (e.xkey.keycode == 20) {
+                        scaleDown(cr);
                         break;
                     }
                 }
@@ -81,8 +102,9 @@ private:
                 last_delta_y = e.xmotion.y - drag_start_y;
                 break;
             case ConfigureNotify:
-                cairo_xlib_surface_set_size(surface, e.xconfigure.width,
-                                            e.xconfigure.height);
+                sizex_ = e.xconfigure.width;
+                sizey_ = e.xconfigure.height;
+                cairo_xlib_surface_set_size(surface, sizex_, sizey_);
                 break;
             case ClientMessage:
                 return false;
@@ -100,6 +122,8 @@ private:
     VisualLog &log_;
     Drawer<Graph, VisualLog> drawer_;
     Typist<AlgorithmLog> typist_;
+    double sizex_ = 500.0;
+    double sizey_ = 500.0;
     double scale_ = 1.0;
     double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;
