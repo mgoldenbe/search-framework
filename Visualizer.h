@@ -47,6 +47,23 @@ private:
         if (XPending(cairo_xlib_surface_get_display(surface))) {
             XNextEvent(cairo_xlib_surface_get_display(surface), &e);
             switch (e.type) {
+            case KeyPress:
+                if (e.xkey.state == 4)  { // Ctrl is pressed
+                    if (e.xkey.keycode == 21)  { // scale up
+                        scale_ *= scaleStep_;
+                        cairo_scale(cr, scaleStep_, scaleStep_);
+                        break;
+                    }
+                    if (e.xkey.keycode == 20) { // scale down
+                        scale_ /= scaleStep_;
+                        cairo_scale(cr, 1.0/scaleStep_, 1.0/scaleStep_);
+                        break;
+                    }
+                }
+                typist_.message("Unhandled keypress! State: " +
+                                str(e.xkey.state) + "  Code: " +
+                                str(e.xkey.keycode));
+                break;
             case ButtonPress:
                 drag_start_x = e.xbutton.x;
                 drag_start_y = e.xbutton.y;
@@ -57,8 +74,9 @@ private:
                 break;
             case MotionNotify:
                 // http://cairographics.org/manual/cairo-Transformations.html#cairo-translate
-                cairo_translate(cr, e.xmotion.x - drag_start_x - last_delta_x,
-                                e.xmotion.y - drag_start_y - last_delta_y);
+                cairo_translate(
+                    cr, (e.xmotion.x - drag_start_x - last_delta_x) / scale_,
+                    (e.xmotion.y - drag_start_y - last_delta_y) / scale_);
                 last_delta_x = e.xmotion.x - drag_start_x;
                 last_delta_y = e.xmotion.y - drag_start_y;
                 break;
@@ -69,6 +87,7 @@ private:
             case ClientMessage:
                 return false;
             default: ;
+                //typist_.message("Dropping unhandled");
                 /*
                 std::cout << "Dropping unhandled XEevent.type = " << e.type
                 << "." << std::endl; */
@@ -81,6 +100,8 @@ private:
     VisualLog &log_;
     Drawer<Graph, VisualLog> drawer_;
     Typist<AlgorithmLog> typist_;
+    double scale_ = 1.0;
+    double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;
     int drag_start_x, drag_start_y;
 };

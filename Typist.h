@@ -20,6 +20,8 @@ template <class AlgorithmLog> struct Typist {
         for (auto &e : log_.events())
             wprintw(eventsPad_, "%s\n", str(e).c_str());
         activateRow(0);
+
+        messagesPad_ = newpad(1000, 400); // enough for sure
         show();
     }
 
@@ -34,6 +36,12 @@ template <class AlgorithmLog> struct Typist {
         step_ = step;
         show();
     }
+
+    void message(std::string message) {
+        wprintw(messagesPad_, "%s\n", message.c_str());
+        nMessages_++;
+    }
+
 private:
     const AlgorithmLog &log_;
     WINDOW *titlePad_;
@@ -41,6 +49,9 @@ private:
     int step_; // active row
     int prefix_ = 5;
     int suffix_ = 5;
+    WINDOW *messagesPad_;
+    int nShownMessages_ = 5;
+    int nMessages_ = 0;
 
     void activateRow(int step) {
         wmove(eventsPad_, step, 0);
@@ -59,6 +70,11 @@ private:
     }
 
     void show() {
+        showLog();
+        showMessages();
+    }
+
+    void showLog() {
         int row, col;
         getmaxyx(stdscr, row, col);
         (void)row; (void)col;
@@ -69,6 +85,15 @@ private:
         prefresh(titlePad_, 0, 0, 0, 0, 1, col - 1);
         int vScroll = std::max(0, step_ - prefix_);
         prefresh(eventsPad_, vScroll, 0, 1, 0, prefix_ + suffix_ + 1, col - 1);
+    }
+
+    void showMessages() {
+        int row, col;
+        getmaxyx(stdscr, row, col);
+        (void)row; (void)col;
+        prefresh(messagesPad_, nMessages_ - nShownMessages_, 0,
+                 prefix_ + suffix_ + 2, 0,
+                 prefix_ + suffix_ + 1 + nShownMessages_, col - 1);
     }
 };
 
