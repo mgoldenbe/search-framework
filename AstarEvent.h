@@ -23,7 +23,13 @@ template <class State_, class NodeData> struct AstarEvent {
         CLOSED,
         CHANGED_PARENT
     };
+    static std::vector<std::string> eventTypeStr;
+
     enum class StateRole { NOVAL, START, GOAL, DONE_GOAL };
+    // There is an alternative here:
+    // http://stackoverflow.com/a/23402871/2725810
+    // Drawback: has to be declared outside of any class
+    static std::vector<std::string> stateRoleStr;
 
     ///@name Construction and Assignment
     //@{
@@ -59,16 +65,6 @@ template <class State_, class NodeData> struct AstarEvent {
 
     template <typename CharT>
     std::basic_ostream<CharT> &dump(std::basic_ostream<CharT> &o) const {
-        // There is an alternative here:
-        // http://stackoverflow.com/a/23402871/2725810
-        // Drawback: has to be declared outside of any class
-        std::vector<std::string> eventTypeStr = {
-            "NOVAL",             "ROLE",             "BEGIN_GENERATE",
-            "END_GENERATE",      "SELECTED",         "SUSPENDED_EXPANSION",
-            "RESUMED_EXPANSION", "DENIED_EXPANSION", "CLOSED",
-            "CHANGED_PARENT"};
-        std::vector<std::string> stateRoleStr = {"NOVAL", "START", "GOAL",
-                                                 "DONE_GOAL"};
         o << std::setw(6) << step_;
         o << std::setw(18) << str(*state_) << std::setw(20)
           << eventTypeStr[static_cast<int>(type_)];
@@ -121,4 +117,14 @@ std::ostream &operator<<(std::ostream &o,
     return e.dump(o);
 }
 
+template <class State, class NodeData>
+std::vector<std::string> AstarEvent<State, NodeData>::eventTypeStr = {
+        "NOVAL",             "ROLE",             "BEGIN_GENERATE",
+        "END_GENERATE",      "SELECTED",         "SUSPENDED_EXPANSION",
+        "RESUMED_EXPANSION", "DENIED_EXPANSION", "CLOSED",
+        "CHANGED_PARENT"};
+
+template <class State, class NodeData>
+std::vector<std::string> AstarEvent<State, NodeData>::stateRoleStr = {
+    "NOVAL", "START", "GOAL", "DONE_GOAL"};
 #endif
