@@ -7,7 +7,7 @@ GRAPHICS_LIB=-lcairo -lX11 -lmenu -lncurses
 #GRAPHICS_LIB=-DBOOST_SYSTEM_NO_DEPRECATED -lcairo -lX11
 #GRAPHICS_LIB=-DBOOST_SYSTEM_NO_DEPRECATED -L~/boost_1_59_0/boost/libs -lboost_system -lcairo -lX11
 
-COMMON=g++ -Wall -Wextra -Werror -fmax-errors=2 -std=c++11 -pedantic $(INCLUDE) -o Test Test.cpp
+COMMON=g++ -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic $(INCLUDE) -o Test Test.cpp
 PREPROCESSOR=g++ -Wall -Wextra -Werror -fmax-errors=2 -std=c++11 -pedantic $(INCLUDE) -E Test.cpp
 
 BUILD_DEBUG=$(COMMON) -g -DNO_DRAWER

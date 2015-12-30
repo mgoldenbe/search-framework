@@ -12,119 +12,40 @@
 #include <X11/Xutil.h>
 
 #include "utilities.h"
-#include "Drawer.h"
-#include "Typist.h"
+#include "VisualizerMenus.h"
 
-template <class Graph, class VisualLog> struct Visualizer {
+template <class Graph, class VisualLog>
+struct Visualizer : VisualizerData<Graph, VisualLog> {
     using AlgorithmLog = typename VisualLog::AlgorithmLog;
     using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
-    enum class MENU_STATE {
-        MAIN,
-        RUN,
-        SEARCH,
-        FILTER_SHOW,
-        FILTER_HIDE,
-        GO,
-        SPEED,
-        TYPED_SEARCH,
-        EDIT_FILTER
-    };
+    using Data = VisualizerData<Graph, VisualLog>;
+    using typename Data::VISUALIZER_STATE;
+    using Data::log_;
+    using Data::drawer_;
+    using Data::typist_;
+    using Data::s_;
 
     // VisualLog is not const, since we will move in time...
-    Visualizer(const Graph &g, VisualLog &log)
-        : log_(log), drawer_(g, log), typist_(log.algorithmLog()) {
-        menuBackMap_ = {{MENU_STATE::MAIN, MENU_STATE::MAIN},
-                        {MENU_STATE::RUN, MENU_STATE::MAIN},
-                        {MENU_STATE::SEARCH, MENU_STATE::MAIN},
-                        {MENU_STATE::FILTER_SHOW, MENU_STATE::MAIN},
-                        {MENU_STATE::FILTER_HIDE, MENU_STATE::MAIN},
-                        {MENU_STATE::GO, MENU_STATE::RUN},
-                        {MENU_STATE::SPEED, MENU_STATE::RUN},
-                        {MENU_STATE::SEARCH, MENU_STATE::TYPED_SEARCH},
-                        {MENU_STATE::EDIT_FILTER, MENU_STATE::FILTER_SHOW}};
-        menuMap_[MENU_STATE::MAIN] = {
-            {"Run", MENU_STATE::RUN},
-            {"Search", MENU_STATE::SEARCH},
-            {"Filter",
-             MENU_STATE::FILTER_SHOW}, // we'll switch to HIDE automatically in
-                                       // the transition function when needed
-            {"Layout", MENU_STATE::MAIN}};
-        menuMap_[MENU_STATE::RUN] = {
-            {"Go", MENU_STATE::GO},
-            {"Speed (steps per sec.)", MENU_STATE::SPEED},
-            {"Step Forward", MENU_STATE::RUN},
-            {"Step Backward", MENU_STATE::RUN}};
-        menuMap_[MENU_STATE::SEARCH] = {{"Event", MENU_STATE::TYPED_SEARCH},
-                                        {"State", MENU_STATE::TYPED_SEARCH},
-                                        {"Data", MENU_STATE::TYPED_SEARCH}};
-        menuMap_[MENU_STATE::FILTER_SHOW] = {{"Edit", MENU_STATE::EDIT_FILTER},
-                                             {"Show", MENU_STATE::FILTER_HIDE}};
-        menuMap_[MENU_STATE::FILTER_HIDE] = {{"Edit", MENU_STATE::EDIT_FILTER},
-                                             {"Show", MENU_STATE::FILTER_SHOW}};
-        menuMap_[MENU_STATE::GO] = {{"Pause", MENU_STATE::RUN}};
-        menuMap_[MENU_STATE::SPEED] = {{"1", MENU_STATE::RUN},
-                                       {"2", MENU_STATE::RUN},
-                                       {"5", MENU_STATE::RUN},
-                                       {"10", MENU_STATE::RUN},
-                                       {"50", MENU_STATE::RUN},
-                                       {"200", MENU_STATE::RUN},
-                                       {"500", MENU_STATE::RUN},
-                                       {"1000", MENU_STATE::RUN}};
-        menuMap_[MENU_STATE::TYPED_SEARCH] = {
-            {"Forward", MENU_STATE::TYPED_SEARCH},
-            {"Backward", MENU_STATE::TYPED_SEARCH}};
-        menuMap_[MENU_STATE::EDIT_FILTER] = {
-            {"All", MENU_STATE::FILTER_SHOW},
-            {"None", MENU_STATE::FILTER_SHOW}};
-        for (auto &el: AlgorithmEvent::eventTypeStr) {
-            menuMap_[MENU_STATE::EDIT_FILTER].push_back(
-                {el, MENU_STATE::FILTER_SHOW});
-        }
-        setMenuState(MENU_STATE::MAIN);
-    }
-
-    ~Visualizer() { destroyMenu(menu_); }
+    Visualizer(const Graph &g, VisualLog &log) : Data(g, log), m_(*this) {}
 
     void run() {
         int iteration = 0;
         // msleep(10000);
         while (1) {
-            // std::cout << "Iteration " << iteration << std::endl;
+            msleep(1);
             if (!processEvents()) break;
             drawer_.draw();
             typist_.setStep(log_.step());
-            // typist_.type(log_.step());
-            msleep(1);
-            if (++iteration % 500 == 0) log_.next();
+            if (s_ == VISUALIZER_STATE::PAUSE) {
+                iteration = 0;
+                continue;
+            }
+            if (s_ == VISUALIZER_STATE::GO)
+                if (++iteration % (1000 / this->speed_) == 0) log_.next();
         }
     }
 
 private:
-    void setMenuState(MENU_STATE menuState, bool multiFlag = false) {
-        destroyMenu(menu_);
-        menuItems_.clear();
-        std::vector<std::string> myChoices;
-        std::transform(menuMap_[menuState].begin(),
-                       menuMap_[menuState].end(),
-                       std::back_inserter(myChoices),
-                       [](const std::pair<std::string, MENU_STATE> &p) {
-            return p.first;
-        });
-        menu_ = createMenu(typist_.commandsPad(), menuItems_,
-                           myChoices, maxMenuRows_, multiFlag);
-        menuState_ = menuState;
-        typist_.setMenu(menu_);
-    }
-
-    void handleChoice() {
-        for (auto &p: menuMap_[menuState_])
-            if (p.first == menuChoice(menu_)) setMenuState(p.second);
-    }
-
-    void handleEsc() {
-        setMenuState(menuBackMap_[menuState_]);
-    }
-
     void scale(cairo_t *cr, double factor) {
         double centerXUser_before = sizex_ / 2, centerYUser_before = sizey_ / 2;
         cairo_device_to_user(cr, &centerXUser_before, &centerYUser_before);
@@ -165,31 +86,31 @@ private:
                 default:
                     switch (e.xkey.keycode) {
                     case 65: // space
-                        menu_driver(menu_, REQ_TOGGLE_ITEM);
+                        menu_driver(m_.raw(), REQ_TOGGLE_ITEM);
                         break;
                     case 116: // Down
-                        menu_driver(menu_, REQ_DOWN_ITEM);
+                        menu_driver(m_.raw(), REQ_DOWN_ITEM);
                         break;
                     case 111: // Up
-                        menu_driver(menu_, REQ_UP_ITEM);
+                        menu_driver(m_.raw(), REQ_UP_ITEM);
                         break;
                     case 113: // Left
-                        menu_driver(menu_, REQ_LEFT_ITEM);
+                        menu_driver(m_.raw(), REQ_LEFT_ITEM);
                         break;
                     case 114: // Right
-                        menu_driver(menu_, REQ_RIGHT_ITEM);
+                        menu_driver(m_.raw(), REQ_RIGHT_ITEM);
                         break;
                     case 117: // PageDown
-                        menu_driver(menu_, REQ_SCR_DPAGE);
+                        menu_driver(m_.raw(), REQ_SCR_DPAGE);
                         break;
                     case 112: // PageUp
-                        menu_driver(menu_, REQ_SCR_UPAGE);
+                        menu_driver(m_.raw(), REQ_SCR_UPAGE);
                         break;
                     case 36: // Enter
-                        handleChoice();
+                        m_.handleEnter();
                         break;
                     case 9: // Esc
-                        handleEsc();
+                        m_.handleEsc();
                         break;
                     default:
                         typist_.message("Unhandled keypress! State: " +
@@ -233,17 +154,7 @@ private:
     }
 
 private:
-    VisualLog &log_;
-    Drawer<Graph, VisualLog> drawer_;
-    Typist<AlgorithmLog> typist_;
-
-    MENU *menu_ = nullptr;
-    int maxMenuRows_ = 3;
-    std::vector<ITEM *> menuItems_;
-    std::map<MENU_STATE, std::vector<std::pair<std::string, MENU_STATE>>>
-        menuMap_; // value -- for each choice, the following menuState
-    std::map<MENU_STATE, MENU_STATE> menuBackMap_;
-    MENU_STATE menuState_;
+    AllMenus<Graph, VisualLog> m_;
 
     double sizex_ = 500.0;
     double sizey_ = 500.0;

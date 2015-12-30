@@ -64,6 +64,13 @@ struct VisualLog {
         unApplyEvent(e);
     }
 
+    void reset() {
+        while (step_ > 0) {
+            auto e = events_[--step_];
+            unApplyEvent(e);
+        }
+    }
+
     int step() const { return step_; }
 
     const AlgorithmLog &algorithmLog() const { return log_; }

@@ -1,5 +1,5 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef MENU_UTILITLIES_H
+#define MENU_UTILITLIES_H
 
 #include <curses.h>
 #include <menu.h>
@@ -22,7 +22,12 @@ MENU *createMenu(WINDOW *w, std::vector<ITEM *> &items,
     wclear(w);
     wrefresh(w);
     set_menu_win(res, w);
-    set_menu_format(res, maxMenuRows, 5);
+
+    int maxRow, maxColumn;
+    getmaxyx(stdscr, maxRow, maxColumn); (void)maxRow;
+    set_menu_format(res, maxMenuRows,
+                    maxColumn / (res->namelen + res->spc_cols));
+    //set_menu_spacing(res, 1, 2, 1);
     set_menu_mark(res, "->");
 
     post_menu(res);

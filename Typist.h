@@ -3,7 +3,7 @@
 
 #include <curses.h>
 #include <sstream>
-#include "Menu.h"
+#include "MenuUtilities.h"
 
 template <class AlgorithmLog> struct Typist {
     Typist(const AlgorithmLog &log) : log_(log) {
