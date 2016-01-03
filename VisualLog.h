@@ -18,6 +18,7 @@ struct NoVisualLog {
 template <class AlgorithmLog_, class VisualEvent_>
 struct VisualLog {
     using AlgorithmLog = AlgorithmLog_;
+    using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
     using VisualEvent = VisualEvent_;
     using Graph = typename VisualEvent::Graph;
     using VertexDescriptor = typename Graph::VertexDescriptor;
@@ -33,6 +34,8 @@ struct VisualLog {
 
         step_ = 0;
         for (auto &e: log.events()) {
+            filteredToStep_.push_back(step_);
+            stepToFiltered_.push_back(step_);
             auto ve = VisualEvent(g_, e, (*this));
             this->log(ve);
         }
@@ -52,16 +55,29 @@ struct VisualLog {
         return it->second;
     }
 
+    bool inFilter(int step) const {
+        return stepToFiltered_[step] != -1;
+    }
+
+    int nEvents() const { return events_.size(); }
+
+    int nFilteredEvents() const { return filteredToStep_.size(); }
+
+    int stepToFiltered(int step) const { return stepToFiltered_[step]; }
+
+    int filteredToStep(int step) const { return filteredToStep_[step]; }
+
     void next() {
-        if (step_ >= events_.size()) return;
-        auto e = events_[step_++];
-        applyEvent(e);
+        if (step_ - 1 == filteredToStep_.back()) return;
+        do {
+            if (!stepForward()) break;
+        } while (!inFilter(step_ - 1));
     }
 
     void prev() {
-        if (step_ <= 0) return;
-        auto e = events_[--step_];
-        unApplyEvent(e);
+        do {
+            if (!stepBackward()) break;
+        } while (!inFilter(step_ - 1));
     }
 
     void reset() {
@@ -75,6 +91,19 @@ struct VisualLog {
 
     const AlgorithmLog &algorithmLog() const { return log_; }
 
+    template <class Filter> void setFilter(const Filter &filter) {
+        filteredToStep_.clear();
+        for (auto &e : log_.events())
+            if (filter.in(e)) filteredToStep_.push_back(e.step());
+
+        stepToFiltered_.resize(events_.size());
+        std::fill(stepToFiltered_.begin(), stepToFiltered_.end(), -1);
+        int filteredStep = 0;
+        for (auto step : filteredToStep_)
+            stepToFiltered_[step] = filteredStep++;
+        if (!inFilter(step_)) prev();
+    }
+
 private:
     const AlgorithmLog &log_;
     const Graph &g_;
@@ -87,6 +116,22 @@ private:
 
     std::vector<VisualEvent> events_;
     int step_; // the event to be applied when next() is called.
+    std::vector<int> filteredToStep_;
+    std::vector<int> stepToFiltered_; // -1 if not in filtered
+
+    bool stepForward() {
+        if (step_ >= events_.size()) return false;
+        auto e = events_[step_++];
+        applyEvent(e);
+        return true;
+    }
+
+    bool stepBackward() {
+        if (step_ <= 0) return false;
+        auto e = events_[--step_];
+        unApplyEvent(e);
+        return true;
+    }
 
     void applyEvent(const VisualEvent &e) {
         for (auto &vertexChange: e.vertexChanges())

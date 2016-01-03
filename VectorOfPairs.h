@@ -1,8 +1,7 @@
-#include <iostream>
+#ifndef VECTOR_OF_PAIRS
+#define VECTOR_OF_PAIRS
+
 #include <vector>
-#include <string>
-#include <map>
-#include "PrettyPrint.h"
 
 template <typename T1, typename T2>
 T1 findFirst(std::vector<std::pair<T1, T2>> &v, const T2 &el) {
@@ -34,7 +33,4 @@ std::vector<T2> projectSecond(const std::vector<std::pair<T1, T2>> &v) {
     return res;
 }
 
-int main() {
-    std::vector<std::pair<std::string, int>> v = {{"1s", 1}, {"2s", 2}};
-    std::cout << projectSecond(v) << std::endl;
-}
+#endif

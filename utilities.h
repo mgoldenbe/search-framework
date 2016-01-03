@@ -7,6 +7,7 @@
 #include <sstream>
 #include <memory>
 #include <time.h>
+#include <algorithm>
 
 // http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/
 void __nsleep(const struct timespec *req, struct timespec *rem) {
@@ -23,6 +24,11 @@ int msleep(unsigned long milisec) {
     req.tv_nsec = milisec * 1000000L;
     __nsleep(&req, &rem);
     return 1;
+}
+
+template<class V, typename T>
+bool in(const V &v, const T &el) {
+    return std::find(v.begin(), v.end(), el) != v.end();
 }
 
 template <typename T>

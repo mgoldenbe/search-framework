@@ -10,6 +10,7 @@
 
 #include "Drawer.h"
 #include "Typist.h"
+#include "Filter.h"
 
 template <class Graph, class VisualLog> struct VisualizerData  {
     using AlgorithmLog = typename VisualLog::AlgorithmLog;
@@ -17,20 +18,24 @@ template <class Graph, class VisualLog> struct VisualizerData  {
     enum class VISUALIZER_STATE{PAUSE, GO};
 
     VisualizerData(const Graph &g, VisualLog &log)
-        : log_(log), drawer_(g, log), typist_(log.algorithmLog()) {}
+        : log_(log), drawer_(g, log), typist_(log) {
+        typist_.fillEventsPad();
+    }
     VisualLog &log() { return log_; }
     Drawer<Graph, VisualLog> &drawer() { return drawer_; }
-    Typist<AlgorithmLog> &typist() { return typist_; }
+    Typist<VisualLog> &typist() { return typist_; }
     void state(VISUALIZER_STATE s) { s_ = s; }
     void speed(int s) { speed_ = s; }
+    Filter<AlgorithmEvent> &filter() { return filter_; }
 
 protected:
     VisualLog &log_;
     Drawer<Graph, VisualLog> drawer_;
-    Typist<AlgorithmLog> typist_;
+    Typist<VisualLog> typist_;
 
     VISUALIZER_STATE s_ = VISUALIZER_STATE::PAUSE;
     int speed_ = 2;
+    Filter<AlgorithmEvent> filter_;
 };
 
 template <class AllMenus, class Graph, class VisualLog>
@@ -43,7 +48,13 @@ struct MenuBase {
 
     const std::vector<std::string> &choices() const { return choices_; }
 
+    const std::vector<std::string> &nonSelectable() const {
+        return nonSelectable_;
+    }
+
     virtual bool multi() const { return false; }
+
+    Data &data() { return data_; }
 
     virtual void handleEnter() {
         std::string choice = this->choice();
@@ -56,11 +67,20 @@ struct MenuBase {
 
     void handleEsc() { m_.setMenu(exitMenu_, data_.typist()); }
 
+    void selectAll() {
+        for (auto item: m_.menuItems()) set_item_value(item, true);
+    }
+
+    void selectNone() {
+        for (auto item: m_.menuItems()) set_item_value(item, false);
+    }
+
 protected:
     AllMenus &m_;
     Data &data_;
     std::vector<std::pair<std::string, Base *>> enterMap_;
     std::vector<std::string> choices_;
+    std::vector<std::string> nonSelectable_;
     Base *exitMenu_;
 
     void fillChoices() {
@@ -125,11 +145,38 @@ struct MenuSearch : MenuBase<AllMenus, Graph, VisualLog> {
 
 template <class AllMenus, class Graph, class VisualLog>
 struct MenuFilter : MenuBase<AllMenus, Graph, VisualLog> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+    using Data = typename Base::Data;
+
     MenuFilter(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
         : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
-        this->enterMap_ = {{"Edit", &m.menuEditFilter}, {"Show", &m.menuFilter}};
+        this->enterMap_ = {{"Edit", &m.menuEditFilter},
+                           {m.hideFiltered ? "Show" : "Hide", &m.menuFilter}};
         this->fillChoices();
         this->exitMenu_ = &m.menuMain;
+    }
+
+    virtual void handleEnter() {
+        std::string choice = this->choice();
+        if (choice == "Show" || choice == "Hide") {
+            this->m_.hideFiltered = !this->m_.hideFiltered;
+            std::string updatedItem = this->m_.hideFiltered ? "Show" : "Hide";
+
+            this->enterMap_[1].first = updatedItem;
+            // Has to be changed at the low level as well, so the matching in
+            // Base::handleEnter() would succeed.
+            current_item(this->m_.raw())->name.str = updatedItem.c_str();
+            current_item(this->m_.raw())->name.length = updatedItem.size();
+
+            this->data_.typist().hideFiltered(this->m_.hideFiltered);
+            this->data_.typist().fillEventsPad();
+
+            // Cause the item to update
+            menu_driver(this->m_.raw(), REQ_LEFT_ITEM);
+            menu_driver(this->m_.raw(), REQ_RIGHT_ITEM);
+        }
+
+        Base::handleEnter(); // Need to do this before the menu entry changed
     }
 };
 
@@ -183,14 +230,35 @@ struct MenuTypedSearch : MenuBase<AllMenus, Graph, VisualLog> {
 
 template <class AllMenus, class Graph, class VisualLog>
 struct MenuEditFilter : MenuBase<AllMenus, Graph, VisualLog> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+    using Data = typename Base::Data;
+
     MenuEditFilter(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
         : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
-        this->enterMap_ = {{"All", &m.menuFilter},
-                           {"Backward", &m.menuFilter}};
+        this->enterMap_ = {{"All", &m.menuEditFilter},
+                           {"None", &m.menuEditFilter}};
         for (auto &el : VisualLog::AlgorithmLog::AlgorithmEvent::eventTypeStr)
             this->enterMap_.push_back({el, &m.menuFilter});
         this->fillChoices();
+        this->nonSelectable_ = {"All", "None"};
         this->exitMenu_ = &m.menuFilter;
+    }
+
+    virtual bool multi() const override { return true; }
+
+    virtual void handleEnter() {
+        std::string choice = this->choice(); (void)choice;
+        if (choice == "All")
+            this->selectAll();
+        else if (choice == "None")
+            this->selectNone();
+        else {
+            this->data_.filter().filterEventType().set(
+                menuChoices(this->m_.raw()));
+            this->data_.log().setFilter(this->data_.filter());
+            this->data_.typist().fillEventsPad();
+        }
+        Base::handleEnter();
     }
 };
 
@@ -211,22 +279,27 @@ struct AllMenus {
     MenuSpeed<AllMenus, Graph, VisualLog> menuSpeed;
     MenuTypedSearch<AllMenus, Graph, VisualLog> menuTypedSearch;
     MenuEditFilter<AllMenus, Graph, VisualLog> menuEditFilter;
+    bool hideFiltered = true;
 
     void handleEnter() { m_->handleEnter(); }
     void handleEsc() { m_->handleEsc(); }
 
     void setMenu(MenuBase<AllMenus, Graph, VisualLog> *newMenu,
-                 Typist<typename VisualLog::AlgorithmLog> &typist) {
+                 Typist<VisualLog> &typist) {
         if (newMenu == m_) return;
         destroyMenu(raw_);
         menuItems_.clear();
         raw_ = createMenu(typist.commandsPad(), menuItems_, newMenu->choices(),
+                          newMenu->nonSelectable(),
+                          newMenu->data().filter().filterEventType().get(),
                           maxMenuRows_, newMenu->multi());
         m_ = newMenu;
         typist.setMenu(raw_);
     }
 
     MENU *raw() { return raw_; }
+
+    std::vector<ITEM *> menuItems() {return menuItems_;}
 
 private:
     MENU *raw_ = nullptr;

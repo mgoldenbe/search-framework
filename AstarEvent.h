@@ -42,6 +42,7 @@ template <class State_, class NodeData> struct AstarEvent {
 
     ///@name Read-Only Services
     //@{
+    int step() const { return step_; }
     const AlgorithmLogger<AstarEvent> &logger() const { return logger_; }
     const StateSharedPtr &state() const { return state_; }
     const MyType &lastEvent() const {
