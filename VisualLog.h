@@ -67,17 +67,41 @@ struct VisualLog {
 
     int filteredToStep(int step) const { return filteredToStep_[step]; }
 
-    void next() {
-        if (step_ - 1 == filteredToStep_.back()) return;
-        do {
-            if (!stepForward()) break;
-        } while (!inFilter(step_ - 1));
+    void move(int step) {
+        while (step_ != step) {
+            step_ < step ? next() : prev();
+        }
     }
 
-    void prev() {
+    bool next() {
+        if (step_ - 1 == filteredToStep_.back()) return false;
         do {
-            if (!stepBackward()) break;
+            if (!stepForward()) return false;
         } while (!inFilter(step_ - 1));
+        return true;
+    }
+
+    bool prev() {
+        do {
+            if (!stepBackward()) return false;
+        } while (!inFilter(step_ - 1));
+        return true;
+    }
+
+    template <class Filter> bool next(const Filter &searchFilter) {
+        int origStep = step_;
+        do {
+            if (!next()) {move(origStep); return false;}
+        } while (!searchFilter.in(algorithmEvent(step_ - 1)));
+        return true;
+    }
+
+    template <class Filter> bool prev(const Filter &searchFilter) {
+        int origStep = step_;
+        do {
+            if (!prev()) {move(origStep); return false;}
+        } while (!searchFilter.in(algorithmEvent(step_ - 1)));
+        return true;
     }
 
     void reset() {
@@ -90,6 +114,10 @@ struct VisualLog {
     int step() const { return step_; }
 
     const AlgorithmLog &algorithmLog() const { return log_; }
+
+    const AlgorithmEvent &algorithmEvent(int step) const {
+        return log_.events()[step];
+    }
 
     template <class Filter> void setFilter(const Filter &filter) {
         filteredToStep_.clear();

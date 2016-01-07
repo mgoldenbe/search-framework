@@ -20,6 +20,7 @@ struct Visualizer : VisualizerData<Graph, VisualLog> {
     using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
     using Data = VisualizerData<Graph, VisualLog>;
     using typename Data::VISUALIZER_STATE;
+    using Data::g_;
     using Data::log_;
     using Data::drawer_;
     using Data::typist_;
@@ -124,6 +125,16 @@ private:
                 drag_start_y = e.xbutton.y;
                 break;
             case ButtonRelease:
+                if (last_delta_x == 0 && last_delta_y == 0) {
+                    double x = e.xbutton.x, y = e.xbutton.y;
+                    cairo_device_to_user(cr, &x, &y);
+                    auto vd = this->drawer().coordsToVD(x, y);
+                    if (vd) {
+                        auto state = g_.state(vd);
+                        this->searchFilter().filterState().set(state);
+                        typist_.message("Set search filter: " + str(*state));
+                    }
+                }
                 last_delta_x = 0;
                 last_delta_y = 0;
                 break;

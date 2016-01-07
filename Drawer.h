@@ -13,6 +13,7 @@
 
 #include "utilities.h"
 #include "VisualizationUtilities.h"
+#include "GeometryUtilities.h"
 
 template <class Graph, class VisualLog>
 struct Drawer {
@@ -46,6 +47,23 @@ struct Drawer {
     }
 
     const Display *display() const {return display_;}
+
+    const VertexDescriptor coordsToVD(double x, double y) const {
+        for (auto &el: pointMap_) {
+            auto vd = el.first;
+            auto point = el.second;
+            switch(log_.vertexStyle(vd).shape) {
+            case VertexShape::CIRCLE:
+                if (distance(point[0], point[1], x, y) <=
+                    log_.vertexStyle(vd).size)
+                    return vd;
+                break;
+            default: assert(0);
+            }
+        }
+        return nullptr;
+    }
+
     cairo_surface_t *surface() {return surface_;}
     cairo_t *cr() {return cr_;}
 

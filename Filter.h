@@ -14,7 +14,7 @@ struct FilterEventType: FilterBase<AlgorithmEvent> {
     virtual bool in(const AlgorithmEvent &e) const {
         std::string type =
             AlgorithmEvent::eventTypeStr[static_cast<int>(e.type())];
-        return std::find(types_.begin(), types_.end(), type) != types_.end();
+        return ::in(types_, type);
     }
     void set(const std::vector<std::string> &types) { types_ = types; }
     const std::vector<std::string> &get() const { return types_; }
@@ -24,10 +24,31 @@ private:
 };
 
 template <class AlgorithmEvent>
+struct FilterState: FilterBase<AlgorithmEvent> {
+    using StateSharedPtr = typename AlgorithmEvent::StateSharedPtr;
+
+    virtual bool in(const AlgorithmEvent &e) const {
+        if (!states_.size()) return true;
+        return ::in(states_, e.state());
+    }
+    void add(const StateSharedPtr state) { states_.push_back(state); }
+    void set(const StateSharedPtr state) {
+        states_.clear();
+        states_.push_back(state);
+    }
+
+private:
+    std::vector<StateSharedPtr> states_;
+};
+
+template <class AlgorithmEvent>
 struct Filter: FilterBase<AlgorithmEvent> {
-    Filter() : filters_({&filterEventType_}) {}
+    Filter() : filters_({&filterEventType_, &filterState_}) {}
     FilterEventType<AlgorithmEvent> &filterEventType() {
         return filterEventType_;
+    }
+    FilterState<AlgorithmEvent> &filterState() {
+        return filterState_;
     }
     virtual bool in(const AlgorithmEvent &e) const override {
         for (auto f : filters_)
@@ -36,6 +57,7 @@ struct Filter: FilterBase<AlgorithmEvent> {
     }
 private:
     FilterEventType<AlgorithmEvent> filterEventType_;
+    FilterState<AlgorithmEvent> filterState_;
     std::vector<FilterBase<AlgorithmEvent> *> filters_;
 };
 

@@ -18,7 +18,7 @@ template <class Graph, class VisualLog> struct VisualizerData  {
     enum class VISUALIZER_STATE{PAUSE, GO};
 
     VisualizerData(const Graph &g, VisualLog &log)
-        : log_(log), drawer_(g, log), typist_(log) {
+        : g_(g), log_(log), drawer_(g, log), typist_(log) {
         typist_.fillEventsPad();
     }
     VisualLog &log() { return log_; }
@@ -27,8 +27,10 @@ template <class Graph, class VisualLog> struct VisualizerData  {
     void state(VISUALIZER_STATE s) { s_ = s; }
     void speed(int s) { speed_ = s; }
     Filter<AlgorithmEvent> &filter() { return filter_; }
+    Filter<AlgorithmEvent> &searchFilter() { return searchFilter_; }
 
 protected:
+    const Graph &g_;
     VisualLog &log_;
     Drawer<Graph, VisualLog> drawer_;
     Typist<VisualLog> typist_;
@@ -36,6 +38,7 @@ protected:
     VISUALIZER_STATE s_ = VISUALIZER_STATE::PAUSE;
     int speed_ = 2;
     Filter<AlgorithmEvent> filter_;
+    Filter<AlgorithmEvent> searchFilter_;
 };
 
 template <class AllMenus, class Graph, class VisualLog>
@@ -98,7 +101,7 @@ struct MenuMain : public MenuBase<AllMenus, Graph, VisualLog> {
     MenuMain(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
         : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
         this->enterMap_ = {{"Run", &m.menuRun},
-                           {"Search", &m.menuSearch},
+                           {"Search", &m.menuTypedSearch},
                            {"Filter", &m.menuFilter},
                            {"Layout", &m.menuMain}};
         this->fillChoices();
@@ -219,12 +222,24 @@ struct MenuSpeed : MenuBase<AllMenus, Graph, VisualLog> {
 
 template <class AllMenus, class Graph, class VisualLog>
 struct MenuTypedSearch : MenuBase<AllMenus, Graph, VisualLog> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+    using Data = typename Base::Data;
+
     MenuTypedSearch(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
         : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
         this->enterMap_ = {{"Forward", &m.menuTypedSearch},
                            {"Backward", &m.menuTypedSearch}};
         this->fillChoices();
-        this->exitMenu_ = &m.menuTypedSearch;
+        this->exitMenu_ = &m.menuMain;
+    }
+
+    virtual void handleEnter() {
+        std::string choice = this->choice();
+        if (choice == "Forward")
+            this->data_.log().next(this->data_.searchFilter());
+        if (choice == "Backward")
+            this->data_.log().prev(this->data_.searchFilter());
+        Base::handleEnter();
     }
 };
 

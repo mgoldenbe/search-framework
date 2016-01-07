@@ -66,6 +66,11 @@ struct StateGraph {
         return res.first;
     }
 
+    StateSharedPtr state(VertexDescriptor vd) const {
+        if (!vd) return nullptr;
+        return g_[vd];
+    }
+
     auto adjacentVertexRange(VertexDescriptor vd) const
         -> decltype(make_iterator_range(
             adjacent_vertices(vd, std::declval<Graph>()))) {
