@@ -4,6 +4,7 @@
 #include <curses.h>
 #include <sstream>
 #include "MenuUtilities.h"
+#include "Form.h"
 
 template <class VisualLog> struct Typist {
     using AlgorithmLog = typename VisualLog::AlgorithmLog;
@@ -16,6 +17,8 @@ template <class VisualLog> struct Typist {
         init_pair(1, -1, -1);
         init_pair(2, COLOR_CYAN, -1);
         noecho();
+        keypad(stdscr, TRUE);
+        nodelay(stdscr, TRUE);
         curs_set(0); // hide the cursor
         titlePad_ = newpad(1, 400); // enough for sure
         std::ostringstream ss;
@@ -32,7 +35,6 @@ template <class VisualLog> struct Typist {
         wbkgd(eventsPad_, COLOR_PAIR(1));
         wbkgd(messagesPad_, COLOR_PAIR(1));
         wbkgd(commandsPad_, COLOR_PAIR(1));
-        show();
     }
 
     ~Typist() {
@@ -61,6 +63,7 @@ template <class VisualLog> struct Typist {
         showLog();
         showMessages();
         showCommands();
+        refresh();
     }
 
     WINDOW *commandsPad() { return commandsPad_; }
@@ -69,7 +72,6 @@ template <class VisualLog> struct Typist {
         deactivateRow(stepToRow(step_));
         activateRow(stepToRow(step));
         step_ = step;
-        show();
     }
 
     void message(std::string message) {
@@ -77,7 +79,10 @@ template <class VisualLog> struct Typist {
         nMessages_++;
     }
 
-    void setMenu(MENU *menu) { menu_ = menu; show(); }
+    void setMenu(MENU *menu, Form *form) {
+        menu_ = menu;
+        form_ = form;
+    }
 
     void hideFiltered(bool flag) { hideFiltered_ = flag; }
 
@@ -98,6 +103,7 @@ private:
     int commandsBegin_ = messagesBegin_ + nShownMessages_ + 2;
     int nCommandRows_ = 10;
     MENU *menu_ = nullptr;
+    Form *form_ = nullptr;
     bool hideFiltered_ = true;
 
     int nMessages_ = 0;
@@ -149,7 +155,6 @@ private:
         mvhline(row, 0, ACS_HLINE, hlineLength);
         mvprintw(row, hlineLength, title.c_str());
         mvhline(row, hlineLength + title.size(), ACS_HLINE, hlineLength);
-        refresh();
     }
 
     void showMessages() const {
@@ -161,10 +166,11 @@ private:
 
     void showCommands() const {
         makeTitle(commandsBegin_, " Commands ");
-        if (menu_)
-            prefresh(commandsPad_, 0, 0, commandsBegin_ + 1, 0,
-                     std::min(commandsBegin_ + nCommandRows_, maxRow_ - 1),
-                     maxColumn_ - 1);
+        if (menu_ && form_ && !form_->empty())
+            form_->display();
+        prefresh(commandsPad_, 0, 0, commandsBegin_ + 1, 0,
+                 std::min(commandsBegin_ + nCommandRows_, maxRow_ - 1),
+                 maxColumn_ - 1);
     }
 };
 

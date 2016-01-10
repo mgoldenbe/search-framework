@@ -33,7 +33,7 @@ struct Drawer {
         // create a new cairo surface in an x11 window as well as a cairo_t* to
         // draw on the x11 window with.
         int x=500, y=500;
-        surface_ = create_x11_surface(display_, &x, &y);
+        surface_ = create_x11_surface(display_, w_, root_, &x, &y);
         cr_ = cairo_create(surface_);
         scaleLayout(x, y, 20, 20);
     }
@@ -46,7 +46,9 @@ struct Drawer {
         cairo_debug_reset_static_data();
     }
 
-    const Display *display() const {return display_;}
+    Display *display() {return display_;}
+    Window &window() { return w_; }
+    Window &root() { return root_; }
 
     const VertexDescriptor coordsToVD(double x, double y) const {
         for (auto &el: pointMap_) {
@@ -175,6 +177,7 @@ private:
     VisualLog &log_;
     PointMap pointMap_;
     Display *display_;
+    Window w_, root_;
     cairo_surface_t* surface_;
     cairo_t* cr_;
 };

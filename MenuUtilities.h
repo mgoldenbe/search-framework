@@ -31,7 +31,8 @@ MENU *createMenu(WINDOW *w, std::vector<ITEM *> &items,
     getmaxyx(stdscr, maxRow, maxColumn); (void)maxRow;
     set_menu_format(res, maxMenuRows,
                     maxColumn / (res->namelen + res->spc_cols));
-    set_menu_mark(res, "->");
+    if (choices.size() > 1) set_menu_mark(res, "->");
+    else set_menu_mark(res, "");
 
     // This is a magic sequence.
     // set_item_value() needs to be called after post_menu()...

@@ -36,6 +36,7 @@ struct FilterState: FilterBase<AlgorithmEvent> {
         states_.clear();
         states_.push_back(state);
     }
+    void reset() { states_.clear(); }
 
 private:
     std::vector<StateSharedPtr> states_;

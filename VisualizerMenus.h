@@ -11,6 +11,7 @@
 #include "Drawer.h"
 #include "Typist.h"
 #include "Filter.h"
+#include "Form.h"
 
 template <class Graph, class VisualLog> struct VisualizerData  {
     using AlgorithmLog = typename VisualLog::AlgorithmLog;
@@ -59,6 +60,10 @@ struct MenuBase {
 
     Data &data() { return data_; }
 
+    Form &form() { return form_; }
+
+    bool formEmpty() const {return form_.empty();}
+
     virtual void handleEnter() {
         std::string choice = this->choice();
         Base *m = std::find_if(enterMap_.begin(), enterMap_.end(),
@@ -85,6 +90,7 @@ protected:
     std::vector<std::string> choices_;
     std::vector<std::string> nonSelectable_;
     Base *exitMenu_;
+    Form form_;
 
     void fillChoices() {
         choices_.clear();
@@ -101,7 +107,7 @@ struct MenuMain : public MenuBase<AllMenus, Graph, VisualLog> {
     MenuMain(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
         : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
         this->enterMap_ = {{"Run", &m.menuRun},
-                           {"Search", &m.menuTypedSearch},
+                           {"Search", &m.menuEnterState},
                            {"Filter", &m.menuFilter},
                            {"Layout", &m.menuMain}};
         this->fillChoices();
@@ -144,6 +150,43 @@ struct MenuSearch : MenuBase<AllMenus, Graph, VisualLog> {
         this->fillChoices();
         this->exitMenu_ = &m.menuMain;
     }
+};
+
+template <class AllMenus, class Graph, class VisualLog>
+struct MenuEnterState : MenuBase<AllMenus, Graph, VisualLog> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+    using Data = typename Base::Data;
+
+    MenuEnterState(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
+        : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
+        EditField editField{
+            this->data_.drawer().display(), this->data_.typist().commandsPad(),
+            0,                              0,
+            1,                              40,
+            "Enter state: "};
+        this->enterMap_ = {{" ", &m.menuTypedSearch}};
+        this->fillChoices();
+        this->exitMenu_ = &m.menuMain;
+
+        this->form_.addField(editField);
+    }
+
+    virtual void handleEnter() {
+        auto &stateStr = this->form_.get(0);
+        auto &filter = this->data_.searchFilter().filterState();
+        if (stateStr.empty()) {
+            this->data_.typist().message("Cleared search filter");
+            filter.reset();
+        } else {
+            auto state = std::make_shared<typename VisualLog::State>(stateStr);
+            filter.set(state);
+            this->data_.typist().message("Set search filter: " + str(*state));
+        }
+        Base::handleEnter(); // Need to do this before the menu entry changed
+    }
+
+private:
+    std::string label_ = "Enter state: ";
 };
 
 template <class AllMenus, class Graph, class VisualLog>
@@ -281,7 +324,8 @@ template<class Graph, class VisualLog>
 struct AllMenus {
     AllMenus(VisualizerData<Graph, VisualLog> &data)
         : menuMain(*this, data), menuRun(*this, data), menuSearch(*this, data),
-          menuFilter(*this, data), menuGo(*this, data), menuSpeed(*this, data),
+          menuEnterState(*this, data), menuFilter(*this, data),
+          menuGo(*this, data), menuSpeed(*this, data),
           menuTypedSearch(*this, data), menuEditFilter(*this, data) {
         setMenu(&menuMain, data.typist());
     }
@@ -289,6 +333,7 @@ struct AllMenus {
     MenuMain<AllMenus, Graph, VisualLog> menuMain;
     MenuRun<AllMenus, Graph, VisualLog> menuRun;
     MenuSearch<AllMenus, Graph, VisualLog> menuSearch;
+    MenuEnterState<AllMenus, Graph, VisualLog> menuEnterState;
     MenuFilter<AllMenus, Graph, VisualLog> menuFilter;
     MenuGo<AllMenus, Graph, VisualLog> menuGo;
     MenuSpeed<AllMenus, Graph, VisualLog> menuSpeed;
@@ -302,6 +347,7 @@ struct AllMenus {
     void setMenu(MenuBase<AllMenus, Graph, VisualLog> *newMenu,
                  Typist<VisualLog> &typist) {
         if (newMenu == m_) return;
+
         destroyMenu(raw_);
         menuItems_.clear();
         raw_ = createMenu(typist.commandsPad(), menuItems_, newMenu->choices(),
@@ -309,8 +355,12 @@ struct AllMenus {
                           newMenu->data().filter().filterEventType().get(),
                           maxMenuRows_, newMenu->multi());
         m_ = newMenu;
-        typist.setMenu(raw_);
+        typist.setMenu(raw_, &newMenu->form());
     }
+
+    MenuBase<AllMenus, Graph, VisualLog> *curMenu() {return m_;}
+
+    Form &curForm() {return m_->form();}
 
     MENU *raw() { return raw_; }
 

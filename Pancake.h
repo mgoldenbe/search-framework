@@ -21,6 +21,10 @@ struct Pancake {
         for (auto i = 0; i != n; ++i)
             pancakes[i] = i;
     }
+    Pancake(const std::string &s) {
+        for (auto el: split(s, {' ', ',', '[', ']'}))
+            pancakes.push_back(std::stoi(el));
+    }
     Pancake (const Pancake &p) = default;
     Pancake &operator=(const Pancake &rhs) = default;
     //@}

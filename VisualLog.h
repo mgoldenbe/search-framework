@@ -19,6 +19,7 @@ template <class AlgorithmLog_, class VisualEvent_>
 struct VisualLog {
     using AlgorithmLog = AlgorithmLog_;
     using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
+    using State= typename AlgorithmEvent::State;
     using VisualEvent = VisualEvent_;
     using Graph = typename VisualEvent::Graph;
     using VertexDescriptor = typename Graph::VertexDescriptor;

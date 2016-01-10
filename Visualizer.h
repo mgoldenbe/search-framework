@@ -10,6 +10,8 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
+#include <X11/XKBlib.h>
+#include <X11/extensions/XTest.h>
 
 #include "utilities.h"
 #include "VisualizerMenus.h"
@@ -37,6 +39,7 @@ struct Visualizer : VisualizerData<Graph, VisualLog> {
             if (!processEvents()) break;
             drawer_.draw();
             typist_.setStep(log_.step());
+            typist_.show();
             if (s_ == VISUALIZER_STATE::PAUSE) {
                 iteration = 0;
                 continue;
@@ -68,11 +71,30 @@ private:
         XEvent e;
         cairo_surface_t *surface = drawer_.surface();
         cairo_t *cr = drawer_.cr();
+        int c;
 
+        if ((c = getch()) != ERR) {
+            auto &drawer = this->drawer_;
+            XKeyEvent keyEvent = createKeyEvent(
+                drawer.display(), drawer.window(), drawer.root(), true, c, 0);
+            XSetInputFocus(drawer.display(), drawer.window(), RevertToNone,
+                           CurrentTime);
+            // XSendEvent(keyEvent.display, keyEvent.window, True, KeyPressMask,
+            //            (XEvent *)&keyEvent);
+            XTestFakeKeyEvent(keyEvent.display, keyEvent.keycode, True,
+                              CurrentTime);
+        }
         if (XPending(cairo_xlib_surface_get_display(surface))) {
             XNextEvent(cairo_xlib_surface_get_display(surface), &e);
+            noEventCount_ = 0;
+            if (e.type != MotionNotify) motionLast_ = false;
             switch (e.type) {
-            case KeyPress:
+            case KeyPress: {
+                //this->typist_.message("Key event received!");
+                auto &form = m_.curMenu()->form();
+                if (!form.empty())
+                    if (form.handle(e.xkey.state, e.xkey.keycode)) break;
+            }
                 switch (e.xkey.state) {
                 case 4: // Ctrl is pressed
                     if (e.xkey.keycode == 21) {
@@ -121,18 +143,21 @@ private:
                 }
                 break;
             case ButtonPress:
+                buttonPressed_ = true;
                 drag_start_x = e.xbutton.x;
                 drag_start_y = e.xbutton.y;
                 break;
             case ButtonRelease:
+                buttonPressed_ = false;
                 if (last_delta_x == 0 && last_delta_y == 0) {
                     double x = e.xbutton.x, y = e.xbutton.y;
                     cairo_device_to_user(cr, &x, &y);
                     auto vd = this->drawer().coordsToVD(x, y);
                     if (vd) {
                         auto state = g_.state(vd);
-                        this->searchFilter().filterState().set(state);
-                        typist_.message("Set search filter: " + str(*state));
+                        auto &form = this->m_.curForm();
+                        if (!form.empty())
+                            form.set(str(*state));
                     }
                 }
                 last_delta_x = 0;
@@ -140,11 +165,19 @@ private:
                 break;
             case MotionNotify:
                 // http://cairographics.org/manual/cairo-Transformations.html#cairo-translate
-                cairo_translate(
-                    cr, (e.xmotion.x - drag_start_x - last_delta_x) / scale_,
-                    (e.xmotion.y - drag_start_y - last_delta_y) / scale_);
-                last_delta_x = e.xmotion.x - drag_start_x;
-                last_delta_y = e.xmotion.y - drag_start_y;
+                motionLast_ = true;
+                if (!buttonPressed_) {
+                    lastMotionX_ = e.xmotion.x;
+                    lastMotionY_ = e.xmotion.y;
+                }
+                else {
+                    cairo_translate(
+                        cr,
+                        (e.xmotion.x - drag_start_x - last_delta_x) / scale_,
+                        (e.xmotion.y - drag_start_y - last_delta_y) / scale_);
+                    last_delta_x = e.xmotion.x - drag_start_x;
+                    last_delta_y = e.xmotion.y - drag_start_y;
+                }
                 break;
             case ConfigureNotify:
                 sizex_ = e.xconfigure.width;
@@ -161,6 +194,18 @@ private:
                 << "." << std::endl; */
             }
         }
+        else {
+            noEventCount_++;
+            if (motionLast_ && noEventCount_ > 100) {
+                motionLast_ = false;
+                auto vd = this->drawer().coordsToVD(lastMotionX_, lastMotionY_);
+                if (vd) {
+                    auto state = g_.state(vd);
+                    typist_.message("Mouse over: " + str(*state));
+                }
+            }
+        }
+
         return true;
     }
 
@@ -173,6 +218,11 @@ private:
     double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;
     int drag_start_x, drag_start_y;
+    bool buttonPressed_ = false;
+
+    bool motionLast_ = false;
+    int noEventCount_ = 0;
+    int lastMotionX_, lastMotionY_;
 };
 
 #endif
