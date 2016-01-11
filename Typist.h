@@ -5,6 +5,7 @@
 #include <sstream>
 #include "MenuUtilities.h"
 #include "Form.h"
+#include "Table.h"
 
 template <class VisualLog> struct Typist {
     using AlgorithmLog = typename VisualLog::AlgorithmLog;
@@ -19,11 +20,9 @@ template <class VisualLog> struct Typist {
         noecho();
         keypad(stdscr, TRUE);
         nodelay(stdscr, TRUE);
-        curs_set(0); // hide the cursor
+        curs_set(0);                // hide the cursor
         titlePad_ = newpad(1, 400); // enough for sure
-        std::ostringstream ss;
-        AlgorithmEvent::dumpTitle(ss);
-        wprintw(titlePad_, "%s\n", ss.str().c_str());
+
         eventsPad_ = newpad(80, 400); // enough for sure
 
         messagesPad_ = newpad(1000, 400); // enough for sure
@@ -42,19 +41,35 @@ template <class VisualLog> struct Typist {
         endwin();
     }
 
-    void printEvent(const AlgorithmEvent &e) {
-        if (!log_.inFilter(e.step()))
+    void printEvent(int row) {
+        int step = rowToStep(row);
+        if (!log_.inFilter(step))
             wattron(eventsPad_, COLOR_PAIR(2));
-        wprintw(eventsPad_, "%s\n", str(e).c_str());
-        if (!log_.inFilter(e.step()))
+        wprintw(eventsPad_, "%s\n", str(logTable_.row(row)).c_str());
+        if (!log_.inFilter(step))
             wattroff(eventsPad_, COLOR_PAIR(2));
     }
 
     void fillEventsPad() {
         wclear(eventsPad_);
         wrefresh(eventsPad_);
+        logTable_.clear();
+
+        AlgorithmEvent::dumpTitle(logTable_);
         for (auto &e : log_.algorithmLog().events())
-            if (!hideFiltered_ || log_.inFilter(e.step())) printEvent(e);
+            if (!hideFiltered_ || log_.inFilter(e.step())) {
+                e.dump(logTable_);
+                logTable_ << std::endl;
+            }
+
+        wclear(titlePad_);
+        wrefresh(titlePad_);
+        wattron(titlePad_, A_BOLD);
+        wprintw(titlePad_, str(logTable_.row(0)).c_str());
+        wattroff(titlePad_, A_BOLD);
+        logTable_.remove(0);
+
+        for (int i = 0; i < logTable_.size(); i++) printEvent(i);
         activateRow(stepToRow(step_));
     }
 
@@ -86,11 +101,18 @@ template <class VisualLog> struct Typist {
 
     void hideFiltered(bool flag) { hideFiltered_ = flag; }
 
+    void scrollRight() { horizontalScroll_++; }
+    void scrollLeft() {
+        if (horizontalScroll_ > 0) horizontalScroll_--;
+    }
+
 private:
     const VisualLog &log_;
+    Table logTable_{2};
     WINDOW *titlePad_;
     WINDOW *eventsPad_;
     int step_ = 0; // next step of the log
+    int horizontalScroll_ = 0;
 
     int prefix_ = 5;
     int suffix_ = 5;
@@ -124,8 +146,7 @@ private:
         if (row < 0 || row >= rowLimit) return;
         wmove(eventsPad_, row, 0);
         flag ? wattron(eventsPad_, attr) : wattroff(eventsPad_, attr);
-        auto e = log_.algorithmLog().event(rowToStep(row));
-        printEvent(e);
+        printEvent(row);
         if (flag) wattroff(eventsPad_, attr);
     }
 
@@ -144,10 +165,10 @@ private:
         //              int smincol, int smaxrow, int smaxcol);
         //    pminrow and pmincol -- scroll values
         //    sminrow,  smincol,  smaxrow, smaxcol -- non-hidden area
-        prefresh(titlePad_, 0, 0, 0, 0, 1, maxColumn_ - 1);
+        prefresh(titlePad_, 0, horizontalScroll_, 0, 0, 1, maxColumn_ - 1);
         int vScroll = std::max(0, stepToRow(step_) - prefix_);
-        prefresh(eventsPad_, vScroll, 0, 1, 0, prefix_ + suffix_ + 1,
-                 maxColumn_ - 1);
+        prefresh(eventsPad_, vScroll, horizontalScroll_, 1, 0,
+                 prefix_ + suffix_ + 1, maxColumn_ - 1);
     }
 
     void makeTitle(int row, const std::string &title) const {

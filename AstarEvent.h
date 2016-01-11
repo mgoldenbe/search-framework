@@ -64,8 +64,8 @@ template <class State_, class NodeData> struct AstarEvent {
         return res;
     }
 
-    template <typename CharT>
-    std::basic_ostream<CharT> &dump(std::basic_ostream<CharT> &o) const {
+    template <class Stream> // can be Table
+    Stream &dump(Stream &o) const {
         o << std::setw(6) << step_;
         o << std::setw(18) << str(*state_) << std::setw(20)
           << eventTypeStr[static_cast<int>(type_)];
@@ -82,8 +82,10 @@ template <class State_, class NodeData> struct AstarEvent {
         o << std::setw(12) << nodeData_;
         return o;
     }
-    void dump() const { dump(std::cerr); }
     //@}
+
+    //template <typename CharT>
+    //std::basic_ostream<CharT> &dump(std::basic_ostream<CharT> &o) const {
 
     ///@name Modification
     //@{
@@ -94,8 +96,8 @@ template <class State_, class NodeData> struct AstarEvent {
     }
     //@}
 
-    template <typename CharT>
-    static std::basic_ostream<CharT> &dumpTitle(std::basic_ostream<CharT> &o) {
+    template <class Stream> // can be Table
+    static Stream &dumpTitle(Stream &o) {
         o << std::setw(6) << "Step" << std::setw(18) << "State" << std::setw(20)
           << "Event" << std::setw(12) << "Role" << std::setw(18) << "Parent"
           << std::setw(12) << "Note" << std::endl;

@@ -74,15 +74,9 @@ private:
         int c;
 
         if ((c = getch()) != ERR) {
-            auto &drawer = this->drawer_;
-            XKeyEvent keyEvent = createKeyEvent(
-                drawer.display(), drawer.window(), drawer.root(), true, c, 0);
-            XSetInputFocus(drawer.display(), drawer.window(), RevertToNone,
-                           CurrentTime);
-            // XSendEvent(keyEvent.display, keyEvent.window, True, KeyPressMask,
-            //            (XEvent *)&keyEvent);
-            XTestFakeKeyEvent(keyEvent.display, keyEvent.keycode, True,
-                              CurrentTime);
+            this->typist_.message(
+                "Console is active; "
+                "only events in the X window are currently handled");
         }
         if (XPending(cairo_xlib_surface_get_display(surface))) {
             XNextEvent(cairo_xlib_surface_get_display(surface), &e);
@@ -105,7 +99,14 @@ private:
                         scaleDown(cr);
                         break;
                     }
-                    break;
+                    if (e.xkey.keycode == 113) { // Left
+                        this->typist_.scrollLeft();
+                        break;
+                    }
+                    if (e.xkey.keycode == 114) { // Right
+                        this->typist_.scrollRight();
+                        break;
+                    }
                 default:
                     switch (e.xkey.keycode) {
                     case 65: // space

@@ -1,30 +1,39 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include "ncurses.h"
+#include <cstdlib>
 
-template<class V, typename T>
-bool in(const V &v, const T &el) {
-    return std::find(v.begin(), v.end(), el) != v.end();
+// http://stackoverflow.com/a/8192276/2725810
+
+// See also this to handle highlighting:
+// http://stackoverflow.com/a/6848670/2725810
+MEVENT mev;
+
+void quit(void)
+{
+    endwin();
 }
 
-std::vector<std::string> split(const std::string &s,
-                               const std::vector<char> &delims) {
-    std::vector<std::string> res;
-    auto stuff = [&delims](char c) { return !in(delims, c); };
-    auto space = [&delims](char c) { return in(delims, c); };
-    auto first = std::find_if(s.begin(), s.end(), stuff);
-    while (first != s.end()) {
-        auto last = std::find_if(first, s.end(), space);
-        res.push_back(std::string(first, last));
-        first = std::find_if(last + 1, s.end(), stuff);
-    }
-    return res;
-}
+int main(void)
+{
+    initscr();
+    atexit(quit);
+    clear();
+    noecho();
+    curs_set(0);
+    cbreak();
+    keypad(stdscr, TRUE);
+    start_color();
+    mousemask(BUTTON1_CLICKED, 0);
 
-int main() {
-    std::string s = " [1, 2, 3 ] ";
-    for (auto el: split(s, {' ', ',', '[', ']'}))
-        std::cout << el << std::endl;
-    return 0;
+    mvaddstr(5, 3, "Click to turn a character into an 'X'");
+    refresh();
+
+    for(;;)
+        {
+            if(getch() == KEY_MOUSE && getmouse(&mev) == OK)
+                {
+                    mvaddch(mev.y,mev.x,'X');
+                    refresh();
+                }
+        }
+    return (0);
 }

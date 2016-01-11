@@ -31,6 +31,14 @@ bool in(const V &v, const T &el) {
     return std::find(v.begin(), v.end(), el) != v.end();
 }
 
+std::string trim(const std::string &str,
+                 const std::string &whitespace = " \t") {
+    const auto strBegin = str.find_first_not_of(whitespace);
+    if (strBegin == std::string::npos) return ""; // no content
+    const auto strEnd = str.find_last_not_of(whitespace);
+    return str.substr(strBegin, strEnd - strBegin + 1);
+}
+
 std::vector<std::string> split(const std::string &s,
                                const std::vector<char> &delims) {
     std::vector<std::string> res;
