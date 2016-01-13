@@ -31,28 +31,22 @@ template <typename Graph> struct kamada_kawai_done {
     std::map<VertexDescriptor, std::vector<double>> history;
 };
 
-template <class State, typename CostType>
-// http://stackoverflow.com/q/33912929/2725810
-template <class PointMap>
-PointMap StateGraph<State, CostType>::layout() const {
-    PointMap res;
+template <class MyMap>
+void dumpLayout(MyMap layout) {
+    for (auto &el : layout)
+        std::cout << (el.second)[0] << " " << (el.second)[1] << std::endl;
+}
 
-    // Make a copy into a graph that is easier to deal with:
-    //     -- vecS for vertex set, so there is index map
-    //     -- double for edge weights
-    using LayoutGraph =
-        boost::adjacency_list<vecS, vecS, undirectedS, int, double>;
-    using LayoutVertexDescriptor =
-        typename graph_traits<LayoutGraph>::vertex_descriptor;
-    std::map<VertexDescriptor, LayoutVertexDescriptor> myMap;
-    std::map<LayoutVertexDescriptor, VertexDescriptor> myReverseMap;
-    LayoutGraph lg;
+template <class State, typename CostType>
+void StateGraph<State, CostType>::initLayoutGraph() {
+    if (num_vertices(lg_)) return; // already initialized
+
     int i = 0;
     for (auto vd : vertexRange()) {
-        auto lvd = add_vertex(lg);
-        lg[lvd] = i++;
-        myMap[vd] = lvd;
-        myReverseMap[lvd] = vd;
+        auto lvd = add_vertex(lg_);
+        lg_[lvd] = i++;
+        graphToLayout_[vd] = lvd;
+        layoutToGraph_[lvd] = vd;
     }
     /* // The case for succeeding Kamada-Kawai with circle layout for 3-pancake
     for (auto lfrom: make_iterator_range(vertices(lg)))
@@ -79,54 +73,76 @@ PointMap StateGraph<State, CostType>::layout() const {
 
     for (auto from : vertexRange()) {
         for (auto to : adjacentVertexRange(from)) {
-            auto lfrom = myMap[from], lto = myMap[to];
-            if (!boost::edge(lfrom, lto, lg).second) {
-                // std::cout << "Connecting: " << lg[lfrom] << "-->" <<
-                // lg[lto] << std::endl;
+            auto lfrom = graphToLayout_[from], lto = graphToLayout_[to];
+            if (!boost::edge(lfrom, lto, lg_).second) {
+                // std::cout << "Connecting: " << lg_[lfrom] << "-->" <<
+                // lg_[lto] << std::endl;
                 auto edgePair = boost::edge(from, to, g_);
-                add_edge(lfrom, lto, (double)(g_[edgePair.first]), lg);
+                add_edge(lfrom, lto, (double)(g_[edgePair.first]), lg_);
             }
         }
     }
+}
 
-    using LayoutPointMap =
-        std::map<LayoutVertexDescriptor, square_topology<>::point_type>;
-    LayoutPointMap intermediateResults;
-    boost::associative_property_map<LayoutPointMap> temp(intermediateResults);
+template <class State, typename CostType>
+void
+StateGraph<State, CostType>::initBaseLayout(bool circularFlag) {
+    if (baseLayout_.size()) return; // already initialized
+    boost::associative_property_map<LayoutPointMap> temp(baseLayout_);
+    if (circularFlag)
+        circle_graph_layout(lg_, temp, 50.0);
+    else {
+        minstd_rand gen;
+        rectangle_topology<> rect_top(gen, 0, 0, 100, 100);
+        random_graph_layout(lg_, temp, rect_top);
+    }
+    //dumpLayout(baseLayout_);
+}
 
-    minstd_rand gen;
-    rectangle_topology<> rect_top(gen, 0, 0, 100, 100);
-    //random_graph_layout(lg, temp, rect_top);
+template <class State, typename CostType>
+void
+StateGraph<State, CostType>::randomizeBaseLayout() {
+    shuffleMap(baseLayout_);
+}
 
-    // Kamada-Kawai depends on position in the circle
-    // E.g. for this graph: 0->1, 0->2, 1->3, 2->4, 3->5, 4->5
-    circle_graph_layout(lg, temp, 50.0);
+template <class State, typename CostType>
+// http://stackoverflow.com/q/33912929/2725810
+typename StateGraph<State, CostType>::PointMap
+StateGraph<State, CostType>::layout(bool kamadaKawaiFlag,
+                                    bool fruchtermanReingoldFlag) {
+    PointMap pointMapRes;
 
-    kamada_kawai_spring_layout(lg, temp, get(edge_bundle, lg),
-                               square_topology<>(100.0), side_length(100.0),
-                               // kamada_kawai_done<LayoutGraph>());
-                               layout_tolerance<double>(0.0001));
-    /*
-    for (auto &el : intermediateResults)
-        std::cout << (el.second)[0] << " " << (el.second)[1] << std::endl;
-    */
-    // std::cout << "Done KK" << std::endl;
+    initLayoutGraph();
+    initBaseLayout();
+    randomizeBaseLayout();
+    LayoutPointMap layoutPointMapRes{baseLayout_};
 
+    boost::associative_property_map<LayoutPointMap> temp(layoutPointMapRes);
     using Topology = square_topology<>;
-    Topology topology(gen, 100.0);
+    // minstd_rand gen;
+    // Topology topology(gen, 100.0);
+    Topology topology(100.0);
 
-    std::vector<Topology::point_difference_type> displacements(
-        num_vertices(lg));
-    fruchterman_reingold_force_directed_layout
-        (lg, temp,
-         topology,
-         square_distance_attractive_force(),
-         square_distance_repulsive_force(),
-         all_force_pairs(),
-         linear_cooling<double>(100),
-         make_iterator_property_map(displacements.begin(),
-                                    get(vertex_index, lg),
-                                    Topology::point_difference_type()));
+    if (kamadaKawaiFlag) {
+        kamada_kawai_spring_layout(lg_, temp, get(edge_bundle, lg_), topology,
+                                   side_length(100.0),
+                                   // kamada_kawai_done<LayoutGraph>());
+                                   layout_tolerance<double>(0.0001));
+
+        // std::cout << "Done KK" << std::endl;
+    }
+
+    if (fruchtermanReingoldFlag) {
+        std::vector<Topology::point_difference_type> displacements(
+            num_vertices(lg_));
+        fruchterman_reingold_force_directed_layout(
+            lg_, temp, topology, square_distance_attractive_force(),
+            square_distance_repulsive_force(), all_force_pairs(),
+            linear_cooling<double>(100),
+            make_iterator_property_map(displacements.begin(),
+                                       get(vertex_index, lg_),
+                                       Topology::point_difference_type()));
+    }
 
     // It can actually spoil the perfect symmetry for 4-pancake
     // fruchterman_reingold_force_directed_layout(
@@ -134,7 +150,8 @@ PointMap StateGraph<State, CostType>::layout() const {
     //      attractive_force(square_distance_attractive_force())
     //          .cooling(linear_cooling<double>(100)));
 
-    for (auto el : intermediateResults) res[myReverseMap[el.first]] = el.second;
+    for (auto el : layoutPointMapRes)
+        pointMapRes[layoutToGraph_[el.first]] = el.second;
 
-    return res;
+    return pointMapRes;
 }

@@ -25,7 +25,7 @@ template <class State_, class NodeData> struct AstarEvent {
     };
     static std::vector<std::string> eventTypeStr;
 
-    enum class StateRole { NOVAL, START, GOAL, DONE_GOAL };
+    enum class StateRole { NOVAL, START, GOAL, BEGIN_DONE_GOAL, END_DONE_GOAL };
     // There is an alternative here:
     // http://stackoverflow.com/a/23402871/2725810
     // Drawback: has to be declared outside of any class
@@ -45,7 +45,7 @@ template <class State_, class NodeData> struct AstarEvent {
     int step() const { return step_; }
     const AlgorithmLogger<AstarEvent> &logger() const { return logger_; }
     const StateSharedPtr &state() const { return state_; }
-    const MyType &lastEvent() const {
+    const MyType &lastEvent() const { // last event for the same state
         return logger_.event(lastEventStep_);
     }
     const EventType &type() const { return type_; }
@@ -129,5 +129,5 @@ std::vector<std::string> AstarEvent<State, NodeData>::eventTypeStr = {
 
 template <class State, class NodeData>
 std::vector<std::string> AstarEvent<State, NodeData>::stateRoleStr = {
-    "NOVAL", "START", "GOAL", "DONE_GOAL"};
+    "NOVAL", "START", "GOAL", "BEGIN_DONE_GOAL", "END_DONE_GOAL"};
 #endif

@@ -28,7 +28,7 @@ struct MinHeuristicToGoals {
                 responsible = i;
             }
         }
-        n->heuristicGoal = goals_[responsible];
+        n->responsibleGoal = goals_[responsible];
         return res;
     }
 private:

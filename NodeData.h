@@ -18,6 +18,6 @@ struct NodeBase: ManagedNode<> {
 };
 
 template <typename State>
-struct NoNodeData: public ManagedNode<NodeBase<State>> {};
+struct NoNodeData: ManagedNode<NodeBase<State>> {};
 
 #endif

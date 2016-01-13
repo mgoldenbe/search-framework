@@ -19,9 +19,11 @@
 using MyState = Pancake;
 using MyCostType = MyState::CostType;
 
-template <typename State> struct MyNodeDataT : public NodeBase<State> {
-    MyNodeDataT() : heuristicGoal(0) {}
-    State heuristicGoal; // the goal the was responsible for the heuristic value
+template <typename State> struct MyNodeDataT : ManagedNode<NodeBase<State>> {
+    MyNodeDataT() : responsibleGoal(0) {}
+    REFLECTABLE(
+        (State)
+        responsibleGoal) // the goal that was responsible for the heuristic value
 };
 using MyNodeData = MyNodeDataT<MyState>;
 using MyNode = AStarNode<MyState, MyNodeData>;

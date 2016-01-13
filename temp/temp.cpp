@@ -1,39 +1,34 @@
-#include "ncurses.h"
-#include <cstdlib>
+#include <iostream>
+#include <vector>
+#include <map>
+#include <functional>
+#include <algorithm>
+#include "PrettyPrint.h"
 
-// http://stackoverflow.com/a/8192276/2725810
+// Shuffle a vector of std::reference_wrapper
+// The algorithm is version 1 from
+// http://en.cppreference.com/w/cpp/algorithm/random_shuffle
+template< class RandomIt >
+void shuffleRefs( RandomIt first, RandomIt last ) {
+    typename std::iterator_traits<RandomIt>::difference_type i, n;
+    n = last - first;
+    for (i = n-1; i > 0; --i) {
+        using std::swap;
+        swap(first[i].get(), first[std::rand() % (i+1)].get());
+    }
+}
 
-// See also this to handle highlighting:
-// http://stackoverflow.com/a/6848670/2725810
-MEVENT mev;
-
-void quit(void)
-{
-    endwin();
+template <class MapType>
+void shuffleMap(MapType &map) {
+    std::vector<std::reference_wrapper<typename MapType::mapped_type>> v;
+    for (auto &el : map) v.push_back(std::ref(el.second));
+    shuffleRefs(v.begin(), v.end());
 }
 
 int main(void)
 {
-    initscr();
-    atexit(quit);
-    clear();
-    noecho();
-    curs_set(0);
-    cbreak();
-    keypad(stdscr, TRUE);
-    start_color();
-    mousemask(BUTTON1_CLICKED, 0);
-
-    mvaddstr(5, 3, "Click to turn a character into an 'X'");
-    refresh();
-
-    for(;;)
-        {
-            if(getch() == KEY_MOUSE && getmouse(&mev) == OK)
-                {
-                    mvaddch(mev.y,mev.x,'X');
-                    refresh();
-                }
-        }
+    std::map<int, int> myMap = {{1, 100}, {2, 200}, {3, 300}, {4, 400}};
+    shuffleMap(myMap);
+    std::cout << myMap << std::endl;
     return (0);
 }

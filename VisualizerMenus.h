@@ -18,7 +18,7 @@ template <class Graph, class VisualLog> struct VisualizerData  {
     using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
     enum class VISUALIZER_STATE{PAUSE, GO};
 
-    VisualizerData(const Graph &g, VisualLog &log)
+    VisualizerData(Graph &g, VisualLog &log)
         : g_(g), log_(log), drawer_(g, log), typist_(log) {
         typist_.fillEventsPad();
     }
@@ -31,7 +31,7 @@ template <class Graph, class VisualLog> struct VisualizerData  {
     Filter<AlgorithmEvent> &searchFilter() { return searchFilter_; }
 
 protected:
-    const Graph &g_;
+    Graph &g_;
     VisualLog &log_;
     Drawer<Graph, VisualLog> drawer_;
     Typist<VisualLog> typist_;
@@ -104,6 +104,9 @@ protected:
 
 template <class AllMenus, class Graph, class VisualLog>
 struct MenuMain : public MenuBase<AllMenus, Graph, VisualLog> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+    using Data = typename Base::Data;
+
     MenuMain(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
         : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
         this->enterMap_ = {{"Run", &m.menuRun},
@@ -112,6 +115,13 @@ struct MenuMain : public MenuBase<AllMenus, Graph, VisualLog> {
                            {"Layout", &m.menuMain}};
         this->fillChoices();
         this->exitMenu_ = &m.menuMain;
+    }
+
+    virtual void handleEnter() {
+        std::string choice = this->choice();
+        if (choice == "Layout")
+            this->data_.drawer().changeLayout();
+        Base::handleEnter();
     }
 };
 

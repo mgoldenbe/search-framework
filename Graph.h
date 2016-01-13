@@ -50,6 +50,16 @@ struct StateGraph {
     using VertexDescriptor = typename graph_traits<Graph>::vertex_descriptor;
     using EdgeDescriptor = typename boost::graph_traits<Graph>::edge_descriptor;
 
+    // http://stackoverflow.com/q/33903879/2725810
+    using LayoutGraph =
+        boost::adjacency_list<vecS, vecS, undirectedS, int, double>;
+    using LayoutVertexDescriptor =
+        typename graph_traits<LayoutGraph>::vertex_descriptor;
+    using Point = square_topology<>::point_type;
+    using PointMap = std::map<VertexDescriptor, Point>;
+    using LayoutPointMap =
+        std::map<LayoutVertexDescriptor, Point>;
+
     auto vertexRange() const -> decltype(make_iterator_range(
         vertices(std::declval<Graph>()))) {
         return make_iterator_range(vertices(g_));
@@ -104,7 +114,8 @@ struct StateGraph {
         }
     }
 
-    template <class PointMap> PointMap layout() const;
+    PointMap layout(bool kamadaKawaiFlag = true,
+                    bool fruchtermanReingoldFlag = true);
 
     VertexDescriptor vertex(const StateSharedPtr &s) const {
         auto it =  stov_.find(s);
@@ -115,6 +126,15 @@ private:
     Graph g_;
     std::unordered_map<StateSharedPtr, VertexDescriptor,
                        StateSharedPtrHash<State>> stov_;
+
+    std::map<VertexDescriptor, LayoutVertexDescriptor> graphToLayout_;
+    std::map<LayoutVertexDescriptor, VertexDescriptor> layoutToGraph_;
+    LayoutGraph lg_;
+    LayoutPointMap baseLayout_;
+
+    void initLayoutGraph();
+    void initBaseLayout(bool circularFlag = true);
+    void randomizeBaseLayout();
 };
 
 #include "GraphLayout.h"

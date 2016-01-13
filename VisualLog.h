@@ -56,6 +56,8 @@ struct VisualLog {
         return it->second;
     }
 
+    VisualEvent event(int step) const { return events_[step]; }
+
     bool inFilter(int step) const {
         return stepToFiltered_[step] != -1;
     }

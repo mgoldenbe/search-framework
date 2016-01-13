@@ -16,7 +16,7 @@ struct DefaultAstarStyles {
         style.emphasisWidth = defaultVertexStyle().size/2;
     }
     static void roleDoneGoalBegin(VertexStyle &style) {
-        style.fillColor = Color::VIVID_GREEN;
+        style.fillColor = doneVertexColor;
     }
     static void roleDoneGoalBegin(EdgeStyle &style) {
         style.color = Color::VIVID_GREEN;
@@ -46,12 +46,16 @@ struct DefaultAstarStyles {
         endGenerate(style);
     }
     static void closed(VertexStyle &style) { // for the start node
-        style.fillColor = Color::WARM_BROWN;
+        if (style.fillColor != doneVertexColor)
+            style.fillColor = Color::WARM_BROWN;
     }
     static void closed(VertexStyle &style, EdgeStyle &edgeStyle) {
-        style.fillColor = Color::WARM_BROWN;
+        if (style.fillColor != doneVertexColor)
+            style.fillColor = Color::WARM_BROWN;
         edgeStyle.color = Color::WARM_BROWN;
     }
+
+    static constexpr Color doneVertexColor = Color::VIVID_GREEN;
 };
 
 template <class Graph_, class Event, class Styles = DefaultAstarStyles>
@@ -73,7 +77,7 @@ struct AstarVisualEvent {
     };
 
     template <typename VisualLog>
-    AstarVisualEvent(const Graph &g, const Event &e, const VisualLog log)
+    AstarVisualEvent(const Graph &g, const Event &e, const VisualLog &log)
         : g_(g) {
 
         const auto &state = e.state();
@@ -90,7 +94,7 @@ struct AstarVisualEvent {
             case Event::StateRole::GOAL:
                 Styles::roleGoal(now);
                 break;
-            case Event::StateRole::DONE_GOAL: {
+            case Event::StateRole::BEGIN_DONE_GOAL: {
                 Styles::roleDoneGoalBegin(now);
                 bool firstIterationFlag = true;
                 typename Event::StateSharedPtr last = nullptr;
@@ -107,6 +111,14 @@ struct AstarVisualEvent {
                     firstIterationFlag = false;
                 }
                 break;
+            }
+            case Event::StateRole::END_DONE_GOAL: { // reverse all edge changes
+                auto lastEvent = log.event(e.step() - 1);
+                for (auto &c: lastEvent.edgeChanges_) {
+                    auto ed = c.ed;
+                    edgeChanges_.push_back(
+                        {ed, c.before, log.edgeStyle(ed)});
+                }
             }
             default:
                 ;

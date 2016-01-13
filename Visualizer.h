@@ -29,7 +29,7 @@ struct Visualizer : VisualizerData<Graph, VisualLog> {
     using Data::s_;
 
     // VisualLog is not const, since we will move in time...
-    Visualizer(const Graph &g, VisualLog &log) : Data(g, log), m_(*this) {}
+    Visualizer(Graph &g, VisualLog &log) : Data(g, log), m_(*this) {}
 
     void run() {
         int iteration = 0;
@@ -51,15 +51,16 @@ struct Visualizer : VisualizerData<Graph, VisualLog> {
 
 private:
     void scale(cairo_t *cr, double factor) {
-        double centerXUser_before = sizex_ / 2, centerYUser_before = sizey_ / 2;
+        int sizex = this->drawer_.sizeX(), sizey = this->drawer_.sizeY();
+        double centerXUser_before = sizex / 2, centerYUser_before = sizey / 2;
         cairo_device_to_user(cr, &centerXUser_before, &centerYUser_before);
         scale_ *= factor;
         cairo_scale(cr, factor, factor);
         double centerXDevice_after = centerXUser_before,
                centerYDevice_after = centerYUser_before;
         cairo_user_to_device(cr, &centerXDevice_after, &centerYDevice_after);
-        cairo_translate(cr, (sizex_ / 2 - centerXDevice_after) / scale_,
-                        (sizey_ / 2 - centerYDevice_after) / scale_);
+        cairo_translate(cr, (sizex / 2 - centerXDevice_after) / scale_,
+                        (sizey / 2 - centerYDevice_after) / scale_);
     }
 
     void scaleUp(cairo_t *cr) { scale(cr, scaleStep_); }
@@ -181,9 +182,10 @@ private:
                 }
                 break;
             case ConfigureNotify:
-                sizex_ = e.xconfigure.width;
-                sizey_ = e.xconfigure.height;
-                cairo_xlib_surface_set_size(surface, sizex_, sizey_);
+                this->drawer_.sizeX(e.xconfigure.width);
+                this->drawer_.sizeY(e.xconfigure.height);
+                cairo_xlib_surface_set_size(surface, e.xconfigure.width,
+                                            e.xconfigure.height);
                 break;
             case ClientMessage:
                 return false;
@@ -213,8 +215,6 @@ private:
 private:
     AllMenus<Graph, VisualLog> m_;
 
-    double sizex_ = 500.0;
-    double sizey_ = 500.0;
     double scale_ = 1.0;
     double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;

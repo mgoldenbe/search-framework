@@ -18,12 +18,11 @@
 template <class Graph, class VisualLog>
 struct Drawer {
     using VertexDescriptor = typename Graph::VertexDescriptor;
-    using Point = square_topology<>::point_type;
-    using PointMap = std::map<VertexDescriptor, Point>;
+    using Point = typename Graph::Point;
+    using PointMap = typename Graph::PointMap;
 
     // VisualLog is not const, since we will move in time...
-    Drawer(const Graph &g, VisualLog &log)
-        : g_(g), log_(log), pointMap_(g.template layout<PointMap>()) {
+    Drawer(Graph &g, VisualLog &log) : g_(g), log_(log) {
         /* Prepare the surface for drawer */
         display_ = XOpenDisplay(NULL);
         if (display_ == NULL) {
@@ -32,10 +31,9 @@ struct Drawer {
         }
         // create a new cairo surface in an x11 window as well as a cairo_t* to
         // draw on the x11 window with.
-        int x=500, y=500;
-        surface_ = create_x11_surface(display_, w_, root_, &x, &y);
+        surface_ = create_x11_surface(display_, w_, root_, &sizex_, &sizey_);
         cr_ = cairo_create(surface_);
-        scaleLayout(x, y, 20, 20);
+        changeLayout();
     }
 
     // http://stackoverflow.com/a/19308254/2725810
@@ -64,6 +62,11 @@ struct Drawer {
             }
         }
         return nullptr;
+    }
+
+    void changeLayout() {
+        pointMap_ = g_.layout(true, true);
+        scaleLayout(sizex_, sizey_, 20, 20);
     }
 
     cairo_surface_t *surface() {return surface_;}
@@ -95,6 +98,11 @@ struct Drawer {
         cairo_surface_flush(surface_);
         XFlush(display_);
     }
+
+    int sizeX() { return sizex_; }
+    int sizeY() { return sizey_; }
+    void sizeX(int size) { sizex_ = size; }
+    void sizeY(int size) { sizey_ = size; }
 
 private:
     void fillVertex(VertexDescriptor vd, const VertexStyle &style) {
@@ -173,13 +181,15 @@ private:
     }
 
 private:
-    const Graph &g_;
+    Graph &g_;
     VisualLog &log_;
     PointMap pointMap_;
     Display *display_;
     Window w_, root_;
     cairo_surface_t* surface_;
     cairo_t* cr_;
+    int sizex_ = 500;
+    int sizey_ = 500;
 };
 
 #endif

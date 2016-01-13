@@ -19,7 +19,9 @@ struct SingleGoalHandler {
         using Event = typename Logger::AlgorithmEvent;
         if (n->state() == goal_) {
             done_ = true;
-            logger_.log(Event(n->shareState(), Event::StateRole::DONE_GOAL,
+            logger_.log(Event(n->shareState(), Event::StateRole::BEGIN_DONE_GOAL,
+                              n->shareParentState()));
+            logger_.log(Event(n->shareState(), Event::StateRole::END_DONE_GOAL,
                               n->shareParentState()));
         }
     }
@@ -46,7 +48,7 @@ struct MultipleGoalHandler {
         using Event = typename Logger::AlgorithmEvent;
         { // Check identity of goal resposible for heuristic
             auto it = std::find(doneGoals_.begin(), doneGoals_.end(),
-                                n->heuristicGoal);
+                                n->responsibleGoal);
             if (it != doneGoals_.end()) {
                 logger_.log(
                     Event(logger_, n, Event::EventType::SUSPENDED_EXPANSION));
@@ -60,7 +62,9 @@ struct MultipleGoalHandler {
                 doneGoals_.push_back(n->state());
                 if (goals_.empty()) done_ = true;
                 logger_.log(Event(logger_, n, Event::EventType::ROLE,
-                                  Event::StateRole::DONE_GOAL));
+                                  Event::StateRole::BEGIN_DONE_GOAL));
+                logger_.log(Event(logger_, n, Event::EventType::ROLE,
+                                  Event::StateRole::END_DONE_GOAL));
             }
         }
         return true;
