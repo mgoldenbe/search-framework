@@ -20,6 +20,7 @@ struct DefaultAstarStyles {
     }
     static void roleDoneGoalBegin(EdgeStyle &style) {
         style.color = Color::VIVID_GREEN;
+        style.arrow = true;
     }
     static void beginGenerate(VertexStyle &style) {
         style.fillColor = Color::SUNSHINE_YELLOW;

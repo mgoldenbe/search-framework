@@ -80,15 +80,16 @@ struct Drawer {
         cairo_paint(cr_);
 
         cairo_set_source_rgb(cr_, 56, 128, 4);
-        for (int defaultFlag = 1; defaultFlag >= 0; --defaultFlag)
+        for (int depth = 0; depth <= EdgeStyle::maxDepth; ++depth) {
             for (auto from : g_.vertexRange()) {
                 for (auto to : g_.adjacentVertexRange(from)) {
                     auto ed = g_.edge(from, to);
                     auto style = log_.edgeStyle(ed);
-                    if ((style == VisualLog::VisualEvent::defaultEdgeStyle()) == defaultFlag)
+                    if (style.depth == depth)
                         drawEdge(from, to, log_.edgeStyle(ed));
                 }
             }
+        }
         for (auto vd : g_.vertexRange())
             drawVertex(vd, log_.vertexStyle(vd));
 
@@ -147,9 +148,28 @@ private:
         if (ec == Color::NOVAL) return;
         cairo_set_source_rgb(cr_, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
         cairo_set_line_width(cr_, style.width);
-        cairo_move_to(cr_, pointMap_[from][0], pointMap_[from][1]);
-        cairo_line_to(cr_, pointMap_[to][0], pointMap_[to][1]);
+        double fromX = pointMap_[from][0], fromY = pointMap_[from][1];
+        double toX = pointMap_[to][0], toY = pointMap_[to][1];
+        cairo_move_to(cr_, fromX, fromY);
+        cairo_line_to(cr_, toX, toY);
         cairo_stroke(cr_);
+        if (style.arrow) {
+            double radius = 10;
+            cairo_save(cr_);
+            cairo_translate(cr_, (fromX + toX) / 2, (fromY + toY) / 2);
+            double angle = atan2(toY - fromY, toX - fromX);
+            cairo_rotate(cr_, angle);
+            double x = radius * (1 - cos(M_PI / 6));
+            double y = radius * sin(M_PI / 6);
+            cairo_move_to(cr_, radius, 0);
+            //double d = distace(fromX, fromY, toX, toY);
+            cairo_line_to(cr_, x, y);
+            cairo_line_to(cr_, x, -y);
+            cairo_line_to(cr_, radius, 0);
+            cairo_stroke(cr_);
+            cairo_translate(cr_, -(fromX + toX) / 2, -(fromY + toY) / 2);
+            cairo_restore(cr_);
+        }
     }
 
     void scaleLayout(int x, int y, int marginX = 0, int marginY = 0) {

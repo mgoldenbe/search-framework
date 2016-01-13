@@ -58,6 +58,9 @@ struct EdgeStyle {
     EdgeDash dash;
     Color color;
     int width;
+    bool arrow;
+    int depth;
+    static constexpr int maxDepth = 2;
 };
 
 EdgeStyle defaultEdgeStyle() {
@@ -66,6 +69,8 @@ EdgeStyle defaultEdgeStyle() {
     res.dash = EdgeDash();
     res.color = Color::BROWN_GREY;
     res.width = 5;
+    res.arrow = false;
+    res.depth = 0;
     return res;
 }
 
