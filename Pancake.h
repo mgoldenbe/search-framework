@@ -25,8 +25,8 @@ struct Pancake {
         for (auto el: split(s, {' ', ',', '[', ']'}))
             pancakes.push_back(std::stoi(el));
     }
-    Pancake (const Pancake &p) = default;
-    Pancake &operator=(const Pancake &rhs) = default;
+    Pancake (const Pancake &) = default;
+    Pancake &operator=(const Pancake &) = default;
     //@}
 
     ///@name Read-Only Services

@@ -2,6 +2,8 @@
 ///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
 
 #include "Pancake.h"
+#include "GridMap.h"
+#include "ExplicitState.h"
 #include "OL.h"
 #include "OCL.h"
 #include "GoalHandler.h"
@@ -16,7 +18,13 @@
 #include "Visualizer.h"
 #endif
 
+//#define STATE_OPTION_PANCAKE
+
+#ifdef STATE_OPTION_PANCAKE
 using MyState = Pancake;
+#else
+using MyState = ExplicitState<GridMap<int>>;
+#endif
 using MyCostType = MyState::CostType;
 
 template <typename State> struct MyNodeDataT : ManagedNode<NodeBase<State>> {
@@ -44,17 +52,23 @@ using MyGraph = StateGraph<MyState, MyCostType>;
 using MyVisualEvent = AstarVisualEvent<MyGraph, MyAlgorithmEvent>;
 using MyVisualLog = VisualLog<MyLogger, MyVisualEvent>;
 
-using MyHeuristic = MinHeuristicToGoals<Pancake, GapHeuristicToGoal>;
+#ifdef STATE_OPTION_PANCAKE
+using MyHeuristic = MinHeuristicToGoals<MyState, GapHeuristicToGoal>;
+#else
+using MyHeuristic = MinHeuristicToGoals<MyState, ManhattanHeuristic>;
+#endif
 
 void testAstar() {
+#ifdef STATE_OPTION_PANCAKE
     Pancake goal1(4), start(goal1);
     start.shuffle();
 
     Pancake goal2(goal1); goal2.shuffle();
-    // std::cout << start << " " << start1 << " " << start.gapHeuristic() << " "
-    //           << start1.gapHeuristic() << " " << mh(goal) << std::endl;
-    // return;
-
+#else
+    GridMap<int> m("tiny.map8");
+    MyState::space(&m);
+    MyState start(0), goal1(1), goal2(2);
+#endif
     MyGraph g;
     MyLogger logger1, logger;
 
@@ -68,13 +82,28 @@ void testAstar() {
     std::vector<MyState> myGoals = {goal1, goal2};
     //std::cout << goal1 << " " << goal2 << std::endl;
     auto myGoalHandler = MyGoalHandler(myGoals, logger);
+
+#ifdef STATE_OPTION_PANCAKE
+    auto heuristicInstance = GapHeuristicToGoal();
+#else
+    auto heuristicInstance = ManhattanHeuristic();
+#endif
     Astar<MyOL, MyGoalHandler, MyHeuristic, MyGraph, MyLogger> myAstar(
-        start, myGoalHandler, MyHeuristic(myGoals, GapHeuristicToGoal()), g,
+        start, myGoalHandler, MyHeuristic(myGoals, heuristicInstance), g,
         logger);
     myAstar.run();
-    //logger.dump();
+
+    /*
+    Table t(2);
+    MyAlgorithmEvent::dumpTitle(t);
+    for (auto &e : logger.events()) {
+        e.dump(t);
+        t << std::endl;
+    }
+    std::cout << t << std::endl;
+    */
+    g.dump();
     //return;
-    //g.dump();
 #ifndef NO_DRAWER
     MyVisualLog visualLog(logger, g);
     Visualizer<MyGraph, MyVisualLog> vis(g, visualLog);

@@ -42,7 +42,7 @@ struct AlgorithmLogger {
                   << std::endl;
         o << std::setw(4) << "Num.";
         AlgorithmEvent::dumpTitle(o);
-        int i = 0;
+
         for (auto el: events_)
             o << el << std::endl;
         if (!dumpLastEvents) return o;

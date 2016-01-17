@@ -5,6 +5,7 @@
 #define UTILITIES
 
 #include <sstream>
+#include <fstream>
 #include <memory>
 #include <time.h>
 #include <algorithm>
@@ -77,6 +78,19 @@ std::vector<std::string> split(const std::string &s,
 template <typename T>
 std::string str(const T& t) {
     std::ostringstream ss; ss << t; return ss.str();
+}
+
+std::string sureRead(std::ifstream &fin) {
+    std::string res;
+    fin >> res;
+    assert(fin);
+    return res;
+}
+
+std::string sureRead(std::ifstream &fin, const std::string &str) {
+    std::string res = sureRead(fin);
+    assert(res == str);
+    return res;
 }
 
 template <typename T>

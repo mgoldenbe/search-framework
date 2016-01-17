@@ -36,6 +36,7 @@ struct Astar {
 
     void run() {
         NodeUniquePtr startNode(new Node(start_));
+        startNode->f = heuristic_(startNode.get());
         graph_.add(startNode->shareState());
         logger_.log(Event(logger_, startNode.get(), Event::EventType::ROLE,
                           Event::StateRole::START));
