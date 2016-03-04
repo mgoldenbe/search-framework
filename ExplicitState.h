@@ -1,4 +1,3 @@
-
 #ifndef EXPLICIT_STATE_H
 #define EXPLICIT_STATE_H
 
@@ -6,11 +5,11 @@
 #include <boost/functional/hash.hpp>
 #include "Node.h"
 
+// The base class for a state in an explicit domain
 template<class ExplicitSpace>
 struct ExplicitState {
     using CostType = typename ExplicitSpace::CostType;
     using MyType = ExplicitState<ExplicitSpace>;
-    using Neighbor = StateNeighbor<MyType>;
     using StateType = typename ExplicitSpace::StateType;
 
     ///@name Construction and Assignment
@@ -23,10 +22,11 @@ struct ExplicitState {
 
     ///@name Read-Only Services
     //@{
+    template<class Neighbor>
     std::vector<Neighbor> successors() const {
         std::vector<Neighbor> res;
         for (auto &n: space_->neighbors(state_)) {
-            Neighbor cur(new MyType(n));
+            Neighbor cur(new typename Neighbor::State(n));
             res.push_back(std::move(cur));
         }
         return res;
@@ -59,13 +59,6 @@ private:
 
 template<class ExplicitSpace>
 ExplicitSpace *ExplicitState<ExplicitSpace>::space_;
-
-template <class ExplicitSpace>
-bool
-operator==(const std::shared_ptr<const ExplicitState<ExplicitSpace>> &lhs,
-           const std::shared_ptr<const ExplicitState<ExplicitSpace>> &rhs) {
-    return *lhs == *rhs;
-}
 
 struct ManhattanHeuristic {
     template <class ExplicitSpace>

@@ -13,9 +13,11 @@
 #include "Filter.h"
 #include "Form.h"
 
-template <class Graph, class VisualLog> struct VisualizerData  {
+template <class Graph, class VisualLog, bool autoLayoutFlag>
+struct VisualizerData {
     using AlgorithmLog = typename VisualLog::AlgorithmLog;
     using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
+    using DrawerType = Drawer<Graph, VisualLog, autoLayoutFlag>;
     enum class VISUALIZER_STATE{PAUSE, GO};
 
     VisualizerData(Graph &g, VisualLog &log)
@@ -23,7 +25,7 @@ template <class Graph, class VisualLog> struct VisualizerData  {
         typist_.fillEventsPad();
     }
     VisualLog &log() { return log_; }
-    Drawer<Graph, VisualLog> &drawer() { return drawer_; }
+    DrawerType &drawer() { return drawer_; }
     Typist<VisualLog> &typist() { return typist_; }
     void state(VISUALIZER_STATE s) { s_ = s; }
     void speed(int s) { speed_ = s; }
@@ -33,7 +35,7 @@ template <class Graph, class VisualLog> struct VisualizerData  {
 protected:
     Graph &g_;
     VisualLog &log_;
-    Drawer<Graph, VisualLog> drawer_;
+    DrawerType drawer_;
     Typist<VisualLog> typist_;
 
     VISUALIZER_STATE s_ = VISUALIZER_STATE::PAUSE;
@@ -42,10 +44,10 @@ protected:
     Filter<AlgorithmEvent> searchFilter_;
 };
 
-template <class AllMenus, class Graph, class VisualLog>
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
 struct MenuBase {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
-    using Data = VisualizerData<Graph, VisualLog>;
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
+    using Data = VisualizerData<Graph, VisualLog, autoLayoutFlag>;
 
     MenuBase(AllMenus &m, Data &data)
         : m_(m), data_(data) {}
@@ -102,13 +104,14 @@ protected:
     std::string choice() const { return menuChoice(m_.raw()); }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuMain : public MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuMain
+    : public MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
 
-    MenuMain(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
-        : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
+    MenuMain(AllMenus &m, VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
+        : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>(m, data) {
         this->enterMap_ = {{"Run", &m.menuRun},
                            {"Search", &m.menuEnterState},
                            {"Filter", &m.menuFilter},
@@ -125,9 +128,9 @@ struct MenuMain : public MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuRun : MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuRun : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
 
     MenuRun(AllMenus &m, Data &data) : Base(m, data) {
@@ -150,10 +153,11 @@ struct MenuRun : MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuSearch : MenuBase<AllMenus, Graph, VisualLog> {
-    MenuSearch(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
-        : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuSearch : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    MenuSearch(AllMenus &m,
+               VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
+        : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>(m, data) {
         this->enterMap_ = {{"By event", &m.menuTypedSearch},
                            {"By state", &m.menuTypedSearch},
                            {"By data", &m.menuTypedSearch}};
@@ -162,13 +166,14 @@ struct MenuSearch : MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuEnterState : MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuEnterState : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
 
-    MenuEnterState(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
-        : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
+    MenuEnterState(AllMenus &m,
+                   VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
+        : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>(m, data) {
         EditField editField{
             this->data_.drawer().display(), this->data_.typist().commandsPad(),
             0,                              0,
@@ -199,13 +204,14 @@ private:
     std::string label_ = "Enter state: ";
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuFilter : MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuFilter : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
 
-    MenuFilter(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
-        : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
+    MenuFilter(AllMenus &m,
+               VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
+        : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>(m, data) {
         this->enterMap_ = {{"Edit", &m.menuEditFilter},
                            {m.hideFiltered ? "Show" : "Hide", &m.menuFilter}};
         this->fillChoices();
@@ -236,9 +242,9 @@ struct MenuFilter : MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuGo : MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuGo : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
     MenuGo(AllMenus &m, Data &data) : Base(m, data) {
         this->enterMap_ = {{"Pause", &m.menuRun}};
@@ -252,9 +258,9 @@ struct MenuGo : MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuSpeed : MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuSpeed : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
 
     MenuSpeed(AllMenus &m, Data &data) : Base(m, data) {
@@ -273,13 +279,14 @@ struct MenuSpeed : MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuTypedSearch : MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuTypedSearch : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
 
-    MenuTypedSearch(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
-        : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
+    MenuTypedSearch(AllMenus &m,
+                    VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
+        : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>(m, data) {
         this->enterMap_ = {{"Forward", &m.menuTypedSearch},
                            {"Backward", &m.menuTypedSearch}};
         this->fillChoices();
@@ -296,13 +303,14 @@ struct MenuTypedSearch : MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template <class AllMenus, class Graph, class VisualLog>
-struct MenuEditFilter : MenuBase<AllMenus, Graph, VisualLog> {
-    using Base = MenuBase<AllMenus, Graph, VisualLog>;
+template <class AllMenus, class Graph, class VisualLog, bool autoLayoutFlag>
+struct MenuEditFilter : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
+    using Base = MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>;
     using Data = typename Base::Data;
 
-    MenuEditFilter(AllMenus &m, VisualizerData<Graph, VisualLog> &data)
-        : MenuBase<AllMenus, Graph, VisualLog>(m, data) {
+    MenuEditFilter(AllMenus &m,
+                   VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
+        : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>(m, data) {
         this->enterMap_ = {{"All", &m.menuEditFilter},
                            {"None", &m.menuEditFilter}};
         for (auto &el : VisualLog::AlgorithmLog::AlgorithmEvent::eventTypeStr)
@@ -330,9 +338,9 @@ struct MenuEditFilter : MenuBase<AllMenus, Graph, VisualLog> {
     }
 };
 
-template<class Graph, class VisualLog>
+template<class Graph, class VisualLog, bool autoLayoutFlag>
 struct AllMenus {
-    AllMenus(VisualizerData<Graph, VisualLog> &data)
+    AllMenus(VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
         : menuMain(*this, data), menuRun(*this, data), menuSearch(*this, data),
           menuEnterState(*this, data), menuFilter(*this, data),
           menuGo(*this, data), menuSpeed(*this, data),
@@ -340,21 +348,21 @@ struct AllMenus {
         setMenu(&menuMain, data.typist());
     }
     ~AllMenus() { destroyMenu(raw_); }
-    MenuMain<AllMenus, Graph, VisualLog> menuMain;
-    MenuRun<AllMenus, Graph, VisualLog> menuRun;
-    MenuSearch<AllMenus, Graph, VisualLog> menuSearch;
-    MenuEnterState<AllMenus, Graph, VisualLog> menuEnterState;
-    MenuFilter<AllMenus, Graph, VisualLog> menuFilter;
-    MenuGo<AllMenus, Graph, VisualLog> menuGo;
-    MenuSpeed<AllMenus, Graph, VisualLog> menuSpeed;
-    MenuTypedSearch<AllMenus, Graph, VisualLog> menuTypedSearch;
-    MenuEditFilter<AllMenus, Graph, VisualLog> menuEditFilter;
+    MenuMain<AllMenus, Graph, VisualLog, autoLayoutFlag> menuMain;
+    MenuRun<AllMenus, Graph, VisualLog, autoLayoutFlag> menuRun;
+    MenuSearch<AllMenus, Graph, VisualLog, autoLayoutFlag> menuSearch;
+    MenuEnterState<AllMenus, Graph, VisualLog, autoLayoutFlag> menuEnterState;
+    MenuFilter<AllMenus, Graph, VisualLog, autoLayoutFlag> menuFilter;
+    MenuGo<AllMenus, Graph, VisualLog, autoLayoutFlag> menuGo;
+    MenuSpeed<AllMenus, Graph, VisualLog, autoLayoutFlag> menuSpeed;
+    MenuTypedSearch<AllMenus, Graph, VisualLog, autoLayoutFlag> menuTypedSearch;
+    MenuEditFilter<AllMenus, Graph, VisualLog, autoLayoutFlag> menuEditFilter;
     bool hideFiltered = true;
 
     void handleEnter() { m_->handleEnter(); }
     void handleEsc() { m_->handleEsc(); }
 
-    void setMenu(MenuBase<AllMenus, Graph, VisualLog> *newMenu,
+    void setMenu(MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> *newMenu,
                  Typist<VisualLog> &typist) {
         if (newMenu == m_) return;
 
@@ -368,7 +376,7 @@ struct AllMenus {
         typist.setMenu(raw_, &newMenu->form());
     }
 
-    MenuBase<AllMenus, Graph, VisualLog> *curMenu() {return m_;}
+    MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> *curMenu() {return m_;}
 
     Form &curForm() {return m_->form();}
 
@@ -378,7 +386,7 @@ struct AllMenus {
 
 private:
     MENU *raw_ = nullptr;
-    MenuBase<AllMenus, Graph, VisualLog> *m_;
+    MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> *m_;
     std::vector<ITEM *> menuItems_;
     int maxMenuRows_ = 3;
 };

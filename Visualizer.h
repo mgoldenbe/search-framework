@@ -16,11 +16,11 @@
 #include "utilities.h"
 #include "VisualizerMenus.h"
 
-template <class Graph, class VisualLog>
-struct Visualizer : VisualizerData<Graph, VisualLog> {
+template <class Graph, class VisualLog, bool autoLayoutFlag>
+struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
     using AlgorithmLog = typename VisualLog::AlgorithmLog;
     using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
-    using Data = VisualizerData<Graph, VisualLog>;
+    using Data = VisualizerData<Graph, VisualLog, autoLayoutFlag>;
     using typename Data::VISUALIZER_STATE;
     using Data::g_;
     using Data::log_;
@@ -33,11 +33,17 @@ struct Visualizer : VisualizerData<Graph, VisualLog> {
 
     void run() {
         int iteration = 0;
+        int stopwatch = 0;
         // msleep(10000);
         while (1) {
+            stopwatch = (stopwatch + 1) % 1000;
             msleep(1);
             if (!processEvents()) break;
-            drawer_.draw();
+            if (stopwatch % 50 == 0 && drawFlag_) {
+                //this->typist_.message("Drawing!");
+                drawer_.draw();
+                drawFlag_ = false;
+            }
             typist_.setStep(log_.step());
             typist_.show();
             if (s_ == VISUALIZER_STATE::PAUSE) {
@@ -84,8 +90,11 @@ private:
             noEventCount_ = 0;
             if (e.type != MotionNotify) motionLast_ = false;
             switch (e.type) {
+            case Expose:
+                drawFlag_ = true;
+                break;
             case KeyPress: {
-                //this->typist_.message("Key event received!");
+                // this->typist_.message("Key event received!");
                 auto &form = m_.curMenu()->form();
                 if (!form.empty())
                     if (form.handle(e.xkey.state, e.xkey.keycode)) break;
@@ -94,10 +103,12 @@ private:
                 case 4: // Ctrl is pressed
                     if (e.xkey.keycode == 21) {
                         scaleUp(cr);
+                        drawFlag_ = true;
                         break;
                     }
                     if (e.xkey.keycode == 20) {
                         scaleDown(cr);
+                        drawFlag_ = true;
                         break;
                     }
                     if (e.xkey.keycode == 113) { // Left
@@ -158,8 +169,7 @@ private:
                     if (vd) {
                         auto state = g_.state(vd);
                         auto &form = this->m_.curForm();
-                        if (!form.empty())
-                            form.set(str(*state));
+                        if (!form.empty()) form.set(str(*state));
                     }
                 }
                 last_delta_x = 0;
@@ -171,14 +181,14 @@ private:
                 if (!buttonPressed_) {
                     lastMotionX_ = e.xmotion.x;
                     lastMotionY_ = e.xmotion.y;
-                }
-                else {
+                } else {
                     cairo_translate(
                         cr,
                         (e.xmotion.x - drag_start_x - last_delta_x) / scale_,
                         (e.xmotion.y - drag_start_y - last_delta_y) / scale_);
                     last_delta_x = e.xmotion.x - drag_start_x;
                     last_delta_y = e.xmotion.y - drag_start_y;
+                    drawFlag_ = true;
                 }
                 break;
             case ConfigureNotify:
@@ -196,12 +206,13 @@ private:
                 std::cout << "Dropping unhandled XEevent.type = " << e.type
                 << "." << std::endl; */
             }
-        }
-        else {
+        } else {
             noEventCount_++;
             if (motionLast_ && noEventCount_ > 100) {
                 motionLast_ = false;
-                auto vd = this->drawer().coordsToVD(lastMotionX_, lastMotionY_);
+                double x = lastMotionX_, y = lastMotionY_;
+                cairo_device_to_user(cr, &x, &y);
+                auto vd = this->drawer().coordsToVD(x, y);
                 if (vd) {
                     auto state = g_.state(vd);
                     typist_.message("Mouse over: " + str(*state));
@@ -213,7 +224,7 @@ private:
     }
 
 private:
-    AllMenus<Graph, VisualLog> m_;
+    AllMenus<Graph, VisualLog, autoLayoutFlag> m_;
 
     double scale_ = 1.0;
     double scaleStep_ = 1.5;
@@ -224,6 +235,7 @@ private:
     bool motionLast_ = false;
     int noEventCount_ = 0;
     int lastMotionX_, lastMotionY_;
+    bool drawFlag_ = true;
 };
 
 #endif

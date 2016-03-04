@@ -3,7 +3,7 @@
 
 #include "Pancake.h"
 #include "GridMap.h"
-#include "ExplicitState.h"
+#include "GridMapState.h"
 #include "OL.h"
 #include "OCL.h"
 #include "GoalHandler.h"
@@ -23,7 +23,7 @@
 #ifdef STATE_OPTION_PANCAKE
 using MyState = Pancake;
 #else
-using MyState = ExplicitState<GridMap<int>>;
+using MyState = GridMapState<int>;
 #endif
 using MyCostType = MyState::CostType;
 
@@ -65,9 +65,11 @@ void testAstar() {
 
     Pancake goal2(goal1); goal2.shuffle();
 #else
-    GridMap<int> m("tiny.map8");
+    GridMap<int> m("ost001d.map8");
+    //GridMap<int> m("tiny.map8");
     MyState::space(&m);
-    MyState start(0), goal1(1), goal2(2);
+    MyState start(5000), goal1(5001), goal2(5002);
+    //MyState start(0), goal1(1), goal2(2);
 #endif
     MyGraph g;
     MyLogger logger1, logger;
@@ -102,11 +104,11 @@ void testAstar() {
     }
     std::cout << t << std::endl;
     */
-    g.dump();
+    //g.dump();
     //return;
 #ifndef NO_DRAWER
     MyVisualLog visualLog(logger, g);
-    Visualizer<MyGraph, MyVisualLog> vis(g, visualLog);
+    Visualizer<MyGraph, MyVisualLog, false> vis(g, visualLog);
     vis.run();
 #endif
 }

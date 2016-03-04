@@ -45,12 +45,12 @@ struct VisualLog {
             prev();
     }
 
-    const VertexStyle &vertexStyle(VertexDescriptor vd) const {
+    VertexStyle &vertexStyle(VertexDescriptor vd) {
         auto it = vertexStyles_.find(vd);
         if (it == vertexStyles_.end()) assert(0);
         return it->second;
     }
-    const EdgeStyle &edgeStyle(EdgeDescriptor ed) const {
+    EdgeStyle &edgeStyle(EdgeDescriptor ed) {
         auto it = edgeStyles_.find(ed);
         if (it == edgeStyles_.end()) assert(0);
         return it->second;

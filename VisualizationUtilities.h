@@ -25,12 +25,12 @@ enum class EdgeDash {NONE};
 struct VertexStyle {
     VertexShape shape;
     VertexFillPattern pattern;
-    int size;
+    double size;
     Color fillColor;
     Color borderColor;
-    int borderWidth;
+    double borderWidth;
     Color emphasisColor;
-    int emphasisWidth;
+    double emphasisWidth;
 };
 
 VertexStyle defaultVertexStyle() {
@@ -57,7 +57,7 @@ struct EdgeStyle {
     EdgeShape shape;
     EdgeDash dash;
     Color color;
-    int width;
+    double width;
     bool arrow;
     int depth;
     static constexpr int maxDepth = 2;
@@ -95,7 +95,7 @@ cairo_surface_t *create_x11_surface(Display *d, Window &w, Window &root, int *x,
 
     XSelectInput(d, da, ButtonPressMask | ButtonReleaseMask | KeyPressMask |
                             ButtonMotionMask | PointerMotionMask |
-                            StructureNotifyMask);
+                            ExposureMask | StructureNotifyMask);
 
     // http://www.lemoda.net/c/xlib-wmclose/index.html
     /* "wm_delete_window" is the Atom which corresponds to the delete

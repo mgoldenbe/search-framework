@@ -15,7 +15,7 @@
 #include "VisualizationUtilities.h"
 #include "GeometryUtilities.h"
 
-template <class Graph, class VisualLog>
+template <class Graph, class VisualLog, bool autoLayoutFlag>
 struct Drawer {
     using VertexDescriptor = typename Graph::VertexDescriptor;
     using Point = typename Graph::Point;
@@ -49,24 +49,33 @@ struct Drawer {
     Window &root() { return root_; }
 
     const VertexDescriptor coordsToVD(double x, double y) const {
+        // Commented out is code for debugging
+        //double bestDistance = 9999999;
+        //VertexDescriptor bestVD;
         for (auto &el: pointMap_) {
             auto vd = el.first;
             auto point = el.second;
             switch(log_.vertexStyle(vd).shape) {
-            case VertexShape::CIRCLE:
-                if (distance(point[0], point[1], x, y) <=
-                    log_.vertexStyle(vd).size)
-                    return vd;
+            case VertexShape::CIRCLE: {
+                double myDistance = distance(point[0], point[1], x, y);
+                if (myDistance <= log_.vertexStyle(vd).size) return vd;
+                // if (myDistance < bestDistance) {
+                //     bestDistance = myDistance;
+                //     bestVD = vd;
+                // }
                 break;
+            }
             default: assert(0);
             }
         }
+        // std::cout << "\nDistance: " << bestDistance << std::endl;
+        // std::cout << "State: " << *(g_.state(bestVD)) << std::endl;
         return nullptr;
     }
 
     void changeLayout() {
-        pointMap_ = g_.layout(true, true);
-        scaleLayout(sizex_, sizey_, 20, 20);
+        computePointMap(std::integral_constant<bool, autoLayoutFlag>{});
+        scaleLayout(sizex_, sizey_);
     }
 
     cairo_surface_t *surface() {return surface_;}
@@ -106,6 +115,21 @@ struct Drawer {
     void sizeY(int size) { sizey_ = size; }
 
 private:
+    void computePointMap(std::true_type) {
+        pointMap_ = g_.layout(true, true);
+    }
+
+    void computePointMap(std::false_type) {
+        for (auto vd: g_.vertexRange()) {
+            auto state = g_.state(vd);
+            double x, y;
+            state->visualLocation(x, y);
+            Point myPoint;
+            myPoint[0] = x; myPoint[1] = y;
+            pointMap_[vd] = myPoint;
+        }
+    }
+
     void fillVertex(VertexDescriptor vd, const VertexStyle &style) {
         Color fc = style.fillColor;
         if (fc == Color::NOVAL) return;
@@ -172,7 +196,22 @@ private:
         }
     }
 
-    void scaleLayout(int x, int y, int marginX = 0, int marginY = 0) {
+    double distancePercentile(double p) {
+        std::vector<double> dd;
+        for (auto ed: g_.edgeRange()) {
+            auto from = g_.from(ed), to = g_.to(ed);
+            auto fromPoint = pointMap_[from], toPoint = pointMap_[to];
+            dd.push_back(
+                distance(fromPoint[0], fromPoint[1], toPoint[0], toPoint[1]));
+        }
+        sort(dd.begin(), dd.end());
+        assert(p >= 0 && p <= 1.0);
+        return dd[p * (dd.size() - 1)];
+    }
+
+    void scaleLayout(int x, int y) {
+        double minEdgeDistance = distancePercentile(0.1);
+        double vertexSize = minEdgeDistance/3;
         std::vector<double> xs, ys;
         for (auto el: pointMap_) {
             xs.push_back((el.second)[0]);
@@ -183,14 +222,22 @@ private:
                minY = *std::min_element(ys.begin(), ys.end()),
                maxY = *std::max_element(ys.begin(), ys.end());
 
+        // factors are computed as if currently the vertices ended
+        // exactly at the borders
+        double factorX = x / (maxX - minX + 2 * vertexSize);
+        double factorY = y / (maxY - minY + 2 * vertexSize);
+        double newVertexSize = vertexSize * std::min(factorX, factorY);
+        double newEdgeWidth = newVertexSize * 2 / 3;
+
         for (auto vd : g_.vertexRange()) {
             pointMap_[vd][0] =
-                (pointMap_[vd][0] - minX) * (x - 2 * marginX) / (maxX - minX) +
-                marginX;
+                (pointMap_[vd][0] + vertexSize - minX) * factorX;
             pointMap_[vd][1] =
-                (pointMap_[vd][1] - minY) * (y - 2 * marginY) / (maxY - minY) +
-                marginY;
+                (pointMap_[vd][1] + vertexSize - minY) * factorY;
+            log_.vertexStyle(vd).size = newVertexSize;
         }
+        for (auto ed : g_.edgeRange())
+            log_.edgeStyle(ed).width = newEdgeWidth;
     }
 
     void dumpLayout() {

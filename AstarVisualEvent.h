@@ -78,7 +78,7 @@ struct AstarVisualEvent {
     };
 
     template <typename VisualLog>
-    AstarVisualEvent(const Graph &g, const Event &e, const VisualLog &log)
+    AstarVisualEvent(const Graph &g, const Event &e, VisualLog &log)
         : g_(g) {
 
         const auto &state = e.state();
