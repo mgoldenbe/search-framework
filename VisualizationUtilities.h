@@ -23,56 +23,36 @@ enum class EdgeShape {CIRCLE, SQUARE};
 enum class EdgeDash {NONE};
 
 struct VertexStyle {
-    VertexShape shape;
-    VertexFillPattern pattern;
-    double size;
-    Color fillColor;
-    Color borderColor;
-    double borderWidth;
-    Color emphasisColor;
-    double emphasisWidth;
+    VertexShape shape = VertexShape();
+    VertexFillPattern pattern = VertexFillPattern();
+    static double sizeBase;
+    double sizeFactor = 1.0;
+    Color fillColor = Color::WARM_GREY;
+    Color borderColor  = Color();
+    double borderWidthFactor = 0;
+    Color emphasisColor = Color();
+    double emphasisWidthFactor = 0;
 };
-
-VertexStyle defaultVertexStyle() {
-    VertexStyle res;
-    res.shape = VertexShape();
-    res.pattern = VertexFillPattern();
-    res.size = 10;
-    res.fillColor = Color::WARM_GREY;
-    res.borderColor = Color();
-    res.borderWidth = 0;
-    res.emphasisColor = Color();
-    res.emphasisWidth = 0;
-    return res;
-}
+double VertexStyle::sizeBase = 10;
 
 struct EdgeStyle {
     bool operator==(const EdgeStyle &rhs) {
         if (shape != rhs.shape) return false;
         if (dash != rhs.dash) return false;
         if (color != rhs.color) return false;
-        if (width != rhs.width) return false;
+        if (widthFactor != rhs.widthFactor) return false;
         return true;
     };
-    EdgeShape shape;
-    EdgeDash dash;
-    Color color;
-    double width;
-    bool arrow;
-    int depth;
+    EdgeShape shape = EdgeShape();
+    EdgeDash dash = EdgeDash();
+    Color color = Color::BROWN_GREY;
+    static double widthBase;
+    double widthFactor = 1.0;
+    bool arrow = false;
+    int depth = 0;
     static constexpr int maxDepth = 2;
 };
-
-EdgeStyle defaultEdgeStyle() {
-    EdgeStyle res;
-    res.shape = EdgeShape();
-    res.dash = EdgeDash();
-    res.color = Color::BROWN_GREY;
-    res.width = 5;
-    res.arrow = false;
-    res.depth = 0;
-    return res;
-}
+double EdgeStyle::widthBase = 5.0;
 
 //This function should give us a new x11 surface to draw on.
 cairo_surface_t *create_x11_surface(Display *d, Window &w, Window &root, int *x,

@@ -5,15 +5,13 @@
 #include "VisualizationUtilities.h"
 
 struct DefaultAstarStyles {
-    static VertexStyle defaultVertexStyle() {return ::defaultVertexStyle();}
-    static EdgeStyle defaultEdgeStyle() {return ::defaultEdgeStyle();}
     static void roleStart(VertexStyle &style) {
         style.emphasisColor = Color::VIVID_GREEN;
-        style.emphasisWidth = defaultVertexStyle().size/2;
+        style.emphasisWidthFactor = 0.5;
     }
     static void roleGoal(VertexStyle &style) {
         style.emphasisColor = Color::DEEP_BLUE;
-        style.emphasisWidth = defaultVertexStyle().size/2;
+        style.emphasisWidthFactor = 0.5;
     }
     static void roleDoneGoalBegin(VertexStyle &style) {
         style.fillColor = doneVertexColor;
@@ -173,13 +171,6 @@ struct AstarVisualEvent {
             ;
         }
         vertexChanges_.push_back({vd, now, before});
-    }
-
-    static VertexStyle defaultVertexStyle() {
-        return Styles::defaultVertexStyle();
-    }
-    static EdgeStyle defaultEdgeStyle() {
-        return Styles::defaultEdgeStyle();
     }
 
     // Returns style now and style before

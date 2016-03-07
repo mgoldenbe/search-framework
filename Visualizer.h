@@ -51,7 +51,10 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
                 continue;
             }
             if (s_ == VISUALIZER_STATE::GO)
-                if (++iteration % (1000 / this->speed_) == 0) log_.next();
+                if (++iteration % (1000 / this->speed_) == 0) {
+                    log_.next();
+                    drawFlag_ = true;
+                }
         }
     }
 
@@ -144,6 +147,7 @@ private:
                         break;
                     case 36: // Enter
                         m_.handleEnter();
+                        drawFlag_ = true;
                         break;
                     case 9: // Esc
                         m_.handleEsc();

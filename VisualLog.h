@@ -29,9 +29,9 @@ struct VisualLog {
 
     VisualLog(const AlgorithmLog &log, const Graph &g) : log_(log), g_(g) {
         for (auto vd : g_.vertexRange())
-            vertexStyles_[vd] = VisualEvent::defaultVertexStyle();
+            vertexStyles_[vd] = VertexStyle();
         for (auto ed : g_.edgeRange())
-            edgeStyles_[ed] = VisualEvent::defaultEdgeStyle();
+            edgeStyles_[ed] = EdgeStyle();
 
         step_ = 0;
         for (auto &e: log.events()) {
