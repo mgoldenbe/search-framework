@@ -3,6 +3,7 @@
 
 #include <map>
 #include <unordered_map>
+#include "VisualizationUtilities.h"
 
 template <class VisualEvent>
 struct NoVisualLog {
@@ -41,8 +42,9 @@ struct VisualLog {
             this->log(ve);
         }
         // rewind to the beginning
-        while (step_ > 0)
-            prev();
+        reset();
+        //while (step_ > 0)
+        //    prev(temp);
     }
 
     VertexStyle &vertexStyle(VertexDescriptor vd) {
@@ -70,39 +72,45 @@ struct VisualLog {
 
     int filteredToStep(int step) const { return filteredToStep_[step]; }
 
-    void move(int step) {
+    template <class Drawer> void move(int step, Drawer &drawer) {
         while (step_ != step) {
-            step_ < step ? next() : prev();
+            step_ < step ? next(drawer) : prev(drawer);
         }
     }
 
-    bool next() {
+    template <class Drawer> bool next(Drawer &drawer, bool flush = true) {
+        GroupLock temp{flush, drawer.graphics()}; (void)temp;
         if (step_ - 1 == filteredToStep_.back()) return false;
         do {
-            if (!stepForward()) return false;
+            if (!stepForward(drawer)) return false;
         } while (!inFilter(step_ - 1));
         return true;
     }
 
-    bool prev() {
+    template <class Drawer> bool prev(Drawer &drawer, bool flush = true) {
+        GroupLock temp{flush, drawer.graphics()}; (void)temp;
         do {
-            if (!stepBackward()) return false;
+            if (!stepBackward(drawer)) return false;
         } while (!inFilter(step_ - 1));
         return true;
     }
 
-    template <class Filter> bool next(const Filter &searchFilter) {
+    template <class Filter, class Drawer>
+    bool next(const Filter &searchFilter, Drawer &drawer) {
+        GroupLock temp{true, drawer.graphics()}; (void)temp;
         int origStep = step_;
         do {
-            if (!next()) {move(origStep); return false;}
+            if (!next(drawer, false)) {move(origStep, drawer); return false;}
         } while (!searchFilter.in(algorithmEvent(step_ - 1)));
         return true;
     }
 
-    template <class Filter> bool prev(const Filter &searchFilter) {
+    template <class Filter, class Drawer>
+    bool prev(const Filter &searchFilter, Drawer &drawer) {
+        GroupLock temp{true, drawer.graphics()}; (void)temp;
         int origStep = step_;
         do {
-            if (!prev()) {move(origStep); return false;}
+            if (!prev(drawer, false)) {move(origStep, drawer); return false;}
         } while (!searchFilter.in(algorithmEvent(step_ - 1)));
         return true;
     }
@@ -122,7 +130,8 @@ struct VisualLog {
         return log_.events()[step];
     }
 
-    template <class Filter> void setFilter(const Filter &filter) {
+    template <class Filter, class Drawer>
+    void setFilter(const Filter &filter, Drawer &drawer) {
         filteredToStep_.clear();
         for (auto &e : log_.events())
             if (filter.in(e)) filteredToStep_.push_back(e.step());
@@ -132,7 +141,7 @@ struct VisualLog {
         int filteredStep = 0;
         for (auto step : filteredToStep_)
             stepToFiltered_[step] = filteredStep++;
-        if (!inFilter(step_)) prev();
+        if (!inFilter(step_)) prev(drawer);
     }
 
 private:
@@ -150,19 +159,21 @@ private:
     std::vector<int> filteredToStep_;
     std::vector<int> stepToFiltered_; // -1 if not in filtered
 
-    bool stepForward() {
+    template <class Drawer> bool stepForward(Drawer &drawer) {
         if (step_ >= events_.size()) return false;
         auto e = events_[step_];
         applyEvent(e);
         step_++;
+        e.draw(drawer);
         return true;
     }
 
-    bool stepBackward() {
+    template <class Drawer> bool stepBackward(Drawer &drawer) {
         if (step_ <= 0) return false;
         auto e = events_[step_ - 1];
         unApplyEvent(e);
         step_--;
+        e.draw(drawer, true);
         return true;
     }
 

@@ -146,9 +146,11 @@ struct MenuRun : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
     virtual void handleEnter() {
         std::string choice = this->choice();
         if (choice == "Go") this->data_.state(Data::VISUALIZER_STATE::GO);
-        if (choice == "Step Forward") this->data_.log().next();
-        if (choice == "Step Backward") this->data_.log().prev();
-        if (choice == "Reset") this->data_.log().reset();
+        if (choice == "Step Forward")
+            this->data_.log().next(this->data_.drawer());
+        if (choice == "Step Backward")
+            this->data_.log().prev(this->data_.drawer());
+        if (choice == "Reset") this->data_.log().move(0, this->data_.drawer());
         Base::handleEnter();
     }
 };
@@ -174,11 +176,13 @@ struct MenuEnterState : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
     MenuEnterState(AllMenus &m,
                    VisualizerData<Graph, VisualLog, autoLayoutFlag> &data)
         : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag>(m, data) {
-        EditField editField{
-            this->data_.drawer().display(), this->data_.typist().commandsPad(),
-            0,                              0,
-            1,                              40,
-            "Enter state: "};
+        EditField editField{this->data_.drawer().graphics().display,
+                            this->data_.typist().commandsPad(),
+                            0,
+                            0,
+                            1,
+                            40,
+                            "Enter state: "};
         this->enterMap_ = {{" ", &m.menuTypedSearch}};
         this->fillChoices();
         this->exitMenu_ = &m.menuMain;
@@ -296,9 +300,11 @@ struct MenuTypedSearch : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
     virtual void handleEnter() {
         std::string choice = this->choice();
         if (choice == "Forward")
-            this->data_.log().next(this->data_.searchFilter());
+            this->data_.log().next(this->data_.searchFilter(),
+                                   this->data_.drawer());
         if (choice == "Backward")
-            this->data_.log().prev(this->data_.searchFilter());
+            this->data_.log().prev(this->data_.searchFilter(),
+                                   this->data_.drawer());
         Base::handleEnter();
     }
 };
@@ -331,7 +337,8 @@ struct MenuEditFilter : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
         else {
             this->data_.filter().filterEventType().set(
                 menuChoices(this->m_.raw()));
-            this->data_.log().setFilter(this->data_.filter());
+            this->data_.log().setFilter(this->data_.filter(),
+                                        this->data_.drawer());
             this->data_.typist().fillEventsPad();
         }
         Base::handleEnter();

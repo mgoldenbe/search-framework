@@ -76,8 +76,8 @@ struct StateGraph {
         return res.first;
     }
 
-    VertexDescriptor from(EdgeDescriptor ed) { return source(ed, g_); }
-    VertexDescriptor to(EdgeDescriptor ed) { return target(ed, g_); }
+    VertexDescriptor from(EdgeDescriptor ed) const { return source(ed, g_); }
+    VertexDescriptor to(EdgeDescriptor ed) const { return target(ed, g_); }
 
     StateSharedPtr state(VertexDescriptor vd) const {
         if (!vd) return nullptr;

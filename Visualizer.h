@@ -42,6 +42,7 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
             if (stopwatch % 50 == 0 && drawFlag_) {
                 //this->typist_.message("Drawing!");
                 drawer_.draw();
+                //cairo_reset_clip(drawer_.graphics().cr);
                 drawFlag_ = false;
             }
             typist_.setStep(log_.step());
@@ -52,7 +53,7 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
             }
             if (s_ == VISUALIZER_STATE::GO)
                 if (++iteration % (1000 / this->speed_) == 0) {
-                    log_.next();
+                    log_.next(drawer_);
                     drawFlag_ = true;
                 }
         }
@@ -70,6 +71,14 @@ private:
         cairo_user_to_device(cr, &centerXDevice_after, &centerYDevice_after);
         cairo_translate(cr, (sizex / 2 - centerXDevice_after) / scale_,
                         (sizey / 2 - centerYDevice_after) / scale_);
+        /*
+        sizex = this->drawer_.sizeX() * factor;
+        sizey = this->drawer_.sizeY() * factor;
+        cairo_xlib_surface_set_size(this->drawer_.graphics().surface,
+                                    sizex, sizey);
+        this->drawer_.sizeX(sizex);
+        this->drawer_.sizeY(sizey);
+        */
     }
 
     void scaleUp(cairo_t *cr) { scale(cr, scaleStep_); }
@@ -79,8 +88,9 @@ private:
     // Returns true if need to continue or false if quiting
     bool processEvents() {
         XEvent e;
-        cairo_surface_t *surface = drawer_.surface();
-        cairo_t *cr = drawer_.cr();
+        auto &graphics = drawer_.graphics();
+        cairo_surface_t *surface = graphics.surface;
+        cairo_t *cr = graphics.cr;
         int c;
 
         if ((c = getch()) != ERR) {
@@ -147,7 +157,7 @@ private:
                         break;
                     case 36: // Enter
                         m_.handleEnter();
-                        drawFlag_ = true;
+                        //drawFlag_ = true;
                         break;
                     case 9: // Esc
                         m_.handleEsc();
@@ -186,13 +196,14 @@ private:
                     lastMotionX_ = e.xmotion.x;
                     lastMotionY_ = e.xmotion.y;
                 } else {
+                    PatternLock lock{drawer_.graphics()}; (void)lock;
                     cairo_translate(
                         cr,
                         (e.xmotion.x - drag_start_x - last_delta_x) / scale_,
                         (e.xmotion.y - drag_start_y - last_delta_y) / scale_);
                     last_delta_x = e.xmotion.x - drag_start_x;
                     last_delta_y = e.xmotion.y - drag_start_y;
-                    drawFlag_ = true;
+                    //drawFlag_ = true;
                 }
                 break;
             case ConfigureNotify:
