@@ -19,10 +19,7 @@ struct Drawer {
     using PointMap = typename Graph::PointMap;
 
     // VisualLog is not const, since we will move in time...
-    Drawer(Graph &g, VisualLog &log)
-        : g_(g), log_(log), graphics_{sizex_, sizey_} {
-        changeLayout();
-    }
+    Drawer(Graph &g, VisualLog &log) : g_(g), log_(log) { changeLayout(); }
 
     const VertexDescriptor coordsToVD(double x, double y) const {
         // Commented out is code for debugging

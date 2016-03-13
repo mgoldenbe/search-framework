@@ -150,7 +150,8 @@ struct MenuRun : MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> {
             this->data_.log().next(this->data_.drawer());
         if (choice == "Step Backward")
             this->data_.log().prev(this->data_.drawer());
-        if (choice == "Reset") this->data_.log().move(0, this->data_.drawer());
+        if (choice == "Reset")
+            this->data_.log().move(0, this->data_.drawer(), true);
         Base::handleEnter();
     }
 };

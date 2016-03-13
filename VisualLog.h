@@ -72,23 +72,27 @@ struct VisualLog {
 
     int filteredToStep(int step) const { return filteredToStep_[step]; }
 
-    template <class Drawer> void move(int step, Drawer &drawer) {
+    template <class Drawer>
+    void move(int step, Drawer &drawer, bool groupFlag = false) {
+        GroupLock lock{groupFlag, drawer.graphics()}; (void)lock;
         while (step_ != step) {
-            step_ < step ? next(drawer) : prev(drawer);
+            step_ < step ? next(drawer, false) : prev(drawer, false);
         }
     }
 
-    template <class Drawer> bool next(Drawer &drawer, bool flush = true) {
-        GroupLock temp{flush, drawer.graphics()}; (void)temp;
+    template <class Drawer> bool next(Drawer &drawer, bool groupFlag = true) {
+        //for (int i = 0; i < 2; i++) {
+        GroupLock lock{groupFlag, drawer.graphics()}; (void)lock;
         if (step_ - 1 == filteredToStep_.back()) return false;
         do {
             if (!stepForward(drawer)) return false;
         } while (!inFilter(step_ - 1));
+        //}
         return true;
     }
 
-    template <class Drawer> bool prev(Drawer &drawer, bool flush = true) {
-        GroupLock temp{flush, drawer.graphics()}; (void)temp;
+    template <class Drawer> bool prev(Drawer &drawer, bool groupFlag = true) {
+        GroupLock lock{groupFlag, drawer.graphics()}; (void)lock;
         do {
             if (!stepBackward(drawer)) return false;
         } while (!inFilter(step_ - 1));
@@ -97,7 +101,7 @@ struct VisualLog {
 
     template <class Filter, class Drawer>
     bool next(const Filter &searchFilter, Drawer &drawer) {
-        GroupLock temp{true, drawer.graphics()}; (void)temp;
+        GroupLock lock{true, drawer.graphics()}; (void)lock;
         int origStep = step_;
         do {
             if (!next(drawer, false)) {move(origStep, drawer); return false;}
@@ -107,7 +111,7 @@ struct VisualLog {
 
     template <class Filter, class Drawer>
     bool prev(const Filter &searchFilter, Drawer &drawer) {
-        GroupLock temp{true, drawer.graphics()}; (void)temp;
+        GroupLock lock{true, drawer.graphics()}; (void)lock;
         int origStep = step_;
         do {
             if (!prev(drawer, false)) {move(origStep, drawer); return false;}

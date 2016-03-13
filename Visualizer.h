@@ -33,16 +33,12 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
 
     void run() {
         int iteration = 0;
-        int stopwatch = 0;
         // msleep(10000);
         while (1) {
-            stopwatch = (stopwatch + 1) % 1000;
             msleep(1);
             if (!processEvents()) break;
-            if (stopwatch % 50 == 0 && drawFlag_) {
-                //this->typist_.message("Drawing!");
+            if (drawFlag_) {
                 drawer_.draw();
-                //cairo_reset_clip(drawer_.graphics().cr);
                 drawFlag_ = false;
             }
             typist_.setStep(log_.step());
@@ -54,31 +50,37 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
             if (s_ == VISUALIZER_STATE::GO)
                 if (++iteration % (1000 / this->speed_) == 0) {
                     log_.next(drawer_);
-                    drawFlag_ = true;
+                    //drawFlag_ = true;
                 }
         }
     }
 
 private:
+    int &windowXSize() { return this->drawer_.graphics().windowXSize; }
+    int &windowYSize() { return this->drawer_.graphics().windowYSize; }
     void scale(cairo_t *cr, double factor) {
-        int sizex = this->drawer_.sizeX(), sizey = this->drawer_.sizeY();
+        int sizex = windowXSize(), sizey = windowYSize();
         double centerXUser_before = sizex / 2, centerYUser_before = sizey / 2;
         cairo_device_to_user(cr, &centerXUser_before, &centerYUser_before);
-        scale_ *= factor;
+        double &scale = drawer_.graphics().scale;
+        scale *= factor;
         cairo_scale(cr, factor, factor);
         double centerXDevice_after = centerXUser_before,
                centerYDevice_after = centerYUser_before;
         cairo_user_to_device(cr, &centerXDevice_after, &centerYDevice_after);
-        cairo_translate(cr, (sizex / 2 - centerXDevice_after) / scale_,
-                        (sizey / 2 - centerYDevice_after) / scale_);
-        /*
-        sizex = this->drawer_.sizeX() * factor;
-        sizey = this->drawer_.sizeY() * factor;
-        cairo_xlib_surface_set_size(this->drawer_.graphics().surface,
-                                    sizex, sizey);
-        this->drawer_.sizeX(sizex);
-        this->drawer_.sizeY(sizey);
-        */
+        cairo_translate(cr, (sizex / 2 - centerXDevice_after) / scale,
+                        (sizey / 2 - centerYDevice_after) / scale);
+
+        this->drawer_.sizeX(this->drawer_.sizeX() * factor);
+        this->drawer_.sizeY(this->drawer_.sizeY() * factor);
+        updateSurfaceSize();
+    }
+
+    void updateSurfaceSize() {
+        cairo_xlib_surface_set_size(
+            this->drawer_.graphics().surface,
+            std::max(this->drawer_.sizeX(), static_cast<int>(windowXSize())),
+            std::max(this->drawer_.sizeY(), static_cast<int>(windowYSize())));
     }
 
     void scaleUp(cairo_t *cr) { scale(cr, scaleStep_); }
@@ -156,9 +158,10 @@ private:
                         menu_driver(m_.raw(), REQ_SCR_UPAGE);
                         break;
                     case 36: // Enter
+                    {
                         m_.handleEnter();
-                        //drawFlag_ = true;
                         break;
+                    }
                     case 9: // Esc
                         m_.handleEsc();
                         break;
@@ -197,21 +200,22 @@ private:
                     lastMotionY_ = e.xmotion.y;
                 } else {
                     PatternLock lock{drawer_.graphics()}; (void)lock;
+                    double scale = drawer_.graphics().scale;
                     cairo_translate(
                         cr,
-                        (e.xmotion.x - drag_start_x - last_delta_x) / scale_,
-                        (e.xmotion.y - drag_start_y - last_delta_y) / scale_);
+                        (e.xmotion.x - drag_start_x - last_delta_x) / scale,
+                        (e.xmotion.y - drag_start_y - last_delta_y) / scale);
                     last_delta_x = e.xmotion.x - drag_start_x;
                     last_delta_y = e.xmotion.y - drag_start_y;
-                    //drawFlag_ = true;
                 }
                 break;
-            case ConfigureNotify:
-                this->drawer_.sizeX(e.xconfigure.width);
-                this->drawer_.sizeY(e.xconfigure.height);
-                cairo_xlib_surface_set_size(surface, e.xconfigure.width,
-                                            e.xconfigure.height);
+            case ConfigureNotify: {
+                windowXSize() = e.xconfigure.width;
+                windowYSize() = e.xconfigure.height;
+                updateSurfaceSize();
+                drawFlag_ = true;
                 break;
+            }
             case ClientMessage:
                 return false;
             default:
@@ -241,7 +245,6 @@ private:
 private:
     AllMenus<Graph, VisualLog, autoLayoutFlag> m_;
 
-    double scale_ = 1.0;
     double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;
     int drag_start_x, drag_start_y;
@@ -250,7 +253,7 @@ private:
     bool motionLast_ = false;
     int noEventCount_ = 0;
     int lastMotionX_, lastMotionY_;
-    bool drawFlag_ = true;
+    bool drawFlag_ = false;
 };
 
 #endif

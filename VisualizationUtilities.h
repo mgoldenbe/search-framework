@@ -9,8 +9,9 @@
 
 cairo_surface_t *create_x11_surface(Display *, Window &, Window &, int *,
                                     int *);
+
 struct Graphics {
-    Graphics(int sizex, int sizey) {
+    Graphics() {
         /* Prepare the surface for drawer */
         display = XOpenDisplay(NULL);
         if (display == NULL) {
@@ -19,7 +20,8 @@ struct Graphics {
         }
         // create a new cairo surface in an x11 window as well as a cairo_t* to
         // draw on the x11 window with.
-        surface = create_x11_surface(display, w, root, &sizex, &sizey);
+        surface =
+            create_x11_surface(display, w, root, &windowXSize, &windowYSize);
         cr = cairo_create(surface);
     }
 
@@ -32,36 +34,11 @@ struct Graphics {
     }
     Display *display{};
     Window w, root;
+    int windowXSize = 500, windowYSize = 500;
     cairo_surface_t* surface{};
     cairo_t* cr{};
+    double scale = 1.0;
 };
-
-struct GroupLock {
-    GroupLock(bool flag, Graphics &g, bool clearFlag = false)
-        : g_(g), flag_(flag) {
-        if (!flag_) return;
-        auto cr = g_.cr;
-        cairo_push_group(cr);
-
-        if (clearFlag) {
-            cairo_set_source_rgb(cr, 0, 0, 0);
-            cairo_paint(cr);
-        }
-    }
-
-    ~GroupLock() {
-        if (!flag_) return;
-        cairo_pop_group_to_source(g_.cr);
-        cairo_paint(g_.cr);
-        cairo_surface_flush(g_.surface);
-        XFlush(g_.display);
-    }
-
-private:
-    Graphics &g_;
-    bool flag_;
-};
-
 
 struct PatternLock {
     PatternLock(Graphics &g)
@@ -75,14 +52,66 @@ struct PatternLock {
         cairo_paint(g_.cr);
         cairo_set_source(g_.cr, p_);
         cairo_paint(g_.cr);
-        cairo_surface_flush(g_.surface);
-        XFlush(g_.display);
+        //cairo_surface_flush(g_.surface);
+        //XFlush(g_.display);
         cairo_pattern_destroy(p_);
     }
 
 private:
     Graphics &g_;
     cairo_pattern_t *p_;
+};
+
+void undoTranslation(Graphics &g, double &zeroX, double &zeroY) {
+    zeroX = zeroY = 0;
+    cairo_user_to_device(g.cr, &zeroX, &zeroY);
+    cairo_translate(g.cr, -zeroX / g.scale, -zeroY / g.scale);
+}
+
+void redoTranslation(Graphics &g, double zeroX, double zeroY) {
+    cairo_translate(g.cr, zeroX / g.scale, zeroY / g.scale);
+}
+
+struct GroupLock {
+    GroupLock(bool flag, Graphics &g, bool clearFlag = false)
+        : g_(g), flag_(flag) {
+        if (!flag_) return;
+
+        // First draw without any translation, so nothing is clipped
+        undoTranslation(g_, zeroX_, zeroY_);
+
+        {
+            PatternLock lock{g_}; (void)lock;
+            cairo_push_group(g_.cr);
+            // The previous image is put into the source here
+        }
+        if (clearFlag) {
+            cairo_set_source_rgb(g_.cr, 0, 0, 0);
+            cairo_paint(g_.cr);
+        }
+    }
+
+    ~GroupLock() {
+        if (!flag_) return;
+        cairo_pop_group_to_source(g_.cr);
+        cairo_paint(g_.cr);
+        {
+            PatternLock lock{g_}; (void)lock;
+            // Now translate it back
+            redoTranslation(g_, zeroX_, zeroY_);
+        }
+        for (int i = 0; i < 1; i++) {
+            cairo_paint(g_.cr);
+            cairo_surface_flush(g_.surface);
+            XFlush(g_.display);
+        }
+    }
+
+private:
+    Graphics &g_;
+    bool flag_;
+    cairo_pattern_t *p_;
+    double zeroX_, zeroY_;
 };
 
 struct RGB {
