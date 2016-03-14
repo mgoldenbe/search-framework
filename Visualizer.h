@@ -107,6 +107,7 @@ private:
             switch (e.type) {
             case Expose:
                 drawFlag_ = true;
+                typist_.message("Expose event. Re-drawing...");
                 break;
             case KeyPress: {
                 // this->typist_.message("Key event received!");
@@ -213,6 +214,7 @@ private:
                 windowXSize() = e.xconfigure.width;
                 windowYSize() = e.xconfigure.height;
                 updateSurfaceSize();
+                typist_.message("Configure event. Re-drawing...");
                 drawFlag_ = true;
                 break;
             }

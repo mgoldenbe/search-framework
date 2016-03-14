@@ -78,12 +78,19 @@ struct Drawer {
         emphasizeVertex(vd, style);
     }
 
+    void drawVertex(VertexDescriptor vd) {
+        drawVertex(vd, log_.vertexStyle(vd));
+    }
+
     void drawEdge(VertexDescriptor from, VertexDescriptor to,
-                  const EdgeStyle &style) {
+                  const EdgeStyle &style, bool eraseFlag = false) {
         auto cr = graphics_.cr;
         Color ec = style.color;
         if (ec == Color::NOVAL) return;
-        cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
+	if (eraseFlag)
+	  cairo_set_source_rgb(cr, 0, 0, 0);
+	else
+	  cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
         cairo_set_line_width(cr, style.widthFactor * EdgeStyle::widthBase);
         double fromX = pointMap_[from][0], fromY = pointMap_[from][1];
         double toX = pointMap_[to][0], toY = pointMap_[to][1];
@@ -135,7 +142,8 @@ private:
         Color fc = style.fillColor;
         if (fc == Color::NOVAL) return;
         cairo_set_source_rgb(cr, RGB::red(fc), RGB::green(fc), RGB::blue(fc));
-        cairo_set_line_width(cr, 1.0);
+        cairo_set_line_width(cr, 0.0);
+        cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
         switch(style.shape) {
         case VertexShape::CIRCLE:
             cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1],

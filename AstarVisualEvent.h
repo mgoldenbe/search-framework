@@ -191,11 +191,16 @@ struct AstarVisualEvent {
     const std::vector<EdgeChange> &edgeChanges() const { return edgeChanges_; }
 
     template <class Drawer> void draw(Drawer &drawer, bool beforeFlag = false) {
-        for (auto &vc : vertexChanges_)
-            drawer.drawVertex(vc.vd, beforeFlag ? vc.before : vc.now);
-        for (auto &ec : edgeChanges_)
+        for (auto &ec : edgeChanges_) {
+            drawer.drawEdge(g_.from(ec.ed), g_.to(ec.ed),
+                            beforeFlag ? ec.now : ec.before, true);
             drawer.drawEdge(g_.from(ec.ed), g_.to(ec.ed),
                             beforeFlag ? ec.before : ec.now);
+            drawer.drawVertex(g_.from(ec.ed));
+            drawer.drawVertex(g_.to(ec.ed));
+        }
+        for (auto &vc : vertexChanges_)
+            drawer.drawVertex(vc.vd, beforeFlag ? vc.before : vc.now);
     }
 private:
     const Graph &g_;
