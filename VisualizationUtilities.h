@@ -34,9 +34,13 @@ struct Graphics {
     }
     Display *display{};
     Window w, root;
-    int windowXSize = 500, windowYSize = 500;
     cairo_surface_t* surface{};
     cairo_t* cr{};
+
+    int windowXSize = 500, windowYSize = 500;
+    double zeroX = 0.0, // beginning of drawing in device coordinates
+           zeroY = 0.0; // at last re-drawing
+    double margin = 0.5;
     double scale = 1.0;
 };
 
@@ -62,14 +66,48 @@ private:
     cairo_pattern_t *p_;
 };
 
-void undoTranslation(Graphics &g, double &zeroX, double &zeroY) {
-    zeroX = zeroY = 0;
-    cairo_user_to_device(g.cr, &zeroX, &zeroY);
-    cairo_translate(g.cr, -zeroX / g.scale, -zeroY / g.scale);
+// translation since the last re-drawing
+void deltaTranslate(Graphics &g, double &deltaX, double &deltaY) {
+    double curZeroX = 0.0, curZeroY = 0.0;
+    cairo_user_to_device(g.cr, &curZeroX, &curZeroY);
+    deltaX = fabs(curZeroX - g.zeroX);
+    deltaY = fabs(curZeroY - g.zeroY);
+}
+// Set origin to the current origin, so deltas are 0.
+void resetOrigin(Graphics &g) {
+    double curZeroX = 0.0, curZeroY = 0.0;
+    cairo_user_to_device(g.cr, &curZeroX, &curZeroY);
+    g.zeroX = curZeroX;
+    g.zeroY = curZeroY;
 }
 
-void redoTranslation(Graphics &g, double zeroX, double zeroY) {
-    cairo_translate(g.cr, zeroX / g.scale, zeroY / g.scale);
+double deltaTranslateX(Graphics &g) {
+    double deltaX, deltaY;
+    deltaTranslate(g, deltaX, deltaY);
+    return deltaX;
+}
+double deltaTranslateY(Graphics &g) {
+    double deltaX, deltaY;
+    deltaTranslate(g, deltaX, deltaY);
+    return deltaY;
+}
+
+void virtualTranslate(Graphics &g) {
+    cairo_translate(g.cr, g.margin * g.windowXSize / g.scale,
+                    g.margin * g.windowYSize / g.scale);
+}
+void realTranslate(Graphics &g) {
+    cairo_translate(g.cr, -g.margin * g.windowXSize / g.scale,
+                    -g.margin * g.windowYSize / g.scale);
+}
+
+bool redraw(Graphics &g) {
+    double deltaX, deltaY;
+    deltaTranslate(g, deltaX, deltaY);
+    if (deltaX >= g.margin * g.windowXSize ||
+        deltaY >= g.margin * g.windowYSize)
+        return true;
+    return false;
 }
 
 struct GroupLock {
@@ -78,7 +116,7 @@ struct GroupLock {
         if (!flag_) return;
 
         // First draw without any translation, so nothing is clipped
-        undoTranslation(g_, zeroX_, zeroY_);
+        virtualTranslate(g_);
 
         {
             PatternLock lock{g_}; (void)lock;
@@ -98,7 +136,7 @@ struct GroupLock {
         {
             PatternLock lock{g_}; (void)lock;
             // Now translate it back
-            redoTranslation(g_, zeroX_, zeroY_);
+            realTranslate(g_);
         }
         for (int i = 0; i < 1; i++) {
             cairo_paint(g_.cr);

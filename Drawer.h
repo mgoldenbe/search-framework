@@ -98,8 +98,10 @@ struct Drawer {
         cairo_line_to(cr, toX, toY);
         cairo_stroke(cr);
         if (style.arrow) {
-            double radius = VertexStyle::sizeBase;
             cairo_save(cr);
+            double radius = VertexStyle::sizeBase;
+            cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
+            //cairo_set_line_width(cr, 0.0);
             cairo_translate(cr, (fromX + toX) / 2, (fromY + toY) / 2);
             double angle = atan2(toY - fromY, toX - fromX);
             cairo_rotate(cr, angle);
@@ -110,6 +112,7 @@ struct Drawer {
             cairo_line_to(cr, x, y);
             cairo_line_to(cr, x, -y);
             cairo_line_to(cr, radius, 0);
+            //cairo_fill(cr);
             cairo_stroke(cr);
             cairo_translate(cr, -(fromX + toX) / 2, -(fromY + toY) / 2);
             cairo_restore(cr);

@@ -33,11 +33,13 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
 
     void run() {
         int iteration = 0;
+        int timer = 0;
         // msleep(10000);
         while (1) {
             msleep(1);
             if (!processEvents()) break;
-            if (drawFlag_) {
+            if (drawFlag_ && ++timer % 250 == 0) {
+                resetOrigin(drawer_.graphics());
                 drawer_.draw();
                 drawFlag_ = false;
             }
@@ -77,10 +79,14 @@ private:
     }
 
     void updateSurfaceSize() {
-        cairo_xlib_surface_set_size(
-            this->drawer_.graphics().surface,
-            std::max(this->drawer_.sizeX(), static_cast<int>(windowXSize())),
-            std::max(this->drawer_.sizeY(), static_cast<int>(windowYSize())));
+        auto &g = this->drawer_.graphics();
+        // Reduce margin if the window is big
+        //g.margin = 0.5 - (std::max(windowXSize(), windowYSize()))/1000;
+        //g.margin = std::max(g.margin, 0.1);
+        //g.margin = 0.00;
+        cairo_xlib_surface_set_size(g.surface,
+                                    (1 + 2 * g.margin) * windowXSize(),
+                                    (1 + 2 * g.margin) * windowYSize());
     }
 
     void scaleUp(cairo_t *cr) { scale(cr, scaleStep_); }
@@ -202,6 +208,10 @@ private:
                 } else {
                     PatternLock lock{drawer_.graphics()}; (void)lock;
                     double scale = drawer_.graphics().scale;
+                    if (redraw(graphics)) {
+                        if (!drawFlag_) typist_.message("Loading...");
+                        drawFlag_ = true;
+                    }
                     cairo_translate(
                         cr,
                         (e.xmotion.x - drag_start_x - last_delta_x) / scale,
@@ -214,8 +224,8 @@ private:
                 windowXSize() = e.xconfigure.width;
                 windowYSize() = e.xconfigure.height;
                 updateSurfaceSize();
-                typist_.message("Configure event. Re-drawing...");
-                drawFlag_ = true;
+                //typist_.message("Configure event. Re-drawing...");
+                //drawFlag_ = true;
                 break;
             }
             case ClientMessage:
