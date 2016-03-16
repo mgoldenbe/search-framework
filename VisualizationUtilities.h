@@ -45,19 +45,16 @@ struct Graphics {
 };
 
 struct PatternLock {
-    PatternLock(Graphics &g)
-        : g_(g) {
+    PatternLock(Graphics &g) : g_(g) {
         p_ = cairo_get_source(g_.cr);
         cairo_pattern_reference(p_);
     }
 
     ~PatternLock() {
-        // The commented lines caused the problem. How come?
-        // cairo_set_source_rgb(g_.cr, 0, 0, 0);
-        // cairo_paint(g_.cr);
-        cairo_set_source(g_.cr, p_);
+        cairo_set_source(g_.cr, p_); // this does not affect the reference count
+        cairo_pattern_destroy(p_); // safe! can still paint!
+        // std::cerr << cairo_pattern_get_reference_count (p_) << std::endl;
         cairo_paint(g_.cr);
-        cairo_pattern_destroy(p_);
     }
 
 private:
@@ -109,18 +106,26 @@ bool redraw(Graphics &g) {
     return false;
 }
 
+// Everything drawn between the execution of the constructor and the destructor
+// is in a group. This drawing is appended to the current pattern.
 struct GroupLock {
     GroupLock(bool flag, Graphics &g, bool clearFlag = false)
         : g_(g), flag_(flag) {
         if (!flag_) return;
 
-        // First draw without any translation, so nothing is clipped
-        virtualTranslate(g_);
+        virtualTranslate(g_); // Translate to enable margins
+                              // that are not clipped
 
         {
-            PatternLock lock{g_}; (void)lock;
-            cairo_push_group(g_.cr);
-            // The previous image is put into the source here
+            PatternLock lock{g_};    // The constructor saves source as pattern.
+                                     // The destructor will:
+                                     //    1. Put the saved source
+                                     //       as a source inside the group.
+                                     //    2. Paint from the source into
+                                     //       the temporary surface.
+            cairo_push_group(g_.cr); // Re-direct all subsequent drawing into
+                                     // temporary surface
+            (void)lock;
         }
 
         if (clearFlag) {
@@ -131,17 +136,13 @@ struct GroupLock {
 
     ~GroupLock() {
         if (!flag_) return;
-        cairo_pop_group_to_source(g_.cr);
-        cairo_paint(g_.cr);
+        cairo_pop_group_to_source(g_.cr); // Get the image from the
+                                          // temporary surface into the source.
         {
-            PatternLock lock{g_}; (void)lock;
-            // Now translate it back
-            realTranslate(g_);
-        }
-        for (int i = 0; i < 1; i++) {
-            cairo_paint(g_.cr);
-            cairo_surface_flush(g_.surface);
-            XFlush(g_.display);
+            PatternLock lock{g_};
+            (void)lock;        // See above. Only painting
+                               // into the real surface
+            realTranslate(g_); // Translating it back
         }
     }
 
