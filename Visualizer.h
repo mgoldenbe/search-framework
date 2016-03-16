@@ -33,16 +33,19 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
 
     void run() {
         int iteration = 0;
-        int timer = 0;
+        int timer = 0; (void)timer;
         // msleep(10000);
         while (1) {
             msleep(1);
-            if (!processEvents()) break;
+            // a cleaner way to do this:
+            // http://stackoverflow.com/a/12871594/2725810
             if (drawFlag_ && ++timer % 250 == 0) {
                 resetOrigin(drawer_.graphics());
                 drawer_.draw();
                 drawFlag_ = false;
+                continue;
             }
+            if (!processEvents()) break;
             typist_.setStep(log_.step());
             typist_.show();
             if (s_ == VISUALIZER_STATE::PAUSE) {
@@ -113,7 +116,7 @@ private:
             switch (e.type) {
             case Expose:
                 drawFlag_ = true;
-                typist_.message("Expose event. Re-drawing...");
+                // typist_.message("Expose event. Re-drawing...");
                 break;
             case KeyPress: {
                 // this->typist_.message("Key event received!");
@@ -183,6 +186,7 @@ private:
                 buttonPressed_ = true;
                 drag_start_x = e.xbutton.x;
                 drag_start_y = e.xbutton.y;
+                last_delta_x = last_delta_y = 0;
                 break;
             case ButtonRelease:
                 buttonPressed_ = false;
@@ -206,18 +210,25 @@ private:
                     lastMotionX_ = e.xmotion.x;
                     lastMotionY_ = e.xmotion.y;
                 } else {
-                    PatternLock lock{drawer_.graphics()}; (void)lock;
-                    double scale = drawer_.graphics().scale;
                     if (redraw(graphics)) {
                         if (!drawFlag_) typist_.message("Loading...");
                         drawFlag_ = true;
+                        drag_start_x = e.xmotion.x;
+                        drag_start_y = e.xmotion.y;
+                        last_delta_x = last_delta_y = 0;
+                    } else {
+                        // typist_.message("Translating...");
+                        PatternLock lock{drawer_.graphics()};
+                        (void)lock;
+                        double scale = drawer_.graphics().scale;
+                        cairo_translate(
+                            cr,
+                            (e.xmotion.x - drag_start_x - last_delta_x) / scale,
+                            (e.xmotion.y - drag_start_y - last_delta_y) /
+                                scale);
+                        last_delta_x = e.xmotion.x - drag_start_x;
+                        last_delta_y = e.xmotion.y - drag_start_y;
                     }
-                    cairo_translate(
-                        cr,
-                        (e.xmotion.x - drag_start_x - last_delta_x) / scale,
-                        (e.xmotion.y - drag_start_y - last_delta_y) / scale);
-                    last_delta_x = e.xmotion.x - drag_start_x;
-                    last_delta_y = e.xmotion.y - drag_start_y;
                 }
                 break;
             case ConfigureNotify: {
@@ -228,7 +239,7 @@ private:
                 //drawFlag_ = true;
                 break;
             }
-            case ClientMessage:
+            case ClientMessage: // Window closed
                 return false;
             default:
                 ;

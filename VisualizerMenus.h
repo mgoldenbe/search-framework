@@ -356,6 +356,8 @@ struct AllMenus {
         setMenu(&menuMain, data.typist());
     }
     ~AllMenus() { destroyMenu(raw_); }
+
+    bool hideFiltered = true;
     MenuMain<AllMenus, Graph, VisualLog, autoLayoutFlag> menuMain;
     MenuRun<AllMenus, Graph, VisualLog, autoLayoutFlag> menuRun;
     MenuSearch<AllMenus, Graph, VisualLog, autoLayoutFlag> menuSearch;
@@ -365,7 +367,6 @@ struct AllMenus {
     MenuSpeed<AllMenus, Graph, VisualLog, autoLayoutFlag> menuSpeed;
     MenuTypedSearch<AllMenus, Graph, VisualLog, autoLayoutFlag> menuTypedSearch;
     MenuEditFilter<AllMenus, Graph, VisualLog, autoLayoutFlag> menuEditFilter;
-    bool hideFiltered = true;
 
     void handleEnter() { m_->handleEnter(); }
     void handleEsc() { m_->handleEsc(); }
@@ -394,7 +395,7 @@ struct AllMenus {
 
 private:
     MENU *raw_ = nullptr;
-    MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> *m_;
+    MenuBase<AllMenus, Graph, VisualLog, autoLayoutFlag> *m_ = nullptr;
     std::vector<ITEM *> menuItems_;
     int maxMenuRows_ = 3;
 };

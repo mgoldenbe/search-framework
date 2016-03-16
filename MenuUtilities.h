@@ -47,8 +47,8 @@ MENU *createMenu(WINDOW *w, std::vector<ITEM *> &items,
 void destroyMenu(MENU *m) {
     if (!m) return;
     unpost_menu(m);
-    free_menu(m);
     for (auto i = 0U; i < (unsigned)m->nitems; ++i) free_item(menu_items(m)[i]);
+    free_menu(m);
 }
 
 std::string menuChoice(MENU *m) {

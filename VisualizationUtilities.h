@@ -40,7 +40,7 @@ struct Graphics {
     int windowXSize = 500, windowYSize = 500;
     double zeroX = 0.0, // beginning of drawing in device coordinates
            zeroY = 0.0; // at last re-drawing
-    double margin = 0.5;
+    double margin = 1.0;
     double scale = 1.0;
 };
 
@@ -52,12 +52,11 @@ struct PatternLock {
     }
 
     ~PatternLock() {
-        cairo_set_source_rgb(g_.cr, 0, 0, 0);
-        cairo_paint(g_.cr);
+        // The commented lines caused the problem. How come?
+        // cairo_set_source_rgb(g_.cr, 0, 0, 0);
+        // cairo_paint(g_.cr);
         cairo_set_source(g_.cr, p_);
         cairo_paint(g_.cr);
-        //cairo_surface_flush(g_.surface);
-        //XFlush(g_.display);
         cairo_pattern_destroy(p_);
     }
 
@@ -123,6 +122,7 @@ struct GroupLock {
             cairo_push_group(g_.cr);
             // The previous image is put into the source here
         }
+
         if (clearFlag) {
             cairo_set_source_rgb(g_.cr, 0, 0, 0);
             cairo_paint(g_.cr);
