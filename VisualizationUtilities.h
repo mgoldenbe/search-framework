@@ -63,11 +63,18 @@ private:
 };
 
 // translation since the last re-drawing
-void deltaTranslate(Graphics &g, double &deltaX, double &deltaY) {
+void deltaTranslate(Graphics &g, double &deltaX, double &deltaY,
+                    bool absFlag = true) {
     double curZeroX = 0.0, curZeroY = 0.0;
     cairo_user_to_device(g.cr, &curZeroX, &curZeroY);
-    deltaX = fabs(curZeroX - g.zeroX);
-    deltaY = fabs(curZeroY - g.zeroY);
+    if (absFlag) {
+        deltaX = fabs(curZeroX - g.zeroX);
+        deltaY = fabs(curZeroY - g.zeroY);
+    }
+    else {
+        deltaX = curZeroX - g.zeroX;
+        deltaY = curZeroY - g.zeroY;
+    }
 }
 // Set origin to the current origin, so deltas are 0.
 void resetOrigin(Graphics &g) {
@@ -88,15 +95,6 @@ double deltaTranslateY(Graphics &g) {
     return deltaY;
 }
 
-void virtualTranslate(Graphics &g) {
-    cairo_translate(g.cr, g.margin * g.windowXSize / g.scale,
-                    g.margin * g.windowYSize / g.scale);
-}
-void realTranslate(Graphics &g) {
-    cairo_translate(g.cr, -g.margin * g.windowXSize / g.scale,
-                    -g.margin * g.windowYSize / g.scale);
-}
-
 bool redraw(Graphics &g) {
     double deltaX, deltaY;
     deltaTranslate(g, deltaX, deltaY);
@@ -113,7 +111,7 @@ struct GroupLock {
         : g_(g), flag_(flag) {
         if (!flag_) return;
 
-        virtualTranslate(g_); // Translate to enable margins
+        virtualTranslate(); // Translate to enable margins
                               // that are not clipped
 
         {
@@ -142,7 +140,7 @@ struct GroupLock {
             PatternLock lock{g_};
             (void)lock;        // See above. Only painting
                                // into the real surface
-            realTranslate(g_); // Translating it back
+            realTranslate(); // Translating it back
         }
     }
 
@@ -151,6 +149,19 @@ private:
     bool flag_;
     cairo_pattern_t *p_;
     double zeroX_, zeroY_;
+    double origDeltaX_, origDeltaY_;
+
+    void virtualTranslate() {
+        deltaTranslate(g_, origDeltaX_, origDeltaY_, false);
+        cairo_translate(g_.cr,
+                        (-origDeltaX_ + g_.margin * g_.windowXSize) / g_.scale,
+                        (-origDeltaY_ + g_.margin * g_.windowYSize) / g_.scale);
+    }
+    void realTranslate() {
+        cairo_translate(g_.cr,
+                        (origDeltaX_ - g_.margin * g_.windowXSize) / g_.scale,
+                        (origDeltaY_ - g_.margin * g_.windowYSize) / g_.scale);
+    }
 };
 
 struct RGB {
