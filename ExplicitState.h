@@ -14,6 +14,7 @@ struct ExplicitState {
 
     ///@name Construction and Assignment
     //@{
+    ExplicitState() : state_(space_->defaultState()) {}
     ExplicitState(const StateType &state) : state_(state) {}
     ExplicitState(const std::string &s) : state_(space_->state(s)) {}
     ExplicitState(const MyType &) = default;

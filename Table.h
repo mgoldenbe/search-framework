@@ -1,6 +1,7 @@
 #ifndef TABLE_H
 #define TABLE_H
 
+#include <iomanip>
 #include "utilities.h"
 
 struct Row {
@@ -35,7 +36,7 @@ private:
 };
 
 struct Table {
-    Table(int space) : space_(space), currentRow_(widths_, space_) {}
+    Table(int space = 2) : space_(space), currentRow_(widths_, space_) {}
 
     const Row &row(int n) const { return rows_[n]; }
 

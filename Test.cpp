@@ -4,6 +4,7 @@
 #include "Pancake.h"
 #include "GridMap.h"
 #include "GridMapState.h"
+#include "Instance.h"
 #include "OL.h"
 #include "OCL.h"
 #include "GoalHandler.h"
@@ -115,7 +116,17 @@ void testAstar() {
 #endif
 }
 
+void testInstance() {
+    GridMap<int> m("ost001d.map8");
+    MyState::space(&m);
+
+    makeInstancesFile<SingleStartSingleGoal<MyState>>(100, "err");
+    auto res = readInstancesFile<SingleStartSingleGoal<MyState>>("err");
+    for (auto i: res) std::cout << i << std::endl;
+}
+
 int main() {
-    testAstar();
+    //testAstar();
+    testInstance();
     return 0;
 }

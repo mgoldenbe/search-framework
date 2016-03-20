@@ -88,6 +88,10 @@ struct GridMap {
         return states[rand() % states.size()];
     }
 
+    StateType defaultState() const {
+        return StateType{-1};
+    }
+
     CostType manhattan(StateType location, StateType goal) const {
         return std::abs(row(location) - row(goal)) +
                std::abs(column(location) - column(goal));

@@ -100,6 +100,9 @@ void dumpT(const T& t) {
 
 // Output for all classes that define the dump member function accepting
 // std::basic_ostream<charT>
+// Note that dump() member function can work for other things such as Table
+// If we were to not use dump(), there would be collisions with the output
+// operators of Table.
 template <typename charT, typename T>
 auto operator<<(std::basic_ostream<charT> &o, const T &t)
     -> decltype(t.dump(o)) {
