@@ -52,13 +52,14 @@ struct ExplicitState {
 
     static void space(ExplicitSpace *space) {space_ = space;}
     static const ExplicitSpace *space() {return space_;}
+    static StateType random() { return space_->random(); }
 private:
     StateType state_;
     static ExplicitSpace *space_;
 };
 
 template<class ExplicitSpace>
-ExplicitSpace *ExplicitState<ExplicitSpace>::space_;
+ExplicitSpace *ExplicitState<ExplicitSpace>::space_ = nullptr;
 
 struct ManhattanHeuristic {
     template <class ExplicitSpace>

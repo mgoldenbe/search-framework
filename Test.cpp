@@ -68,8 +68,10 @@ void testAstar() {
     GridMap<int> m("ost001d.map8");
     //GridMap<int> m("tiny.map8");
     MyState::space(&m);
-    MyState start(5000), goal1(5001), goal2(5002);
+    MyState start{MyState::random()}, goal1{MyState::random()},
+        goal2{MyState::random()};
     //MyState start(0), goal1(1), goal2(2);
+    //MyState start(5000), goal1(5001), goal2(5002);
 #endif
     MyGraph g;
     MyLogger logger1, logger;

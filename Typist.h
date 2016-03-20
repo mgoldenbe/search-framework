@@ -50,9 +50,18 @@ template <class VisualLog> struct Typist {
             wattroff(eventsPad_, COLOR_PAIR(2));
     }
 
-    void fillEventsPad() {
+    // Fill the currently visible area of eventsPad_
+    void updateEventsPad() {
         wclear(eventsPad_);
         wrefresh(eventsPad_);
+        int first = firstRow();
+        for (int i = first;
+             i <= std::min(first + prefix_ + suffix_, logTable_.size() - 1);
+             i++)
+            printEvent(i);
+    }
+
+    void fillEventsPad() {
         logTable_.clear();
 
         AlgorithmEvent::dumpTitle(logTable_);
@@ -69,11 +78,11 @@ template <class VisualLog> struct Typist {
         wattroff(titlePad_, A_BOLD);
         logTable_.remove(0);
 
-        for (int i = 0; i < logTable_.size(); i++) printEvent(i);
-        activateRow(stepToRow(step_));
+        updateEventsPad();
+        activateRow(stepToEventPadRow(step_));
     }
 
-    void show() const {
+    void show() {
         getmaxyx(stdscr, maxRow_, maxColumn_);
         showLog();
         showMessages();
@@ -84,9 +93,12 @@ template <class VisualLog> struct Typist {
     WINDOW *commandsPad() { return commandsPad_; }
 
     void setStep(int step) {
-        deactivateRow(stepToRow(step_));
-        activateRow(stepToRow(step));
-        step_ = step;
+        deactivateRow(stepToEventPadRow(step_));
+        activateRow(stepToEventPadRow(step));
+        if (step != step_) {
+            step_ = step;
+            updateEventsPad();
+        }
     }
 
     void message(std::string message) {
@@ -131,10 +143,23 @@ private:
     int nMessages_ = 0;
     mutable int maxRow_, maxColumn_;
 
-    int stepToRow(int step) const {
+    int stepToTableRow(int step) const {
         if (!hideFiltered_) return step;
         if (step == 0) return 0;
         return log_.stepToFiltered(step - 1) + 1;
+    }
+
+    int firstRow() const {
+        int activeRow = stepToTableRow(step_);
+        return std::max(0, activeRow - prefix_);
+    }
+
+    int stepToEventPadRow(int step) const {
+        return stepToTableRow(step) - firstRow();
+    }
+
+    int padToTable(int row) const {
+        return row + firstRow();
     }
 
     int rowToStep(int row) const {
@@ -142,11 +167,12 @@ private:
     }
 
     void rowMode(int row, int attr, bool flag) {
+        int tableRow = padToTable(row);
         int rowLimit = hideFiltered_ ? log_.nFilteredEvents() : log_.nEvents();
-        if (row < 0 || row >= rowLimit) return;
+        if (tableRow < 0 || tableRow >= rowLimit) return;
         wmove(eventsPad_, row, 0);
         flag ? wattron(eventsPad_, attr) : wattroff(eventsPad_, attr);
-        printEvent(row);
+        printEvent(tableRow);
         if (flag) wattroff(eventsPad_, attr);
     }
 
@@ -160,13 +186,13 @@ private:
         rowMode(row, A_BOLD, false);
     }
 
-    void showLog() const {
+    void showLog() {
         // int prefresh(WINDOW * pad, int pminrow, int pmincol, int sminrow,
         //              int smincol, int smaxrow, int smaxcol);
         //    pminrow and pmincol -- scroll values
         //    sminrow,  smincol,  smaxrow, smaxcol -- non-hidden area
         prefresh(titlePad_, 0, horizontalScroll_, 0, 0, 1, maxColumn_ - 1);
-        int vScroll = std::max(0, stepToRow(step_) - prefix_);
+        int vScroll = 0;//std::max(0, stepToRow(step_) - prefix_);
         prefresh(eventsPad_, vScroll, horizontalScroll_, 1, 0,
                  prefix_ + suffix_ + 1, maxColumn_ - 1);
     }

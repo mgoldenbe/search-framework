@@ -76,6 +76,18 @@ struct GridMap {
         return location(std::stoi(parse[0]), std::stoi(parse[1]));
     }
 
+    StateType random() const {
+        static std::vector<StateType> states;
+        if (!states.size()) {
+            StateType cur = 0;
+            for (auto b : v_) {
+                if (b) states.push_back(cur);
+                ++cur;
+            }
+        }
+        return states[rand() % states.size()];
+    }
+
     CostType manhattan(StateType location, StateType goal) const {
         return std::abs(row(location) - row(goal)) +
                std::abs(column(location) - column(goal));
