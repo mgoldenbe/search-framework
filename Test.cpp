@@ -5,6 +5,7 @@
 #include "GridMap.h"
 #include "GridMapState.h"
 #include "Instance.h"
+#include "Stats.h"
 #include "OL.h"
 #include "OCL.h"
 #include "GoalHandler.h"
@@ -97,7 +98,18 @@ void testAstar() {
         start, myGoalHandler, MyHeuristic(myGoals, heuristicInstance), g,
         logger);
     myAstar.run();
-
+    int i = 0; // we will have a loop on instances
+    Table statsTable;
+    if (i == 0) {
+        for (auto c: myAstar.stats())
+            statsTable << c.name();
+        statsTable << std::endl;
+    }
+    for (auto c: myAstar.stats())
+        statsTable << c;
+    statsTable << std::endl;
+    std::cout << statsTable;
+    return;
     /*
     Table t(2);
     MyAlgorithmEvent::dumpTitle(t);
@@ -126,7 +138,7 @@ void testInstance() {
 }
 
 int main() {
-    //testAstar();
-    testInstance();
+    testAstar();
+    //testInstance();
     return 0;
 }

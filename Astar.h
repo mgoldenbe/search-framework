@@ -35,6 +35,7 @@ struct Astar {
           graph_(graph), logger_(logger), oc_(), cur_(nullptr), children_() {}
 
     void run() {
+        TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
         startNode->f = heuristic_(startNode.get());
         graph_.add(startNode->shareState());
@@ -51,7 +52,26 @@ struct Astar {
         }
     }
 
+    Stats stats() const {
+        return {expanded_, generated_, time_};
+    }
 private:
+    State start_; // We should consider making this local
+    GoalHandler goalHandler_;
+    const Heuristic &heuristic_;
+    Graph &graph_;
+    AlgorithmLogger &logger_;
+    OCL<Open> oc_;
+
+    // We should consider making these local
+    Node *cur_;
+    std::vector<Neighbor> children_;
+
+    // Stats
+    Counter expanded_{"Expanded"};
+    Counter generated_{"Generated"};
+    Timer time_{"Time (microsec.)"};
+
     void onSelectAndExpand(std::true_type) {
         if (!goalHandler_.onSelect(cur_)) {
             // The following code will need to become more generic
@@ -80,6 +100,7 @@ private:
             // std::cout << "Done!" << std::endl;
             return;
         }
+        ++expanded_;
         children_ = (cur_->state()).successors();
         for (auto &child : children_) {
             handleChild(child.state(), child.cost());
@@ -88,6 +109,7 @@ private:
     }
 
     void handleChild(StateUniquePtrT<State> &child, CostType cost) {
+        ++generated_;
         auto childNode = oc_.getNode(*child);
         if (childNode) {
             graph_.add(cur_->shareState(), childNode->shareState(), cost);
@@ -114,17 +136,6 @@ private:
             Event(logger_, newNode.get(), Event::EventType::END_GENERATE));
         oc_.add(newNode);
     }
-
-    State start_; // We should consider making this local
-    GoalHandler goalHandler_;
-    const Heuristic &heuristic_;
-    Graph &graph_;
-    AlgorithmLogger &logger_;
-    OCL<Open> oc_;
-
-    // We should consider making these local
-    Node *cur_;
-    std::vector<Neighbor> children_;
 };
 
 #endif
