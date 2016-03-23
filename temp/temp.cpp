@@ -10,10 +10,7 @@
 
 int main()
 {
-    auto begin = std::chrono::system_clock::now();
-    std::cout << 5 << std::endl;
-    std::cout << std::chrono::duration_cast<std::chrono::microseconds>(
-                     std::chrono::system_clock::now() - begin).count()
-              << std::endl;
+    int Astar_Algorithm = 10;
+    std::cout << AA << " " << BB << std::endl;
     return 0;
 }

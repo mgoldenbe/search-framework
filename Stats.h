@@ -19,6 +19,8 @@ protected:
     int count_ = 0;
 };
 
+// Important design feature: Timer is a Counter, so it can be handled uniformly
+// with the rest of the stats.
 struct Timer : Counter {
     using Counter::Counter;
     void start() { begin_ = std::chrono::system_clock::now(); }
