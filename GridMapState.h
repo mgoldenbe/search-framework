@@ -4,7 +4,7 @@
 #include "GridMap.h"
 #include "ExplicitState.h"
 
-template <typename CostType_>
+template <typename CostType_, bool uniformFlag>
 struct GridMapState: ExplicitState<GridMap<CostType_>> {
     using Base = ExplicitState<GridMap<CostType_>>;
     using Base::Base; // inherit constructors
@@ -12,8 +12,8 @@ struct GridMapState: ExplicitState<GridMap<CostType_>> {
 
     using CostType = typename Base::CostType;
     using StateType = typename Base::StateType;
-    using MyType = GridMapState<CostType>;
-    using Neighbor = StateNeighbor<MyType>;
+    using MyType = GridMapState<CostType, uniformFlag>;
+    using Neighbor = StateNeighbor<MyType, uniformFlag>;
 
     std::vector<Neighbor> successors() const {
         return this->template successors<Neighbor>();
@@ -25,10 +25,10 @@ struct GridMapState: ExplicitState<GridMap<CostType_>> {
     }
 };
 
-template <typename CostType>
-bool
-operator==(const std::shared_ptr<const GridMapState<CostType>> &lhs,
-           const std::shared_ptr<const GridMapState<CostType>> &rhs) {
+template <typename CostType, bool uniformFlag>
+bool operator==(
+    const std::shared_ptr<const GridMapState<CostType, uniformFlag>> &lhs,
+    const std::shared_ptr<const GridMapState<CostType, uniformFlag>> &rhs) {
     return *lhs == *rhs;
 }
 

@@ -8,9 +8,10 @@
 #include <chrono>
 #include "PrettyPrint.h"
 
+void f(int=int{1}) {}
+
 int main()
 {
-    int Astar_Algorithm = 10;
-    std::cout << AA << " " << BB << std::endl;
+    f();
     return 0;
 }

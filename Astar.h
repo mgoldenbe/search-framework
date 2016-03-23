@@ -34,7 +34,7 @@ struct Astar {
         : start_(start), goalHandler_(goalHandler), heuristic_(heuristic),
           graph_(graph), logger_(logger), oc_(), cur_(nullptr), children_() {}
 
-    void run() {
+    CostType run() {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
         startNode->f = heuristic_(startNode.get());
@@ -50,6 +50,8 @@ struct Astar {
                 bool, std::is_same<decltype(goalHandler_.onSelect(cur_)),
                                    bool>::value>());
         }
+        if (oc_.empty()) return CostType{-1};
+        return cur_->f;
     }
 
     Stats stats() const {

@@ -25,7 +25,7 @@
 #ifdef STATE_OPTION_PANCAKE
 using MyState = Pancake;
 #else
-using MyState = GridMapState<int>;
+using MyState = GridMapState<double, false>;
 #endif
 using MyCostType = MyState::CostType;
 
@@ -67,7 +67,7 @@ void testAstar() {
 
     Pancake goal2(goal1); goal2.shuffle();
 #else
-    GridMap<int> m("ost001d.map8");
+    GridMap<MyCostType> m("ost001d.map8");
     //GridMap<int> m("tiny.map8");
     MyState::space(&m);
     MyState start{MyState::random()}, goal1{MyState::random()},
@@ -97,16 +97,17 @@ void testAstar() {
     Astar<MyOL, MyGoalHandler, MyHeuristic, MyGraph, MyLogger> myAstar(
         start, myGoalHandler, MyHeuristic(myGoals, heuristicInstance), g,
         logger);
-    myAstar.run();
+    auto res = myAstar.run();
     int i = 0; // we will have a loop on instances
     Table statsTable;
     if (i == 0) {
         for (auto c: myAstar.stats())
             statsTable << c.name();
-        statsTable << std::endl;
+        statsTable << "Cost" << std::endl;
     }
     for (auto c: myAstar.stats())
         statsTable << c;
+    statsTable << res;
     statsTable << std::endl;
     std::cout << statsTable;
     return;
@@ -129,7 +130,7 @@ void testAstar() {
 }
 
 void testInstance() {
-    GridMap<int> m("ost001d.map8");
+    GridMap<MyCostType> m("ost001d.map8");
     MyState::space(&m);
 
     makeInstancesFile<SingleStartSingleGoal<MyState>>(100, "err");

@@ -41,31 +41,43 @@ struct GridMap {
     bool passable(StateType loc) const {
         return passable(row(loc), column(loc));
     }
-    std::vector<StateType> neighbors(int loc) const {
-        std::vector<StateType> res;
+
+    template <class Neighbor>
+    void addNeighbor(std::vector<Neighbor> &res, StateType n,
+                     bool diagonalFlag = false) const {
+        CostType cost = diagonalFlag ? static_cast<CostType>(1.41)
+                                     : static_cast<CostType>(1.0);
+        res.push_back(Neighbor((new typename Neighbor::State(n)), cost));
+    }
+
+    template<class Neighbor>
+    std::vector<Neighbor> neighbors(int loc) const {
+        std::vector<Neighbor> res;
         int r = row(loc), c = column(loc);
         assert(passable(r, c));
 
         bool c1, c2;
 
-        if ((c1 = passable(r - 1, c))) res.push_back(location(r - 1, c));
+        if ((c1 = passable(r - 1, c)))
+            addNeighbor(res, location(r - 1, c));
+            //res.push_back(Neighbor(location(r - 1, c), 1));
 
         // Going clock-wise with diagonal directions starting with r-1, c-1
-        if ((c2 = passable(r, c - 1))) res.push_back(location(r, c - 1));
+        if ((c2 = passable(r, c - 1))) addNeighbor(res, location(r, c - 1));
         if (octileFlag_ && c1 && c2 && passable(r - 1, c - 1))
-                res.push_back(location(r - 1, c - 1));
+            addNeighbor(res, location(r - 1, c - 1), true);
 
-        if ((c2 = passable(r, c + 1))) res.push_back(location(r, c + 1));
+        if ((c2 = passable(r, c + 1))) addNeighbor(res, location(r, c + 1));
         if (octileFlag_ && c1 && c2 && passable(r - 1, c + 1))
-            res.push_back(location(r - 1, c + 1));
+            addNeighbor(res, location(r - 1, c + 1), true);
 
-        if ((c1 = passable(r + 1, c))) res.push_back(location(r + 1, c));
+        if ((c1 = passable(r + 1, c))) addNeighbor(res, location(r + 1, c));
         if (octileFlag_ && c1 && c2 && passable(r + 1, c + 1))
-            res.push_back(location(r + 1, c + 1));
+            addNeighbor(res, location(r + 1, c + 1), true);
 
         c2 = passable(r, c - 1);
         if (octileFlag_ && c1 && c2 && passable(r + 1, c - 1))
-            res.push_back(location(r + 1, c - 1));
+            addNeighbor(res, location(r + 1, c - 1), true);
 
         return res;
     }

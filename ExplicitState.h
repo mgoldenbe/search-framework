@@ -26,10 +26,8 @@ struct ExplicitState {
     template<class Neighbor>
     std::vector<Neighbor> successors() const {
         std::vector<Neighbor> res;
-        for (auto &n: space_->neighbors(state_)) {
-            Neighbor cur(new typename Neighbor::State(n));
-            res.push_back(std::move(cur));
-        }
+        for (auto &n: space_->template neighbors<Neighbor>(state_))
+            res.push_back(std::move(n));
         return res;
     }
 
