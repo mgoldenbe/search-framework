@@ -8,10 +8,9 @@
 #include <chrono>
 #include "PrettyPrint.h"
 
-void f(int=int{1}) {}
+#include CONFIG
 
-int main()
-{
-    f();
+int main() {
+    std::cout << x << std::endl;
     return 0;
 }

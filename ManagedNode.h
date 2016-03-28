@@ -4,9 +4,6 @@
 #ifndef MANAGED_NODE
 #define MANAGED_NODE
 
-#include <algorithm>
-#include <iostream>
-#include <vector>
 #include "Node2Stream.h"
 #include "NodesDiff.h"
 

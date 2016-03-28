@@ -4,10 +4,6 @@
 #ifndef NODE_2_STREAM
 #define NODE_2_STREAM
 
-#include <iostream>
-#include <sstream>
-#include <functional>
-#include "utilities.h"
 #include "ReflectStruct.h"
 
 struct print_visitor {

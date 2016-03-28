@@ -5,17 +5,6 @@
 #include <unordered_map>
 #include "VisualizationUtilities.h"
 
-template <class VisualEvent>
-struct NoVisualLog {
-    using Graph = typename VisualEvent::Graph;
-    using VertexDescriptor = typename Graph::VertexDescriptor;
-    using EdgeDescriptor = typename Graph::EdgeDescriptor;
-
-    void log(VisualEvent e) {
-        (void)e;
-    }
-};
-
 template <class AlgorithmLog_, class VisualEvent_>
 struct VisualLog {
     using AlgorithmLog = AlgorithmLog_;

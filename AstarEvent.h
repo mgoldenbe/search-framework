@@ -1,12 +1,10 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef ASTAR_EVENT
-#define ASTAR_EVENT
+#ifndef ASTAR_EVENT_H
+#define ASTAR_EVENT_H
 
-#include "AlgorithmLogger.h"
-
-template <class State_, class NodeData> struct AstarEvent {
+template <class State_ = STATE, class NodeData = NODE_DATA> struct AstarEvent {
     using State = State_;
     using StateSharedPtr = std::shared_ptr<const State>;
     using MyType = AstarEvent<State, NodeData>;
@@ -34,7 +32,7 @@ template <class State_, class NodeData> struct AstarEvent {
     ///@name Construction and Assignment
     //@{
     template <class Node>
-    AstarEvent(const AlgorithmLogger<AstarEvent> &logger, const Node *n,
+    AstarEvent(const AlgorithmLoggerBase<AstarEvent> &logger, const Node *n,
                EventType type, StateRole role = StateRole::NOVAL)
         : logger_(logger), state_(n->shareState()), type_(type), role_(role),
           parent_(n->shareParentState()), nodeData_(*n) {}
@@ -104,7 +102,7 @@ template <class State_, class NodeData> struct AstarEvent {
         return o;
     }
 private:
-    const AlgorithmLogger<AstarEvent> &logger_;
+    const AlgorithmLoggerBase<AstarEvent> &logger_;
     StateSharedPtr state_;
     const EventType type_;
     const StateRole role_;

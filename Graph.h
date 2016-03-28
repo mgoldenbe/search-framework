@@ -1,5 +1,5 @@
-#ifndef GRAPH
-#define GRAPH
+#ifndef GRAPH_H
+#define GRAPH_H
 
 #include <iostream>                  // for std::cout
 #include <utility>                   // for std::pair

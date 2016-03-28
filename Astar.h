@@ -10,8 +10,10 @@
 
 // Discontinued the use of template template parameters.
 // http://stackoverflow.com/q/34130672/2725810
-template <class Open, class GoalHandler, class Heuristic, class Graph,
-          class AlgorithmLogger>
+template <class Open = OL, class MyInstance = INSTANCE,
+          template <class, class> class GoalHandler = GOAL_HANDLER,
+          class Heuristic = HEURISTIC, class Graph = GRAPH,
+          class AlgorithmLogger = LOGGER>
 struct Astar {
     using Node = typename Open::Node;
     using NodeData = typename Node::NodeData;
@@ -29,10 +31,10 @@ struct Astar {
         "In Astar: if a graph and/or logger is used, then the node has to "
         "store a *shared pointer*, not a *unique pointer* to state.");
 
-    Astar(const State &start, const GoalHandler &goalHandler,
-          const Heuristic &heuristic, Graph &graph, AlgorithmLogger &logger)
-        : start_(start), goalHandler_(goalHandler), heuristic_(heuristic),
-          graph_(graph), logger_(logger), oc_(), cur_(nullptr), children_() {}
+    Astar(MyInstance &instance, Graph &graph, AlgorithmLogger &logger)
+        : start_(instance.MyInstance::Start::state_),
+          goalHandler_(instance, logger), heuristic_(instance), graph_(graph),
+          logger_(logger), oc_(), cur_(nullptr), children_() {}
 
     CostType run() {
         TimerLock lock{time_}; (void)lock;
@@ -59,8 +61,8 @@ struct Astar {
     }
 private:
     State start_; // We should consider making this local
-    GoalHandler goalHandler_;
-    const Heuristic &heuristic_;
+    GoalHandler<MyInstance, AlgorithmLogger> goalHandler_;
+    Heuristic heuristic_;
     Graph &graph_;
     AlgorithmLogger &logger_;
     OCL<Open> oc_;

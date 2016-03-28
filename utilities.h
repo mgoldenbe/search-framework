@@ -4,12 +4,18 @@
 #ifndef UTILITIES
 #define UTILITIES
 
+#include <cassert>
+#include <iostream>
 #include <sstream>
 #include <fstream>
+#include <vector>
+#include <boost/functional/hash.hpp>
 #include <memory>
 #include <time.h>
 #include <algorithm>
 #include <functional>
+#include "PrettyPrint.h"
+
 
 // http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/
 void __nsleep(const struct timespec *req, struct timespec *rem) {

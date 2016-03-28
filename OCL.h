@@ -14,9 +14,9 @@
 //
 // A useful quote for another answer: "references are better used as transparent
 // aliases that don't have to live for very long."
-template <class OL> struct OCL {
-    using Node = typename OL::Node;
-    using Priority = typename OL::Priority;
+template <class OpenList> struct OCL {
+    using Node = typename OpenList::Node;
+    using Priority = typename OpenList::Priority;
     using CostType = typename Node::CostType;
     using NodeUniquePtr = typename Node::NodeUniquePtr;
     using State = typename Node::State;
@@ -65,7 +65,7 @@ template <class OL> struct OCL {
     void close(Node *n) { n->setBucketPosition(-1); }
 
 private:
-    OL ol;
+    OpenList ol;
     std::unordered_map<State, NodeUniquePtr, StateHash<State>>
     hash; // State needs to implement moving
           // copy constructor for insertions

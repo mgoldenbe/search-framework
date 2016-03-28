@@ -1,15 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef PANCAKE
-#define PANCAKE
-
-#include <iostream>
-#include <vector>
-#include <boost/functional/hash.hpp>
-#include "PrettyPrint.h"
-#include "Node.h"
-#include "utilities.h"
+#ifndef PANCAKE_H
+#define PANCAKE_H
 
 struct Pancake {
     using CostType = int; // required by the library

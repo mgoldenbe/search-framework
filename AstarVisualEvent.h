@@ -57,7 +57,8 @@ struct DefaultAstarStyles {
     static constexpr Color doneVertexColor = Color::VIVID_GREEN;
 };
 
-template <class Graph_, class Event, class Styles = DefaultAstarStyles>
+template <class Graph_ = GRAPH, class Event = ALGORITHM_EVENT,
+          class Styles = DefaultAstarStyles>
 struct AstarVisualEvent {
     using Graph = Graph_;
     using VertexDescriptor = typename Graph::VertexDescriptor;

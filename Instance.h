@@ -1,9 +1,6 @@
 #ifndef INSTANCE_H
 #define INSTANCE_H
 
-#include "utilities.h"
-#include "Table.h"
-
 // Look for the first substring that begins with a non-space character
 // and ends either at the end of string or with nSpaces spaces.
 // The original string is changed for the non-parsed part of the string.
@@ -17,23 +14,75 @@ std::string stuff(std::string &s, int nSpaces = 2) {
     return res;
 }
 
-template <class State> struct SingleStartSingleGoal {
-    SingleStartSingleGoal() : start{State::random()}, goal{State::random()} {}
-    SingleStartSingleGoal(const std::string &str) {
-        std::string mystr = str;
-        start = State(stuff(mystr));
-        goal = State(stuff(mystr));
+template <class State_, bool goalFlag> struct SingleStartGoalState {
+    using State = State_;
+
+    SingleStartGoalState() : state_{State::random()} {}
+    SingleStartGoalState(std::string &str) {
+        state_ = State(stuff(str));
     }
 
     template <class Stream> Stream &dump(Stream &os) const {
-        os << start << goal;
+        os << state_;
         return os;
     }
     template <class Stream> static Stream &dumpTitle(Stream &os) {
-        os << "start" << "goal";
+        os << (goalFlag ? "goal" : "start");
         return os;
     }
-    State start, goal;
+    State state_;
+};
+template <class State = STATE>
+using SingleStartState = SingleStartGoalState<State, false>;
+template <class State = STATE>
+using SingleGoalState = SingleStartGoalState<State, true>;
+
+template <class State_, int nStates, bool goalFlag>
+struct MultipleStartGoalStates {
+    using State = State_;
+
+    MultipleStartGoalStates() {
+        for (auto &g: states_) g = State::random();
+    }
+    MultipleStartGoalStates(std::string &str) {
+        for (auto &g: states_) g = State(stuff(str));
+    }
+
+    template <class Stream> Stream &dump(Stream &os) const {
+        for (auto &g: states_) os << g;
+        return os;
+    }
+    template <class Stream> static Stream &dumpTitle(Stream &os) {
+        for (int i = 0; i < nStates; i++)
+            os << (goalFlag ? "goal-" : "start-") + str(i);
+        return os;
+    }
+    std::vector<State> states_ = std::vector<State>(nStates);
+};
+template <class State = STATE, int nStates = NSTARTS>
+using MultipleStartStates = MultipleStartGoalStates<State, nStates, false>;
+template <class State = STATE, int nStates = NGOALS>
+using MultipleGoalStates = MultipleStartGoalStates<State, nStates, true>;
+
+template <class Start_ = SEARCH_START, class Goal_ = SEARCH_GOAL>
+struct Instance : Start_, Goal_ {
+    using Start = Start_;
+    using Goal = Goal_;
+    using Start::State;
+
+    Instance() : Start(), Goal() {}
+    Instance(std::string &str) : Start(str), Goal(str) {}
+
+    template <class Stream> Stream &dump(Stream &os) const {
+        Start::dump(os);
+        Goal::dump(os);
+        return os;
+    }
+    template <class Stream> static Stream &dumpTitle(Stream &os) {
+        Start::dumpTitle(os);
+        Goal::dumpTitle(os);
+        return os;
+    }
 };
 
 template <class Instance>

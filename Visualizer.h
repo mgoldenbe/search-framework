@@ -16,11 +16,13 @@
 #include "utilities.h"
 #include "VisualizerMenus.h"
 
-template <class Graph, class VisualLog, bool autoLayoutFlag>
-struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
-    using AlgorithmLog = typename VisualLog::AlgorithmLog;
+template <class Graph, class AlgorithmLog, class VisualEvent,
+          bool autoLayoutFlag>
+struct Visualizer : VisualizerData<Graph, VisualLog<AlgorithmLog, VisualEvent>,
+                                   autoLayoutFlag> {
+    using MyVisualLog = VisualLog<AlgorithmLog, VisualEvent>;
     using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
-    using Data = VisualizerData<Graph, VisualLog, autoLayoutFlag>;
+    using Data = VisualizerData<Graph, MyVisualLog, autoLayoutFlag>;
     using typename Data::VISUALIZER_STATE;
     using Data::g_;
     using Data::log_;
@@ -29,7 +31,8 @@ struct Visualizer : VisualizerData<Graph, VisualLog, autoLayoutFlag> {
     using Data::s_;
 
     // VisualLog is not const, since we will move in time...
-    Visualizer(Graph &g, VisualLog &log) : Data(g, log), m_(*this) {}
+    Visualizer(Graph &g, AlgorithmLog &log)
+        : Data(g, log), m_(*this) {}
 
     void run() {
         int iteration = 0;
@@ -266,7 +269,7 @@ private:
     }
 
 private:
-    AllMenus<Graph, VisualLog, autoLayoutFlag> m_;
+    AllMenus<Graph, MyVisualLog, autoLayoutFlag> m_;
 
     double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;

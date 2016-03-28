@@ -1,17 +1,19 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef GOAL_HANDLER
-#define GOAL_HANDLER
+#ifndef GOAL_HANDLER_H
+#define GOAL_HANDLER_H
 
+template <class Instance, class Logger> // for uniformity
 struct NoGoalHandler {
+    NoGoalHandler(const Instance &, Logger &) {}
     template <class Node> void onSelect(const Node *n) { (void)n; }
     bool done() const {return false;}
 
     template <class Node> void logInit() {}
 };
 
-template <class State, class Logger>
+template <class State = STATE, class Logger = LOGGER>
 struct SingleGoalHandler {
     SingleGoalHandler(const State &goal, Logger &logger)
         : goal_(goal), logger_(logger) {}
@@ -40,10 +42,12 @@ private:
 
 // To be used with MinHeuristicToGoals or some other heuristic that stores the
 // goal responsible for the heuristic.
-template <class State, class Logger>
+template <class Instance, class Logger>
 struct MultipleGoalHandler {
-    MultipleGoalHandler(std::vector<State> &goals, Logger &logger)
-        : goals_(goals), logger_(logger) {}
+    using State = typename Instance::State;
+
+    MultipleGoalHandler(Instance &instance, Logger &logger)
+        : goals_(instance.Instance::Goal::states_), logger_(logger) {}
     template <class Node> bool onSelect(const Node *n) {
         using Event = typename Logger::AlgorithmEvent;
         { // Check identity of goal resposible for heuristic

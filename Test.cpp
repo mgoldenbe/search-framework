@@ -1,145 +1,78 @@
 ///@file
 ///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
 
-#include "Pancake.h"
-#include "GridMap.h"
-#include "GridMapState.h"
-#include "Instance.h"
-#include "Stats.h"
-#include "OL.h"
-#include "OCL.h"
-#include "GoalHandler.h"
-#include "Heuristic.h"
-#include "Astar.h"
-#include "Graph.h"
-#include "AlgorithmLogger.h"
-#include "AstarEvent.h"
-#include "VisualLog.h"
-#include "AstarVisualEvent.h"
-#ifndef NO_DRAWER
-#include "Visualizer.h"
-#endif
+//#include CONFIG
+#include "Config.h"
 
-//#define STATE_OPTION_PANCAKE
-
-#ifdef STATE_OPTION_PANCAKE
-using MyState = Pancake;
+#ifdef VISUALIZATION
+#define GRAPH StateGraph<STATE, COST_TYPE>
 #else
-using MyState = GridMapState<double, false>;
-#endif
-using MyCostType = MyState::CostType;
-
-template <typename State> struct MyNodeDataT : ManagedNode<NodeBase<State>> {
-    MyNodeDataT() : responsibleGoal(0) {}
-    REFLECTABLE(
-        (State)
-        responsibleGoal) // the goal that was responsible for the heuristic value
-};
-using MyNodeData = MyNodeDataT<MyState>;
-using MyNode = AStarNode<MyState, MyNodeData>;
-using MyAlgorithmEvent = AstarEvent<MyState, MyNodeData>;
-
-//using MyLogger = NoAlgorithmLogger<MyAlgorithmEvent>;
-using MyLogger = AlgorithmLogger<MyAlgorithmEvent>;
-
-//using MyGoalHandler = NoGoalHandler<State, Logger>;
-using MyGoalHandler = MultipleGoalHandler<MyState, MyLogger>;
-
-using MyUniformSearchOL = OL<MyNode, DefaultPriority, GreaterPriority_SmallG>;
-using MyOL = OL<MyNode, DefaultPriority, GreaterPriority_SmallF_LargeG>;
-
-//using MyGraph = NoStateGraph<MyState, MyCostType>;
-using MyGraph = StateGraph<MyState, MyCostType>;
-
-using MyVisualEvent = AstarVisualEvent<MyGraph, MyAlgorithmEvent>;
-using MyVisualLog = VisualLog<MyLogger, MyVisualEvent>;
-
-#ifdef STATE_OPTION_PANCAKE
-using MyHeuristic = MinHeuristicToGoals<MyState, GapHeuristicToGoal>;
-#else
-using MyHeuristic = MinHeuristicToGoals<MyState, ManhattanHeuristic>;
+#define GRAPH NoGraph<STATE, COST_TYPE>
 #endif
 
-void testAstar() {
-#ifdef STATE_OPTION_PANCAKE
-    Pancake goal1(4), start(goal1);
-    start.shuffle();
+#include "Headers.h"
 
-    Pancake goal2(goal1); goal2.shuffle();
-#else
-    GridMap<MyCostType> m("ost001d.map8");
-    //GridMap<int> m("tiny.map8");
-    MyState::space(&m);
-    MyState start{MyState::random()}, goal1{MyState::random()},
-        goal2{MyState::random()};
-    //MyState start(0), goal1(1), goal2(2);
-    //MyState start(5000), goal1(5001), goal2(5002);
+GRAPH buildGraph() {
+    GRAPH g;
+#ifndef VISUALIZATION
+    return g;
 #endif
-    MyGraph g;
-    MyLogger logger1, logger;
+    using MyLogger = NoAlgorithmLogger<ALGORITHM_EVENT>;
+    using MyOL = OpenList<NODE, DefaultPriority, GreaterPriority_SmallG>;
+    using MyHeuristic = ZeroHeuristic<INSTANCE, MyLogger>;
 
-    // Build graph
-    Astar<MyUniformSearchOL, NoGoalHandler, ZeroHeuristic<MyCostType>, MyGraph,
-          MyLogger> myAstar1(start, NoGoalHandler(),
-                             ZeroHeuristic<MyCostType>(), g, logger1);
-    myAstar1.run();
-
-    // Real search
-    std::vector<MyState> myGoals = {goal1, goal2};
-    //std::cout << goal1 << " " << goal2 << std::endl;
-    auto myGoalHandler = MyGoalHandler(myGoals, logger);
-
-#ifdef STATE_OPTION_PANCAKE
-    auto heuristicInstance = GapHeuristicToGoal();
-#else
-    auto heuristicInstance = ManhattanHeuristic();
-#endif
-    Astar<MyOL, MyGoalHandler, MyHeuristic, MyGraph, MyLogger> myAstar(
-        start, myGoalHandler, MyHeuristic(myGoals, heuristicInstance), g,
-        logger);
-    auto res = myAstar.run();
-    int i = 0; // we will have a loop on instances
-    Table statsTable;
-    if (i == 0) {
-        for (auto c: myAstar.stats())
-            statsTable << c.name();
-        statsTable << "Cost" << std::endl;
-    }
-    for (auto c: myAstar.stats())
-        statsTable << c;
-    statsTable << res;
-    statsTable << std::endl;
-    std::cout << statsTable;
-    return;
-    /*
-    Table t(2);
-    MyAlgorithmEvent::dumpTitle(t);
-    for (auto &e : logger.events()) {
-        e.dump(t);
-        t << std::endl;
-    }
-    std::cout << t << std::endl;
-    */
-    //g.dump();
-    //return;
-#ifndef NO_DRAWER
-    MyVisualLog visualLog(logger, g);
-    Visualizer<MyGraph, MyVisualLog, false> vis(g, visualLog);
-    vis.run();
-#endif
+    MyLogger logger;
+    auto instance = INSTANCE{};
+    Astar<MyOL, INSTANCE, NoGoalHandler, MyHeuristic, GRAPH,
+          NoAlgorithmLogger<ALGORITHM_EVENT>> myAstar(instance, g, logger);
+    myAstar.run();
+    return g;
 }
 
-void testInstance() {
-    GridMap<MyCostType> m("ost001d.map8");
-    MyState::space(&m);
+void testAstar() {
+#ifdef INIT_SPACE_FROM_FILE
+    STATE::initSpace("ost001d.map8");
+#endif
 
-    makeInstancesFile<SingleStartSingleGoal<MyState>>(100, "err");
-    auto res = readInstancesFile<SingleStartSingleGoal<MyState>>("err");
-    for (auto i: res) std::cout << i << std::endl;
+    GRAPH g = buildGraph();
+
+    auto res = readInstancesFile<INSTANCE>("instances");
+    int i = -1;
+    Table statsTable;
+    for (auto instance : res) {
+        ++i;
+#ifdef VISUALIZATION
+        if (i != VISUALIZATION) continue;
+#endif
+        LOGGER logger;
+        ALGORITHM alg(instance, g, logger);
+        auto res = alg.run();
+        if (i == 0) {
+            for (auto c : alg.stats()) statsTable << c.name();
+            statsTable << "Cost" << std::endl;
+        }
+        for (auto c : alg.stats()) statsTable << c;
+        statsTable << res;
+        statsTable << std::endl;
+
+#ifdef VISUALIZATION
+        Visualizer<GRAPH, LOGGER, VISUAL_EVENT, false> vis(g, logger);
+        vis.run();
+        break;
+#endif
+    }
+    std::cout << statsTable;
+}
+
+void makeInstances() {
+#ifdef INIT_SPACE_FROM_FILE
+    STATE::initSpace("ost001d.map8");
+#endif
+    makeInstancesFile<INSTANCE>(100, "instances");
 }
 
 int main() {
     testAstar();
-    //testInstance();
+    //makeInstances();
     return 0;
 }

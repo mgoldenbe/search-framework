@@ -1,9 +1,7 @@
 #ifndef EXPLICIT_STATE_H
 #define EXPLICIT_STATE_H
 
-#include <iostream>
 #include <boost/functional/hash.hpp>
-#include "Node.h"
 
 // The base class for a state in an explicit domain
 template<class ExplicitSpace>
@@ -49,16 +47,18 @@ struct ExplicitState {
         return lhs.state_ == rhs.state_;
     }
 
-    static void space(ExplicitSpace *space) {space_ = space;}
-    static const ExplicitSpace *space() {return space_;}
+    static void initSpace(const std::string fileName) {
+        space_ = std::unique_ptr<ExplicitSpace>(new ExplicitSpace(fileName));
+    }
+    static const std::unique_ptr<ExplicitSpace> &space() { return space_; }
     static StateType random() { return space_->random(); }
 private:
     StateType state_;
-    static ExplicitSpace *space_;
+    static std::unique_ptr<ExplicitSpace> space_;
 };
 
 template<class ExplicitSpace>
-ExplicitSpace *ExplicitState<ExplicitSpace>::space_ = nullptr;
+std::unique_ptr<ExplicitSpace> ExplicitState<ExplicitSpace>::space_ = nullptr;
 
 struct ManhattanHeuristic {
     template <class ExplicitSpace>

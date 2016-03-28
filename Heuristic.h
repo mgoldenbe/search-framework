@@ -1,20 +1,27 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef HEURISTIC
-#define HEURISTIC
+#ifndef HEURISTIC_H
+#define HEURISTIC_H
 
-template <typename CostType> struct ZeroHeuristic {
+template <class Instance, class Heuristic>
+struct ZeroHeuristic {
+    using State = typename Instance::State;
+    using CostType = typename State::CostType;
+
+    ZeroHeuristic(Instance &) {}
+
     template<class Node>
     CostType operator()(Node *n) const {(void)n; return CostType(0);}
 };
 
-template <class State, class Heuristic>
+template <class Instance, class Heuristic>
 struct MinHeuristicToGoals {
+    using State = typename Instance::State;
     using CostType = typename State::CostType;
 
-    MinHeuristicToGoals(std::vector<State> &goals, const Heuristic &heuristic)
-        : goals_(goals), heuristic_(heuristic) {}
+    MinHeuristicToGoals(Instance &instance)
+        : goals_(instance.Instance::Goal::states_) {}
 
     template<class Node>
     CostType operator()(Node *n) const {
@@ -34,7 +41,7 @@ struct MinHeuristicToGoals {
 private:
     // the goals can be changed by a third party, e.g. the GoalHandler
     std::vector<State> &goals_;
-    const Heuristic &heuristic_;
+    Heuristic heuristic_;
 };
 
 #endif

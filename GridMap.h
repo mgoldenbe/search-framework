@@ -2,9 +2,6 @@
 #ifndef GRID_MAP_H
 #define GRID_MAP_H
 
-#include <iostream>
-#include <vector>
-
 template <typename CostType_>
 struct GridMap {
     using CostType = CostType_;

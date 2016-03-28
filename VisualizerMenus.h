@@ -20,8 +20,8 @@ struct VisualizerData {
     using DrawerType = Drawer<Graph, VisualLog, autoLayoutFlag>;
     enum class VISUALIZER_STATE{PAUSE, GO};
 
-    VisualizerData(Graph &g, VisualLog &log)
-        : g_(g), log_(log), drawer_(g, log), typist_(log) {
+    VisualizerData(Graph &g, AlgorithmLog &log)
+        : g_(g), log_(log, g), drawer_(g, log_), typist_(log_) {
         typist_.fillEventsPad();
     }
     VisualLog &log() { return log_; }
@@ -34,7 +34,7 @@ struct VisualizerData {
 
 protected:
     Graph &g_;
-    VisualLog &log_;
+    VisualLog log_;
     DrawerType drawer_;
     Typist<VisualLog> typist_;
 

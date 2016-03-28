@@ -1,5 +1,5 @@
-#ifndef HEAP
-#define HEAP
+#ifndef HEAP_H
+#define HEAP_H
 
 #include <iostream>
 #include <vector>
@@ -51,11 +51,12 @@ struct GreaterPriority_SmallG {
     }
 };
 
-template <class Node_, template <class Node> class Priority_ = DefaultPriority,
-          template <class Priority> class GreaterPriority_ =
-              GreaterPriority_SmallF_LargeG,
-          template <typename, typename, typename> class Container = OLMap>
-struct OL {
+template <class Node_ = NODE,
+          template <class Node> class Priority_ = OL_PRIORITY_TYPE,
+          template <class Priority> class GreaterPriority_ = OL_PRIORITY,
+          template <typename, typename, typename> class Container =
+              OL_CONTAINER>
+struct OpenList {
     using BucketPosition = int; // must be defined by all OL variants
     using Node = Node_;
     using Priority = Priority_<Node>;

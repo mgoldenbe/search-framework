@@ -1,10 +1,7 @@
 #ifndef GRID_MAP_STATE_H
 #define GRID_MAP_STATE_H
 
-#include "GridMap.h"
-#include "ExplicitState.h"
-
-template <typename CostType_, bool uniformFlag>
+template <typename CostType_ = COST_TYPE, bool uniformFlag = UNIFORM_DOMAIN>
 struct GridMapState: ExplicitState<GridMap<CostType_>> {
     using Base = ExplicitState<GridMap<CostType_>>;
     using Base::Base; // inherit constructors

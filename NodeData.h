@@ -1,10 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef NODE_DATA
-#define NODE_DATA
-
-#include "ManagedNode.h"
+#ifndef NODE_DATA_H
+#define NODE_DATA_H
 
 template <typename State_>
 struct NodeBase: ManagedNode<> {
@@ -19,5 +17,12 @@ struct NodeBase: ManagedNode<> {
 
 template <typename State>
 struct NoNodeData: ManagedNode<NodeBase<State>> {};
+
+template <typename State = STATE>
+struct MyNodeDataT : ManagedNode<NodeBase<State>> {
+    MyNodeDataT() : responsibleGoal(0) {}
+    REFLECTABLE((State)responsibleGoal) // the goal that was responsible for the
+                                        // heuristic value
+};
 
 #endif

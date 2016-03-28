@@ -1,24 +1,17 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef NODE
-#define NODE
-
-#include <vector>
-#include "StateNeighbor.h"
-#include "NodeData.h"
+#ifndef NODE_H
+#define NODE_H
 
 template<typename State>
 using StateUniquePtrT = std::unique_ptr<const State>;
 template<typename State>
 using StateSharedPtrT = std::shared_ptr<const State>;
-template<typename State>
-//using DefaultStateSmartPtrT = StateUniquePtrT<State>;
-using DefaultStateSmartPtrT = StateSharedPtrT<State>;
 
-template <typename State_, class NodeData_ = NoNodeData<State_>,
-          template <class> class StateSmartPtrT = DefaultStateSmartPtrT,
-          typename BucketPosition = int>
+template <typename State_ = STATE, class NodeData_ = NODE_DATA,
+          template <class> class StateSmartPtrT = STATE_SMART_PTR,
+          typename BucketPosition = BUCKET_POSITION_TYPE>
 struct AStarNode : public NodeData_ {
     using State = State_;
     using StateSmartPtr = StateSmartPtrT<State>;

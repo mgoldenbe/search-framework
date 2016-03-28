@@ -2,7 +2,6 @@
 #define TABLE_H
 
 #include <iomanip>
-#include "utilities.h"
 
 struct Row {
     Row(std::vector<int> &widths, const int &space)

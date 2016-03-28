@@ -1,27 +1,16 @@
-#ifndef ALGORITHM_LOGGER
-#define ALGORITHM_LOGGER
+#ifndef ALGORITHM_LOGGER_H
+#define ALGORITHM_LOGGER_H
 
 #include <unordered_map>
 
 template <class AlgorithmEvent_>
-struct NoAlgorithmLogger {
-    using AlgorithmEvent = AlgorithmEvent_;
-    using StateSharedPtr = typename AlgorithmEvent::StateSharedPtr;
-
-    void log(const AlgorithmEvent e) {
-        (void)e;
-    }
-    void dump() { std::cout << "NoLogger!" << std::endl; }
-};
-
-template <class AlgorithmEvent_>
-struct AlgorithmLogger {
+struct AlgorithmLoggerBase {
     using AlgorithmEvent = AlgorithmEvent_;
     using StateSharedPtr = typename AlgorithmEvent::StateSharedPtr;
 
     ///@name Construction and Assignment
     //@{
-    void log(AlgorithmEvent e) {
+    virtual void log(AlgorithmEvent e) {
         const StateSharedPtr &s = e.state();
         stateToLastEventStep_[s] = events_.size();
         auto it = stateToLastEventStep_.find(s);
@@ -66,6 +55,22 @@ private:
     stateToLastEventStep_;
 
     std::vector<AlgorithmEvent> events_;
+};
+
+template <class AlgorithmEvent_>
+using AlgorithmLogger = AlgorithmLoggerBase<AlgorithmEvent_>;
+
+template <class AlgorithmEvent_>
+struct NoAlgorithmLogger : AlgorithmLoggerBase<AlgorithmEvent_> {
+    using AlgorithmEvent = AlgorithmEvent_;
+
+    virtual void log(AlgorithmEvent) override {}
+    template <typename charT>
+    std::basic_ostream<charT> &dump(std::basic_ostream<charT> &o,
+                                    bool dumpLastEvents = false) const {
+        o << "NoLogger!" << std::endl;
+        return o;
+    }
 };
 
 #endif

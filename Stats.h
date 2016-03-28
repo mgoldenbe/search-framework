@@ -2,7 +2,6 @@
 #define STATS_H
 
 #include <chrono>
-#include "utilities.h"
 
 struct Counter {
     Counter(const std::string &name) : name_(name) {}
