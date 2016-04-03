@@ -54,6 +54,8 @@ struct AStarNode : public NodeData_ {
         return res;
     }
 
+    BucketPosition bucketPosition() const { return bucketPosition_; }
+
     template<typename charT>
     std::basic_ostream<charT>& dump(std::basic_ostream<charT>& o) const {
         o << *state_ << (NodeData)*this;

@@ -20,7 +20,7 @@ template <class Node>
 struct DefaultPriority {
     using CostType = typename Node::CostType;
     CostType g, f;
-    DefaultPriority(const Node &n) : g(n.g), f(n.f) {}
+    DefaultPriority(const Node *n) : g(n->g), f(n->f) {}
 };
 template <class Node>
 bool operator==(const DefaultPriority<Node> &p1,
@@ -64,7 +64,7 @@ struct OpenList {
     using CostType = typename Node::CostType;
 
     void add(Node *n) {
-        auto &myBucket = buckets[Priority(*n)];
+        auto &myBucket = buckets[Priority(n)];
         myBucket.push_back(n);
         n->setBucketPosition(myBucket.size() - 1);
         size_++;
@@ -75,7 +75,7 @@ struct OpenList {
     bool empty() const {return size() == 0;}
 
     void update(Node *n, const Priority &oldPriority) {
-        Priority newPriority(*n);
+        Priority newPriority(n);
         if (newPriority == oldPriority) {
             //std::cout << "Nothing needs to be done in update" << std::endl;
             return;

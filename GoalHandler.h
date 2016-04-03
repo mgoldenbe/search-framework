@@ -16,30 +16,32 @@ struct NoGoalHandler {
     template <class Node> void logInit() {}
 };
 
-template <class State = STATE, class Logger = LOGGER>
+template <class Instance, class Logger = LOGGER>
 struct SingleGoalHandler {
+    using State = typename Instance::State;
     using CostType = typename State::CostType;
 
-    SingleGoalHandler(const State &goal, Logger &logger)
-        : goal_(goal), logger_(logger) {}
+    SingleGoalHandler(const Instance &instance, Logger &logger)
+        : goal_(instance.Instance::Goal::state_), logger_(logger) {}
 
     template <class Node> void onSelect(const Node *n, CostType &res) {
         using Event = typename Logger::AlgorithmEvent;
         if (n->state() == goal_) {
+            //std::cerr << "DONE_GOAL " << n->f << std::endl;
             res = n->f;
             done_ = true;
-            logger_.log(Event(n->shareState(), Event::StateRole::BEGIN_DONE_GOAL,
-                              n->shareParentState()));
-            logger_.log(Event(n->shareState(), Event::StateRole::END_DONE_GOAL,
-                              n->shareParentState()));
+            logger_.log(n, Event::EventType::ROLE,
+                        Event::StateRole::BEGIN_DONE_GOAL);
+            logger_.log(n, Event::EventType::ROLE,
+                        Event::StateRole::END_DONE_GOAL);
         }
     }
     bool done() const {return done_;}
 
     template <class Node> void logInit() {
         using Event = typename Logger::AlgorithmEvent;
-        logger_.log(Event(logger_, std::make_shared<Node>(goal_),
-                          Event::EventType::ROLE, Event::StateRole::GOAL));
+        logger_.log(std::make_shared<Node>(goal_).get(), Event::EventType::ROLE,
+                    Event::StateRole::GOAL);
     }
 private:
     State goal_;
@@ -70,6 +72,7 @@ struct MultipleGoalHandler {
         { // Check current goals
             auto it = std::find(goals_.begin(), goals_.end(), n->state());
             if (it != goals_.end()) {
+                //std::cerr << "DONE_GOAL " << n->f << std::endl;
                 res =
                     (res * doneGoals_.size() + n->f) / (doneGoals_.size() + 1);
                 goals_.erase(it);

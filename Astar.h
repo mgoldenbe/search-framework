@@ -22,14 +22,18 @@ struct Astar {
     using State = typename Node::State;
     using Neighbor = typename State::Neighbor;
     using Event = typename AlgorithmLogger::AlgorithmEvent;
-
+    template <class Instance1>
+    using InstanceTemplate =
+        Astar<Open, Instance1, GoalHandler, Heuristic, Graph, AlgorithmLogger>;
     static_assert(
         std::is_same<typename Node::StateSmartPtr,
                      StateSharedPtrT<State>>::value ||
             (std::is_same<Graph, NoGraph<State, CostType>>::value &&
              std::is_same<AlgorithmLogger, NoAlgorithmLogger<Event>>::value),
-        "In Astar: if a graph and/or logger is used, then the node has to "
-        "store a *shared pointer*, not a *unique pointer* to state.");
+        "In Astar: if a graph and/or logger is "
+        "used, then the node has to "
+        "store a *shared pointer*, not a "
+        "*unique pointer* to state.");
 
     Astar(MyInstance &instance, Graph &graph, AlgorithmLogger &logger)
         : start_(instance.MyInstance::Start::state_),
@@ -116,23 +120,26 @@ private:
     }
 
     void handleChild(StateUniquePtrT<State> &child, CostType cost) {
+        CostType myG = cur_->g + cost;
         ++generated_;
         auto childNode = oc_.getNode(*child);
         if (childNode) {
             graph_.add(cur_->shareState(), childNode->shareState(), cost);
-            /*
-            logger_.log(Event(childNode->shareState(),
-                              Event::EventType::BEGIN_GENERATE,
-                              cur_->shareState(), (NodeData) * childNode));
-            logger_.log(Event(childNode->shareState(),
-                              Event::EventType::END_GENERATE,
-                              cur_->shareState(), (NodeData) * childNode));
-            */
+            if (myG < childNode->g) {
+                auto oldPriority = typename Open::Priority(childNode);
+                CostType improvement = childNode->g - myG;
+                childNode->g = myG;
+                childNode->f -= improvement;
+                childNode->setParent(cur_);
+                oc_.update(childNode, oldPriority);
+                logger_.log(childNode, Event::EventType::BEGIN_GENERATE);
+                logger_.log(childNode, Event::EventType::END_GENERATE);
+            }
             return;
         }
         NodeUniquePtr newNode(new Node(child));
-        newNode->g = cur_->g + cost;
-        newNode->f = newNode->g + heuristic_(newNode.get());
+        newNode->g = myG;
+        newNode->f = myG + heuristic_(newNode.get());
         newNode->setParent(cur_);
         graph_.add(cur_->shareState(), newNode->shareState(), cost);
         logger_.log(newNode.get(), Event::EventType::BEGIN_GENERATE);

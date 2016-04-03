@@ -12,9 +12,9 @@ struct ExplicitState {
 
     ///@name Construction and Assignment
     //@{
-    ExplicitState() : state_(space_->defaultState()) {}
+    ExplicitState() : state_(space()->defaultState()) {}
     ExplicitState(const StateType &state) : state_(state) {}
-    ExplicitState(const std::string &s) : state_(space_->state(s)) {}
+    ExplicitState(const std::string &s) : state_(space()->state(s)) {}
     ExplicitState(const MyType &) = default;
     ExplicitState &operator=(const MyType &rhs) = default;
     //@}
@@ -50,7 +50,11 @@ struct ExplicitState {
     static void initSpace(const std::string fileName) {
         space_ = std::unique_ptr<ExplicitSpace>(new ExplicitSpace(fileName));
     }
-    static const std::unique_ptr<ExplicitSpace> &space() { return space_; }
+    static const std::unique_ptr<ExplicitSpace> &space() {
+        if (space_ == nullptr)
+            throw std::logic_error("Explicit space has not been initialized");
+        return space_;
+    }
     static StateType random() { return space_->random(); }
 private:
     StateType state_;
@@ -67,6 +71,16 @@ struct ManhattanHeuristic {
                const ExplicitState<ExplicitSpace> &goal) const {
         return ExplicitState<ExplicitSpace>::space()->manhattan(s.raw(),
                                                                 goal.raw());
+    }
+};
+
+struct OctileHeuristic {
+    template <class ExplicitSpace>
+    typename ExplicitSpace::CostType
+    operator()(const ExplicitState<ExplicitSpace> &s,
+               const ExplicitState<ExplicitSpace> &goal) const {
+        return ExplicitState<ExplicitSpace>::space()->octile(s.raw(),
+                                                             goal.raw());
     }
 };
 

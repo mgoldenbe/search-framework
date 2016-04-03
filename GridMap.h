@@ -2,6 +2,8 @@
 #ifndef GRID_MAP_H
 #define GRID_MAP_H
 
+#define ROOT_TWO 1.5
+
 template <typename CostType_>
 struct GridMap {
     using CostType = CostType_;
@@ -9,7 +11,8 @@ struct GridMap {
 
     GridMap(std::string fileName) {
         std::ifstream fin(fileName);
-        assert(fin.is_open());
+        if (!fin)
+            throw std::invalid_argument("Could not find " + fileName);
 
         sureRead(fin, "type");
         octileFlag_ = (sureRead(fin) == "octile");
@@ -42,7 +45,7 @@ struct GridMap {
     template <class Neighbor>
     void addNeighbor(std::vector<Neighbor> &res, StateType n,
                      bool diagonalFlag = false) const {
-        CostType cost = diagonalFlag ? static_cast<CostType>(1.41)
+        CostType cost = diagonalFlag ? static_cast<CostType>(ROOT_TWO)
                                      : static_cast<CostType>(1.0);
         res.push_back(Neighbor((new typename Neighbor::State(n)), cost));
     }
@@ -104,6 +107,13 @@ struct GridMap {
     CostType manhattan(StateType location, StateType goal) const {
         return std::abs(row(location) - row(goal)) +
                std::abs(column(location) - column(goal));
+    }
+
+    CostType octile(StateType location, StateType goal) const {
+        double dr = std::abs(row(location) - row(goal));
+        double dc = std::abs(column(location) - column(goal));
+        return std::min(dr, dc) * ROOT_TWO +
+               (std::max(dr, dc) - std::min(dr, dc));
     }
 
     std::string stateStr(StateType location) const {

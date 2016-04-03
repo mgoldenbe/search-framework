@@ -18,6 +18,7 @@ template <class State_, bool goalFlag> struct SingleStartGoalState {
     using State = State_;
 
     SingleStartGoalState() : state_{State::random()} {}
+    SingleStartGoalState(const State &state) : state_(state) {}
     SingleStartGoalState(std::string &str) {
         state_ = State(stuff(str));
     }
@@ -68,10 +69,21 @@ template <class Start_ = SEARCH_START, class Goal_ = SEARCH_GOAL>
 struct Instance : Start_, Goal_ {
     using Start = Start_;
     using Goal = Goal_;
-    using Start::State;
+    using State = typename Start::State;
+    using SingleGoal = SingleStartGoalState<State, true>;
+    using SingleGoalInstance = Instance<Start, SingleGoal>;
 
     Instance() : Start(), Goal() {}
+    Instance(const Start &s, const Goal &g) : Start(s), Goal(g) {}
     Instance(std::string &str) : Start(str), Goal(str) {}
+
+    std::vector<SingleGoalInstance> goalInstances() const {
+        std::vector<SingleGoalInstance> res;
+
+        for (auto g: Goal::states_)
+            res.push_back(SingleGoalInstance(*this, g));
+        return res;
+    }
 
     template <class Stream> Stream &dump(Stream &os) const {
         Start::dump(os);

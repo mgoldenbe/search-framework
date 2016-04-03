@@ -16,6 +16,24 @@ struct ZeroHeuristic {
 };
 
 template <class Instance, class Heuristic>
+struct SimpleHeuristicToGoal {
+    using State = typename Instance::State;
+    using CostType = typename State::CostType;
+
+    SimpleHeuristicToGoal(Instance &instance)
+        : goal_(instance.Instance::Goal::state_) {}
+
+    template<class Node>
+    CostType operator()(Node *n) const {
+        auto &s = n->state();
+        return heuristic_(s, goal_);
+    }
+private:
+    State goal_;
+    Heuristic heuristic_;
+};
+
+template <class Instance, class Heuristic>
 struct MinHeuristicToGoals {
     using State = typename Instance::State;
     using CostType = typename State::CostType;

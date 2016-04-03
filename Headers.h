@@ -29,6 +29,7 @@
 #include "GoalHandler.h"
 #include "Heuristic.h"
 #include "Astar.h"
+#include "PerGoal.h"
 #include "Graph.h"
 #ifdef VISUALIZATION
 #include "VisualLog.h"

@@ -1,4 +1,4 @@
-//#define VISUALIZATION 18
+//#define VISUALIZATION 5
 
 #define STATE GridMapState<>
 #define COST_TYPE double
@@ -26,13 +26,18 @@
 #define SEARCH_START SingleStartState<>
 #define SEARCH_GOAL MultipleGoalStates<>
 #define INSTANCE Instance<>
-#define NSTARTS -1
+#define NSTARTS 1
 #define NGOALS 2
 
-#define GOAL_HANDLER MultipleGoalHandler
+//#define GOAL_HANDLER MultipleGoalHandler
+#define GOAL_HANDLER SingleGoalHandler
 
-#define HEURISTIC MinHeuristicToGoals<INSTANCE, OctileHeuristic>
-#define ALGORITHM Astar<>
-#define RAW_ALGORITHM ALGORITHM
+//#define HEURISTIC MinHeuristicToGoals<INSTANCE, ManhattanHeuristic>
+#define HEURISTIC                                                              \
+    SimpleHeuristicToGoal<Instance<SingleStartState<>, SingleGoalState<>>,     \
+                          OctileHeuristic>
+
+#define RAW_ALGORITHM Astar<>
+#define ALGORITHM PerGoal<>
 
 #define VISUAL_EVENT AstarVisualEvent<>

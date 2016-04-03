@@ -64,6 +64,7 @@ struct MeasureSet {
     const_reference operator[](std::size_t n) const { return s_[n]; }
 
     void append(const Measure &m) { s_.push_back(m); }
+    void prepend(const Measure &m) { s_.insert(s_.begin(), m); }
     void append(const MeasureSet &s) {
         for (auto &m : s) append(m);
     }
@@ -100,7 +101,24 @@ struct Stats {
     const const_iterator end() const { return s_.end(); }
     int size() const { return s_.size(); }
     const const_reference operator[](std::size_t n) const { return s_[n]; }
-    void append(const MeasureSet &m) { s_.push_back(m); }
+    void append(const MeasureSet &m, bool numberFlag = false) {
+        MeasureSet mm = m;
+        if (numberFlag) {
+            Measure n("Num");
+            n.set(s_.size());
+            mm.prepend(n);
+        }
+        s_.push_back(mm);
+    }
+    Stats sum(bool averageCostFlag = false) const {
+        MeasureSet res = s_[0];
+        for (int i = 1; i < size(); i++)
+            res += s_[i];
+        if (averageCostFlag)
+            for (auto &m : res)
+                if (m.name() == "Cost") m.set(m.value() / size());
+        return Stats(res);
+    }
     Stats average() const {
         MeasureSet res = s_[0];
         for (int i = 1; i < size(); i++)

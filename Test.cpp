@@ -3,6 +3,7 @@
 
 //#include CONFIG
 #include "Config.h"
+//#include "ConfigPerGoal.h"
 
 #ifdef VISUALIZATION
 #define GRAPH StateGraph<STATE, COST_TYPE>
@@ -17,6 +18,9 @@ struct CommandLine {
     CommandLine(int argc, char **argv)
         : cmd_("The Generic Search Library", ' ', "0.1"),
           instancesFileName_("i", "instances", "File with instances", true, "",
+                             "string", cmd_),
+          spaceInitFileName_("s", "space",
+                             "File to initialize an explicit space", false, "",
                              "string", cmd_),
           nInstances_("n", "nInstances", "Number of instances to create", false,
                       -1, "int", cmd_),
@@ -34,6 +38,9 @@ struct CommandLine {
 
     std::string instancesFileName() { return instancesFileName_.getValue(); }
 
+    bool spaceInitFileName_isSet() { return spaceInitFileName_.isSet(); }
+    std::string spaceInitFileName() { return spaceInitFileName_.getValue(); }
+
     int nInstances() { return nInstances_.getValue(); }
 
     bool perInstance() { return perInstance_.getValue(); }
@@ -41,6 +48,7 @@ struct CommandLine {
 private:
     TCLAP::CmdLine cmd_;
     TCLAP::ValueArg<std::string> instancesFileName_;
+    TCLAP::ValueArg<std::string> spaceInitFileName_;
     TCLAP::ValueArg<int> nInstances_;
     TCLAP::SwitchArg perInstance_;
 };
@@ -62,10 +70,9 @@ GRAPH buildGraph() {
     return g;
 }
 
-void testAstar(CommandLine &cmd) {
-#ifdef INIT_SPACE_FROM_FILE
-    STATE::initSpace("ost001d.map8");
-#endif
+void run(CommandLine &cmd) {
+    if (cmd.spaceInitFileName_isSet())
+        STATE::initSpace(cmd.spaceInitFileName());
 
     GRAPH g = buildGraph();
 
@@ -74,14 +81,18 @@ void testAstar(CommandLine &cmd) {
     Stats stats;
     for (auto instance : res) {
         ++i;
+        //if (i != 18) continue;
+        //std::cerr << std::endl << "Solving instace " << i << std::endl;
 #ifdef VISUALIZATION
         if (i != VISUALIZATION) continue;
 #endif
         LOGGER logger;
         ALGORITHM alg(instance, g, logger);
         alg.run();
-        stats.append(alg.measures());
-
+        stats.append(alg.measures(), cmd.perInstance()); // add instance number
+                                                         // column only in
+                                                         // per-instance mode
+// break;
 #ifdef VISUALIZATION
         Visualizer<GRAPH, LOGGER, VISUAL_EVENT, false> vis(g, logger);
         vis.run();
@@ -96,9 +107,8 @@ void testAstar(CommandLine &cmd) {
 }
 
 void makeInstances(CommandLine &cmd) {
-#ifdef INIT_SPACE_FROM_FILE
-    STATE::initSpace("ost001d.map8");
-#endif
+    if (cmd.spaceInitFileName_isSet())
+        STATE::initSpace(cmd.spaceInitFileName());
     makeInstancesFile<INSTANCE>(cmd.nInstances(), cmd.instancesFileName());
 }
 
@@ -108,6 +118,6 @@ int main(int argc, char **argv) {
     if (cmd.nInstances() != -1)
         makeInstances(cmd);
     else
-        testAstar(cmd);
+        run(cmd);
     return 0;
 }

@@ -1,0 +1,29 @@
+* The menu:
+- DONE Scaling
+- DONE The /Run/ menu: /Pause/ & /Continue/, set speed, /Forward/, /Backward/, /Reset/
+
+- DONE The /Filter/ menu 
+- DONE Respecting the filter for actions in the /Run/ menu.
+
+- DONE Mouse over state
+- DONE The /Search Menu/.
+
+- DONE Random circular layout, the /Change Layout/ command.
+- CANCELED (good enough layouts without it) Circular layout that minimizes intersections
+
+* The format:
+- DONE Automatic column width, /Scroll Left/ and /Scroll Right/
+- DONE Arrows for showing parents and solution paths
+
+* Further:
+- DONE The map domain
+- DONE Speeding up the graphics
+- DONE Working with instances (e.g. pathfinding) + stats output
+- DONE Configuration file
+- Handling command-line arguments
+  * Use http://stackoverflow.com/a/7712341/2725810
+- Clear and document interfaces
+  * *Decision* with regards to free-standing functions instead of member functions (see comments in http://programmers.stackexchange.com/q/310330/216771): put it into the backlog.
+- Organize the code in folders
+- Produce videos of usage
+- Submit
