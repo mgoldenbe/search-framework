@@ -49,15 +49,15 @@ struct Astar {
             cur_ = oc_.minNode();
             logger_.log(cur_, Event::EventType::SELECTED);
             onSelectAndExpand(std::integral_constant<
-                bool, std::is_same<decltype(goalHandler_.onSelect(cur_)),
+                bool, std::is_same<decltype(goalHandler_.onSelect(cur_, res_)),
                                    bool>::value>());
         }
         if (oc_.empty()) return CostType{-1};
-        return cur_->f;
+        return res_;
     }
 
-    Stats stats() const {
-        return {expanded_, generated_, time_};
+    MeasureSet measures() const {
+        return {expanded_, generated_, time_, cost_};
     }
 private:
     State start_; // We should consider making this local
@@ -70,14 +70,18 @@ private:
     // We should consider making these local
     Node *cur_;
     std::vector<Neighbor> children_;
+    CostType res_{-1};
 
     // Stats
-    Counter expanded_{"Expanded"};
-    Counter generated_{"Generated"};
-    Timer time_{"Time (microsec.)"};
+    Measure expanded_{"Expanded"};
+    Measure generated_{"Generated"};
+    Timer time_{"Time (ms.)"};
+    Measure cost_{"Cost"};
 
     void onSelectAndExpand(std::true_type) {
-        if (!goalHandler_.onSelect(cur_)) {
+        bool expandFlag = goalHandler_.onSelect(cur_, res_);
+        cost_.set(res_);
+        if (!expandFlag) {
             // The following code will need to become more generic
             auto oldCost = cur_->f;
             cur_->f = cur_->g + heuristic_(cur_);
@@ -93,7 +97,8 @@ private:
     }
 
     void onSelectAndExpand(std::false_type) {
-        goalHandler_.onSelect(cur_);
+        goalHandler_.onSelect(cur_, res_);
+        cost_.set(res_);
         expand();
     }
 

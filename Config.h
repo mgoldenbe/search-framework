@@ -1,4 +1,4 @@
-#define VISUALIZATION 5
+//#define VISUALIZATION 5
 
 #define INIT_SPACE_FROM_FILE
 #define STATE GridMapState<>

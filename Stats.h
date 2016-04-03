@@ -3,29 +3,38 @@
 
 #include <chrono>
 
-struct Counter {
-    Counter(const std::string &name) : name_(name) {}
-    void operator++() { ++count_; }
-    int get() const { return count_; }
+struct Measure {
+    Measure(const std::string &name) : name_(name) {}
+    void operator++() { ++x_; }
+    Measure &operator+=(const Measure &rhs) {
+        x_ += rhs.value();
+        return *this;
+    }
+    double value() const { return x_; }
     const std::string &name() const { return name_; }
 
     template <class Stream> Stream &dump(Stream &os) const {
-        return os << count_;
+        return os << x_;
     }
+
+    void set(double x) { x_ = x; }
+
 private:
     std::string name_;
 protected:
-    int count_ = 0;
+    double x_ = 0.0;
 };
 
 // Important design feature: Timer is a Counter, so it can be handled uniformly
 // with the rest of the stats.
-struct Timer : Counter {
-    using Counter::Counter;
+struct Timer : Measure {
+    using Measure::Measure;
     void start() { begin_ = std::chrono::system_clock::now(); }
     void stop() {
-        count_ = std::chrono::duration_cast<std::chrono::microseconds>(
-                       std::chrono::system_clock::now() - begin_).count();
+        x_ = static_cast<double>(
+                 std::chrono::duration_cast<std::chrono::microseconds>(
+                     std::chrono::system_clock::now() - begin_).count()) /
+             1000;
     }
 
 private:
@@ -39,17 +48,76 @@ private:
     Timer &timer_;
 };
 
-using Stats = std::vector<Counter>;
+// Stats for one instance
+struct MeasureSet {
+    using iterator = std::vector<Measure>::iterator;
+    using const_iterator = std::vector<Measure>::const_iterator;
+    using reference = std::vector<Measure>::reference;
+    using const_reference = std::vector<Measure>::const_reference;
 
-// Assumes that rhs does not refer to lhs
-Stats &operator+=(Stats &lhs, const Stats &rhs) {
-    lhs.insert(lhs.end(), rhs.begin(), rhs.end());
-    return lhs;
-}
-Stats operator+(const Stats &lhs, const Stats &rhs) {
-    Stats res = lhs;
-    res.insert(res.end(), rhs.begin(), rhs.end());
-    return res;
-}
+    MeasureSet(std::initializer_list<Measure> list) : s_(list) {}
+    iterator begin() { return s_.begin(); }
+    iterator end() { return s_.end(); }
+    const_iterator begin() const { return s_.begin(); }
+    const_iterator end() const { return s_.end(); }
+    int size() const { return s_.size(); }
+    const_reference operator[](std::size_t n) const { return s_[n]; }
+
+    void append(const Measure &m) { s_.push_back(m); }
+    void append(const MeasureSet &s) {
+        for (auto &m : s) append(m);
+    }
+    MeasureSet &operator+=(const MeasureSet &rhs) {
+        for (int i = 0; i < rhs.size(); i++) {
+            assert(s_[i].name() == rhs[i].name());
+            s_[i] += rhs[i];
+        }
+        return *this;
+    }
+    template <class Stream>
+    Stream &dump(Stream &os, bool titleFlag = false) const {
+        if (titleFlag) {
+            for (auto &m : s_) os << m.name();
+            os << std::endl;
+        }
+        for (auto &m : s_) os << m.value();
+        os << std::endl;
+        return os;
+    }
+private:
+    std::vector<Measure> s_;
+};
+
+// Stats for instance set
+struct Stats {
+    using const_iterator = std::vector<MeasureSet>::const_iterator;
+    using const_reference = std::vector<MeasureSet>::const_reference;
+
+    Stats() = default;
+    Stats(const MeasureSet &m) { append(m); }
+
+    const const_iterator begin() const { return s_.begin(); }
+    const const_iterator end() const { return s_.end(); }
+    int size() const { return s_.size(); }
+    const const_reference operator[](std::size_t n) const { return s_[n]; }
+    void append(const MeasureSet &m) { s_.push_back(m); }
+    Stats average() const {
+        MeasureSet res = s_[0];
+        for (int i = 1; i < size(); i++)
+            res += s_[i];
+        for (auto &m : res) m.set(m.value() / size());
+        return Stats(res);
+    }
+    template <class Stream>
+    Stream &dump(Stream &os) const {
+        s_[0].dump(os, true);
+        for (int i = 1; i < size(); i++)
+            s_[i].dump(os);
+        return os;
+    }
+
+private:
+    std::vector<MeasureSet> s_;
+};
 
 #endif

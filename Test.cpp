@@ -12,14 +12,16 @@
 
 #include "Headers.h"
 
-#include <tclap/CmdLine.h>
+// http://stackoverflow.com/a/7712341/2725810
 struct CommandLine {
     CommandLine(int argc, char **argv)
         : cmd_("The Generic Search Library", ' ', "0.1"),
           instancesFileName_("i", "instances", "File with instances", true, "",
                              "string", cmd_),
           nInstances_("n", "nInstances", "Number of instances to create", false,
-                      -1, "int", cmd_) {
+                      -1, "int", cmd_),
+          perInstance_("p", "perInstance", "Output per-instance stats", cmd_,
+                       false) {
         try {
             cmd_.parse(argc, argv);
         }
@@ -30,18 +32,17 @@ struct CommandLine {
         }
     }
 
-    std::string instancesFileName() {
-        return instancesFileName_.getValue();
-    }
+    std::string instancesFileName() { return instancesFileName_.getValue(); }
 
-    int nInstances() {
-        return nInstances_.getValue();
-    }
+    int nInstances() { return nInstances_.getValue(); }
+
+    bool perInstance() { return perInstance_.getValue(); }
 
 private:
     TCLAP::CmdLine cmd_;
     TCLAP::ValueArg<std::string> instancesFileName_;
     TCLAP::ValueArg<int> nInstances_;
+    TCLAP::SwitchArg perInstance_;
 };
 
 GRAPH buildGraph() {
@@ -70,7 +71,7 @@ void testAstar(CommandLine &cmd) {
 
     auto res = readInstancesFile<INSTANCE>(cmd.instancesFileName());
     int i = -1;
-    Table statsTable;
+    Stats stats;
     for (auto instance : res) {
         ++i;
 #ifdef VISUALIZATION
@@ -78,14 +79,8 @@ void testAstar(CommandLine &cmd) {
 #endif
         LOGGER logger;
         ALGORITHM alg(instance, g, logger);
-        auto res = alg.run();
-        if (i == 0) {
-            for (auto c : alg.stats()) statsTable << c.name();
-            statsTable << "Cost" << std::endl;
-        }
-        for (auto c : alg.stats()) statsTable << c;
-        statsTable << res;
-        statsTable << std::endl;
+        alg.run();
+        stats.append(alg.measures());
 
 #ifdef VISUALIZATION
         Visualizer<GRAPH, LOGGER, VISUAL_EVENT, false> vis(g, logger);
@@ -93,6 +88,10 @@ void testAstar(CommandLine &cmd) {
         break;
 #endif
     }
+    if (!cmd.perInstance())
+        stats = stats.average();
+    Table statsTable;
+    stats.dump(statsTable);
     std::cout << statsTable;
 }
 

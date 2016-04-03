@@ -6,8 +6,11 @@
 
 template <class Instance, class Logger> // for uniformity
 struct NoGoalHandler {
+    using State = typename Instance::State;
+    using CostType = typename State::CostType;
+
     NoGoalHandler(const Instance &, Logger &) {}
-    template <class Node> void onSelect(const Node *n) { (void)n; }
+    template <class Node> void onSelect(const Node *, CostType &) {}
     bool done() const {return false;}
 
     template <class Node> void logInit() {}
@@ -15,11 +18,15 @@ struct NoGoalHandler {
 
 template <class State = STATE, class Logger = LOGGER>
 struct SingleGoalHandler {
+    using CostType = typename State::CostType;
+
     SingleGoalHandler(const State &goal, Logger &logger)
         : goal_(goal), logger_(logger) {}
-    template <class Node> void onSelect(const Node *n) {
+
+    template <class Node> void onSelect(const Node *n, CostType &res) {
         using Event = typename Logger::AlgorithmEvent;
         if (n->state() == goal_) {
+            res = n->f;
             done_ = true;
             logger_.log(Event(n->shareState(), Event::StateRole::BEGIN_DONE_GOAL,
                               n->shareParentState()));
@@ -45,10 +52,12 @@ private:
 template <class Instance, class Logger>
 struct MultipleGoalHandler {
     using State = typename Instance::State;
+    using CostType = typename State::CostType;
 
     MultipleGoalHandler(Instance &instance, Logger &logger)
         : goals_(instance.Instance::Goal::states_), logger_(logger) {}
-    template <class Node> bool onSelect(const Node *n) {
+
+    template <class Node> bool onSelect(const Node *n, CostType &res) {
         using Event = typename Logger::AlgorithmEvent;
         { // Check identity of goal resposible for heuristic
             auto it = std::find(doneGoals_.begin(), doneGoals_.end(),
@@ -61,6 +70,8 @@ struct MultipleGoalHandler {
         { // Check current goals
             auto it = std::find(goals_.begin(), goals_.end(), n->state());
             if (it != goals_.end()) {
+                res =
+                    (res * doneGoals_.size() + n->f) / (doneGoals_.size() + 1);
                 goals_.erase(it);
                 doneGoals_.push_back(n->state());
                 if (goals_.empty()) done_ = true;

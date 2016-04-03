@@ -15,6 +15,7 @@
 #include <time.h>
 #include <algorithm>
 #include <functional>
+#include <tclap/CmdLine.h>
 #include "PrettyPrint.h"
 
 
