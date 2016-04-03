@@ -41,13 +41,13 @@ struct Astar {
         NodeUniquePtr startNode(new Node(start_));
         startNode->f = heuristic_(startNode.get());
         graph_.add(startNode->shareState());
-        logger_.log(Event(logger_, startNode.get(), Event::EventType::ROLE,
-                          Event::StateRole::START));
+        logger_.log(startNode.get(), Event::EventType::ROLE,
+                    Event::StateRole::START);
         goalHandler_.template logInit<Node>();
         oc_.add(startNode);
         while (!oc_.empty() && !goalHandler_.done()) {
             cur_ = oc_.minNode();
-            logger_.log(Event(logger_, cur_, Event::EventType::SELECTED));
+            logger_.log(cur_, Event::EventType::SELECTED);
             onSelectAndExpand(std::integral_constant<
                 bool, std::is_same<decltype(goalHandler_.onSelect(cur_)),
                                    bool>::value>());
@@ -83,13 +83,11 @@ private:
             cur_->f = cur_->g + heuristic_(cur_);
             if (cur_->f > oldCost) {
                 // Need to give info about the change of node information!
-                logger_.log(
-                    Event(logger_, cur_, Event::EventType::DENIED_EXPANSION));
+                logger_.log(cur_, Event::EventType::DENIED_EXPANSION);
                 oc_.reInsert(cur_);
                 return;
             } else
-                logger_.log(
-                    Event(logger_, cur_, Event::EventType::RESUMED_EXPANSION));
+                logger_.log(cur_, Event::EventType::RESUMED_EXPANSION);
         }
         expand();
     }
@@ -109,7 +107,7 @@ private:
         for (auto &child : children_) {
             handleChild(child.state(), child.cost());
         }
-        logger_.log(Event(logger_, cur_, Event::EventType::CLOSED));
+        logger_.log(cur_, Event::EventType::CLOSED);
     }
 
     void handleChild(StateUniquePtrT<State> &child, CostType cost) {
@@ -132,12 +130,11 @@ private:
         newNode->f = newNode->g + heuristic_(newNode.get());
         newNode->setParent(cur_);
         graph_.add(cur_->shareState(), newNode->shareState(), cost);
-        logger_.log(
-            Event(logger_, newNode.get(), Event::EventType::BEGIN_GENERATE));
+        logger_.log(newNode.get(), Event::EventType::BEGIN_GENERATE);
         logger_.log( // needed so currently generated node changes color
                      // cannot be after adding to OL, since std::move is
                      // performed there!
-            Event(logger_, newNode.get(), Event::EventType::END_GENERATE));
+            newNode.get(), Event::EventType::END_GENERATE);
         oc_.add(newNode);
     }
 };

@@ -1,4 +1,4 @@
-INCLUDE=-isystem ~/boost_1_59_0 -I /usr/include/cairomm-1.0/ -I /usr/include/cairo/ -I /usr/include/sigc++-2.0/ -I /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/ -I /usr/include/freetype2/
+INCLUDE=-isystem ~/boost_1_59_0 -isystem . -I /usr/include/cairomm-1.0/ -I /usr/include/cairo/ -I /usr/include/sigc++-2.0/ -I /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/ -I /usr/include/freetype2/
 
 all:
 	g++ -Wall -Wextra -Werror -std=c++11 -pedantic -Wno-write-strings $(INCLUDE) -g -c temp.cpp -DCONFIG='"$(DEFS)"'

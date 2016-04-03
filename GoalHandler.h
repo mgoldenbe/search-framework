@@ -54,8 +54,7 @@ struct MultipleGoalHandler {
             auto it = std::find(doneGoals_.begin(), doneGoals_.end(),
                                 n->responsibleGoal);
             if (it != doneGoals_.end()) {
-                logger_.log(
-                    Event(logger_, n, Event::EventType::SUSPENDED_EXPANSION));
+                logger_.log(n, Event::EventType::SUSPENDED_EXPANSION);
                 return false;
             }
         }
@@ -65,10 +64,10 @@ struct MultipleGoalHandler {
                 goals_.erase(it);
                 doneGoals_.push_back(n->state());
                 if (goals_.empty()) done_ = true;
-                logger_.log(Event(logger_, n, Event::EventType::ROLE,
-                                  Event::StateRole::BEGIN_DONE_GOAL));
-                logger_.log(Event(logger_, n, Event::EventType::ROLE,
-                                  Event::StateRole::END_DONE_GOAL));
+                logger_.log(n, Event::EventType::ROLE,
+                            Event::StateRole::BEGIN_DONE_GOAL);
+                logger_.log(n, Event::EventType::ROLE,
+                            Event::StateRole::END_DONE_GOAL);
             }
         }
         return true;
@@ -78,8 +77,8 @@ struct MultipleGoalHandler {
     template <class Node> void logInit() {
         using Event = typename Logger::AlgorithmEvent;
         for (auto &g: goals_)
-            logger_.log(Event(logger_, std::make_shared<Node>(g).get(),
-                              Event::EventType::ROLE, Event::StateRole::GOAL));
+            logger_.log(std::make_shared<Node>(g).get(), Event::EventType::ROLE,
+                        Event::StateRole::GOAL);
     }
 private:
     // changes to goals_ will also be seen by heuristics

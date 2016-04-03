@@ -6,21 +6,14 @@
 template <class AlgorithmEvent_>
 struct AlgorithmLoggerBase {
     using AlgorithmEvent = AlgorithmEvent_;
+    using EventType = typename AlgorithmEvent::EventType;
+    using StateRole = typename AlgorithmEvent::StateRole;
     using StateSharedPtr = typename AlgorithmEvent::StateSharedPtr;
 
-    ///@name Construction and Assignment
-    //@{
-    virtual void log(AlgorithmEvent e) {
-        const StateSharedPtr &s = e.state();
-        stateToLastEventStep_[s] = events_.size();
-        auto it = stateToLastEventStep_.find(s);
-
-        e.setStep(events_.size(), -1);
-        if (it != stateToLastEventStep_.end())
-            e.setStep(events_.size(), it->second);
-        events_.push_back(e);
+    template <class Node>
+    void log(const Node *n, EventType type, StateRole role = StateRole::NOVAL) {
+        log_(AlgorithmEvent(*this, n, type, role));
     }
-    //@}
 
     const AlgorithmEvent &event(int step) const { return events_[step]; }
 
@@ -55,6 +48,17 @@ private:
     stateToLastEventStep_;
 
     std::vector<AlgorithmEvent> events_;
+
+    void log_(AlgorithmEvent e) {
+        const StateSharedPtr &s = e.state();
+        stateToLastEventStep_[s] = events_.size();
+        auto it = stateToLastEventStep_.find(s);
+
+        e.setStep(events_.size(), -1);
+        if (it != stateToLastEventStep_.end())
+            e.setStep(events_.size(), it->second);
+        events_.push_back(e);
+    }
 };
 
 template <class AlgorithmEvent_>
@@ -63,8 +67,12 @@ using AlgorithmLogger = AlgorithmLoggerBase<AlgorithmEvent_>;
 template <class AlgorithmEvent_>
 struct NoAlgorithmLogger : AlgorithmLoggerBase<AlgorithmEvent_> {
     using AlgorithmEvent = AlgorithmEvent_;
+    using EventType = typename AlgorithmEvent::EventType;
+    using StateRole = typename AlgorithmEvent::StateRole;
+    using StateSharedPtr = typename AlgorithmEvent::StateSharedPtr;
 
-    virtual void log(AlgorithmEvent) override {}
+    template <class Node>
+    void log(const Node *, EventType, StateRole = StateRole::NOVAL) {}
     template <typename charT>
     std::basic_ostream<charT> &dump(std::basic_ostream<charT> &o,
                                     bool dumpLastEvents = false) const {

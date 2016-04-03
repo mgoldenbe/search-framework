@@ -116,6 +116,7 @@ std::vector<Instance> makeInstancesFile(int n, const std::string &fname) {
 template <class Instance>
 std::vector<Instance> readInstancesFile(const std::string &fname) {
     std::ifstream fs{fname};
+    if (!fs) throw std::invalid_argument("Could not open the instances file");
     std::vector<Instance> res;
 
     std::string line;
