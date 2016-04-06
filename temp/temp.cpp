@@ -8,12 +8,9 @@
 #include <chrono>
 #include "PrettyPrint.h"
 
-struct A {
-    int x = 5;
-};
 
 int main() {
-    std::vector<A> v(10);
-    for (auto a : v) std::cout << a.x << std::endl;
+    double x = 2131235.34234;
+    std::cout << x << std::endl;
     return 0;
 }

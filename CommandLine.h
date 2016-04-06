@@ -30,6 +30,11 @@ struct CommandLine {
 
     bool perInstance() { return perInstance_.getValue(); }
 
+    bool hideTitle() { return hideTitle_.getValue(); }
+
+    std::string prefixTitle() { return prefixTitle_.getValue(); }
+    std::string prefixData() { return prefixData_.getValue(); }
+
 private:
     TCLAP::CmdLine cmd_;
     TCLAP::ValueArg<std::string> instancesFileName_;
@@ -37,6 +42,9 @@ private:
     TCLAP::ValueArg<int> nInstances_;
     TCLAP::ValueArg<int> nStarts_, nGoals_;
     TCLAP::SwitchArg perInstance_;
+    TCLAP::SwitchArg hideTitle_;
+    TCLAP::ValueArg<std::string> prefixTitle_;
+    TCLAP::ValueArg<std::string> prefixData_;
 
     CommandLine(int argc, char **argv)
         : cmd_("The Generic Search Library", ' ', "0.1"),
@@ -49,10 +57,18 @@ private:
                       -1, "int", cmd_),
           nStarts_("", "nStarts", "Number of start states in an instance",
                    false, -1, "int", cmd_),
-          nGoals_("", "nGoals", "Number of goal states in an instance",
-                   false, -1, "int", cmd_),
+          nGoals_("", "nGoals", "Number of goal states in an instance", false,
+                  -1, "int", cmd_),
           perInstance_("p", "perInstance", "Output per-instance stats", cmd_,
-                       false) {
+                       false),
+          hideTitle_("", "hideTitle", "Do not show the title line", cmd_,
+                     false),
+          prefixTitle_("", "prefixTitle",
+                       "String to prefix the title row with", false, "",
+                       "string", cmd_),
+          prefixData_("", "prefixData",
+                       "String to prefix the each data row with", false, "",
+                       "string", cmd_) {
         try {
             cmd_.parse(argc, argv);
         }

@@ -2,8 +2,9 @@
 ///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
 
 //#include CONFIG
-//#include "Config.h"
-#include "ConfigPerGoal.h"
+#include "ConfigMinHeuristic.h"
+//#include "ConfigPerGoal.h"
+//#include "ConfigUniformSearch.h"
 
 #ifdef VISUALIZATION
 #define GRAPH StateGraph<STATE, COST_TYPE>
@@ -20,7 +21,7 @@ GRAPH buildGraph() {
 #endif
     using MyLogger = NoAlgorithmLogger<ALGORITHM_EVENT>;
     using MyOL = OpenList<NODE, DefaultPriority, GreaterPriority_SmallG>;
-    using MyHeuristic = ZeroHeuristic<STATE, MyLogger>;
+    using MyHeuristic = ZeroHeuristic<STATE>;
     using MyInstance = Instance<STATE>;
 
     MyLogger logger;
@@ -42,8 +43,8 @@ void run() {
     Stats stats;
     for (auto instance : res) {
         ++i;
-        //if (i != 18) continue;
-        //std::cerr << std::endl << "Solving instace " << i << std::endl;
+        //if (i != 50) continue;
+        //std::cerr << std::endl << "# " << i << std::endl;
 #ifdef VISUALIZATION
         if (i != VISUALIZATION) continue;
 #endif
@@ -63,7 +64,8 @@ void run() {
     if (!CMD.perInstance())
         stats = stats.average();
     Table statsTable;
-    stats.dump(statsTable);
+    stats.dump(statsTable, CMD.prefixTitle(), CMD.prefixData());
+    if (CMD.hideTitle()) statsTable.hideTitle();
     std::cout << statsTable;
 }
 

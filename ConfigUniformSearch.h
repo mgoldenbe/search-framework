@@ -1,4 +1,4 @@
-//#define VISUALIZATION 18
+//#define VISUALIZATION 50
 
 #define STATE GridMapState<>
 #define COST_TYPE double
@@ -25,7 +25,7 @@
 
 #define GOAL_HANDLER MultipleGoalHandler
 
-#define HEURISTIC MinHeuristicToGoals<STATE, OctileHeuristic>
+#define HEURISTIC ZeroHeuristic<STATE>
 #define ALGORITHM Astar<>
 #define RAW_ALGORITHM ALGORITHM
 

@@ -99,7 +99,7 @@ std::string sureRead(std::ifstream &fin) {
 
 std::string sureRead(std::ifstream &fin, const std::string &str) {
     std::string res = sureRead(fin);
-    assert(res == str);
+    assert(res == str); (void)str;
     return res;
 }
 

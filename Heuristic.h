@@ -4,7 +4,7 @@
 #ifndef HEURISTIC_H
 #define HEURISTIC_H
 
-template <class State, class Heuristic>
+template <class State>
 struct ZeroHeuristic {
     using MyInstance = Instance<State>;
     using CostType = typename State::CostType;

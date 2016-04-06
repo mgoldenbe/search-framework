@@ -51,6 +51,9 @@ struct Table {
         rows_.erase(rows_.begin() + n);
     }
 
+    void hideTitle() { hideTitle_ = true; }
+    void showTitle() { hideTitle_ = false; }
+
     template <typename T> friend Table &operator<<(Table &t, const T &el) {
         auto &row = t.currentRow_;
         auto len = str(el).size();
@@ -72,7 +75,8 @@ struct Table {
     template <typename TChar, typename TCharTraits>
     friend std::basic_ostream<TChar, TCharTraits> &
     operator<<(std::basic_ostream<TChar, TCharTraits> &o, const Table &t) {
-        for (auto &r : t.rows_) o << r << std::endl;
+        for (int i = (t.hideTitle_ ? 1 : 0); i != t.rows_.size(); i++)
+            o << t.rows_[i] << std::endl;
         return o;
     }
 
@@ -81,6 +85,7 @@ private:
     std::vector<int> widths_;
     int space_;
     Row currentRow_;
+    bool hideTitle_ = false;
 };
 
 void testTable() {

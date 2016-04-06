@@ -76,11 +76,13 @@ struct MeasureSet {
         return *this;
     }
     template <class Stream>
-    Stream &dump(Stream &os, bool titleFlag = false) const {
+    Stream &dump(Stream &os, const std::string &prefixTitle = "", const std::string &prefixData = "", bool titleFlag = false) const {
         if (titleFlag) {
+            os << prefixTitle;
             for (auto &m : s_) os << m.name();
             os << std::endl;
         }
+        os << prefixData;
         for (auto &m : s_) os << m.value();
         os << std::endl;
         return os;
@@ -127,10 +129,11 @@ struct Stats {
         return Stats(res);
     }
     template <class Stream>
-    Stream &dump(Stream &os) const {
-        s_[0].dump(os, true);
+    Stream &dump(Stream &os, const std::string &prefixTitle = "",
+                 const std::string &prefixData = "") const {
+        s_[0].dump(os, prefixTitle, prefixData, true);
         for (int i = 1; i < size(); i++)
-            s_[i].dump(os);
+            s_[i].dump(os, prefixTitle, prefixData);
         return os;
     }
 

@@ -60,7 +60,7 @@ struct Astar {
     }
 
     MeasureSet measures() const {
-        return {expanded_, generated_, time_, cost_};
+        return {expanded_, denied_, generated_, time_, cost_};
     }
 private:
     State start_; // We should consider making this local
@@ -77,6 +77,7 @@ private:
 
     // Stats
     Measure expanded_{"Expanded"};
+    Measure denied_{"Denied"};
     Measure generated_{"Generated"};
     Timer time_{"Time (ms.)"};
     Measure cost_{"Cost"};
@@ -90,6 +91,7 @@ private:
             cur_->f = cur_->g + heuristic_(cur_);
             if (cur_->f > oldCost) {
                 // Need to give info about the change of node information!
+                ++denied_;
                 logger_.log(cur_, Event::EventType::DENIED_EXPANSION);
                 oc_.reInsert(cur_);
                 return;

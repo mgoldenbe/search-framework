@@ -101,7 +101,7 @@ struct GridMap {
     }
 
     StateType defaultState() const {
-        return StateType{-1};
+        return random();
     }
 
     CostType manhattan(StateType location, StateType goal) const {

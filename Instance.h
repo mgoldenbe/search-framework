@@ -71,6 +71,17 @@ private:
     std::vector<State> start_, goal_;
 };
 
+// get a random state that is not in the vector
+template <class State>
+State uniqueRandomState(const std::vector<State> &v) {
+    State res;
+    while (true) {
+        res = State::random();
+        if (std::find(v.begin(), v.end(), res) == v.end()) break;
+    }
+    return res;
+}
+
 template <class State>
 std::vector<Instance<State>> makeInstances(int n) {
     using MyInstance = Instance<State>;
@@ -80,8 +91,10 @@ std::vector<Instance<State>> makeInstances(int n) {
     for (int i = 0; i < n; i++) {
         std::vector<State> start;
         std::vector<State> goal;
-        for (int i = 0; i != nStarts; i++) start.push_back(State::random());
-        for (int i = 0; i != nGoals; i++) goal.push_back(State::random());
+        for (int i = 0; i != nStarts; i++)
+            start.push_back(uniqueRandomState(start));
+        for (int i = 0; i != nGoals; i++)
+            goal.push_back(uniqueRandomState(goal));
         res.push_back(MyInstance(start, goal));
     }
     return res;
