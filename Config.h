@@ -23,15 +23,9 @@
 #define OL_CONTAINER OLMap
 #define OL OpenList<>
 
-#define SEARCH_START SingleStartState<>
-#define SEARCH_GOAL MultipleGoalStates<>
-#define INSTANCE Instance<>
-#define NSTARTS -1
-#define NGOALS 2
-
 #define GOAL_HANDLER MultipleGoalHandler
 
-#define HEURISTIC MinHeuristicToGoals<INSTANCE, OctileHeuristic>
+#define HEURISTIC MinHeuristicToGoals<STATE, OctileHeuristic>
 #define ALGORITHM Astar<>
 #define RAW_ALGORITHM ALGORITHM
 

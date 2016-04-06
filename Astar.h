@@ -10,7 +10,7 @@
 
 // Discontinued the use of template template parameters.
 // http://stackoverflow.com/q/34130672/2725810
-template <class Open = OL, class MyInstance = INSTANCE,
+template <class Open = OL,
           template <class, class> class GoalHandler = GOAL_HANDLER,
           class Heuristic = HEURISTIC, class Graph = GRAPH,
           class AlgorithmLogger = LOGGER>
@@ -20,11 +20,10 @@ struct Astar {
     using CostType = typename Node::CostType;
     using NodeUniquePtr = typename Node::NodeUniquePtr;
     using State = typename Node::State;
+    using MyInstance = Instance<State>;
     using Neighbor = typename State::Neighbor;
     using Event = typename AlgorithmLogger::AlgorithmEvent;
-    template <class Instance1>
-    using InstanceTemplate =
-        Astar<Open, Instance1, GoalHandler, Heuristic, Graph, AlgorithmLogger>;
+
     static_assert(
         std::is_same<typename Node::StateSmartPtr,
                      StateSharedPtrT<State>>::value ||
@@ -36,7 +35,7 @@ struct Astar {
         "*unique pointer* to state.");
 
     Astar(MyInstance &instance, Graph &graph, AlgorithmLogger &logger)
-        : start_(instance.MyInstance::Start::state_),
+        : start_(instance.start()), // will change for startHandler
           goalHandler_(instance, logger), heuristic_(instance), graph_(graph),
           logger_(logger), oc_(), cur_(nullptr), children_() {}
 
@@ -65,7 +64,7 @@ struct Astar {
     }
 private:
     State start_; // We should consider making this local
-    GoalHandler<MyInstance, AlgorithmLogger> goalHandler_;
+    GoalHandler<State, AlgorithmLogger> goalHandler_;
     Heuristic heuristic_;
     Graph &graph_;
     AlgorithmLogger &logger_;

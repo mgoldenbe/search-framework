@@ -4,25 +4,25 @@
 #ifndef GOAL_HANDLER_H
 #define GOAL_HANDLER_H
 
-template <class Instance, class Logger> // for uniformity
+template <class State, class Logger> // for uniformity
 struct NoGoalHandler {
-    using State = typename Instance::State;
+    using MyInstance = Instance<State>;
     using CostType = typename State::CostType;
 
-    NoGoalHandler(const Instance &, Logger &) {}
+    NoGoalHandler(MyInstance &, Logger &) {}
     template <class Node> void onSelect(const Node *, CostType &) {}
     bool done() const {return false;}
 
     template <class Node> void logInit() {}
 };
 
-template <class Instance, class Logger = LOGGER>
+template <class State, class Logger = LOGGER>
 struct SingleGoalHandler {
-    using State = typename Instance::State;
+    using MyInstance = Instance<State>;
     using CostType = typename State::CostType;
 
-    SingleGoalHandler(const Instance &instance, Logger &logger)
-        : goal_(instance.Instance::Goal::state_), logger_(logger) {}
+    SingleGoalHandler(MyInstance &instance, Logger &logger)
+        : goal_(instance.goal()), logger_(logger) {}
 
     template <class Node> void onSelect(const Node *n, CostType &res) {
         using Event = typename Logger::AlgorithmEvent;
@@ -51,13 +51,13 @@ private:
 
 // To be used with MinHeuristicToGoals or some other heuristic that stores the
 // goal responsible for the heuristic.
-template <class Instance, class Logger>
+template <class State, class Logger>
 struct MultipleGoalHandler {
-    using State = typename Instance::State;
+    using MyInstance = Instance<State>;
     using CostType = typename State::CostType;
 
-    MultipleGoalHandler(Instance &instance, Logger &logger)
-        : goals_(instance.Instance::Goal::states_), logger_(logger) {}
+    MultipleGoalHandler(MyInstance &instance, Logger &logger)
+        : goals_(instance.goals()), logger_(logger) {}
 
     template <class Node> bool onSelect(const Node *n, CostType &res) {
         using Event = typename Logger::AlgorithmEvent;

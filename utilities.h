@@ -5,6 +5,8 @@
 #define UTILITIES
 
 #include <cassert>
+#include <cctype>
+#include <climits>
 #include <exception>
 #include <iostream>
 #include <sstream>

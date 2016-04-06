@@ -5,6 +5,7 @@
 // For now, just include each new header in the proper place.
 #include "utilities.h"
 #include "Table.h"
+#include "CommandLine.h"
 
 #include "StateNeighbor.h"
 

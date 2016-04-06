@@ -50,12 +50,14 @@ struct ExplicitState {
     static void initSpace(const std::string fileName) {
         space_ = std::unique_ptr<ExplicitSpace>(new ExplicitSpace(fileName));
     }
+
+    static StateType random() { return space()->random(); }
+
     static const std::unique_ptr<ExplicitSpace> &space() {
         if (space_ == nullptr)
             throw std::logic_error("Explicit space has not been initialized");
         return space_;
     }
-    static StateType random() { return space_->random(); }
 private:
     StateType state_;
     static std::unique_ptr<ExplicitSpace> space_;

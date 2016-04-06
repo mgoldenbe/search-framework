@@ -4,24 +4,24 @@
 #ifndef HEURISTIC_H
 #define HEURISTIC_H
 
-template <class Instance, class Heuristic>
+template <class State, class Heuristic>
 struct ZeroHeuristic {
-    using State = typename Instance::State;
+    using MyInstance = Instance<State>;
     using CostType = typename State::CostType;
 
-    ZeroHeuristic(Instance &) {}
+    ZeroHeuristic(MyInstance &) {}
 
     template<class Node>
     CostType operator()(Node *n) const {(void)n; return CostType(0);}
 };
 
-template <class Instance, class Heuristic>
+template <class State, class Heuristic>
 struct SimpleHeuristicToGoal {
-    using State = typename Instance::State;
+    using MyInstance = Instance<State>;
     using CostType = typename State::CostType;
 
-    SimpleHeuristicToGoal(Instance &instance)
-        : goal_(instance.Instance::Goal::state_) {}
+    SimpleHeuristicToGoal(MyInstance &instance)
+        : goal_(instance.goal()) {}
 
     template<class Node>
     CostType operator()(Node *n) const {
@@ -33,13 +33,13 @@ private:
     Heuristic heuristic_;
 };
 
-template <class Instance, class Heuristic>
+template <class State, class Heuristic>
 struct MinHeuristicToGoals {
-    using State = typename Instance::State;
+    using MyInstance = Instance<State>;
     using CostType = typename State::CostType;
 
-    MinHeuristicToGoals(Instance &instance)
-        : goals_(instance.Instance::Goal::states_) {}
+    MinHeuristicToGoals(MyInstance &instance)
+        : goals_(instance.goals()) {}
 
     template<class Node>
     CostType operator()(Node *n) const {

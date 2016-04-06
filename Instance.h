@@ -4,115 +4,101 @@
 // Look for the first substring that begins with a non-space character
 // and ends either at the end of string or with nSpaces spaces.
 // The original string is changed for the non-parsed part of the string.
-std::string stuff(std::string &s, int nSpaces = 2) {
+std::string stuff(std::string &s, bool throwOnEmpty = false, int nSpaces = 2) {
     std::string res;
     auto begin = s.find_first_not_of(" ");
     std::string space = std::string((unsigned)nSpaces, ' ');
     auto end = std::min(s.size(), s.find(space, begin));
     res = std::string{s.begin() + begin, s.begin() + end};
     s = std::string(s.begin() + end, s.end());
+    if (throwOnEmpty && res == "")
+        throw std::runtime_error("Instance file ill-formed");
     return res;
 }
 
-template <class State_, bool goalFlag> struct SingleStartGoalState {
+void getNStartsGoals(std::string &s, int &nStarts, int &nGoals) {
+    bool startsFlag = true;
+    nStarts = nGoals = 0;
+    std::string token = stuff(s);
+    if (token != "#") throw std::runtime_error("Instance file ill-formed");
+    while (s != "") {
+        std::string token = stuff(s);
+        transform(token.begin(), token.end(), token.begin(), tolower);
+        if (token.find("start") == 0) {
+            if (!startsFlag)
+                throw std::runtime_error("Instance file ill-formed");
+            ++nStarts;
+        }
+        else if (token.find("goal") == 0) {
+            if (startsFlag) startsFlag = false;
+            ++nGoals;
+        }
+        else throw std::runtime_error("Instance file ill-formed");
+    }
+}
+
+template <class State_>
+struct Instance {
     using State = State_;
+    using MyType = Instance<State>;
 
-    SingleStartGoalState() : state_{State::random()} {}
-    SingleStartGoalState(const State &state) : state_(state) {}
-    SingleStartGoalState(std::string &str) {
-        state_ = State(stuff(str));
-    }
+    Instance(const std::vector<State> &start, const std::vector<State> &goal)
+        : start_(start), goal_(goal) {}
 
-    template <class Stream> Stream &dump(Stream &os) const {
-        os << state_;
-        return os;
-    }
-    template <class Stream> static Stream &dumpTitle(Stream &os) {
-        os << (goalFlag ? "goal" : "start");
-        return os;
-    }
-    State state_;
-};
-template <class State = STATE>
-using SingleStartState = SingleStartGoalState<State, false>;
-template <class State = STATE>
-using SingleGoalState = SingleStartGoalState<State, true>;
+    State &start() { return start_[0]; }
+    State &goal() { return goal_[0]; }
+    std::vector<State> &goals() { return goal_; }
 
-template <class State_, int nStates, bool goalFlag>
-struct MultipleStartGoalStates {
-    using State = State_;
-
-    MultipleStartGoalStates() {
-        for (auto &g: states_) g = State::random();
-    }
-    MultipleStartGoalStates(std::string &str) {
-        for (auto &g: states_) g = State(stuff(str));
-    }
-
-    template <class Stream> Stream &dump(Stream &os) const {
-        for (auto &g: states_) os << g;
-        return os;
-    }
-    template <class Stream> static Stream &dumpTitle(Stream &os) {
-        for (int i = 0; i < nStates; i++)
-            os << (goalFlag ? "goal-" : "start-") + str(i);
-        return os;
-    }
-    std::vector<State> states_ = std::vector<State>(nStates);
-};
-template <class State = STATE, int nStates = NSTARTS>
-using MultipleStartStates = MultipleStartGoalStates<State, nStates, false>;
-template <class State = STATE, int nStates = NGOALS>
-using MultipleGoalStates = MultipleStartGoalStates<State, nStates, true>;
-
-template <class Start_ = SEARCH_START, class Goal_ = SEARCH_GOAL>
-struct Instance : Start_, Goal_ {
-    using Start = Start_;
-    using Goal = Goal_;
-    using State = typename Start::State;
-    using SingleGoal = SingleStartGoalState<State, true>;
-    using SingleGoalInstance = Instance<Start, SingleGoal>;
-
-    Instance() : Start(), Goal() {}
-    Instance(const Start &s, const Goal &g) : Start(s), Goal(g) {}
-    Instance(std::string &str) : Start(str), Goal(str) {}
-
-    std::vector<SingleGoalInstance> goalInstances() const {
-        std::vector<SingleGoalInstance> res;
-
-        for (auto g: Goal::states_)
-            res.push_back(SingleGoalInstance(*this, g));
+    std::vector<MyType> goalInstances() const {
+        std::vector<MyType> res;
+        for (auto g: goal_)
+            res.push_back(MyType(start_, std::vector<State>{g}));
         return res;
     }
 
     template <class Stream> Stream &dump(Stream &os) const {
-        Start::dump(os);
-        Goal::dump(os);
+        for (auto s: start_) os << s;
+        for (auto s: goal_) os << s;
         return os;
     }
-    template <class Stream> static Stream &dumpTitle(Stream &os) {
-        Start::dumpTitle(os);
-        Goal::dumpTitle(os);
+    template <class Stream> Stream &dumpTitle(Stream &os) {
+        for (int i = 0; i != start_.size(); ++i) os << "start-" + str(i);
+        for (int i = 0; i != goal_.size(); ++i) os << "goal-" + str(i);
         return os;
     }
+
+private:
+    std::vector<State> start_, goal_;
 };
 
-template <class Instance>
-std::vector<Instance> makeInstances(int n) {
-    std::vector<Instance> res;
-    for (int i = 0; i < n; i++)
-        res.push_back(Instance{});
+template <class State>
+std::vector<Instance<State>> makeInstances(int n) {
+    using MyInstance = Instance<State>;
+    std::vector<MyInstance> res;
+    int nStarts = CMD.nStarts('w');
+    int nGoals = CMD.nGoals('w');
+    for (int i = 0; i < n; i++) {
+        std::vector<State> start;
+        std::vector<State> goal;
+        for (int i = 0; i != nStarts; i++) start.push_back(State::random());
+        for (int i = 0; i != nGoals; i++) goal.push_back(State::random());
+        res.push_back(MyInstance(start, goal));
+    }
     return res;
 }
 
-template <class Instance>
-std::vector<Instance> makeInstancesFile(int n, const std::string &fname) {
+template <class State = STATE>
+std::vector<Instance<State>> makeInstancesFile(const std::string &fname) {
+    using MyInstance = Instance<State>;
     Table t;
     std::ofstream fs{fname};
-    std::vector<Instance> res = makeInstances<Instance>(n);
+    if (!fs) throw std::invalid_argument("Could not create the instances file");
+    if (CMD.nInstances() < 1)
+        throw std::invalid_argument("Can't be fewer than one instance");
+    std::vector<MyInstance> res = makeInstances<State>(CMD.nInstances());
 
     t << "#";
-    Instance::dumpTitle(t);
+    res[0].dumpTitle(t);
     t << std::endl;
 
     int i = 0;
@@ -125,19 +111,37 @@ std::vector<Instance> makeInstancesFile(int n, const std::string &fname) {
     return res;
 }
 
-template <class Instance>
-std::vector<Instance> readInstancesFile(const std::string &fname) {
+template <class State>
+std::vector<Instance<State>> readInstancesFile(const std::string &fname) {
+    using MyInstance = Instance<State>;
     std::ifstream fs{fname};
     if (!fs) throw std::invalid_argument("Could not open the instances file");
-    std::vector<Instance> res;
+    std::vector<MyInstance> res;
 
     std::string line;
-    std::getline(fs, line);
-    while (std::getline(fs, line)) {
-        stuff(line); // skip instance number
-        res.push_back(Instance(line));
-    }
 
+    // Title line
+    int totalNStarts, totalNGoals;
+    std::getline(fs, line);
+    getNStartsGoals(line, totalNStarts, totalNGoals);
+
+    int nStarts = std::min(totalNStarts, CMD.nStarts('r'));
+    int nGoals = std::min(totalNGoals, CMD.nGoals('r'));
+
+    // Instances
+    while (std::getline(fs, line)) {
+        std::vector<State> start, goal;
+        std::string startLine, goalLine;
+
+        stuff(line, true); // skip instance number
+        for (int i = 0; i != nStarts; ++i)
+            start.push_back(State(stuff(line, true)));
+        for (int i = nStarts; i != totalNStarts; ++i)
+            stuff(line, true); // skip not used starts
+        for (int i = 0; i != nGoals; ++i)
+            goal.push_back(State(stuff(line, true)));
+        res.push_back(MyInstance(start, goal));
+    }
     return res;
 }
 

@@ -3,19 +3,18 @@
 
 // Per-Goal is a high-level algorithm that runs some other algorithm for each
 // goal and combined results
-template <class Algorithm = RAW_ALGORITHM, class Instance = INSTANCE,
-          class Graph = GRAPH, class Logger = LOGGER>
+template <class Algorithm = RAW_ALGORITHM, class Graph = GRAPH,
+          class Logger = LOGGER>
 struct PerGoal {
+    using MyInstance = typename Algorithm::MyInstance;
     using CostType = typename Algorithm::CostType;
-    using SingleGoalInstance = typename Instance::SingleGoalInstance;
-    using RawAlgorithm = typename Algorithm::template InstanceTemplate<SingleGoalInstance>;
-    PerGoal(Instance &instance, Graph &graph, Logger &logger) :
+    PerGoal(MyInstance &instance, Graph &graph, Logger &logger) :
         instance_(instance), graph_(graph), logger_(logger) {}
 
     CostType run() {
         CostType res = 0.0;
         for (auto i : instance_.goalInstances()) {
-            RawAlgorithm alg(i, graph_, logger_);
+            Algorithm alg(i, graph_, logger_);
             res += alg.run();
             stats_.append(alg.measures());
         }
@@ -27,7 +26,7 @@ struct PerGoal {
     }
 private:
     Stats stats_;
-    const Instance &instance_;
+    const MyInstance &instance_;
     Graph &graph_;
     Logger &logger_;
 };
