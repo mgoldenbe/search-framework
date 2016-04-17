@@ -13,16 +13,17 @@
 #include <X11/XKBlib.h>
 #include <X11/extensions/XTest.h>
 
-#include "utilities.h"
 #include "VisualizerMenus.h"
 
-template <class Graph, class AlgorithmLog, class VisualEvent,
-          bool autoLayoutFlag>
-struct Visualizer : VisualizerData<Graph, VisualLog<AlgorithmLog, VisualEvent>,
-                                   autoLayoutFlag> {
-    using MyVisualLog = VisualLog<AlgorithmLog, VisualEvent>;
-    using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
-    using Data = VisualizerData<Graph, MyVisualLog, autoLayoutFlag>;
+template <class Node, bool autoLayoutFlag>
+struct Visualizer : VisualizerData<Node, autoLayoutFlag> {
+    using State = typename Node::State;
+    using Graph = StateGraph<State>;
+    using MyAlgorithmLog = AlgorithmLog<Node>;
+    using MyVisualLog = VisualLog<Node>;
+    using AlgorithmEvent = typename Events::Base<Node>::Event;
+    using MyVisualEvent = VisualEvent<Node>;
+    using Data = VisualizerData<Node, autoLayoutFlag>;
     using typename Data::VISUALIZER_STATE;
     using Data::g_;
     using Data::log_;
@@ -31,7 +32,7 @@ struct Visualizer : VisualizerData<Graph, VisualLog<AlgorithmLog, VisualEvent>,
     using Data::s_;
 
     // VisualLog is not const, since we will move in time...
-    Visualizer(Graph &g, AlgorithmLog &log)
+    Visualizer(Graph &g, MyAlgorithmLog &log)
         : Data(g, log), m_(*this) {}
 
     void run() {
@@ -269,7 +270,7 @@ private:
     }
 
 private:
-    AllMenus<Graph, MyVisualLog, autoLayoutFlag> m_;
+    AllMenus<Node, autoLayoutFlag> m_;
 
     double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;

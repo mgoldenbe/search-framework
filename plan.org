@@ -20,8 +20,13 @@
 - DONE Speeding up the graphics
 - DONE Working with instances (e.g. pathfinding) + stats output
 - DONE Configuration file
-- Handling command-line arguments
+- DONE Handling command-line arguments
   * Use http://stackoverflow.com/a/7712341/2725810
+- Extensible event
+  * Pre-declare EventBase and implement its methods after AlgorithmLog
+  * Make only AlgorithmLog compile
+  * Uncomment the use of VisualLog
+  * Move things (e.g. from the beginning of Astar.h) to better places.
 - Clear and document interfaces
   * *Decision* with regards to free-standing functions instead of member functions (see comments in http://programmers.stackexchange.com/q/310330/216771): put it into the backlog.
 - Organize the code in folders

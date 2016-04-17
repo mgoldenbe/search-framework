@@ -37,8 +37,8 @@ void dumpLayout(MyMap layout) {
         std::cout << (el.second)[0] << " " << (el.second)[1] << std::endl;
 }
 
-template <class State, typename CostType>
-void StateGraph<State, CostType>::initLayoutGraph() {
+template <class State>
+void StateGraph<State>::initLayoutGraph() {
     if (num_vertices(lg_)) return; // already initialized
 
     int i = 0;
@@ -84,9 +84,8 @@ void StateGraph<State, CostType>::initLayoutGraph() {
     }
 }
 
-template <class State, typename CostType>
-void
-StateGraph<State, CostType>::initBaseLayout(bool circularFlag) {
+template <class State>
+void StateGraph<State>::initBaseLayout(bool circularFlag) {
     if (baseLayout_.size()) return; // already initialized
     boost::associative_property_map<LayoutPointMap> temp(baseLayout_);
     if (circularFlag)
@@ -99,17 +98,14 @@ StateGraph<State, CostType>::initBaseLayout(bool circularFlag) {
     //dumpLayout(baseLayout_);
 }
 
-template <class State, typename CostType>
-void
-StateGraph<State, CostType>::randomizeBaseLayout() {
+template <class State> void StateGraph<State>::randomizeBaseLayout() {
     shuffleMap(baseLayout_);
 }
 
-template <class State, typename CostType>
+template <class State>
 // http://stackoverflow.com/q/33912929/2725810
-typename StateGraph<State, CostType>::PointMap
-StateGraph<State, CostType>::layout(bool kamadaKawaiFlag,
-                                    bool fruchtermanReingoldFlag) {
+typename StateGraph<State>::PointMap
+StateGraph<State>::layout(bool kamadaKawaiFlag, bool fruchtermanReingoldFlag) {
     PointMap pointMapRes;
 
     initLayoutGraph();

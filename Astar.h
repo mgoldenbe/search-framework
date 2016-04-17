@@ -1,12 +1,5 @@
-#ifndef ASTAR
-#define ASTAR
-
-#include <vector>
-#include <type_traits>
-#include <memory>
-#include "Graph.h"
-#include "AlgorithmLogger.h"
-#include "AstarEvent.h"
+#ifndef ASTAR_H
+#define ASTAR_H
 
 // Discontinued the use of template template parameters.
 // http://stackoverflow.com/q/34130672/2725810
@@ -22,13 +15,12 @@ struct Astar {
     using State = typename Node::State;
     using MyInstance = Instance<State>;
     using Neighbor = typename State::Neighbor;
-    using Event = typename AlgorithmLogger::AlgorithmEvent;
 
     static_assert(
         std::is_same<typename Node::StateSmartPtr,
                      StateSharedPtrT<State>>::value ||
             (std::is_same<Graph, NoGraph<State, CostType>>::value &&
-             std::is_same<AlgorithmLogger, NoAlgorithmLogger<Event>>::value),
+             std::is_same<AlgorithmLogger, Nothing>::value),
         "In Astar: if a graph and/or logger is "
         "used, then the node has to "
         "store a *shared pointer*, not a "
@@ -44,13 +36,12 @@ struct Astar {
         NodeUniquePtr startNode(new Node(start_));
         startNode->f = heuristic_(startNode.get());
         graph_.add(startNode->shareState());
-        logger_.log(startNode.get(), Event::EventType::ROLE,
-                    Event::StateRole::START);
+        log<Events::MarkedStart>(logger_, startNode.get());
         goalHandler_.template logInit<Node>();
         oc_.add(startNode);
         while (!oc_.empty() && !goalHandler_.done()) {
             cur_ = oc_.minNode();
-            logger_.log(cur_, Event::EventType::SELECTED);
+            log<Events::Selected>(logger_, cur_);
             onSelectAndExpand(std::integral_constant<
                 bool, std::is_same<decltype(goalHandler_.onSelect(cur_, res_)),
                                    bool>::value>());
@@ -92,11 +83,11 @@ private:
             if (cur_->f > oldCost) {
                 // Need to give info about the change of node information!
                 ++denied_;
-                logger_.log(cur_, Event::EventType::DENIED_EXPANSION);
+                log<Events::DeniedExpansion>(logger_, cur_);
                 oc_.reInsert(cur_);
                 return;
             } else
-                logger_.log(cur_, Event::EventType::RESUMED_EXPANSION);
+                log<Events::ResumedExpansion>(logger_, cur_);
         }
         expand();
     }
@@ -117,7 +108,7 @@ private:
         for (auto &child : children_) {
             handleChild(child.state(), child.cost());
         }
-        logger_.log(cur_, Event::EventType::CLOSED);
+        log<Events::Closed>(logger_, cur_);
     }
 
     void handleChild(StateUniquePtrT<State> &child, CostType cost) {
@@ -133,8 +124,8 @@ private:
                 childNode->f -= improvement;
                 childNode->setParent(cur_);
                 oc_.update(childNode, oldPriority);
-                logger_.log(childNode, Event::EventType::BEGIN_GENERATE);
-                logger_.log(childNode, Event::EventType::END_GENERATE);
+                log<Events::Generated>(logger_, childNode);
+                log<Events::EnteredOpen>(logger_, childNode);
             }
             return;
         }
@@ -143,11 +134,8 @@ private:
         newNode->f = myG + heuristic_(newNode.get());
         newNode->setParent(cur_);
         graph_.add(cur_->shareState(), newNode->shareState(), cost);
-        logger_.log(newNode.get(), Event::EventType::BEGIN_GENERATE);
-        logger_.log( // needed so currently generated node changes color
-                     // cannot be after adding to OL, since std::move is
-                     // performed there!
-            newNode.get(), Event::EventType::END_GENERATE);
+        log<Events::Generated>(logger_, newNode.get());
+        log<Events::EnteredOpen>(logger_, newNode.get());
         oc_.add(newNode);
     }
 };

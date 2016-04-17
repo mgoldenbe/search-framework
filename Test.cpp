@@ -7,9 +7,9 @@
 //#include "ConfigUniformSearch.h"
 
 #ifdef VISUALIZATION
-#define GRAPH StateGraph<STATE, COST_TYPE>
+#define GRAPH StateGraph<STATE>
 #else
-#define GRAPH NoGraph<STATE, COST_TYPE>
+#define GRAPH NoGraph<STATE>
 #endif
 
 #include "Headers.h"
@@ -19,15 +19,14 @@ GRAPH buildGraph() {
 #ifndef VISUALIZATION
     return g;
 #endif
-    using MyLogger = NoAlgorithmLogger<ALGORITHM_EVENT>;
     using MyOL = OpenList<NODE, DefaultPriority, GreaterPriority_SmallG>;
     using MyHeuristic = ZeroHeuristic<STATE>;
     using MyInstance = Instance<STATE>;
 
-    MyLogger logger;
+    Nothing logger;
     auto instance = MyInstance(std::vector<STATE>(1), std::vector<STATE>(1));
-    Astar<MyOL, NoGoalHandler, MyHeuristic, GRAPH,
-          NoAlgorithmLogger<ALGORITHM_EVENT>> myAstar(instance, g, logger);
+    Astar<MyOL, NoGoalHandler, MyHeuristic, GRAPH, Nothing> myAstar(instance, g,
+                                                                    logger);
     myAstar.run();
     return g;
 }
@@ -56,7 +55,7 @@ void run() {
                                                          // per-instance mode
 // break;
 #ifdef VISUALIZATION
-        Visualizer<GRAPH, LOGGER, VISUAL_EVENT, false> vis(g, logger);
+        Visualizer<NODE, false> vis(g, logger);
         vis.run();
         break;
 #endif

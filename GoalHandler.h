@@ -25,24 +25,19 @@ struct SingleGoalHandler {
         : goal_(instance.goal()), logger_(logger) {}
 
     template <class Node> void onSelect(const Node *n, CostType &res) {
-        using Event = typename Logger::AlgorithmEvent;
         if (n->state() == goal_) {
             // std::cerr << "DONE_GOAL " << n->state() << " " << n->f
             //           << std::endl;
             res = n->f;
             done_ = true;
-            logger_.log(n, Event::EventType::ROLE,
-                        Event::StateRole::BEGIN_DONE_GOAL);
-            logger_.log(n, Event::EventType::ROLE,
-                        Event::StateRole::END_DONE_GOAL);
+            log<Events::SolvedGoal>(logger_, n);
+            log<Events::DoneSolvedGoal>(logger_, n);
         }
     }
     bool done() const {return done_;}
 
     template <class Node> void logInit() {
-        using Event = typename Logger::AlgorithmEvent;
-        logger_.log(std::make_shared<Node>(goal_).get(), Event::EventType::ROLE,
-                    Event::StateRole::GOAL);
+        log<Events::MarkedGoal>(logger_, std::make_shared<Node>(goal_).get());
     }
 private:
     State goal_;
@@ -59,8 +54,6 @@ struct MultipleGoalHandler {
         : goals_(instance.goals()), logger_(logger) {}
 
     template <class Node> bool onSelect(const Node *n, CostType &res) {
-        using Event = typename Logger::AlgorithmEvent;
-
         { // Check current goals
             auto it = std::find(goals_.begin(), goals_.end(), n->state());
             if (it != goals_.end()) {
@@ -71,10 +64,8 @@ struct MultipleGoalHandler {
                 goals_.erase(it);
                 doneGoals_.push_back(n->state());
                 if (goals_.empty()) done_ = true;
-                logger_.log(n, Event::EventType::ROLE,
-                            Event::StateRole::BEGIN_DONE_GOAL);
-                logger_.log(n, Event::EventType::ROLE,
-                            Event::StateRole::END_DONE_GOAL);
+                log<Events::SolvedGoal>(logger_, n);
+                log<Events::DoneSolvedGoal>(logger_, n);
             }
         }
         return true;
@@ -82,10 +73,8 @@ struct MultipleGoalHandler {
     bool done() const {return done_;}
 
     template <class Node> void logInit() {
-        using Event = typename Logger::AlgorithmEvent;
         for (auto &g: goals_)
-            logger_.log(std::make_shared<Node>(g).get(), Event::EventType::ROLE,
-                        Event::StateRole::GOAL);
+            log<Events::MarkedGoal>(logger_, std::make_shared<Node>(g).get());
     }
 private:
     // changes to goals_ will also be seen by heuristics
@@ -106,12 +95,11 @@ struct MinHeuristicGoalHandler {
         : goals_(instance.goals()), logger_(logger) {}
 
     template <class Node> bool onSelect(const Node *n, CostType &res) {
-        using Event = typename Logger::AlgorithmEvent;
         { // Check identity of goal resposible for heuristic
             auto it = std::find(doneGoals_.begin(), doneGoals_.end(),
                                 n->responsibleGoal);
             if (it != doneGoals_.end()) {
-                logger_.log(n, Event::EventType::SUSPENDED_EXPANSION);
+                log<Events::SuspendedExpansion>(logger_, n);
                 return false;
             }
         }
@@ -125,10 +113,8 @@ struct MinHeuristicGoalHandler {
                 goals_.erase(it);
                 doneGoals_.push_back(n->state());
                 if (goals_.empty()) done_ = true;
-                logger_.log(n, Event::EventType::ROLE,
-                            Event::StateRole::BEGIN_DONE_GOAL);
-                logger_.log(n, Event::EventType::ROLE,
-                            Event::StateRole::END_DONE_GOAL);
+                log<Events::SolvedGoal>(logger_, n);
+                log<Events::DoneSolvedGoal>(logger_, n);
             }
         }
         return true;
@@ -136,10 +122,8 @@ struct MinHeuristicGoalHandler {
     bool done() const {return done_;}
 
     template <class Node> void logInit() {
-        using Event = typename Logger::AlgorithmEvent;
-        for (auto &g: goals_)
-            logger_.log(std::make_shared<Node>(g).get(), Event::EventType::ROLE,
-                        Event::StateRole::GOAL);
+        for (auto &g : goals_)
+            log<Events::MarkedGoal>(logger_, std::make_shared<Node>(g).get());
     }
 private:
     // changes to goals_ will also be seen by heuristics

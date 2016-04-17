@@ -22,8 +22,11 @@
 #include "NodeData.h"
 #include "Node.h"
 
+#include "Graph.h"
+#include "VisualizationUtilities.h"
 #include "AlgorithmLogger.h"
-#include "AstarEvent.h"
+#include "EventBase.h"
+#include "Events.h"
 
 #include "OL.h"
 #include "OCL.h"
@@ -31,9 +34,8 @@
 #include "Heuristic.h"
 #include "Astar.h"
 #include "PerGoal.h"
-#include "Graph.h"
 #ifdef VISUALIZATION
+#include "VisualEvent.h"
 #include "VisualLog.h"
-#include "AstarVisualEvent.h"
 #include "Visualizer.h"
 #endif

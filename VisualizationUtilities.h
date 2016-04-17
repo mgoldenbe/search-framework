@@ -214,6 +214,48 @@ struct EdgeStyle {
 };
 double EdgeStyle::widthBase = 5.0;
 
+template<class State>
+struct VertexChange {
+    using StateSharedPtr = std::shared_ptr<const State>;
+    StateSharedPtr s;
+    VertexStyle now;
+};
+
+template<class State>
+struct ArcChange {
+    using StateSharedPtr = std::shared_ptr<const State>;
+    StateSharedPtr from, to;
+    EdgeStyle now;
+};
+
+template<class State>
+struct VisualChanges {
+    std::vector<VertexChange<State> > vChanges;
+    std::vector<ArcChange<State> > aChanges;
+};
+
+template <class State> struct CurrentStyles {
+    using StateSharedPtr = std::shared_ptr<const State>;
+    using Graph = StateGraph<State>;
+    using VertexDescriptor = typename Graph::VertexDescriptor;
+    using EdgeDescriptor = typename Graph::EdgeDescriptor;
+
+    VertexStyle get(StateSharedPtr s) const {
+        return vertexStyles_.at(g_.vertex(s));
+    }
+    EdgeStyle get(StateSharedPtr from, StateSharedPtr to) const {
+        return edgeStyles_.at(g_.edge(from, to));
+    };
+    CurrentStyles(const Graph &g) : g_(g) {}
+protected:
+    const Graph &g_;
+    // -1 means no previous event
+    std::unordered_map<VertexDescriptor, VertexStyle> vertexStyles_;
+
+    // EdgeDescriptor cannot be a key for unordered_map
+    std::map<EdgeDescriptor, EdgeStyle> edgeStyles_;
+};
+
 //This function should give us a new x11 surface to draw on.
 cairo_surface_t *create_x11_surface(Display *d, Window &w, Window &root, int *x,
                                     int *y) {

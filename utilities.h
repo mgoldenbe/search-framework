@@ -14,12 +14,15 @@
 #include <vector>
 #include <boost/functional/hash.hpp>
 #include <memory>
+#include <type_traits>
 #include <time.h>
 #include <algorithm>
 #include <functional>
+#include <unordered_map>
 #include <tclap/CmdLine.h>
 #include "PrettyPrint.h"
 
+struct Nothing {};
 
 // http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/
 void __nsleep(const struct timespec *req, struct timespec *rem) {
@@ -41,6 +44,16 @@ int msleep(unsigned long milisec) {
 template<class V, typename T>
 bool in(const V &v, const T &el) {
     return std::find(v.begin(), v.end(), el) != v.end();
+}
+
+// Returns true if the element has been added now
+template<class V, typename T>
+bool push_back_unique(V &v, const T &el) {
+    if (!in(v, el)) {
+        v.push_back(el);
+        return true;
+    }
+    return false;
 }
 
 // Shuffle a vector of std::reference_wrapper

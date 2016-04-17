@@ -1,4 +1,4 @@
-//#define VISUALIZATION 50
+#define VISUALIZATION 50
 
 #define STATE GridMapState<>
 #define COST_TYPE double
@@ -12,7 +12,7 @@
 #define ALGORITHM_EVENT AstarEvent<>
 // Can't put ALGORITHM_EVENT as default argument in AlgorithmLogger,
 // since AlgorithmEvent.h uses AlgorithmLogger.
-#define LOGGER AlgorithmLogger<AstarEvent<>>
+#define LOGGER AlgorithmLog<NODE>
 
 #define BUILD_GRAPH // Need to build the domain graph
 #define BUILD_GRAPH_GOAL_HANDLER = NoGoalHandler<>
@@ -28,5 +28,3 @@
 #define HEURISTIC MinHeuristicToGoals<STATE, OctileHeuristic>
 #define ALGORITHM Astar<>
 #define RAW_ALGORITHM ALGORITHM
-
-#define VISUAL_EVENT AstarVisualEvent<>

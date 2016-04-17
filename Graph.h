@@ -41,8 +41,9 @@ template <class State, typename CostType> struct NoGraph {
     void dump() { std::cout << "NoGraph!" << std::endl; }
 };
 
-template <class State, typename CostType>
+template <class State>
 struct StateGraph {
+    using CostType = typename State::CostType;
     using StateSharedPtr = std::shared_ptr<const State>;
     using Graph =
         boost::adjacency_list<vecS, setS, directedS, StateSharedPtr, CostType>;
@@ -124,6 +125,11 @@ struct StateGraph {
         auto it =  stov_.find(s);
         assert(it != stov_.end());
         return it->second;
+    }
+
+    EdgeDescriptor edge(const StateSharedPtr &from,
+                          const StateSharedPtr &to) const {
+        return edge(vertex(from), vertex(to));
     }
 private:
     Graph g_;

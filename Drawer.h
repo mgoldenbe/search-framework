@@ -12,14 +12,17 @@
 #include "VisualizationUtilities.h"
 #include "GeometryUtilities.h"
 
-template <class Graph, class VisualLog, bool autoLayoutFlag>
+template <class Node, bool autoLayoutFlag>
 struct Drawer {
+    using State = typename Node::State;
+    using Graph = StateGraph<State>;
+    using MyVisualLog = VisualLog<Node>;
     using VertexDescriptor = typename Graph::VertexDescriptor;
     using Point = typename Graph::Point;
     using PointMap = typename Graph::PointMap;
 
-    // VisualLog is not const, since we will move in time...
-    Drawer(Graph &g, VisualLog &log) : g_(g), log_(log) { changeLayout(); }
+    // MyVisualLog is not const, since we will move in time...
+    Drawer(Graph &g, MyVisualLog &log) : g_(g), log_(log) { changeLayout(); }
 
     const VertexDescriptor coordsToVD(double x, double y) const {
         // Commented out is code for debugging
@@ -229,7 +232,7 @@ private:
 
 private:
     Graph &g_;
-    VisualLog &log_;
+    MyVisualLog &log_;
     PointMap pointMap_;
 
     int sizex_ = 500;

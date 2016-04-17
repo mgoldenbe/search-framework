@@ -7,11 +7,13 @@
 #include "Form.h"
 #include "Table.h"
 
-template <class VisualLog> struct Typist {
-    using AlgorithmLog = typename VisualLog::AlgorithmLog;
-    using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
+template <class Node> struct Typist {
+    using MyVisualLog = VisualLog<Node>;
+    //using MyAlgorithmLog = AlgorithmLog<Node>;
+    using State = typename Node::State;
+    using AlgorithmEvent = typename Events::Base<Node>::Event;
 
-    Typist(const VisualLog &log) : log_(log) {
+    Typist(const MyVisualLog &log) : log_(log) {
         initscr();
         start_color();
         use_default_colors();
@@ -64,10 +66,10 @@ template <class VisualLog> struct Typist {
     void fillEventsPad() {
         logTable_.clear();
 
-        AlgorithmEvent::dumpTitle(logTable_);
+        Events::Base<Node>::dumpTitle(logTable_);
         for (auto &e : log_.algorithmLog().events())
-            if (!hideFiltered_ || log_.inFilter(e.step())) {
-                e.dump(logTable_);
+            if (!hideFiltered_ || log_.inFilter(e->step())) {
+                e->dump(logTable_);
                 logTable_ << std::endl;
             }
 
@@ -119,7 +121,7 @@ template <class VisualLog> struct Typist {
     }
 
 private:
-    const VisualLog &log_;
+    const MyVisualLog &log_;
     Table logTable_{2};
     WINDOW *titlePad_;
     WINDOW *eventsPad_;

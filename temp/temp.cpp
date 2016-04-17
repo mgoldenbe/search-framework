@@ -6,11 +6,45 @@
 #include <functional>
 #include <algorithm>
 #include <chrono>
+#include <type_traits>
+#include <utility>
 #include "PrettyPrint.h"
 
+// http://stackoverflow.com/a/34209403/2725810
+// http://stackoverflow.com/a/28283030/3953764
+
+template <typename...>
+struct voider { using type = void; };
+
+template <typename... Ts>
+using void_t = typename voider<Ts...>::type;
+
+template <typename C, typename = void_t<>>
+struct has_t : std::false_type {};
+
+template <typename C>
+struct has_t<C, void_t<typename C::T>> : std::true_type {};
+
+template <typename C>
+struct has_t<C, void_t<decltype(std::declval<C>().g())>> : std::true_type {};
+
+template <typename C>
+auto f(C &) -> typename std::enable_if<has_t<C>::value>::type {
+    std::cout << "Has it!" << std::endl;
+}
+
+template <typename C>
+auto f(C &) -> typename std::enable_if<!has_t<C>::value>::type {
+    std::cout << "Doesn't have it!" << std::endl;
+}
+
+struct A {
+    using T = int;
+    void g();
+};
 
 int main() {
-    double x = 2131235.34234;
-    std::cout << x << std::endl;
+    A a;
+    f(a);
     return 0;
 }

@@ -1,23 +1,25 @@
 #ifndef VISUAL_LOG
 #define VISUAL_LOG
 
-#include <map>
-#include <unordered_map>
-#include "VisualizationUtilities.h"
 
-template <class AlgorithmLog_, class VisualEvent_>
-struct VisualLog {
-    using AlgorithmLog = AlgorithmLog_;
-    using AlgorithmEvent = typename AlgorithmLog::AlgorithmEvent;
-    using State= typename AlgorithmEvent::State;
-    using VisualEvent = VisualEvent_;
-    using Graph = typename VisualEvent::Graph;
+template <class Node = NODE>
+struct VisualLog: CurrentStyles<typename Node::State> {
+    using AlgorithmEvent = typename Events::Base<Node>::Event;
+    using State = typename Node::State;
+    using MyVisualEvent = VisualEvent<Node>;
+    using Graph = typename MyVisualEvent::Graph;
     using VertexDescriptor = typename Graph::VertexDescriptor;
     using EdgeDescriptor = typename Graph::EdgeDescriptor;
-    using VertexStyle = typename VisualEvent::VertexStyle;
-    using EdgeStyle = typename VisualEvent::EdgeStyle;
+    using VertexStyle = typename MyVisualEvent::VertexStyle;
+    using EdgeStyle = typename MyVisualEvent::EdgeStyle;
 
-    VisualLog(const AlgorithmLog &log, const Graph &g) : log_(log), g_(g) {
+    using Base = CurrentStyles<typename Node::State>;
+    using Base::g_;
+    using Base::vertexStyles_;
+    using Base::edgeStyles_;
+
+    VisualLog(const AlgorithmLog<Node> &log, const Graph &g)
+        : Base(g), log_(log) {
         for (auto vd : g_.vertexRange())
             vertexStyles_[vd] = VertexStyle();
         for (auto ed : g_.edgeRange())
@@ -27,7 +29,7 @@ struct VisualLog {
         for (auto &e: log.events()) {
             filteredToStep_.push_back(step_);
             stepToFiltered_.push_back(step_);
-            auto ve = VisualEvent(g_, e, (*this));
+            auto ve = MyVisualEvent(g_, e, (*this));
             this->log(ve);
         }
         // rewind to the beginning
@@ -47,7 +49,7 @@ struct VisualLog {
         return it->second;
     }
 
-    VisualEvent event(int step) const { return events_[step]; }
+    MyVisualEvent event(int step) const { return events_[step]; }
 
     bool inFilter(int step) const {
         return stepToFiltered_[step] != -1;
@@ -117,7 +119,9 @@ struct VisualLog {
 
     int step() const { return step_; }
 
-    const AlgorithmLog &algorithmLog() const { return log_; }
+    const AlgorithmLog<Node> &algorithmLog() const { return log_; }
+
+    Base &currentStyles() { return *this; }
 
     const AlgorithmEvent &algorithmEvent(int step) const {
         return log_.events()[step];
@@ -127,7 +131,7 @@ struct VisualLog {
     void setFilter(const Filter &filter, Drawer &drawer) {
         filteredToStep_.clear();
         for (auto &e : log_.events())
-            if (filter.in(e)) filteredToStep_.push_back(e.step());
+            if (filter.in(e)) filteredToStep_.push_back(e->step());
 
         stepToFiltered_.resize(events_.size());
         std::fill(stepToFiltered_.begin(), stepToFiltered_.end(), -1);
@@ -138,16 +142,9 @@ struct VisualLog {
     }
 
 private:
-    const AlgorithmLog &log_;
-    const Graph &g_;
+    const AlgorithmLog<Node> &log_;
 
-    // -1 means no previous event
-    std::unordered_map<VertexDescriptor, VertexStyle> vertexStyles_;
-
-    // EdgeDescriptor cannot be a key for unordered_map
-    std::map<EdgeDescriptor, EdgeStyle> edgeStyles_;
-
-    std::vector<VisualEvent> events_;
+    std::vector<MyVisualEvent> events_;
     int step_; // the event to be applied when next() is called.
     std::vector<int> filteredToStep_;
     std::vector<int> stepToFiltered_; // -1 if not in filtered
@@ -170,7 +167,7 @@ private:
         return true;
     }
 
-    void applyEvent(const VisualEvent &e) {
+    void applyEvent(const MyVisualEvent &e) {
         for (auto &vertexChange: e.vertexChanges())
             vertexStyles_[vertexChange.vd] = vertexChange.now;
 
@@ -183,7 +180,7 @@ private:
                 edgeStyles_[edgeChange.ed].depth = 1;
     }
 
-    void unApplyEvent(const VisualEvent &e) {
+    void unApplyEvent(const MyVisualEvent &e) {
         for (auto &vertexChange: e.vertexChanges())
             vertexStyles_[vertexChange.vd] = vertexChange.before;
 
@@ -193,7 +190,7 @@ private:
         }
     }
 
-    void log(const VisualEvent &e) {
+    void log(const MyVisualEvent &e) {
         applyEvent(e);
         events_.push_back(e);
         step_++;
