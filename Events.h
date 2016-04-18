@@ -86,14 +86,10 @@ template <class Node>::Color Closed<Node>::color_ = ::Color::WARM_BROWN;
 template <class Node = NODE> struct SolvedGoal : SolutionPathChange<Node> {
     using StateSharedPtr = typename UniformChange<Node>::StateSharedPtr;
     using Arc = typename UniformChange<Node>::Arc;
+    using Base<Node>::state_;
     using SolutionPathChange<Node>::SolutionPathChange;
 
 protected:
-    virtual void change(VertexStyle &style,
-                        const StateSharedPtr &) const override {
-        style.fillColor = color_;
-    };
-
     virtual void change(EdgeStyle &style, const Arc &) const override {
         style.color = color_;
         style.arrow = true;
@@ -123,8 +119,7 @@ protected:
     };
 
 private:
-    ::Color color_ = ::Color::VIVID_GREEN;
-    std::string eventStr() const override { return "Solved Goal"; }
+    std::string eventStr() const override { return "Done Solved Goal"; }
 };
 }
 #endif

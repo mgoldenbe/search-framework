@@ -10,7 +10,7 @@
 
 #include "utilities.h"
 #include "VisualizationUtilities.h"
-#include "GeometryUtilities.h"
+#include "DrawingRoutines.h"
 
 template <class Node, bool autoLayoutFlag>
 struct Drawer {
@@ -25,29 +25,20 @@ struct Drawer {
     Drawer(Graph &g, MyVisualLog &log) : g_(g), log_(log) { changeLayout(); }
 
     const VertexDescriptor coordsToVD(double x, double y) const {
-        // Commented out is code for debugging
-        //double bestDistance = 9999999;
-        //VertexDescriptor bestVD;
         for (auto &el: pointMap_) {
             auto vd = el.first;
             auto point = el.second;
             switch(log_.vertexStyle(vd).shape) {
             case VertexShape::CIRCLE: {
-                double myDistance = distance(point[0], point[1], x, y);
+                double myDistance = gu::distance({point[0], point[1]}, {x, y});
                 if (myDistance <=
                     log_.vertexStyle(vd).sizeFactor * VertexStyle::sizeBase)
                     return vd;
-                // if (myDistance < bestDistance) {
-                //     bestDistance = myDistance;
-                //     bestVD = vd;
-                // }
                 break;
             }
             default: assert(0);
             }
         }
-        // std::cout << "\nDistance: " << bestDistance << std::endl;
-        // std::cout << "State: " << *(g_.state(bestVD)) << std::endl;
         return nullptr;
     }
 
@@ -62,6 +53,10 @@ struct Drawer {
         GroupLock lock{true, graphics_, true}; (void)lock;
         auto cr = graphics_.cr;
         cairo_set_source_rgb(cr, 56, 128, 4);
+
+        cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
+        for (auto vd : g_.vertexRange())
+            drawVertex(vd, log_.vertexStyle(vd));
         for (int depth = 0; depth <= EdgeStyle::maxDepth; ++depth) {
             for (auto from : g_.vertexRange()) {
                 for (auto to : g_.adjacentVertexRange(from)) {
@@ -72,8 +67,6 @@ struct Drawer {
                 }
             }
         }
-        for (auto vd : g_.vertexRange())
-            drawVertex(vd, log_.vertexStyle(vd));
     }
 
     void drawVertex(VertexDescriptor vd, const VertexStyle &style) {
@@ -86,40 +79,19 @@ struct Drawer {
     }
 
     void drawEdge(VertexDescriptor from, VertexDescriptor to,
-                  const EdgeStyle &style, bool eraseFlag = false) {
+                  const EdgeStyle &style) {
         auto cr = graphics_.cr;
         Color ec = style.color;
         if (ec == Color::NOVAL) return;
-	if (eraseFlag)
-	  cairo_set_source_rgb(cr, 0, 0, 0);
-	else
-	  cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
+        cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
         cairo_set_line_width(cr, style.widthFactor * EdgeStyle::widthBase);
-        double fromX = pointMap_[from][0], fromY = pointMap_[from][1];
-        double toX = pointMap_[to][0], toY = pointMap_[to][1];
-        cairo_move_to(cr, fromX, fromY);
-        cairo_line_to(cr, toX, toY);
-        cairo_stroke(cr);
-        if (style.arrow) {
-            cairo_save(cr);
-            double radius = VertexStyle::sizeBase;
-            cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
-            //cairo_set_line_width(cr, 0.0);
-            cairo_translate(cr, (fromX + toX) / 2, (fromY + toY) / 2);
-            double angle = atan2(toY - fromY, toX - fromX);
-            cairo_rotate(cr, angle);
-            double x = radius * (1 - cos(M_PI / 6));
-            double y = radius * sin(M_PI / 6);
-            cairo_move_to(cr, radius, 0);
-            //double d = distace(fromX, fromY, toX, toY);
-            cairo_line_to(cr, x, y);
-            cairo_line_to(cr, x, -y);
-            cairo_line_to(cr, radius, 0);
-            //cairo_fill(cr);
-            cairo_stroke(cr);
-            cairo_translate(cr, -(fromX + toX) / 2, -(fromY + toY) / 2);
-            cairo_restore(cr);
-        }
+        gu::Circle cFrom{gu::Point{pointMap_[from][0], pointMap_[from][1]},
+                         VertexStyle::sizeBase};
+        gu::Circle cTo{gu::Point{pointMap_[to][0], pointMap_[to][1]},
+                       VertexStyle::sizeBase};
+        connectCircles(cr, cFrom, cTo);
+        if (style.arrow)
+            inscribePolygon(cr, cFrom, 3, angle(cFrom.center, cTo.center), true);
     }
 
     int sizeX() { return sizex_; }
@@ -185,8 +157,8 @@ private:
         for (auto ed: g_.edgeRange()) {
             auto from = g_.from(ed), to = g_.to(ed);
             auto fromPoint = pointMap_[from], toPoint = pointMap_[to];
-            dd.push_back(
-                distance(fromPoint[0], fromPoint[1], toPoint[0], toPoint[1]));
+            dd.push_back(gu::distance({fromPoint[0], fromPoint[1]},
+                                      {toPoint[0], toPoint[1]}));
         }
         sort(dd.begin(), dd.end());
         assert(p >= 0 && p <= 1.0);
