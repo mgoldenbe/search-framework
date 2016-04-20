@@ -3,7 +3,7 @@
 
 namespace Events {
 
-template <class Node = NODE> struct UniformChange : Base<Node> {
+template <class Node = SLB_NODE> struct UniformChange : Base<Node> {
     using State = typename Node::State;
     using StateSharedPtr = std::shared_ptr<const State>;
     using StateSet = std::vector<StateSharedPtr>;
@@ -36,7 +36,7 @@ protected:
     virtual void change(EdgeStyle &, const Arc &) const {};
 };
 
-template <class Node = NODE> struct VertexChange : UniformChange<Node> {
+template <class Node = SLB_NODE> struct VertexChange : UniformChange<Node> {
     using DirectBase = UniformChange<Node>;
     using StateSet = typename DirectBase::StateSet;
     using ArcSet = typename DirectBase::ArcSet;
@@ -50,7 +50,7 @@ protected:
     }
 };
 
-template <class Node = NODE> struct VertexEdgeChange : UniformChange<Node> {
+template <class Node = SLB_NODE> struct VertexEdgeChange : UniformChange<Node> {
     using DirectBase = UniformChange<Node>;
     using StateSet = typename DirectBase::StateSet;
     using ArcSet = typename DirectBase::ArcSet;
@@ -66,7 +66,7 @@ protected:
     }
 };
 
-template <class Node = NODE> struct PathChange : UniformChange<Node> {
+template <class Node = SLB_NODE> struct PathChange : UniformChange<Node> {
     using DirectBase = UniformChange<Node>;
     using StateSet = typename DirectBase::StateSet;
     using ArcSet = typename DirectBase::ArcSet;
@@ -82,7 +82,7 @@ protected:
     virtual StateSet path() const = 0;
 };
 
-template <class Node = NODE> struct SolutionPathChange : PathChange<Node> {
+template <class Node = SLB_NODE> struct SolutionPathChange : PathChange<Node> {
     using DirectBase = PathChange<Node>;
     using StateSet = typename DirectBase::StateSet;
     using PathChange<Node>::PathChange;
@@ -94,7 +94,7 @@ protected:
     };
 };
 
-template <class Node = NODE> struct VertexEmphasis : VertexChange<Node> {
+template <class Node = SLB_NODE> struct VertexEmphasis : VertexChange<Node> {
     using StateSharedPtr = typename Base<Node>::StateSharedPtr;
     using VertexChange<Node>::VertexChange;
 
@@ -109,7 +109,7 @@ private:
     virtual double width() const = 0;
 };
 
-template <class Node = NODE> struct VertexColor : VertexChange<Node> {
+template <class Node = SLB_NODE> struct VertexColor : VertexChange<Node> {
     using StateSharedPtr = typename Base<Node>::StateSharedPtr;
     using VertexChange<Node>::VertexChange;
 
@@ -122,7 +122,7 @@ protected:
     virtual Color color() const = 0;
 };
 
-template <class Node = NODE> struct VertexEdgeColor : VertexEdgeChange<Node> {
+template <class Node = SLB_NODE> struct VertexEdgeColor : VertexEdgeChange<Node> {
     using StateSharedPtr = typename UniformChange<Node>::StateSharedPtr;
     using Arc = typename UniformChange<Node>::Arc;
     using VertexEdgeChange<Node>::VertexEdgeChange;

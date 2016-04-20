@@ -1,8 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef NODE_2_STREAM
-#define NODE_2_STREAM
+#ifndef NODE_2_STREAM_H
+#define NODE_2_STREAM_H
 
 #include "ReflectStruct.h"
 

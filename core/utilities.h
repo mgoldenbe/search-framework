@@ -1,8 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef UTILITIES
-#define UTILITIES
+#ifndef UTILITIES_H
+#define UTILITIES_H
 
 #include <cassert>
 #include <cctype>

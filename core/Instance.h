@@ -100,7 +100,7 @@ std::vector<Instance<State>> makeInstances(int n) {
     return res;
 }
 
-template <class State = STATE>
+template <class State = SLB_STATE>
 std::vector<Instance<State>> makeInstancesFile(const std::string &fname) {
     using MyInstance = Instance<State>;
     Table t;

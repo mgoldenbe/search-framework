@@ -1,8 +1,8 @@
-#ifndef VISUAL_LOG
-#define VISUAL_LOG
+#ifndef VISUAL_LOG_H
+#define VISUAL_LOG_H
 
 
-template <class Node = NODE>
+template <class Node = SLB_NODE>
 struct VisualLog: CurrentStyles<typename Node::State> {
     using AlgorithmEvent = typename Events::Base<Node>::Event;
     using State = typename Node::State;

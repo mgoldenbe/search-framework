@@ -21,7 +21,7 @@ struct VisualizerData {
     using Graph = StateGraph<State>;
     using AlgorithmEvent = typename Events::Base<Node>::Event;
     using DrawerType = Drawer<Node, autoLayoutFlag>;
-    enum class VISUALIZER_STATE{PAUSE, GO};
+    enum class VISUALIZER_SLB_STATE{PAUSE, GO};
 
     VisualizerData(Graph &g, MyAlgorithmLog &log)
         : g_(g), log_(log, g), drawer_(g, log_), typist_(log_),
@@ -31,7 +31,7 @@ struct VisualizerData {
     MyVisualLog &log() { return log_; }
     DrawerType &drawer() { return drawer_; }
     Typist<Node> &typist() { return typist_; }
-    void state(VISUALIZER_STATE s) { s_ = s; }
+    void state(VISUALIZER_SLB_STATE s) { s_ = s; }
     void speed(int s) { speed_ = s; }
     Filter<Node> &filter() { return filter_; }
     Filter<Node> &searchFilter() { return searchFilter_; }
@@ -42,7 +42,7 @@ protected:
     DrawerType drawer_;
     Typist<Node> typist_;
 
-    VISUALIZER_STATE s_ = VISUALIZER_STATE::PAUSE;
+    VISUALIZER_SLB_STATE s_ = VISUALIZER_SLB_STATE::PAUSE;
     int speed_ = 2;
     Filter<Node> filter_;
     Filter<Node> searchFilter_;
@@ -149,7 +149,7 @@ struct MenuRun : MenuBase<AllMenus, Node, autoLayoutFlag> {
 
     virtual void handleEnter() {
         std::string choice = this->choice();
-        if (choice == "Go") this->data_.state(Data::VISUALIZER_STATE::GO);
+        if (choice == "Go") this->data_.state(Data::VISUALIZER_SLB_STATE::GO);
         if (choice == "Step Forward")
             this->data_.log().next(this->data_.drawer());
         if (choice == "Step Backward")
@@ -263,7 +263,7 @@ struct MenuGo : MenuBase<AllMenus, Node, autoLayoutFlag> {
     }
 
     virtual void handleEnter() {
-        this->data_.state(Data::VISUALIZER_STATE::PAUSE);
+        this->data_.state(Data::VISUALIZER_SLB_STATE::PAUSE);
         Base::handleEnter();
     }
 };

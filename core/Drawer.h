@@ -1,5 +1,5 @@
-#ifndef DRAWER
-#define DRAWER
+#ifndef DRAWER_H
+#define DRAWER_H
 
 // http://stackoverflow.com/a/33421942/2725810
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent

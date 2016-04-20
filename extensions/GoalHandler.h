@@ -16,7 +16,7 @@ struct NoGoalHandler {
     template <class Node> void logInit() {}
 };
 
-template <class State, class Logger = LOGGER>
+template <class State, class Logger = SLB_LOGGER>
 struct SingleGoalHandler {
     using MyInstance = Instance<State>;
     using CostType = typename State::CostType;

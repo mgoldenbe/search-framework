@@ -5,7 +5,7 @@
 
 namespace Events {
 
-template <class Node = NODE> struct MarkedStart : VertexEmphasis<Node> {
+template <class Node = SLB_NODE> struct MarkedStart : VertexEmphasis<Node> {
     using VertexEmphasis<Node>::VertexEmphasis;
 
 private:
@@ -14,7 +14,7 @@ private:
     std::string eventStr() const override { return "Marked Start"; }
 };
 
-template <class Node = NODE> struct MarkedGoal : VertexEmphasis<Node> {
+template <class Node = SLB_NODE> struct MarkedGoal : VertexEmphasis<Node> {
     using VertexEmphasis<Node>::VertexEmphasis;
 
 private:
@@ -23,7 +23,7 @@ private:
     std::string eventStr() const override { return "Marked Goal"; }
 };
 
-template <class Node = NODE> struct Generated : VertexEdgeColor<Node> {
+template <class Node = SLB_NODE> struct Generated : VertexEdgeColor<Node> {
     using VertexEdgeColor<Node>::VertexEdgeColor;
 
 private:
@@ -31,7 +31,7 @@ private:
     std::string eventStr() const override { return "Generated"; }
 };
 
-template <class Node = NODE> struct EnteredOpen : VertexEdgeColor<Node> {
+template <class Node = SLB_NODE> struct EnteredOpen : VertexEdgeColor<Node> {
     using VertexEdgeColor<Node>::VertexEdgeColor;
 
 private:
@@ -39,7 +39,7 @@ private:
     std::string eventStr() const override { return "Entered OPEN"; }
 };
 
-template <class Node = NODE> struct Selected : VertexColor<Node> {
+template <class Node = SLB_NODE> struct Selected : VertexColor<Node> {
     using VertexColor<Node>::VertexColor;
     static ::Color color_;
 
@@ -49,7 +49,7 @@ private:
 };
 template <class Node>::Color Selected<Node>::color_ = ::Color::VIVID_PURPLE;
 
-template <class Node = NODE> struct SuspendedExpansion : VertexColor<Node> {
+template <class Node = SLB_NODE> struct SuspendedExpansion : VertexColor<Node> {
     using VertexColor<Node>::VertexColor;
 
 private:
@@ -57,7 +57,7 @@ private:
     std::string eventStr() const override { return "Suspended Expansion"; }
 };
 
-template <class Node = NODE> struct ResumedExpansion : VertexColor<Node> {
+template <class Node = SLB_NODE> struct ResumedExpansion : VertexColor<Node> {
     using VertexColor<Node>::VertexColor;
 
 private:
@@ -65,7 +65,7 @@ private:
     std::string eventStr() const override { return "Resumed Expansion"; }
 };
 
-template <class Node = NODE> struct DeniedExpansion : VertexColor<Node> {
+template <class Node = SLB_NODE> struct DeniedExpansion : VertexColor<Node> {
     using VertexColor<Node>::VertexColor;
 
 private:
@@ -73,7 +73,7 @@ private:
     std::string eventStr() const override { return "Denied Expansion"; }
 };
 
-template <class Node = NODE> struct Closed : VertexEdgeColor<Node> {
+template <class Node = SLB_NODE> struct Closed : VertexEdgeColor<Node> {
     using VertexEdgeColor<Node>::VertexEdgeColor;
     static ::Color color_;
 
@@ -83,7 +83,7 @@ private:
 };
 template <class Node>::Color Closed<Node>::color_ = ::Color::WARM_BROWN;
 
-template <class Node = NODE> struct SolvedGoal : SolutionPathChange<Node> {
+template <class Node = SLB_NODE> struct SolvedGoal : SolutionPathChange<Node> {
     using StateSharedPtr = typename UniformChange<Node>::StateSharedPtr;
     using Arc = typename UniformChange<Node>::Arc;
     using Base<Node>::state_;
@@ -100,7 +100,7 @@ private:
     std::string eventStr() const override { return "Solved Goal"; }
 };
 
-template <class Node = NODE> struct DoneSolvedGoal : SolutionPathChange<Node> {
+template <class Node = SLB_NODE> struct DoneSolvedGoal : SolutionPathChange<Node> {
     using StateSharedPtr = typename UniformChange<Node>::StateSharedPtr;
     using Arc = typename UniformChange<Node>::Arc;
     using Base<Node>::state_;

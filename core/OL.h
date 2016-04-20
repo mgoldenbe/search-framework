@@ -51,13 +51,13 @@ struct GreaterPriority_SmallG {
     }
 };
 
-template <class Node_ = NODE,
-          template <class Node> class Priority_ = OL_PRIORITY_TYPE,
-          template <class Priority> class GreaterPriority_ = OL_PRIORITY,
+template <class Node_ = SLB_NODE,
+          template <class Node> class Priority_ = SLB_OL_PRIORITY_TYPE,
+          template <class Priority> class GreaterPriority_ = SLB_OL_PRIORITY,
           template <typename, typename, typename> class Container =
-              OL_CONTAINER>
+              SLB_OL_CONTAINER>
 struct OpenList {
-    using BucketPosition = int; // must be defined by all OL variants
+    using BucketPosition = int; // must be defined by all SLB_OL variants
     using Node = Node_;
     using Priority = Priority_<Node>;
     using GreaterPriority = GreaterPriority_<Priority>;

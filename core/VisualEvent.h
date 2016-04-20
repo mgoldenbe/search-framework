@@ -1,7 +1,7 @@
-#ifndef ASTAR_VISUAL_EVENT
-#define ASTAR_VISUAL_EVENT
+#ifndef VISUAL_EVENT_H
+#define VISUAL_EVENT_H
 
-template <class Node = NODE>
+template <class Node = SLB_NODE>
 struct VisualEvent {
     using State = typename Node::State;
     using Graph = StateGraph<State>;

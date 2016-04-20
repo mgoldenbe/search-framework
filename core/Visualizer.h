@@ -1,5 +1,5 @@
-#ifndef VISUALIZER
-#define VISUALIZER
+#ifndef VISUALIZER_H
+#define VISUALIZER_H
 
 // http://stackoverflow.com/a/33421942/2725810
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
@@ -24,7 +24,7 @@ struct Visualizer : VisualizerData<Node, autoLayoutFlag> {
     using AlgorithmEvent = typename Events::Base<Node>::Event;
     using MyVisualEvent = VisualEvent<Node>;
     using Data = VisualizerData<Node, autoLayoutFlag>;
-    using typename Data::VISUALIZER_STATE;
+    using typename Data::VISUALIZER_SLB_STATE;
     using Data::g_;
     using Data::log_;
     using Data::drawer_;
@@ -52,11 +52,11 @@ struct Visualizer : VisualizerData<Node, autoLayoutFlag> {
             if (!processEvents()) break;
             typist_.setStep(log_.step());
             typist_.show();
-            if (s_ == VISUALIZER_STATE::PAUSE) {
+            if (s_ == VISUALIZER_SLB_STATE::PAUSE) {
                 iteration = 0;
                 continue;
             }
-            if (s_ == VISUALIZER_STATE::GO)
+            if (s_ == VISUALIZER_SLB_STATE::GO)
                 if (++iteration % (1000 / this->speed_) == 0) {
                     log_.next(drawer_);
                     //drawFlag_ = true;

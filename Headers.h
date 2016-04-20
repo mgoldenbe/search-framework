@@ -34,7 +34,7 @@
 #include "Heuristic.h"
 #include "Astar.h"
 #include "PerGoal.h"
-#ifdef VISUALIZATION
+#ifdef SLB_VISUALIZATION
 #include "VisualEvent.h"
 #include "VisualLog.h"
 #include "Visualizer.h"

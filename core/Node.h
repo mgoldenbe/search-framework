@@ -9,9 +9,9 @@ using StateUniquePtrT = std::unique_ptr<const State>;
 template<typename State>
 using StateSharedPtrT = std::shared_ptr<const State>;
 
-template <typename State_ = STATE, class NodeData_ = NODE_DATA,
-          template <class> class StateSmartPtrT = STATE_SMART_PTR,
-          typename BucketPosition = BUCKET_POSITION_TYPE>
+template <typename State_ = SLB_STATE, class NodeData_ = SLB_NODE_DATA,
+          template <class> class StateSmartPtrT = SLB_STATE_SMART_PTR,
+          typename BucketPosition = SLB_BUCKET_POSITION_TYPE>
 struct AStarNode : public NodeData_ {
     using State = State_;
     using StateSmartPtr = StateSmartPtrT<State>;

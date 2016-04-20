@@ -1,8 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef MANAGED_NODE
-#define MANAGED_NODE
+#ifndef MANAGED_NODE_H
+#define MANAGED_NODE_H
 
 #include "Node2Stream.h"
 #include "NodesDiff.h"

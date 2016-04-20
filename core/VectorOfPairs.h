@@ -1,5 +1,5 @@
-#ifndef VECTOR_OF_PAIRS
-#define VECTOR_OF_PAIRS
+#ifndef VECTOR_OF_PAIRS_H
+#define VECTOR_OF_PAIRS_H
 
 #include <vector>
 

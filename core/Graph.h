@@ -20,9 +20,10 @@
 
 using namespace boost;
 
-template <class State, typename CostType> struct NoGraph {
+template <class State> struct NoGraph {
     using StateUniquePtr = std::unique_ptr<const State>;
     using StateSharedPtr = std::shared_ptr<const State>;
+    using CostType = typename State::CostType;
 
     void add(const StateUniquePtr &s) const {(void)s;}
     void add(const StateSharedPtr &s) const {(void)s;}

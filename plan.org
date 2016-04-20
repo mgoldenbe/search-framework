@@ -23,6 +23,12 @@
 - DONE Handling command-line arguments
   * Use http://stackoverflow.com/a/7712341/2725810
 - DONE Extensible event
+- Execution script
+  + Have all pre-processor symbols begin with SLB_
+  + Search for all symbols like this: make preprocessor CONFIG="projects/KGoal/ConfigMinHeuristic.h" | egrep -o "SLB_[A-Z|_]*" | sort | uniq
+  + Forming MD5SUM:
+    * It is impossible to run only the #includes to compute MD5SUM of only the configuration file (after including whatever configuration files it includes): gcc -E runs the whole pre-processing stage. So, can either compute MD5SUM of the entire thing or do some scripting, e.g.: https://raw.githubusercontent.com/vicaya/hypertable/e893460eaf628e2bf329ee6d30371751c5f82f5d/bin/gpp.pl
+    * Do I have a reason not to computer the sum based on the whole pre-processed code?
 - Organize the code in folders
 - Small things to be fixed:
   + Need event for cancellation of current parent. Otherwise, I get two parents shown for one node.

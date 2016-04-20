@@ -1,8 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef STATE_NEIGHBOR
-#define STATE_NEIGHBOR
+#ifndef STATE_NEIGHBOR_H
+#define STATE_NEIGHBOR_H
 
 template <typename State_, bool uniformFlag = true> struct StateNeighbor {
     using State = State_;

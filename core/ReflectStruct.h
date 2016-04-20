@@ -1,7 +1,7 @@
 ///@file
 ///@brief Source: http://stackoverflow.com/a/11744832/2725810
-#ifndef REFLECT_STRUCT
-#define REFLECT_STRUCT
+#ifndef REFLECT_STRUCT_H
+#define REFLECT_STRUCT_H
 
 #include <iostream>
 #include <boost/fusion/include/adapt_struct.hpp>

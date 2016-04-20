@@ -1,5 +1,5 @@
-#ifndef OCL_FILE
-#define OCL_FILE
+#ifndef OCL_H
+#define OCL_H
 
 #include <unordered_map>
 #include "utilities.h"
@@ -25,7 +25,7 @@ template <class OpenList> struct OCL {
         std::cout << "-----------------" << std::endl;
         std::cout << "Dumping OCL:" << std::endl;
         std::cout << "-----------------" << std::endl;
-        std::cout << "OL: " << ol.size() << " elements" << std::endl;
+        std::cout << "SLB_OL: " << ol.size() << " elements" << std::endl;
         ol.dump();
         std::cout << "-----------------" << std::endl;
         std::cout << "CL: " << hash.size() << " elements" << std::endl;

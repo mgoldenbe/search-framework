@@ -3,8 +3,8 @@
 
 // Per-Goal is a high-level algorithm that runs some other algorithm for each
 // goal and combined results
-template <class Algorithm = RAW_ALGORITHM, class Graph = GRAPH,
-          class Logger = LOGGER>
+template <class Algorithm = SLB_RAW_ALGORITHM, class Graph = SLB_GRAPH,
+          class Logger = SLB_LOGGER>
 struct PerGoal {
     using MyInstance = typename Algorithm::MyInstance;
     using CostType = typename Algorithm::CostType;

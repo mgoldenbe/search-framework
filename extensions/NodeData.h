@@ -18,7 +18,7 @@ struct NodeBase: ManagedNode<> {
 template <typename State>
 struct NoNodeData: ManagedNode<NodeBase<State>> {};
 
-template <typename State = STATE>
+template <typename State = SLB_STATE>
 struct MyNodeDataT : ManagedNode<NodeBase<State>> {
     MyNodeDataT() : responsibleGoal(0) {}
     REFLECTABLE((State)responsibleGoal) // the goal that was responsible for the

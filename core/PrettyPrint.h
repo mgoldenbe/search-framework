@@ -11,8 +11,8 @@
 // Usage:
 // Include this header, and operator<< will "just work".
 
-#ifndef H_PRETTY_PRINT
-#define H_PRETTY_PRINT
+#ifndef PRETTY_PRINT_H
+#define PRETTY_PRINT_H
 
 #include <cstddef>
 #include <iterator>

@@ -1,8 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef NODES_DIFF
-#define NODES_DIFF
+#ifndef NODES_DIFF_H
+#define NODES_DIFF_H
 
 #include "ReflectStruct.h"
 

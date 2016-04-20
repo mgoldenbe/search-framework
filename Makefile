@@ -3,10 +3,10 @@ INCLUDE=-isystem ~/boost_1_59_0 -isystem . -I /usr/include/cairomm-1.0/ -I /usr/
 
 GRAPHICS_LIB=-lcairo -lX11 -lXtst -lmenu -lncurses
 
-MAIN=core/Test.cpp
+MAIN=Test.cpp
 
 COMMON=g++ -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic $(INCLUDE) -DCONFIG='"$(CONFIG)"' -o Test $(MAIN)
-PREPROCESSOR=g++ -Wall -Wextra -Werror -fmax-errors=2 -std=c++11 -pedantic $(INCLUDE) -E $(MAIN)
+PREPROCESSOR=g++ -Wall -Wextra -Werror -fmax-errors=2 -std=c++11 -pedantic $(INCLUDE) -DCONFIG='"$(CONFIG)"' -E $(MAIN)
 
 BUILD_DEBUG=$(COMMON) -g -DNO_DRAWER
 BUILD_DEBUG_DRAWER=$(COMMON) -g -fno-default-inline -fno-inline $(GRAPHICS_LIB)

@@ -1,5 +1,5 @@
-#ifndef VISUALIZATION_UTILITIES
-#define VISUALIZATION_UTILITIES
+#ifndef VISUALIZATION_UTILITIES_H
+#define VISUALIZATION_UTILITIES_H
 
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
@@ -177,7 +177,7 @@ struct RGB {
 };
 
 enum class VertexShape {CIRCLE, SQUARE};
-enum class VertexFillPattern {SOLID};
+enum class VertexFillPattern {SSLB_OLID};
 
 enum class EdgeShape {CIRCLE, SQUARE};
 enum class EdgeDash {NONE};

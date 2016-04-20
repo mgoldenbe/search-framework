@@ -1,5 +1,5 @@
-#ifndef TYPIST
-#define TYPIST
+#ifndef TYPIST_H
+#define TYPIST_H
 
 #include <curses.h>
 #include <sstream>

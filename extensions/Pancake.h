@@ -96,7 +96,7 @@ bool operator==(const std::shared_ptr<const Pancake> &p1,
     return *p1 == *p2;
 }
 
-//------------------------- HEURISTICS ------------------//
+//------------------------- SLB_HEURISTICS ------------------//
 
 struct GapHeuristic {
     int operator()(const Pancake &s) const { return s.gapHeuristic(); }

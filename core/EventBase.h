@@ -3,7 +3,7 @@
 
 namespace Events {
 
-template <class Node = NODE> struct Base {
+template <class Node = SLB_NODE> struct Base {
     using State = typename Node::State;
     using StateSharedPtr = std::shared_ptr<const State>;
     using NodeData = typename Node::NodeData;

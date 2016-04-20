@@ -3,10 +3,10 @@
 
 // Discontinued the use of template template parameters.
 // http://stackoverflow.com/q/34130672/2725810
-template <class Open = OL,
-          template <class, class> class GoalHandler = GOAL_HANDLER,
-          class Heuristic = HEURISTIC, class Graph = GRAPH,
-          class AlgorithmLogger = LOGGER>
+template <class Open = SLB_OL,
+          template <class, class> class GoalHandler = SLB_GOAL_HANDLER,
+          class Heuristic = SLB_HEURISTIC, class Graph = SLB_GRAPH,
+          class AlgorithmLogger = SLB_LOGGER>
 struct Astar {
     using Node = typename Open::Node;
     using NodeData = typename Node::NodeData;
@@ -19,7 +19,7 @@ struct Astar {
     static_assert(
         std::is_same<typename Node::StateSmartPtr,
                      StateSharedPtrT<State>>::value ||
-            (std::is_same<Graph, NoGraph<State, CostType>>::value &&
+            (std::is_same<Graph, NoGraph<State>>::value &&
              std::is_same<AlgorithmLogger, Nothing>::value),
         "In Astar: if a graph and/or logger is "
         "used, then the node has to "
