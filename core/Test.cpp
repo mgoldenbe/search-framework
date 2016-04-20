@@ -1,8 +1,8 @@
 ///@file
 ///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
 
-//#include CONFIG
-#include "ConfigMinHeuristic.h"
+#include CONFIG
+//#include "ConfigMinHeuristic.h"
 //#include "ConfigPerGoal.h"
 //#include "ConfigUniformSearch.h"
 
