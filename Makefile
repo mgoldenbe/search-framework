@@ -1,5 +1,5 @@
 # -isystem disables warnings from there
-INCLUDE=-isystem ~/boost_1_59_0 -isystem . -I /usr/include/cairomm-1.0/ -I /usr/include/cairo/ -I /usr/include/sigc++-2.0/ -I /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/ -I /usr/include/freetype2/ -I core/ -I extensions/ 
+INCLUDE=-isystem ~/boost_1_59_0 -isystem core/util/outside/ -I /usr/include/cairomm-1.0/ -I /usr/include/cairo/ -I /usr/include/sigc++-2.0/ -I /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/ -I /usr/include/freetype2/ -I core/ -I extensions/ 
 
 GRAPHICS_LIB=-lcairo -lX11 -lXtst -lmenu -lncurses
 

@@ -1,8 +1,8 @@
 ///@file
 ///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
 
-#include CONFIG
-//#include "projects/KGoal/ConfigMinHeuristic.h"
+//#include CONFIG
+#include "projects/KGoal/ConfigMinHeuristic.h"
 //#include "ConfigPerGoal.h"
 //#include "ConfigUniformSearch.h"
 
@@ -12,7 +12,8 @@
 #define SLB_GRAPH NoGraph<SLB_STATE>
 #endif
 
-#include "Headers.h"
+#include "core/headers.h"
+#include "extensions/headers.h"
 
 SLB_GRAPH buildGraph() {
     SLB_GRAPH g;
