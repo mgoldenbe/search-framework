@@ -1,9 +1,6 @@
 #ifndef MENU_UTILITLIES_H
 #define MENU_UTILITLIES_H
 
-#include <curses.h>
-#include <menu.h>
-
 MENU *createMenu(WINDOW *w, std::vector<ITEM *> &items,
                  const std::vector<std::string> &choices,
                  const std::vector<std::string> &nonSelectable,

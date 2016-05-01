@@ -1,8 +1,6 @@
 #ifndef COLORS_H
 #define COLORS_H
 
-#include <vector>
-
 // The source of colors: http://xkcd.com/color/rgb/
 enum class Color {
     NOVAL,

@@ -1,13 +1,6 @@
 #ifndef UTIL_X11_H
 #define UTIL_X11_H
 
-#include <X11/Xlib.h>
-#include <X11/Xatom.h>
-#include <X11/Xutil.h>
-#include <cairo-xlib.h>
-#include <X11/XKBlib.h>
-#include <X11/extensions/XTest.h>
-
 //This function should give us a new x11 surface to draw on.
 cairo_surface_t *create_x11_surface(Display *d, Window &w, Window &root, int *x,
                                     int *y) {

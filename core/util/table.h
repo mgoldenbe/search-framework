@@ -1,8 +1,6 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include <iomanip>
-
 struct Row {
     Row(std::vector<int> &widths, const int &space)
         : widths_(widths), space_(space) {}

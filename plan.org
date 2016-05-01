@@ -21,18 +21,31 @@
 - DONE Working with instances (e.g. pathfinding) + stats output
 - DONE Configuration file
 - DONE Handling command-line arguments
-  * Use http://stackoverflow.com/a/7712341/2725810
 - DONE Extensible event
+- Organize the code
+  * DONE Make sure that all outside code without exceptions (including reflection, boost libraries needed for graph stuff, X11 and cairo libraries) are in outside_headers.h. That is, all of my code should be at the end of the prep-processor output.
+  * Make headers.h list only the root headers in alphabetic order, so dependencies are made explicit.
+- DONE Try pre-compiled headers (outside_headers.h)
+- Small things to be fixed:
+  + Need event for cancellation of current parent. Otherwise, I get two parents shown for one node.
+- Clean the interfaces
+  + Make sure that templates that really depend only on State do not have Node as template parameter.
+  + Delete automaticLayoutFlag template parameter throughout. Deduce the layout based on whether the State has a member function for computing the layout.
+  + Algorithms should not get graph as a parameter (not a template parameter either). The graph should be computer from the log. Events should be added in Astar to not miss edges.
+  + *Decision* with regards to free-standing functions instead of member functions (see comments in http://programmers.stackexchange.com/q/310330/216771): put it into the backlog.
+- Document the classes
 - Execution script
   + Have all pre-processor symbols begin with SLB_
   + Search for all symbols like this: make preprocessor CONFIG="projects/KGoal/ConfigMinHeuristic.h" | egrep -o "SLB_[A-Z|_]*" | sort | uniq
   + Forming MD5SUM:
     * It is impossible to run only the #includes to compute MD5SUM of only the configuration file (after including whatever configuration files it includes): gcc -E runs the whole pre-processing stage. So, can either compute MD5SUM of the entire thing or do some scripting, e.g.: https://raw.githubusercontent.com/vicaya/hypertable/e893460eaf628e2bf329ee6d30371751c5f82f5d/bin/gpp.pl
     * Do I have a reason not to computer the sum based on the whole pre-processed code?
-- Organize the code in folders
-- Small things to be fixed:
-  + Need event for cancellation of current parent. Otherwise, I get two parents shown for one node.
-- Clear and document interfaces
-  * *Decision* with regards to free-standing functions instead of member functions (see comments in http://programmers.stackexchange.com/q/310330/216771): put it into the backlog.
+- Make sure that all configuration options work (pancake, etc.)
+- Produce the documentation:
+  + The main page
+  + Running instructions
+  + Installation instructions
+  + The pdf documentation
+- Try clean installation (install on a fresh Ubuntu install in VirtualBox)
 - Produce videos of usage
 - Submit

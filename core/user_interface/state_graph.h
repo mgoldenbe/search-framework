@@ -1,16 +1,6 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include <boost/graph/graph_traits.hpp>
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/dijkstra_shortest_paths.hpp>
-#include <boost/graph/random_layout.hpp>
-#include <boost/graph/circle_layout.hpp>
-#include <boost/graph/kamada_kawai_spring_layout.hpp>
-#include <boost/graph/fruchterman_reingold.hpp>
-#include <boost/property_map/transform_value_property_map.hpp>
-//#include <boost/test/unit_test.hpp> // BOOST_CHECK
-
 using namespace boost;
 
 template <class State> struct NoGraph {

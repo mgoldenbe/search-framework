@@ -1,8 +1,6 @@
 #ifndef STATS_H
 #define STATS_H
 
-#include <chrono>
-
 struct Measure {
     Measure(const std::string &name) : name_(name) {}
     void operator++() { ++x_; }

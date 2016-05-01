@@ -5,7 +5,6 @@
 #define UTIL_HEADERS_H
 
 struct Nothing {}; // too bad this is not defined by the standard
-#include "outside_headers.h"
 
 #include "container.h"
 #include "hash.h"
@@ -21,7 +20,6 @@ struct Nothing {}; // too bad this is not defined by the standard
 #include "graphics/drawing.h"
 #include "graphics/x11.h"
 
-#include "reflection/reflect_struct.h"
 #include "reflection/struct_diff.h"
 #include "reflection/struct_2_stream.h"
 

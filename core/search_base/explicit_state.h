@@ -1,8 +1,6 @@
 #ifndef EXPLICIT_STATE_H
 #define EXPLICIT_STATE_H
 
-#include <boost/functional/hash.hpp>
-
 // The base class for a state in an explicit domain
 template<class ExplicitSpace>
 struct ExplicitState {

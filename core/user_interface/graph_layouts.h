@@ -1,3 +1,6 @@
+#ifndef GRAPH_LAYOUTS_H
+#define GRAPH_LAYOUTS_H
+
 template <typename Graph> struct kamada_kawai_done {
     using VertexDescriptor =
         typename boost::graph_traits<Graph>::vertex_descriptor;
@@ -151,3 +154,5 @@ StateGraph<State>::layout(bool kamadaKawaiFlag, bool fruchtermanReingoldFlag) {
 
     return pointMapRes;
 }
+
+#endif

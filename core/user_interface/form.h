@@ -1,10 +1,6 @@
 #ifndef FORM_H
 #define FORM_H
 
-#include <ncurses.h>
-#include <vector>
-#include <string>
-#include <X11/XKBlib.h>
 // Changing cursor:
 // http://stackoverflow.com/q/21102958/2725810
 

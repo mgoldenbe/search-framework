@@ -1,8 +1,6 @@
 #ifndef UTIL_GEOMETRY_H
 #define UTIL_GEOMETRY_H
 
-#include <cmath>
-
 namespace gu {
 
 struct Point {

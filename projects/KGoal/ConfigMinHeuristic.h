@@ -1,3 +1,6 @@
+#ifndef CONFIG_MIN_HEURISTIC_H
+#define CONFIG_MIN_HEURISTIC_H
+
 #define SLB_VISUALIZATION 50
 
 #define SLB_STATE GridMapState<>
@@ -28,3 +31,5 @@
 #define SLB_HEURISTIC MinHeuristicToGoals<SLB_STATE, OctileHeuristic>
 #define SLB_ALGORITHM Astar<>
 #define SLB_RAW_ALGORITHM SLB_ALGORITHM
+
+#endif

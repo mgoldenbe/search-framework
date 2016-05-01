@@ -1,8 +1,6 @@
 #ifndef FILTER_H
 #define FILTER_H
 
-#include <memory>
-
 template <class Node>
 struct FilterBase {
     using AlgorithmEvent = typename Events::Base<Node>::Event;
