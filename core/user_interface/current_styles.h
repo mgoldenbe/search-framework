@@ -1,6 +1,9 @@
 #ifndef CURRENT_STYLES_H
 #define CURRENT_STYLES_H
 
+#include "graph_layouts.h"
+#include "style.h"
+
 template <class State> struct CurrentStyles {
     using StateSharedPtr = std::shared_ptr<const State>;
     using Graph = StateGraph<State>;

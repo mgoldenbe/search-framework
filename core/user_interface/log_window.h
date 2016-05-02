@@ -1,6 +1,8 @@
 #ifndef TYPIST_H
 #define TYPIST_H
 
+#include "form.h"
+
 template <class Node> struct Typist {
     using MyVisualLog = VisualLog<Node>;
     //using MyAlgorithmLog = AlgorithmLog<Node>;

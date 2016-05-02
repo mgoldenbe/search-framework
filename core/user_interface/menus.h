@@ -1,6 +1,8 @@
 #ifndef VISUALIZER_MENUS_H
 #define VISUALIZER_MENUS_H
 
+#include "log_window.h"
+
 template <class Node, bool autoLayoutFlag>
 struct VisualizerData {
     using MyAlgorithmLog = AlgorithmLog<Node>;

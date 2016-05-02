@@ -1,6 +1,9 @@
 #ifndef VISUAL_EVENT_H
 #define VISUAL_EVENT_H
 
+#include "style.h"
+#include "event_base.h"
+
 template <class Node = SLB_NODE>
 struct VisualEvent {
     using State = typename Node::State;

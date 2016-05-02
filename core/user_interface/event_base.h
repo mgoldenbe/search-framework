@@ -1,6 +1,9 @@
 #ifndef EVENT_BASE_H
 #define EVENT_BASE_H
 
+#include "algorithm_log.h"
+#include "current_styles.h"
+
 namespace Events {
 
 template <class Node = SLB_NODE> struct Base {

@@ -22,9 +22,9 @@
 - DONE Configuration file
 - DONE Handling command-line arguments
 - DONE Extensible event
-- Organize the code
+- DONE Organize the code
   * DONE Make sure that all outside code without exceptions (including reflection, boost libraries needed for graph stuff, X11 and cairo libraries) are in outside_headers.h. That is, all of my code should be at the end of the prep-processor output.
-  * Make headers.h list only the root headers in alphabetic order, so dependencies are made explicit.
+  * DONE Make headers.h list only the root headers in alphabetic order, so dependencies are made explicit.
 - DONE Try pre-compiled headers (outside_headers.h)
 - Small things to be fixed:
   + Need event for cancellation of current parent. Otherwise, I get two parents shown for one node.

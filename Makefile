@@ -7,8 +7,9 @@ MAIN=test.cpp
 PRECOMPILED_HEADER=outside_headers.h
 
 # Look at -flto=n in case several translation units are identified
-COMMON_PREFIX=g++ -ftime-report -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic $(INCLUDE) -DCONFIG='"$(CONFIG)"'
-COMMON=$(COMMON_PREFIX) -H -o Test $(MAIN)
+COMMON_PREFIX=g++ -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic $(INCLUDE) -DCONFIG='"$(CONFIG)"'
+COMMON=$(COMMON_PREFIX) -o test $(MAIN)
+COMMON1=$(COMMON_PREFIX) -H -ftime-report -o test $(MAIN)
 COMMON_PRECOMPILE=$(COMMON_PREFIX) -o $(PRECOMPILED_HEADER).gch -c $(PRECOMPILED_HEADER)
 PREPROCESSOR=g++ -Wall -Wextra -Werror -fmax-errors=2 -std=c++11 -pedantic $(INCLUDE) -DCONFIG='"$(CONFIG)"' -E $(MAIN)
 
@@ -28,11 +29,11 @@ debug-drawer:
 
 production:
 	$(BUILD_PRODUCTION)
-	strip Test
+	strip test
 
 production-drawer:
 	$(BUILD_PRODUCTION_DRAWER)
-	strip Test
+	strip test
 
 preprocessor:
 	$(PREPROCESSOR)

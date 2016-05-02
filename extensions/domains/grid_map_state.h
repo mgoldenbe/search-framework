@@ -1,6 +1,8 @@
 #ifndef GRID_MAP_STATE_H
 #define GRID_MAP_STATE_H
 
+#include "../../core/search_base/explicit_state.h"
+
 template <typename CostType_ = SLB_COST_TYPE, bool uniformFlag = SLB_UNIFORM_DOMAIN>
 struct GridMapState: ExplicitState<GridMap<CostType_>> {
     using Base = ExplicitState<GridMap<CostType_>>;

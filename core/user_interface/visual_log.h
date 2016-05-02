@@ -1,6 +1,8 @@
 #ifndef VISUAL_LOG_H
 #define VISUAL_LOG_H
 
+#include "graphics_object.h"
+#include "visual_event.h"
 
 template <class Node = SLB_NODE>
 struct VisualLog: CurrentStyles<typename Node::State> {

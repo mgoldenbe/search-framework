@@ -1,13 +1,7 @@
 ///@file
 ///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
 
-// This header needs to be here for pre-compilation to work
-// Pre-compilation helps little at this point (25% compile-time reduction):
-//     http://stackoverflow.com/q/13309228/2725810
-// Things to try in the future:
-//     -- http://stackoverflow.com/q/10959009/2725810
-//     -- identifying several translation units
-//        and compiling in parallel with make -j
+// Can be pre-compiled (~25% compile-time reduction)
 #include "outside_headers.h"
 
 //#include CONFIG

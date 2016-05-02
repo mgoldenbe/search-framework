@@ -4,6 +4,8 @@
 #ifndef NODE_KINDS_H
 #define NODE_KINDS_H
 
+#include "../../core/search_base/managed_node.h"
+
 template <typename State_>
 struct NodeBase: ManagedNode<> {
     using State = State_;

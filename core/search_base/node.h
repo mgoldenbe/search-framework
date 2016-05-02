@@ -4,6 +4,8 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include "../../extensions/nodes/headers.h" // so SLB_NODE_DATA is defined
+
 template<typename State>
 using StateUniquePtrT = std::unique_ptr<const State>;
 template<typename State>

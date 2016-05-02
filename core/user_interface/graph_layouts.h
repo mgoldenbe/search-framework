@@ -1,6 +1,8 @@
 #ifndef GRAPH_LAYOUTS_H
 #define GRAPH_LAYOUTS_H
 
+#include "state_graph.h"
+
 template <typename Graph> struct kamada_kawai_done {
     using VertexDescriptor =
         typename boost::graph_traits<Graph>::vertex_descriptor;

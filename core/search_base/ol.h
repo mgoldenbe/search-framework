@@ -5,6 +5,8 @@
    -- faster update by using hints
 */
 
+#include "node.h"
+
 template <typename Key, typename T, class Compare = std::less<Key>>
 using OLMap =
     std::map<Key, T, Compare, std::allocator<std::pair<const Key, T>>>;
