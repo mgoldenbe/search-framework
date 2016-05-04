@@ -18,6 +18,12 @@
 #include "core/headers.h"
 #include "extensions/headers.h"
 
+/**
+ * @brief Builds the domain graph
+ *
+ *
+ * @return The domain graph
+ */
 SLB_GRAPH buildGraph() {
     SLB_GRAPH g;
 #ifndef SLB_VISUALIZATION

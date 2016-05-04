@@ -8,7 +8,7 @@ template <class Node = SLB_NODE> struct MarkedStart : VertexEmphasis<Node> {
 
 private:
     virtual ::Color color() const override { return ::Color::VIVID_GREEN; }
-    virtual double width() const override { return 0.5; }
+    virtual double size() const override { return 0.5; }
     std::string eventStr() const override { return "Marked Start"; }
 };
 
@@ -17,7 +17,7 @@ template <class Node = SLB_NODE> struct MarkedGoal : VertexEmphasis<Node> {
 
 private:
     virtual ::Color color() const override { return ::Color::DEEP_BLUE; }
-    virtual double width() const override { return 0.5; }
+    virtual double size() const override { return 0.5; }
     std::string eventStr() const override { return "Marked Goal"; }
 };
 

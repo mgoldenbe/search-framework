@@ -103,11 +103,11 @@ protected:
     virtual void change(VertexStyle &style,
                         const StateSharedPtr &) const override {
         style.emphasisColor = color();
-        style.emphasisWidthFactor = width();
+        style.emphasisSizeFactor = size();
     };
 private:
     virtual Color color() const = 0;
-    virtual double width() const = 0;
+    virtual double size() const = 0;
 };
 
 template <class Node = SLB_NODE> struct VertexColor : VertexChange<Node> {

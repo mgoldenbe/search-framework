@@ -133,17 +133,16 @@ private:
         Color ec = style.emphasisColor;
         if (ec == Color::NOVAL) return;
         cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
-        cairo_set_line_width(cr,
-                             style.emphasisWidthFactor * VertexStyle::sizeBase);
         switch(style.shape) {
         case VertexShape::CIRCLE:
             cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1],
-                      style.sizeFactor * (1.0 - style.emphasisWidthFactor) *
+                      style.sizeFactor * (1.0 - style.emphasisSizeFactor) *
                           VertexStyle::sizeBase,
                       0, 2 * M_PI);
             break;
         default: assert(0);
         }
+	cairo_fill(cr);
         cairo_stroke(cr);
     }
 
