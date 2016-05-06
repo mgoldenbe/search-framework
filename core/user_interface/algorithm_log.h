@@ -1,6 +1,10 @@
 #ifndef ALGORITHM_LOGGER_H
 #define ALGORITHM_LOGGER_H
 
+/// \file algorithm_log.h
+/// \brief The \ref AlgorithmLog class.
+/// \author Meir Goldenberg
+
 namespace Events {
 template <class Node> struct Base;
 }

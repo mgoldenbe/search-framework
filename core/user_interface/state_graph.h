@@ -1,15 +1,9 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-/**
- * @file   state_graph.h
- * @author Meir Goldenberg
- * @date   Wed May  4 20:20:48 2016
- *
- * @brief  Defines the class for storing the state space graph.
- *
- *
- */
+/// \file state_graph.h
+/// \brief The state space graph used for visualization.
+/// \author Meir Goldenberg
 
 using namespace boost;
 
@@ -76,7 +70,7 @@ struct StateGraph {
     using LayoutPointMap =
         std::map<LayoutVertexDescriptor, Point>;
 
-    /// Computes the iterator range that can be used to range-loop on the
+    /// Returns the iterator range that can be used to range-loop on the
     /// vertices.
     /// \return The iterator range.
     auto vertexRange() const -> decltype(make_iterator_range(
@@ -84,7 +78,7 @@ struct StateGraph {
         return make_iterator_range(vertices(g_));
     }
 
-    /// Computes the iterator range that can be used to range-loop on the
+    /// Returns the iterator range that can be used to range-loop on the
     /// edges.
     /// \return The iterator range.
     auto edgeRange() const -> decltype(make_iterator_range(
@@ -92,7 +86,7 @@ struct StateGraph {
         return make_iterator_range(edges(g_));
     }
 
-    /// Computes edge based on two vertex descriptors.
+    /// Returns edge based on two vertex descriptors.
     /// \param from The source vertex
     /// \param to The target vertex
     /// \return The edge descriptor.
@@ -102,17 +96,17 @@ struct StateGraph {
         return res.first;
     }
 
-    /// Computes the source vertex of the given edge.
+    /// Returns the source vertex of the given edge.
     /// \param ed The edge.
     /// \return The source vertex descriptor.
     VertexDescriptor from(EdgeDescriptor ed) const { return source(ed, g_); }
 
-    /// Computes the target vertex of the given edge.
+    /// Returns the target vertex of the given edge.
     /// \param ed The edge descriptor.
     /// \return The target vertex descriptor.
     VertexDescriptor to(EdgeDescriptor ed) const { return target(ed, g_); }
 
-    /// Computes state corresponding to the given vertex.
+    /// Returns state corresponding to the given vertex.
     /// \param vd The vertex descriptor.
     /// \return Shared pointer to the corresponding state. If \c vd is invalid,
     /// \c nullptr is returned.
@@ -121,7 +115,7 @@ struct StateGraph {
         return g_[vd];
     }
 
-    /// Computes the vertex corresponding to the given state.
+    /// Returns the vertex corresponding to the given state.
     /// \param s Shared pointer to state.
     /// \return The vertex descriptor.
     /// \pre The vertex corresponding to \c s must exist.
@@ -131,7 +125,7 @@ struct StateGraph {
         return it->second;
     }
 
-    /// Computes the edge between the given states.
+    /// Returns the edge between the given states.
     /// \param from Shared pointer to the source state.
     /// \param to Shared pointer to the target state.
     /// \return The edge descriptor.
@@ -202,17 +196,34 @@ struct StateGraph {
     PointMap layout(bool kamadaKawaiFlag = true,
                     bool fruchtermanReingoldFlag = true);
 private:
+    /// The boost graph representation.
     Graph g_;
+
+    /// State-to-vertex mapping.
     std::unordered_map<StateSharedPtr, VertexDescriptor,
                        StateSharedPtrHash<State>> stov_;
 
+    /// Mapping to vertices of the layout graph.
     std::map<VertexDescriptor, LayoutVertexDescriptor> graphToLayout_;
+
+    /// Mapping from vertices of the layout graph.
     std::map<LayoutVertexDescriptor, VertexDescriptor> layoutToGraph_;
+
+    /// The graph representation used for computing the layout.
     LayoutGraph lg_;
+
+    /// The initial layout before applying advanced algorithms.
     LayoutPointMap baseLayout_;
 
+    /// Initializes the \c lg_ from \c g_
     void initLayoutGraph();
+
+    /// Initializes the base layout
+    /// \param circularFlag If \c true, circlular layout is used. Otherwise,
+    /// random layout is used.
     void initBaseLayout(bool circularFlag = true);
+
+    /// Randomly permutes positions of vertices in \c baseLayout_.
     void randomizeBaseLayout();
 };
 

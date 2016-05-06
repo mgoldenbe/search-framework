@@ -1,43 +1,14 @@
 #ifndef GRAPH_LAYOUTS_H
 #define GRAPH_LAYOUTS_H
 
+/// \file graph_layouts.h
+/// \brief Implementation of layout computation methods of the \ref StateGraph
+/// class.
+/// \author Meir Goldenberg
+
 #include "state_graph.h"
-
-template <typename Graph> struct kamada_kawai_done {
-    using VertexDescriptor =
-        typename boost::graph_traits<Graph>::vertex_descriptor;
-
-    kamada_kawai_done() : last_delta() {}
-
-    bool operator()(double delta_p, VertexDescriptor vd, const Graph & /*g*/,
-                    bool global) {
-        if (global) { // delta_p is the maximal energy in the system
-            double diff = last_delta - delta_p;
-            if (diff < 0) diff = -diff;
-            std::cout << "global=true;  delta_p: " << delta_p << std::endl;
-            last_delta = delta_p;
-            return diff < 0.01;
-        } else { // delta_p is the energy of the vertex being moved
-
-            std::cout << "global=false;  vd: " << vd
-                      << "   delta_p: " << delta_p << std::endl;
-            /*
-            // Catch when it diverges by fluctuating
-            auto &myHistory = history[vd];
-            for (auto last_venergy : myHistory)
-                if (fabs(delta_p - last_venergy) < 0.01) return true;
-            myHistory.push_back(delta_p);
-            */
-            return delta_p < 0.01;
-        }
-    }
-
-    double last_delta;
-    std::map<VertexDescriptor, std::vector<double>> history;
-};
-
-template <class MyMap>
-void dumpLayout(MyMap layout) {
+    template <class MyMap>
+    void dumpLayout(MyMap layout) {
     for (auto &el : layout)
         std::cout << (el.second)[0] << " " << (el.second)[1] << std::endl;
 }
@@ -53,28 +24,27 @@ void StateGraph<State>::initLayoutGraph() {
         graphToLayout_[vd] = lvd;
         layoutToGraph_[lvd] = vd;
     }
-    /* // The case for succeeding Kamada-Kawai with circle layout for 3-pancake
-    for (auto lfrom: make_iterator_range(vertices(lg)))
-        for (auto lto: make_iterator_range(vertices(lg))) {
-            if (lg[lfrom] == 0 && lg[lto] == 1) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 0 && lg[lto] == 2) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 1 && lg[lto] == 4) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 2 && lg[lto] == 3) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 3 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 4 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
-        }
-    */
-    /* // The case for failing Kamada-Kawai with circle layout for 3-pancake
-    for (auto lfrom: make_iterator_range(vertices(lg)))
-        for (auto lto: make_iterator_range(vertices(lg))) {
-            if (lg[lfrom] == 0 && lg[lto] == 1) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 0 && lg[lto] == 2) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 1 && lg[lto] == 3) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 2 && lg[lto] == 4) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 3 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
-            if (lg[lfrom] == 4 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
-        }
-    */
+
+    // // The case for succeeding Kamada-Kawai with circle layout for 3-pancake
+    // for (auto lfrom: make_iterator_range(vertices(lg)))
+    //     for (auto lto: make_iterator_range(vertices(lg))) {
+    //         if (lg[lfrom] == 0 && lg[lto] == 1) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 0 && lg[lto] == 2) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 1 && lg[lto] == 4) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 2 && lg[lto] == 3) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 3 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 4 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
+    //     }
+    // // The case for failing Kamada-Kawai with circle layout for 3-pancake
+    // for (auto lfrom: make_iterator_range(vertices(lg)))
+    //     for (auto lto: make_iterator_range(vertices(lg))) {
+    //         if (lg[lfrom] == 0 && lg[lto] == 1) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 0 && lg[lto] == 2) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 1 && lg[lto] == 3) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 2 && lg[lto] == 4) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 3 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
+    //         if (lg[lfrom] == 4 && lg[lto] == 5) add_edge(lfrom, lto, 1, lg);
+    //     }
 
     for (auto from : vertexRange()) {
         for (auto to : adjacentVertexRange(from)) {
@@ -156,5 +126,41 @@ StateGraph<State>::layout(bool kamadaKawaiFlag, bool fruchtermanReingoldFlag) {
 
     return pointMapRes;
 }
+
+// // Custom stopping condition for Kamada-Kawai algorithm.
+// // Sometimes the algorithm with this condition diverges.
+// // Not sure where I got this code.
+// template <typename Graph> struct kamada_kawai_done {
+//     using VertexDescriptor =
+//         typename boost::graph_traits<Graph>::vertex_descriptor;
+
+//     kamada_kawai_done() : last_delta() {}
+
+//     bool operator()(double delta_p, VertexDescriptor vd, const Graph & /*g*/,
+//                     bool global) {
+//         if (global) { // delta_p is the maximal energy in the system
+//             double diff = last_delta - delta_p;
+//             if (diff < 0) diff = -diff;
+//             std::cout << "global=true;  delta_p: " << delta_p << std::endl;
+//             last_delta = delta_p;
+//             return diff < 0.01;
+//         } else { // delta_p is the energy of the vertex being moved
+
+//             std::cout << "global=false;  vd: " << vd
+//                       << "   delta_p: " << delta_p << std::endl;
+//             /*
+//             // Catch when it diverges by fluctuating
+//             auto &myHistory = history[vd];
+//             for (auto last_venergy : myHistory)
+//                 if (fabs(delta_p - last_venergy) < 0.01) return true;
+//             myHistory.push_back(delta_p);
+//             */
+//             return delta_p < 0.01;
+//         }
+//     }
+
+//     double last_delta;
+//     std::map<VertexDescriptor, std::vector<double>> history;
+// };
 
 #endif

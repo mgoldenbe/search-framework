@@ -1,6 +1,10 @@
 #ifndef VISUALIZER_H
 #define VISUALIZER_H
 
+/// \file visualizer.h
+/// \brief The main UI file. Implements the visualizer.
+/// \author Meir Goldenberg
+
 #include "drawer.h"
 #include "filters.h"
 #include "menus.h"

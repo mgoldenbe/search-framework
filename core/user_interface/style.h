@@ -1,16 +1,9 @@
 #ifndef STYLE_H
 #define STYLE_H
 
-/**
- * @file   style.h
- * @author Meir Goldenberg
- * @date   Wed May  4 20:02:06 2016
- *
- * @brief  Types for styles of visual representation of vertices and edges.
- *
- *
- */
-
+/// \file style.h
+/// \brief Types for styles of visual representation of vertices and edges.
+/// \author Meir Goldenberg
 
 /// Enumeration of possible shapes for visualizing a vertex.
 enum class VertexShape {CIRCLE};
