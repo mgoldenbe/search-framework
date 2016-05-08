@@ -44,12 +44,10 @@ struct EdgeStyle {
     double widthFactor = 1.0; ///< Width of the edge (in widthBase units).
     bool arrow = false; ///< Whether the directed edge has an arrow to show the
                         ///edge's direction.
-    int depth = 0;      ///< An edge with depth == 0 is drawn in foreground.
 
     /// Color of an edge before an algorithm does something with it.
     static constexpr Color defaultColor = Color::BROWN_GREY;
     static double widthBase;  ///< Width corresponding to widthFactor == 1.0.
-    static constexpr int maxDepth = 2; ///< Maximal depth
 };
 double EdgeStyle::widthBase = 5.0;
 

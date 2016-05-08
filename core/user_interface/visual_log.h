@@ -185,23 +185,16 @@ private:
         for (auto &vertexChange: e.vertexChanges())
             vertexStyles_[vertexChange.vd] = vertexChange.now;
 
-        for (auto &edgeChange : e.edgeChanges()) {
+        for (auto &edgeChange : e.edgeChanges())
             edgeStyles_[edgeChange.ed] = edgeChange.now;
-            edgeStyles_[edgeChange.ed].depth = 2;
-        }
-        if (step_ > 0)
-            for (auto &edgeChange : events_[step_ - 1].edgeChanges())
-                edgeStyles_[edgeChange.ed].depth = 1;
     }
 
     void unApplyEvent(const MyVisualEvent &e) {
         for (auto &vertexChange: e.vertexChanges())
             vertexStyles_[vertexChange.vd] = vertexChange.before;
 
-        for (auto &edgeChange : e.edgeChanges()) {
+        for (auto &edgeChange : e.edgeChanges())
             edgeStyles_[edgeChange.ed] = edgeChange.before;
-            edgeStyles_[edgeChange.ed].depth = edgeChange.before.depth;
-        }
     }
 
     void log(const MyVisualEvent &e) {

@@ -52,12 +52,13 @@ struct Drawer {
         cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
         for (auto vd : g_.vertexRange())
             drawVertex(vd, log_.vertexStyle(vd));
-        for (int depth = 0; depth <= EdgeStyle::maxDepth; ++depth) {
+        // Draws edges with default color first, so they are in the background
+        for (int depth = 0; depth <= 1; ++depth) {
             for (auto from : g_.vertexRange()) {
                 for (auto to : g_.adjacentVertexRange(from)) {
                     auto ed = g_.edge(from, to);
                     auto style = log_.edgeStyle(ed);
-                    if (style.depth == depth)
+                    if ((style.color != EdgeStyle::defaultColor) == depth)
                         drawEdge(from, to, log_.edgeStyle(ed));
                 }
             }

@@ -34,6 +34,7 @@ struct VisualEvent {
                           // myEvent->visualChanges
             log.stepBackward();
         auto changes = myEvent->visualChanges(log.currentStyles());
+        if (hideLastFlag) log.stepForward(); // restored
         for (auto vc: changes.vChanges)
             vertexChanges_.push_back(
                 hideLastFlag ? VertexChange{g.vertex(vc.s), vc.before, vc.now}
@@ -43,7 +44,27 @@ struct VisualEvent {
                 hideLastFlag
                     ? EdgeChange{g.edge(ac.from, ac.to), ac.before, ac.now}
                     : EdgeChange{g.edge(ac.from, ac.to), ac.now, ac.before});
-        if (hideLastFlag) log.stepForward(); // restored
+
+        // We don't have a way to draw two arcs in opposite directions, so each
+        // each event needs to affect both directions. One example when this is
+        // needed is the Events::NotGenerated event generated in Astar
+        int sizeNow = edgeChanges_.size();
+        for (int i = 0; i != sizeNow; i++) {
+            auto ec = edgeChanges_[i];
+            ec.ed = g.inverse(ec.ed);
+            edgeChanges_.push_back(ec);
+        }
+
+        /*
+        // dumping all changes
+        std::cerr << "Step " << log.step() << std::endl;
+        for (const auto &ec : edgeChanges_)
+            std::cerr << *(g.state(g.from(ec.ed))) << "->"
+                      << *(g.state(g.to(ec.ed)))
+                      << "    before: " << static_cast<int>(ec.before.color)
+                      << "  now: " << static_cast<int>(ec.now.color)
+                      << std::endl;
+        */
     }
 
     // Returns style now and style before

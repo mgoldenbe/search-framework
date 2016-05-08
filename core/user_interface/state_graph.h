@@ -106,6 +106,13 @@ struct StateGraph {
     /// \return The target vertex descriptor.
     VertexDescriptor to(EdgeDescriptor ed) const { return target(ed, g_); }
 
+    /// Returns the inverse of the given edge.
+    /// \param ed The edge descriptor.
+    /// \return The inverse edge descriptor.
+    EdgeDescriptor inverse(EdgeDescriptor ed) const {
+        return edge(to(ed), from(ed));
+    }
+
     /// Returns state corresponding to the given vertex.
     /// \param vd The vertex descriptor.
     /// \return Shared pointer to the corresponding state. If \c vd is invalid,
