@@ -7,28 +7,6 @@
 
 using namespace boost;
 
-template <class State> struct NoGraph {
-    using StateUniquePtr = std::unique_ptr<const State>;
-    using StateSharedPtr = std::shared_ptr<const State>;
-    using CostType = typename State::CostType;
-
-    void add(const StateUniquePtr &s) const {(void)s;}
-    void add(const StateSharedPtr &s) const {(void)s;}
-
-    void add(const StateUniquePtr &parent, const StateUniquePtr &n, CostType cost) const {
-        (void)parent;
-        (void)n;
-        (void)cost;
-    }
-    void add(const StateSharedPtr &parent, const StateSharedPtr &n, CostType cost) const {
-        (void)parent;
-        (void)n;
-        (void)cost;
-    }
-
-    void dump() { std::cout << "NoGraph!" << std::endl; }
-};
-
 /// The state space graph used for visualization.
 /// \tparam State The state type.
 template <class State>
