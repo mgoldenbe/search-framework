@@ -6,6 +6,11 @@
 
 namespace Events {
 
+enum class EventType {
+    NORMAL,
+    HIDE_LAST_EVENT
+};
+
 template <class Node = SLB_NODE> struct Base {
     using State = typename Node::State;
     using StateSharedPtr = std::shared_ptr<const State>;
@@ -16,12 +21,14 @@ template <class Node = SLB_NODE> struct Base {
         using StateSharedPtr = std::shared_ptr<const State>;
         StateSharedPtr s;
         VertexStyle now;
+        VertexStyle before;
     };
 
     struct ArcChange {
         using StateSharedPtr = std::shared_ptr<const State>;
         StateSharedPtr from, to;
         EdgeStyle now;
+        EdgeStyle before;
     };
 
     struct VisualChanges {
@@ -31,9 +38,13 @@ template <class Node = SLB_NODE> struct Base {
 
     ///@name Construction and Assignment
     //@{
-    Base(const AlgorithmLog<Node> &logger, const Node *n)
+    Base(const AlgorithmLog<Node> &logger, const Node *n,
+         const Node *parentSubstitution = nullptr)
         : logger_(logger), state_(n->shareState()),
-          parent_(n->shareParentState()), nodeData_(*n), step_(logger.size()),
+          parent_(n->shareParentState()),
+          parentSubstitution_(
+              parentSubstitution ? parentSubstitution->shareState() : nullptr),
+          nodeData_(*n), step_(logger.size()),
           previousEvent_(logger.getLastEvent(state_, false)) {}
     //@}
 
@@ -48,6 +59,7 @@ template <class Node = SLB_NODE> struct Base {
     const StateSharedPtr &parent() const { return parent_; }
     const NodeData &nodeData() const { return nodeData_; }
     virtual std::string eventStr() const = 0;
+    virtual EventType eventType() const { return EventType::NORMAL; }
 
     std::vector<StateSharedPtr> path(const StateSharedPtr &state) const {
         std::vector<StateSharedPtr> res;
@@ -76,6 +88,15 @@ template <class Node = SLB_NODE> struct Base {
         o << std::setw(12) << nodeData_;
         return o;
     }
+
+    /// Dumps to stderr
+    void dump() const {
+        std::cerr << step_ << " " << eventStr() << "    State: " << str(*state_)
+                  << "   Parent: " << (parent_ ? str(*parent_) : "none")
+                  << "   Subst.: "
+                  << (parentSubstitution_ ? str(*parentSubstitution_) : "none")
+                  << std::endl;
+    }
     //@}
 
     template <class Stream> // can be Table
@@ -89,6 +110,10 @@ protected:
     const AlgorithmLog<Node> &logger_;
     StateSharedPtr state_;
     StateSharedPtr parent_;
+    StateSharedPtr parentSubstitution_; ///> Sometimes not the real parent, but
+                                        ///another state needs to be used in
+                                        ///visualization, e.g. when a duplicate
+                                        ///path is detected.
     NodeData nodeData_;
     int step_;
     Event previousEvent_; // last event with the same state

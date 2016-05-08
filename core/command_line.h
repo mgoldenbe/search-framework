@@ -18,6 +18,8 @@ struct CommandLine {
 
     int nInstances() { return nInstances_.getValue(); }
 
+    int visualizeInstance() { return visualize_.getValue(); }
+
     int nStarts(char mode) {
         if (nStarts_.isSet()) return nStarts_.getValue();
         return (mode == 'w' ? 1 : INT_MAX);
@@ -40,6 +42,7 @@ private:
     TCLAP::ValueArg<std::string> instancesFileName_;
     TCLAP::ValueArg<std::string> spaceInitFileName_;
     TCLAP::ValueArg<int> nInstances_;
+    TCLAP::ValueArg<int> visualize_;
     TCLAP::ValueArg<int> nStarts_, nGoals_;
     TCLAP::SwitchArg perInstance_;
     TCLAP::SwitchArg hideTitle_;
@@ -54,6 +57,8 @@ private:
                              "File to initialize an explicit space", false, "",
                              "string", cmd_),
           nInstances_("n", "nInstances", "Number of instances to create", false,
+                      -1, "int", cmd_),
+          visualize_("v", "visualize", "Instance to visualize", false,
                       -1, "int", cmd_),
           nStarts_("", "nStarts", "Number of start states in an instance",
                    false, -1, "int", cmd_),

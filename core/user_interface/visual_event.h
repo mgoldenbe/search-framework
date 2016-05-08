@@ -26,17 +26,24 @@ struct VisualEvent {
     template <typename VisualLog>
     VisualEvent(const Graph &g, const Event &e, VisualLog &log)
         : g_(g) {
-        auto changes = e->visualChanges(log.currentStyles());
-        for (auto vc: changes.vChanges) {
-            auto before = log.currentStyles().get(vc.s);
+        bool hideLastFlag =
+            (e->eventType() == Events::EventType::HIDE_LAST_EVENT);
+        const Event &myEvent = (hideLastFlag ? e->previousEvent() : e);
+
+        if (hideLastFlag) // to pass correct current styles to
+                          // myEvent->visualChanges
+            log.stepBackward();
+        auto changes = myEvent->visualChanges(log.currentStyles());
+        for (auto vc: changes.vChanges)
             vertexChanges_.push_back(
-                VertexChange{g.vertex(vc.s), vc.now, before});
-        }
-        for (auto ac: changes.aChanges) {
-            auto before = log.currentStyles().get(ac.from, ac.to);
+                hideLastFlag ? VertexChange{g.vertex(vc.s), vc.before, vc.now}
+                             : VertexChange{g.vertex(vc.s), vc.now, vc.before});
+        for (auto ac : changes.aChanges)
             edgeChanges_.push_back(
-                EdgeChange{g.edge(ac.from, ac.to), ac.now, before});
-        }
+                hideLastFlag
+                    ? EdgeChange{g.edge(ac.from, ac.to), ac.before, ac.now}
+                    : EdgeChange{g.edge(ac.from, ac.to), ac.now, ac.before});
+        if (hideLastFlag) log.stepForward(); // restored
     }
 
     // Returns style now and style before

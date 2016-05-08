@@ -143,6 +143,22 @@ struct VisualLog: CurrentStyles<typename Node::State> {
         if (!inFilter(step_)) prev(drawer);
     }
 
+    bool stepForward() {
+        if (step_ >= events_.size()) return false;
+        auto e = events_[step_];
+        applyEvent(e);
+        step_++;
+        return true;
+    }
+
+    bool stepBackward() {
+        if (step_ <= 0) return false;
+        auto e = events_[step_ - 1];
+        unApplyEvent(e);
+        step_--;
+        return true;
+    }
+
 private:
     const AlgorithmLog<Node> &log_;
 
@@ -152,19 +168,15 @@ private:
     std::vector<int> stepToFiltered_; // -1 if not in filtered
 
     template <class Drawer> bool stepForward(Drawer &drawer) {
-        if (step_ >= events_.size()) return false;
-        auto e = events_[step_];
-        applyEvent(e);
-        step_++;
+        if (!stepForward()) return false;
+        auto e = events_[step_ - 1];
         e.draw(drawer);
         return true;
     }
 
     template <class Drawer> bool stepBackward(Drawer &drawer) {
-        if (step_ <= 0) return false;
-        auto e = events_[step_ - 1];
-        unApplyEvent(e);
-        step_--;
+        if (!stepBackward()) return false;
+        auto e = events_[step_];
         e.draw(drawer, true);
         return true;
     }

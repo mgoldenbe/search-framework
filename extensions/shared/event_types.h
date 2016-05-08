@@ -3,6 +3,11 @@
 
 namespace Events {
 
+/// No visual change. Used only for eventStr() and for the message enum;
+template <class Node = SLB_NODE> struct NoChange : Base<Node> {
+    using Events::Base<Node>::Base;
+};
+
 template <class Node = SLB_NODE> struct UniformChange : Base<Node> {
     using State = typename Node::State;
     using StateSharedPtr = std::shared_ptr<const State>;
@@ -19,14 +24,16 @@ template <class Node = SLB_NODE> struct UniformChange : Base<Node> {
         ArcSet arcs;
         sets(states, arcs);
         for (auto &s : states) {
-            VertexStyle style = styles.get(s);
-            change(style, s);
-            res.vChanges.push_back({s, style});
+            VertexStyle before = styles.get(s);
+            VertexStyle now = before;
+            change(now, s);
+            res.vChanges.push_back({s, now, before});
         }
         for (auto &a : arcs) {
-            EdgeStyle style = styles.get(a.first, a.second);
-            change(style, a);
-            res.aChanges.push_back({a.first, a.second, style});
+            EdgeStyle before = styles.get(a.first, a.second);
+            EdgeStyle now = before;
+            change(now, a);
+            res.aChanges.push_back({a.first, a.second, now, before});
         }
         return res;
     }
@@ -59,11 +66,15 @@ template <class Node = SLB_NODE> struct VertexEdgeChange : UniformChange<Node> {
     using UniformChange<Node>::UniformChange;
     using Base<Node>::state_;
     using Base<Node>::parent_;
+    using Base<Node>::parentSubstitution_;
 
 protected:
     virtual void sets(StateSet &states, ArcSet &arcs) const {
         states.push_back(state_);
-        if (parent_ != nullptr) arcs.push_back({parent_, state_});
+        if (parentSubstitution_ != nullptr)
+            arcs.push_back({parentSubstitution_, state_});
+        else if (parent_ != nullptr)
+            arcs.push_back({parent_, state_});
     }
 };
 

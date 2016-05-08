@@ -8,6 +8,7 @@ struct Nothing {}; // too bad this is not defined by the standard
 
 #include "container.h"
 #include "hash.h"
+#include "memory.h"
 #include "string.h"
 #include "stream.h"
 #include "table.h"

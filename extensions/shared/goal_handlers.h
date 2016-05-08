@@ -16,7 +16,7 @@ struct NoGoalHandler {
     template <class Node> void logInit() {}
 };
 
-template <class State, class Logger = SLB_LOGGER>
+template <class State, class Logger>
 struct SingleGoalHandler {
     using MyInstance = Instance<State>;
     using CostType = typename State::CostType;
@@ -31,7 +31,7 @@ struct SingleGoalHandler {
             res = n->f;
             done_ = true;
             log<Events::SolvedGoal>(logger_, n);
-            log<Events::DoneSolvedGoal>(logger_, n);
+            log<Events::HideLast>(logger_, n);
         }
     }
     bool done() const {return done_;}
@@ -65,7 +65,7 @@ struct MultipleGoalHandler {
                 doneGoals_.push_back(n->state());
                 if (goals_.empty()) done_ = true;
                 log<Events::SolvedGoal>(logger_, n);
-                log<Events::DoneSolvedGoal>(logger_, n);
+                log<Events::HideLast>(logger_, n);
             }
         }
         return true;
@@ -114,7 +114,7 @@ struct MinHeuristicGoalHandler {
                 doneGoals_.push_back(n->state());
                 if (goals_.empty()) done_ = true;
                 log<Events::SolvedGoal>(logger_, n);
-                log<Events::DoneSolvedGoal>(logger_, n);
+                log<Events::HideLast>(logger_, n);
             }
         }
         return true;

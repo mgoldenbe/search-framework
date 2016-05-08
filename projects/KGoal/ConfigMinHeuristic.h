@@ -1,8 +1,6 @@
 #ifndef CONFIG_MIN_HEURISTIC_H
 #define CONFIG_MIN_HEURISTIC_H
 
-#define SLB_VISUALIZATION 50
-
 #define SLB_STATE GridMapState<>
 #define SLB_COST_TYPE double
 #define SLB_UNIFORM_DOMAIN false
@@ -11,14 +9,6 @@
 #define SLB_STATE_SMART_PTR StateSharedPtrT
 #define SLB_BUCKET_POSITION_TYPE int
 #define SLB_NODE AStarNode<>
-
-#define SLB_ALGORITHM_EVENT AstarEvent<>
-// Can't put ALGORITHM_EVENT as default argument in AlgorithmLogger,
-// since AlgorithmEvent.h uses AlgorithmLogger.
-#define SLB_LOGGER AlgorithmLog<SLB_NODE>
-
-#define SLB_BUILD_GRAPH // Need to build the domain graph
-#define SLB_BUILD_GRAPH_GOAL_HANDLER = NoGoalHandler<>
 
 // Can't put defaults in OL, since there are several instantiations
 #define SLB_OL_PRIORITY_TYPE DefaultPriority

@@ -10,6 +10,7 @@ template <typename State_, bool uniformFlag = true> struct StateNeighbor {
     using CostType = typename State::CostType;
     StateNeighbor(State *s, CostType c) : scPair_(StateUniquePtr(s), c) {}
     StateUniquePtr &state() { return scPair_.first; }
+    //const StateUniquePtr &state() const { return scPair_.first; }
     State stateCopy() const { return *(scPair_.first); }
     CostType cost() const { return scPair_.second; }
 

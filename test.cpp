@@ -9,14 +9,12 @@
 //#include "ConfigPerGoal.h"
 //#include "ConfigUniformSearch.h"
 
-#ifdef SLB_VISUALIZATION
-#define SLB_GRAPH StateGraph<SLB_STATE>
-#else
-#define SLB_GRAPH NoGraph<SLB_STATE>
-#endif
-
 #include "core/headers.h"
 #include "extensions/headers.h"
+
+#define CAT(X, Y) X ## Y
+#define CMB(A, B) CAT(A, B)
+#define SLB_LOGGING_ALGORITHM CMB(Logging, SLB_ALGORITHM)
 
 /**
  * @brief Builds the domain graph
@@ -24,11 +22,7 @@
  *
  * @return The domain graph
  */
-SLB_GRAPH buildGraph() {
-    SLB_GRAPH g;
-#ifndef SLB_VISUALIZATION
-    return g;
-#endif
+StateGraph<SLB_STATE> buildGraph() {
     using MyOL = OpenList<SLB_NODE, DefaultPriority, GreaterPriority_SmallG>;
     using MyHeuristic = ZeroHeuristic<SLB_STATE>;
     using MyInstance = Instance<SLB_STATE>;
@@ -36,40 +30,36 @@ SLB_GRAPH buildGraph() {
     Nothing logger;
     auto instance =
         MyInstance(std::vector<SLB_STATE>(1), std::vector<SLB_STATE>(1));
-    Astar<MyOL, NoGoalHandler, MyHeuristic, SLB_GRAPH, Nothing> myAstar(
-        instance, g, logger);
+    Astar<MyOL, NoGoalHandler, MyHeuristic, Nothing> myAstar(instance, logger);
     myAstar.run();
-    return g;
+    return myAstar.graph();
 }
 
 void run() {
     if (CMD.spaceInitFileName_isSet())
         SLB_STATE::initSpace(CMD.spaceInitFileName());
 
-    SLB_GRAPH g = buildGraph();
-
     auto res = readInstancesFile<SLB_STATE>(CMD.instancesFileName());
-    int i = -1;
     Stats stats;
-    for (auto instance : res) {
-        ++i;
-        //if (i != 50) continue;
-        //std::cerr << std::endl << "# " << i << std::endl;
-#ifdef SLB_VISUALIZATION
-        if (i != SLB_VISUALIZATION) continue;
-#endif
-        SLB_LOGGER logger;
-        SLB_ALGORITHM alg(instance, g, logger);
+    if (CMD.visualizeInstance() >= 0) {
+        if (CMD.visualizeInstance() >= static_cast<int>(res.size()))
+            throw std::invalid_argument(
+                "Can't visualize the requested instance as there are only " +
+                str(res.size()) + " instances.");
+        AlgorithmLog<SLB_NODE> logger; (void)logger;
+        SLB_LOGGING_ALGORITHM alg(res[CMD.visualizeInstance()], logger);
         alg.run();
-        stats.append(alg.measures(), CMD.perInstance()); // add instance number
-                                                         // column only in
-                                                         // per-instance mode
-// break;
-#ifdef SLB_VISUALIZATION
+        stats.append(alg.measures(), CMD.perInstance());
+        auto g = buildGraph();
         Visualizer<SLB_NODE, false> vis(g, logger);
         vis.run();
-        break;
-#endif
+    } else {
+        for (auto instance : res) {
+            Nothing logger; (void)logger;
+            SLB_ALGORITHM alg(instance, logger);
+            alg.run();
+            stats.append(alg.measures(), CMD.perInstance());
+        }
     }
     if (!CMD.perInstance())
         stats = stats.average();

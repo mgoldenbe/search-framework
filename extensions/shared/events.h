@@ -3,6 +3,15 @@
 
 namespace Events {
 
+/// Previous event should be for the same state.
+template <class Node = SLB_NODE> struct HideLast : NoChange<Node> {
+    using NoChange<Node>::NoChange;
+
+private:
+    std::string eventStr() const override { return "Hide Last Event"; }
+    EventType eventType() const { return EventType::HIDE_LAST_EVENT; }
+};
+
 template <class Node = SLB_NODE> struct MarkedStart : VertexEmphasis<Node> {
     using VertexEmphasis<Node>::VertexEmphasis;
 
@@ -27,6 +36,14 @@ template <class Node = SLB_NODE> struct Generated : VertexEdgeColor<Node> {
 private:
     virtual ::Color color() const override { return ::Color::SUNSHINE_YELLOW; }
     std::string eventStr() const override { return "Generated"; }
+};
+
+template <class Node = SLB_NODE> struct NotGenerated : VertexEdgeColor<Node> {
+    using VertexEdgeColor<Node>::VertexEdgeColor;
+
+private:
+    virtual ::Color color() const override { return ::Color::WHITE; }
+    std::string eventStr() const override { return "Not Generated"; }
 };
 
 template <class Node = SLB_NODE> struct EnteredOpen : VertexEdgeColor<Node> {
@@ -98,26 +115,5 @@ private:
     std::string eventStr() const override { return "Solved Goal"; }
 };
 
-template <class Node = SLB_NODE> struct DoneSolvedGoal : SolutionPathChange<Node> {
-    using StateSharedPtr = typename UniformChange<Node>::StateSharedPtr;
-    using Arc = typename UniformChange<Node>::Arc;
-    using Base<Node>::state_;
-    using SolutionPathChange<Node>::SolutionPathChange;
-
-protected:
-    virtual void change(VertexStyle &style,
-                        const StateSharedPtr &s) const override {
-        style.fillColor =
-            (s == state_ ? Selected<Node>::color_ : Closed<Node>::color_);
-    };
-
-    virtual void change(EdgeStyle &style, const Arc &) const override {
-        style.color = Closed<Node>::color_;
-        style.arrow = false;
-    };
-
-private:
-    std::string eventStr() const override { return "Done Solved Goal"; }
-};
 }
 #endif

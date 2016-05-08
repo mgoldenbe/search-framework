@@ -17,56 +17,57 @@ template <class OpenList> struct OCL {
     using CostType = typename Node::CostType;
     using NodeUniquePtr = typename Node::NodeUniquePtr;
     using State = typename Node::State;
+    using HashType = std::unordered_map<State, NodeUniquePtr, StateHash<State>>;
 
     void dump() const {
         std::cout << "-----------------" << std::endl;
         std::cout << "Dumping OCL:" << std::endl;
         std::cout << "-----------------" << std::endl;
-        std::cout << "SLB_OL: " << ol.size() << " elements" << std::endl;
-        ol.dump();
+        std::cout << "SLB_OL: " << ol_.size() << " elements" << std::endl;
+        ol_.dump();
         std::cout << "-----------------" << std::endl;
-        std::cout << "CL: " << hash.size() << " elements" << std::endl;
-        for (auto it = hash.begin(); it != hash.end(); ++it)
+        std::cout << "CL: " << hash_.size() << " elements" << std::endl;
+        for (auto it = hash_.begin(); it != hash_.end(); ++it)
             std::cout << *(it->second) << std::endl;
         std::cout << "-----------------" << std::endl << std::endl;
     }
 
-    bool empty() const { return ol.empty(); }
+    bool empty() const { return ol_.empty(); }
 
     // Returning a non-const pointer is unsafe, but I do not have a better
     // solution for now. The user needs to be able to update g and f, to call
     // update() and to call close(). The danger is that he can forget to call
     // update().
     Node *getNode(const State &s) {
-        auto it = hash.find(s);
-        if (it == hash.end()) return nullptr;
+        auto it = hash_.find(s);
+        if (it == hash_.end()) return nullptr;
         return (it->second).get();
     }
 
     void update(Node *n, const Priority &oldPriority) {
-        ol.update(n, oldPriority);
+        ol_.update(n, oldPriority);
     }
 
     void add(NodeUniquePtr &n) {
-        ol.add(n.get());
+        ol_.add(n.get());
         auto key = n->state();
-        hash[key] = std::move(n);
+        hash_[key] = std::move(n);
     }
 
     void reInsert(Node *n) {
-        ol.add(n);
+        ol_.add(n);
     }
 
-    Node *minNode() { return ol.deleteMin(); }
+    Node *minNode() { return ol_.deleteMin(); }
 
     void close(Node *n) { n->setBucketPosition(-1); }
 
+    const HashType &hash() const { return hash_; }
 private:
-    OpenList ol;
-    std::unordered_map<State, NodeUniquePtr, StateHash<State>>
-    hash; // State needs to implement moving
-          // copy constructor for insertions
-          // to be effecient.
+    OpenList ol_;
+    HashType hash_; // State needs to implement moving
+                   // copy constructor for insertions
+                   // to be effecient.
 };
 
 #endif

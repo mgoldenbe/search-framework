@@ -66,16 +66,19 @@ private:
 };
 
 template <template <class> class Event, class Logger, class Node>
-void rawLog(Logger &, const Node *, std::false_type) {}
+void rawLog(Logger &, const Node *, const Node *, std::false_type) {}
 template <template <class> class Event, class Logger, class Node>
-void rawLog(Logger &logger, const Node *n, std::true_type) {
+void rawLog(Logger &logger, const Node *n, const Node *parentSubstitution,
+            std::true_type) {
     logger.log(n->shareState(),
-               std::make_shared<Event<Node>>(logger, n));
+               std::make_shared<Event<Node>>(logger, n, parentSubstitution));
 }
 template <template <class> class Event, class Logger, class Node>
-void log(Logger &logger, const Node *n) {
+void log(Logger &logger, const Node *n,
+         const Node *parentSubstitution = nullptr) {
     constexpr bool loggerFlag = !std::is_same<Logger, Nothing>::value;
-    return rawLog<Event>(logger, n, std::integral_constant<bool, loggerFlag>{});
+    return rawLog<Event>(logger, n, parentSubstitution,
+                         std::integral_constant<bool, loggerFlag>{});
 }
 
 #endif

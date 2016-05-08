@@ -5,8 +5,7 @@
 // http://stackoverflow.com/q/34130672/2725810
 template <class Open = SLB_OL,
           template <class, class> class GoalHandler = SLB_GOAL_HANDLER,
-          class Heuristic = SLB_HEURISTIC, class Graph = SLB_GRAPH,
-          class AlgorithmLogger = SLB_LOGGER>
+          class Heuristic = SLB_HEURISTIC, class AlgorithmLog = Nothing>
 struct Astar {
     using Node = typename Open::Node;
     using NodeData = typename Node::NodeData;
@@ -16,32 +15,21 @@ struct Astar {
     using MyInstance = Instance<State>;
     using Neighbor = typename State::Neighbor;
 
-    static_assert(
-        std::is_same<typename Node::StateSmartPtr,
-                     StateSharedPtrT<State>>::value ||
-            (std::is_same<Graph, NoGraph<State>>::value &&
-             std::is_same<AlgorithmLogger, Nothing>::value),
-        "In Astar: if a graph and/or logger is "
-        "used, then the node has to "
-        "store a *shared pointer*, not a "
-        "*unique pointer* to state.");
-
-    Astar(MyInstance &instance, Graph &graph, AlgorithmLogger &logger)
+    Astar(MyInstance &instance, AlgorithmLog &log)
         : start_(instance.start()), // will change for startHandler
-          goalHandler_(instance, logger), heuristic_(instance), graph_(graph),
-          logger_(logger), oc_(), cur_(nullptr), children_() {}
+          goalHandler_(instance, log), heuristic_(instance), log_(log), oc_(),
+          cur_(nullptr), children_() {}
 
     CostType run() {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
         startNode->f = heuristic_(startNode.get());
-        graph_.add(startNode->shareState());
-        log<Events::MarkedStart>(logger_, startNode.get());
+        log<Events::MarkedStart>(log_, startNode.get());
         goalHandler_.template logInit<Node>();
         oc_.add(startNode);
         while (!oc_.empty() && !goalHandler_.done()) {
             cur_ = oc_.minNode();
-            log<Events::Selected>(logger_, cur_);
+            log<Events::Selected>(log_, cur_);
             onSelectAndExpand(std::integral_constant<
                 bool, std::is_same<decltype(goalHandler_.onSelect(cur_, res_)),
                                    bool>::value>());
@@ -53,12 +41,23 @@ struct Astar {
     MeasureSet measures() const {
         return {expanded_, denied_, generated_, time_, cost_};
     }
+
+    StateGraph<State> graph() const {
+        StateGraph<State> res;
+        for (const auto &el: oc_.hash()) {
+            auto &from = (el.second)->shareState();
+            res.add(from);
+            for (auto &n : from->successors())
+                // `add` cares for duplicates
+                res.add(from, unique2shared(n.state()), n.cost());
+        }
+        return res;
+    }
 private:
     State start_; // We should consider making this local
-    GoalHandler<State, AlgorithmLogger> goalHandler_;
+    GoalHandler<State, AlgorithmLog> goalHandler_;
     Heuristic heuristic_;
-    Graph &graph_;
-    AlgorithmLogger &logger_;
+    AlgorithmLog &log_;
     OCL<Open> oc_;
 
     // We should consider making these local
@@ -83,11 +82,11 @@ private:
             if (cur_->f > oldCost) {
                 // Need to give info about the change of node information!
                 ++denied_;
-                log<Events::DeniedExpansion>(logger_, cur_);
+                log<Events::DeniedExpansion>(log_, cur_);
                 oc_.reInsert(cur_);
                 return;
             } else
-                log<Events::ResumedExpansion>(logger_, cur_);
+                log<Events::ResumedExpansion>(log_, cur_);
         }
         expand();
     }
@@ -108,7 +107,7 @@ private:
         for (auto &child : children_) {
             handleChild(child.state(), child.cost());
         }
-        log<Events::Closed>(logger_, cur_);
+        log<Events::Closed>(log_, cur_);
     }
 
     void handleChild(StateUniquePtrT<State> &child, CostType cost) {
@@ -116,7 +115,6 @@ private:
         ++generated_;
         auto childNode = oc_.getNode(*child);
         if (childNode) {
-            graph_.add(cur_->shareState(), childNode->shareState(), cost);
             if (myG < childNode->g) {
                 auto oldPriority = typename Open::Priority(childNode);
                 CostType improvement = childNode->g - myG;
@@ -124,20 +122,30 @@ private:
                 childNode->f -= improvement;
                 childNode->setParent(cur_);
                 oc_.update(childNode, oldPriority);
-                log<Events::Generated>(logger_, childNode);
-                log<Events::EnteredOpen>(logger_, childNode);
+                log<Events::Generated>(log_, childNode);
+                log<Events::EnteredOpen>(log_, childNode);
             }
+            else {
+                log<Events::NotGenerated>(log_, childNode, cur_);
+                log<Events::HideLast>(log_, childNode);
+            }
+
             return;
         }
         NodeUniquePtr newNode(new Node(child));
         newNode->g = myG;
         newNode->f = myG + heuristic_(newNode.get());
         newNode->setParent(cur_);
-        graph_.add(cur_->shareState(), newNode->shareState(), cost);
-        log<Events::Generated>(logger_, newNode.get());
-        log<Events::EnteredOpen>(logger_, newNode.get());
+        log<Events::Generated>(log_, newNode.get());
+        log<Events::EnteredOpen>(log_, newNode.get());
         oc_.add(newNode);
     }
 };
+
+template <class Open = SLB_OL,
+          template <class, class> class GoalHandler = SLB_GOAL_HANDLER,
+          class Heuristic = SLB_HEURISTIC>
+using LoggingAstar =
+    Astar<Open, GoalHandler, Heuristic, AlgorithmLog<typename Open::Node>>;
 
 #endif

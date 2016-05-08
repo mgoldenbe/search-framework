@@ -145,7 +145,7 @@ struct StateGraph {
         return make_iterator_range(adjacent_vertices(vd, g_));
     }
 
-    /// Adds a state to the graph.
+    /// Adds a state to the graph. Performs duplicate checking.
     /// \param s Smart pointer to the state.
     /// \return The descriptor of the newly added vertex.
     VertexDescriptor add(StateSharedPtr s) {
