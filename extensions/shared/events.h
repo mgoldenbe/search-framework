@@ -38,6 +38,14 @@ private:
     std::string eventStr() const override { return "Generated"; }
 };
 
+template <class Node = SLB_NODE> struct NotParent : VertexEdgeColor<Node> {
+    using VertexEdgeColor<Node>::VertexEdgeColor;
+
+private:
+    virtual ::Color color() const override { return EdgeStyle::defaultColor; }
+    std::string eventStr() const override { return "Not Parent"; }
+};
+
 template <class Node = SLB_NODE> struct NotGenerated : VertexEdgeColor<Node> {
     using VertexEdgeColor<Node>::VertexEdgeColor;
 

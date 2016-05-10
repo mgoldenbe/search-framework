@@ -13,7 +13,7 @@ struct VisualizerData {
     using DrawerType = Drawer<Node, autoLayoutFlag>;
     enum class VISUALIZER_SLB_STATE{PAUSE, GO};
 
-    VisualizerData(Graph &g, MyAlgorithmLog &log)
+    VisualizerData(Graph &g, const MyAlgorithmLog &log)
         : g_(g), log_(log, g), drawer_(g, log_), typist_(log_),
           filter_(log.eventStrings()), searchFilter_(log.eventStrings()) {
         typist_.fillEventsPad();

@@ -1,32 +1,25 @@
-//#define VISUALIZATION 50
+#ifndef CONFIG_MIN_HEURISTIC_H
+#define CONFIG_MIN_HEURISTIC_H
 
-#define STATE GridMapState<>
-#define COST_TYPE double
-#define UNIFORM_DOMAIN false
-#define NODE_DATA MyNodeDataT<STATE>
+#define SLB_STATE GridMapState<>
+#define SLB_COST_TYPE double
+#define SLB_UNIFORM_DOMAIN false
+#define SLB_NODE_DATA MyNodeDataT<SLB_STATE>
 
-#define STATE_SMART_PTR StateSharedPtrT
-#define BUCKET_POSITION_TYPE int
-#define NODE AStarNode<>
-
-#define ALGORITHM_EVENT AstarEvent<>
-// Can't put ALGORITHM_EVENT as default argument in AlgorithmLogger,
-// since AlgorithmEvent.h uses AlgorithmLogger.
-#define LOGGER AlgorithmLogger<AstarEvent<>>
-
-#define BUILD_GRAPH // Need to build the domain graph
-#define BUILD_GRAPH_GOAL_HANDLER = NoGoalHandler<>
+#define SLB_STATE_SMART_PTR StateSharedPtrT
+#define SLB_BUCKET_POSITION_TYPE int
+#define SLB_NODE AStarNode<>
 
 // Can't put defaults in OL, since there are several instantiations
-#define OL_PRIORITY_TYPE DefaultPriority
-#define OL_PRIORITY GreaterPriority_SmallF_LargeG
-#define OL_CONTAINER OLMap
-#define OL OpenList<>
+#define SLB_OL_PRIORITY_TYPE DefaultPriority
+#define SLB_OL_PRIORITY GreaterPriority_SmallF_LargeG
+#define SLB_OL_CONTAINER OLMap
+#define SLB_OL OpenList<>
 
-#define GOAL_HANDLER MultipleGoalHandler
+#define SLB_GOAL_HANDLER MultipleGoalHandler
 
-#define HEURISTIC ZeroHeuristic<STATE>
-#define ALGORITHM Astar<>
-#define RAW_ALGORITHM ALGORITHM
+#define SLB_HEURISTIC ZeroHeuristic<SLB_STATE>
+#define SLB_ALGORITHM Astar
+#define SLB_RAW_ALGORITHM SLB_ALGORITHM
 
-#define VISUAL_EVENT AstarVisualEvent<>
+#endif

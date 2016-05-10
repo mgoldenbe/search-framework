@@ -5,16 +5,12 @@
 #include "outside_headers.h"
 
 //#include CONFIG
-#include "projects/KGoal/ConfigMinHeuristic.h"
-//#include "ConfigPerGoal.h"
-//#include "ConfigUniformSearch.h"
+//#include "projects/KGoal/ConfigMinHeuristic.h"
+//#include "projects/KGoal/ConfigPerGoal.h"
+#include "projects/KGoal/ConfigUniformSearch.h"
 
 #include "core/headers.h"
 #include "extensions/headers.h"
-
-#define CAT(X, Y) X ## Y
-#define CMB(A, B) CAT(A, B)
-#define SLB_LOGGING_ALGORITHM CMB(Logging, SLB_ALGORITHM)
 
 /**
  * @brief Builds the domain graph
@@ -27,10 +23,9 @@ StateGraph<SLB_STATE> buildGraph() {
     using MyHeuristic = ZeroHeuristic<SLB_STATE>;
     using MyInstance = Instance<SLB_STATE>;
 
-    Nothing logger;
     auto instance =
         MyInstance(std::vector<SLB_STATE>(1), std::vector<SLB_STATE>(1));
-    Astar<MyOL, NoGoalHandler, MyHeuristic, Nothing> myAstar(instance, logger);
+    Astar<false, SLB_NODE, NoGoalHandler, MyHeuristic, MyOL> myAstar(instance);
     myAstar.run();
     return myAstar.graph();
 }
@@ -46,17 +41,16 @@ void run() {
             throw std::invalid_argument(
                 "Can't visualize the requested instance as there are only " +
                 str(res.size()) + " instances.");
-        AlgorithmLog<SLB_NODE> logger; (void)logger;
-        SLB_LOGGING_ALGORITHM alg(res[CMD.visualizeInstance()], logger);
+        SLB_ALGORITHM<true> alg(res[CMD.visualizeInstance()]);
         alg.run();
         stats.append(alg.measures(), CMD.perInstance());
         auto g = buildGraph();
-        Visualizer<SLB_NODE, false> vis(g, logger);
+        Visualizer<SLB_NODE, false> vis(g, alg.log());
         vis.run();
     } else {
         for (auto instance : res) {
             Nothing logger; (void)logger;
-            SLB_ALGORITHM alg(instance, logger);
+            SLB_ALGORITHM<false> alg(instance);
             alg.run();
             stats.append(alg.measures(), CMD.perInstance());
         }

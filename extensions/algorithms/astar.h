@@ -1,24 +1,17 @@
 #ifndef ASTAR_H
 #define ASTAR_H
 
+#include "algorithm.h"
+
 // Discontinued the use of template template parameters.
 // http://stackoverflow.com/q/34130672/2725810
-template <class Open = SLB_OL,
-          template <class, class> class GoalHandler = SLB_GOAL_HANDLER,
-          class Heuristic = SLB_HEURISTIC, class AlgorithmLog = Nothing>
-struct Astar {
-    using Node = typename Open::Node;
-    using NodeData = typename Node::NodeData;
-    using CostType = typename Node::CostType;
-    using NodeUniquePtr = typename Node::NodeUniquePtr;
-    using State = typename Node::State;
-    using MyInstance = Instance<State>;
-    using Neighbor = typename State::Neighbor;
+template <ALG_TPARAMS, class Open = SLB_OL>
+struct Astar : Algorithm<ALG_TARGS> {
+    ALG_TYPES
+    ALG_DATA
 
-    Astar(MyInstance &instance, AlgorithmLog &log)
-        : start_(instance.start()), // will change for startHandler
-          goalHandler_(instance, log), heuristic_(instance), log_(log), oc_(),
-          cur_(nullptr), children_() {}
+    Astar(MyInstance &instance)
+        : Base(instance), oc_(), cur_(nullptr), children_() {}
 
     CostType run() {
         TimerLock lock{time_}; (void)lock;
@@ -39,7 +32,7 @@ struct Astar {
     }
 
     MeasureSet measures() const {
-        return {expanded_, denied_, generated_, time_, cost_};
+        return Base::measures().append(MeasureSet{denied_});
     }
 
     StateGraph<State> graph() const {
@@ -54,10 +47,6 @@ struct Astar {
         return res;
     }
 private:
-    State start_; // We should consider making this local
-    GoalHandler<State, AlgorithmLog> goalHandler_;
-    Heuristic heuristic_;
-    AlgorithmLog &log_;
     OCL<Open> oc_;
 
     // We should consider making these local
@@ -66,11 +55,7 @@ private:
     CostType res_{-1};
 
     // Stats
-    Measure expanded_{"Expanded"};
     Measure denied_{"Denied"};
-    Measure generated_{"Generated"};
-    Timer time_{"Time (ms.)"};
-    Measure cost_{"Cost"};
 
     void onSelectAndExpand(std::true_type) {
         bool expandFlag = goalHandler_.onSelect(cur_, res_);
@@ -116,6 +101,7 @@ private:
         auto childNode = oc_.getNode(*child);
         if (childNode) {
             if (myG < childNode->g) {
+                log<Events::NotParent>(log_, childNode);
                 auto oldPriority = typename Open::Priority(childNode);
                 CostType improvement = childNode->g - myG;
                 childNode->g = myG;
@@ -141,11 +127,5 @@ private:
         oc_.add(newNode);
     }
 };
-
-template <class Open = SLB_OL,
-          template <class, class> class GoalHandler = SLB_GOAL_HANDLER,
-          class Heuristic = SLB_HEURISTIC>
-using LoggingAstar =
-    Astar<Open, GoalHandler, Heuristic, AlgorithmLog<typename Open::Node>>;
 
 #endif

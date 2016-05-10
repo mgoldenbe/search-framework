@@ -51,20 +51,20 @@ struct VisualEvent {
         int sizeNow = edgeChanges_.size();
         for (int i = 0; i != sizeNow; i++) {
             auto ec = edgeChanges_[i];
+            // can't have arrow in both directions
+            ec.now.arrow = ec.before.arrow = false;
             ec.ed = g.inverse(ec.ed);
             edgeChanges_.push_back(ec);
         }
 
-        /*
-        // dumping all changes
-        std::cerr << "Step " << log.step() << std::endl;
-        for (const auto &ec : edgeChanges_)
-            std::cerr << *(g.state(g.from(ec.ed))) << "->"
-                      << *(g.state(g.to(ec.ed)))
-                      << "    before: " << static_cast<int>(ec.before.color)
-                      << "  now: " << static_cast<int>(ec.now.color)
-                      << std::endl;
-        */
+        // // dumping all changes (for debugging purposes only)
+        // std::cerr << "Step " << log.step() << std::endl;
+        // for (const auto &ec : edgeChanges_)
+        //     std::cerr << *(g.state(g.from(ec.ed))) << "->"
+        //               << *(g.state(g.to(ec.ed)))
+        //               << "    before: " << static_cast<int>(ec.before.color)
+        //               << "  now: " << static_cast<int>(ec.now.color)
+        //               << std::endl;
     }
 
     // Returns style now and style before

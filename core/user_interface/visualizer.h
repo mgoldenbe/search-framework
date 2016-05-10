@@ -30,7 +30,7 @@ struct Visualizer : VisualizerData<Node, autoLayoutFlag> {
     using Data::s_;
 
     // VisualLog is not const, since we will move in time...
-    Visualizer(Graph &g, MyAlgorithmLog &log)
+    Visualizer(Graph &g, const MyAlgorithmLog &log)
         : Data(g, log), m_(*this) {}
 
     void run() {

@@ -63,8 +63,9 @@ struct MeasureSet {
 
     void append(const Measure &m) { s_.push_back(m); }
     void prepend(const Measure &m) { s_.insert(s_.begin(), m); }
-    void append(const MeasureSet &s) {
+    MeasureSet &append(const MeasureSet &s) {
         for (auto &m : s) append(m);
+        return *this;
     }
     MeasureSet &operator+=(const MeasureSet &rhs) {
         for (int i = 0; i < rhs.size(); i++) {
