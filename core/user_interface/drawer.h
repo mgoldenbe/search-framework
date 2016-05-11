@@ -23,11 +23,11 @@ struct Drawer {
         for (auto &el: pointMap_) {
             auto vd = el.first;
             auto point = el.second;
-            switch(log_.vertexStyle(vd).shape) {
+            switch(log_.get(vd).shape) {
             case VertexShape::CIRCLE: {
                 double myDistance = gu::distance({point[0], point[1]}, {x, y});
                 if (myDistance <=
-                    log_.vertexStyle(vd).sizeFactor * VertexStyle::sizeBase)
+                    log_.get(vd).sizeFactor * VertexStyle::sizeBase)
                     return vd;
                 break;
             }
@@ -51,15 +51,15 @@ struct Drawer {
 
         cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
         for (auto vd : g_.vertexRange())
-            drawVertex(vd, log_.vertexStyle(vd));
+            drawVertex(vd, log_.get(vd));
         // Draws edges with default color first, so they are in the background
         for (int depth = 0; depth <= 1; ++depth) {
             for (auto from : g_.vertexRange()) {
                 for (auto to : g_.adjacentVertexRange(from)) {
                     auto ed = g_.edge(from, to);
-                    auto style = log_.edgeStyle(ed);
+                    auto style = log_.get(ed);
                     if ((style.color != EdgeStyle::defaultColor) == depth)
-                        drawEdge(from, to, log_.edgeStyle(ed));
+                        drawEdge(from, to, log_.get(ed));
                 }
             }
         }
@@ -71,7 +71,7 @@ struct Drawer {
     }
 
     void drawVertex(VertexDescriptor vd) {
-        drawVertex(vd, log_.vertexStyle(vd));
+        drawVertex(vd, log_.get(vd));
     }
 
     void drawEdge(VertexDescriptor from, VertexDescriptor to,

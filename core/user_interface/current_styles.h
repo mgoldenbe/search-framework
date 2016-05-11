@@ -27,6 +27,22 @@ template <class State> struct CurrentStyles {
     /// Initializes  graph
     CurrentStyles(const Graph &g) : g_(g) {}
 
+    /// Returns the current style of the given vertex.
+    /// \param vd Vertex identifier.
+    /// \return The vertex style.
+    /// \pre The vertex must be present in the graph.
+    VertexStyle get(VertexDescriptor vd) const {
+        return vertexStyles_.at(vd);
+    }
+
+    /// Returns the current style of the given edge.
+    /// \param vd Edge identifier.
+    /// \return The edge style.
+    /// \pre The edge must be present in the graph.
+    EdgeStyle get(EdgeDescriptor ed) const {
+        return edgeStyles_.at(ed);
+    }
+
     /// Returns the current style of the vertex representing a given state.
     /// \param s Shared pointer to state.
     /// \return The vertex style.
