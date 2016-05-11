@@ -53,4 +53,5 @@
 - Try clean installation (install on a fresh Ubuntu install in VirtualBox)
 - Produce videos of usage
 - Submit
-* 
+* After submission
+- Understand again why we need this complicated GroupLock in graphics_object and how exactly it works.

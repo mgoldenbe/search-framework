@@ -64,7 +64,9 @@ struct Graphics {
     double scale = 1.0; ///< Current scaling factor.
 };
 
-/// Implements a RAII technique to save and restore the current source.
+/// Implements a RAII technique to save and restore the current drawing. This
+/// can be used, for example, to shift the whole drawing (all one needs to do is
+/// to translate the drawing after acquiring a PatternLock).
 struct PatternLock {
     /// Saves the current source as a pattern.
     PatternLock(Graphics &g) : g_(g) {
@@ -151,18 +153,27 @@ bool redraw(Graphics &g) {
 }
 
 /// A GroupLock object is created in order that the following drawing is done
-/// on top of the existing one. Uses \ref PatternLock to implement its
+/// in a group, possibly on top of the current drawing. \n
+/// It cares for a lot of nitty-gritty details without which strange things
+/// happen. \n
+/// Uses \ref PatternLock to implement its
 /// functionality.
+/// \warning I got this right after a lot of trial and error. Do not try to
+/// modify this unless you are a graphics person who knows what he is doing.
 struct GroupLock {
     /// Saves the current drawing and starts a group for the drawing commands
     /// following the lock acquisition (i.e. creation of the GroupLock object).
-    /// \param flag
+    /// Clears the drawing if needed.
+    /// \param flag If \c false, no lock is acquired. This enables a function
+    /// where whether GroupLock should be acquired or not is a parameter.
+    /// g The graphics object.
+    /// \param clearFlag If \c true, the previous drawing needs is cleared.
     GroupLock(bool flag, Graphics &g, bool clearFlag = false)
         : g_(g), flag_(flag) {
         if (!flag_) return;
 
         virtualTranslate(); // Translate to enable margins
-                              // that are not clipped
+                            // that are not clipped
 
         {
             PatternLock lock{g_};    // The constructor saves source as pattern.
@@ -182,6 +193,7 @@ struct GroupLock {
         }
     }
 
+    /// Appends the group the the current drawing.
     ~GroupLock() {
         if (!flag_) return;
         cairo_pop_group_to_source(g_.cr); // Get the image from the
@@ -195,18 +207,24 @@ struct GroupLock {
     }
 
 private:
-    Graphics &g_;
-    bool flag_;
-    cairo_pattern_t *p_;
-    double zeroX_, zeroY_;
-    double origDeltaX_, origDeltaY_;
+    Graphics &g_; ///< The graphics object.
+    bool flag_; ///< Indicates whether the lock should be acquired.
+    /// \name Translation at the time of lock acquisition.
+    /// @{
+    double origDeltaX_, origDeltaY_; /// @}
 
+    /// Translate the surface, so its top-left corner corresponds to the
+    /// top-left corner of the window. This enables the margins.
+    /// \see Graphics::margin
     void virtualTranslate() {
         deltaTranslate(g_, origDeltaX_, origDeltaY_, false);
         cairo_translate(g_.cr,
                         (-origDeltaX_ + g_.margin * g_.windowXSize) / g_.scale,
                         (-origDeltaY_ + g_.margin * g_.windowYSize) / g_.scale);
     }
+
+    /// Restore the translation matrix that was modified by \ref
+    /// virtualTranslate.
     void realTranslate() {
         cairo_translate(g_.cr,
                         (origDeltaX_ - g_.margin * g_.windowXSize) / g_.scale,
