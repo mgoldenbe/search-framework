@@ -31,7 +31,7 @@
     using Base::cost_;
 
 /// Common base for algorithms.
-/// See \ref http://stackoverflow.com/q/34130672/2725810 for the discussion of
+/// See http://stackoverflow.com/q/34130672/2725810 for the discussion of
 /// the use of template template parameters.
 template <ALG_TPARAMS>
 struct Algorithm {
