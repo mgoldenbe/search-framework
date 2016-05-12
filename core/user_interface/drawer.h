@@ -3,6 +3,18 @@
 
 #include "visual_log.h"
 
+/// \name Checking whether the \c State has a function for computing layout.
+/// @{
+template <typename State, typename = void_t<>>
+struct has_layout : std::false_type {};
+
+template <typename State>
+struct has_layout<State,
+                  void_t<decltype(std::declval<State>().visualLocation(
+                      std::declval<double &>(), std::declval<double &>()))>>
+    : std::true_type {};
+/// @}
+
 // http://stackoverflow.com/a/33421942/2725810
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
 // http://www.lemoda.net/c/xlib-resize/   // Draw only on Expose event!
@@ -38,7 +50,7 @@ struct Drawer {
     }
 
     void changeLayout() {
-        computePointMap(std::integral_constant<bool, autoLayoutFlag>{});
+        computePointMap();
         scaleLayout(sizex_, sizey_);
     }
 
@@ -96,11 +108,15 @@ struct Drawer {
     void sizeY(int size) { sizey_ = size; }
 
 private:
-    void computePointMap(std::true_type) {
+    template <class T = State>
+    auto computePointMap()
+        -> typename std::enable_if<!has_layout<T>::value>::type {
         pointMap_ = g_.layout(true, true);
     }
 
-    void computePointMap(std::false_type) {
+    template <class T = State>
+    auto computePointMap()
+        -> typename std::enable_if<has_layout<T>::value>::type {
         for (auto vd: g_.vertexRange()) {
             auto state = g_.state(vd);
             double x, y;

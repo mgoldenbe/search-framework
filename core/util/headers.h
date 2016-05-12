@@ -4,7 +4,17 @@
 #ifndef UTIL_HEADERS_H
 #define UTIL_HEADERS_H
 
+/// \name Some useful simple declarations that do not deserve a
+/// special file.
+/// @{
 struct Nothing {}; // too bad this is not defined by the standard
+
+template <typename...>
+struct voider { using type = void; };
+
+template <typename... Ts>
+using void_t = typename voider<Ts...>::type;
+/// @}
 
 #include "container.h"
 #include "hash.h"
