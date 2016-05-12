@@ -45,7 +45,7 @@ void run() {
         alg.run();
         stats.append(alg.measures(), CMD.perInstance());
         auto g = buildGraph();
-        Visualizer<SLB_NODE, false> vis(g, alg.log());
+        Visualizer<SLB_NODE> vis(g, alg.log());
         vis.run();
     } else {
         for (auto instance : res) {

@@ -19,7 +19,7 @@ struct has_layout<State,
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
 // http://www.lemoda.net/c/xlib-resize/   // Draw only on Expose event!
 
-template <class Node, bool autoLayoutFlag>
+template <class Node>
 struct Drawer {
     using State = typename Node::State;
     using Graph = StateGraph<State>;

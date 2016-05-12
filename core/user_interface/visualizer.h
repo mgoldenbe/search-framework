@@ -13,15 +13,15 @@
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
 // http://www.lemoda.net/c/xlib-resize/   // Draw only on Expose event!
 
-template <class Node, bool autoLayoutFlag>
-struct Visualizer : VisualizerData<Node, autoLayoutFlag> {
+template <class Node>
+struct Visualizer : VisualizerData<Node> {
     using State = typename Node::State;
     using Graph = StateGraph<State>;
     using MyAlgorithmLog = AlgorithmLog<Node>;
     using MyVisualLog = VisualLog<Node>;
     using AlgorithmEvent = typename Events::Base<Node>::Event;
     using MyVisualEvent = VisualEvent<Node>;
-    using Data = VisualizerData<Node, autoLayoutFlag>;
+    using Data = VisualizerData<Node>;
     using typename Data::VISUALIZER_SLB_STATE;
     using Data::g_;
     using Data::log_;
@@ -268,7 +268,7 @@ private:
     }
 
 private:
-    AllMenus<Node, autoLayoutFlag> m_;
+    AllMenus<Node> m_;
 
     double scaleStep_ = 1.5;
     int last_delta_x = 0, last_delta_y = 0;
