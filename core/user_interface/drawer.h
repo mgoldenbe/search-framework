@@ -5,22 +5,27 @@
 
 /// \name Checking whether the \c State has a function for computing layout.
 /// @{
-template <typename State, typename = void_t<>>
+template <class State, typename = void_t<>>
 struct has_layout : std::false_type {};
 
-template <typename State>
+template <class State>
 struct has_layout<State,
                   void_t<decltype(std::declval<State>().visualLocation(
                       std::declval<double &>(), std::declval<double &>()))>>
     : std::true_type {};
+
+template <class State>
+using HasLayout = typename std::enable_if<has_layout<State>::value>::type;
+
+template <class State>
+using HasNoLayout = typename std::enable_if<!has_layout<State>::value>::type;
 /// @}
 
-// http://stackoverflow.com/a/33421942/2725810
-// http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
-// http://www.lemoda.net/c/xlib-resize/   // Draw only on Expose event!
-
-template <class Node>
-struct Drawer {
+    // http://stackoverflow.com/a/33421942/2725810
+    // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
+    // http://www.lemoda.net/c/xlib-resize/   // Draw only on Expose event!
+    template <class Node>
+    struct Drawer {
     using State = typename Node::State;
     using Graph = StateGraph<State>;
     using MyVisualLog = VisualLog<Node>;
@@ -108,15 +113,17 @@ struct Drawer {
     void sizeY(int size) { sizey_ = size; }
 
 private:
-    template <class T = State>
-    auto computePointMap()
-        -> typename std::enable_if<!has_layout<T>::value>::type {
+    /// \name Computing the layout. Uses SFINAE to use the \c visualLocation
+    /// function of State it has one or automatic layout otherwise. See
+    /// \ref HasNoLayout<State> and HasLayout<State>.
+    /// @{
+    template <class State = State>
+    HasNoLayout<State> computePointMap() {
         pointMap_ = g_.layout(true, true);
     }
 
-    template <class T = State>
-    auto computePointMap()
-        -> typename std::enable_if<has_layout<T>::value>::type {
+    template <class State = State>
+    HasLayout<State> computePointMap() {
         for (auto vd: g_.vertexRange()) {
             auto state = g_.state(vd);
             double x, y;
@@ -126,6 +133,7 @@ private:
             pointMap_[vd] = myPoint;
         }
     }
+    /// @}
 
     void fillVertex(VertexDescriptor vd, const VertexStyle &style) {
         auto cr = graphics_.cr;

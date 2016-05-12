@@ -24,11 +24,24 @@ struct StateGraph {
     /// Iterator for looping over vertices.
     using VertexIterator = typename graph_traits<Graph>::vertex_iterator;
 
+    /// Iterator range that can be used to range-loop on vertices.
+    using VertexRange =
+        decltype(make_iterator_range(vertices(std::declval<Graph>())));
+
+    /// Iterator range that can be used to range-loop on edges.
+    using EdgeRange =
+        decltype(make_iterator_range(edges(std::declval<Graph>())));
+
     /// Vertex identifier.
     using VertexDescriptor = typename graph_traits<Graph>::vertex_descriptor;
 
     /// Edge identifier.
     using EdgeDescriptor = typename boost::graph_traits<Graph>::edge_descriptor;
+
+    /// Iterator range that can be used to range-loop over adjacency list of of
+    /// a vertex.
+    using AdjacentRange = decltype(make_iterator_range(adjacent_vertices(
+        std::declval<VertexDescriptor>(), std::declval<Graph>())));
 
     /// Special graph type used for computing the layout. See http://stackoverflow.com/q/33903879/2725810 for the discussion of this issue.
     using LayoutGraph =
@@ -51,16 +64,14 @@ struct StateGraph {
     /// Returns the iterator range that can be used to range-loop on the
     /// vertices.
     /// \return The iterator range.
-    auto vertexRange() const -> decltype(make_iterator_range(
-        vertices(std::declval<Graph>()))) {
+    VertexRange vertexRange() const {
         return make_iterator_range(vertices(g_));
     }
 
     /// Returns the iterator range that can be used to range-loop on the
     /// edges.
     /// \return The iterator range.
-    auto edgeRange() const -> decltype(make_iterator_range(
-        edges(std::declval<Graph>()))) {
+    EdgeRange edgeRange() const {
         return make_iterator_range(edges(g_));
     }
 
@@ -124,9 +135,7 @@ struct StateGraph {
     /// \param vd The vertex descriptor.
     /// \return Iterator range that can be used to range-loop over the adjacent
     /// vertices of \c vd.
-    auto adjacentVertexRange(VertexDescriptor vd) const
-        -> decltype(make_iterator_range(
-            adjacent_vertices(vd, std::declval<Graph>()))) {
+    AdjacentRange adjacentVertexRange(VertexDescriptor vd) const {
         return make_iterator_range(adjacent_vertices(vd, g_));
     }
 

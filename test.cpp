@@ -5,9 +5,9 @@
 #include "outside_headers.h"
 
 //#include CONFIG
-//#include "projects/KGoal/ConfigMinHeuristic.h"
+#include "projects/KGoal/ConfigMinHeuristic.h"
 //#include "projects/KGoal/ConfigPerGoal.h"
-#include "projects/KGoal/ConfigUniformSearch.h"
+//#include "projects/KGoal/ConfigUniformSearch.h"
 
 #include "core/headers.h"
 #include "extensions/headers.h"
