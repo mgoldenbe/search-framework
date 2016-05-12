@@ -12,8 +12,8 @@ template <class Node = SLB_NODE> struct UniformChange : Base<Node> {
     using State = typename Node::State;
     using StateSharedPtr = std::shared_ptr<const State>;
     using StateSet = std::vector<StateSharedPtr>;
-    using Arc = std::pair<StateSharedPtr, StateSharedPtr>;
-    using ArcSet = std::vector<Arc>;
+    using Edge = std::pair<StateSharedPtr, StateSharedPtr>;
+    using EdgeSet = std::vector<Edge>;
     using Events::Base<Node>::Base;
     using VisualChanges = typename Events::Base<Node>::VisualChanges;
 
@@ -21,39 +21,39 @@ template <class Node = SLB_NODE> struct UniformChange : Base<Node> {
     visualChanges(const CurrentStyles<State> &styles) const {
         VisualChanges res;
         StateSet states;
-        ArcSet arcs;
-        sets(states, arcs);
+        EdgeSet edges;
+        sets(states, edges);
         for (auto &s : states) {
             VertexStyle before = styles.get(s);
             VertexStyle now = before;
             change(now, s);
             res.vChanges.push_back({s, now, before});
         }
-        for (auto &a : arcs) {
+        for (auto &a : edges) {
             EdgeStyle before = styles.get(a.first, a.second);
             EdgeStyle now = before;
             change(now, a);
-            res.aChanges.push_back({a.first, a.second, now, before});
+            res.eChanges.push_back({a.first, a.second, now, before});
         }
         return res;
     }
 
 protected:
-    virtual void sets(StateSet &, ArcSet &) const = 0;
+    virtual void sets(StateSet &, EdgeSet &) const = 0;
     virtual void change(VertexStyle &, const StateSharedPtr &) const {};
-    virtual void change(EdgeStyle &, const Arc &) const {};
+    virtual void change(EdgeStyle &, const Edge &) const {};
 };
 
 template <class Node = SLB_NODE> struct VertexChange : UniformChange<Node> {
     using DirectBase = UniformChange<Node>;
     using StateSet = typename DirectBase::StateSet;
-    using ArcSet = typename DirectBase::ArcSet;
+    using EdgeSet = typename DirectBase::EdgeSet;
 
     using UniformChange<Node>::UniformChange;
     using Base<Node>::state_;
 
 protected:
-    virtual void sets(StateSet &states, ArcSet &) const {
+    virtual void sets(StateSet &states, EdgeSet &) const {
         states.push_back(state_);
     }
 };
@@ -61,7 +61,7 @@ protected:
 template <class Node = SLB_NODE> struct VertexEdgeChange : UniformChange<Node> {
     using DirectBase = UniformChange<Node>;
     using StateSet = typename DirectBase::StateSet;
-    using ArcSet = typename DirectBase::ArcSet;
+    using EdgeSet = typename DirectBase::EdgeSet;
 
     using UniformChange<Node>::UniformChange;
     using Base<Node>::state_;
@@ -69,27 +69,27 @@ template <class Node = SLB_NODE> struct VertexEdgeChange : UniformChange<Node> {
     using Base<Node>::parentSubstitution_;
 
 protected:
-    virtual void sets(StateSet &states, ArcSet &arcs) const {
+    virtual void sets(StateSet &states, EdgeSet &edges) const {
         states.push_back(state_);
         if (parentSubstitution_ != nullptr)
-            arcs.push_back({parentSubstitution_, state_});
+            edges.push_back({parentSubstitution_, state_});
         else if (parent_ != nullptr)
-            arcs.push_back({parent_, state_});
+            edges.push_back({parent_, state_});
     }
 };
 
 template <class Node = SLB_NODE> struct PathChange : UniformChange<Node> {
     using DirectBase = UniformChange<Node>;
     using StateSet = typename DirectBase::StateSet;
-    using ArcSet = typename DirectBase::ArcSet;
+    using EdgeSet = typename DirectBase::EdgeSet;
 
     using UniformChange<Node>::UniformChange;
 
 protected:
-    virtual void sets(StateSet &states, ArcSet &arcs) const {
+    virtual void sets(StateSet &states, EdgeSet &edges) const {
         states = path();
         for (int i = 0; i != states.size() - 1; ++i)
-            arcs.push_back({states[i], states[i + 1]});
+            edges.push_back({states[i], states[i + 1]});
     }
     virtual StateSet path() const = 0;
 };
@@ -136,7 +136,7 @@ protected:
 
 template <class Node = SLB_NODE> struct VertexEdgeColor : VertexEdgeChange<Node> {
     using StateSharedPtr = typename UniformChange<Node>::StateSharedPtr;
-    using Arc = typename UniformChange<Node>::Arc;
+    using Edge = typename UniformChange<Node>::Edge;
     using VertexEdgeChange<Node>::VertexEdgeChange;
 
 protected:
@@ -145,7 +145,7 @@ protected:
         style.fillColor = color();
     };
 
-    virtual void change(EdgeStyle &style, const Arc &) const override {
+    virtual void change(EdgeStyle &style, const Edge &) const override {
         style.color = color();
     };
 

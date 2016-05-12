@@ -52,7 +52,7 @@ template <class Node = SLB_NODE> struct Base {
     /// Note that this is different from a visual event
     /// (see \ref VisualEvent::EdgeChange), in which an edge is represented here
     /// by a pair of vertices of the domain graph.
-    struct ArcChange {
+    struct EdgeChange {
         StateSharedPtr from, to; ///< The edge
         EdgeStyle now;           ///< The new representation.
         EdgeStyle before;        ///< The previous representation.
@@ -63,7 +63,7 @@ template <class Node = SLB_NODE> struct Base {
         /// Changes of visual representations associated with states.
         std::vector<VertexChange> vChanges;
         /// Changes of visual representations associated with edges.
-        std::vector<ArcChange> aChanges;
+        std::vector<EdgeChange> eChanges;
     };
 
     /// Initializes the event based on the given search node.

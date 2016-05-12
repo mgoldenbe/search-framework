@@ -108,12 +108,12 @@ template <class Node>::Color Closed<Node>::color_ = ::Color::WARM_BROWN;
 
 template <class Node = SLB_NODE> struct SolvedGoal : SolutionPathChange<Node> {
     using StateSharedPtr = typename UniformChange<Node>::StateSharedPtr;
-    using Arc = typename UniformChange<Node>::Arc;
+    using Edge = typename UniformChange<Node>::Edge;
     using Base<Node>::state_;
     using SolutionPathChange<Node>::SolutionPathChange;
 
 protected:
-    virtual void change(EdgeStyle &style, const Arc &) const override {
+    virtual void change(EdgeStyle &style, const Edge &) const override {
         style.color = color_;
         style.arrow = true;
     };

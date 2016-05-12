@@ -59,13 +59,13 @@ struct VisualEvent {
             vertexChanges_.push_back(
                 hideLastFlag ? VertexChange{g.vertex(vc.s), vc.before, vc.now}
                              : VertexChange{g.vertex(vc.s), vc.now, vc.before});
-        for (auto ac : changes.aChanges)
+        for (auto ac : changes.eChanges)
             edgeChanges_.push_back(
                 hideLastFlag
                     ? EdgeChange{g.edge(ac.from, ac.to), ac.before, ac.now}
                     : EdgeChange{g.edge(ac.from, ac.to), ac.now, ac.before});
 
-        // We don't have a way to draw two arcs in opposite directions, so each
+        // We don't have a way to draw two edges in opposite directions, so each
         // each event needs to affect both directions. One example when this is
         // needed is the Events::NotGenerated event generated in Astar
         int sizeNow = edgeChanges_.size();
