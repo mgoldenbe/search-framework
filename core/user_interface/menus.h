@@ -117,7 +117,7 @@ struct MenuMain
     virtual void handleEnter() {
         std::string choice = this->choice();
         if (choice == "Layout")
-            this->data_.drawer().changeLayout();
+            this->data_.drawer().makeLayout();
         Base::handleEnter();
     }
 };

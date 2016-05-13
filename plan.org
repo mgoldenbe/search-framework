@@ -32,7 +32,7 @@
   + DONE Algorithms should not get graph as a parameter (not a template parameter either). The graph should be computer from the log. Events should be added in Astar to not miss edges.
   + DONE Remove the NoGraph class.
   + DONE Make sure that templates that really depend only on State do not have Node as template parameter.
-  + Delete automaticLayoutFlag template parameter throughout. Deduce the layout based on whether the State has a member function for computing the layout.
+  + DONE Delete automaticLayoutFlag template parameter throughout. Deduce the layout based on whether the State has a member function for computing the layout.
   + AlgorithmLog should create copies of states, since algorithms such as IDA* modify state.
   + Get rid of STATE_SMART_PTR in configuration files.
   + *Decision* with regards to free-standing functions instead of member functions (see comments in http://programmers.stackexchange.com/q/310330/216771): put it into the backlog.
