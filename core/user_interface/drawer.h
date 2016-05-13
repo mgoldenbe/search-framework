@@ -9,7 +9,7 @@
 /// \author Meir Goldenberg
 
 // /// \name Checking whether the State has a function for computing layout.
-// /// Used for tag dispatch in \ref Drawer::computePointMap
+// /// Used for tag dispatch in \ref Drawer::computePointMap_
 // /// @{
 /// Declared only if \c State does not have a function for computing layout.
 template <class State, typename = void_t<>>
@@ -192,6 +192,7 @@ template <class Node> struct Drawer {
     void sizeY(int size) { sizey_ = size; }
 
 private:
+    /// \anchor Drawer::computePointMap_
     /// \name Computing the layout.
     /// Uses SFINAE to use the \c visualLocation function of State it has one or
     /// automatic layout otherwise.

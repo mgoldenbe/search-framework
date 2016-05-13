@@ -6,7 +6,7 @@
 /// \author Meir Goldenberg
 
 /// The abstract base for all filters.
-/// \t Node The search node type. It is needed since some filters might
+/// \tparam Node The search node type. It is needed since some filters might
 /// operate on the information stored with the node.
 template <class Node>
 struct FilterBase {
