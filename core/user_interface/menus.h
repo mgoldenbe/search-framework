@@ -331,7 +331,7 @@ struct MenuEditFilter : MenuBase<AllMenus, Node> {
         else if (choice == "None")
             this->selectNone();
         else {
-            this->data_.filter().filterEventType().set(
+            this->data_.filter().filterEventStr().set(
                 menuChoices(this->m_.raw()));
             this->data_.log().setFilter(this->data_.filter(),
                                         this->data_.drawer());
@@ -374,7 +374,7 @@ struct AllMenus {
         menuItems_.clear();
         raw_ = createMenu(typist.commandsPad(), menuItems_, newMenu->choices(),
                           newMenu->nonSelectable(),
-                          newMenu->data().filter().filterEventType().get(),
+                          newMenu->data().filter().filterEventStr().get(),
                           maxMenuRows_, newMenu->multi());
         m_ = newMenu;
         typist.setMenu(raw_, &newMenu->form());

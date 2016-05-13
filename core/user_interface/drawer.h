@@ -4,27 +4,33 @@
 #include "visual_log.h"
 
 /// \file
-/// \brief The \ref Drawer class.
+/// \brief The \ref Drawer class and the types used for tag dispatch to compute
+/// the layout of the (partial) domain graph.
 /// \author Meir Goldenberg
 
-/// \name Checking whether the \c State has a function for computing layout.
-/// Used for tag dispatch in \ref Drawer::computePointMap
-/// @{
+// /// \name Checking whether the State has a function for computing layout.
+// /// Used for tag dispatch in \ref Drawer::computePointMap
+// /// @{
+/// Declared only if \c State does not have a function for computing layout.
 template <class State, typename = void_t<>>
 struct has_layout : std::false_type {};
 
+/// Declared only if \c State has a function for computing layout.
 template <class State>
 struct has_layout<State,
                   void_t<decltype(std::declval<State>().visualLocation(
                       std::declval<double &>(), std::declval<double &>()))>>
     : std::true_type {};
 
+/// Evaluates to \c void only if \c State has a function for computing layout.
 template <class State>
 using HasLayout = typename std::enable_if<has_layout<State>::value>::type;
 
+/// Evaluates to \c void only if \c State does not have a function for computing
+/// layout.
 template <class State>
 using HasNoLayout = typename std::enable_if<!has_layout<State>::value>::type;
-/// @}
+// /// @}
 
 // http://stackoverflow.com/a/33421942/2725810
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
@@ -86,8 +92,8 @@ template <class Node> struct Drawer {
     /// Computes the layout of the (partial) domain graph and scales it to the
     /// current scale.
     void makeLayout() {
-        computePointMap();
-        scaleLayout(sizex_, sizey_);
+        computePointMap_();
+        scaleLayout_(sizex_, sizey_);
     }
 
     /// Returns the graphics object.
@@ -186,15 +192,16 @@ template <class Node> struct Drawer {
     void sizeY(int size) { sizey_ = size; }
 
 private:
-    /// \name Computing the layout. Uses SFINAE to use the \c visualLocation
-    /// function of State it has one or automatic layout otherwise. See
-    /// \ref HasNoLayout<State> and HasLayout<State>.
+    /// \name Computing the layout.
+    /// Uses SFINAE to use the \c visualLocation function of State it has one or
+    /// automatic layout otherwise.
+    /// See \ref HasNoLayout<State> and HasLayout<State>.
     /// @{
-    template <class State = State> HasNoLayout<State> computePointMap() {
+    template <class State = State> HasNoLayout<State> computePointMap_() {
         pointMap_ = g_.layout(true, true);
     }
 
-    template <class State = State> HasLayout<State> computePointMap() {
+    template <class State = State> HasLayout<State> computePointMap_() {
         for (auto vd : g_.vertexRange()) {
             auto state = g_.state(vd);
             double x, y;
@@ -272,7 +279,7 @@ private:
     /// Scales the layout (i.e. modified \ref pointMap_) to the given dimensions.
     /// The new x-dimension of the drawing.
     /// The new y-dimension of the drawing.
-    void scaleLayout(int x, int y) {
+    void scaleLayout_(int x, int y) {
         double minEdgeDistance = distancePercentile(0.1);
         double vertexSize = minEdgeDistance / 3;
         std::vector<double> xs, ys;
