@@ -1,42 +1,7 @@
-#ifndef VISUALIZER_MENUS_H
-#define VISUALIZER_MENUS_H
+#ifndef MENUS_H
+#define MENUS_H
 
-#include "log_window.h"
-
-template <class Node>
-struct VisualizerData {
-    using MyAlgorithmLog = AlgorithmLog<Node>;
-    using MyVisualLog = VisualLog<Node>;
-    using State = typename Node::State;
-    using Graph = StateGraph<State>;
-    using AlgorithmEvent = typename Events::Base<Node>::Event;
-    using DrawerType = Drawer<Node>;
-    enum class VISUALIZER_SLB_STATE{PAUSE, GO};
-
-    VisualizerData(Graph &g, const MyAlgorithmLog &log)
-        : g_(g), log_(log, g), drawer_(g, log_), logWindow_(log_),
-          filter_(log.eventStrings()), searchFilter_(log.eventStrings()) {
-        logWindow_.fillEventsPad();
-    }
-    MyVisualLog &log() { return log_; }
-    DrawerType &drawer() { return drawer_; }
-    LogWindow<Node> &logWindow() { return logWindow_; }
-    void state(VISUALIZER_SLB_STATE s) { s_ = s; }
-    void speed(int s) { speed_ = s; }
-    Filter<Node> &filter() { return filter_; }
-    Filter<Node> &searchFilter() { return searchFilter_; }
-
-protected:
-    Graph &g_;
-    MyVisualLog log_;
-    DrawerType drawer_;
-    LogWindow<Node> logWindow_;
-
-    VISUALIZER_SLB_STATE s_ = VISUALIZER_SLB_STATE::PAUSE;
-    int speed_ = 2;
-    Filter<Node> filter_;
-    Filter<Node> searchFilter_;
-};
+#include "visualizer_data.h"
 
 template <class AllMenus, class Node>
 struct MenuBase {
@@ -139,7 +104,7 @@ struct MenuRun : MenuBase<AllMenus, Node> {
 
     virtual void handleEnter() {
         std::string choice = this->choice();
-        if (choice == "Go") this->data_.state(Data::VISUALIZER_SLB_STATE::GO);
+        if (choice == "Go") this->data_.state(Data::VISUALIZER_STATE::GO);
         if (choice == "Step Forward")
             this->data_.log().next(this->data_.drawer());
         if (choice == "Step Backward")
@@ -253,7 +218,7 @@ struct MenuGo : MenuBase<AllMenus, Node> {
     }
 
     virtual void handleEnter() {
-        this->data_.state(Data::VISUALIZER_SLB_STATE::PAUSE);
+        this->data_.state(Data::VISUALIZER_STATE::PAUSE);
         Base::handleEnter();
     }
 };
