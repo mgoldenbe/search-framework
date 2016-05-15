@@ -173,7 +173,7 @@ struct MenuEnterState : MenuBase<AllMenus, Node> {
                    VisualizerData<Node> &data)
         : MenuBase<AllMenus, Node>(m, data) {
         EditField editField{this->data_.drawer().graphics().display,
-                            this->data_.logWindow().commandsPad(),
+                            this->data_.logWindow().menuPad(),
                             0,
                             0,
                             1,
@@ -372,7 +372,7 @@ struct AllMenus {
 
         destroyMenu(raw_);
         menuItems_.clear();
-        raw_ = createMenu(logWindow.commandsPad(), menuItems_, newMenu->choices(),
+        raw_ = createMenu(logWindow.menuPad(), menuItems_, newMenu->choices(),
                           newMenu->nonSelectable(),
                           newMenu->data().filter().filterEventStr().get(),
                           maxMenuRows_, newMenu->multi());
