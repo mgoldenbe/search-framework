@@ -14,13 +14,13 @@ struct VisualizerData {
     enum class VISUALIZER_SLB_STATE{PAUSE, GO};
 
     VisualizerData(Graph &g, const MyAlgorithmLog &log)
-        : g_(g), log_(log, g), drawer_(g, log_), typist_(log_),
+        : g_(g), log_(log, g), drawer_(g, log_), logWindow_(log_),
           filter_(log.eventStrings()), searchFilter_(log.eventStrings()) {
-        typist_.fillEventsPad();
+        logWindow_.fillEventsPad();
     }
     MyVisualLog &log() { return log_; }
     DrawerType &drawer() { return drawer_; }
-    Typist<Node> &typist() { return typist_; }
+    LogWindow<Node> &logWindow() { return logWindow_; }
     void state(VISUALIZER_SLB_STATE s) { s_ = s; }
     void speed(int s) { speed_ = s; }
     Filter<Node> &filter() { return filter_; }
@@ -30,7 +30,7 @@ protected:
     Graph &g_;
     MyVisualLog log_;
     DrawerType drawer_;
-    Typist<Node> typist_;
+    LogWindow<Node> logWindow_;
 
     VISUALIZER_SLB_STATE s_ = VISUALIZER_SLB_STATE::PAUSE;
     int speed_ = 2;
@@ -66,10 +66,10 @@ struct MenuBase {
                                [choice](std::pair<std::string, Base *> &p) {
             return p.first == choice;
         })->second;
-        m_.setMenu(m, data_.typist());
+        m_.setMenu(m, data_.logWindow());
     }
 
-    void handleEsc() { m_.setMenu(exitMenu_, data_.typist()); }
+    void handleEsc() { m_.setMenu(exitMenu_, data_.logWindow()); }
 
     void selectAll() {
         for (auto item: m_.menuItems()) set_item_value(item, true);
@@ -173,7 +173,7 @@ struct MenuEnterState : MenuBase<AllMenus, Node> {
                    VisualizerData<Node> &data)
         : MenuBase<AllMenus, Node>(m, data) {
         EditField editField{this->data_.drawer().graphics().display,
-                            this->data_.typist().commandsPad(),
+                            this->data_.logWindow().commandsPad(),
                             0,
                             0,
                             1,
@@ -190,12 +190,12 @@ struct MenuEnterState : MenuBase<AllMenus, Node> {
         auto &stateStr = this->form_.get(0);
         auto &filter = this->data_.searchFilter().filterState();
         if (stateStr.empty()) {
-            this->data_.typist().message("Cleared search filter");
+            this->data_.logWindow().message("Cleared search filter");
             filter.reset();
         } else {
             auto state = std::make_shared<typename MyVisualLog::State>(stateStr);
             filter.set(state);
-            this->data_.typist().message("Set search filter: " + str(*state));
+            this->data_.logWindow().message("Set search filter: " + str(*state));
         }
         Base::handleEnter(); // Need to do this before the menu entry changed
     }
@@ -230,8 +230,8 @@ struct MenuFilter : MenuBase<AllMenus, Node> {
             current_item(this->m_.raw())->name.str = updatedItem.c_str();
             current_item(this->m_.raw())->name.length = updatedItem.size();
 
-            this->data_.typist().hideFiltered(this->m_.hideFiltered);
-            this->data_.typist().fillEventsPad();
+            this->data_.logWindow().hideFiltered(this->m_.hideFiltered);
+            this->data_.logWindow().fillEventsPad();
 
             // Cause the item to update
             menu_driver(this->m_.raw(), REQ_LEFT_ITEM);
@@ -335,7 +335,7 @@ struct MenuEditFilter : MenuBase<AllMenus, Node> {
                 menuChoices(this->m_.raw()));
             this->data_.log().setFilter(this->data_.filter(),
                                         this->data_.drawer());
-            this->data_.typist().fillEventsPad();
+            this->data_.logWindow().fillEventsPad();
         }
         Base::handleEnter();
     }
@@ -348,7 +348,7 @@ struct AllMenus {
           menuEnterState(*this, data), menuFilter(*this, data),
           menuGo(*this, data), menuSpeed(*this, data),
           menuTypedSearch(*this, data), menuEditFilter(*this, data) {
-        setMenu(&menuMain, data.typist());
+        setMenu(&menuMain, data.logWindow());
     }
     ~AllMenus() { destroyMenu(raw_); }
 
@@ -367,17 +367,17 @@ struct AllMenus {
     void handleEsc() { m_->handleEsc(); }
 
     void setMenu(MenuBase<AllMenus, Node> *newMenu,
-                 Typist<Node> &typist) {
+                 LogWindow<Node> &logWindow) {
         if (newMenu == m_) return;
 
         destroyMenu(raw_);
         menuItems_.clear();
-        raw_ = createMenu(typist.commandsPad(), menuItems_, newMenu->choices(),
+        raw_ = createMenu(logWindow.commandsPad(), menuItems_, newMenu->choices(),
                           newMenu->nonSelectable(),
                           newMenu->data().filter().filterEventStr().get(),
                           maxMenuRows_, newMenu->multi());
         m_ = newMenu;
-        typist.setMenu(raw_, &newMenu->form());
+        logWindow.setMenu(raw_, &newMenu->form());
     }
 
     MenuBase<AllMenus, Node> *curMenu() {return m_;}

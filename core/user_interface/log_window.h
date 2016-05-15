@@ -3,13 +3,13 @@
 
 #include "form.h"
 
-template <class Node> struct Typist {
+template <class Node> struct LogWindow {
     using MyVisualLog = VisualLog<Node>;
     //using MyAlgorithmLog = AlgorithmLog<Node>;
     using State = typename Node::State;
     using AlgorithmEvent = typename Events::Base<Node>::Event;
 
-    Typist(const MyVisualLog &log) : log_(log) {
+    LogWindow(const MyVisualLog &log) : log_(log) {
         initscr();
         start_color();
         use_default_colors();
@@ -34,7 +34,7 @@ template <class Node> struct Typist {
         wbkgd(commandsPad_, COLOR_PAIR(1));
     }
 
-    ~Typist() {
+    ~LogWindow() {
         delwin(eventsPad_);
         endwin();
     }

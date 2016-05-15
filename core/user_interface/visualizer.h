@@ -1,7 +1,7 @@
 #ifndef VISUALIZER_H
 #define VISUALIZER_H
 
-/// \file visualizer.h
+/// \file
 /// \brief The main UI file. Implements the visualizer.
 /// \author Meir Goldenberg
 
@@ -26,7 +26,7 @@ struct Visualizer : VisualizerData<Node> {
     using Data::g_;
     using Data::log_;
     using Data::drawer_;
-    using Data::typist_;
+    using Data::logWindow_;
     using Data::s_;
 
     // VisualLog is not const, since we will move in time...
@@ -48,8 +48,8 @@ struct Visualizer : VisualizerData<Node> {
                 continue;
             }
             if (!processEvents()) break;
-            typist_.setStep(log_.step());
-            typist_.show();
+            logWindow_.setStep(log_.step());
+            logWindow_.show();
             if (s_ == VISUALIZER_SLB_STATE::PAUSE) {
                 iteration = 0;
                 continue;
@@ -107,7 +107,7 @@ private:
         int c;
 
         if ((c = getch()) != ERR) {
-            this->typist_.message(
+            this->logWindow_.message(
                 "Console is active; "
                 "only events in the X window are currently handled");
         }
@@ -118,10 +118,10 @@ private:
             switch (e.type) {
             case Expose:
                 drawFlag_ = true;
-                // typist_.message("Expose event. Re-drawing...");
+                // logWindow_.message("Expose event. Re-drawing...");
                 break;
             case KeyPress: {
-                // this->typist_.message("Key event received!");
+                // this->logWindow_.message("Key event received!");
                 auto &form = m_.curMenu()->form();
                 if (!form.empty())
                     if (form.handle(e.xkey.state, e.xkey.keycode)) break;
@@ -139,11 +139,11 @@ private:
                         break;
                     }
                     if (e.xkey.keycode == 113) { // Left
-                        this->typist_.scrollLeft();
+                        this->logWindow_.scrollLeft();
                         break;
                     }
                     if (e.xkey.keycode == 114) { // Right
-                        this->typist_.scrollRight();
+                        this->logWindow_.scrollRight();
                         break;
                     }
                 default:
@@ -178,7 +178,7 @@ private:
                         m_.handleEsc();
                         break;
                     default:
-                        typist_.message("Unhandled keypress! State: " +
+                        logWindow_.message("Unhandled keypress! State: " +
                                         str(e.xkey.state) + "  Code: " +
                                         str(e.xkey.keycode));
                     }
@@ -213,13 +213,13 @@ private:
                     lastMotionY_ = e.xmotion.y;
                 } else {
                     if (redraw(graphics)) {
-                        if (!drawFlag_) typist_.message("Loading...");
+                        if (!drawFlag_) logWindow_.message("Loading...");
                         drawFlag_ = true;
                         drag_start_x = e.xmotion.x;
                         drag_start_y = e.xmotion.y;
                         last_delta_x = last_delta_y = 0;
                     } else {
-                        // typist_.message("Translating...");
+                        // logWindow_.message("Translating...");
                         PatternLock lock{drawer_.graphics()};
                         (void)lock;
                         double scale = drawer_.graphics().scale;
@@ -237,7 +237,7 @@ private:
                 windowXSize() = e.xconfigure.width;
                 windowYSize() = e.xconfigure.height;
                 updateSurfaceSize();
-                //typist_.message("Configure event. Re-drawing...");
+                //logWindow_.message("Configure event. Re-drawing...");
                 //drawFlag_ = true;
                 break;
             }
@@ -245,7 +245,7 @@ private:
                 return false;
             default:
                 ;
-                // typist_.message("Dropping unhandled");
+                // logWindow_.message("Dropping unhandled");
                 /*
                 std::cout << "Dropping unhandled XEevent.type = " << e.type
                 << "." << std::endl; */
@@ -259,7 +259,7 @@ private:
                 auto vd = this->drawer().coordsToVD(x, y);
                 if (vd) {
                     auto state = g_.state(vd);
-                    typist_.message("Mouse over: " + str(*state));
+                    logWindow_.message("Mouse over: " + str(*state));
                 }
             }
         }
