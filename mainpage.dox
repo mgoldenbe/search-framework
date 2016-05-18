@@ -19,7 +19,11 @@
  *
  *
  * \section s_usage Usage
- * 
+  * This is an example of how to both compile and run:
+ * (make run-debug MAIN=test CONFIG="projects/KGoal/ConfigMinHeuristic.h" ADD="-DSLB_STATE='GridMapState<>'" OPT="-s ost001d.map8 -i ost001d.txt --nGoals 2 -v 50") 2>err
+ * Here the output of \c make is re-directed to the file \c err (note: actually \c make outputs to stdout, but a special trick is employed to go around this behaviour in order that the output of Make should not pollute standard output and be preserved nonetheless), but the output of the program is not redirected.
+ * The \c ADD option makes it easy to script. One just leaves out the options that change from the configuration file and puts them in \c ADD.
+ *
  * \subsection s_concepts Concepts
  *
  * \subsection s_practice Practice

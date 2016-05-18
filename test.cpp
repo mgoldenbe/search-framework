@@ -4,10 +4,13 @@
 // Can be pre-compiled (~25% compile-time reduction)
 #include "outside_headers.h"
 
-//#include CONFIG
+#ifdef CONFIG
+#include CONFIG
+#else
 #include "projects/KGoal/ConfigMinHeuristic.h"
-//#include "projects/KGoal/ConfigPerGoal.h"
-//#include "projects/KGoal/ConfigUniformSearch.h"
+// //#include "projects/KGoal/ConfigPerGoal.h"
+// //#include "projects/KGoal/ConfigUniformSearch.h"
+#endif
 
 #include "core/headers.h"
 #include "extensions/headers.h"

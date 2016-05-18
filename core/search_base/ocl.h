@@ -23,7 +23,7 @@ template <class OpenList> struct OCL {
         std::cout << "-----------------" << std::endl;
         std::cout << "Dumping OCL:" << std::endl;
         std::cout << "-----------------" << std::endl;
-        std::cout << "SLB_OL: " << ol_.size() << " elements" << std::endl;
+        std::cout << "OL: " << ol_.size() << " elements" << std::endl;
         ol_.dump();
         std::cout << "-----------------" << std::endl;
         std::cout << "CL: " << hash_.size() << " elements" << std::endl;

@@ -20,6 +20,6 @@
 
 #define SLB_HEURISTIC MinHeuristicToGoals<SLB_STATE, OctileHeuristic>
 #define SLB_ALGORITHM Astar
-#define SLB_RAW_ALGORITHM SLB_ALGORITHM
+//#define SLB_RAW_ALGORITHM SLB_ALGORITHM
 
 #endif

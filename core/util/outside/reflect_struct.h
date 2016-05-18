@@ -62,7 +62,6 @@ template <class M, class T> struct make_const<const M, T> {
 
 #define REFLECTABLE(...) REFLECTABLE_CONST(BOOST_PP_IS_EMPTY(__VA_ARGS__), __VA_ARGS__)
 
-
 #define REFLECT_EACH(r, data, i, x)                                            \
     PAIR(x);                                                                   \
     template <class Self> struct field_data<i, Self> {                         \
@@ -77,8 +76,7 @@ template <class M, class T> struct make_const<const M, T> {
         }                                                                      \
         const char *name() const { return BOOST_PP_STRINGIZE(STRIP(x)); }      \
     }; // What this does is generate a constant fields_n that is number of
-       // reflectable
-// fields in the class. Then it specializes the field_data for each field. It
+       // reflectable fields in the class. Then it specializes the field_data for each field. It
 // also friends the reflector class, this is so it can access the fields even
 // when they are private:
 
