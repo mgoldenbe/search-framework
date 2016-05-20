@@ -1,6 +1,6 @@
 
 # -isystem disables warnings from there
-INCLUDE=-isystem ~/boost_1_59_0 -isystem core/util/outside/ -I . -I /usr/include/cairomm-1.0/ -I /usr/include/cairo/ -I /usr/include/sigc++-2.0/ -I /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/ -I /usr/include/freetype2/ -I core/ -I extensions/ 
+INCLUDE=-isystem ~/boost_1_59_0 -isystem core/util/outside/ -I . -isystem /usr/include/cairo/ -I /usr/include/sigc++-2.0/ -I /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/ -I /usr/include/freetype2/ -I core/ -I extensions/ 
 
 GRAPHICS_LIB=-lcairo -lX11 -lXtst -lmenu -lncurses
 
@@ -31,7 +31,9 @@ MAKE_DEBUG_EXEC=$(MAKE_EXEC) -g -fno-default-inline -fno-inline $(GRAPHICS_LIB)
 MAKE_PRODUCTION_OBJ=$(MAKE_OBJ) -DNDEBUG -O2 $(GRAPHICS_LIB)
 MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -DNDEBUG -O2 $(GRAPHICS_LIB)
 
-default: debug
+default:
+#	$(COMMON_PREFIX) -E -MM $(MAIN_CPP) -o $(MAIN_I)
+	$(COMMON_PREFIX) -E -fdirectives-only $(MAIN_CPP) -o $(MAIN_I) 
 
 pre-raw:
 	$(PREPROCESSOR)
@@ -61,10 +63,13 @@ symbols-raw: symbols.cpp Makefile
 	$(COMPILER) -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic -O2 symbols.cpp -o symbols
 
 %-raw:
-	echo "Target $@ does not exist"
+	@echo "Target $@ does not exist"
 
+# Swapping file descriptors to have make echo to stderr instead of stdout.
+# See https://www.gnu.org/software/make/manual/html_node/MAKE-Variable.html#MAKE-Variable for what $(MAKE) is.
+# See also this discussion: http://stackoverflow.com/a/37325841/2725810
 %:
-	@make $@-raw 3>&2 2>&1 1>&3
+	@$(MAKE) $@-raw 3>&2 2>&1 1>&3
 
 # Things not currently used
 #COMMON1=$(COMMON_PREFIX) -H -ftime-report -o test $(MAIN)

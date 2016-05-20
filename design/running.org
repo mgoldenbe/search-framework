@@ -1,0 +1,24 @@
+The purpose of this document is to get clarity on what my goals are as far as building and running the framework are concerned.
+
+* There are two possible patterns for running experiments from a script:
+- The outer loop is on compile-time parameters. For each choice of parameters, an executable is built. The inner loop is on run-time parameters and invokes directly the executable built by the outer loop.
+  * What support does this pattern need to make it most convenient and effective?
+    + Accepting the configuration file and the additional compile-time parameters for building. The current make file does that by basing on /COMMON_PREFIX/ which includes /CONFIG/ and /ADD/.
+    + In case the experiment is re-run, e.g. with extended or modified set of run-time arguments, the building overhead can be saved.
+      * For this, the executable needs to be cached.
+      * The executable needs to be retrieved based on:
+        1. The configuration file
+        2. The files included from the configuration file.
+        3. The additional compile-time parameters.
+        4. The source files of the framework (not including the system headers).
+      * A link to the found executable can be created, so the script can still invoke it directly. 
+- The script modifies the parameters in some other order, not necessarily grouping modifications of the run-time parameters together.
+  * What /additional/ support does this pattern need to make it most convenient and effective?
+    + Assuming that each time the script invokes both building and execution, we need to avoid building the executable from scratch every time. This is done exactly in the same way as above.
+    + It makes sense to save a line of code in the script and accept both compile-time and run-time parameters together.
+* Let’s think about the best way to implement caching. Best means fast and least effort.
+- Note that all the data based on which the executable needs to be retrieved is included in the file produced by g++ run with -E -fdirectives-only. In fact, it includes the library code as well, which can be good if one updates a library. Currently it executes in 0.2 seconds on my computer, which is fast enough.
+  * However, there is a limitation: whenever new code (i.e. a new algorithm) is added, even if it is not used by the current experiment, the above mentioned file will change. I do not see any easy way around this limitation. So, for now *I decide to not deal with it*.
+  * Note that the order of the additional compile-time parameters does not really matter and it would be nice to sort them, but for now *I decide to leave it to the user to put them in the same order every time*. This should not pose a problem when a script is used.
+- md5sum of the output of /g++ -E -fdirectives-only/ takes only 0.02 seconds on my computer, so no need to look at md4 (which is used by ccache).
+- Now, suppose that the sum is 961ebdb0d2f298802de938105ef51b37 (we get this with md5sum test.i | colrm 33). If execs/slb961ebdb0d2f298802de938105ef51b37 does not exist, we need to build it from scratch. No need for ccache. We do need to split the building to use /symbols/ after pre-processing to remove non-used symbols.
