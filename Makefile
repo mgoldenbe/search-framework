@@ -5,14 +5,15 @@ INCLUDE=-isystem ~/boost_1_59_0 -isystem core/util/outside/ -I . -isystem /usr/i
 GRAPHICS_LIB=-lcairo -lX11 -lXtst -lmenu -lncurses
 
 # default values
-MAIN=test
+CPP=test.cpp
+MAIN:=$(CPP:.cpp=)
+EXEC=$(MAIN)
+MODE=debug
 
-MAIN_CPP=$(MAIN).cpp
+MAIN_CPP=$(CPP)
 MAIN_I=$(MAIN).i
-MAIN_O=$(MAIN).o
-PRECOMPILED_HEADER=outside_headers.h
 
-COMPILER=ccache /usr/bin/g++-6
+COMPILER=/usr/bin/g++-6
 
 ifdef CONFIG
 	MYCONF=-DCONFIG='"$(CONFIG)"'
@@ -20,60 +21,46 @@ endif
 
 # Look at -flto=n in case several translation units are identified
 COMMON_PREFIX=$(COMPILER) -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic -Wno-sign-compare $(INCLUDE) $(MYCONF) $(ADD)
-MAKE_OBJ=$(COMMON_PREFIX) $(MAIN_I) -c -fpreprocessed
-MAKE_EXEC=$(COMMON_PREFIX) -o $(MAIN) $(MAIN_O)
 
-PREPROCESSOR=$(COMMON_PREFIX) -E $(MAIN_CPP) -o $(MAIN_I) 
+PREPROCESSOR=$(COMMON_PREFIX) -o $(MAIN_I) $(MAIN_CPP) -E
+MAKE_EXEC=$(COMMON_PREFIX) -fpreprocessed -o $(EXEC) $(MAIN_I) $(GRAPHICS_LIB)
+MAKE_DEBUG_EXEC=$(MAKE_EXEC) -g -fno-default-inline -fno-inline
+MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -DNDEBUG -O2
 
-MAKE_DEBUG_OBJ=$(MAKE_OBJ) -g -fno-default-inline -fno-inline $(GRAPHICS_LIB)
-MAKE_DEBUG_EXEC=$(MAKE_EXEC) -g -fno-default-inline -fno-inline $(GRAPHICS_LIB)
+HASH_SOURCE=.execs/last_hash_source
+HASH_CODE=.execs/last_hash_code
 
-MAKE_PRODUCTION_OBJ=$(MAKE_OBJ) -DNDEBUG -O2 $(GRAPHICS_LIB)
-MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -DNDEBUG -O2 $(GRAPHICS_LIB)
+# Builds the executable based on MODE, CPP, CONFIG and ADD.
+# Does not use OPT, which controls the run-time parameters.
+# Begins by computing the name of executable containing the hash key. Defers the actual build to another instance of make in order to share the EXEC variable.
+compute-hash:
+	@$(COMMON_PREFIX) -E -fdirectives-only $(MAIN_CPP) -o $(HASH_SOURCE)
+	@echo $(MODE) >> $(HASH_SOURCE)
+	@$(MAKE) 3>&2 2>&1 1>&3 build-exec EXEC=.execs/slb`md5sum $(HASH_SOURCE) | colrm 33 | tee $(HASH_CODE)`
 
-default:
-#	$(COMMON_PREFIX) -E -MM $(MAIN_CPP) -o $(MAIN_I)
-	$(COMMON_PREFIX) -E -fdirectives-only $(MAIN_CPP) -o $(MAIN_I) 
+# Both builds and executes.
+run: compute-hash
+	@./last_exec $(OPT)
 
-pre-raw:
+# Builds executable with the name computed by compute-hash. Does nothing if the executable exists already.
+build-exec:
+	@test -e $(EXEC) || $(MAKE) $(MODE)
+	@ln -sf $(EXEC) last_exec
+
+preprocessor:
 	$(PREPROCESSOR)
 	./symbols $(MAIN_I)
 
-debug-raw: pre-raw
-	$(MAKE_DEBUG_OBJ)
+debug: preprocessor
 	$(MAKE_DEBUG_EXEC)
 
-run-debug-raw: debug-raw
-	./$(MAIN) $(OPT) >&2
-
-production-raw: pre-raw
-	$(MAKE_PRODUCTION_OBJ)
+production: preprocessor
 	$(MAKE_PRODUCTION_EXEC)
 
-run-production-raw: production-raw
-	./$(MAIN) $(OPT) >&2
+symbols: symbols.cpp Makefile
+	$(COMMON_PREFIX) -O2 symbols.cpp -o symbols
 
-run-raw:
-	./$(MAIN) $(OPT)
-
-preprocessor-raw:
-	$(PREPROCESSOR)
-
-symbols-raw: symbols.cpp Makefile
-	$(COMPILER) -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic -O2 symbols.cpp -o symbols
-
-%-raw:
-	@echo "Target $@ does not exist"
-
-# Swapping file descriptors to have make echo to stderr instead of stdout.
-# See https://www.gnu.org/software/make/manual/html_node/MAKE-Variable.html#MAKE-Variable for what $(MAKE) is.
-# See also this discussion: http://stackoverflow.com/a/37325841/2725810
-%:
-	@$(MAKE) $@-raw 3>&2 2>&1 1>&3
-
-# Things not currently used
-#COMMON1=$(COMMON_PREFIX) -H -ftime-report -o test $(MAIN)
+#Precompiled header is not currently used
+#PRECOMPILED_HEADER=outside_headers.h
 #COMMON_PRECOMPILE=$(COMMON_PREFIX) -o $(PRECOMPILED_HEADER).gch -c $(PRECOMPILED_HEADER)
-#MAKE_DEBUG_PRECOMPILE=$(COMMON_PRECOMPILE) -g -fno-default-inline -fno-inline $(GRAPHICS_LIB)
-# precompile:
-# 	$(MAKE_DEBUG_DRAWER_PRECOMPILE)
+
