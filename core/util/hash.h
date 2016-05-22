@@ -20,8 +20,8 @@ struct StateSharedPtrHash {
 
 // namespace std {
 // template <typename State, typename NodeData>
-// struct hash<AStarNode<State, NodeData>> {
-//     std::size_t operator()(AStarNode<State, NodeData> const &key) const {
+// struct hash<SearchNode<State, NodeData>> {
+//     std::size_t operator()(SearchNode<State, NodeData> const &key) const {
 //         return key.state()->hash();
 //     }
 // };

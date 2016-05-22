@@ -46,6 +46,7 @@ run: compute-hash
 build-exec:
 	@test -e $(EXEC) || $(MAKE) $(MODE)
 	@ln -sf $(EXEC) last_exec
+	@touch $(EXEC)
 
 preprocessor:
 	$(PREPROCESSOR)

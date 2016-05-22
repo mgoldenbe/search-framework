@@ -22,7 +22,7 @@
  * @return The domain graph
  */
 StateGraph<SLB_STATE> buildGraph() {
-    using MyOL = OpenList<SLB_NODE, DefaultPriority, GreaterPriority_SmallG>;
+    using MyOL = OpenList<SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
     using MyHeuristic = ZeroHeuristic<SLB_STATE>;
     using MyInstance = Instance<SLB_STATE>;
 
