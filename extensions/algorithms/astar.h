@@ -47,7 +47,7 @@ struct Astar : Algorithm<ALG_TARGS> {
         return res;
     }
 private:
-    OCL<Open> oc_;
+    OpenClosedList<Open> oc_;
 
     // We should consider making these local
     Node *cur_;

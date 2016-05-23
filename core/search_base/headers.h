@@ -7,8 +7,8 @@
 /// \author Meir Goldenberg
 
 #include "instance.h"
-#include "ocl.h"
-#include "ol.h"
+#include "open_closed_list.h"
+#include "open_list.h"
 #include "stats.h"
 
 #endif

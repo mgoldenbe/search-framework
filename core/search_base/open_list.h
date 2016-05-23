@@ -1,5 +1,5 @@
-#ifndef HEAP_H
-#define HEAP_H
+#ifndef OPEN_LIST_H
+#define OPEN_LIST_H
 
 /// \file
 /// \brief A flexible open list implementation.
@@ -111,7 +111,7 @@ struct OpenList {
     /// The functor type used to compare the keys.
     using GreaterPriority = GreaterPriority_<Priority>;
 
-    /// Type for action cost.
+    /// Type for action cost in the search domain.
     using CostType = typename Node::CostType;
 
     /// Adds the given node to the list.
