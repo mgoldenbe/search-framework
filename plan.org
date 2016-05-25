@@ -33,6 +33,7 @@
   + DONE Remove the NoGraph class.
   + DONE Make sure that templates that really depend only on State do not have Node as template parameter.
   + DONE Delete automaticLayoutFlag template parameter throughout. Deduce the layout based on whether the State has a member function for computing the layout.
+  + Add a virtual constructor to all base classes that define a virtual method.
   + AlgorithmLog should create copies of states, since algorithms such as IDA* modify state.
   + *Decision* with regards to free-standing functions instead of member functions (see comments in http://programmers.stackexchange.com/q/310330/216771): put it into the backlog.
 - Document the classes

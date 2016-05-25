@@ -99,7 +99,7 @@ struct SearchNode : public NodeData_ {
     BucketPosition bucketPosition() const { return bucketPosition_; }
 
     /// Dumps the node (i.e. the state, the parent and the data) to the given
-    /// output stream.
+    /// stream.
     /// \tparam Stream The output stream type.
     /// \param o The output stream.
     template<typename Stream>
