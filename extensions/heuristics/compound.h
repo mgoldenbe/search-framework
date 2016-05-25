@@ -1,8 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef HEURISTIC_H
-#define HEURISTIC_H
+#ifndef COMPOUND_H
+#define COMPOUND_H
 
 template <class State>
 struct ZeroHeuristic {
