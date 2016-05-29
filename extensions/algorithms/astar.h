@@ -23,10 +23,15 @@ struct Astar : Algorithm<ALG_TARGS> {
         while (!oc_.empty() && !goalHandler_.done()) {
             cur_ = oc_.minNode();
             log<Events::Selected>(log_, cur_);
+            // Tag dispatch to call the correct version depending on whether the
+            // goal handler is dealing with the issue of suspending expansions.
+            // In the latter case, onSelect returns bool, otherwise it returns
+            // void.
             onSelectAndExpand(std::integral_constant<
                 bool, std::is_same<decltype(goalHandler_.onSelect(cur_, res_)),
                                    bool>::value>());
         }
+        cost_.set(res_);
         if (oc_.empty()) return CostType{-1};
         return res_;
     }
@@ -59,7 +64,6 @@ private:
 
     void onSelectAndExpand(std::true_type) {
         bool expandFlag = goalHandler_.onSelect(cur_, res_);
-        cost_.set(res_);
         if (!expandFlag) {
             // The following code will need to become more generic
             auto oldCost = cur_->f;
@@ -78,7 +82,6 @@ private:
 
     void onSelectAndExpand(std::false_type) {
         goalHandler_.onSelect(cur_, res_);
-        cost_.set(res_);
         expand();
     }
 

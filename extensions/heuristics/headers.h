@@ -5,6 +5,6 @@
 /// \brief Implementation of heuristics.
 /// \author Meir Goldenberg
 
-#include "compound.h"
+#include "heuristic_wrappers.h"
 
 #endif
