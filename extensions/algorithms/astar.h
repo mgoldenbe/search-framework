@@ -112,7 +112,7 @@ private:
                 log<Events::EnteredOpen>(log_, childNode);
             }
             else {
-                log<Events::NotGenerated>(log_, childNode, cur_);
+                log<Events::NothingToDo>(log_, childNode, cur_);
                 log<Events::HideLast>(log_, childNode);
             }
 
