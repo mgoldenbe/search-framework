@@ -1,6 +1,3 @@
-///@file
-///@brief INTERFACES CHECKED.
-
 #ifndef PANCAKE_H
 #define PANCAKE_H
 
@@ -96,7 +93,7 @@ bool operator==(const std::shared_ptr<const Pancake> &p1,
     return *p1 == *p2;
 }
 
-//------------------------- SLB_HEURISTICS ------------------//
+//------------------------- HEURISTICS ------------------//
 
 struct GapHeuristic {
     int operator()(const Pancake &s) const { return s.gapHeuristic(); }

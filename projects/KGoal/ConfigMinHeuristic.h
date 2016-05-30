@@ -4,6 +4,7 @@
 #define SLB_STATE GridMapState<>
 #define SLB_COST_TYPE double
 #define SLB_UNIFORM_DOMAIN false
+#define SLB_COST_DIAGONAL 1.5
 #define SLB_NODE_DATA MyNodeDataT<SLB_STATE>
 
 #define SLB_STATE_SMART_PTR StateSharedPtrT

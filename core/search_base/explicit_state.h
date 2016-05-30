@@ -5,7 +5,8 @@
 /// \brief The \ref ExplicitState class and the related heuristics.
 /// \author Meir Goldenberg
 
-/// The base class for a state in an explicit domain.
+/// The base class for a state in an explicit domain. It can be viewed as a
+/// wrapper for the location type defined by the explicit domain.
 /// \tparam ExplicitSpace The type for storing the explicit space (e.g. a map).
 template<class ExplicitSpace>
 struct ExplicitState {
@@ -16,18 +17,20 @@ struct ExplicitState {
     using MyType = ExplicitState<ExplicitSpace>;
 
     /// The type used internally by \c ExplicitSpace to represent a state.
-    using StateType = typename ExplicitSpace::StateType;
+    /// To distinguish such a state from the state type used by search
+    /// algorithms, we call the former \c location.
+    using Location = typename ExplicitSpace::Location;
 
-    /// Initialize the state with the space's default.
-    ExplicitState() : state_(space()->defaultState()) {}
+    /// Initialize the location with the space's default.
+    ExplicitState() : loc_(space()->defaultLocation()) {}
 
-    /// Initialize to the given state.
-    /// \param state The given state.
-    ExplicitState(const StateType &state) : state_(state) {}
+    /// Initialize to the given location.
+    /// \param loc The given location.
+    ExplicitState(const Location &loc) : loc_(loc) {}
 
     /// Initialize based on the string describing the state.
     /// \param s The string describing the state.
-    ExplicitState(const std::string &s) : state_(space()->state(s)) {}
+    ExplicitState(const std::string &s) : loc_(space()->location(s)) {}
 
     /// Default copy constructor.
     ExplicitState(const MyType &) = default;
@@ -36,12 +39,12 @@ struct ExplicitState {
     ExplicitState &operator=(const MyType &) = default;
 
     /// Computes the neighbors of the state.
-    /// \param Neighbor The type for representing the neighbors.
+    /// \tparam Neighbor The type for representing a single neighbor state.
     /// \return Vector of neighbors of the state.
     template<class Neighbor>
     std::vector<Neighbor> successors() const {
         std::vector<Neighbor> res;
-        for (auto &n: space_->template neighbors<Neighbor>(state_))
+        for (auto &n: space_->template neighbors<Neighbor>(loc_))
             res.push_back(std::move(n));
         return res;
     }
@@ -49,26 +52,26 @@ struct ExplicitState {
     /// Computes the hash code of the state.
     /// \return The hash code of the state.
     std::size_t hash() const {
-        boost::hash<StateType> myHash;
-        return myHash(state_);
+        boost::hash<Location> myHash;
+        return myHash(loc_);
     }
 
-    /// Returns the raw state as used by \c ExplicitSpace.
-    /// \return The raw state as used by \c ExplicitSpace.
-    const StateType &raw() const { return state_; }
+    /// Returns the location.
+    /// \return The location.
+    const Location &raw() const { return loc_; }
 
     /// Dumps the node the state to the given stream.
     /// \tparam Stream The output stream type.
     /// \param o The output stream.
     template <typename Stream>
     Stream &dump(Stream &o) const {
-        return o << space()->stateStr(state_);
+        return o << space()->locationStr(loc_);
     }
 
     /// The equality operator.
     /// \param rhs The right-hand side of the operator.
     bool operator==(const MyType &rhs) const {
-        return state_ == rhs.state_;
+        return loc_ == rhs.loc_;
     }
 
     /// Sets the space (i.e. an instance of ExplicitSpace) for this state class
@@ -78,9 +81,9 @@ struct ExplicitState {
         space_ = std::unique_ptr<ExplicitSpace>(new ExplicitSpace(fileName));
     }
 
-    /// Returns a random raw state as used by \c ExplicitSpace.
-    /// \return A random raw state as used by \c ExplicitSpace.
-    static StateType random() { return space()->random(); }
+    /// Returns a random location from \c ExplicitSpace.
+    /// \return A random location from \c ExplicitSpace.
+    static Location random() { return space()->random(); }
 
     /// Returns the space (i.e. an instance of ExplicitSpace) of this state
     /// class.
@@ -92,7 +95,8 @@ struct ExplicitState {
         return space_;
     }
 private:
-    StateType state_; ///< The raw state as used by \c ExplicitSpace.
+    /// The location, which is the raw state as used by \c ExplicitSpace.
+    Location loc_;
     static std::unique_ptr<ExplicitSpace> space_; ///< The explicit space.
 };
 
