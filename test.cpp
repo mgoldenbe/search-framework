@@ -1,3 +1,9 @@
+/// \file
+/// \brief The standard main file, which uses the framework for the most common
+/// experimentation scenarios -- running a search algorithm for a set of problem
+/// instances, running a search algorithm for a single problem instance with
+/// visualization and creating a new set of problem instances.
+/// \author Meir Goldenberg
 
 // Can be pre-compiled (~25% compile-time reduction)
 #include "outside_headers.h"
@@ -13,12 +19,8 @@
 #include "core/headers.h"
 #include "extensions/headers.h"
 
-/**
- * @brief Builds the domain graph
- *
- *
- * @return The domain graph
- */
+/// Builds the state graph of the domain.
+/// \return The state graph of the domain.
 StateGraph<SLB_STATE> buildGraph() {
     using MyOL = OpenList<SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
     using MyHeuristic = ZeroHeuristic<SLB_STATE>;
@@ -31,6 +33,7 @@ StateGraph<SLB_STATE> buildGraph() {
     return myAstar.graph();
 }
 
+/// Runs a search algorithm for a set of problem instances.
 void run() {
     if (CMD.spaceInitFileName_isSet())
         SLB_STATE::initSpace(CMD.spaceInitFileName());
@@ -64,18 +67,28 @@ void run() {
     std::cout << statsTable;
 }
 
+/// Creates a new set of problem instances and saves it in a file.
 void makeInstances() {
     if (CMD.spaceInitFileName_isSet())
         SLB_STATE::initSpace(CMD.spaceInitFileName());
     makeInstancesFile<SLB_STATE>(CMD.instancesFileName());
 }
 
+/// Reads the command line and dispatches to run one of the scenarios.
+/// \param argc Number of command line arguments.
+/// \param argv The command line arguments.
+/// \return The exit code.
 int main(int argc, char **argv) {
-    // need to catch exceptions
-    CommandLine::instance(argc, argv); // to initialize command line
-    if (CMD.nInstances() != -1)
-        makeInstances();
-    else
-        run();
+    try {
+        CommandLine::instance(argc, argv); // to initialize command line
+        if (CMD.nInstances() != -1)
+            makeInstances();
+        else
+            run();
+    }
+    catch (std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        return -1;
+    }
     return 0;
 }
