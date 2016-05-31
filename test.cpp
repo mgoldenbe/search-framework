@@ -1,5 +1,3 @@
-///@file
-///@brief NEED TO MAKE SURE THAT THE CODE IS AS SUCCINCT AS POSSIBLE.
 
 // Can be pre-compiled (~25% compile-time reduction)
 #include "outside_headers.h"
