@@ -1,6 +1,10 @@
 #ifndef CORE_HEADERS_H
 #define CORE_HEADERS_H
 
+/// \file
+/// \brief The core functionality of the framework.
+/// \author Meir Goldenberg
+
 #include "util/headers.h"
 #include "command_line.h"
 #include "../extensions/domains/headers.h" // domains need to be available

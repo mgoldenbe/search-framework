@@ -1,6 +1,11 @@
 #ifndef OUTSIDE_H
 #define OUTSIDE_H
 
+/// \file
+/// \brief Inclusion of standard and third-party libraries. This header is
+/// well-suited for pre-compilation.
+/// \author Meir Goldenberg
+
 #include <cassert>
 #include <cctype>
 #include <chrono>

@@ -20,7 +20,8 @@ struct GridMapState : ExplicitState<GridMap<CostType>> {
     /// This state type.
     using MyType = GridMapState<CostType, uniformFlag>;
 
-    /// The type for representing a single neighbor state.
+    /// The type for representing a single neighbor state. Every domain
+    /// must provide this name.
     using Neighbor = StateNeighbor<MyType, uniformFlag>;
 
     /// Computes the neighbors of the state.

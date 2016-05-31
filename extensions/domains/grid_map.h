@@ -113,7 +113,7 @@ struct GridMap {
         return res;
     }
 
-    /// Returns a location based on the given string.
+    /// Returns a location based on the given string, e.g. "[105, 400]".
     /// \param str The string.
     /// \return The location based on the given string.
     Location location(const std::string str) const {
