@@ -113,7 +113,7 @@ template <class Node> struct LogWindow {
     WINDOW *menuPad() { return menuPad_; }
 
     /// Sets the current visual event to the given time point.
-    /// \param The time point of the new current visual event.
+    /// \param step The time point of the new current visual event.
     void setStep(int step) {
         deactivateRow(stepToVisible(step_));
         activateRow(stepToVisible(step));
@@ -246,14 +246,14 @@ private:
     }
 
     /// Displays the event in the given row of the events pad as active.
-    /// \param The row of the events pad where the active event is displayed.
+    /// \param row The row of the events pad where the active event is displayed.
     void activateRow(int row) {
         rowMode(row - 1, A_UNDERLINE, true);
         rowMode(row, A_BOLD, true);
     }
 
     /// Displays the event in the given row of the events pad as inactive.
-    /// \param The row of the events pad where the now inactive event is
+    /// \param row The row of the events pad where the now inactive event is
     /// displayed.
     void deactivateRow(int row) {
         rowMode(row - 1, A_UNDERLINE, false);

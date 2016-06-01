@@ -10,10 +10,12 @@
 
 /// Regular node storing \c g and \c f.
 /// \tparam State_ The state type, represents the domain.
-template <typename State_>
+template <typename State>
 struct NodeBase: ManagedNode<> {
-    using State = State_;
+    /// The type representing the cost of actions in the domain.
     using CostType = typename State::CostType;
+
+    ///  The default constructor. Initializes the node data with zeros.
     NodeBase() : g(0), f(0) {}
     REFLECTABLE((CostType) g, (CostType) f)      // These are public for ease of
                                                // access. I don't see any reason
@@ -22,7 +24,7 @@ struct NodeBase: ManagedNode<> {
 };
 
 /// Node storing nothing.
-/// \tparam State_ The state type, represents the domain.
+/// \tparam State The state type, represents the domain.
 template <typename State>
 struct NoNodeData: ManagedNode<NodeBase<State>> {};
 
@@ -30,8 +32,10 @@ struct NoNodeData: ManagedNode<NodeBase<State>> {};
 /// in addition to storing \c g and \c f.
 /// \tparam State_ The state type, represents the domain.
 template <typename State = SLB_STATE>
-struct MyNodeDataT : ManagedNode<NodeBase<State>> {
-    MyNodeDataT() : responsibleGoal(0) {}
+struct NodeWithResponsibleGoal : ManagedNode<NodeBase<State>> {
+    /// The default constructor. Initializes the node data with zeros and the
+    /// first goal being the responsible one.
+    NodeWithResponsibleGoal() : responsibleGoal(0) {}
     REFLECTABLE((State) responsibleGoal) /// the goal that was responsible for
                                         /// the heuristic value
 };

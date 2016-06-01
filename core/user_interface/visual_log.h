@@ -68,13 +68,13 @@ struct VisualLog: CurrentStyles<typename Node::State> {
     }
 
     /// Returns the visual event at the given point in time.
-    /// \param The point in time.
+    /// \param step The point in time.
     /// \return The the visual event at time \c step.
     MyVisualEvent event(int step) const { return events_[step]; }
 
     /// Checks whether the visual event at the given point in time is not
     /// filtered out by the current filter settings.
-    /// \param The point in time.
+    /// \param step The point in time.
     /// \return \c true if the visual event at time \c step is not filtered out
     /// by the current filter settings.
     bool inFilter(int step) const {
@@ -93,7 +93,7 @@ struct VisualLog: CurrentStyles<typename Node::State> {
 
     /// Computes the index into the vector of events not filtered out
     /// by the current filter settings based on the give time point.
-    /// \param The point in time.
+    /// \param step The point in time.
     /// \return The index in the vector of events not filtered out
     /// by the current filter settings that corresponds to \c step.
     int stepToFiltered(int step) const { return stepToFiltered_[step]; }
@@ -160,7 +160,7 @@ struct VisualLog: CurrentStyles<typename Node::State> {
     /// Visualizes the change in the state of the algorithm.
     /// \tparam Filter The type of the search filter.
     /// \tparam Drawer The drawer type.
-    /// \param filter The search filter.
+    /// \param searchFilter The search filter.
     /// \param drawer The drawer.
     /// \return \c true if the time point has been changed.
     template <class Filter, class Drawer>
@@ -181,7 +181,7 @@ struct VisualLog: CurrentStyles<typename Node::State> {
     /// Visualizes the change in the state of the algorithm.
     /// \tparam Filter The type of the search filter.
     /// \tparam Drawer The drawer type.
-    /// \param filter The search filter.
+    /// \param searchFilter The search filter.
     /// \param drawer The drawer.
     /// \return \c true if the time point has been changed.
     template <class Filter, class Drawer>

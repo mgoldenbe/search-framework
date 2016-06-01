@@ -218,7 +218,7 @@ struct Stats {
     /// \param m The measure set to append.
     /// \param numberFlag If \c true, the measure expressing the index of the
     /// problem instance will be inserted to the beginning of \c m before
-    /// appending \m to stats.
+    /// appending \c m to stats.
     void append(const MeasureSet &m, bool numberFlag = false) {
         MeasureSet mm = m;
         if (numberFlag) {
@@ -260,8 +260,6 @@ struct Stats {
     /// \param os The stream.
     /// \param prefixTitle The string to prefix the title row with.
     /// \param prefixData The string to prefix each data row with.
-    /// \param titleFlag The title row will be output only if this flag is \c
-    /// true.
     /// \return The modified stream.
     template <class Stream>
     Stream &dump(Stream &os, const std::string &prefixTitle = "",

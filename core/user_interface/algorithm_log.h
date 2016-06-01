@@ -39,7 +39,7 @@ struct AlgorithmLog {
     int size() const { return events_.size(); }
 
     /// Returns the event with the given index.
-    /// \param index The index; indices begin at zero.
+    /// \param step The index; indices begin at zero.
     /// \return The event with the index \c step.
     const Event event(int step) const { return events_[step]; }
 
@@ -126,8 +126,9 @@ void rawLog(Log &log, const Node *n, const Node *parentSubstitution,
 /// \param log The log.
 /// \param n The current node in the search.
 /// \param parentSubstitution The node whose state should be used as a parent
-/// state instead of the parent stored in \n. See How the \ref NotOpened event
-/// is generated in \ref Astar for an example of when this is useful.
+/// state instead of the parent stored in \n. See How the \ref
+/// Events::NothingToDo event is generated in \ref Astar for an example of when
+/// this is useful.
 template <template <class> class Event, class Log, class Node>
 void log(Log &log, const Node *n,
          const Node *parentSubstitution = nullptr) {

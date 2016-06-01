@@ -36,7 +36,7 @@ template <class State> struct CurrentStyles {
     }
 
     /// Returns the current style of the given edge.
-    /// \param vd Edge identifier.
+    /// \param ed Edge identifier.
     /// \return The edge style.
     /// \pre The edge must be present in the graph.
     EdgeStyle get(EdgeDescriptor ed) const {

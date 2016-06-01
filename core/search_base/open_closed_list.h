@@ -24,7 +24,7 @@ template <class OpenList> struct OpenClosedList {
     using Node = typename OpenList::Node;
 
     /// The key type of the open list.
-    using Priority = typename OpenList::Priority;
+    using KeyType = typename OpenList::KeyType;
 
     /// Type for action cost in the search domain.
     using CostType = typename Node::CostType;
@@ -72,7 +72,7 @@ template <class OpenList> struct OpenClosedList {
     /// Updates the priority of the given node.
     /// \param n Pointer to the node whose priority has changed.
     /// \param oldPriority The priority that \c n used to have.
-    void update(Node *n, const Priority &oldPriority) {
+    void update(Node *n, const KeyType &oldPriority) {
         ol_.update(n, oldPriority);
     }
 

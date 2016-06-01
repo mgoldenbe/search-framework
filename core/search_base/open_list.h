@@ -27,6 +27,7 @@ struct DefaultOLKeyType {
     using CostType = typename Node::CostType; ///< Type for action cost.
     CostType g;                               ///< g-cost of the node.
     CostType f;                               ///< f-cost of the node.
+
     /// Initializes the key based on the node.
     /// \param n The node.
     DefaultOLKeyType(const Node *n) : g(n->g), f(n->f) {}
@@ -57,14 +58,18 @@ Stream& operator<< (Stream& o, const DefaultOLKeyType<Node> &key) {
 
 /// Functor that compares keys based on f-value and breaks ties in favor of
 /// larger g-value.
-/// \tparam Priority The key type.
+/// \tparam KeyType The key type.
 /// \param lhs The left-hand side key in the comparison.
 /// \param rhs The right-hand side key in the comparison.
 /// \return \c true if \c lhs is higher priority than \c rhs and \c false
 /// otherwise.
-template <class Priority>
+template <class KeyType>
 struct GreaterPriority_SmallF_LargeG {
-    bool operator() (const Priority &lhs, const Priority &rhs) {
+    /// Compares two keys.
+    /// \param lhs First key.
+    /// \param rhs Second key.
+    /// \return \c true if \c lhs precedes \c rhs and \c false otherwise.
+    bool operator() (const KeyType &lhs, const KeyType &rhs) {
         if (lhs.f < rhs.f) return true;
         if (lhs.f > rhs.f) return false;
         if (lhs.g > rhs.g) return true;
@@ -74,14 +79,18 @@ struct GreaterPriority_SmallF_LargeG {
 
 /// Functor that compares keys based on g-value and prioritizes in favor of a
 /// smaller g-value.
-/// \tparam Priority The key type.
+/// \tparam KeyType The key type.
 /// \param lhs The left-hand side key in the comparison.
 /// \param rhs The right-hand side key in the comparison.
 /// \return \c true if \c lhs is higher priority than \c rhs and \c false
 /// otherwise.
-template <class Priority>
+template <class KeyType>
 struct GreaterPriority_SmallG {
-    bool operator() (const Priority &lhs, const Priority &rhs) {
+    /// Compares two keys.
+    /// \param lhs First key.
+    /// \param rhs Second key.
+    /// \return \c true if \c lhs precedes \c rhs and \c false otherwise.
+    bool operator() (const KeyType &lhs, const KeyType &rhs) {
         if (lhs.g < rhs.g) return true;
         return false;
     }
@@ -90,12 +99,12 @@ struct GreaterPriority_SmallG {
 /// A flexible open list base on \c std::map whose values are buckets of nodes
 /// with same priority.
 /// \tparam Node_ The node type.
-/// \tparam Priority_ The key type.
+/// \tparam KeyType_ The key type.
 /// \tparam GreaterPriority_ The functor type used to compare the keys.
 /// \tparam The underlying container.
 template <class Node_ = SLB_NODE,
-          template <class Node> class Priority_ = SLB_OL_KEY_TYPE,
-          template <class Priority> class GreaterPriority_ = SLB_OL_PRIORITY,
+          template <class Node> class KeyType_ = SLB_OL_KEY_TYPE,
+          template <class KeyType> class GreaterPriority_ = SLB_OL_PRIORITY,
           template <typename, typename, typename> class Container =
               SLB_OL_CONTAINER>
 struct OpenList {
@@ -106,10 +115,10 @@ struct OpenList {
     using Node = Node_;
 
     /// The key type.
-    using Priority = Priority_<Node>;
+    using KeyType = KeyType_<Node>;
 
     /// The functor type used to compare the keys.
-    using GreaterPriority = GreaterPriority_<Priority>;
+    using GreaterPriority = GreaterPriority_<KeyType>;
 
     /// Type for action cost in the search domain.
     using CostType = typename Node::CostType;
@@ -117,7 +126,7 @@ struct OpenList {
     /// Adds the given node to the list.
     /// \param n Pointer to the node to be added.
     void add(Node *n) {
-        auto &myBucket = buckets[Priority(n)];
+        auto &myBucket = buckets[KeyType(n)];
         myBucket.push_back(n);
         n->setBucketPosition(myBucket.size() - 1);
         size_++;
@@ -134,8 +143,8 @@ struct OpenList {
     /// Updates the priority of the given node.
     /// \param n Pointer to the node whose priority has changed.
     /// \param oldPriority The priority that \c n used to have.
-    void update(Node *n, const Priority &oldPriority) {
-        Priority newPriority(n);
+    void update(Node *n, const KeyType &oldPriority) {
+        KeyType newPriority(n);
         if (newPriority == oldPriority) {
             //std::cout << "Nothing needs to be done in update" << std::endl;
             return;
@@ -152,7 +161,7 @@ struct OpenList {
 
     /// Returns the highest priority without removing the corresponding node.
     /// \return Const reference to the highest priority in the list.
-    const Priority &curPriority() { return buckets.begin()->first; }
+    const KeyType &curPriority() { return buckets.begin()->first; }
 
     /// Dumps the list to \c stderr for debugging.
     void dump() const {
@@ -167,7 +176,7 @@ struct OpenList {
 private:
     /// The underlying map. Nodes with same priority are kept in buckets. These
     /// buckets are the values in the map.
-    Container<Priority, std::vector<Node *>, GreaterPriority> buckets;
+    Container<KeyType, std::vector<Node *>, GreaterPriority> buckets;
 
     /// Number of nodes in the list.
     int size_ = 0;
@@ -176,7 +185,7 @@ private:
     /// given priority and returns the former.
     /// \param priority The bucket from which the last node needs to be removed.
     /// \return Pointer to the node being removed.
-    Node *erase(const Priority &priority) {
+    Node *erase(const KeyType &priority) {
         return erase(priority, buckets[priority].size()-1);
     }
 
@@ -187,7 +196,7 @@ private:
     /// \param pos The position in the bucket of the node that needs to be
     /// removed.
     /// \return Pointer to the node being removed.
-    Node *erase(const Priority &priority, const BucketPosition &pos) {
+    Node *erase(const KeyType &priority, const BucketPosition &pos) {
         auto &bucket = buckets[priority];
         auto res = bucket[pos];
 

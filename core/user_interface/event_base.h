@@ -53,7 +53,8 @@ template <class Node = SLB_NODE> struct Base {
     /// (see \ref VisualEvent::EdgeChange), in which an edge is represented here
     /// by a pair of vertices of the domain graph.
     struct EdgeChange {
-        StateSharedPtr from, to; ///< The edge
+        StateSharedPtr from;     ///< The source state of the edge.
+        StateSharedPtr to;       ///< The target state of the edge.
         EdgeStyle now;           ///< The new representation.
         EdgeStyle before;        ///< The previous representation.
     };
@@ -72,7 +73,7 @@ template <class Node = SLB_NODE> struct Base {
     /// \param n The node.
     /// \param parentSubstitution The node whose state should be used as a
     /// parent state instead of the parent stored in \n. See How the \ref
-    /// NotOpened event is generated in \ref Astar for an example of when this
+    /// NothingToDo event is generated in \ref Astar for an example of when this
     /// is useful.
     Base(const AlgorithmLog<Node> &log, const Node *n,
          const Node *parentSubstitution = nullptr)
@@ -116,7 +117,7 @@ template <class Node = SLB_NODE> struct Base {
     virtual std::string eventStr() const = 0;
 
     /// Returns the event type (see \ref EventType).
-    /// \ref The event type.
+    /// \return The event type.
     virtual EventType eventType() const { return EventType::NORMAL; }
 
     /// Uses the log to compute the path which the search algorithm found to
@@ -137,7 +138,8 @@ template <class Node = SLB_NODE> struct Base {
 
     /// Computes changes of visual representations associated with states and
     /// edges defined by the event.
-    /// \param The current visual representations of states and edges. This can
+    /// \param styles The current visual representations of states and edges.
+    /// This can
     /// be used for the computation in the derived classes.
     virtual VisualChanges
     visualChanges(const CurrentStyles<State> &styles) const {
@@ -194,7 +196,7 @@ protected:
     StateSharedPtr parent_;
     /// The node whose state should be used as a
     /// parent state instead of the parent stored in \n. See How the \ref
-    /// NotOpened event is generated in \ref Astar for an example of when this
+    /// NothingToDo event is generated in \ref Astar for an example of when this
     /// is useful.
     StateSharedPtr parentSubstitution_;
 
@@ -205,7 +207,7 @@ protected:
     /// The time point when the event happened.
     int step_;
 
-    // The latest among the past events for the state.
+    /// The latest among the past events for the state.
     Event previousEvent_;
 };
 

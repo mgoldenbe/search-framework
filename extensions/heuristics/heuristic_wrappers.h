@@ -12,7 +12,7 @@ struct ZeroHeuristic {
     /// The problem instance type.
     using MyInstance = Instance<State>;
 
-    /// Type for action cost in the search domain.
+    /// The type representing the cost of actions in the domain.
     using CostType = typename State::CostType;
 
     /// Initializes the heuristic based on a problem instance.
@@ -27,10 +27,13 @@ struct ZeroHeuristic {
 
 /// A simple wrapper around a single heuristic to single goal.
 /// \tparam The state type, represents the domain.
+/// \tparam Heuristic The heuristic type.
 template <class State, class Heuristic>
 struct SimpleHeuristicToGoal {
     /// The problem instance type.
     using MyInstance = Instance<State>;
+
+    /// The type representing the cost of actions in the domain.
     using CostType = typename State::CostType;
 
     /// Initializes the heuristic based on a problem instance.
@@ -51,7 +54,8 @@ private:
 
 /// Computes minimum among heuristics to goals that have not been found (with
 /// the required quality) yet.
-/// \tparam The state type, represents the domain.
+/// \tparam State The state type, represents the domain.
+/// \tparam Heuristic The heuristic type.
 template <class State, class Heuristic>
 struct MinHeuristicToGoals {
     /// The problem instance type.

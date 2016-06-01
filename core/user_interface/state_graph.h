@@ -185,7 +185,6 @@ struct StateGraph {
     /// \param fruchtermanReingoldFlag If \c true, the Fruchterman-Reingold
     /// layout algorithm is used. If \c kamadaKawaiFlag is set as well, then
     /// the Kamada-Kawai algorithm is applied first.
-    /// \param cost Edge cost.
     /// \return The graph layout.
     PointMap layout(bool kamadaKawaiFlag = true,
                     bool fruchtermanReingoldFlag = true);

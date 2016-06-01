@@ -21,7 +21,7 @@ private:
     std::string eventStr() const override { return "Hide Last Event"; }
 
     /// Returns the event type (see \ref EventType).
-    /// \ref The event type.
+    /// \return The event type.
     EventType eventType() const { return EventType::HIDE_LAST_EVENT; }
 };
 

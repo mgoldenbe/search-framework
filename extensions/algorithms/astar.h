@@ -140,7 +140,7 @@ private:
         if (childNode) {
             if (myG < childNode->g) {
                 log<Events::NotParent>(log_, childNode);
-                auto oldPriority = typename Open::Priority(childNode);
+                auto oldPriority = typename Open::KeyType(childNode);
                 CostType improvement = childNode->g - myG;
                 childNode->g = myG;
                 childNode->f -= improvement;

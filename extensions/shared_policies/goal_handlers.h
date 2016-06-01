@@ -35,6 +35,8 @@ struct NoGoalHandler {
     template <class Node> void logInit() {}
 };
 
+/// Handling conditions related to goal states for the case when there is a
+/// single goal state.
 template <class State, class Log>
 struct SingleGoalHandler {
     /// The problem instance type.
@@ -86,6 +88,8 @@ private:
                         ///accomplished its mission and should terminate.
 };
 
+/// Handling conditions related to goal states for the case when there are
+/// multiple goal states.
 template <class State, class Log>
 struct MultipleGoalHandler {
     /// The problem instance type.
@@ -107,7 +111,7 @@ struct MultipleGoalHandler {
     /// \param res The cost that will be returned by the search algorithm to be
     /// filled out. In this case, we accumulate the average cost for reaching
     /// the goals.
-    template <class Node> bool onSelect(const Node *n, CostType &res) {
+    template <class Node> void onSelect(const Node *n, CostType &res) {
         { // Check current goals
             auto it = std::find(goals_.begin(), goals_.end(), n->state());
             if (it != goals_.end()) {
@@ -122,7 +126,6 @@ struct MultipleGoalHandler {
                 log<Events::HideLast>(log_, n);
             }
         }
-        return true;
     }
 
     /// Returns \c true if all the goals were found with the required quality
@@ -153,8 +156,9 @@ private:
     bool done_ = false;
 };
 
-// To be used with MinHeuristicToGoals or some other heuristic that stores the
-// goal responsible for the heuristic.
+/// Handling conditions related to goal states for the case when there are
+/// multiple goal states and a heuristic that stores the goal state responsible
+/// for the heuristic value is used.
 template <class State, class Log>
 struct MinHeuristicGoalHandler {
     /// The problem instance type.
@@ -170,12 +174,17 @@ struct MinHeuristicGoalHandler {
     MinHeuristicGoalHandler(MyInstance &instance, Log &log)
         : goals_(instance.goals()), log_(log) {}
 
-    /// Handles selection of a node by the search algorithm.
+    /// Handles selection of a node by the search algorithm. If the goal
+    /// responsible for the heuristic value of the node had been found with the
+    /// required quality, then \c false is returned indicating the suspension of
+    /// expansion of this node.
     /// \tparam Node The search node type.
     /// \param n Pointer to the node that was selected by the search algorithm.
     /// \param res The cost that will be returned by the search algorithm to be
     /// filled out. In this case, we accumulate the average cost for reaching
     /// the goals.
+    /// \return \c false if the goal responsible for the heuristic value of \c n
+    /// had been found with the required quality and \c true otherwise.
     template <class Node> bool onSelect(const Node *n, CostType &res) {
         { // Check identity of goal resposible for heuristic
             auto it = std::find(doneGoals_.begin(), doneGoals_.end(),

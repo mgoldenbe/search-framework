@@ -166,7 +166,7 @@ struct GroupLock {
     /// Clears the drawing if needed.
     /// \param flag If \c false, no lock is acquired. This enables a function
     /// where whether GroupLock should be acquired or not is a parameter.
-    /// g The graphics object.
+    /// \param g The graphics object.
     /// \param clearFlag If \c true, the previous drawing needs is cleared.
     GroupLock(bool flag, Graphics &g, bool clearFlag = false)
         : g_(g), flag_(flag) {

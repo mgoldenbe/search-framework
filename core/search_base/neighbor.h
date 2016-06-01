@@ -56,7 +56,6 @@ template <typename State_> struct StateNeighbor<State_, true> {
     /// Initializes the neighbor based on the neighbor state and cost
     /// of the action that leads to that state.
     /// \param s Pointer to the neighbor state.
-    /// \param c Cost of the action that leads to \c s.
     /// \note The cost parameter is not used in this uniform case, but is
     /// present for uniformness of the interface.
     StateNeighbor(State *s, CostType = CostType{1}) : state_(s) {}

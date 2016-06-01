@@ -7,10 +7,13 @@
 /// \author Meir Goldenberg
 
 #include "state_graph.h"
-    template <class MyMap>
-    void dumpLayout(MyMap layout) {
+
+/// Dumps graph layout for debugging purposes.
+/// \tparam MyMap The layout mapping type.
+/// \param layout The layout to dump.
+template <class MyMap> void dumpLayout(MyMap layout) {
     for (auto &el : layout)
-        std::cout << (el.second)[0] << " " << (el.second)[1] << std::endl;
+        std::cerr << (el.second)[0] << " " << (el.second)[1] << std::endl;
 }
 
 template <class State>

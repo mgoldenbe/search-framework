@@ -8,9 +8,11 @@
 /// the layout of the (partial) domain graph.
 /// \author Meir Goldenberg
 
-// /// \name Checking whether the State has a function for computing layout.
-// /// Used for tag dispatch in \ref Drawer::computePointMap_
-// /// @{
+/// \defgroup LayoutTraits Layout Traits
+/// Checking whether the State has a function for computing layout.
+/// Used for tag dispatch in \ref computePointMap_ "Drawer::computePointMap_"
+/// @{
+
 /// Declared only if \c State does not have a function for computing layout.
 template <class State, typename = void_t<>>
 struct has_layout : std::false_type {};
@@ -30,7 +32,8 @@ using HasLayout = typename std::enable_if<has_layout<State>::value>::type;
 /// layout.
 template <class State>
 using HasNoLayout = typename std::enable_if<!has_layout<State>::value>::type;
-// /// @}
+
+/// @}
 
 // http://stackoverflow.com/a/33421942/2725810
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
@@ -192,12 +195,12 @@ template <class Node> struct Drawer {
     void sizeY(int size) { sizey_ = size; }
 
 private:
-    /// \anchor Drawer::computePointMap_
+    /// @{
+    /// \anchor computePointMap_
     /// \name Computing the layout.
     /// Uses SFINAE to use the \c visualLocation function of State it has one or
     /// automatic layout otherwise.
     /// See \ref HasNoLayout<State> and HasLayout<State>.
-    /// @{
     template <class State = State> HasNoLayout<State> computePointMap_() {
         pointMap_ = g_.layout(true, true);
     }
