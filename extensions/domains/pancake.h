@@ -110,6 +110,7 @@ struct Pancake {
 
     /// The equality operator.
     /// \param rhs The right-hand side of the operator.
+    /// \return \c true if the two states compare equal and \c false otherwise.
     bool operator==(const Pancake &rhs) {return pancakes_ == rhs.pancakes_;}
 
 private:

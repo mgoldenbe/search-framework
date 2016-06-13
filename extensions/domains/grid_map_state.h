@@ -38,4 +38,5 @@ struct GridMapState : ExplicitState<GridMap<CostType>> {
         y = this->space()->row(this->raw());
     }
 };
+
 #endif

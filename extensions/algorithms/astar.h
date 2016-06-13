@@ -60,9 +60,11 @@ struct Astar : Algorithm<ALG_TARGS> {
         for (const auto &el: oc_.hash()) {
             auto &from = (el.second)->shareState();
             res.add(from);
-            for (auto &n : from->successors())
+            for (auto &n : from->successors()) {
                 // `add` cares for duplicates
-                res.add(from, unique2shared(n.state()), n.cost());
+                auto myNeighbor = unique2shared(n.state());
+                res.add(from, myNeighbor, n.cost());
+            }
         }
         return res;
     }
