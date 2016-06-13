@@ -1,0 +1,48 @@
+\vspace{0.5cm}
+The purpose of this document is to design the Logging and Visualization capabilities in a generic way with application to Astar.
+
+* Foundation principles.
+- The log can serve both for drawing and for other purposes. Therefore, the log should be in terms close to the algorithm, not close to the drawing entity.
+- The /Drawer/ only provides capability to draw vertices and edges in several styles and react to the events from the user. 
+  + Events that are directly related to graphics (such as dragging and scaling) are handled by the drawer itself.
+  + The /Drawer/ needs to store or have access to, the current style for all elements (e.g. vertices) that have to be drawn. 
+  + Events that can cause the change of some of these styles have to cause communication with another entity.
+- There needs to be an entity that defines the correspondence between the events of the algorithm (i.e. the events stored in the log) and the styles of the drawable elements.
+* Approach to design.
+- The hard point of the design is: where does the translation from the algorithm-related elements (States and events such as EXPAND) to the drawing-related elements (vertices and events such as CHANGE COLOR TO RED) happen?
+- Let us start with the easy part.
+* /Logger/. 
+/Logger/ defines the things common to all loggers of algorihtms. It is templated on /AlgorithmEvent/, which defines the event type specific to the algorithm. So, we will instantiate: /using AStarLogger=Logger<AstarEvent>;/
+- /AstarEvent/:
+  + type of event: ROLE, SELECTED, GENERATED, CHANGED
+  + affected state
+  + role: START, GOAL, REACHED GOAL.
+  + parent state
+  + node info
+  + last event that affected the same state
+    - Note that every /AlgorithmEvent/ needs to define this member.
+- /Logger/:
+  + Hash: state to last event for that state. This hash can be used to determine the status of any state at any given moment.
+  + Vector of events.
+* Simplifying notes.
+- Note that /Astar/ needs to be templated only on /Graph/ and /Logger/. Just like there is /NoGraph/, there is /NoLogger/.
+- Now we have the graph and the log stored and we want to perform visualization.
+* /VisualLog/. 
+We need an entity that is parallel to log, but has events in graphical terms. Let us call this entity /VisualLog/. This entity is templated on both /Logger/ and /AlgorithmVisualEvent/. The latter is responsible for translating an algorithmic event to a visual event. So, we have: /using AStarVisualLog = VisualLog<AstarVisualEvent>/.
+- THE FOLLOWING IS NOT UP-TO-DAT: THE CURRENT CODE USES A DIFFERENT SIMPLER DESIGN
+- /AstarVisualEvent/ is templated on Graph:
+  + /const Graph &/
+  + vd of the event 
+  + vector of triples: affected vd, drawing style of vertex, last event for that vd. We can call this /struct VertexEvent/.
+    - For instance, we can define that the whole path to a selected vertex is shown.
+  + vector of pairs: affected edge, drawing style of edge, last event for that edge. We can call this /struct EdgeEvent/.
+  + text to display on vertex click
+- /VisualLog/: 
+  + Hash: vd to last event for that vertex. This hash can be used to determine the status of any vertex at any given moment.
+  + Hash: ed to last event for that edge. This hash can be used to determine the status of any edge at any given moment.
+  + Vector of visual events.
+- The constructor of /VisualLog/: 
+  + Constructs the vector of visual events by passing each /AlgorithmEvent/ to the constructor of /AlgorithmVisualEvent/.
+  + For each newly added visual even, updates the two hashes.
+* /Drawer/.
+Finally, /Drawer/ is templated on /VisualLog/. For now, it simply goes through the log and shows the whole run. In the future, we will add features to filter the events to be shown.

@@ -1,8 +1,10 @@
+COMPILER=/usr/bin/g++-6
+CAIRO_PATH=/usr/include/cairo/
+BOOST_PATH=~/boost_1_59_0
 
-# -isystem disables warnings from there
-INCLUDE=-isystem ~/boost_1_59_0 -isystem core/util/outside/ -I . -isystem /usr/include/cairo/ -I /usr/include/sigc++-2.0/ -I /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/ -I /usr/include/freetype2/ -I core/ -I extensions/ 
+INCLUDE=-I . -isystem $(CAIRO_PATH) -isystem $(BOOST_PATH) -isystem core/util/outside/
 
-GRAPHICS_LIB=-lcairo -lX11 -lXtst -lmenu -lncurses
+GRAPHICS_LIB=-lcairo -lX11 -lmenu -lncurses
 
 # default values
 CPP=test.cpp
@@ -12,8 +14,6 @@ MODE=debug
 
 MAIN_CPP=$(CPP)
 MAIN_I=$(MAIN).i
-
-COMPILER=/usr/bin/g++-6
 
 ifdef CONFIG
 	MYCONF=-DCONFIG='"$(CONFIG)"'
@@ -48,7 +48,7 @@ build-exec:
 	@ln -sf $(EXEC) last_exec
 	@touch $(EXEC)
 
-preprocessor:
+preprocessor: symbols
 	$(PREPROCESSOR)
 	./symbols $(MAIN_I)
 
@@ -60,6 +60,12 @@ production: preprocessor
 
 symbols: symbols.cpp Makefile
 	$(COMMON_PREFIX) -O2 symbols.cpp -o symbols
+
+docs:
+	rm -rf documentation
+	doxygen doxygen.conf
+	cd documentation/latex; pdflatex refman.tex; pdflatex refman.tex
+	ln -fs documentation/latex/refman.pdf documentation.pdf
 
 #Precompiled header is not currently used
 #PRECOMPILED_HEADER=outside_headers.h

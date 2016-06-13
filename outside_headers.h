@@ -30,7 +30,7 @@
 #include <X11/Xutil.h>
 #include <cairo-xlib.h>
 #include <X11/XKBlib.h>
-#include <X11/extensions/XTest.h>
+//#include <X11/extensions/XTest.h>
 
 #include <boost/functional/hash.hpp>
 #include <boost/graph/graph_traits.hpp>
