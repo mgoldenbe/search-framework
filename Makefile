@@ -1,6 +1,6 @@
-COMPILER=/usr/bin/g++-6
+COMPILER=/usr/bin/g++
 CAIRO_PATH=/usr/include/cairo/
-BOOST_PATH=~/boost_1_59_0
+BOOST_PATH=~/boost_1_61_0
 
 INCLUDE=-I . -isystem $(CAIRO_PATH) -isystem $(BOOST_PATH) -isystem core/util/outside/
 
