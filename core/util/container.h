@@ -9,6 +9,14 @@ bool in(const V &v, const T &el) {
     return std::find(v.begin(), v.end(), el) != v.end();
 }
 
+template<class V, typename T>
+bool inErase(V &v, const T &el) {
+    auto it = std::find(v.begin(), v.end(), el);
+    if (it == v.end()) return false;
+    v.erase(it);
+    return true;
+}
+
 // Returns true if the element has been added now
 template<class V, typename T>
 bool push_back_unique(V &v, const T &el) {

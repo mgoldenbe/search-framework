@@ -30,6 +30,8 @@ MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -DNDEBUG -O2
 HASH_SOURCE=.execs/last_hash_source
 HASH_CODE=.execs/last_hash_code
 
+default: debug
+
 # Builds the executable based on MODE, CPP, CONFIG and ADD.
 # Does not use OPT, which controls the run-time parameters.
 # Begins by computing the name of executable containing the hash key. Defers the actual build to another instance of make in order to share the EXEC variable.

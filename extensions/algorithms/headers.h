@@ -6,6 +6,6 @@
 /// \author Meir Goldenberg
 
 #include "astar.h"
-#include "per_goal.h"
+//#include "per_goal.h"
 
 #endif
