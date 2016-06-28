@@ -23,12 +23,11 @@
 /// \return The state graph of the domain.
 StateGraph<SLB_STATE> buildGraph() {
     using MyOL = OpenList<SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
-    using MyHeuristic = ZeroHeuristic<SLB_STATE>;
     using MyInstance = Instance<SLB_STATE>;
 
     auto instance =
         MyInstance(std::vector<SLB_STATE>(1), std::vector<SLB_STATE>(1));
-    Astar<false, SLB_NODE, NoGoalHandler, MyHeuristic, MyOL> myAstar(instance);
+    Astar<false, SLB_NODE, NoGoalHandler, ZeroHeuristic, MyOL> myAstar(instance);
     myAstar.run();
     return myAstar.graph();
 }

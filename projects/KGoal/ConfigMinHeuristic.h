@@ -19,7 +19,8 @@
 
 #define SLB_GOAL_HANDLER MinHeuristicGoalHandler
 
-#define SLB_HEURISTIC MinHeuristicToGoals<SLB_STATE, OctileHeuristic>
+#define SLB_BASE_HEURISTIC OctileHeuristic
+#define SLB_HEURISTIC MinHeuristicToGoals_FixedH
 #define SLB_ALGORITHM Astar
 //#define SLB_RAW_ALGORITHM SLB_ALGORITHM
 

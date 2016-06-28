@@ -37,6 +37,12 @@ struct GridMapState : ExplicitState<GridMap<CostType>> {
         x = this->space()->column(this->raw());
         y = this->space()->row(this->raw());
     }
+
+    /// Returns a random state.
+    /// \return A random state.
+    static GridMapState random() {
+        return GridMapState(Base::random());
+    }
 };
 
 #endif

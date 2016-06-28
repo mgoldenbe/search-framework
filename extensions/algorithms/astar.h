@@ -27,6 +27,9 @@ struct AlgorithmTraits<Astar<ALG_TARGS, Open>> {
 template <ALG_TPARAMS, class Open = SLB_OL>
 struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
     using MyType = Astar; ///< The type of Astar.
+    using DirectBase = Algorithm<MyType, ALG_TARGS>;
+    using GoalHandler = typename DirectBase::GoalHandler;
+    using Heuristic = typename DirectBase::Heuristic;
 
     BASE_TRAITS_TYPES
     using OC = typename AlgorithmTraits<Astar>::OC;
@@ -46,15 +49,15 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
         NodeUniquePtr startNode(new Node(start_));
         startNode->f = heuristic_(startNode.get());
         log<Events::MarkedStart>(log_, startNode.get());
-        goalHandler_.template logInit<Node>();
+        goalHandler_.logInit();
         oc_.add(startNode);
         while (!oc_.empty() && !goalHandler_.done()) {
             cur_ = oc_.minNode();
             log<Events::Selected>(log_, cur_);
             handleSelected();
         }
+        if (oc_.empty()) res_ = -1;
         cost_.set(res_);
-        if (oc_.empty()) return CostType{-1};
         return res_;
     }
 
@@ -85,7 +88,6 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
     /// \name Services for policies.
     /// @{
 
-    Heuristic &heuristic() { return heuristic_; }
     OC &oc() { return oc_; }
     Node *cur() { return cur_; }
     CostType &res() { return res_; }
@@ -111,9 +113,8 @@ private:
         // goal handler is dealing with the issue of suspending expansions.
         // In the latter case, onSelect returns bool, otherwise it returns
         // void.
-        handleSelected(std::integral_constant<
-            bool, std::is_same<decltype(goalHandler_.onSelect()),
-                               bool>::value>());
+        handleSelected(
+            std::integral_constant<bool, onSelectReturns<GoalHandler>()>());
     }
 
     /// Handles the selected node in the case that suspensions are to be dealt

@@ -9,17 +9,18 @@
 // See http://stackoverflow.com/q/34130672/2725810 for the discussion of
 // the use of template template parameters.
 #define ALG_TPARAMS bool logFlag, class Node_ = SLB_NODE, \
-        template <class> class GoalHandler = SLB_GOAL_HANDLER,   \
-        class Heuristic = SLB_HEURISTIC
+        template <class> class GoalHandler_ = SLB_GOAL_HANDLER,   \
+        template <class> class Heuristic_ = SLB_HEURISTIC
 
 /// Same as \ref ALG_TPARAMS, but without default values; needed for partial
 /// specializations of AlgorithmTraits.
 #define ALG_TPARAMS_NO_DEFAULTS                                                \
     bool logFlag, class Node_, template <class>                                \
-                               class GoalHandler, class Heuristic
+                               class GoalHandler_, template <class>            \
+                                                   class Heuristic_
 
 /// Template arguments to be used for inheriting from \ref Algorithm.
-#define ALG_TARGS logFlag, Node_, GoalHandler, Heuristic
+#define ALG_TARGS logFlag, Node_, GoalHandler_, Heuristic_
 
 /// Type aliases to be defined by all search algorithms. See the documentation
 /// for these aliases inside the \ref Algorithm class.
@@ -84,6 +85,8 @@ struct BaseTraits {
 template <class Concrete, ALG_TPARAMS>
 struct Algorithm {
     BASE_TRAITS_TYPES
+    using GoalHandler = GoalHandler_<Concrete>;
+    using Heuristic = Heuristic_<Concrete>;
 
     /// Returns the statistics about the search algorithm's
     /// performance for solving the particular instance.
@@ -102,6 +105,8 @@ struct Algorithm {
     /// @{
 
     MyInstance &instance() { return instance_; }
+    GoalHandler &goalHandler() { return goalHandler_; }
+    Heuristic &heuristic() { return heuristic_; }
 
     /// @}
 protected:
@@ -109,7 +114,8 @@ protected:
     /// \param instance The problem instance.
     Algorithm(MyInstance &instance)
         : instance_(instance), start_(instance_.start()),
-          goalHandler_(static_cast<Concrete &>(*this)), heuristic_(instance_) {}
+          goalHandler_(static_cast<Concrete &>(*this)),
+          heuristic_(static_cast<Concrete &>(*this)) {}
 
     MyInstance instance_; ///< The problem instance.
 
@@ -120,7 +126,7 @@ protected:
     State start_;
 
     /// The policy for handling conditions related to goal states.
-    GoalHandler<Concrete> goalHandler_;
+    GoalHandler goalHandler_;
 
     /// The heuristic used by the search algorithm.
     Heuristic heuristic_;

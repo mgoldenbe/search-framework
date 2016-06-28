@@ -35,8 +35,8 @@ template <typename State = SLB_STATE>
 struct NodeWithResponsibleGoal : ManagedNode<NodeBase<State>> {
     /// The default constructor. Initializes the node data with zeros and the
     /// first goal being the responsible one.
-    NodeWithResponsibleGoal() : responsibleGoal(0) {}
-    REFLECTABLE((State) responsibleGoal) /// the goal that was responsible for
+    NodeWithResponsibleGoal() : responsibleGoal(-1) {}
+    REFLECTABLE((int) responsibleGoal) /// the goal that was responsible for
                                         /// the heuristic value
 };
 

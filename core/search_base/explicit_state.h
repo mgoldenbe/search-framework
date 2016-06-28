@@ -14,7 +14,7 @@ struct ExplicitState {
     using CostType = typename ExplicitSpace::CostType;
 
     /// The type of a state in an explicit domain.
-    using MyType = ExplicitState<ExplicitSpace>;
+    using MyType = ExplicitState;
 
     /// The type used internally by \c ExplicitSpace to represent a state.
     /// To distinguish such a state from the state type used by search
@@ -26,11 +26,11 @@ struct ExplicitState {
 
     /// Initialize to the given location.
     /// \param loc The given location.
-    ExplicitState(const Location &loc) : loc_(loc) {}
+    explicit ExplicitState(const Location &loc) : loc_(loc) {}
 
     /// Initialize based on the string describing the state.
     /// \param s The string describing the state.
-    ExplicitState(const std::string &s) : loc_(space()->location(s)) {}
+    explicit ExplicitState(const std::string &s) : loc_(space()->location(s)) {}
 
     /// Default copy constructor.
     ExplicitState(const MyType &) = default;
@@ -81,8 +81,8 @@ struct ExplicitState {
         space_ = std::unique_ptr<ExplicitSpace>(new ExplicitSpace(fileName));
     }
 
-    /// Returns a random location from \c ExplicitSpace.
-    /// \return A random location from \c ExplicitSpace.
+    /// Returns a random location.
+    /// \return A random location.
     static Location random() { return space()->random(); }
 
     /// Returns the space (i.e. an instance of ExplicitSpace) of this state
