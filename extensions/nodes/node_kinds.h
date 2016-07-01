@@ -15,6 +15,19 @@ struct NodeBase: ManagedNode<> {
     /// The type representing the cost of actions in the domain.
     using CostType = typename State::CostType;
 
+    /// Updates g-value of the node
+    /// \param newG The new g-value.
+    void updateG(CostType newG) {
+        f += (newG - g);
+        g = newG;
+    }
+
+    /// Updates h-value of the node
+    /// \param newH The new h-value.
+    void updateH(CostType newH) {
+        f = g + newH;
+    }
+
     ///  The default constructor. Initializes the node data with zeros.
     NodeBase() : g(0), f(0) {}
     REFLECTABLE((CostType) g, (CostType) f)      // These are public for ease of

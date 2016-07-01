@@ -167,7 +167,8 @@ struct GridMap {
     /// \param location The location whose string representation is needed.
     /// \return The string representation of \c location.
     std::string locationStr(Location location) const {
-        return "[" + str(row(location)) + " " + str(column(location)) + "]";
+        return "[" + str(column(location)) + " " + str(row(location)) + "]" +
+               " (" + str(location) + ")";
     }
 
 private:

@@ -103,6 +103,13 @@ template <class OpenList> struct OpenClosedList {
     /// Returns the underlying hash table of the closed list.
     /// \return Const reference to the underlying hash table of the closed list.
     const HashType &hash() const { return hash_; }
+
+    /// Re-compute the whole open list
+    /// \tparam Heuristic The heuristic to be used.
+    template <class Heuristic> void recomputeOpen(Heuristic &heuristic) {
+        ol_.recompute(heuristic);
+    }
+
 private:
     OpenList ol_; ///< The open list.
     HashType hash_; ///< The closed list.

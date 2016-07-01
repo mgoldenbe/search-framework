@@ -31,6 +31,17 @@ struct DefaultOLKeyType {
     /// Initializes the key based on the node.
     /// \param n The node.
     DefaultOLKeyType(const Node *n) : g(n->g), f(n->f) {}
+
+    /// Initializes the key based on the node. Updates the heuristic value of
+    /// the node.
+    /// \tparam The heuristic to be used.
+    /// \param n The node.
+    /// \param h The heuristic.
+    template <class Heuristic>
+    DefaultOLKeyType(Node *n, Heuristic &h) : g(n->g) {
+        n->updateH(h);
+        f = n->f;
+    }
 };
 
 /// Comparison of two keys.
@@ -123,10 +134,22 @@ struct OpenList {
     /// Type for action cost in the search domain.
     using CostType = typename Node::CostType;
 
+    /// Type of the container for storing buckets of nodes with same priority.
+    using BucketsContainer =
+        Container<KeyType, std::vector<Node *>, GreaterPriority>;
+
+#ifndef NDEBUG
+    OpenList() {
+        // just to prevent the compiler from throwing it away,
+        // so it should be available for use in gdb.
+        dump();
+    }
+#endif
+
     /// Adds the given node to the list.
     /// \param n Pointer to the node to be added.
     void add(Node *n) {
-        auto &myBucket = buckets[KeyType(n)];
+        auto &myBucket = buckets_[KeyType(n)];
         myBucket.push_back(n);
         n->setBucketPosition(myBucket.size() - 1);
         size_++;
@@ -156,27 +179,47 @@ struct OpenList {
     /// Removes the highest priority node from the list and returns the former.
     /// \return Pointer to the highest priority node.
     Node *deleteMin() {
-        return erase(buckets.begin()->first);
+        return erase(buckets_.begin()->first);
     }
 
     /// Returns the highest priority without removing the corresponding node.
     /// \return Const reference to the highest priority in the list.
-    const KeyType &curPriority() { return buckets.begin()->first; }
+    const KeyType &curPriority() { return buckets_.begin()->first; }
 
     /// Dumps the list to \c stderr for debugging.
     void dump() const {
-        for (auto b : buckets) {
-            std::cerr << b.first << ": ";
+        for (auto b : buckets_) {
+            std::cerr << b.first << ":\n";
             for (auto n: b.second)
-                std::cerr << *n << "(bucketPos: " << n->bucketPosition() << ") ";
+                std::cerr << "    " << n->state() << " " << nodeStr(*n, 0)
+                          << "(bucketPos: " << n->bucketPosition() << ") "
+                          << std::endl;
             std::cerr << std::endl;
         }
     }
 
+    /// Re-compute the whole open list
+    /// \tparam Heuristic The heuristic to be used.
+    /// \note It is faster to put all map elements into a vector and sort them
+    /// there first, but it is not clear how to map keys to buckets_.size()
+    /// vector indices. We could insert into un-ordered map first, but then we
+    /// lose the performance benefits (checked with a simple prototype).
+    template <class Heuristic>
+    void recompute(Heuristic &heuristic) {
+        OpenList newOL;
+        for (const auto &b: buckets_) {
+            for (auto n: b.second) {
+                n->updateH(heuristic);
+                newOL.add(n);
+            }
+        }
+        std::swap(newOL.buckets_, buckets_);
+        assert(newOL.size() == size_);
+    }
 private:
     /// The underlying map. Nodes with same priority are kept in buckets. These
     /// buckets are the values in the map.
-    Container<KeyType, std::vector<Node *>, GreaterPriority> buckets;
+    BucketsContainer buckets_;
 
     /// Number of nodes in the list.
     int size_ = 0;
@@ -186,7 +229,7 @@ private:
     /// \param priority The bucket from which the last node needs to be removed.
     /// \return Pointer to the node being removed.
     Node *erase(const KeyType &priority) {
-        return erase(priority, buckets[priority].size()-1);
+        return erase(priority, buckets_[priority].size()-1);
     }
 
     /// Removes from the list the node with the given position in the bucket
@@ -197,7 +240,9 @@ private:
     /// removed.
     /// \return Pointer to the node being removed.
     Node *erase(const KeyType &priority, const BucketPosition &pos) {
-        auto &bucket = buckets[priority];
+        auto &bucket = buckets_[priority];
+        assert(bucket.size());
+
         auto res = bucket[pos];
 
         // copy the last node of the bucket here
@@ -206,7 +251,7 @@ private:
 
         // remove the last node of the bucket
         bucket.pop_back();
-        if (bucket.empty()) buckets.erase(priority);
+        if (bucket.empty()) buckets_.erase(priority);
 
         // the client code wants to take care of it
         // remember to re-institute this line in the generic library B"H

@@ -92,6 +92,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
     Node *cur() { return cur_; }
     CostType &res() { return res_; }
     Measure &denied() { return denied_; }
+    void recomputeOpen() { oc_.recomputeOpen(heuristic_); }
 
     /// @}
 private:
@@ -154,10 +155,9 @@ private:
         if (childNode) {
             if (myG < childNode->g) {
                 log<Events::NotParent>(log_, childNode);
-                auto oldPriority = typename Open::KeyType(childNode);
-                CostType improvement = childNode->g - myG;
-                childNode->g = myG;
-                childNode->f -= improvement;
+                auto oldPriority =
+                    typename Open::KeyType(childNode, heuristic_);
+                childNode->updateG(myG);
                 childNode->setParent(cur_);
                 oc_.update(childNode, oldPriority);
                 log<Events::Generated>(log_, childNode);

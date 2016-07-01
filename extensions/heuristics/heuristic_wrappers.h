@@ -5,6 +5,10 @@
 /// \brief Wrappers around heuristics to be used by the search algorithms.
 /// \author Meir Goldenberg
 
+/// Used by the MinHeuristicToGoals handler.
+#define SLB_MIN_HEURISTIC_COMPARE_T                                            \
+    SLB_MIN_HEURISTIC_COMPARE<typename AlgorithmTraits<MyAlgorithm>::CostType>
+
 /// Heuristic that always returns zero.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
@@ -50,7 +54,8 @@ private:
 /// the required quality) yet.
 /// \tparam MyAlgorithm The search algorithm.
 /// \tparam Heuristic The heuristic type.
-template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC>
+template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC,
+          class Compare = SLB_MIN_HEURISTIC_COMPARE_T>
 struct MinHeuristicToGoals {
     POLICY_TYPES
 
@@ -68,7 +73,7 @@ struct MinHeuristicToGoals {
         // Note that goals.size() can be 0.
         for (auto i = 1U; i < goals.size(); ++i) {
             auto myH = heuristic_(s, goals[i].first);
-            if (myH < res) {
+            if (Compare{}(myH, res)) {
                 res = myH;
                 responsible = goals[i].second;
             }

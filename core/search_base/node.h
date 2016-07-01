@@ -118,6 +118,12 @@ struct SearchNode : public NodeData_ {
     /// \param l The new position of the node in the open list.
     void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }
 
+    /// Updates heuristic of the node
+    /// \tparam Heuristic The heuristic to be used.
+    template <class Heuristic>
+    void updateH(Heuristic &heuristic) {
+        NodeData::updateH(heuristic(this));
+    }
 private:
     StateSmartPtr state_; ///< The state corresponding to the node.
     MyType *parent_ = nullptr; ///< The parent node.
