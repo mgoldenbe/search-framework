@@ -31,17 +31,6 @@ struct DefaultOLKeyType {
     /// Initializes the key based on the node.
     /// \param n The node.
     DefaultOLKeyType(const Node *n) : g(n->g), f(n->f) {}
-
-    /// Initializes the key based on the node. Updates the heuristic value of
-    /// the node.
-    /// \tparam The heuristic to be used.
-    /// \param n The node.
-    /// \param h The heuristic.
-    template <class Heuristic>
-    DefaultOLKeyType(Node *n, Heuristic &h) : g(n->g) {
-        n->updateH(h);
-        f = n->f;
-    }
 };
 
 /// Comparison of two keys.
@@ -109,16 +98,20 @@ struct GreaterPriority_SmallG {
 
 /// A flexible open list base on \c std::map whose values are buckets of nodes
 /// with same priority.
+/// \tparam MyAlgorithm_ The search algorithm type.
 /// \tparam Node_ The node type.
 /// \tparam KeyType_ The key type.
 /// \tparam GreaterPriority_ The functor type used to compare the keys.
 /// \tparam The underlying container.
-template <class Node_ = SLB_NODE,
+template <class MyAlgorithm_, class Node_ = SLB_NODE,
           template <class Node> class KeyType_ = SLB_OL_KEY_TYPE,
           template <class KeyType> class GreaterPriority_ = SLB_OL_PRIORITY,
           template <typename, typename, typename> class Container =
               SLB_OL_CONTAINER>
-struct OpenList {
+struct OpenList_T {
+    /// The search algorithm type.
+    using MyAlgorithm = MyAlgorithm_;
+
     /// Type for storing node position in the open list.
     using BucketPosition = int;
 
@@ -138,13 +131,13 @@ struct OpenList {
     using BucketsContainer =
         Container<KeyType, std::vector<Node *>, GreaterPriority>;
 
+    OpenList_T(MyAlgorithm &alg): alg_(alg) {
 #ifndef NDEBUG
-    OpenList() {
         // just to prevent the compiler from throwing it away,
         // so it should be available for use in gdb.
         dump();
-    }
 #endif
+    }
 
     /// Adds the given node to the list.
     /// \param n Pointer to the node to be added.
@@ -199,17 +192,15 @@ struct OpenList {
     }
 
     /// Re-compute the whole open list
-    /// \tparam Heuristic The heuristic to be used.
     /// \note It is faster to put all map elements into a vector and sort them
     /// there first, but it is not clear how to map keys to buckets_.size()
     /// vector indices. We could insert into un-ordered map first, but then we
     /// lose the performance benefits (checked with a simple prototype).
-    template <class Heuristic>
-    void recompute(Heuristic &heuristic) {
-        OpenList newOL;
+    void recompute() {
+        OpenList_T newOL(alg_);
         for (const auto &b: buckets_) {
             for (auto n: b.second) {
-                n->updateH(heuristic);
+                n->updateH(alg_.heuristic()(n));
                 newOL.add(n);
             }
         }
@@ -217,6 +208,9 @@ struct OpenList {
         assert(newOL.size() == size_);
     }
 private:
+    /// Reference to the search algorithm.
+    MyAlgorithm &alg_;
+
     /// The underlying map. Nodes with same priority are kept in buckets. These
     /// buckets are the values in the map.
     BucketsContainer buckets_;
@@ -253,12 +247,17 @@ private:
         bucket.pop_back();
         if (bucket.empty()) buckets_.erase(priority);
 
-        // the client code wants to take care of it
-        // remember to re-institute this line in the generic library B"H
-        // res->heapIndex = -1;
         size_--;
+        res->setBucketPosition(-1);
         return res;
     }
 };
+
+/// A flexible open list base on \c std::map whose values are buckets of nodes
+/// with same priority.
+/// \tparam MyAlgorithm The search algorithm type.
+template <class MyAlgorithm>
+using OpenList = OpenList_T<MyAlgorithm, SLB_NODE, SLB_OL_KEY_TYPE,
+                            SLB_OL_PRIORITY, SLB_OL_CONTAINER>;
 
 #endif

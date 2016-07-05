@@ -15,7 +15,7 @@
 #define SLB_OL_KEY_TYPE DefaultOLKeyType
 #define SLB_OL_PRIORITY GreaterPriority_SmallF_LargeG
 #define SLB_OL_CONTAINER OLMap
-#define SLB_OL OpenList<>
+#define SLB_OL OpenList
 
 //#define SLB_GOAL_HANDLER MinHeuristicGoalHandler
 #define SLB_GOAL_HANDLER MaxHeuristicGoalHandler

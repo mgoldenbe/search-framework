@@ -7,13 +7,15 @@
 
 #include "algorithm.h"
 
-template <ALG_TPARAMS_NO_DEFAULTS, class Open>
+template <ALG_TPARAMS_NO_DEFAULTS, template <class> class Open>
 struct Astar; // Forward declare for the following type traits to work.
 
-template <ALG_TPARAMS_NO_DEFAULTS, class Open>
+template <ALG_TPARAMS_NO_DEFAULTS, template <class> class Open>
 struct AlgorithmTraits<Astar<ALG_TARGS, Open>> {
     BASE_TRAITS_TYPES
-    using OC = OpenClosedList<Open>; ///< The open and closed lists type.
+        using MyAlgorithm = Astar<ALG_TARGS, Open>;
+        /// The open and closed lists type.
+        using OC = OpenClosedList<Open<MyAlgorithm>>;
 };
 
 /// The \c A* search algorithm.
@@ -24,12 +26,13 @@ struct AlgorithmTraits<Astar<ALG_TARGS, Open>> {
 /// \tparam Heuristic The heuristic used by the search algorithm.
 /// \tparam Open The open list type.
 /// \note See the documentation of \ref ALG_TYPES and \ref ALG_DATA.
-template <ALG_TPARAMS, class Open = SLB_OL>
-struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
+template <ALG_TPARAMS, template <class> class Open_ = SLB_OL>
+struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     using MyType = Astar; ///< The type of Astar.
     using DirectBase = Algorithm<MyType, ALG_TARGS>;
     using GoalHandler = typename DirectBase::GoalHandler;
     using Heuristic = typename DirectBase::Heuristic;
+    using Open = Open_<Astar>;
 
     BASE_TRAITS_TYPES
     using OC = typename AlgorithmTraits<Astar>::OC;
@@ -39,7 +42,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
     /// Initializes the algorithm based on the problem instance.
     /// \param instance The problem instance.
     Astar(MyInstance &instance)
-        : Base(instance), oc_(), cur_(nullptr), children_() {}
+        : Base(instance), oc_(*this), cur_(nullptr), children_() {}
 
     /// Runs the algorithm.
     /// \return The solution cost, which is the average of solution costs among
@@ -47,7 +50,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
     CostType run() {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
-        startNode->f = heuristic_(startNode.get());
+        startNode->set(0, heuristic_(startNode.get()), this->stamp());
         log<Events::MarkedStart>(log_, startNode.get());
         goalHandler_.logInit();
         oc_.add(startNode);
@@ -92,7 +95,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open>, ALG_TARGS> {
     Node *cur() { return cur_; }
     CostType &res() { return res_; }
     Measure &denied() { return denied_; }
-    void recomputeOpen() { oc_.recomputeOpen(heuristic_); }
+    void recomputeOpen() { oc_.recomputeOpen(); }
 
     /// @}
 private:
@@ -154,9 +157,11 @@ private:
         auto childNode = oc_.getNode(*child);
         if (childNode) {
             if (myG < childNode->g) {
+                // only consistent case for now
+                assert(childNode->bucketPosition() >= 0);
+
                 log<Events::NotParent>(log_, childNode);
-                auto oldPriority =
-                    typename Open::KeyType(childNode, heuristic_);
+                auto oldPriority = oc_.priority(childNode);
                 childNode->updateG(myG);
                 childNode->setParent(cur_);
                 oc_.update(childNode, oldPriority);
@@ -171,8 +176,7 @@ private:
             return;
         }
         NodeUniquePtr newNode(new Node(child));
-        newNode->g = myG;
-        newNode->f = myG + heuristic_(newNode.get());
+        newNode->set(myG, heuristic_(newNode.get()), this->stamp());
         newNode->setParent(cur_);
         log<Events::Generated>(log_, newNode.get());
         log<Events::EnteredOpen>(log_, newNode.get());

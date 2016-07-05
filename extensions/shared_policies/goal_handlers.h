@@ -257,13 +257,23 @@ struct MaxHeuristicGoalHandler: MultipleGoalHandler<MyAlgorithm> {
     /// Using the direct base's constructors.
     using DirectBase::DirectBase;
 
-    void onSelect() {
-        DirectBase::onSelect();
-    }
+    using DirectBase::alg_;
+
+    /// Returns the time stamp of the last found goal. This is also when the
+    /// open list was re-computed last.
+    /// \return /// The time stamp when the last goal was found.
+    int stamp() { return stamp_; }
 protected:
-    void doneGoal(Node *n) {
+    /// Time stamp when the last goal was found.
+    int stamp_;
+
+    /// Handles the found goal. Recomputes the open list and saves the time
+    /// stamp.
+    /// \param n The goal node.
+    virtual void doneGoal(Node *n) {
         DirectBase::doneGoal(n);
-        DirectBase::alg_.recomputeOpen();
+        alg_.recomputeOpen();
+        stamp_ = alg_.stamp();
     }
 };
 

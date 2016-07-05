@@ -20,6 +20,7 @@
 /// \note The state type needs to implement moving copy constructor for
 /// insertions into the list to be efficient.
 template <class OpenList> struct OpenClosedList {
+    using MyAlgorithm = typename OpenList::MyAlgorithm;
     /// The node type.
     using Node = typename OpenList::Node;
 
@@ -37,6 +38,8 @@ template <class OpenList> struct OpenClosedList {
 
     /// The type of the underlying hash table for the closed list.
     using HashType = std::unordered_map<State, NodeUniquePtr, StateHash<State>>;
+
+    OpenClosedList(MyAlgorithm &alg) : ol_(alg) {}
 
     /// Dumps the list to \c stderr for debugging.
     void dump() const {
@@ -105,9 +108,14 @@ template <class OpenList> struct OpenClosedList {
     const HashType &hash() const { return hash_; }
 
     /// Re-compute the whole open list
-    /// \tparam Heuristic The heuristic to be used.
-    template <class Heuristic> void recomputeOpen(Heuristic &heuristic) {
-        ol_.recompute(heuristic);
+    void recomputeOpen() {
+        ol_.recompute();
+    }
+
+    /// Returns the priority in the open list of the given node.
+    /// \return The priority in the open list of the given node.
+    KeyType priority(Node *n) {
+        return KeyType(n);
     }
 
 private:

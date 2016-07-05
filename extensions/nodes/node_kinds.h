@@ -15,6 +15,13 @@ struct NodeBase: ManagedNode<> {
     /// The type representing the cost of actions in the domain.
     using CostType = typename State::CostType;
 
+    ///  The default constructor. Initializes the node data with zeros.
+    NodeBase() : g(0), f(0) {}
+    REFLECTABLE((CostType) g, (CostType) f)      // These are public for ease of
+                                               // access. I don't see any reason
+                                               // for making them private and
+                                               // having getters and setters.
+
     /// Updates g-value of the node
     /// \param newG The new g-value.
     void updateG(CostType newG) {
@@ -23,17 +30,19 @@ struct NodeBase: ManagedNode<> {
     }
 
     /// Updates h-value of the node
-    /// \param newH The new h-value.
+    /// \param newG The new g-value.
     void updateH(CostType newH) {
         f = g + newH;
     }
 
-    ///  The default constructor. Initializes the node data with zeros.
-    NodeBase() : g(0), f(0) {}
-    REFLECTABLE((CostType) g, (CostType) f)      // These are public for ease of
-                                               // access. I don't see any reason
-                                               // for making them private and
-                                               // having getters and setters.
+    /// Sets g and f of the node.
+    /// \tparam Node The search node type.
+    /// \param g The g-value.
+    /// \param h The h-value.
+    void set(CostType g, CostType h, int) {
+        this->g = g;
+        this->f = g + h;
+    }
 };
 
 /// Node storing nothing.
@@ -46,11 +55,10 @@ struct NoNodeData: ManagedNode<NodeBase<State>> {};
 /// \tparam State_ The state type, represents the domain.
 template <typename State = SLB_STATE>
 struct NodeWithResponsibleGoal : ManagedNode<NodeBase<State>> {
-    /// The default constructor. Initializes the node data with zeros and the
-    /// first goal being the responsible one.
+    /// The default constructor.
     NodeWithResponsibleGoal() : responsibleGoal(-1) {}
-    REFLECTABLE((int) responsibleGoal) /// the goal that was responsible for
-                                        /// the heuristic value
+    /// The goal that was responsible for the heuristic value
+    REFLECTABLE((int) responsibleGoal)
 };
 
 #endif

@@ -19,15 +19,19 @@
 #include "core/headers.h"
 #include "extensions/headers.h"
 
+template <class MyAlgorithm>
+using buildGraphOL =
+    OpenList_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
+
 /// Builds the state graph of the domain.
 /// \return The state graph of the domain.
 StateGraph<SLB_STATE> buildGraph() {
-    using MyOL = OpenList<SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
     using MyInstance = Instance<SLB_STATE>;
 
     auto instance =
         MyInstance(std::vector<SLB_STATE>(1), std::vector<SLB_STATE>(1));
-    Astar<false, SLB_NODE, NoGoalHandler, ZeroHeuristic, MyOL> myAstar(instance);
+    Astar<false, SLB_NODE, NoGoalHandler, ZeroHeuristic, buildGraphOL> myAstar(
+        instance);
     myAstar.run();
     return myAstar.graph();
 }

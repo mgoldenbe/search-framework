@@ -108,6 +108,11 @@ struct Algorithm {
     GoalHandler &goalHandler() { return goalHandler_; }
     Heuristic &heuristic() { return heuristic_; }
 
+    /// Returns the current time stamp of the search algorithm.
+    /// The number of generated nodes is currently used as the stamp.
+    /// \return The current time stamp of the search algorithm.
+    int stamp() { return generated_.value(); }
+
     /// @}
 protected:
     /// Initializes the algorithm based on the problem instance.
