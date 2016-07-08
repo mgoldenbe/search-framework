@@ -5,6 +5,8 @@
 /// \brief Facilities for working with problem instances.
 /// \author Meir Goldenberg
 
+#include "extensions/instance_measures/headers.h"
+
 /// Looks for the first substring that begins with a non-space character
 /// and ends either at the end of string or with the given number of spaces.
 /// The original string is modified to contain the non-parsed part of the
@@ -29,17 +31,19 @@ std::string stuff(std::string &s, bool throwOnEmpty = false, int nSpaces = 2) {
 }
 
 /// Parses the given title line of the instances file to determine how many
-/// start and goal states each instance would contain.
+/// start and goal states each instance would contain. Returns a measure set
+/// with the titles already set.
 /// \param s The title line.
 /// \param nStarts The number of start states in each instance to be set.
 /// \param nGoals The number of goal states in each instance to be set.
-void getNStartsGoals(std::string &s, int &nStarts, int &nGoals) {
+MeasureSet parseInstancesTitle(std::string &s, int &nStarts, int &nGoals) {
+    MeasureSet res{};
     bool startsFlag = true;
     nStarts = nGoals = 0;
     std::string token = stuff(s);
     if (token != "#") throw std::runtime_error("Instance file ill-formed");
     while (s != "") {
-        std::string token = stuff(s);
+        std::string token = stuff(s), origToken = token;
         transform(token.begin(), token.end(), token.begin(), tolower);
         if (token.find("start") == 0) {
             if (!startsFlag)
@@ -50,8 +54,10 @@ void getNStartsGoals(std::string &s, int &nStarts, int &nGoals) {
             if (startsFlag) startsFlag = false;
             ++nGoals;
         }
-        else throw std::runtime_error("Instance file ill-formed");
+        else
+            res.append(Measure{origToken});
     }
+    return res;
 }
 
 /// The type for an instance with an arbitrary (but fixed) number of start and
@@ -69,8 +75,19 @@ struct Instance {
     /// Initializes the instance based on the given start and goal states.
     /// \param start Vector of start states.
     /// \param goal Vector of goal states.
+    template <typename InstanceMeasures = SLB_INSTANCE_MEASURES>
     Instance(const std::vector<State> &start, const std::vector<State> &goal)
-        : start_(start), goal_(goal) {}
+        : start_(start), goal_(goal), measures_(InstanceMeasures{}(*this)) {}
+
+    /// Initializes the instance based on the given start and goal states and a
+    /// set of measures.
+    /// \param start Vector of start states.
+    /// \param goal Vector of goal states.
+    /// \param measures The set of measures
+    template <typename InstanceMeasures = SLB_INSTANCE_MEASURES>
+    Instance(const std::vector<State> &start, const std::vector<State> &goal,
+             const MeasureSet &measures)
+        : start_(start), goal_(goal), measures_(measures) {}
 
     /// Returns the first start state. Intended for use when the instance
     /// contains a single start state.
@@ -106,7 +123,7 @@ struct Instance {
     template <class Stream> Stream &dump(Stream &os) const {
         for (auto s: start_) os << s;
         for (auto s: goal_) os << s;
-        return os;
+        return measures_.dumpValues(os);
     }
 
     /// Dumps the line with column titles to the given stream.
@@ -115,12 +132,17 @@ struct Instance {
     template <class Stream> Stream &dumpTitle(Stream &os) {
         for (int i = 0; i != start_.size(); ++i) os << "start-" + str(i);
         for (int i = 0; i != goal_.size(); ++i) os << "goal-" + str(i);
-        return os;
+        return measures_.dumpTitle(os);
     }
+
+    /// Returns the measure set of the instance.
+    /// \return The measure set of the instance.
+    const MeasureSet &measures() const { return measures_; }
 
 private:
     std::vector<State> start_; ///< The start states.
     std::vector<State> goal_;  ///< The goal states.
+    MeasureSet measures_;
 };
 
 /// Computes a random state that is not in the given vector of states.
@@ -160,6 +182,10 @@ std::vector<Instance<State>> makeInstances(int n) {
             goal.push_back(uniqueRandomState(goal));
         res.push_back(MyInstance(start, goal));
     }
+    std::sort(res.begin(), res.end(),
+              [](const MyInstance &i1, const MyInstance &i2) {
+                  return i1.measures()[0].value() < i2.measures()[0].value();
+              });
     return res;
 }
 
@@ -184,7 +210,6 @@ std::vector<Instance<State>> makeInstancesFile(const std::string &fname) {
 
     t << "#";
     res[0].dumpTitle(t);
-    t << std::endl;
 
     int i = 0;
     for (auto instance: res) {
@@ -214,7 +239,7 @@ std::vector<Instance<State>> readInstancesFile(const std::string &fname) {
     // Title line
     int totalNStarts, totalNGoals;
     std::getline(fs, line);
-    getNStartsGoals(line, totalNStarts, totalNGoals);
+    MeasureSet measures = parseInstancesTitle(line, totalNStarts, totalNGoals);
 
     int nStarts = std::min(totalNStarts, CMD.nStarts('r'));
     int nGoals = std::min(totalNGoals, CMD.nGoals('r'));
@@ -231,7 +256,15 @@ std::vector<Instance<State>> readInstancesFile(const std::string &fname) {
             stuff(line, true); // skip not used starts
         for (int i = 0; i != nGoals; ++i)
             goal.push_back(State(stuff(line, true)));
-        res.push_back(MyInstance(start, goal));
+        for (int i = nGoals; i != totalNGoals; ++i)
+            stuff(line, true); // skip not used goals
+        for (auto &m: measures) {
+            double x = -1;
+            istringstream{stuff(line, true)} >> x;
+            assert(x != -1);
+            m.set(x);
+        }
+        res.push_back(MyInstance(start, goal, measures));
     }
     return res;
 }

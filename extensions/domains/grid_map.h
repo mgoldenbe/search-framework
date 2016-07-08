@@ -118,8 +118,8 @@ struct GridMap {
     /// \return The location based on the given string.
     Location location(const std::string str) const {
         auto parse = split(str, {' ', ',', '[', ']'});
-        assert(parse.size() == 2);
-        return location(std::stoi(parse[0]), std::stoi(parse[1]));
+        assert(parse.size() >= 2);
+        return location(std::stoi(parse[1]), std::stoi(parse[0]));
     }
 
     /// Returns a random location.
@@ -166,11 +166,16 @@ struct GridMap {
     /// Returns the string representation of the given location.
     /// \param location The location whose string representation is needed.
     /// \return The string representation of \c location.
-    std::string locationStr(Location location) const {
-        return "[" + str(column(location)) + " " + str(row(location)) + "]" +
-               " (" + str(location) + ")";
+    std::string locationShortStr(Location location) const {
+        return "[" + str(column(location)) + " " + str(row(location)) + "]";
     }
 
+    /// Returns the string representation of the given location.
+    /// \param location The location whose string representation is needed.
+    /// \return The string representation of \c location.
+    std::string locationStr(Location location) const {
+        return locationShortStr(location) + " (" + str(location) + ")";
+    }
 private:
     /// The encoding of the map. \c true stands for passable, \c false stands
     /// for impassable.

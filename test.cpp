@@ -57,10 +57,11 @@ void run() {
         vis.run();
     } else {
         for (auto instance : res) {
-            Nothing logger; (void)logger;
             SLB_ALGORITHM<false> alg(instance);
             alg.run();
-            stats.append(alg.measures(), CMD.perInstance());
+            auto instanceMeasures = instance.measures();
+            stats.append(instanceMeasures.append(alg.measures()),
+                         CMD.perInstance());
         }
     }
     if (!CMD.perInstance())

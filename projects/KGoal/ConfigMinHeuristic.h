@@ -28,4 +28,6 @@
 #define SLB_ALGORITHM Astar
 //#define SLB_RAW_ALGORITHM SLB_ALGORITHM
 
+#define SLB_INSTANCE_MEASURES Cost
+
 #endif

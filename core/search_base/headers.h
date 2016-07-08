@@ -9,6 +9,5 @@
 #include "instance.h"
 #include "open_closed_list.h"
 #include "open_list.h"
-#include "stats.h"
 
 #endif

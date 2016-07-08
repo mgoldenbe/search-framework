@@ -12,6 +12,11 @@ struct Measure {
     /// \param name The name of the new measure.
     Measure(const std::string &name) : name_(name) {}
 
+    /// Initializes the measure with a name and a value.
+    /// \param name The name of the new measure.
+    /// \param x The value of the new measure.
+    Measure(const std::string &name, double x) : name_(name), x_(x) {}
+
     /// Increments the measure by 1.0.
     void operator++() { ++x_; }
 
@@ -156,6 +161,30 @@ struct MeasureSet {
         return *this;
     }
 
+    /// Dumps the measure titles to the given stream.
+    /// \tparam Stream The stream type.
+    /// \param os The stream.
+    /// \param prefixTitle The string to prefix the title row with.
+    /// \return The modified stream.
+    template <class Stream>
+    Stream &dumpTitle(Stream &os, const std::string &prefixTitle = "") const {
+        if (prefixTitle.size()) os << prefixTitle;
+        for (auto &m : s_) os << m.name();
+        return (os << std::endl);
+    }
+
+    /// Dumps the measures' values to the given stream.
+    /// \tparam Stream The stream type.
+    /// \param os The stream.
+    /// \param prefixData The string to prefix the data row with.
+    /// \return The modified stream.
+    template <class Stream>
+    Stream &dumpValues(Stream &os, const std::string &prefixData = "") const {
+        if (prefixData.size()) os << prefixData;
+        for (auto &m : s_) os << m.value();
+        return os;
+    }
+
     /// Dumps the set to the given stream.
     /// \tparam Stream The stream type.
     /// \param os The stream.
@@ -168,15 +197,9 @@ struct MeasureSet {
     Stream &dump(Stream &os, const std::string &prefixTitle = "",
                  const std::string &prefixData = "",
                  bool titleFlag = false) const {
-        if (titleFlag) {
-            os << prefixTitle;
-            for (auto &m : s_) os << m.name();
-            os << std::endl;
-        }
-        os << prefixData;
-        for (auto &m : s_) os << m.value();
-        os << std::endl;
-        return os;
+        if (titleFlag) os = dumpTitle(os, prefixTitle);
+        dumpValues(os, prefixData);
+        return (os << std::endl);
     }
 private:
     std::vector<Measure> s_; ///< The vector of measures in the set.
@@ -210,9 +233,14 @@ struct Stats {
     int size() const { return s_.size(); }
 
     /// Returns measure set for the problem instance with the given index.
+    /// \return Reference to the measure set for the problem instance with
+    /// the index \c n.
+    MeasureSet &operator[](std::size_t n) { return s_[n]; }
+
+    /// Returns measure set for the problem instance with the given index.
     /// \return Const reference to the measure set for the problem instance with
     /// the index \c n.
-    const const_reference operator[](std::size_t n) const { return s_[n]; }
+    const MeasureSet &operator[](std::size_t n) const { return s_[n]; }
 
     /// Appends the given measure set to the stats.
     /// \param m The measure set to append.

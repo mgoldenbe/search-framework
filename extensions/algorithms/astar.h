@@ -41,7 +41,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
 
     /// Initializes the algorithm based on the problem instance.
     /// \param instance The problem instance.
-    Astar(MyInstance &instance)
+    Astar(const MyInstance &instance)
         : Base(instance), oc_(*this), cur_(nullptr), children_() {}
 
     /// Runs the algorithm.

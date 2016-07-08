@@ -117,7 +117,7 @@ struct Algorithm {
 protected:
     /// Initializes the algorithm based on the problem instance.
     /// \param instance The problem instance.
-    Algorithm(MyInstance &instance)
+    Algorithm(const MyInstance &instance)
         : instance_(instance), start_(instance_.start()),
           goalHandler_(static_cast<Concrete &>(*this)),
           heuristic_(static_cast<Concrete &>(*this)) {}
