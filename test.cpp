@@ -11,7 +11,7 @@
 #ifdef CONFIG
 #include CONFIG
 #else
-#include "projects/KGoal/ConfigMinHeuristic.h"
+#include "projects/KGoal/Config/min.h"
 // //#include "projects/KGoal/ConfigPerGoal.h"
 // //#include "projects/KGoal/ConfigUniformSearch.h"
 #endif
@@ -28,8 +28,8 @@ using buildGraphOL =
 StateGraph<SLB_STATE> buildGraph() {
     using MyInstance = Instance<SLB_STATE>;
 
-    auto instance =
-        MyInstance(std::vector<SLB_STATE>(1), std::vector<SLB_STATE>(1));
+    auto instance = MyInstance(std::vector<SLB_STATE>(1),
+                               std::vector<SLB_STATE>(1), MeasureSet{});
     Astar<false, SLB_NODE, NoGoalHandler, ZeroHeuristic, buildGraphOL> myAstar(
         instance);
     myAstar.run();

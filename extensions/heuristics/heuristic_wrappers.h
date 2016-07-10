@@ -19,41 +19,48 @@ struct ZeroHeuristic {
     ZeroHeuristic(MyAlgorithm &) {}
 
     /// Computes the heuristic.
+    /// \param n The node for which the heuristic is to be computed.
     /// \return The heuristic value. In this case, zero.
     CostType operator()(Node *n) const {(void)n; return CostType(0);}
 };
 
 /// A simple wrapper around a single heuristic to single goal.
-/// \tparam The state type, represents the domain.
-/// \tparam Heuristic The heuristic type.
-template <class State, class Heuristic>
+/// \tparam MyAlgorithm The search algorithm.
+/// \tparam BaseHeuristic The base heuristic type.
+template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC>
 struct SimpleHeuristicToGoal {
-    /// The problem instance type.
-    using MyInstance = Instance<State>;
-
-    /// The type representing the cost of actions in the domain.
-    using CostType = typename State::CostType;
+    POLICY_TYPES
 
     /// Initializes the heuristic based on a problem instance.
-    SimpleHeuristicToGoal(MyInstance &instance)
-        : goal_(instance.goal()) {}
+    SimpleHeuristicToGoal(MyAlgorithm &alg)
+        : alg_(alg), goal_(alg.instance().goal()) {}
 
     /// Computes the heuristic.
-    /// \tparam Node The search node type.
+    /// \param n The node for which the heuristic is to be computed.
     /// \return The heuristic value.
-    template <class Node> CostType operator()(Node *n) const {
+    CostType operator()(Node *n) const {
         auto &s = n->state();
         return heuristic_(s, goal_);
     }
+
 private:
+    MyAlgorithm &alg_;
     State goal_; ///< The goal state.
-    Heuristic heuristic_; ///< The underlying heuristic.
+    BaseHeuristic heuristic_; ///< The underlying heuristic.
 };
+
+/// A simple wrapper around a single heuristic to single goal.
+/// \tparam MyAlgorithm The search algorithm.
+template <class MyAlgorithm>
+using SimpleHeuristicToGoal_FixedH =
+    SimpleHeuristicToGoal<MyAlgorithm, SLB_BASE_HEURISTIC>;
 
 /// Computes minimum among heuristics to goals that have not been found (with
 /// the required quality) yet.
 /// \tparam MyAlgorithm The search algorithm.
-/// \tparam Heuristic The heuristic type.
+/// \tparam BaseHeuristic The base heuristic type.
+/// \tparam Compare The comparer of heuristic values, e.g. std::less or
+/// std::greater.
 template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC,
           class Compare = SLB_MIN_HEURISTIC_COMPARE_T>
 struct MinHeuristicToGoals {
@@ -64,6 +71,7 @@ struct MinHeuristicToGoals {
     MinHeuristicToGoals(MyAlgorithm &alg) : alg_(alg) {}
 
     /// Computes the heuristic.
+    /// \param n The node for which the heuristic is to be computed.
     /// \return The heuristic value.
     CostType operator()(Node *n) const {
         auto &s = n->state();

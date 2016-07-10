@@ -46,7 +46,8 @@
     using Base::expanded_;                                                     \
     using Base::generated_;                                                    \
     using Base::time_;                                                         \
-    using Base::cost_;
+    using Base::cost_;                                                         \
+    using Base::res_;
 
 template <ALG_TPARAMS>
 struct BaseTraits {
@@ -113,6 +114,10 @@ struct Algorithm {
     /// \return The current time stamp of the search algorithm.
     int stamp() { return generated_.value(); }
 
+    /// Returns reference to the result.
+    /// \return Reference to the result.
+    CostType &res() { return res_; }
+
     /// @}
 protected:
     /// Initializes the algorithm based on the problem instance.
@@ -151,6 +156,9 @@ protected:
 
     /// The cost of the solution.
     Measure cost_{"Cost"};
+
+    /// The solution cost. -1 stands for no solution.
+    CostType res_{-1};
     /// @}
 };
 

@@ -69,10 +69,8 @@ struct Instance {
     /// The state type, represents the domain.
     using State = State_;
 
-    /// The instance type.
-    using MyType = Instance<State>;
-
     /// Initializes the instance based on the given start and goal states.
+    /// \tparam InstanceMeasures The functor for computing the instance measures.
     /// \param start Vector of start states.
     /// \param goal Vector of goal states.
     template <typename InstanceMeasures = SLB_INSTANCE_MEASURES>
@@ -84,7 +82,6 @@ struct Instance {
     /// \param start Vector of start states.
     /// \param goal Vector of goal states.
     /// \param measures The set of measures
-    template <typename InstanceMeasures = SLB_INSTANCE_MEASURES>
     Instance(const std::vector<State> &start, const std::vector<State> &goal,
              const MeasureSet &measures)
         : start_(start), goal_(goal), measures_(measures) {}
@@ -104,16 +101,16 @@ struct Instance {
     /// \note The reference in the return value is non-const, since some search
     /// algorithms need to modify the set of goals as the algorithm progresses.
     /// See \ref MinHeuristicGoalHandler for an example.
-    std::vector<State> &goals() { return goal_; }
+    const std::vector<State> &goals() const { return goal_; }
 
     /// Returns a vector of single-goal instances, one instance for each goal
     /// state.
     /// \return Vector of single-goal instances, one instance for each goal
     /// state.
-    std::vector<MyType> goalInstances() const {
-        std::vector<MyType> res;
+    std::vector<Instance> goalInstances() const {
+        std::vector<Instance> res;
         for (auto g: goal_)
-            res.push_back(MyType(start_, std::vector<State>{g}));
+            res.push_back(Instance{start_, std::vector<State>{g}, MeasureSet{}});
         return res;
     }
 

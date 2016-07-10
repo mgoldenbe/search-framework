@@ -13,9 +13,9 @@ struct Astar; // Forward declare for the following type traits to work.
 template <ALG_TPARAMS_NO_DEFAULTS, template <class> class Open>
 struct AlgorithmTraits<Astar<ALG_TARGS, Open>> {
     BASE_TRAITS_TYPES
-        using MyAlgorithm = Astar<ALG_TARGS, Open>;
-        /// The open and closed lists type.
-        using OC = OpenClosedList<Open<MyAlgorithm>>;
+    using MyAlgorithm = Astar<ALG_TARGS, Open>;
+    /// The open and closed lists type.
+    using OC = OpenClosedList<Open<MyAlgorithm>>;
 };
 
 /// The \c A* search algorithm.
@@ -59,7 +59,10 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
             log<Events::Selected>(log_, cur_);
             handleSelected();
         }
-        if (oc_.empty()) res_ = -1;
+        if (oc_.empty() && !goalHandler_.done())
+            // The last selected node could be the last goal, hence the second
+            // part of the condition.
+            res_ = -1;
         cost_.set(res_);
         return res_;
     }
@@ -93,7 +96,6 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
 
     OC &oc() { return oc_; }
     Node *cur() { return cur_; }
-    CostType &res() { return res_; }
     Measure &denied() { return denied_; }
     void recomputeOpen() { oc_.recomputeOpen(); }
 
@@ -105,8 +107,6 @@ private:
 
     /// The children of the currently selected node.
     std::vector<Neighbor> children_;
-
-    CostType res_{-1}; ///< The solution cost.
 
     // Stats
     Measure denied_{"Denied"}; ///< The number of denied expansions.
