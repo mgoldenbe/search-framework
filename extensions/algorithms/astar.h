@@ -59,10 +59,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
             log<Events::Selected>(log_, cur_);
             handleSelected();
         }
-        if (oc_.empty() && !goalHandler_.done())
-            // The last selected node could be the last goal, hence the second
-            // part of the condition.
-            res_ = -1;
+        if (!goalHandler_.done()) res_ = -1;
         cost_.set(res_);
         return res_;
     }
