@@ -76,6 +76,7 @@ struct MinHeuristicToGoals {
     CostType operator()(Node *n) const {
         auto &s = n->state();
         auto &goals = alg_.goalHandler().activeGoals();
+        assert(goals.size() > 0);
         int responsible = goals[0].second;
         CostType res = heuristic_(s, goals[0].first);
         // Note that goals.size() can be 0.

@@ -7,6 +7,8 @@
 
 #include "../../core/search_base/explicit_state.h"
 
+namespace Domains {
+
 /// Explicit state specific to the Grid Map domain.
 /// \tparam CostType The type representing the cost of actions in the domain.
 /// \tparam uniformFlag Determines whether the domain is a uniform cost one or
@@ -44,5 +46,7 @@ struct GridMapState : ExplicitState<GridMap<CostType>> {
         return GridMapState(Base::random());
     }
 };
+
+}
 
 #endif

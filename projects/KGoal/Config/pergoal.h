@@ -8,7 +8,6 @@
 
 #define SLB_GOAL_HANDLER SingleGoalHandler
 
-#define SLB_BASE_HEURISTIC OctileHeuristic
 #define SLB_HEURISTIC SimpleHeuristicToGoal_FixedH
 
 #define SLB_ALGORITHM PerGoal

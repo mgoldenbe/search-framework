@@ -162,9 +162,10 @@ protected:
     virtual void doneGoal(Node *n) {
         log<Events::SolvedGoal>(log_, n);
         log<Events::HideLast>(log_, n);
-        CostType &res = alg_.res();
+        auto &res = alg_.res();
         int nDoneGoals = alg_.instance().goals().size() - activeGoals_.size();
         res = (res * (nDoneGoals - 1) + n->g) / nDoneGoals;
+        // res += (res == -1 ? 1 : 0) + n->g;
         if (activeGoals_.empty()) done_ = true;
     }
 };
@@ -206,7 +207,7 @@ struct MinHeuristicGoalHandler: MultipleGoalHandler<MyAlgorithm> {
 
         if (this->isActive<true>(n->state())) {
             this->doneGoal(n);
-            update(n);
+            if (!done_) update(n);
             return false;
         }
 
@@ -258,6 +259,7 @@ struct MaxHeuristicGoalHandler: MultipleGoalHandler<MyAlgorithm> {
     using DirectBase::DirectBase;
 
     using DirectBase::alg_;
+    using DirectBase::done_;
 
     /// Returns the time stamp of the last found goal. This is also when the
     /// open list was re-computed last.
@@ -272,7 +274,7 @@ protected:
     /// \param n The goal node.
     virtual void doneGoal(Node *n) {
         DirectBase::doneGoal(n);
-        alg_.recomputeOpen();
+        if (!done_) alg_.recomputeOpen();
         stamp_ = alg_.stamp();
     }
 };

@@ -5,8 +5,12 @@
 /// \brief The \ref Pancake class and the related heuristics.
 /// \author Meir Goldenberg
 
+namespace Domains {
+
 /// The pancake puzzle domain.
-struct Pancake {
+/// \tparam NPancakes Number of pancakes
+template <int NPancakes>
+struct Pancake: Base {
     /// The type representing the cost of actions in the domain. Every domain
     /// must provide this name.
     using CostType = int;
@@ -16,9 +20,8 @@ struct Pancake {
     using Neighbor = StateNeighbor<Pancake>;
 
     /// Initializes the state with ordered pancakes.
-    /// \param n The number of pancakes.
-    Pancake(int n) : pancakes_(n) {
-        for (auto i = 0; i != n; ++i)
+    Pancake() : pancakes_(NPancakes) {
+        for (auto i = 0; i != NPancakes; ++i)
             pancakes_[i] = i;
     }
 
@@ -111,8 +114,17 @@ struct Pancake {
     /// The equality operator.
     /// \param rhs The right-hand side of the operator.
     /// \return \c true if the two states compare equal and \c false otherwise.
-    bool operator==(const Pancake &rhs) {return pancakes_ == rhs.pancakes_;}
+    bool operator==(const Pancake &rhs) const {
+        return pancakes_ == rhs.pancakes_;
+    }
 
+    /// Returns a random state.
+    /// \return A random state.
+    static Pancake random() {
+        Pancake res{};
+        res.shuffle();
+        return res;
+    }
 private:
     std::vector<int> pancakes_; ///< The underlying state representation.
 };
@@ -124,22 +136,30 @@ private:
 struct GapHeuristic {
     /// The call operator. Computes the gap heuristic from the given state to
     /// the goal state with ordered pancakes.
+    /// \tparam NPancakes Number of pancakes
     /// \param s The state from which the heuristic value is needed.
     /// \return The gap heuristic from \c s to the goal state with ordered
     /// pancakes.
-    int operator()(const Pancake &s) const { return s.gapHeuristic(); }
+    template <int NPancakes> int operator()(const Pancake<NPancakes> &s) const {
+        return s.gapHeuristic();
+    }
 };
 
 /// Functor for computing the gap heuristic to the given goal state.
 struct GapHeuristicToGoal {
     /// The call operator. Computes the gap heuristic from the given state to
     /// the given goal state.
+    /// \tparam NPancakes Number of pancakes
     /// \param s The state from which the heuristic value is needed.
     /// \param goal The goal state.
     /// \return The gap heuristic from \c s to \c goal.
-    int operator()(const Pancake &s, const Pancake &goal) const {
+    template <int NPancakes>
+    int operator()(const Pancake<NPancakes> &s,
+                   const Pancake<NPancakes> &goal) const {
         return s.gapHeuristic(goal);
     }
 };
+
+}
 
 #endif

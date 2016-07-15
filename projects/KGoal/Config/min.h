@@ -8,10 +8,9 @@
 
 #define SLB_GOAL_HANDLER MinHeuristicGoalHandler
 
-#define SLB_BASE_HEURISTIC OctileHeuristic
 #define SLB_HEURISTIC MinHeuristicToGoals_FixedH
-
 #define SLB_MIN_HEURISTIC_COMPARE std::less
+
 #define SLB_ALGORITHM Astar
 
 #endif

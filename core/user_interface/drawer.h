@@ -63,7 +63,7 @@ template <class Node> struct Drawer {
 
     /// Initializes the drawer with the given (partial) domain graph and log of
     /// visual events.
-    Drawer(const Graph &g, const MyVisualLog &log) : g_(g), log_(log) {
+    Drawer(Graph &g, const MyVisualLog &log) : g_(g), log_(log) {
         makeLayout();
     }
 
@@ -321,7 +321,7 @@ private:
 
 private:
     /// The (partial) domain graph.
-    const Graph &g_;
+    Graph &g_;
 
     /// The log of visual events.
     const MyVisualLog &log_;

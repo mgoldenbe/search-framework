@@ -47,7 +47,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     /// Runs the algorithm.
     /// \return The solution cost, which is the average of solution costs among
     /// the goals. If there is no solution, then \c CostType{-1} is returned.
-    CostType run() {
+    ReturnType run() {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
         startNode->set(0, heuristic_(startNode.get()), this->stamp());

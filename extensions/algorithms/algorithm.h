@@ -29,6 +29,7 @@
     using Node = typename Traits::Node;                                        \
     using NodeData = typename Traits::NodeData;                                \
     using CostType = typename Traits::CostType;                                \
+    using ReturnType = double;                                                 \
     using NodeUniquePtr = typename Traits::NodeUniquePtr;                      \
     using State = typename Traits::State;                                      \
     using MyInstance = typename Traits::MyInstance;                            \
@@ -59,6 +60,10 @@ struct BaseTraits {
 
     /// Type for action cost in the search domain.
     using CostType = typename Node::CostType;
+
+    /// Type for the return value of the algorithm. Not the same as CostType due
+    /// to possible average among several goals.
+    using ReturnType = double;
 
     /// Unique pointer to search node.
     using NodeUniquePtr = typename Node::NodeUniquePtr;
@@ -116,7 +121,7 @@ struct Algorithm {
 
     /// Returns reference to the result.
     /// \return Reference to the result.
-    CostType &res() { return res_; }
+    ReturnType &res() { return res_; }
 
     /// @}
 protected:
@@ -158,7 +163,7 @@ protected:
     Measure cost_{"Cost"};
 
     /// The solution cost. -1 stands for no solution.
-    CostType res_{-1};
+    ReturnType res_{-1};
     /// @}
 };
 

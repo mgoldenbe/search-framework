@@ -1,7 +1,6 @@
 #ifndef CONFIG_COMMON_H
 #define CONFIG_COMMON_H
 
-#define SLB_STATE GridMapState<>
 #define SLB_COST_TYPE double
 #define SLB_UNIFORM_DOMAIN false
 #define SLB_COST_DIAGONAL 1.5

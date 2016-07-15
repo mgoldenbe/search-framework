@@ -6,6 +6,8 @@
 /// \brief The \ref GridMap class.
 /// \author Meir Goldenberg
 
+namespace Domains {
+
 /// The type for 4 or 8-connected grid explicit domain.
 /// \tparam CostType_ Type for action cost in the search domain.
 template <typename CostType_>
@@ -204,5 +206,7 @@ private:
         res.push_back(Neighbor((new typename Neighbor::State(n)), cost));
     }
 };
+
+}
 
 #endif
