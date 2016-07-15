@@ -194,7 +194,7 @@ private:
 
     /// State-to-vertex mapping.
     std::unordered_map<StateSharedPtr, VertexDescriptor,
-                       StateSharedPtrHash<State>> stov_;
+                       StateSharedPtrHash<State>, StateSharedPtrEq<State>> stov_;
 
     /// Mapping to vertices of the layout graph.
     std::map<VertexDescriptor, LayoutVertexDescriptor> graphToLayout_;
