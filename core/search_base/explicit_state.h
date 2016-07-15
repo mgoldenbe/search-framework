@@ -11,6 +11,10 @@ namespace Domains {
 struct Base {
     /// Sets the space for this state class by reading it from the given file.
     static void initSpace(const std::string &) {}
+
+    /// Returns the textual label for the vertex representing the state.
+    /// \return The textual label for the vertex representing the state.
+    std::string visualLabel() const {return "";}
 };
 
 /// The base class for a state in an explicit domain. It can be viewed as a

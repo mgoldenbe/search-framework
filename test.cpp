@@ -52,7 +52,7 @@ void run() {
         alg.run();
         stats.append(alg.measures(), CMD.perInstance());
         auto g = buildGraph();
-        g.dump();
+        //g.dump();
         Visualizer<SLB_NODE> vis(g, alg.log());
         vis.run();
     } else {

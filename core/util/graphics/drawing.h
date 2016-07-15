@@ -11,6 +11,16 @@ struct RGB {
     static double blue(Color color) {
         return (double)(RGBValues[static_cast<int>(color)] % 256)/255;
     }
+    // Complements
+    static double cred(Color color) {
+        return (color == Color::NOVAL) ? 0 : 1.0 - red(color);
+    }
+    static double cgreen(Color color) {
+        return (color == Color::NOVAL) ? 0 : 1.0 - green(color);
+    }
+    static double cblue(Color color) {
+        return (color == Color::NOVAL) ? 0 : 1.0 - blue(color);
+    }
 };
 
 void moveTo(cairo_t *cr, const gu::Point &p) {

@@ -135,6 +135,7 @@ template <class Node> struct Drawer {
     void drawVertex(VertexDescriptor vd, const VertexStyle &style) {
         fillVertex(vd, style);
         emphasizeVertex(vd, style);
+        labelVertex(vd, style);
     }
 
     /// Draws the given vertex with the representation style corresponding to
@@ -260,6 +261,37 @@ private:
             assert(0);
         }
         cairo_fill(cr);
+        cairo_stroke(cr);
+    }
+
+    /// Labels the vertex
+    /// \param vd The vertex identifier.
+    /// \param style The visual presentation style for the vertex.
+    void labelVertex(VertexDescriptor vd, const VertexStyle &style) {
+        auto state = g_.state(vd);
+        auto temp = state->visualLabel();
+        if (!temp.size()) return;
+        const char *label = temp.c_str();
+        auto cr = graphics_.cr;
+        Color fc = style.fillColor;
+        cairo_set_source_rgb(cr, RGB::cred(fc), RGB::cgreen(fc), RGB::cblue(fc));
+        double vx = pointMap_[vd][0];
+        double vy = pointMap_[vd][1];
+        double size = style.sizeFactor * VertexStyle::sizeBase;
+
+        cairo_text_extents_t extents;
+        double x, y;
+
+        cairo_select_font_face(cr, "Sans", CAIRO_FONT_SLANT_NORMAL,
+                               CAIRO_FONT_WEIGHT_NORMAL);
+
+        cairo_set_font_size(cr, size);
+        cairo_text_extents(cr, label, &extents);
+        x = vx - (extents.width / 2 + extents.x_bearing);
+        y = vy - (extents.height / 2 + extents.y_bearing);
+
+        cairo_move_to(cr, x, y);
+        cairo_show_text(cr, label);
         cairo_stroke(cr);
     }
 
