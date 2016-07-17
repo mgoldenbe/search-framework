@@ -6,11 +6,32 @@
 /// \author Meir Goldenberg
 
 /// Short-hand notation for global access to the command line object.
-#define CMD CommandLine::instance()
+#define CMD CommandLine::CommandLine<>::instance()
+
+namespace CommandLine {
+
+/// Empty additions to the command line.
+struct Nothing {
+protected:
+    /// The constructor, does nothing.
+    Nothing(TCLAP::CmdLine &) {}
+};
+
+/// Holds the command line object. This is needed to initialize the command line
+/// object before it is passed to the additions.
+struct Base {
+    Base() : cmd_("HSRF: Heuristic Search Research Framework", ' ', "0.1") {}
+
+protected:
+    /// The underlying TCLAP object.
+    TCLAP::CmdLine cmd_;
+};
 
 /// Class handling the command line. It is singleton. The command line would
 /// usually be accessed from the other code using the \ref CMD macro.
-struct CommandLine {
+/// \tparam Additions Command line additions.
+template <class Additions = SLB_CMD_LINE_ADD>
+struct CommandLine: Base, Additions {
     /// Access to the command line object. When this method is called for the
     /// first time, it should be called with proper (i.e. not default) \c argc
     /// and \c argv.
@@ -88,9 +109,6 @@ struct CommandLine {
     std::string prefixData() { return prefixData_.getValue(); }
 
 private:
-    /// The underlying TCLAP object.
-    TCLAP::CmdLine cmd_;
-
     /// Command line option for the name of file from which problem instances
     /// are to be read.
     TCLAP::ValueArg<std::string> instancesFileName_;
@@ -134,7 +152,7 @@ private:
     /// \param argc Number of command line arguments.
     /// \param argv The command line arguments.
     CommandLine(int argc, char **argv)
-        : cmd_("The Generic Search Library", ' ', "0.1"),
+        : Additions(cmd_),
           instancesFileName_("i", "instances", "File with instances", true, "",
                              "string", cmd_),
           spaceInitFileName_("s", "space",
@@ -168,4 +186,5 @@ private:
     }
 };
 
+}
 #endif

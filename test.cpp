@@ -18,6 +18,7 @@
 
 #include "core/headers.h"
 #include "extensions/headers.h"
+#include "core/command_line.h"
 
 template <class MyAlgorithm>
 using buildGraphOL =
@@ -85,7 +86,9 @@ void makeInstances() {
 /// \return The exit code.
 int main(int argc, char **argv) {
     try {
-        CommandLine::instance(argc, argv); // to initialize command line
+        CommandLine::CommandLine<>::instance(
+            argc, argv); // to initialize command line
+
         if (CMD.nInstances() != -1)
             makeInstances();
         else

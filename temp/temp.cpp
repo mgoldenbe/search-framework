@@ -6,13 +6,19 @@
 #include <algorithm>
 
 struct A {
-    int x = 5;
+    A(int x) : x_(x) {}
+private:
+    int x_;
+};
+
+template <class Mixin>
+struct B: Mixin {
+    B() : x_(5), Mixin(5) {}
+private:
+    int x_;
 };
 
 int main() {
-    A a;
-    std::vector<std::pair<A, int>> v;
-    v.push_back(std::make_pair(a, 1));
-    std::cout << v[0].first.x << std::endl;
+    B<A> b; (void)b;
     return 0;
 }
