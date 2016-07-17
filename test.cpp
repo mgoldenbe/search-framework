@@ -19,6 +19,8 @@
 #include "core/headers.h"
 #include "extensions/headers.h"
 #include "core/command_line.h"
+#include "core/headers_impl.h"
+#include "extensions/headers_impl.h"
 
 template <class MyAlgorithm>
 using buildGraphOL =

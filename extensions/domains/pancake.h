@@ -8,8 +8,6 @@
 namespace Domains {
 
 /// The pancake puzzle domain.
-/// \tparam NPancakes Number of pancakes
-template <int NPancakes>
 struct Pancake: Base {
     /// The type representing the cost of actions in the domain. Every domain
     /// must provide this name.
@@ -20,10 +18,7 @@ struct Pancake: Base {
     using Neighbor = StateNeighbor<Pancake>;
 
     /// Initializes the state with ordered pancakes.
-    Pancake() : pancakes_(NPancakes) {
-        for (auto i = 0; i != NPancakes; ++i)
-            pancakes_[i] = i;
-    }
+    Pancake();
 
     /// Initializes the state from a string, e.g. "[1, 4, 2, 3, 0]".
     /// \param s The string.
@@ -129,6 +124,8 @@ private:
     std::vector<int> pancakes_; ///< The underlying state representation.
 };
 
+}
+
 namespace CommandLine {
 
 /// Additions to the command line related to the Pancake puzzle domain.
@@ -150,18 +147,20 @@ protected:
 };
 
 }
+
 //------------------------- HEURISTICS ------------------//
+
+namespace Domains {
 
 /// Functor for computing the gap heuristic to the goal state with ordered
 /// pancakes.
 struct GapHeuristic {
     /// The call operator. Computes the gap heuristic from the given state to
     /// the goal state with ordered pancakes.
-    /// \tparam NPancakes Number of pancakes
     /// \param s The state from which the heuristic value is needed.
     /// \return The gap heuristic from \c s to the goal state with ordered
     /// pancakes.
-    template <int NPancakes> int operator()(const Pancake<NPancakes> &s) const {
+    int operator()(const Pancake &s) const {
         return s.gapHeuristic();
     }
 };
@@ -170,13 +169,10 @@ struct GapHeuristic {
 struct GapHeuristicToGoal {
     /// The call operator. Computes the gap heuristic from the given state to
     /// the given goal state.
-    /// \tparam NPancakes Number of pancakes
     /// \param s The state from which the heuristic value is needed.
     /// \param goal The goal state.
     /// \return The gap heuristic from \c s to \c goal.
-    template <int NPancakes>
-    int operator()(const Pancake<NPancakes> &s,
-                   const Pancake<NPancakes> &goal) const {
+    int operator()(const Pancake &s, const Pancake &goal) const {
         return s.gapHeuristic(goal);
     }
 };
