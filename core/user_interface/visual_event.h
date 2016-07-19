@@ -9,7 +9,7 @@
 
 /// The event for visualization.
 /// \tparam State The state type, represents the domain.
-template <class State = SLB_STATE>
+template <class State>
 struct VisualEvent {
     /// \name Types related to the graph of the domain.
     /// \see \ref StateGraph.

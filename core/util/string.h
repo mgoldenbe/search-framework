@@ -26,4 +26,66 @@ std::vector<std::string> split(const std::string &s,
     return res;
 }
 
+/// Converts double to string, while getting rid of exponent notation and
+/// trailing zeros.
+/// \param f The number to be converted.
+/// \return The string representation of `c`
+/// \note The original code is taken from
+/// http://stackoverflow.com/a/14966508/2725810. I modified the code to not
+/// print numbers like 3.9999999999999999 or 3.00000000004. For such numbers,
+/// only \c n90 9's none of the 0's are kept, so we get 3.99 and 3,
+/// respectively.
+std::string double2str(double f) {
+    const int n90 = 2;
+    std::stringstream ss;
+
+    ss << std::fixed << std::setprecision(40) << f;
+
+    std::string s = ss.str();
+    std::string::size_type len = s.length();
+
+    // Removing zeros
+    int zeros = 0;
+    while (len > 1 && s[--len] == '0') zeros++;
+    if (s[len] == '.') // remove final '.' if number ends with '.'
+        zeros++;
+    s.resize(s.length() - zeros);
+
+    // Removing 9's and 0's etc.
+    auto point = s.find('.');
+    std::string s9(n90, '9'), s0(n90, '0');
+    auto pos9 = s.find(s9, point + 1);
+    auto pos0 = s.find(s0, point + 1);
+    if (pos0 != std::string::npos && pos0 == point + 1)
+        --pos0; // remove final '.'
+    if (pos0 != std::string::npos || pos9 != std::string::npos)
+        s.resize(std::min(pos0 - n90, pos9) + n90);
+
+    return s;
+}
+
+/// Looks for the first substring that begins with a non-space character
+/// and ends either at the end of string or with the given number of spaces.
+/// The original string is modified to contain the non-parsed part of the
+/// string.
+/// \param s The string.
+/// \param throwOnEmpty If \c true and not non-space character is found, an
+/// exception is thrown.
+/// \param nSpaces Number of spaces between tokens.
+/// \return The found token.
+/// \note \c s is modified to contain the non-parsed part of the
+/// string.
+std::string stuff(std::string &s, bool throwOnEmpty = false, int nSpaces = 2) {
+    std::string res;
+    auto begin = s.find_first_not_of(" ");
+    std::string space = std::string((unsigned)nSpaces, ' ');
+    auto end = std::min(s.size(), s.find(space, begin));
+    res = std::string{s.begin() + begin, s.begin() + end};
+    s = std::string(s.begin() + end, s.end());
+    if (throwOnEmpty && res == "")
+        throw std::runtime_error("Instance file ill-formed");
+    return res;
+}
+
+
 #endif

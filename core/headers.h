@@ -6,7 +6,8 @@
 /// \author Meir Goldenberg
 
 #include "util/headers.h"
-#include "../extensions/domains/headers.h" // domains need to be available
+#include "declare_default.h"
+#include "core/command_line.h"
 #include "search_base/headers.h"
 #include "user_interface/visualizer.h"
 

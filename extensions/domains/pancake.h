@@ -18,7 +18,11 @@ struct Pancake: Base {
     using Neighbor = StateNeighbor<Pancake>;
 
     /// Initializes the state with ordered pancakes.
-    Pancake();
+    template <CMD_TPARAM>
+    Pancake() : pancakes_(CMD.nPancakes()) {
+        int i = -1;
+        for (auto &el: pancakes_) el = ++i;
+    }
 
     /// Initializes the state from a string, e.g. "[1, 4, 2, 3, 0]".
     /// \param s The string.

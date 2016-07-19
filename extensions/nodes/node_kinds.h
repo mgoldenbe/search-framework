@@ -6,17 +6,17 @@
 #ifndef NODE_KINDS_H
 #define NODE_KINDS_H
 
-#include "../../core/search_base/managed_node.h"
+namespace Node {
 
 /// Regular node storing \c g and \c f.
 /// \tparam State_ The state type, represents the domain.
-template <typename State>
-struct NodeBase: ManagedNode<> {
+template <class State>
+struct Base: ManagedNode<> {
     /// The type representing the cost of actions in the domain.
     using CostType = typename State::CostType;
 
     ///  The default constructor. Initializes the node data with zeros.
-    NodeBase() : g(0), f(0) {}
+    Base() : g(0), f(0) {}
     REFLECTABLE((CostType) g, (CostType) f)      // These are public for ease of
                                                // access. I don't see any reason
                                                // for making them private and
@@ -47,18 +47,19 @@ struct NodeBase: ManagedNode<> {
 
 /// Node storing nothing.
 /// \tparam State The state type, represents the domain.
-template <typename State>
-struct NoNodeData: ManagedNode<NodeBase<State>> {};
+template <class State>
+struct NoData: ManagedNode<Base<State>> {};
 
 /// Node for multi-goal search. Stores the goal responsible for heuristic value
 /// in addition to storing \c g and \c f.
 /// \tparam State_ The state type, represents the domain.
-template <typename State = SLB_STATE>
-struct NodeWithResponsibleGoal : ManagedNode<NodeBase<State>> {
+template <class State>
+struct ResponsibleGoal : ManagedNode<Base<State>> {
     /// The default constructor.
-    NodeWithResponsibleGoal() : responsibleGoal(-1) {}
+    ResponsibleGoal() : responsibleGoal(-1) {}
     /// The goal that was responsible for the heuristic value
     REFLECTABLE((int) responsibleGoal)
 };
 
+}
 #endif

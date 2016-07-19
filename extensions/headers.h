@@ -6,12 +6,12 @@
 /// support them.
 /// \author Meir Goldenberg
 
-// No need to include from domains/ and nodes/,
-// since these are included in core/headers.h and core/search_base/node.h,
-// respectively.
+#include "domains/headers.h"
+#include "nodes/headers.h"
 #include "events/headers.h"
 #include "shared_policies/headers.h"
 #include "heuristics/headers.h"
 #include "algorithms/headers.h"
+#include "instance_measures/instance_measures.h"
 
 #endif

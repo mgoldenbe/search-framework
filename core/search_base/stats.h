@@ -41,7 +41,7 @@ struct Measure {
     /// \param os The stream.
     /// \return The modified stream.
     template <class Stream> Stream &dump(Stream &os) const {
-        return os << x_;
+        return os << double2str(x_);
     }
 
     /// Sets the value of the measure to the given value.
@@ -181,7 +181,7 @@ struct MeasureSet {
     template <class Stream>
     Stream &dumpValues(Stream &os, const std::string &prefixData = "") const {
         if (prefixData.size()) os << prefixData;
-        for (auto &m : s_) os << m.value();
+        for (auto &m : s_) m.dump(os);
         return os;
     }
 

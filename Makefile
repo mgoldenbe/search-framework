@@ -63,6 +63,9 @@ production: preprocessor
 symbols: symbols.cpp Makefile
 	$(COMMON_PREFIX) -O2 symbols.cpp -o symbols
 
+align: align.cpp Makefile
+	$(COMMON_PREFIX) -O2 align.cpp -o align
+
 docs:
 	rm -rf documentation
 	doxygen doxygen.conf

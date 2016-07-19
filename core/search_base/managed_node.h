@@ -5,6 +5,8 @@
 #ifndef MANAGED_NODE_H
 #define MANAGED_NODE_H
 
+namespace Node {
+
 /// Generic declaration to be specified. Currently supporting nodes that inherit
 /// data from up to four base classes.
 /// \tparam Base1_ First base
@@ -73,4 +75,6 @@ struct ManagedNode<Base1_, Base2_, Base3_, Base4_>
     REFLECTABLE()
 };
 
+}
+ 
 #endif

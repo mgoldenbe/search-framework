@@ -16,11 +16,10 @@
 // //#include "projects/KGoal/ConfigUniformSearch.h"
 #endif
 
+#include "extensions/headers_fwd.h"
+
 #include "core/headers.h"
 #include "extensions/headers.h"
-#include "core/command_line.h"
-#include "core/headers_impl.h"
-#include "extensions/headers_impl.h"
 
 template <class MyAlgorithm>
 using buildGraphOL =
@@ -28,11 +27,12 @@ using buildGraphOL =
 
 /// Builds the state graph of the domain.
 /// \return The state graph of the domain.
-StateGraph<SLB_STATE> buildGraph() {
-    using MyInstance = Instance<SLB_STATE>;
+StateGraph<Domains::SLB_STATE> buildGraph() {
+    using State = Domains::SLB_STATE;
+    using MyInstance = Instance<State>;
 
-    auto instance = MyInstance(std::vector<SLB_STATE>(1),
-                               std::vector<SLB_STATE>(1), MeasureSet{});
+    auto instance = MyInstance(std::vector<State>(1),
+                               std::vector<State>(1), MeasureSet{});
     Astar<false, SLB_NODE, NoGoalHandler, ZeroHeuristic, buildGraphOL> myAstar(
         instance);
     myAstar.run();
@@ -40,11 +40,12 @@ StateGraph<SLB_STATE> buildGraph() {
 }
 
 /// Runs a search algorithm for a set of problem instances.
+template <CMD_TPARAM>
 void run() {
     if (CMD.spaceInitFileName_isSet())
-        SLB_STATE::initSpace(CMD.spaceInitFileName());
+        Domains::SLB_STATE::initSpace(CMD.spaceInitFileName());
 
-    auto res = readInstancesFile<SLB_STATE>(CMD.instancesFileName());
+    auto res = readInstancesFile<Domains::SLB_STATE>(CMD.instancesFileName());
     Stats stats;
     if (CMD.visualizeInstance() >= 0) {
         if (CMD.visualizeInstance() >= static_cast<int>(res.size()))
@@ -76,10 +77,11 @@ void run() {
 }
 
 /// Creates a new set of problem instances and saves it in a file.
+template <CMD_TPARAM>
 void makeInstances() {
     if (CMD.spaceInitFileName_isSet())
-        SLB_STATE::initSpace(CMD.spaceInitFileName());
-    makeInstancesFile<SLB_STATE>(CMD.instancesFileName());
+        Domains::SLB_STATE::initSpace(CMD.spaceInitFileName());
+    makeInstancesFile<Domains::SLB_STATE>(CMD.instancesFileName());
 }
 
 /// Reads the command line and dispatches to run one of the scenarios.
@@ -91,7 +93,7 @@ int main(int argc, char **argv) {
         CommandLine::CommandLine<>::instance(
             argc, argv); // to initialize command line
 
-        if (CMD.nInstances() != -1)
+        if (CMD_RAW.nInstances() != -1)
             makeInstances();
         else
             run();

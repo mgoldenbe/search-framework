@@ -5,7 +5,6 @@
 /// \brief Implementation of instance measures.
 /// \author Meir Goldenberg
 
-#include "core/search_base/stats.h"
 #include "instance_measures.h"
 
 #endif

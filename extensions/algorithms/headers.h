@@ -7,6 +7,5 @@
 
 #include "astar.h"
 #include "per_goal.h"
-#include "extensions/instance_measures/headers_impl.h"
 
 #endif

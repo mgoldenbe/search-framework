@@ -3,9 +3,6 @@
 
 #include "min.h"
 
-#undef SLB_NODE_DATA
-#define SLB_NODE_DATA NodeWithResponsibleGoal<SLB_STATE>
-
 #undef SLB_GOAL_HANDLER
 #define SLB_GOAL_HANDLER MaxHeuristicGoalHandler
 

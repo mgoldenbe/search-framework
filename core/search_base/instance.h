@@ -5,30 +5,7 @@
 /// \brief Facilities for working with problem instances.
 /// \author Meir Goldenberg
 
-#include "extensions/instance_measures/headers.h"
-
-/// Looks for the first substring that begins with a non-space character
-/// and ends either at the end of string or with the given number of spaces.
-/// The original string is modified to contain the non-parsed part of the
-/// string.
-/// \param s The string.
-/// \param throwOnEmpty If \c true and not non-space character is found, an
-/// exception is thrown.
-/// \param nSpaces Number of spaces between tokens.
-/// \return The found token.
-/// \note \c s is modified to contain the non-parsed part of the
-/// string.
-std::string stuff(std::string &s, bool throwOnEmpty = false, int nSpaces = 2) {
-    std::string res;
-    auto begin = s.find_first_not_of(" ");
-    std::string space = std::string((unsigned)nSpaces, ' ');
-    auto end = std::min(s.size(), s.find(space, begin));
-    res = std::string{s.begin() + begin, s.begin() + end};
-    s = std::string(s.begin() + end, s.end());
-    if (throwOnEmpty && res == "")
-        throw std::runtime_error("Instance file ill-formed");
-    return res;
-}
+#include "stats.h"
 
 /// Parses the given title line of the instances file to determine how many
 /// start and goal states each instance would contain. Returns a measure set
@@ -60,6 +37,10 @@ MeasureSet parseInstancesTitle(std::string &s, int &nStarts, int &nGoals) {
     return res;
 }
 
+namespace InstanceMeasures {
+class SLB_INSTANCE_MEASURES;
+}
+
 /// The type for an instance with an arbitrary (but fixed) number of start and
 /// goal states.
 /// \tparam State The state type, represents the domain.
@@ -73,7 +54,8 @@ struct Instance {
     /// \tparam InstanceMeasures The functor for computing the instance measures.
     /// \param start Vector of start states.
     /// \param goal Vector of goal states.
-    template <typename InstanceMeasures = SLB_INSTANCE_MEASURES>
+    template <
+        typename InstanceMeasures = InstanceMeasures::SLB_INSTANCE_MEASURES>
     Instance(const std::vector<State> &start, const std::vector<State> &goal)
         : start_(start), goal_(goal), measures_(InstanceMeasures{}(*this)) {}
 
@@ -164,8 +146,27 @@ State uniqueRandomState(const std::vector<State> &v) {
 /// \warning If the number of different states in the domain is smaller than the
 /// number of start or goal states in an instance), an infinite loop will
 /// result.
-template <class State>
-std::vector<Instance<State>> makeInstances(int n);
+template <class State, CMD_TPARAM>
+std::vector<Instance<State>> makeInstances(int n) {
+    using MyInstance = Instance<State>;
+    std::vector<MyInstance> res;
+    int nStarts = CMD.nStarts('w');
+    int nGoals = CMD.nGoals('w');
+    for (int i = 0; i < n; i++) {
+        std::vector<State> start;
+        std::vector<State> goal;
+        for (int i = 0; i != nStarts; i++)
+            start.push_back(uniqueRandomState(start));
+        for (int i = 0; i != nGoals; i++)
+            goal.push_back(uniqueRandomState(goal));
+        res.push_back(MyInstance(start, goal));
+    }
+    std::sort(res.begin(), res.end(),
+              [](const MyInstance &i1, const MyInstance &i2) {
+                  return i1.measures()[0].value() < i2.measures()[0].value();
+              });
+    return res;
+}
 
 /// Makes a file with the number of random instances determined by the command
 /// line. The numbers of start and goal states are determined by the command
@@ -176,8 +177,28 @@ std::vector<Instance<State>> makeInstances(int n);
 /// \warning If the number of different states in the domain is smaller than the
 /// number of start or goal states in an instance), an infinite loop will
 /// result.
-template <class State = SLB_STATE>
-std::vector<Instance<State>> makeInstancesFile(const std::string &fname);
+template <class State, CMD_TPARAM>
+std::vector<Instance<State>> makeInstancesFile(const std::string &fname) {
+    using MyInstance = Instance<State>;
+    Table t;
+    std::ofstream fs{fname};
+    if (!fs) throw std::invalid_argument("Could not create the instances file");
+    if (CMD.nInstances() < 1)
+        throw std::invalid_argument("Can't be fewer than one instance");
+    std::vector<MyInstance> res = makeInstances<State>(CMD.nInstances());
+
+    t << "#";
+    res[0].dumpTitle(t);
+
+    int i = 0;
+    for (auto instance: res) {
+        t << i++;
+        instance.dump(t);
+        t << std::endl;
+    }
+    fs << t;
+    return res;
+}
 
 /// Reads the instances file.
 /// \tparam State The state type, represents the domain.
@@ -185,7 +206,46 @@ std::vector<Instance<State>> makeInstancesFile(const std::string &fname);
 /// \return Vector of the read instances.
 /// \note The numbers of start and goal states in the instances are extracted
 /// from the file. The number of instances is determined automatically as well.
-template <class State>
-std::vector<Instance<State>> readInstancesFile(const std::string &fname);
+template <class State, CMD_TPARAM>
+std::vector<Instance<State>> readInstancesFile(const std::string &fname) {
+    using MyInstance = Instance<State>;
+    std::ifstream fs{fname};
+    if (!fs) throw std::invalid_argument("Could not open the instances file");
+    std::vector<MyInstance> res;
+
+    std::string line;
+
+    // Title line
+    int totalNStarts, totalNGoals;
+    std::getline(fs, line);
+    MeasureSet measures = parseInstancesTitle(line, totalNStarts, totalNGoals);
+
+    int nStarts = std::min(totalNStarts, CMD.nStarts('r'));
+    int nGoals = std::min(totalNGoals, CMD.nGoals('r'));
+
+    // Instances
+    while (std::getline(fs, line)) {
+        std::vector<State> start, goal;
+        std::string startLine, goalLine;
+
+        stuff(line, true); // skip instance number
+        for (int i = 0; i != nStarts; ++i)
+            start.push_back(State(stuff(line, true)));
+        for (int i = nStarts; i != totalNStarts; ++i)
+            stuff(line, true); // skip not used starts
+        for (int i = 0; i != nGoals; ++i)
+            goal.push_back(State(stuff(line, true)));
+        for (int i = nGoals; i != totalNGoals; ++i)
+            stuff(line, true); // skip not used goals
+        for (auto &m: measures) {
+            double x = -1;
+            istringstream{stuff(line, true)} >> x;
+            assert(x != -1);
+            m.set(x);
+        }
+        res.push_back(MyInstance(start, goal, measures));
+    }
+    return res;
+}
 
 #endif

@@ -5,16 +5,13 @@
 /// \brief The \ref GridMapState class.
 /// \author Meir Goldenberg
 
-#include "../../core/search_base/explicit_state.h"
-
 namespace Domains {
 
 /// Explicit state specific to the Grid Map domain.
 /// \tparam CostType The type representing the cost of actions in the domain.
 /// \tparam uniformFlag Determines whether the domain is a uniform cost one or
 /// not.
-template <typename CostType = SLB_COST_TYPE,
-          bool uniformFlag = SLB_UNIFORM_DOMAIN>
+template <typename CostType, bool uniformFlag>
 struct GridMapState : ExplicitState<GridMap<CostType>> {
     using Base = ExplicitState<GridMap<CostType>>; ///< The base class.
     using Base::Base;                             ///< Inherit constructors

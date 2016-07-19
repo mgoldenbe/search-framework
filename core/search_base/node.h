@@ -5,7 +5,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "../../extensions/nodes/headers.h" // so SLB_NODE_DATA is defined
+#include "managed_node.h"
 
 /// Alias for unique pointer to constant state.
 /// \tparam State The state type, represents the domain.
@@ -23,7 +23,8 @@ using StateSharedPtrT = std::shared_ptr<const State>;
 /// \tparam StateSmartPtrT The type for smart pointer to const state.
 /// \tparam BucketPosition Type used for storing the node's position in the open
 /// list (when applicable).
-template <typename State_ = SLB_STATE, class NodeData_ = SLB_NODE_DATA,
+template <class State_ = Domains::SLB_STATE,
+          class NodeData_ = Node::SLB_NODE_DATA,
           template <class> class StateSmartPtrT = SLB_STATE_SMART_PTR,
           typename BucketPosition = SLB_BUCKET_POSITION_TYPE>
 struct SearchNode : public NodeData_ {

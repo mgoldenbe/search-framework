@@ -136,3 +136,8 @@ This is a list of features I chose to not include in this version, but the need 
   + Using an underlying container other than `map`.
 - Keeping a mapping from tiles to edges, vertices and any other drawing elements and also the inverse map, so that updates can be done cleanly, thus enabling richer graphical elements.
 - Enabling `no graphics mode`.
+
+# Notes to add
+- Conditional compilation should be employed for both compilation efficiency and so the specific command-line options don't need to be defined if the related user-defined facilities aren't used.
+- Forward declarations are used to enable user-defined facilities to be used as default template arguments in the core part of the framework.
+- Additional command line options can be associated with user-defined facilities. Such options should have a forward declaration. Also, functions that read command line options should be templated using the CMD_TPARAM macro. They can then access the command line object using the CMD macro. 
