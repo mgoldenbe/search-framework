@@ -77,9 +77,14 @@ std::string double2str(double f) {
 /// string.
 std::string stuff(std::string &s, bool throwOnEmpty = false, int nSpaces = 2) {
     std::string res;
+
     auto begin = s.find_first_not_of(" ");
+    if (begin == std::string::npos) return res;
+
     std::string space = std::string((unsigned)nSpaces, ' ');
     auto end = std::min(s.size(), s.find(space, begin));
+    if (end == std::string::npos) end = s.size();
+
     res = std::string{s.begin() + begin, s.begin() + end};
     s = std::string(s.begin() + end, s.end());
     if (throwOnEmpty && res == "")

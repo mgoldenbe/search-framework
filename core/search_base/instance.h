@@ -19,8 +19,8 @@ MeasureSet parseInstancesTitle(std::string &s, int &nStarts, int &nGoals) {
     nStarts = nGoals = 0;
     std::string token = stuff(s);
     if (token != "#") throw std::runtime_error("Instance file ill-formed");
-    while (s != "") {
-        std::string token = stuff(s), origToken = token;
+    while ((token = stuff(s)) != "") {
+        std::string origToken = token;
         transform(token.begin(), token.end(), token.begin(), tolower);
         if (token.find("start") == 0) {
             if (!startsFlag)

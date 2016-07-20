@@ -7,6 +7,16 @@
 
 namespace InstanceMeasures {
 
+/// No measures.
+struct Nothing {
+    /// Call operator to compute the measures.
+    /// \tparam Instance The instance type.
+    /// \return The measures of \c instance.
+    template <class Instance> MeasureSet operator()(const Instance &) {
+        return MeasureSet{};
+    }
+};
+
 /// One instance measure -- the cost.
 struct Base {
     /// Call operator to compute the measures.

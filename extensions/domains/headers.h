@@ -14,4 +14,8 @@
 #include "pancake.h"
 #endif
 
+#ifdef SLB_DOMAINS_INC_WORST
+#include "inc_worst.h"
+#endif
+
 #endif

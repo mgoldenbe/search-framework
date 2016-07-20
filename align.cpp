@@ -14,8 +14,8 @@ int main(int argc, char **argv) {
     Table t;
     while (std::getline(fin, line)) {
         std::string s;
-        while (line != "")
-            t << stuff(line);
+        while ((s = stuff(line)) != "")
+            t << s;
         t << std::endl;
     }
     std::ofstream fout(argv[1]);

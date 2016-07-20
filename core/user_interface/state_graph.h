@@ -61,6 +61,11 @@ struct StateGraph {
     using LayoutPointMap =
         std::map<LayoutVertexDescriptor, Point>;
 
+    /// Default constructor
+    StateGraph() {
+        memset((char*)&null_edge, 0xFF, sizeof(EdgeDescriptor));
+    }
+
     /// Returns the iterator range that can be used to range-loop on the
     /// vertices.
     /// \return The iterator range.
@@ -81,7 +86,7 @@ struct StateGraph {
     /// \return The edge descriptor.
     EdgeDescriptor edge(VertexDescriptor from, VertexDescriptor to) const {
         auto res = boost::edge(from, to, g_);
-        if (!res.second) assert(0);
+        if (!res.second) return null_edge;
         return res.first;
     }
 
@@ -188,6 +193,10 @@ struct StateGraph {
     /// \return The graph layout.
     PointMap layout(bool kamadaKawaiFlag = true,
                     bool fruchtermanReingoldFlag = true);
+
+    /// The value to be used as a "no edge" descriptor.
+    /// See http://stackoverflow.com/a/11584557/2725810
+    EdgeDescriptor null_edge;
 private:
     /// The boost graph representation.
     Graph g_;

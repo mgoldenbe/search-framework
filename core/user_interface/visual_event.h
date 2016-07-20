@@ -74,7 +74,7 @@ struct VisualEvent {
             // can't have arrow in both directions
             ec.now.arrow = ec.before.arrow = false;
             ec.ed = g.inverse(ec.ed);
-            edgeChanges_.push_back(ec);
+            if (ec.ed == g.null_edge) edgeChanges_.push_back(ec);
         }
 
         // // dumping all changes (for debugging purposes only)

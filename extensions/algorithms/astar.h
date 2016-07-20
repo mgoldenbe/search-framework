@@ -155,7 +155,7 @@ private:
         if (childNode) {
             if (myG < childNode->g) {
                 // only consistent case for now
-                assert(childNode->bucketPosition() >= 0);
+                // assert(childNode->bucketPosition() >= 0);
 
                 log<Events::NotParent>(log_, childNode);
                 auto oldPriority = oc_.priority(childNode);

@@ -33,24 +33,39 @@
   + DONE Remove the NoGraph class.
   + DONE Make sure that templates that really depend only on State do not have Node as template parameter.
   + DONE Delete automaticLayoutFlag template parameter throughout. Deduce the layout based on whether the State has a member function for computing the layout.
-  + Add a virtual constructor to all base classes that define a virtual method.
+  + Add a virtual constructor to all base classes that define a virtual method or explain why we don’t do it when we don’t.
   + AlgorithmLog should create copies of states, since algorithms such as IDA* modify state.
   + *Decision* with regards to free-standing functions instead of member functions (see comments in http://programmers.stackexchange.com/q/310330/216771): put it into the backlog.
-- Document the classes
+- DONE Document the classes
 - DONE (Makefile+ccache approach instead) Execution script
   + Have all pre-processor symbols begin with SLB_
   + Search for all symbols like this: make preprocessor CONFIG="projects/KGoal/ConfigMinHeuristic.h" | egrep -o "SLB_[A-Z|_]*" | sort | uniq
   + Forming MD5SUM:
     * It is impossible to run only the #includes to compute MD5SUM of only the configuration file (after including whatever configuration files it includes): gcc -E runs the whole pre-processing stage. So, can either compute MD5SUM of the entire thing or do some scripting, e.g.: https://raw.githubusercontent.com/vicaya/hypertable/e893460eaf628e2bf329ee6d30371751c5f82f5d/bin/gpp.pl
     * Do I have a reason not to computer the sum based on the whole pre-processed code?
-- Make sure that all configuration options work (pancake, etc.)
-- Produce the documentation:
+- DONE Make sure that all configuration options work (pancake, etc.)
+- DONE Produce the documentation:
   + The main page
   + Running instructions
   + Installation instructions
   + The pdf documentation
-- Try clean installation (install on a fresh Ubuntu install in VirtualBox)
+- DONE Try clean installation (install on a fresh Ubuntu install in VirtualBox)
 - Produce videos of usage
+- Submit
+* Remains after K-Goal work:
+- Append the main page with the recent design decisions.
+  + Policy services and the use of CRTP.
+  + User-defined command line options.
+  + Dealing with dependencies: forward declarations of user-defined facilities that can be used as default template arguments in the core facilities (and defining symbols?).
+- Document utils/
+- Produce the worst inconsistency example domain.
+- Add to user interface:
+  + Jumping to step, to end.
+  + Toggle labels.
+  + Write last event for mouse-over event. 
+- Write the script for videos.
+- Produce the videos.
+- Check the submission instructions.
 - Submit
 * After submission
 - Understand again why we need this complicated GroupLock in graphics_object and how exactly it works.

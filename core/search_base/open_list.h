@@ -157,15 +157,18 @@ struct OpenList_T {
     bool empty() const {return size() == 0;}
 
     /// Updates the priority of the given node.
+    /// If the node is not in the open list, it is added whether or not it's key
+    /// has changed.
     /// \param n Pointer to the node whose priority has changed.
     /// \param oldPriority The priority that \c n used to have.
     void update(Node *n, const KeyType &oldPriority) {
         KeyType newPriority(n);
-        if (newPriority == oldPriority) {
+        auto b = n->bucketPosition();
+        if (newPriority == oldPriority && b != -1) {
             //std::cout << "Nothing needs to be done in update" << std::endl;
             return;
         }
-        erase(oldPriority, n->bucketPosition());
+        if (b != -1) erase(oldPriority, n->bucketPosition());
         add(n);
     }
 

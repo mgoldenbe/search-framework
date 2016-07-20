@@ -37,8 +37,8 @@ std::string double2str(double f) {
 }
 
 int main() {
-  double x = 234234234.500023;
-  std::cout << double2str(x) << std::endl;
-  return 0;
-
+    std::string s1 = "aaa";
+    std::string s2 = std::string(s1.begin() + 1, s1.begin() + 1);
+    std::cout << s2.size() << std::endl;
+    return 0;
 }
