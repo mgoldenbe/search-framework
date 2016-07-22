@@ -81,12 +81,22 @@ struct IncWorst: Base {
     /// \return The modified stream.
     template <class Stream>
     Stream &dump(Stream &o) const {
-        return o << (row_ == top ? "top" : "bottom") << " " << n_;
+        return o << visualLabel();
     }
 
     /// Returns the textual label for the vertex representing the state.
     /// \return The textual label for the vertex representing the state.
-    std::string visualLabel() const {return str(n_);}
+    std::string visualLabel() const {
+        int add = (n_ == k_? k_ : (k_ - 1) - n_);
+        return str(static_cast<char>('A' + (1 - row_) * (k_ + 1) + add));
+    }
+
+    /// Returns the textual label for the edge to the given state.
+    /// \param to The target state.
+    /// \return The textual label for the edge to \c to.
+    std::string visualLabel(const IncWorst &to) const {
+        return str(cost(*this, to));
+    }
 
     /// Fills out the coordinates for the vertex representing the state.
     /// \param x The x-coordinate to be filled out.
@@ -144,6 +154,17 @@ private:
     /// \return \c true if the state is legal and \c false otherwise.
     bool legal(const IncWorst &s) {
         return legal(s.k_, s.row_, s.n_);
+    }
+
+    /// Returns the cost of the given move.
+    /// \param from Source state.
+    /// \param to Target state.
+    /// \return The cost from \c from to \c to.
+    int cost(const IncWorst &from, const IncWorst &to) const {
+        for (auto &n: from.successors())
+            if (*(n.state()) == to)
+                return n.cost();
+        assert(0);
     }
 };
 

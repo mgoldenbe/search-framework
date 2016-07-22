@@ -133,6 +133,7 @@ template <class Node> struct Drawer {
     /// \param vd The vertex identifier.
     /// \param style The visual representation style.
     void drawVertex(VertexDescriptor vd, const VertexStyle &style) {
+        assert(pointMap_.find(vd) != pointMap_.end());
         fillVertex(vd, style);
         emphasizeVertex(vd, style);
         labelVertex(vd, style);
@@ -149,19 +150,29 @@ template <class Node> struct Drawer {
     /// \param style The visual representation style.
     void drawEdge(VertexDescriptor from, VertexDescriptor to,
                   const EdgeStyle &style) {
+        assert(pointMap_.find(from) != pointMap_.end());
+        assert(pointMap_.find(to) != pointMap_.end());
+
         auto cr = graphics_.cr;
         Color ec = style.color;
         if (ec == Color::NOVAL) return;
         cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
         cairo_set_line_width(cr, style.widthFactor * EdgeStyle::widthBase);
-        gu::Circle cFrom{gu::Point{pointMap_[from][0], pointMap_[from][1]},
+        gu::Circle cFrom{gu::Point{pointMap_.at(from)[0], pointMap_.at(from)[1]},
                          VertexStyle::sizeBase};
-        gu::Circle cTo{gu::Point{pointMap_[to][0], pointMap_[to][1]},
+        gu::Circle cTo{gu::Point{pointMap_.at(to)[0], pointMap_.at(to)[1]},
                        VertexStyle::sizeBase};
         connectCircles(cr, cFrom, cTo);
         if (style.arrow)
             inscribePolygon(cr, cFrom, 3, angle(cFrom.center, cTo.center),
                             true);
+        // If the edge is one-way, the draw an arrow in the middle
+        if (g_.inverse(g_.edge(from, to)) == g_.null_edge) {
+            gu::Circle c{gu::pointOnLine(cFrom.center, cTo.center, 0.5),
+                         VertexStyle::sizeBase};
+            inscribePolygon(cr, c, 3, angle(cFrom.center, cTo.center), true);
+        }
+        labelEdge(from, to, style);
     }
 
     /// Draws the given edge with the representation style corresponding to
@@ -169,6 +180,9 @@ template <class Node> struct Drawer {
     /// \param from The edge-source vertex identifier.
     /// \param to The edge-target vertex identifier.
     void drawEdge(VertexDescriptor from, VertexDescriptor to) {
+        assert(pointMap_.find(from) != pointMap_.end());
+        assert(pointMap_.find(to) != pointMap_.end());
+
         auto ed = g_.edge(from, to);
         drawEdge(from, to, log_.get(ed));
     }
@@ -231,7 +245,7 @@ private:
         cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
         switch (style.shape) {
         case VertexShape::CIRCLE:
-            cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1],
+            cairo_arc(cr, pointMap_.at(vd)[0], pointMap_.at(vd)[1],
                       style.sizeFactor * VertexStyle::sizeBase, 0, 2 * M_PI);
             break;
         default:
@@ -252,7 +266,7 @@ private:
         cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
         switch (style.shape) {
         case VertexShape::CIRCLE:
-            cairo_arc(cr, pointMap_[vd][0], pointMap_[vd][1],
+            cairo_arc(cr, pointMap_.at(vd)[0], pointMap_.at(vd)[1],
                       style.sizeFactor * (1.0 - style.emphasisSizeFactor) *
                           VertexStyle::sizeBase,
                       0, 2 * M_PI);
@@ -264,35 +278,50 @@ private:
         cairo_stroke(cr);
     }
 
-    /// Labels the vertex
+    /// Labels the vertex.
     /// \param vd The vertex identifier.
     /// \param style The visual presentation style for the vertex.
     void labelVertex(VertexDescriptor vd, const VertexStyle &style) {
+        // Compute label
         auto state = g_.state(vd);
-        auto temp = state->visualLabel();
-        if (!temp.size()) return;
-        const char *label = temp.c_str();
+        auto label = state->visualLabel();
+        if (!label.size()) return;
+
+        // Compute and set color
         auto cr = graphics_.cr;
         Color fc = style.fillColor;
         cairo_set_source_rgb(cr, RGB::cred(fc), RGB::cgreen(fc), RGB::cblue(fc));
-        double vx = pointMap_[vd][0];
-        double vy = pointMap_[vd][1];
+
+        double vx = pointMap_.at(vd)[0];
+        double vy = pointMap_.at(vd)[1];
         double size = style.sizeFactor * VertexStyle::sizeBase;
 
-        cairo_text_extents_t extents;
-        double x, y;
+        drawText(cr, label, size, {vx, vy});
+    }
 
-        cairo_select_font_face(cr, "Sans", CAIRO_FONT_SLANT_NORMAL,
-                               CAIRO_FONT_WEIGHT_NORMAL);
+    /// Labels the edge.
+    /// \param from The edge-source vertex identifier.
+    /// \param to The edge-target vertex identifier.
+    /// \param style The visual representation style.
+    void labelEdge(VertexDescriptor from, VertexDescriptor to,
+                   const EdgeStyle &style) {
+        // Compute label
+        auto fromState = g_.state(from);
+        auto toState = g_.state(to);
+        auto label = fromState->visualLabel(*toState);
+        if (!label.size()) return;
 
-        cairo_set_font_size(cr, size);
-        cairo_text_extents(cr, label, &extents);
-        x = vx - (extents.width / 2 + extents.x_bearing);
-        y = vy - (extents.height / 2 + extents.y_bearing);
+        // Compute and set color
+        auto cr = graphics_.cr;
+        Color c = style.color;
+        cairo_set_source_rgb(cr, RGB::cred(c), RGB::cgreen(c), RGB::cblue(c));
 
-        cairo_move_to(cr, x, y);
-        cairo_show_text(cr, label);
-        cairo_stroke(cr);
+        // Position of text center and size of text
+        double vx = (pointMap_.at(from)[0] + pointMap_.at(to)[0]) / 2;
+        double vy = (pointMap_.at(from)[1] + pointMap_.at(to)[1]) / 2;
+        double size = VertexStyle::sizeBase;
+
+        drawText(cr, label, size, {vx, vy});
     }
 
     /// Computes a p-percentile of edge pixel-lengths. p must be between 0 and 1.
@@ -304,7 +333,7 @@ private:
         std::vector<double> dd;
         for (auto ed : g_.edgeRange()) {
             auto from = g_.from(ed), to = g_.to(ed);
-            auto fromPoint = pointMap_[from], toPoint = pointMap_[to];
+            auto fromPoint = pointMap_.at(from), toPoint = pointMap_.at(to);
             dd.push_back(gu::distance({fromPoint[0], fromPoint[1]},
                                       {toPoint[0], toPoint[1]}));
         }
@@ -333,13 +362,18 @@ private:
         double factorX = x / (maxX - minX + 2 * vertexSize);
         double factorY = y / (maxY - minY + 2 * vertexSize);
         double newVertexSize = vertexSize * std::min(factorX, factorY);
-        double newEdgeWidth = newVertexSize * 2 / 3;
+        factorX = (x - 2 * newVertexSize)/ (maxX - minX);
+        factorY = (y - 2 * newVertexSize)/ (maxY - minY);
 
         for (auto vd : g_.vertexRange()) {
-            pointMap_[vd][0] = (pointMap_[vd][0] + vertexSize - minX) * factorX;
-            pointMap_[vd][1] = (pointMap_[vd][1] + vertexSize - minY) * factorY;
+            pointMap_.at(vd)[0] =
+                (pointMap_.at(vd)[0] - minX) * factorX + newVertexSize;
+            pointMap_.at(vd)[1] =
+                (pointMap_.at(vd)[1] - minY) * factorY + newVertexSize;
         }
         VertexStyle::sizeBase = newVertexSize;
+
+        double newEdgeWidth = newVertexSize * 2 / 3;
         EdgeStyle::widthBase = newEdgeWidth;
     }
 
@@ -347,8 +381,8 @@ private:
     void dumpLayout() {
         std::cerr << "The Layout:" << std::endl;
         for (auto vd : make_iterator_range(vertices(g_)))
-            std::cerr << g_[vd] << ":" << pointMap_[vd][0] << " "
-                      << pointMap_[vd][1] << std::endl;
+            std::cerr << g_[vd] << ":" << pointMap_.at(vd)[0] << " "
+                      << pointMap_.at(vd)[1] << std::endl;
     }
 
 private:

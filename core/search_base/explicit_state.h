@@ -15,6 +15,10 @@ struct Base {
     /// Returns the textual label for the vertex representing the state.
     /// \return The textual label for the vertex representing the state.
     std::string visualLabel() const {return "";}
+
+    /// Returns the textual label for the edge to the given state.
+    /// \return The textual label for the edge to \c to.
+    std::string visualLabel(const Base &) const {return "";}
 };
 
 /// The base class for a state in an explicit domain. It can be viewed as a

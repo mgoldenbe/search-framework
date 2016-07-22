@@ -13,13 +13,20 @@ struct RGB {
     }
     // Complements
     static double cred(Color color) {
-        return (color == Color::NOVAL) ? 0 : 1.0 - red(color);
+        return (color == Color::NOVAL) ? 0 : f(red(color));
     }
     static double cgreen(Color color) {
-        return (color == Color::NOVAL) ? 0 : 1.0 - green(color);
+        return (color == Color::NOVAL) ? 0 : f(green(color));
     }
     static double cblue(Color color) {
-        return (color == Color::NOVAL) ? 0 : 1.0 - blue(color);
+        return (color == Color::NOVAL) ? 0 : f(blue(color));
+    }
+
+private:
+    /// Farthest color component to the given one.
+    static double f(double x) {
+        return (x < 0.5 ? 1 : 0);
+        return 1.0 - x;
     }
 };
 
@@ -55,6 +62,24 @@ void inscribePolygon(cairo_t *cr, const gu::Circle &c, int n, double angle,
     cairo_close_path (cr);
     (void)fillFlag;
     if (fillFlag) cairo_fill(cr);
+    cairo_stroke(cr);
+}
+
+/// Draws text of given size centered around the given point.
+void drawText(cairo_t *cr, const std::string s, int size, const gu::Point &p) {
+    cairo_text_extents_t extents;
+    double x, y;
+    const char *cs = s.c_str();
+    cairo_select_font_face(cr, "Sans", CAIRO_FONT_SLANT_NORMAL,
+                           CAIRO_FONT_WEIGHT_NORMAL);
+
+    cairo_set_font_size(cr, size);
+    cairo_text_extents(cr, cs, &extents);
+    x = p.x - (extents.width / 2 + extents.x_bearing);
+    y = p.y - (extents.height / 2 + extents.y_bearing);
+
+    cairo_move_to(cr, x, y);
+    cairo_show_text(cr, cs);
     cairo_stroke(cr);
 }
 

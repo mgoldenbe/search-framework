@@ -32,7 +32,13 @@ template <class State> struct CurrentStyles {
     /// \return The vertex style.
     /// \pre The vertex must be present in the graph.
     VertexStyle get(VertexDescriptor vd) const {
-        return vertexStyles_.at(vd);
+        try {
+            return vertexStyles_.at(vd);
+        }
+        catch(std::exception &e) {
+            std::cerr << "Look-up in vertex styles failed!" << std::endl;
+            throw e;
+        }
     }
 
     /// Returns the current style of the given edge.

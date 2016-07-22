@@ -20,6 +20,13 @@ double distance(const Point &p1, const Point &p2) {
     return distance(p1.x, p1.y, p2.x, p2.y);
 }
 
+/// Returns a point a certain proportion of distance from the first point to the
+/// second one. So, if 0.5 is passed for the third parameter, the middle between
+/// the two points is returned.
+Point pointOnLine(const Point &p1, const Point &p2, double w) {
+    return {p1.x + (p2.x - p1.x) * w, p1.y + (p2.y - p1.y) * w};
+}
+
 // Angle that a line from `from` to `to` makes with the positive direction of
 // the X-axis
 double angle(const Point &from, const Point &to) {
