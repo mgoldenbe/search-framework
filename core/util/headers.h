@@ -16,8 +16,8 @@ template <typename... Ts>
 using void_t = typename voider<Ts...>::type;
 /// @}
 
-#include "container.h"
 #include "hash.h"
+#include "container.h"
 #include "memory.h"
 #include "string.h"
 #include "stream.h"

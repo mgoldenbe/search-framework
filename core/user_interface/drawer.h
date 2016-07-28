@@ -94,9 +94,14 @@ template <class Node> struct Drawer {
 
     /// Computes the layout of the (partial) domain graph and scales it to the
     /// current scale.
-    void makeLayout() {
+    /// \param drawFlag If \c true, then \ref draw is called.
+    void makeLayout(bool drawFlag = false) {
+        graphics_.restore();
         computePointMap_();
-        scaleLayout_(sizex_, sizey_);
+        graphics_.sizeX = graphics_.windowXSize;
+        graphics_.sizeY = graphics_.windowYSize;
+        scaleLayout_(graphics_.sizeX, graphics_.sizeY);
+        if (drawFlag) draw();
     }
 
     /// Returns the graphics object.
@@ -136,7 +141,7 @@ template <class Node> struct Drawer {
         assert(pointMap_.find(vd) != pointMap_.end());
         fillVertex(vd, style);
         emphasizeVertex(vd, style);
-        labelVertex(vd, style);
+        if (showLabels_) labelVertex(vd, style);
     }
 
     /// Draws the given vertex with the representation style corresponding to
@@ -172,7 +177,7 @@ template <class Node> struct Drawer {
                          VertexStyle::sizeBase};
             inscribePolygon(cr, c, 3, angle(cFrom.center, cTo.center), true);
         }
-        labelEdge(from, to, style);
+        if (showLabels_) labelEdge(from, to, style);
     }
 
     /// Draws the given edge with the representation style corresponding to
@@ -187,29 +192,27 @@ template <class Node> struct Drawer {
         drawEdge(from, to, log_.get(ed));
     }
 
-    /// Returns the pixel-size of the x-dimension of the drawing with the
-    /// current scaling factor.
-    /// \return the pixel-size of the x-dimension of the drawing with the
-    /// current scaling factor.
-    int sizeX() { return sizex_; }
-
-    /// Returns the pixel-size of the y-dimension of the drawing with the
-    /// current scaling factor.
-    /// \return the pixel-size of the y-dimension of the drawing with the
-    /// current scaling factor.
-    int sizeY() { return sizey_; }
-
-    /// Updates the pixel-size of the x-dimension of the drawing to the given
-    /// value.
-    /// \param size The new pixel-size of the x-dimension of the drawing.
-    void sizeX(int size) { sizex_ = size; }
-
-    /// Updates the pixel-size of the y-dimension of the drawing to the given
-    /// value.
-    /// \param size The new pixel-size of the y-dimension of the drawing.
-    void sizeY(int size) { sizey_ = size; }
+    /// Sets the mode for either showing or hiding the labels.
+    /// \param flag If \c true, the labels will be shown. They
+    /// will be hidden otherwise.
+    void showLabels(bool flag) { showLabels_ = flag; draw(); }
 
 private:
+    /// The (partial) domain graph.
+    Graph &g_;
+
+    /// The log of visual events.
+    const MyVisualLog &log_;
+
+    /// The layout.
+    PointMap pointMap_;
+
+    /// The graphics object holding all the information needed for drawing.
+    Graphics graphics_;
+
+    /// Indicates wither the vertex and edge labels should be shown.
+    bool showLabels_ = false;
+
     /// @{
     /// \anchor computePointMap_
     /// \name Computing the layout.
@@ -384,25 +387,6 @@ private:
             std::cerr << g_[vd] << ":" << pointMap_.at(vd)[0] << " "
                       << pointMap_.at(vd)[1] << std::endl;
     }
-
-private:
-    /// The (partial) domain graph.
-    Graph &g_;
-
-    /// The log of visual events.
-    const MyVisualLog &log_;
-
-    /// The layout.
-    PointMap pointMap_;
-
-    /// the x-dimension of the drawing with the current scaling factor.
-    int sizex_ = 500;
-
-    /// the y-dimension of the drawing with the current scaling factor.
-    int sizey_ = 500;
-
-    /// The graphics object holding all the information needed for drawing.
-    Graphics graphics_;
 };
 
 #endif

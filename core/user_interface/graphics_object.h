@@ -31,6 +31,54 @@ struct Graphics {
         cairo_debug_reset_static_data();
     }
 
+    /// Restores the scale to 1.0
+    void scale() {
+        assert(scaleFactor > 0);
+        scale(1.0/scaleFactor);
+    }
+
+    /// Restores the user coordinates (0,0) to device coordinate (0,0)
+    void translate() {
+        double origx = 0, origy = 0;
+        cairo_user_to_device(cr, &origx, &origy);
+        cairo_translate(cr, -origx/scaleFactor, -origy/scaleFactor);
+    }
+
+    /// Restores both the scale to 1.0 and translation to make the origin same
+    /// in both user and device coordinates.
+    void restore() {
+        scale();
+        translate();
+    }
+
+    /// Scales the graphical representation of the (partial) domain graph.
+    /// \param factor The scaling factor.
+    void scale(double factor) {
+        double centerXUser_before = windowXSize / 2,
+               centerYUser_before = windowYSize / 2;
+        cairo_device_to_user(cr, &centerXUser_before, &centerYUser_before);
+        scaleFactor *= factor;
+        cairo_scale(cr, factor, factor);
+        double centerXDevice_after = centerXUser_before,
+               centerYDevice_after = centerYUser_before;
+        cairo_user_to_device(cr, &centerXDevice_after, &centerYDevice_after);
+        cairo_translate(cr,
+                        (windowXSize / 2 - centerXDevice_after) / scaleFactor,
+                        (windowYSize / 2 - centerYDevice_after) / scaleFactor);
+        sizeX *= factor;
+        sizeY *= factor;
+    }
+
+    /// Update the size of the window and the drawing surface.
+    /// \param New x-dimension of the window.
+    /// \param New y-dimension of the window.
+    void updateWindowSize(int x, int y) {
+        windowXSize = x;
+        windowYSize = y;
+        cairo_xlib_surface_set_size(surface, (1 + 2 * margin) * windowXSize,
+                                    (1 + 2 * margin) * windowYSize);
+    }
+
     /// \name The information needed for drawing.
     /// \brief Please refer to
     /// https://www.cairographics.org/Xlib/ for more information.
@@ -41,10 +89,17 @@ struct Graphics {
     cairo_t* cr{};
     /// @}
 
-    /// \name Window dimensions.
-    /// @{
-    int windowXSize = 500, windowYSize = 500;
-    /// @}
+    /// the x-dimension of the window
+    int windowXSize = 500;
+
+    /// the y-dimension of the window
+    int windowYSize = 500;
+
+    /// the x-dimension of the drawing with the current scaling factor.
+    int sizeX = 500;
+
+    /// the y-dimension of the drawing with the current scaling factor.
+    int sizeY = 500;
 
     /// \name Top-left corner of the drawing.
     /// Device coordinates of the top-left corner of the drawing surface
@@ -61,7 +116,7 @@ struct Graphics {
                          ///larger than the corresponding dimensions of the
                          ///window.
 
-    double scale = 1.0; ///< Current scaling factor.
+    double scaleFactor = 1.0; ///< Current scaling factor.
 };
 
 /// Implements a RAII technique to save and restore the current drawing. This
@@ -218,17 +273,17 @@ private:
     /// \see Graphics::margin
     void virtualTranslate() {
         deltaTranslate(g_, origDeltaX_, origDeltaY_, false);
-        cairo_translate(g_.cr,
-                        (-origDeltaX_ + g_.margin * g_.windowXSize) / g_.scale,
-                        (-origDeltaY_ + g_.margin * g_.windowYSize) / g_.scale);
+        cairo_translate(
+            g_.cr, (-origDeltaX_ + g_.margin * g_.windowXSize) / g_.scaleFactor,
+            (-origDeltaY_ + g_.margin * g_.windowYSize) / g_.scaleFactor);
     }
 
     /// Restore the translation matrix that was modified by \ref
     /// virtualTranslate.
     void realTranslate() {
-        cairo_translate(g_.cr,
-                        (origDeltaX_ - g_.margin * g_.windowXSize) / g_.scale,
-                        (origDeltaY_ - g_.margin * g_.windowYSize) / g_.scale);
+        cairo_translate(
+            g_.cr, (origDeltaX_ - g_.margin * g_.windowXSize) / g_.scaleFactor,
+            (origDeltaY_ - g_.margin * g_.windowYSize) / g_.scaleFactor);
     }
 };
 

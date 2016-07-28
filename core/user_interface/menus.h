@@ -132,18 +132,13 @@ struct MenuMain : public MenuBase<AllMenus, Node> {
         this->enterMap_ = {{"Run", &m.menuRun},
                            {"Search", &m.menuEnterState},
                            {"Filter", &m.menuFilter},
-                           {"Layout", &m.menuMain}};
+                           {"Layout", &m.menuLayout}};
         this->fillChoices();
         this->exitMenu_ = &m.menuMain;
     }
 
     /// Handles the pressed Enter key.
-    virtual void handleEnter() {
-        std::string choice = this->choice();
-        if (choice == "Layout")
-            this->data_.drawer().makeLayout();
-        Base::handleEnter();
-    }
+    virtual void handleEnter() { Base::handleEnter(); }
 };
 
 /// The menu reached when choosing the Run option from the root menu.
@@ -164,9 +159,8 @@ struct MenuRun : MenuBase<AllMenus, Node> {
     MenuRun(AllMenus &m, Data &data) : Base(m, data) {
         this->enterMap_ = {{"Go", &m.menuGo},
                            {"Speed (steps/sec.)", &m.menuSpeed},
-                           {"Step Forward", &m.menuRun},
-                           {"Step Backward", &m.menuRun},
-                           {"Reset", &m.menuRun}};
+                           {"Step", &m.menuStep},
+                           {"Jump", &m.menuJump}};
         this->fillChoices();
         this->exitMenu_ = &m.menuMain;
     }
@@ -175,34 +169,128 @@ struct MenuRun : MenuBase<AllMenus, Node> {
     virtual void handleEnter() {
         std::string choice = this->choice();
         if (choice == "Go") this->data_.state(Data::VISUALIZER_STATE::GO);
-        if (choice == "Step Forward")
-            this->data_.log().next(this->data_.drawer());
-        if (choice == "Step Backward")
-            this->data_.log().prev(this->data_.drawer());
-        if (choice == "Reset")
-            this->data_.log().move(0, this->data_.drawer(), true);
         Base::handleEnter();
     }
 };
 
-// /// The menu reached when choosing the Search option from the root menu.
-// /// \tparam AllMenus The type for holding all the menus.
-// /// \tparam Node The search node type.
-// template <class AllMenus, class Node>
-// struct MenuSearch : MenuBase<AllMenus, Node> {
-//     /// Initializes the menu.
-//     /// \param m Back-reference to the whole menu.
-//     /// \param data reference to the constituent components of the visualizer.
-//     MenuSearch(AllMenus &m,
-//                VisualizerData<Node> &data)
-//         : MenuBase<AllMenus, Node>(m, data) {
-//         this->enterMap_ = {{"By event", &m.menuSearchDirection},
-//                            {"By state", &m.menuSearchDirection},
-//                            {"By data", &m.menuSearchDirection}};
-//         this->fillChoices();
-//         this->exitMenu_ = &m.menuMain;
-//     }
-// };
+/// The menu reached when choosing Run->Step.
+/// \tparam AllMenus The type for holding all the menus.
+/// \tparam Node The search node type.
+template <class AllMenus, class Node>
+struct MenuStep : MenuBase<AllMenus, Node> {
+    /// Just a short name for the base class for all the menus.
+    using Base = MenuBase<AllMenus, Node>;
+
+    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// components.
+    using Data = typename Base::Data;
+
+    /// Initializes the menu.
+    /// \param m Back-reference to the whole menu.
+    /// \param data reference to the constituent components of the visualizer.
+    MenuStep(AllMenus &m, Data &data) : Base(m, data) {
+        this->enterMap_ = {{"Step Forward", &m.menuStep},
+                           {"Step Backward", &m.menuStep}};
+        this->fillChoices();
+        this->exitMenu_ = &m.menuRun;
+    }
+
+    /// Handles the pressed Enter key.
+    virtual void handleEnter() {
+        std::string choice = this->choice();
+        if (choice == "Step Forward")
+            this->data_.log().next(this->data_.drawer());
+        if (choice == "Step Backward")
+            this->data_.log().prev(this->data_.drawer());
+        Base::handleEnter();
+    }
+};
+
+/// The menu reached when choosing Run->Jump.
+/// \tparam AllMenus The type for holding all the menus.
+/// \tparam Node The search node type.
+template <class AllMenus, class Node>
+struct MenuJump : MenuBase<AllMenus, Node> {
+    /// Just a short name for the base class for all the menus.
+    using Base = MenuBase<AllMenus, Node>;
+
+    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// components.
+    using Data = typename Base::Data;
+
+    /// Initializes the menu.
+    /// \param m Back-reference to the whole menu.
+    /// \param data reference to the constituent components of the visualizer.
+    MenuJump(AllMenus &m, Data &data) : Base(m, data) {
+        this->enterMap_ = {{"Step", &m.menuJumpStep},
+                           {"Begin", &m.menuRun},
+                           {"End", &m.menuRun}};
+        this->fillChoices();
+        this->exitMenu_ = &m.menuRun;
+    }
+
+    /// Handles the pressed Enter key.
+    virtual void handleEnter() {
+        std::string choice = this->choice();
+        if (choice == "Begin")
+            this->data_.log().move(0, this->data_.drawer(), true);
+        if (choice == "End")
+            this->data_.log().move(this->data_.log().nEvents() - 1,
+                                   this->data_.drawer(), true);
+        Base::handleEnter();
+    }
+};
+
+/// The menu reached when choosing Run->Jump->Step
+/// \tparam AllMenus The type for holding all the menus.
+/// \tparam Node The search node type.
+template <class AllMenus, class Node>
+struct MenuJumpStep : MenuBase<AllMenus, Node> {
+    /// Just a short name for the base class for all the menus.
+    using Base = MenuBase<AllMenus, Node>;
+
+    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// components.
+    using Data = typename Base::Data;
+
+    /// The type of the log of visual events.
+    using MyVisualLog = VisualLog<Node>;
+
+    /// Initializes the menu.
+    /// \param m Back-reference to the whole menu.
+    /// \param data reference to the constituent components of the visualizer.
+    MenuJumpStep(AllMenus &m, VisualizerData<Node> &data)
+        : MenuBase<AllMenus, Node>(m, data) {
+        EditField editField{this->data_.drawer().graphics().display,
+                            this->data_.logWindow().menuPad(),
+                            0,
+                            0,
+                            1,
+                            40,
+                            "Enter step: "};
+        this->enterMap_ = {{" ", &m.menuRun}};
+        this->fillChoices();
+        this->exitMenu_ = &m.menuRun;
+
+        this->form_.addField(editField);
+    }
+
+    /// Handles the pressed Enter key.
+    virtual void handleEnter() {
+        auto &stepStr = this->form_.get(0);
+        int step;
+        try {
+            step = stoi(stepStr);
+            if (step < 0 || step > this->data_.log().nEvents() - 1)
+                throw std::invalid_argument("");
+            this->data_.log().move(step, this->data_.drawer(), true);
+        }
+        catch (...) {
+            this->data_.logWindow().message("Bad step number");
+        }
+        Base::handleEnter(); // Need to do this before the menu entry changed
+    }
+};
 
 /// The menu reached when choosing the Search option from the root menu.
 /// \tparam AllMenus The type for holding all the menus.
@@ -253,10 +341,6 @@ struct MenuEnterState : MenuBase<AllMenus, Node> {
         }
         Base::handleEnter(); // Need to do this before the menu entry changed
     }
-
-private:
-    /// The label for the form.
-    std::string label_ = "Enter state: ";
 };
 
 /// The menu reached when choosing the Filter option from the root menu.
@@ -455,6 +539,42 @@ struct MenuEditFilter : MenuBase<AllMenus, Node> {
     }
 };
 
+/// /// The menu reached when choosing Layout from the root menu.
+/// \tparam AllMenus The type for holding all the menus.
+/// \tparam Node The search node type.
+template <class AllMenus, class Node>
+struct MenuLayout : public MenuBase<AllMenus, Node> {
+    /// Just a short name for the base class for all the menus.
+    using Base = MenuBase<AllMenus, Node>;
+
+    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// components.
+    using Data = typename Base::Data;
+
+    /// Initializes the menu.
+    /// \param m Back-reference to the whole menu.
+    /// \param data reference to the constituent components of the visualizer.
+    MenuLayout(AllMenus &m, VisualizerData<Node> &data)
+        : MenuBase<AllMenus, Node>(m, data) {
+        this->enterMap_ = {{"Recompute", &m.menuMain},
+                           {"Toggle labels", &m.menuMain}};
+        this->fillChoices();
+        this->exitMenu_ = &m.menuMain;
+    }
+
+    /// Handles the pressed Enter key.
+    virtual void handleEnter() {
+        std::string choice = this->choice();
+        if (choice == "Recompute")
+            this->data_.drawer().makeLayout(true);
+        if (choice == "Toggle labels") {
+            this->m_.showLabels = !this->m_.showLabels;
+            this->data_.drawer().showLabels(this->m_.showLabels);
+        }
+        Base::handleEnter();
+    }
+};
+
 /// A holder for all the menus with an indicator of which menu and form are
 /// currently active.
 /// \tparam Node The search node type.
@@ -463,10 +583,12 @@ struct AllMenus {
     /// Initializes all the menus and sets the root menu as the current menu.
     /// \param data reference to the constituent components of the visualizer.
     AllMenus(VisualizerData<Node> &data)
-        : menuMain(*this, data), menuRun(*this, data), //menuSearch(*this, data),
+        : menuMain(*this, data), menuRun(*this, data),
           menuEnterState(*this, data), menuFilter(*this, data),
           menuGo(*this, data), menuSpeed(*this, data),
-          menuSearchDirection(*this, data), menuEditFilter(*this, data) {
+          menuSearchDirection(*this, data), menuEditFilter(*this, data),
+          menuStep(*this, data), menuJump(*this, data),
+          menuJumpStep(*this, data), menuLayout(*this, data) {
         setMenu(&menuMain, data.logWindow());
     }
 
@@ -478,12 +600,15 @@ struct AllMenus {
     /// \ref LogWindow::hideFiltered_.
     bool hideFiltered = true;
 
+    /// Indicates wither the vertex and edge labels should be shown.
+    /// Always kept in sync with \ref Drawer::showLabels_.
+    bool showLabels = false;
+
     /// The root menu.
     MenuMain<AllMenus, Node> menuMain;
 
     /// The menu reached when choosing the Run option from the root menu.
     MenuRun<AllMenus, Node> menuRun;
-    //MenuSearch<AllMenus, Node> menuSearch;
 
     /// The menu reached when choosing the Search option from the root menu.
     MenuEnterState<AllMenus, Node> menuEnterState;
@@ -504,6 +629,18 @@ struct AllMenus {
 
     /// The menu reached when choosing Filter->Edit from the root menu.
     MenuEditFilter<AllMenus, Node> menuEditFilter;
+
+    /// The menu reached when choosing Run->Step from the root menu.
+    MenuStep<AllMenus, Node> menuStep;
+
+    /// The menu reached when choosing Run->Jump from the root menu.
+    MenuJump<AllMenus, Node> menuJump;
+
+    /// The menu reached when choosing Run->Jump->Step from the root menu.
+    MenuJumpStep<AllMenus, Node> menuJumpStep;
+
+    /// The menu reached when choosing Run->Layout from the root menu.
+    MenuLayout<AllMenus, Node> menuLayout;
 
     /// Handles the pressed Enter key by passing it to the handler of the
     /// currently active menu.

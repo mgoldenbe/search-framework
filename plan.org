@@ -53,19 +53,19 @@
 - Produce videos of usage
 - Submit
 * Remains after K-Goal work:
-- Append the main page with the recent design decisions.
-  + Policy services and the use of CRTP.
-  + User-defined command line options.
-  + Dealing with dependencies: forward declarations of user-defined facilities that can be used as default template arguments in the core facilities (and defining symbols?).
-- Document utils/
-- Produce the worst inconsistency example domain.
+- DONE Produce the worst inconsistency example domain.
 - Add to user interface:
-  + Jumping to step, to end.
+  + DONE Jumping to step, to end.
   + Toggle labels.
   + Write last event for mouse-over event. 
 - Write the script for videos.
 - Produce the videos.
 - Check the submission instructions.
+- Append the main page with the recent design decisions.
+  + Policy services and the use of CRTP.
+  + User-defined command line options.
+  + Dealing with dependencies: forward declarations of user-defined facilities that can be used as default template arguments in the core facilities (and defining symbols?).
+- Document utils/
 - Submit
 * After submission
 - Understand again why we need this complicated GroupLock in graphics_object and how exactly it works.

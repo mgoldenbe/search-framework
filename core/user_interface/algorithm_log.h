@@ -91,10 +91,30 @@ struct AlgorithmLog {
         }
         return events_[it->second];
     }
+
+    /// Returns the last event prior to the given point in time related to the
+    /// given state. Optionally throws an exception if there is no recorded
+    /// event for the given state.
+    /// \param s Smart pointer to state.
+    /// \param step The given point in time.
+    /// \param throwFlag If \c true, an exception is thrown if there is no
+    /// recorded event for \c s.
+    /// \return The last recorded event related to \c s.
+    const Event getLastEvent(const StateSharedPtr &s, int step,
+                             bool throwFlag = true) const {
+        auto e = getLastEvent(s, throwFlag);
+        while (e && e->step() >= step)
+            e = e->previousEvent();
+        if (throwFlag && !e)
+            throw std::runtime_error("Could not find last event before step " +
+                                     str(step) + " for the state " + str(*s));
+        return e;
+    }
 private:
     /// Maps each state to the last recorded event related to that state.
-    std::unordered_map<StateSharedPtr, int, StateSharedPtrHash<State>>
-    stateToLastEventStep_;
+    std::unordered_map<StateSharedPtr, int, StateSharedPtrHash<State>,
+                       StateSharedPtrEq<State>>
+        stateToLastEventStep_;
 
     /// All events.
     std::vector<Event> events_;

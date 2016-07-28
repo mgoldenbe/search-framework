@@ -76,53 +76,11 @@ struct Visualizer : VisualizerData<Node> {
     }
 
 private:
-    /// Returns reference to the width of the graphical window.
-    /// \return Reference to the width of the graphical window.
-    int &windowXSize() { return this->drawer_.graphics().windowXSize; }
-
-    /// Returns reference to the width of the graphical window.
-    /// \return Reference to the height of the graphical window.
-    int &windowYSize() { return this->drawer_.graphics().windowYSize; }
-
-    /// Scales the graphical representation of the (partial) domain graph.
-    /// \param cr The drawing context object.
-    /// \param factor The scaling factor.
-    void scale(cairo_t *cr, double factor) {
-        int sizex = windowXSize(), sizey = windowYSize();
-        double centerXUser_before = sizex / 2, centerYUser_before = sizey / 2;
-        cairo_device_to_user(cr, &centerXUser_before, &centerYUser_before);
-        double &scale = drawer_.graphics().scale;
-        scale *= factor;
-        cairo_scale(cr, factor, factor);
-        double centerXDevice_after = centerXUser_before,
-               centerYDevice_after = centerYUser_before;
-        cairo_user_to_device(cr, &centerXDevice_after, &centerYDevice_after);
-        cairo_translate(cr, (sizex / 2 - centerXDevice_after) / scale,
-                        (sizey / 2 - centerYDevice_after) / scale);
-
-        this->drawer_.sizeX(this->drawer_.sizeX() * factor);
-        this->drawer_.sizeY(this->drawer_.sizeY() * factor);
-        updateSurfaceSize();
-    }
-
-    /// Update the size of the drawing surface correspondingly with the current
-    /// scale.
-    void updateSurfaceSize() {
-        auto &g = this->drawer_.graphics();
-        // Reduce margin if the window is big
-        //g.margin = 0.5 - (std::max(windowXSize(), windowYSize()))/1000;
-        //g.margin = std::max(g.margin, 0.1);
-        //g.margin = 0.00;
-        cairo_xlib_surface_set_size(g.surface,
-                                    (1 + 2 * g.margin) * windowXSize(),
-                                    (1 + 2 * g.margin) * windowYSize());
-    }
-
     /// Scale up to the next higher scale level.
-    void scaleUp(cairo_t *cr) { scale(cr, scaleStep_); }
+    void scaleUp() { drawer_.graphics().scale(scaleStep_); }
 
     /// Scale down to the next lower scale level.
-    void scaleDown(cairo_t *cr) { scale(cr, 1.0 / scaleStep_); }
+    void scaleDown() { drawer_.graphics().scale(1.0 / scaleStep_); }
 
     /// Processes pending key and mouse events.
     /// \return \c false if the user chose to quit the application and \c true
@@ -157,12 +115,12 @@ private:
                 switch (e.xkey.state) {
                 case 4: // Ctrl is pressed
                     if (e.xkey.keycode == 21) {
-                        scaleUp(cr);
+                        scaleUp();
                         drawFlag_ = true;
                         break;
                     }
                     if (e.xkey.keycode == 20) {
-                        scaleDown(cr);
+                        scaleDown();
                         drawFlag_ = true;
                         break;
                     }
@@ -250,7 +208,7 @@ private:
                         // logWindow_.message("Translating...");
                         PatternLock lock{drawer_.graphics()};
                         (void)lock;
-                        double scale = drawer_.graphics().scale;
+                        double scale = drawer_.graphics().scaleFactor;
                         cairo_translate(
                             cr,
                             (e.xmotion.x - drag_start_x - last_delta_x) / scale,
@@ -262,9 +220,8 @@ private:
                 }
                 break;
             case ConfigureNotify: {
-                windowXSize() = e.xconfigure.width;
-                windowYSize() = e.xconfigure.height;
-                updateSurfaceSize();
+                drawer_.graphics().updateWindowSize(e.xconfigure.width,
+                                                    e.xconfigure.height);
                 //logWindow_.message("Configure event. Re-drawing...");
                 //drawFlag_ = true;
                 break;
@@ -287,7 +244,16 @@ private:
                 auto vd = this->drawer().coordsToVD(x, y);
                 if (vd) {
                     auto state = g_.state(vd);
-                    logWindow_.message("Mouse over: " + str(*state));
+                    std::string eventStr;
+                    try {
+                        eventStr = "    Last event: " +
+                                   this->log()
+                                       .algorithmLog()
+                                       .getLastEvent(state, this->log().step())
+                                       ->eventStr();
+                    } catch (...) {
+                    }
+                    logWindow_.message("Mouse over: " + str(*state) + eventStr);
                 }
             }
         }
