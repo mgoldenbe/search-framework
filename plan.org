@@ -71,3 +71,4 @@
 - Understand again why we need this complicated GroupLock in graphics_object and how exactly it works.
 - A service for removing unused executables. We might have a size limit and delete the executable that was used longest ago each time the /last_exec/ link is created. For now, it is possible to do /ls -tr .execs/slb/ to determine which executables were used longest ago (they will appear at the top of the list). To determine the size of the directory:
   du .execs/ -BM | colrm 6 | colrm `du .execs/ -BM | colrm | wc -m -1` ?? -1 is an error.
+- Store grid maps in a way that allows referring to passable locations by index: http://stackoverflow.com/a/38652427/2725810. This will allow differential heuristics without a waste of space.

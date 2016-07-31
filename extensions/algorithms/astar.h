@@ -81,7 +81,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
             res.add(from);
             for (auto &n : from->successors()) {
                 // `add` cares for duplicates
-                auto myNeighbor = unique2shared(n.state());
+                auto myNeighbor = unique2derefshared(n.state());
                 res.add(from, myNeighbor, n.cost());
             }
         }
@@ -148,7 +148,7 @@ private:
     /// Handles the generated child.
     /// \param child The selected child.
     /// \param cost The cost of the action that led to the child.
-    void handleChild(StateUniquePtrT<State> &child, CostType cost) {
+    void handleChild(std::unique_ptr<const State> &child, CostType cost) {
         CostType myG = cur_->g + cost;
         ++generated_;
         auto childNode = oc_.getNode(*child);

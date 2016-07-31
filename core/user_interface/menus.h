@@ -335,7 +335,8 @@ struct MenuEnterState : MenuBase<AllMenus, Node> {
             this->data_.logWindow().message("Cleared search filter");
             filter.reset();
         } else {
-            auto state = std::make_shared<typename MyVisualLog::State>(stateStr);
+            auto state =
+                make_deref_shared<const typename MyVisualLog::State>(stateStr);
             filter.set(state);
             this->data_.logWindow().message("Set search filter: " + str(*state));
         }

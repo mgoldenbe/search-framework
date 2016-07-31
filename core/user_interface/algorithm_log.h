@@ -21,7 +21,7 @@ struct AlgorithmLog {
     using State = typename Node::State;
 
     /// Smart pointer to state.
-    using StateSharedPtr = std::shared_ptr<const State>;
+    using StateSharedPtr = deref_shared_ptr<const State>;
 
     /// Adds an event relating to a given state to the log. This method should
     /// not normally be used directly. Rather, the free standing \ref log
@@ -112,8 +112,7 @@ struct AlgorithmLog {
     }
 private:
     /// Maps each state to the last recorded event related to that state.
-    std::unordered_map<StateSharedPtr, int, StateSharedPtrHash<State>,
-                       StateSharedPtrEq<State>>
+    std::unordered_map<StateSharedPtr, int, StateSharedPtrHash<State>>
         stateToLastEventStep_;
 
     /// All events.

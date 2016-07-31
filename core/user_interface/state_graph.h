@@ -15,7 +15,7 @@ struct StateGraph {
     using CostType = typename State::CostType;
 
     /// Smart pointer to state.
-    using StateSharedPtr = std::shared_ptr<const State>;
+    using StateSharedPtr = deref_shared_ptr<const State>;
 
     /// The actual graph type.
     using Graph =
@@ -147,7 +147,7 @@ struct StateGraph {
     /// Adds a state to the graph. Performs duplicate checking.
     /// \param s Smart pointer to the state.
     /// \return The descriptor of the newly added vertex.
-    VertexDescriptor add(StateSharedPtr s) {
+    VertexDescriptor add(const StateSharedPtr &s) {
         auto it = stov_.find(s);
         if (it != stov_.end()) return it->second;
         auto vd = add_vertex(s, g_);
@@ -203,7 +203,7 @@ private:
 
     /// State-to-vertex mapping.
     std::unordered_map<StateSharedPtr, VertexDescriptor,
-                       StateSharedPtrHash<State>, StateSharedPtrEq<State>>
+                       StateSharedPtrHash<State>>
         stov_;
 
     /// Mapping to vertices of the layout graph.

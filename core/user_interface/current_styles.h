@@ -13,7 +13,7 @@
 /// \tparam State The state type, represents the domain.
 template <class State> struct CurrentStyles {
     /// Smart pointer to state.
-    using StateSharedPtr = std::shared_ptr<const State>;
+    using StateSharedPtr = deref_shared_ptr<const State>;
 
     /// The graph type.
     using Graph = StateGraph<State>;

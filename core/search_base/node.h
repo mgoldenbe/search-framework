@@ -7,16 +7,6 @@
 
 #include "managed_node.h"
 
-/// Alias for unique pointer to constant state.
-/// \tparam State The state type, represents the domain.
-template<typename State>
-using StateUniquePtrT = std::unique_ptr<const State>;
-
-/// Alias for shared pointer to constant state.
-/// \tparam State The state type, represents the domain.
-template<typename State>
-using StateSharedPtrT = std::shared_ptr<const State>;
-
 /// The search node type.
 /// \tparam State_ The state type, represents the domain.
 /// \tparam NodeData_ The structure storing the data kept by the node.
@@ -32,13 +22,13 @@ struct SearchNode : public NodeData_ {
     using State = State_;
 
     /// The type for smart pointer to const state.
-    using StateSmartPtr = StateSmartPtrT<State>;
+    using StateSmartPtr = StateSmartPtrT<const State>;
 
     /// The structure storing the data kept by the node.
     using NodeData = NodeData_;
 
     /// Type of the node.
-    using MyType = SearchNode<State, NodeData_, StateSmartPtrT, BucketPosition>;
+    using MyType = SearchNode;
 
     /// Unique pointer to the node.
     using NodeUniquePtr = std::unique_ptr<MyType>;
@@ -49,7 +39,7 @@ struct SearchNode : public NodeData_ {
 
     /// Initializes the node based on unique pointer to state.
     /// \param s Unique pointer to the state.
-    SearchNode(StateUniquePtrT<State> &s) : state_(std::move(s)) {}
+    SearchNode(std::unique_ptr<const State> &s) : state_(std::move(s)) {}
 
     /// Returns const reference to the state to which the node corresponds.
     /// \return Const reference to the state to which the node corresponds.

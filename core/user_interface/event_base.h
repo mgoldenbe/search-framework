@@ -29,7 +29,7 @@ template <class Node = SLB_NODE> struct Base {
     using State = typename Node::State;
 
     /// Smart pointer to state.
-    using StateSharedPtr = std::shared_ptr<const State>;
+    using StateSharedPtr = deref_shared_ptr<const State>;
 
     /// Type for data carried with a node.
     using NodeData = typename Node::NodeData;

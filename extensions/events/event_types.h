@@ -22,7 +22,7 @@ template <class Node = SLB_NODE> struct UniformChange : Base<Node> {
     using State = typename Node::State;
 
     /// Shared pointer to constant state.
-    using StateSharedPtr = std::shared_ptr<const State>;
+    using StateSharedPtr = deref_shared_ptr<const State>;
 
     /// The type for holding participating states.
     using StateSet = std::vector<StateSharedPtr>;
