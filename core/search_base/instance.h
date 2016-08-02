@@ -161,10 +161,11 @@ std::vector<Instance<State>> makeInstances(int n) {
             goal.push_back(uniqueRandomState(goal));
         res.push_back(MyInstance(start, goal));
     }
-    std::sort(res.begin(), res.end(),
-              [](const MyInstance &i1, const MyInstance &i2) {
-                  return i1.measures()[0].value() < i2.measures()[0].value();
-              });
+    if (res[0].measures().size()) // otherwise, no measure to sort on
+        std::sort(res.begin(), res.end(), [](const MyInstance &i1,
+                                             const MyInstance &i2) {
+            return i1.measures()[0].value() < i2.measures()[0].value();
+        });
     return res;
 }
 

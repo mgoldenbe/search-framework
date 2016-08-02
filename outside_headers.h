@@ -10,6 +10,7 @@
 #include <cctype>
 #include <chrono>
 #include <climits>
+#include <csignal>
 #include <cmath>
 #include <exception>
 #include <iomanip>

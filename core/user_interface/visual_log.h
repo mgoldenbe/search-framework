@@ -193,7 +193,7 @@ struct VisualLog: CurrentStyles<typename Node::State> {
                 move(origStep, drawer);
                 return false;
             }
-        } while (!searchFilter.in(algorithmEvent(step_ - 1)));
+        } while (step_ >= 1 && !searchFilter.in(algorithmEvent(step_ - 1)));
         return true;
     }
 

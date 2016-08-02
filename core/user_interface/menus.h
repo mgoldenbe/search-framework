@@ -109,7 +109,11 @@ protected:
 
     /// Returns the currently active choice.
     /// \return the currently active choice.
-    std::string choice() const { return menuChoice(m_.raw()); }
+    std::string choice() const {
+        auto res = menuChoice(m_.raw());
+        assert(res.size());
+        return res;
+    }
 };
 
 /// The root menu.
@@ -235,7 +239,7 @@ struct MenuJump : MenuBase<AllMenus, Node> {
         if (choice == "Begin")
             this->data_.log().move(0, this->data_.drawer(), true);
         if (choice == "End")
-            this->data_.log().move(this->data_.log().nEvents() - 1,
+            this->data_.log().move(this->data_.log().nEvents(),
                                    this->data_.drawer(), true);
         Base::handleEnter();
     }
@@ -373,9 +377,8 @@ struct MenuFilter : MenuBase<AllMenus, Node> {
         std::string choice = this->choice();
         if (choice == "Show" || choice == "Hide") {
             this->m_.hideFiltered = !this->m_.hideFiltered;
-            std::string updatedItem = this->m_.hideFiltered ? "Show" : "Hide";
-
-            this->enterMap_[1].first = updatedItem;
+            this->enterMap_[1].first = this->m_.hideFiltered ? "Show" : "Hide";
+            const std::string &updatedItem = this->enterMap_[1].first;
             // Has to be changed at the low level as well, so the matching in
             // Base::handleEnter() would succeed.
             current_item(this->m_.raw())->name.str = updatedItem.c_str();

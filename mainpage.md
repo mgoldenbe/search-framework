@@ -125,17 +125,8 @@ Several other projects that are less related to this framework are:
 \copyright MIT License
 \warning Boost and Cairo come with their respective licences 
 
-# Future work {#s-future}
-This is a list of features I chose to not include in this version, but the need for which is already evident. The list does not follow any particular order:
-- Ability to specify labels for vertices of the state graph.
-- Limiting the time for computing a layout (it should be a command-line option), so that large state graphs can be displayed. Right not, the automatic layout computation does not scale beyond several hundred of vertices.
-- Designing a way for algorithms to define their own command-line options. Currently, one has to modify the \ref CommandLine class to add command line options, which is obviously not ideal.
-- The open list of A* can be made more efficient in several ways:
-  + Using hints for re-inserting a node.
-  + Keeping a hash of keys.
-  + Using an underlying container other than `map`.
-- Keeping a mapping from tiles to edges, vertices and any other drawing elements and also the inverse map, so that updates can be done cleanly, thus enabling richer graphical elements.
-- Enabling `no graphics mode`.
+# Bug reports and future work {#s-future}
+Please send bug reports and feature requests to the author. The updated list of requested features and bug reports can be found in the files `future.org` and `bugs.org` in the framework's root folder.
 
 # Notes to add
 - Conditional compilation should be employed for both compilation efficiency and so the specific command-line options don't need to be defined if the related user-defined facilities aren't used.
