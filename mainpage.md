@@ -1,17 +1,17 @@
 [TOC]
 
 # Motivation {#s-motivation}
-The motivation of this project is to produce a framework to facilitate:
+The motivation of this project is to produce a framework to:
 
-- Producing flexible and efficient implementations of search algorithms (See \ref s-flexibility-efficiency).
-- Gaining insights into the properties of the search algorithms through a variety of means (each of these means will be detailed below):
+- Facilitate flexible and efficient implementations of search algorithms (See \ref s-flexibility-efficiency).
+- Facilitate the gaining of insights into the properties of the search algorithms through a variety of means (each of these means will be detailed below):
     + Analyzing the log of events produced by the algorithm (See \ref s-examples).
     + Watching the progress of the algorithm in motion (See \ref s-examples).
     + Using policy-based design.
 
 In addition, the visualization abilities of the framework can be put to good use for teaching heuristic search to students. The following sections detail each of the above items.
 
-# Foundation principles
+# Foundation principles {#s-principles}
 ## Flexibility vs. efficiency {#s-flexibility-efficiency}
 When we talk about a search algorithm such as *A\**, we usually talk about a whole large family of algorithms. These algorithms differ in many aspects: from storing different information with search nodes to handling various search conditions (e.g. inconsistency) in different ways. The programming techniques that address the need for flexibility involve a trade-off between flexibility and efficiency. Efficiency may be an important factor for the following reasons:
 
@@ -39,7 +39,7 @@ In the latter case of using compile-time techniques, flexibility is achieved by 
 
 - One can compile the framework and run an experiment by a single command, in which one can specify the configuration file, additional symbols for compile-time configuration and command line arguments for run-time configuration. This makes it easy to write scripts that explore a parameter space and perform and experiment for each parameter setting. For example, consider the following command:
 
-	  (make run MODE=debug CPP=test.cpp CONFIG="projects/KGoal/ConfigMinHeuristic.h" ADD="-DSLB_STATE='GridMapState<>'" OPT="-s ost001d.map8 -i ost001d.txt --nGoals 2 -v 50") 2>err
+	(make run MODE=debug CPP=test.cpp CONFIG="projects/KGoal/ConfigMinHeuristic.h" ADD="-DSLB_STATE='GridMapState<>'" OPT="-s ost001d.map8 -i ost001d.txt --nGoals 2 -v 50") 2>err
 
 	Here, an experiment is being run (the `run` target is being invoked) after being compiled with debugging symbols and without optimizations (the `debug` mode; the alternative is the `production` mode). The `.cpp` file is specified next. Then we specify the configuration file and additional symbols for compile-time configuration. Lastly, command line arguments for run-time configuration appear. The output of `make` is sent to `standard error`, while the output of the framework will appear on `standard output`.
 
@@ -54,21 +54,67 @@ The proposition I would like to make is that the work on identifying a set of po
 Building a taxonomy as described above is a long-term (and, hopefully, communal) effort. Therefore, I did not make an attempt at specifying all the policies of *A\**. Rather, the policies will be added and reviewed as the different variants of *A\** and other algorithms are added to the framework.
 
 # Usage examples {#s-examples}
-## A* for grid-based path-finding {#s-example-astar}
-## IDA* for an implicit domain with automatic state graph layout {#s-example-ida}
-## For teaching: the worst case for A* with an inconsistent heuristic {#s-example-teaching}
+The [video demo](https://youtu.be/QUBkkErdnFM) shows examples of the framework's usage. When you download the framework, it will have all the files relevant to this demo in the `projects/demo directory`.
 
 # Conventions {#s-concepts}
 This section describes the conventions knowing which will help the reader to get started on working with the framework. 
 
-## The usage of pre-processor symbols {#s-symbols}
+## Compile-time configuration {#s-symbols}
+The framework employs pre-processor symbols to enable compile-time configuration. Please refer to the [video demo](https://youtu.be/QUBkkErdnFM) for an explanation with some examples.
+
+### Why pre-processor symbols? {#s-why-symbols}
 Yes, I know, Scott Meyers states in `Item 2` of [Effective C++](http://amzn.com/0321334876) (3rd edition):
 > It's not yet time to retire the preprocessor, but you should definitely give it long and frequent vacations.
-Unfortunately, he is right not only in the second part of the quote, but also in the first part. I did not find any better way to define compile-time configuration than pre-processor symbols. As parenthetical note, the problem with `using` directives is that the types have to be defined before they can appear on the right side of such a directive.
+Unfortunately, he is right not only in the second part of the quote, but also in the first part. I did not find any better way to define compile-time configuration than pre-processor symbols. One obvious candidate for an alternative is to use aliases (i.e. the `using` keyword). There two problems with aliases:
+- There is no easy way to determine which aliases are unused. Therefore, each compile-time configuration would have to define all aliases, even the ones not used in the current experiment. This also means that introducing a new alias would necessitate updating all the existing experiments' configurations. This is not a problem with the pre-processor symbols. Namely, once the pre-processor is done, the unused symbols remain in the code and can be recognized by an automatic tool. This is precisely what the frameworks `symbols` tool does.
+- The types have to be defined before they can appear on the right side of an alias.
 
+### Conventions regarding the used pre-processor symbols {#s-symbols-conventions}
 Since we cannot retire the preprocessor, we need to make sure that it does not do harm along with the good. For this reason, the following conventions are proposed:
 - All preprocessor symbols should have names starting with `SLB_` followed by capital letters and underscores. Besides avoiding clashes with other names, this allows for automatic substitution of unused symbols.
-- The preprocessor symbols specific to an algorithm (i.e. that are not likely to be shared between several algorithms) should have the name of that algorithm in the name. This is meant as a (poor, but necessary) substitution for `namespace`s.
+- The preprocessor symbols specific to an algorithm (i.e. that are not likely to be shared between several algorithms) should have the name of that algorithm in the name. This is meant as a (poor, but necessary) substitution for name scopes.
+
+## Run-time configuration {#s-run-config}
+The framework employs the [Templatized C++ Command Line Parser Library](http://tclap.sourceforge.net/) to parse the command line. In addition to the standard command options (see below), the framework makes it possible for the users to define command-line options specific to their own facilities. For this reason, the \ref CommandLine class is a template that accepts a class implementing additional command line options as the template argument. See \ref CommandLine::Pancake for an example of such a class. Also, see the [video demo](https://youtu.be/QUBkkErdnFM) for an example of configuring the framework to use additional command line arguments.
+
+Please run the following from the root directory to see the standard command options:
+
+	(make run MODE=debug CPP=test.cpp CONFIG="projects/demo/grid.h" OPT="--help")
+
+## The physical design {#s-physical}
+
+## Algorithms, policies and communication between them {#s-crtp}
+The framework advocates for keeping algorithms as simple as possible without compromising generality. In particular:
+- An algorithm should implement only the core flow of the search. The specific behaviors should factored out into policies.
+- Communications between algorithms and policies should follow a similar pattern. 
+- Common characteristics of algorithms should be factored out into abstract base algorithms, from which specific algorithms can inherit.
+
+In addition, there are cases when different policies of an algorithm need to communicate with each other. The proposed design supports this communication as well. 
+
+Several design solutions support the above requirements, as follows.
+
+### Policy services {#s-services}
+Each algorithm provides *services* for its policies. These services are member functions called *policy services* which the policies can call.
+
+### Communication through reference to algorithm {#s-communication}
+Specific policy implementations' have a constructor that accept an algorithm reference argument. This way, function members of the policies have an empty parameter list, but can call the services provided by the algorithm. Consequently, policy classes are templates, the algorithm type being the template parameter.
+
+This design provides an easy way of communication between policies as well. The algorithm can support this communication by providing a policy services that return references to a policy classes.
+
+### CRTP to enable initialization of policy classes in the base algorithm {#s-base-crtp}
+Some policies are present in many algorithms. For example, all algorithms have a stopping condition. The functionality related to evaluating the stopping condition and maintaining the relevant data is a natural candidate for a policy. This policy is called *GoalHandler* in the existing algorithm implementations. When we factor out abstract base algorithms, these common policies become policies of the base algorithm. In addition, common implementations of policy services can be factored out into the base algorithm as well.
+
+The constructor of an abstract base algorithm needs to initialize all its policies. However, the policy constructors need to get as an argument the reference to the actual algorithm, not to the base algorithm. In particular, the policies' template argument needs to be the the actual algorithm's type, not to the base algorithm's one.
+
+To enable this, we use the *Curiously Recurring Template Pattern* (CRTP), whereby the abstract base algorithm has a template parameter specifying the concrete algorithm. Describing this technique is beyond this short document. The reader is referred to [this](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern), [this](http://stackoverflow.com/a/35436437/2725810) and [this](http://stackoverflow.com/a/5534818/2725810) posts for details.
+
+### Compile-time checks to avoid unneeded branching in the algorithm {#s-branching}
+It is known that branching precludes the compiler from performing some significant optimizations, so that avoiding unnecessary branching in the algorithm is an important efficiency concern.
+
+Let us consider a particular example of such branching. Suppose that, in some variant of A* (and there are such variants), the selected node is not necessarily expanded. Furthermore, suppose that we have defined a policy whose member function is called upon node selection. The regular implementation of this function does not return a value. However, the implementation for the mentioned variant returns a boolean value that indicates whether the selected node should be expanded or not. Depending on the particular policy implementation chosen by the compile-time configuration, the call to the policy's member function does or does not need to be followed by branching in the algorithm. 
+
+We would like to make sure that no branching occurs in the latter case. The policies must provide information to enable compile-time checks to avoid such unnecessary branching.
+
 
 ## Algorithmic events {#s-events}
 The central idea making it possible to analyze the behavior of algorithms is that each algorithm can define events with a common interface. The log of such events can be both analyzed in textual mode and visualized. To make sure that no run-time overhead is incurred in production runs, we provide the \ref log function, which uses tag dispatch (which is a compile-time technique) to either do nothing or create and log the event. The reader is encouraged to see how events are logged in the existing code, e.g. in \ref Astar::run.
@@ -77,15 +123,6 @@ Each event defines a visualization effect. It is convenient to derive the events
 
 ## Managed nodes {#s-nodes}
 Managed nodes is another convenience that was achieved through the use of pre-processor. Defining the structure with the data stored by the search node using the `MANAGED` pre-processor symbol, provides reflection capabilities for that structure. In particular, this alleviates the need to define an output operator for that node. In addition, the framework is capable to compare the contents of two managed node and produce a string that summarizes the differences. These reflection capabilities come very handy for the textual log analysis tool. (The use of pre-processor to achieve reflection in `C++` is due to the author of [this](http://stackoverflow.com/a/11744832/2725810) post.)
-
-# Currently defined configuration options
-As explained in \ref s-configuration, the configuration options come in two flavors: compile-time and run-time. 
-
-## Compile-time configuration options
-The following pre-processor symbols are currently in use:
-
-## Run-time configuration options
-The following command line options are currently accepted (this list can also be produced by running the compiled `default_cpp.cpp` with the `--help` option:
 
 # Installation {#s-install}
 The installation instructions in this section have been tested on `Ubuntu 16.04`. The framework has not been tested for non-`Linux` environments. 

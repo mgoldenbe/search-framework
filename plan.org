@@ -54,18 +54,26 @@
 - Submit
 * Remains after K-Goal work:
 - DONE Produce the worst inconsistency example domain.
-- Add to user interface:
-  + DONE Jumping to step, to end.
+- DONE Add to user interface:
+  + Jumping to step, to end.
   + Toggle labels.
   + Write last event for mouse-over event. 
-- Write the script for videos.
-- Produce the videos.
-- Check the submission instructions.
+- DONE Write the script for videos.
+- DONE Produce the videos.
+- DONE Check the submission instructions at https://www.elsevier.com/books-and-journals/content-innovation/original-software-publications#instructions-how-to-submit-your-software-work
 - Append the main page with the recent design decisions.
   + Policy services and the use of CRTP.
   + User-defined command line options.
   + Dealing with dependencies: forward declarations of user-defined facilities that can be used as default template arguments in the core facilities (and defining symbols?).
 - Document utils/
+- Prepare the OSP paper
+  + Use as motivation: http://modeling-languages.com/json-schema-discoverer/
+  + Produce a nice picture of components that comprise a heuristic search experiment. This picture is to be used in the introduction.
+  + Produce a nice picture to show hierarchical organization of configuration.
+  + Insert a picture of the working system (white background?) in the example.
+  + Make sure to not put in a lot of implementation details — I have the right to submit a regular paper as well!
+  + Make sure to not exceed 5 pages.c
+  + Make sure to comply with all the instructions: https://www.elsevier.com/books-and-journals/content-innovation/original-software-publications#instructions-how-to-submit-your-software-work
 - Submit
 * After submission
 - Understand again why we need this complicated GroupLock in graphics_object and how exactly it works.

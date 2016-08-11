@@ -1,0 +1,20 @@
+This is the list of feature requests. The requests are categorized by topics. In each topic, the requests appear in the order of priority (most important first) that the author assigned to them.
+* Compilation and execution
+  - A service for removing unused executables. We might have a size limit and delete the executable that was used longest ago each time the /last_exec/ link is created. For now, it is possible to do /ls -tr .execs/slb/ to determine which executables were used longest ago (they will appear at the top of the list). To determine the size of the directory:
+  ~du .execs/ -BM | colrm 6 | colrm `du .execs/ -BM | colrm | wc -m -1`~
+* User interface
+  - Focus menu
+    + Focus on the vertex corresponding to the current event
+    + Undo focus. 
+  - Automatic positioning and sizing of the graphics window.
+  - Cleaner graphics updates, so erasing an arrow would not erase any other element. This requires some solution based on tiles and/or quad-trees. Each graphical element would be mapped to a tile and each tile would store the list of graphical elements that use the tile.
+  - Limiting the time for computing an automatic layout (it should be a command-line option), so that large state graphs can be displayed. Right not, the automatic layout computation does not scale beyond several hundred of vertices.
+  - Enabling /no graphics mode/, so one would be able to use the textual window in an ssh session.
+* Core search features
+  - The open list of A* can be made more efficient in several ways:
+    + Using hints for re-inserting a node.
+    + Keeping a hash of keys.
+    + Using an underlying container other than `map`.
+* Existing extensions
+** Domains
+   - Store grid maps in a way that allows referring to passable locations by index: http://stackoverflow.com/a/38652427/2725810. This will allow differential heuristics without a waste of space.

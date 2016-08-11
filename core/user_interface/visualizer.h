@@ -69,7 +69,8 @@ struct Visualizer : VisualizerData<Node> {
             }
             if (s_ == VISUALIZER_STATE::GO)
                 if (++iteration % (1000 / this->speed_) == 0) {
-                    log_.next(drawer_);
+                    if (!log_.next(drawer_))
+                        s_ = VISUALIZER_STATE::PAUSE;
                     //drawFlag_ = true;
                 }
         }
@@ -93,9 +94,11 @@ private:
         int c;
 
         if ((c = getch()) != ERR) {
+            /*
             this->logWindow_.message(
                 "Console is active; "
                 "only events in the X window are currently handled");
+            */
         }
         if (XPending(cairo_xlib_surface_get_display(surface))) {
             XNextEvent(cairo_xlib_surface_get_display(surface), &e);
@@ -163,7 +166,7 @@ private:
                     case 9: // Esc
                         m_.handleEsc();
                         break;
-                    default:
+                    default: break;
                         logWindow_.message("Unhandled keypress! State: " +
                                         str(e.xkey.state) + "  Code: " +
                                         str(e.xkey.keycode));
@@ -251,9 +254,13 @@ private:
                                        .algorithmLog()
                                        .getLastEvent(state, this->log().step())
                                        ->eventStr();
+                        (void)eventStr; // TODO Sometimes this is "Hide Last
+                                        // Event", which is not very helpful;
+                                        // need something better to display
                     } catch (...) {
                     }
-                    logWindow_.message("Mouse over: " + str(*state) + eventStr);
+                    logWindow_.message("Mouse over: " +
+                                       str(*state) /*+ eventStr*/);
                 }
             }
         }

@@ -560,7 +560,7 @@ struct MenuLayout : public MenuBase<AllMenus, Node> {
     /// \param data reference to the constituent components of the visualizer.
     MenuLayout(AllMenus &m, VisualizerData<Node> &data)
         : MenuBase<AllMenus, Node>(m, data) {
-        this->enterMap_ = {{"Recompute", &m.menuMain},
+        this->enterMap_ = {{"Recompute", &m.menuLayout},
                            {"Toggle labels", &m.menuMain}};
         this->fillChoices();
         this->exitMenu_ = &m.menuMain;

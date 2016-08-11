@@ -84,7 +84,6 @@ private:
 
     virtual void doneGoal(Node *n) {
         log<Events::SolvedGoal>(log_, n);
-        log<Events::HideLast>(log_, n);
         done_ = true;
         alg_.res() = n->g;
     }

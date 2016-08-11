@@ -1,0 +1,6 @@
+This is the list of bug reports. The reports are categorized by topics. In each topic, the reports appear in the order of priority (most important first) that the author assigned to them.
+* Compilation and execution
+* User interface
+* Core features
+- When the layout on the pancake domain is re-computed 8 times, the layout computation does not converge.
+* Existing extensions
