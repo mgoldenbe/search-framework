@@ -8,18 +8,16 @@
 #include <sstream>
 #include <iomanip>
 
-struct A {
-    A() {}
-    A(const A &) {}
-};
+template <typename T>
+struct A;
+struct B;
 
-struct B : A {
-    using A::A;
-};
+template <typename T>
+using TT = A<B>;
+
+template <typename T>
+struct A {};
 
 int main() {
-    A a;
-    B b;
-    B c(a);
     return 0;
 }
