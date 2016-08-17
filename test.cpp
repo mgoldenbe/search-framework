@@ -40,7 +40,6 @@ StateGraph<Domains::SLB_STATE> buildGraph() {
 }
 
 /// Runs a search algorithm for a set of problem instances.
-template <CMD_TPARAM>
 void run() {
     if (CMD.spaceInitFileName_isSet())
         Domains::SLB_STATE::initSpace(CMD.spaceInitFileName());
@@ -77,7 +76,6 @@ void run() {
 }
 
 /// Creates a new set of problem instances and saves it in a file.
-template <CMD_TPARAM>
 void makeInstances() {
     if (CMD.spaceInitFileName_isSet())
         Domains::SLB_STATE::initSpace(CMD.spaceInitFileName());
@@ -93,7 +91,7 @@ int main(int argc, char **argv) {
         CommandLine::CommandLine<>::instance(
             argc, argv); // to initialize command line
 
-        if (CMD_RAW.nInstances() != -1)
+        if (CMD.nInstances() != -1)
             makeInstances();
         else
             run();

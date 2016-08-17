@@ -150,8 +150,8 @@ template <class State, CMD_TPARAM>
 std::vector<Instance<State>> makeInstances(int n) {
     using MyInstance = Instance<State>;
     std::vector<MyInstance> res;
-    int nStarts = CMD.nStarts('w');
-    int nGoals = CMD.nGoals('w');
+    int nStarts = CMD_T.nStarts('w');
+    int nGoals = CMD_T.nGoals('w');
     for (int i = 0; i < n; i++) {
         std::vector<State> start;
         std::vector<State> goal;
@@ -184,9 +184,9 @@ std::vector<Instance<State>> makeInstancesFile(const std::string &fname) {
     Table t;
     std::ofstream fs{fname};
     if (!fs) throw std::invalid_argument("Could not create the instances file");
-    if (CMD.nInstances() < 1)
+    if (CMD_T.nInstances() < 1)
         throw std::invalid_argument("Can't be fewer than one instance");
-    std::vector<MyInstance> res = makeInstances<State>(CMD.nInstances());
+    std::vector<MyInstance> res = makeInstances<State>(CMD_T.nInstances());
 
     t << "#";
     res[0].dumpTitle(t);
@@ -221,8 +221,8 @@ std::vector<Instance<State>> readInstancesFile(const std::string &fname) {
     std::getline(fs, line);
     MeasureSet measures = parseInstancesTitle(line, totalNStarts, totalNGoals);
 
-    int nStarts = std::min(totalNStarts, CMD.nStarts('r'));
-    int nGoals = std::min(totalNGoals, CMD.nGoals('r'));
+    int nStarts = std::min(totalNStarts, CMD_T.nStarts('r'));
+    int nGoals = std::min(totalNGoals, CMD_T.nGoals('r'));
 
     // Instances
     while (std::getline(fs, line)) {

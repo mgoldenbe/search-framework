@@ -40,8 +40,7 @@ struct Pancake: Base {
     using Neighbor = StateNeighbor<Pancake>;
 
     /// Initializes the state with ordered pancakes.
-    //template <CMD_TPARAM>
-    Pancake() : pancakes_(CMD_RAW.nPancakes()) {
+    Pancake() : pancakes_(CMD.nPancakes()) {
         int i = -1;
         for (auto &el: pancakes_) el = ++i;
     }

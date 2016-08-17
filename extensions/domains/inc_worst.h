@@ -43,7 +43,6 @@ struct IncWorst: Base {
     using Row = enum {top, bottom};
 
     /// Initializes the start state.
-    template <CMD_TPARAM>
     IncWorst() : k_(CMD.nStages() - 1), row_(bottom), n_(k_ - 1) {
         assert(legal(*this));
     }
@@ -58,7 +57,6 @@ struct IncWorst: Base {
 
     /// Initializes the state from a string, e.g. "[4, top, 2]".
     /// \param s The string.
-    template <CMD_TPARAM>
     IncWorst(const std::string &s) : k_(CMD.nStages() - 1) {
         auto v = split(s, {' ', ',', '[', ']'});
         row_ = (v[0] == "top" ? top : bottom);

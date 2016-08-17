@@ -6,9 +6,9 @@
 /// \author Meir Goldenberg
 
 /// Short-hand notation for global access to the command line object.
-#define CMD_RAW CommandLine::CommandLine<>::instance()
+#define CMD CommandLine::CommandLine<>::instance()
 #define CMD_TPARAM class CmdT = CommandLine::CommandLine<>
-#define CMD CmdT::instance()
+#define CMD_T CmdT::instance()
 
 
 namespace CommandLine {
