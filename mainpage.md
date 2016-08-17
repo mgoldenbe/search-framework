@@ -126,7 +126,7 @@ One can view the standard command line options by running the following command 
 This particular configuration file (i.e. `projects/demo/grid.h`) was chosen because it does not define any additional command line options.
 
 ### Using the command line object {#s-singleton}
-The class \ref CommandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref CommandLine::CommandLine<>::instance function once, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by calling the \ref CommandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for \ref CommandLine::CommandLine<>::instance.
+The class \ref CommandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref CommandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by calling the \ref CommandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function.
 
 ## Producing a single table from several invocations of the framework {#s-single}
 

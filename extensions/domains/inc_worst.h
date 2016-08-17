@@ -6,6 +6,28 @@
 /// page 75 of "Heuristic Search" by Stefan Edelkamp).
 /// \author Meir Goldenberg
 
+namespace CommandLine {
+
+/// Additions to the command line related to the Pancake puzzle domain.
+struct IncWorst {
+    /// Returns the number of stages.
+    /// \return The number of stages.
+    int nStages() { return nStages_.getValue(); }
+
+private:
+    /// Command line option for the number of pancakes.
+    TCLAP::ValueArg<int> nStages_;
+
+protected:
+    /// Injects this addition to the command line object.
+    /// \param cmd The command-line object.
+    IncWorst(TCLAP::CmdLine &cmd_)
+        : nStages_("", "nStages", "Number of stages for the IncWorst domain",
+                   false, -1, "int", cmd_) {}
+};
+
+}
+
 namespace Domains {
 
 /// The worst case example for an inconsistent heuristics.
@@ -166,28 +188,6 @@ private:
                 return n.cost();
         assert(0);
     }
-};
-
-}
-
-namespace CommandLine {
-
-/// Additions to the command line related to the Pancake puzzle domain.
-struct IncWorst {
-    /// Returns the number of stages.
-    /// \return The number of stages.
-    int nStages() { return nStages_.getValue(); }
-
-private:
-    /// Command line option for the number of pancakes.
-    TCLAP::ValueArg<int> nStages_;
-
-protected:
-    /// Injects this addition to the command line object.
-    /// \param cmd The command-line object.
-    IncWorst(TCLAP::CmdLine &cmd_)
-        : nStages_("", "nStages", "Number of stages for the IncWorst domain",
-                   false, -1, "int", cmd_) {}
 };
 
 }

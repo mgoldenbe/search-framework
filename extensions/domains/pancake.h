@@ -5,6 +5,28 @@
 /// \brief The \ref Pancake class and the related heuristics.
 /// \author Meir Goldenberg
 
+namespace CommandLine {
+
+/// Additions to the command line related to the Pancake puzzle domain.
+struct Pancake {
+    /// Returns the number of pancakes.
+    /// \return The number of pancakes.
+    int nPancakes() { return nPancakes_.getValue(); }
+
+private:
+    /// Command line option for the number of pancakes.
+    TCLAP::ValueArg<int> nPancakes_;
+
+protected:
+    /// Injects this addition to the command line object.
+    /// \param cmd The command-line object.
+    Pancake(TCLAP::CmdLine &cmd_)
+        : nPancakes_("", "nPancakes", "Number of pancakes", false, -1, "int",
+                     cmd_) {}
+};
+
+}
+
 namespace Domains {
 
 /// The pancake puzzle domain.
@@ -18,8 +40,8 @@ struct Pancake: Base {
     using Neighbor = StateNeighbor<Pancake>;
 
     /// Initializes the state with ordered pancakes.
-    template <CMD_TPARAM>
-    Pancake() : pancakes_(CMD.nPancakes()) {
+    //template <CMD_TPARAM>
+    Pancake() : pancakes_(CMD_RAW.nPancakes()) {
         int i = -1;
         for (auto &el: pancakes_) el = ++i;
     }
@@ -126,28 +148,6 @@ struct Pancake: Base {
     }
 private:
     std::vector<int> pancakes_; ///< The underlying state representation.
-};
-
-}
-
-namespace CommandLine {
-
-/// Additions to the command line related to the Pancake puzzle domain.
-struct Pancake {
-    /// Returns the number of pancakes.
-    /// \return The number of pancakes.
-    int nPancakes() { return nPancakes_.getValue(); }
-
-private:
-    /// Command line option for the number of pancakes.
-    TCLAP::ValueArg<int> nPancakes_;
-
-protected:
-    /// Injects this addition to the command line object.
-    /// \param cmd The command-line object.
-    Pancake(TCLAP::CmdLine &cmd_)
-        : nPancakes_("", "nPancakes", "Number of pancakes", false, -1, "int",
-                     cmd_) {}
 };
 
 }
