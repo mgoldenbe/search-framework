@@ -126,9 +126,16 @@ One can view the standard command line options by running the following command 
 This particular configuration file (i.e. `projects/demo/grid.h`) was chosen because it does not define any additional command line options.
 
 ### Using the command line object {#s-singleton}
-The class \ref CommandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref CommandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by calling the \ref CommandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function.
+The class \ref CommandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref CommandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by the user-provided facilities by calling the \ref CommandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function. 
 
-## Producing a single table from several invocations of the framework {#s-single}
+The command line object cannot be accessed from the *core facilities* by using the \ref CMD macro. This is because the classes implementing the user-provided additional command line options are only forward-declared, but not defined, by the time the compiler parses the core facilities. Hence, the core facilities that need access to the command-line object need to make this object available through template parameters. The file \ref instance.h provides a few examples of accessing the command line object from core facilities (look for the functions with the \ref CMD_TPARAM macro in the template parameters list).
+
+## Producing a table of results from several invocations {#s-single}
+When exploring a parameter space by means of a script, it may be convenient to present the results of several invocations of the framework in a single table. The framework supports this by providing several standard command line options and a tool:
+- The `--prefixTitle` option can be used to prepend the title row with a given string. The `--prefixData ` option can be used to prepend all the data rows with a given string. The script can use these options to insert extra columns into the table output by the framework. The purpose of these columns is to identify the parameter settings specific to a particular invocation of the framework. 
+- The script can use the `--hideTitle` switch to append the table of results from the first invocation of the framework by only the data rows from the consequent invocations. Namely, when the `--hideTitle` switch is specified, the title row is not output. 
+- The `align` tool can be used to align the columns of the resulting table. This makes it easy to import the table correctly into a spreadsheet tool. The tool takes a file name containing a table of results as a command line argument and aligns the table in place.
+
 
 ## Algorithms, policies and communication between them {#s-crtp}
 The framework advocates for keeping algorithms as simple as possible without compromising generality. In particular:
@@ -138,43 +145,48 @@ The framework advocates for keeping algorithms as simple as possible without com
 
 In addition, there are cases when different policies of an algorithm need to communicate with each other. The proposed design supports this communication as well. 
 
-Several design solutions support the above requirements, as follows.
+The following subsections describe a design solution that supports the above requirements. For the sake of uniformness, the users are strongly advised to employ this solution for their implementations. 
 
 ### Policy services {#s-services}
-Each algorithm provides *services* for its policies. These services are member functions called *policy services* which the policies can call.
+Each search algorithm provides *services* for its policies. These *policy services* are public member functions of the class implementing the algorithm. Implementations of policy services can be shared between several algorithms by factoring these services out into the abstract base algorithm from which the algorithms in question inherit.
 
 ### Communication through reference to algorithm {#s-communication}
-Specific policy implementations' have a constructor that accept an algorithm reference argument. This way, function members of the policies have an empty parameter list, but can call the services provided by the algorithm. Consequently, policy classes are templates, the algorithm type being the template parameter.
+Each class implementing a policy of a search algorithm has a constructor that accepts an algorithm reference argument and stores this reference for future use. This way, function members of the policies have an empty parameter list, but can call the services provided by the algorithm. Consequently, policy classes are templates, where the template parameter is the class implementing the search algorithm.
 
-This design provides an easy way of communication between policies as well. The algorithm can support this communication by providing a policy services that return references to a policy classes.
+This design provides an easy way of communication between policies as well. The algorithm can support this communication by providing policy services that return references to a policy classes.
 
 ### CRTP to enable initialization of policy classes in the abstract base algorithms {#s-base-crtp}
-Some policies are present in many algorithms. For example, all algorithms have a stopping condition. The functionality related to evaluating the stopping condition and maintaining the relevant data is a natural candidate for a policy. This policy is called *GoalHandler* in the existing algorithm implementations. When we factor out abstract base algorithms, these common policies become policies of the base algorithm. In addition, common implementations of policy services can be factored out into the base algorithm as well.
+Using policy-based design in conjunction with abstract base algorithms as described above presents the following problem. Some policies are present in many algorithms. For example, many algorithms might have a policy for evaluating the stopping condition and maintaining the relevant data. When we factor out abstract base algorithms, these common policies become policies of the base algorithm. However, we would like these policies to have access to all the policy services provided by the actual algorithms. Hence, the template classes implementing these policies need to be instantiated with the concrete algorithm's type, not the base algorithm's one.
 
-The constructor of an abstract base algorithm needs to initialize all its policies. However, the policy constructors need to get as an argument the reference to the actual algorithm, not to the base algorithm. In particular, the policies' template argument needs to be the the actual algorithm's type, not to the base algorithm's one.
+To solve this problem, we use the *Curiously Recurring Template Pattern* (CRTP), whereby the abstract base algorithm has a template parameter specifying the concrete algorithm. Describing this technique is beyond this short document. The reader is referred to the [Wikipedia article](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern) for details. I also used [this](http://stackoverflow.com/a/35436437/2725810) and [this](http://stackoverflow.com/a/5534818/2725810) posts for further clarifications.
 
-To enable this, we use the *Curiously Recurring Template Pattern* (CRTP), whereby the abstract base algorithm has a template parameter specifying the concrete algorithm. Describing this technique is beyond this short document. The reader is referred to [this](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern), [this](http://stackoverflow.com/a/35436437/2725810) and [this](http://stackoverflow.com/a/5534818/2725810) posts for details.
+### Compile-time checks to avoid unneeded branching {#s-branching}
+It is known that branching precludes significant compiler optimizations, so that avoiding unnecessary branching in implementations of search algorithms is an important efficiency concern.
 
-### Compile-time checks to avoid unneeded branching in search algorithms {#s-branching}
-It is known that branching precludes the compiler from performing some significant optimizations, so that avoiding unnecessary branching in the algorithm is an important efficiency concern.
+Let us consider a particular example of such branching. Suppose that, in some variant of A* (and there are such variants), the selected node is not necessarily expanded. Furthermore, suppose that the search algorithm has a policy whose member function is called upon node selection. The regular implementation of this function does not return a value. However, the implementation for the mentioned variant returns a boolean value that indicates whether the selected node should be expanded or not. Depending on the particular policy implementation chosen by the compile-time configuration, the call to the policy's member function does or does not need to be followed by branching in the algorithm. 
 
-Let us consider a particular example of such branching. Suppose that, in some variant of A* (and there are such variants), the selected node is not necessarily expanded. Furthermore, suppose that we have defined a policy whose member function is called upon node selection. The regular implementation of this function does not return a value. However, the implementation for the mentioned variant returns a boolean value that indicates whether the selected node should be expanded or not. Depending on the particular policy implementation chosen by the compile-time configuration, the call to the policy's member function does or does not need to be followed by branching in the algorithm. 
-
-We would like to make sure that no branching occurs in the latter case. The policies must provide information to enable compile-time checks to avoid such unnecessary branching.
+We would like to make sure that no branching occurs in the latter case. Hence, we require that policy implementations provide information to enable compile-time checks to avoid such unnecessary branching.
 
 
-## Algorithmic events {#s-events}
-The central idea making it possible to analyze the behavior of algorithms is that each algorithm can define events with a common interface. The log of such events can be both analyzed in textual mode and visualized. To make sure that no run-time overhead is incurred in production runs, we provide the \ref log function, which uses tag dispatch (which is a compile-time technique) to either do nothing or create and log the event. The reader is encouraged to see how events are logged in the existing code, e.g. in \ref Astar::run.
+## Events {#s-events}
+Each algorithm implementation can define event classes. An event object describes something that happened during the algorithm's execution, such as node selection, node generation etc. The event classes must inherit (possibly indirectly) from \ref Events::Base. This enables storing the events in the log, analyzing the log in the textual mode and visualizing algorithm's execution. See the [video demo](https://youtu.be/QUBkkErdnFM) for some examples of these capabilities. 
 
-Each event defines a visualization effect. It is convenient to derive the events from pre-made bases, which correspond to different kinds of visualization effects. The existing bases are defined in \ref event_types.h and the existing events are defined in \ref events.h.
+To make sure that no logging-related run-time overhead is incurred in production runs, we provide the \ref log function. This function employs *tag dispatch* to choose one of two behaviors *at compile time* based on the compile-time configuration: 
+- Do nothing. 
+- Construct an event based on the function arguments and add that event into the log. 
+Please refer to \ref Astar::run to see how events are logged in the existing code.
 
-## Managed nodes {#s-nodes}
-Managed nodes is another convenience that was achieved through the use of pre-processor. Defining the structure with the data stored by the search node using the `MANAGED` pre-processor symbol, provides reflection capabilities for that structure. In particular, this alleviates the need to define an output operator for that node. In addition, the framework is capable to compare the contents of two managed node and produce a string that summarizes the differences. These reflection capabilities come very handy for the textual log analysis tool. (The use of pre-processor to achieve reflection in `C++` is due to the author of [this](http://stackoverflow.com/a/11744832/2725810) post.)
+<!-- Each event defines a visualization effect. It is convenient to derive the events from pre-made bases, which correspond to different kinds of visualization effects. The existing bases are defined in \ref event_types.h and the existing events are defined in \ref events.h. -->
+
+## Managed search nodes {#s-nodes}
+*Managed search nodes* are yet another convenience that was achieved through the use of macros. A managed search node inherits from \ref ManagedNode and declares its data members using the \ref REFLECTABLE macro. Such managed nodes are endowed with [reflection capabilities](http://stackoverflow.com/a/11744832/2725810), which the framework uses to define universal output operators. Please refer to \ref node_kinds.h for examples of defining managed search nodes. 
+
+<!-- In particular, this alleviates the need to define an output operator for that node. In addition, the framework is capable to compare the contents of two managed node and produce a string that summarizes the differences. These reflection capabilities come very handy for the textual log analysis tool. -->
 
 # Installation {#s-install}
-The installation instructions in this section have been tested on `Ubuntu 16.04`. The framework has not been tested for non-`Linux` environments. 
+The framework is intended to be used with `Linux`. The installation instructions in this section have been tested on a fresh standard installation of `Ubuntu 16.04`.
 
-The following actions are needed to be able to run experiments: 
+The following actions are needed to be able to prepare and run the framework: 
 1. Download and extract the framework. Enter the framework's folder.
 2. Make sure that the `COMPILER` variable in `Makefile` contains the correct path to version 4.9 or newer of `g++` (that's when `g++` began to fully support regular expressions). 
 3. Install `xlib`:
@@ -190,12 +202,14 @@ The following actions are needed to be able to run experiments:
 
 	   sudo apt-get install libncurses5-dev
 
+That's it! Now it's time to check the framework out by running the examples from the [video demo](https://youtu.be/QUBkkErdnFM)!
+
 # Other related software {#s-related}
-The software frameworks written in `C++` most similar in purpose to my framework are [HOG2](https://github.com/nathansttt/hog2) by Nathan Sturtevant and the [Research Code for Heuristic Search](https://github.com/eaburns/search) by Ethan Burns. There is also the [Combinatorial Search for Java](https://github.com/matthatem/cs4j) written by Matthew Hatem in `Java`. All these frameworks aim for both performance and flexibility. In addition, `HOG2` and the `Research Code for Heuristic Search` are capable of producing visualizations, at least for some domains. However, all three frameworks lack proper documentation, so that one has to understand them from the source code. In addition, my framework provides the following features that are, to the best of my knowledge, not part of any existing framework:
-  + Tools for analysis.
-  + Visualization of non-grid domains, including automatic layouts.
-  + Tools for supporting compile-time configuration and scripting.
-  + The idea of gaining understanding through policy-based design is, to the best of my knowledge, also new in my framework.
+The software frameworks written in `C++` most similar in purpose to this framework are [HOG2](https://github.com/nathansttt/hog2) by Nathan Sturtevant and the [Research Code for Heuristic Search](https://github.com/eaburns/search) by Ethan Burns. There is also the [Combinatorial Search for Java](https://github.com/matthatem/cs4j) written by Matthew Hatem in `Java`. All these frameworks aim for both performance and flexibility. In addition, `HOG2` and the `Research Code for Heuristic Search` are capable of producing visualizations, at least for some domains. However, all three frameworks lack proper documentation, so that one has to understand them from the source code. In addition, my framework provides the following features that are, to the best of my knowledge, not part of any existing framework:
+  + Support for analysis of user-provided implementation of search algorithms.
+  + Support for visualization of non-grid domains with either user-supplied or automatic layout.
+  + Support for compile-time configuration and scripting.
+  + The idea of gaining understanding through policy-based design is, to the best of my knowledge, also new in this framework.
 
 Several other projects that are less related to this framework are:
 - [OCaml Search Code](https://github.com/jordanthayer/ocaml-search) by Jordan Thayer. This framework is written in `OCaml` and has not been updated since 2012, when the group switched to `C++` for performance reasons.
@@ -211,8 +225,3 @@ Several other projects that are less related to this framework are:
 
 # Bug reports and future work {#s-future}
 Please send bug reports and feature requests to the author. The updated list of requested features and bug reports can be found in the files `future.org` and `bugs.org` in the framework's root folder.
-
-# Notes to add
-- Conditional compilation should be employed for both compilation efficiency and so the specific command-line options don't need to be defined if the related user-defined facilities aren't used.
-- Forward declarations are used to enable user-defined facilities to be used as default template arguments in the core part of the framework.
-- Additional command line options can be associated with user-defined facilities. Such options should have a forward declaration. Also, functions that read command line options should be templated using the CMD_TPARAM macro. They can then access the command line object using the CMD macro. 
