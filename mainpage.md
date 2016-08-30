@@ -10,7 +10,7 @@ The motivation of this project is to produce a framework to:
     + Using policy-based design (See \ref s-policy).
 - Enable easy production of examples that can be used to teach heuristic search to students.
 
-The framework is written in `C++11` to take advantage of both the expression power and the performance-related characteristics of this language.
+The framework is written in the `C++11` standard of `C++` to take advantage of both the expression power and the performance-related characteristics of this language.
 
 # Foundation principles {#s-principles}
 ## Flexibility vs. efficiency {#s-flexibility-efficiency}
@@ -47,7 +47,7 @@ In the latter case of using compile-time techniques, flexibility is achieved by 
   - The executables are cached. That is, if the current version of the framework's source code with the given compile-time configuration had ever been compiled, the executable from that previous compilation will be quickly retrieved and run. If not, the framework will be compiled and the executable will be saved for future use. The cached executables (named after the `md5` sum of the source code with the unused symbols removed and the compile-time configuration) are stored in the `.execs/` directory.
 
 ## Gaining understanding through policy-based design {#s-policy}
-[Policy-based design](https://en.wikipedia.org/wiki/Policy-based_design) is a notion popularized by Alexandr Alexandrescu in his seminal work [Modern C++ Design](https://en.wikipedia.org/wiki/Modern_C%2B%2B_Design). The following paragraph from the [Wikipedia article](https://en.wikipedia.org/wiki/Policy-based_design) provides a brief description of policy-based design (the italics are mine):
+[Policy-based design](https://en.wikipedia.org/wiki/Policy-based_design) is a notion popularized by Andrei Alexandrescu in his seminal work [Modern C++ Design](https://en.wikipedia.org/wiki/Modern_C%2B%2B_Design). The following paragraph from the [Wikipedia article](https://en.wikipedia.org/wiki/Policy-based_design) provides a brief description of policy-based design (the italics are mine):
 > The central idiom in *policy-based design* is a class template (called the *host class*), taking several type parameters as input, which are instantiated with types selected by the user (called *policy classes*), each implementing a particular implicit interface (called a *policy*), and encapsulating some *orthogonal* (or mostly orthogonal) aspect of the behavior of the instantiated host class. By supplying a host class combined with a set of different, canned implementations for each policy, a library or module can support an *exponential number of different behavior combinations*, resolved at *compile time*, and selected by mixing and matching the different supplied policy classes in the instantiation of the host class template. Additionally, by writing a custom implementation of a given policy, a policy-based library can be used in situations requiring behaviors *unforeseen by the library implementor*. Even in cases where no more than one implementation of each policy will ever be used, decomposing a class into policies can aid the design process, by increasing modularity and *highlighting exactly where orthogonal design decisions have been made*.
 For example, suppose that we use policy-based design to implement the *A\** search algorithm. The class implementing the algorithm becomes the *host class*. Now, we need to identify orthogonal behaviors that distinguish the various variants of the algorithm. Each such behavior becomes a *policy*. Each way to implement a policy becomes a *policy class*. For one example, we might have a policy for dealing with inconsistency and implement two policy classes: the `do_nothing` policy and the `bidirectional_pathmax (BPMX)` policy.
 
@@ -203,6 +203,7 @@ The following actions are needed to be able to prepare and run the framework:
 	   sudo apt-get install libncurses5-dev
 
 That's it! Now it's time to check the framework out by running the examples from the [video demo](https://youtu.be/QUBkkErdnFM)!
+\note Currently keyboard events are caught only when the graphical window is active.
 
 # Other related software {#s-related}
 The software frameworks written in `C++` most similar in purpose to this framework are [HOG2](https://github.com/nathansttt/hog2) by Nathan Sturtevant and the [Research Code for Heuristic Search](https://github.com/eaburns/search) by Ethan Burns. There is also the [Combinatorial Search for Java](https://github.com/matthatem/cs4j) written by Matthew Hatem in `Java`. All these frameworks aim for both performance and flexibility. In addition, `HOG2` and the `Research Code for Heuristic Search` are capable of producing visualizations, at least for some domains. However, all three frameworks lack proper documentation, so that one has to understand them from the source code. In addition, my framework provides the following features that are, to the best of my knowledge, not part of any existing framework:
