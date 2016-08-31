@@ -67,19 +67,17 @@ struct Pancake: Base {
     /// \param pos The position up to (and including) which the pancakes are to
     /// be reversed.
     /// \return Pointer to the state after the move.
-    Pancake *move(int pos) {
+    Pancake move(int pos) {
         std::reverse(pancakes_.begin(), pancakes_.begin() + pos + 1);
-        return this;
+        return *this;
     }
 
     /// Computes the neighbors of the state.
     /// \return Vector of neighbors of the state.
     std::vector<Neighbor> successors() const {
         std::vector<Neighbor> res;
-        for (auto i = 1U; i != pancakes_.size(); ++i) {
-            Neighbor cur((new Pancake(*this)) -> move(i));
-            res.push_back(std::move(cur));
-        }
+        for (auto i = 1U; i != pancakes_.size(); ++i)
+            res.push_back(Pancake(*this).move(i));
         return res;
     }
 

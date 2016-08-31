@@ -78,12 +78,12 @@ struct IncWorst: Base {
         int nn = (n_ != 0 ? n_ - 1 : k_); // the neighbor stage
         switch (row_) {
         case bottom:
-            res.push_back({new IncWorst{k_, top, n_}, 1 << n_});
-            if (n_ < k_) res.push_back({new IncWorst{k_, bottom, nn}, 0});
+            res.push_back({IncWorst{k_, top, n_}, 1 << n_});
+            if (n_ < k_) res.push_back({IncWorst{k_, bottom, nn}, 0});
             break;
         case top:
             if (n_ < k_)
-                res.push_back({new IncWorst{k_, bottom, nn}, -(1 << (n_ + 1))});
+                res.push_back({IncWorst{k_, bottom, nn}, -(1 << (n_ + 1))});
         }
         return res;
     }
@@ -182,7 +182,7 @@ private:
     /// \return The cost from \c from to \c to.
     int cost(const IncWorst &from, const IncWorst &to) const {
         for (auto &n: from.successors())
-            if (*(n.state()) == to)
+            if (n.state() == to)
                 return n.cost();
         assert(0);
     }

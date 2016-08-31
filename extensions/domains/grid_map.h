@@ -203,7 +203,7 @@ private:
                      bool diagonalFlag = false) const {
         CostType cost = diagonalFlag ? static_cast<CostType>(SLB_COST_DIAGONAL)
             : static_cast<CostType>(1.0);
-        res.push_back(Neighbor((new typename Neighbor::State(n)), cost));
+        res.push_back(Neighbor((typename Neighbor::State{n}), cost));
     }
 };
 

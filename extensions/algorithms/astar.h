@@ -77,12 +77,12 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     StateGraph<State> graph() const {
         StateGraph<State> res;
         for (const auto &el: oc_.hash()) {
-            auto &from = (el.second)->shareState();
+            auto from = make_deref_shared<const State>(el.second->state());
             res.add(from);
             for (auto &n : from->successors()) {
                 // `add` cares for duplicates
-                auto myNeighbor = unique2derefshared(n.state());
-                res.add(from, myNeighbor, n.cost());
+                res.add(from, make_deref_shared<const State>(n.state()),
+                        n.cost());
             }
         }
         return res;
@@ -148,10 +148,10 @@ private:
     /// Handles the generated child.
     /// \param child The selected child.
     /// \param cost The cost of the action that led to the child.
-    void handleChild(std::unique_ptr<const State> &child, CostType cost) {
+    void handleChild(const State &child, CostType cost) {
         CostType myG = cur_->g + cost;
         ++generated_;
-        auto childNode = oc_.getNode(*child);
+        auto childNode = oc_.getNode(child);
         if (childNode) {
             if (myG < childNode->g) {
                 // only consistent case for now

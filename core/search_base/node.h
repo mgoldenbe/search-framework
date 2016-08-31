@@ -7,22 +7,18 @@
 
 #include "managed_node.h"
 
-/// The search node type.
+/// The search node type. Inherits the data structure to make data (e.g. g- and
+/// f-value) easy to access.
 /// \tparam State_ The state type, represents the domain.
 /// \tparam NodeData_ The structure storing the data kept by the node.
-/// \tparam StateSmartPtrT The type for smart pointer to const state.
 /// \tparam BucketPosition Type used for storing the node's position in the open
 /// list (when applicable).
 template <class State_ = Domains::SLB_STATE,
           class NodeData_ = Node::SLB_NODE_DATA,
-          template <class> class StateSmartPtrT = SLB_STATE_SMART_PTR,
           typename BucketPosition = SLB_BUCKET_POSITION_TYPE>
 struct SearchNode : public NodeData_ {
     /// The state type, represents the domain.
     using State = State_;
-
-    /// The type for smart pointer to const state.
-    using StateSmartPtr = StateSmartPtrT<const State>;
 
     /// The structure storing the data kept by the node.
     using NodeData = NodeData_;
@@ -35,15 +31,15 @@ struct SearchNode : public NodeData_ {
 
     /// Initializes the node based on state.
     /// \param s The state.
-    SearchNode(const State &s) : state_(new State(s)) {}
+    SearchNode(const State &s) : state_(s) {}
 
-    /// Initializes the node based on unique pointer to state.
-    /// \param s Unique pointer to the state.
-    SearchNode(std::unique_ptr<const State> &s) : state_(std::move(s)) {}
+    /// Initializes the node based on state that is a right-value.
+    /// \param s The state.
+    SearchNode(State &&s) : state_(s) {}
 
     /// Returns const reference to the state to which the node corresponds.
     /// \return Const reference to the state to which the node corresponds.
-    const State &state() const { return *state_; }
+    const State &state() const { return state_; }
 
     /// Returns pointer to the parent node (the latter is const).
     /// \return Pointer to the parent node (the latter is const).
@@ -53,21 +49,7 @@ struct SearchNode : public NodeData_ {
     /// \param rhs The node being compared to.
     /// \return \c true if the states corresponding to the nodes compare equal.
     bool operator==(const MyType &rhs) const {
-        return *(this->state()) == *(rhs.state());
-    }
-
-    /// Returns the state to which the node corresponds as a shared pointer.
-    /// \return The state to which the node corresponds as a shared pointer.
-    const StateSmartPtr &shareState() const { return state_; }
-
-    /// Returns the state to which the parent node corresponds as a shared
-    /// pointer.
-    /// \return The state to which the parent node corresponds as a shared
-    /// pointer. If there is no parent node, \c nullptr is returned.
-    const StateSmartPtr &shareParentState() const {
-        static StateSmartPtr nullResult = StateSmartPtr(nullptr);
-        if (!parent_) return nullResult;
-        return parent_->state_;
+        return state_ == rhs.state_;
     }
 
     /// Computes the path by which the state to which the node corresponds was
@@ -95,8 +77,8 @@ struct SearchNode : public NodeData_ {
     /// \param o The output stream.
     template<typename Stream>
     Stream& dump(Stream& o) const {
-        o << *state_;
-        if (parent) o << *(parent->state);
+        o << state_;
+        if (parent) o << (parent->state);
         o << (NodeData)*this;
         return o;
     }
@@ -110,7 +92,7 @@ struct SearchNode : public NodeData_ {
     void setBucketPosition(BucketPosition l) { bucketPosition_ = l; }
 
 private:
-    StateSmartPtr state_; ///< The state corresponding to the node.
+    State state_; ///< The state corresponding to the node.
     MyType *parent_ = nullptr; ///< The parent node.
 
     /// The position of the node in the open list (when applicable).

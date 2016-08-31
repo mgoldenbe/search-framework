@@ -130,8 +130,8 @@ void rawLog(Log &, const Node *, const Node *, std::false_type) {}
 template <template <class> class Event, class Log, class Node>
 void rawLog(Log &log, const Node *n, const Node *parentSubstitution,
             std::true_type) {
-    log.log(n->shareState(),
-               std::make_shared<Event<Node>>(log, n, parentSubstitution));
+    log.log(make_deref_shared<const typename Node::State>(n->state()),
+            std::make_shared<Event<Node>>(log, n, parentSubstitution));
 }
 
 /// The function that all algorithms use for logging an event. The function uses

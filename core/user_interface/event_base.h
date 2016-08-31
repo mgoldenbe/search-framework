@@ -77,10 +77,10 @@ template <class Node = SLB_NODE> struct Base {
     /// is useful.
     Base(const AlgorithmLog<Node> &log, const Node *n,
          const Node *parentSubstitution = nullptr)
-        : log_(log), state_(n->shareState()),
-          parent_(n->shareParentState()),
+        : log_(log), state_(stateFromNode(n)),
+          parent_(n->parent() ? stateFromNode(n->parent()) : nullptr),
           parentSubstitution_(
-              parentSubstitution ? parentSubstitution->shareState() : nullptr),
+              parentSubstitution ? stateFromNode(parentSubstitution) : nullptr),
           nodeData_(*n), step_(log.size()),
           previousEvent_(log.getLastEvent(state_, false)) {}
 
@@ -209,6 +209,11 @@ protected:
 
     /// The latest among the past events for the state.
     Event previousEvent_;
+
+private:
+    StateSharedPtr stateFromNode(const Node *n) {
+        return make_deref_shared<const State>(n->state());
+    }
 };
 
 }
