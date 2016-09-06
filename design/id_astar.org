@@ -1,16 +1,31 @@
 This document is to design the changes needed to implement IDA*.
 
-* Successor generation
-- Note that StateNeighbor has the same basic structure that we need to store moves, only the names are different.
-- So, make a Neighbor base class with neutral names and derive from it StateNeighbor and MoveNeighbor.
-- State will declare MoveNeighbor, /moves()/, /applyMove()/, /undoMove()/.
-- In domains that can be used for both /A*/ and /IDA*/, /successors()/ can be implemented in terms of /move()/ and /applyMove()/.
 * Logging
-- We will keep all the needed things (state, g etc.) in a node (one node will be used throughout the search) and update that node in place. We will pass a pointer to this node to /log()/.
-* Domains the do not have a /undoMove()/ function
-- We define a MoveLock class that:
-  + Stores a /unique_ptr/ to State (pointer to avoid initialization in case /State::undoMove()/ is declared.
-  + Has type traits to determine whether /State::undoMove()/ is declared.
-  + The constructor calls /State::applyMove(Node *, Move *)/. If /State::undoMove()/ is not declared, a copy of the current state is saved (a moving copy can be performed here).
-  + The destructor calls /State::undoMove()/ if declared. Otherwise, it restores the state from the stored copy. A moving copy can be performed here.
-- Note how the /MoveLock/ class is useful even without the issue of undefined /State::undoMove()/: it implements a RAII mechanism, so we cannot forget to undo the move!
+- For now, we take the approach of making least changes. Hence, we will try to still be based on passing a node to /log()/.
+- IDA* needs to keep all the needed things (state, g etc.) in a node, which we will call the /main node/:
+  + How that the main node is updated between levels is the topic of a separate item.
+  + It is possible that logging will be available only with a version of IDA* that makes a copy of the main node, so that the parent can be retrieved. Alternatively, we might change the constructor of Events::Base to accept pointer to state instead of pointer to node. Some exploration is needed to fix this point of design.
+* The Neighbor policy.
+- In IDA*, successors are frequently moves. This enables backtracking by applying the inverse move.
+- However, successors based on moves can be useful both in A* and in IDA* for another reason — to compute heuristic dynamically.
+- Note also that the heuristic function is usually computed only in the context of generation.
+- Hence, instead of having the Heuristic policy in the algorithm, we will have the Neighbor policy.
+- Neighbor is templated on State and Heuristic.
+- Neighbor keeps a const reference to the parent state.
+- Neighbor provides:
+  + A static /successors()/ function that returns a /vector<Neighbor>/.
+  + /state()/
+  + /heuristic()/. Depending on the kind of neighbor, it passes to heuristic either the child state or the parent state, the heuristic value at the parent and the move. The heuristic value of the parent is retrieved by using a policy service. 
+* The Backtracking policy
+This policy is specific to IDA* and determines the class that handles going a level deeper and backtracking. All the variability relating to the existence of inverse move are handled inside the policy. The constructor accepts reference to the main node and to the neighbor (both are kept).
+** No inverse move
+- The constructor:
+  + Keeps a copy of the main node as member
+  + Moves the state from the neighbor to the main node.
+  + Sets the parent of the main node to the kept copy.
+- The destructor swaps the main node and the kept node.
+** Inverse move:
+- The constructor:
+  + Applies the move.
+- The destructor:
+  + Applies the reverse move.
