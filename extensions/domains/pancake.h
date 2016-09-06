@@ -39,8 +39,8 @@ struct Pancake: Base {
     /// must provide this name.
     using Neighbor = StateNeighbor<Pancake>;
 
-    /// The type for representing a move. An action is the position up to (and
-    /// including) which the pancakes are to be reversed.
+    /// The type for representing an action. An action is the position up to
+    /// (and including) which the pancakes are to be reversed.
     using Action = int;
 
     /// Initializes the state with ordered pancakes.
@@ -89,8 +89,8 @@ struct Pancake: Base {
     /// \return Vector of neighbors of the state.
     std::vector<Neighbor> successors() const {
         std::vector<Neighbor> res;
-        for (auto i = 1U; i != pancakes_.size(); ++i)
-            res.push_back(Pancake(*this).move(i));
+        for (auto a: actions())
+            res.push_back(this->apply(a));
         return res;
     }
 
