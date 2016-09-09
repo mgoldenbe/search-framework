@@ -86,8 +86,8 @@ struct Pancake: Base {
 
     /// Computes the state neighbors of the state.
     /// \return Vector of state neighbors of the state.
-    std::vector<SNeighbor> stateSuccessors() const {
-        std::vector<SNeighbor> res;
+    std::vector<const SNeighbor> stateSuccessors() const {
+        std::vector<const SNeighbor> res;
         for (auto a: actions())
             res.push_back(this->apply(a));
         return res;
@@ -95,9 +95,9 @@ struct Pancake: Base {
 
     /// Computes the action neighbors of the state.
     /// \return Vector of action neighbors of the state.
-    std::vector<ANeighbor> actionSuccessors() const {
-        std::vector<ANeighbor> res;
-        for (auto a : actions()) res.push_back(a);
+    std::vector<const ANeighbor> actionSuccessors() const {
+        std::vector<const ANeighbor> res;
+        for (auto a : actions()) res.push_back(std::move(a));
         return res;
     }
 

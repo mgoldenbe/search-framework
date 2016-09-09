@@ -50,13 +50,14 @@ template <typename State_> struct Cost<State_, true> {
 template <typename State_, bool uniformFlag = true>
 struct StateNeighbor: Cost<State_, uniformFlag>  {
     using State = State_; ///< The state type, represents the domain.
+    using MyCost = Cost<State_, uniformFlag>;
     using CostType = typename State::CostType; ///< Action cost type.
 
     /// Initializes the neighbor based on the neighbor state and cost
     /// of the action that leads to that state.
     /// \param s The neighbor state, which must be a right value.
     /// \param c Cost of the action that leads to \c s.
-    StateNeighbor(State &&s, CostType c = CostType{1}) : Cost(c), s_{s} {}
+    StateNeighbor(State &&s, CostType c = CostType{1}) : MyCost(c), s_{s} {}
 
     /// Returns the neighbor state.
     /// \return Reference to the neighbor state.
@@ -74,14 +75,15 @@ private:
 template <typename State_, bool uniformFlag = true>
 struct ActionNeighbor: Cost<State_, uniformFlag>  {
     using State = State_; ///< The state type, represents the domain.
-    using Action = State::Action; ///< Action type.
+    using MyCost = Cost<State_, uniformFlag>;
+    using Action = typename State::Action; ///< Action type.
     using CostType = typename State::CostType; ///< Action cost type.
 
     /// Initializes the neighbor based on the neighbor state and cost
     /// of the action that leads to that state.
     /// \param a The action, which must be a right value.
     /// \param c Cost of the action that leads to \c s.
-    StateNeighbor(Action &&a, CostType c = CostType{1}) : Cost(c), a_{a} {}
+    ActionNeighbor(Action &&a, CostType c = CostType{1}) : MyCost(c), a_{a} {}
     /// Returns the action.
     /// \return Const reference to the action.
     const Action &action() { return a_; }
@@ -90,5 +92,4 @@ private:
     Action a_; ///< The action.
 };
 
-}
 #endif
