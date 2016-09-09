@@ -15,7 +15,7 @@ template <class MyAlgorithm>
 struct ZeroHeuristic {
     POLICY_TYPES
 
-    /// Initializes the heuristic based on a problem instance.
+    /// The constructor.
     ZeroHeuristic(MyAlgorithm &) {}
 
     /// Computes the heuristic.
@@ -31,7 +31,7 @@ template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC>
 struct SimpleHeuristicToGoal {
     POLICY_TYPES
 
-    /// Initializes the heuristic based on a problem instance.
+    /// The constructor.
     SimpleHeuristicToGoal(MyAlgorithm &alg)
         : alg_(alg), goal_(alg.instance().goal()) {}
 
@@ -66,7 +66,7 @@ template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC,
 struct MinHeuristicToGoals {
     POLICY_TYPES
 
-    /// Initializes the heuristic based on a problem instance.
+    /// The constructor.
     /// \param alg Reference to the search algorithm.
     MinHeuristicToGoals(MyAlgorithm &alg) : alg_(alg) {}
 

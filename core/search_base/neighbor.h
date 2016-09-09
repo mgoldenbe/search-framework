@@ -5,68 +5,90 @@
 /// \brief The types for a single neighbor of a given state.
 /// \author Meir Goldenberg
 
-/// The type for a single neighbor of a given state. For maximal performance, a
-/// specialization for the case of domain with uniform-cost actions is defined
-/// separately.
+/// The type for storing the cost of a neighbor.
 /// \tparam State The state type, represents the domain.
 /// \tparam uniformFlag Determines whether the domain is a uniform cost one or
 /// not.
-template <typename State_, bool uniformFlag = true> struct StateNeighbor {
+template <typename State_, bool uniformFlag = true> struct Cost {
     using State = State_; ///< The state type, represents the domain.
+    using CostType = typename State::CostType; ///< Action cost type.
 
-    /// The type representing the cost of actions in the domain.
-    using CostType = typename State::CostType;
+    /// Constructor.
+    /// \param c The cost.
+    Cost(CostType c): cost_(c) {}
+
+    /// Returns cost of the action that leads to the neighbor state.
+    /// \return Cost of the action that leads to the neighbor state.
+    CostType cost() const { return cost_; }
+private:
+    CostType cost_; ///< Action cost.
+};
+
+/// Specialization of the type for storing the cost of a neighbor for uniform
+/// domains.
+/// \tparam State The state type, represents the domain.
+/// \tparam uniformFlag Determines whether the domain is a uniform cost one or
+/// not.
+template <typename State_> struct Cost<State_, true> {
+    using State = State_; ///< The state type, represents the domain.
+    using CostType = typename State::CostType; ///< Action cost type.
+
+    /// Constructor.
+    Cost(CostType) {}
+
+    /// Returns cost of the action that leads to the neighbor state.
+    /// \return Cost of the action that leads to the neighbor state.
+    constexpr CostType cost() const { return CostType{1}; }
+};
+
+
+
+/// The type for a state neighbor of a given state.
+/// \tparam State The state type, represents the domain.
+/// \tparam uniformFlag Determines whether the domain is a uniform cost one or
+/// not.
+template <typename State_, bool uniformFlag = true>
+struct StateNeighbor: Cost<State_, uniformFlag>  {
+    using State = State_; ///< The state type, represents the domain.
+    using CostType = typename State::CostType; ///< Action cost type.
 
     /// Initializes the neighbor based on the neighbor state and cost
     /// of the action that leads to that state.
     /// \param s The neighbor state, which must be a right value.
     /// \param c Cost of the action that leads to \c s.
-    StateNeighbor(State &&s, CostType c) : scPair_(s, c) {}
+    StateNeighbor(State &&s, CostType c = CostType{1}) : Cost(c), s_{s} {}
 
     /// Returns the neighbor state.
     /// \return Reference to the neighbor state.
     /// \note This reference must be non-const to allow moving the neighbor
-    State &state() { return scPair_.first; }
-
-    /// Returns cost of the action that leads to the neighbor state.
-    /// \return Cost of the action that leads to the neighbor state.
-    CostType cost() const { return scPair_.second; }
+    State &state() { return s_; }
 
 private:
-    /// The state-cost pair representing the neighbor.
-    std::pair<State, CostType> scPair_;
+    State s_; ///< The neighbor state.
 };
 
-/// The type for a single neighbor of a given state of a domain with
-/// uniform-cost actions.
+/// The type for an action neighbor of a given state.
 /// \tparam State The state type, represents the domain.
-template <typename State_> struct StateNeighbor<State_, true> {
+/// \tparam uniformFlag Determines whether the domain is a uniform cost one or
+/// not.
+template <typename State_, bool uniformFlag = true>
+struct ActionNeighbor: Cost<State_, uniformFlag>  {
     using State = State_; ///< The state type, represents the domain.
-
-    /// The type representing the cost of actions in the domain.
-    using CostType = typename State::CostType;
+    using Action = State::Action; ///< Action type.
+    using CostType = typename State::CostType; ///< Action cost type.
 
     /// Initializes the neighbor based on the neighbor state and cost
     /// of the action that leads to that state.
-    /// \param s The neighbor state, must right value.
-    /// \note The cost parameter is not used in this uniform case, but is
-    /// present for uniformness of the interface.
-    StateNeighbor(State &&s, CostType = CostType{1}) : state_(s) {}
-
-    /// Returns the neighbor state.
-    /// \return Reference to the neighbor state.
-    /// \note This reference must be non-const to allow moving the neighbor
-    /// state into a search node.
-    State &state() { return state_; }
-
-    /// Returns cost of the action that leads to the neighbor state, one in this
-    /// case.
-    /// \return Cost of the action that leads to the neighbor state, one in this
-    /// case.
-    CostType cost() const { return 1; }
+    /// \param a The action, which must be a right value.
+    /// \param c Cost of the action that leads to \c s.
+    StateNeighbor(Action &&a, CostType c = CostType{1}) : Cost(c), a_{a} {}
+    /// Returns the action.
+    /// \return Const reference to the action.
+    const Action &action() { return a_; }
 
 private:
-    State state_; ///< The neighbor state.
+    Action a_; ///< The action.
 };
 
+}
 #endif

@@ -8,16 +8,10 @@
 #include <sstream>
 #include <iomanip>
 
-template <typename T>
-struct A;
-struct B;
-
-template <typename T>
-using TT = A<B>;
-
-template <typename T>
-struct A {};
+#define BB AA
+#define AA 1
 
 int main() {
+    std::cout << BB << std::endl;
     return 0;
 }

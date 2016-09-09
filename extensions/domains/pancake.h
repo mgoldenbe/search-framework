@@ -35,9 +35,8 @@ struct Pancake: Base {
     /// must provide this name.
     using CostType = int;
 
-    /// The type for representing a single neighbor state. Every domain
-    /// must provide this name.
-    using Neighbor = StateNeighbor<Pancake>;
+    using SNeighbor = StateNeighbor<Pancake>; ///< State neighbor type.
+    using ANeighbor = ActionNeighbor<Pancake>; ///< Action neighbor type.
 
     /// The type for representing an action. An action is the position up to
     /// (and including) which the pancakes are to be reversed.
@@ -85,12 +84,20 @@ struct Pancake: Base {
         return res;
     }
 
-    /// Computes the neighbors of the state.
-    /// \return Vector of neighbors of the state.
-    std::vector<Neighbor> successors() const {
-        std::vector<Neighbor> res;
+    /// Computes the state neighbors of the state.
+    /// \return Vector of state neighbors of the state.
+    std::vector<SNeighbor> stateSuccessors() const {
+        std::vector<SNeighbor> res;
         for (auto a: actions())
             res.push_back(this->apply(a));
+        return res;
+    }
+
+    /// Computes the action neighbors of the state.
+    /// \return Vector of action neighbors of the state.
+    std::vector<ANeighbor> actionSuccessors() const {
+        std::vector<ANeighbor> res;
+        for (auto a : actions()) res.push_back(a);
         return res;
     }
 

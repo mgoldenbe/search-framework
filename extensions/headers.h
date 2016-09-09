@@ -11,6 +11,7 @@
 #include "events/headers.h"
 #include "shared_policies/headers.h"
 #include "heuristics/headers.h"
+#include "generators/headers.h"
 #include "algorithms/headers.h"
 #include "instance_measures/instance_measures.h"
 
