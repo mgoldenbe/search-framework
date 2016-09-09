@@ -42,7 +42,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     /// Initializes the algorithm based on the problem instance.
     /// \param instance The problem instance.
     Astar(const MyInstance &instance)
-        : Base(instance), oc_(*this), cur_(nullptr), children_() {}
+        : Base(instance), oc_(*this), cur_(nullptr), neighbors_() {}
 
     /// Runs the algorithm.
     /// \return The solution cost, which is the average of solution costs among
@@ -50,7 +50,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     ReturnType run() {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
-        startNode->set(0, heuristic_(startNode.get()), this->stamp());
+        startNode->set(0, heuristic_(start_), this->stamp());
         log<Events::MarkedStart>(log_, startNode.get());
         goalHandler_.logInit();
         oc_.add(startNode);
@@ -103,7 +103,7 @@ private:
     Node *cur_; ///< The currently selected node.
 
     /// The children of the currently selected node.
-    std::vector<Neighbor> children_;
+    std::vector<Neighbor> neighbors_;
 
     // Stats
     Measure denied_{"Denied"}; ///< The number of denied expansions.
@@ -138,25 +138,24 @@ private:
             return;
         }
         ++expanded_;
-        children_ = (cur_->state()).successors();
-        for (auto &child : children_) {
-            handleChild(child.state(), child.cost());
-        }
+        neighbors_ = generator_.successors();
+        for (auto &n : neighbors_)
+            handleNeighbor(n);
         log<Events::Closed>(log_, cur_);
     }
 
-    /// Handles the generated child.
-    /// \param child The selected child.
+    /// Handles the current neighbor.
+    /// \param n The selected child.
     /// \param cost The cost of the action that led to the child.
-    void handleChild(const State &child, CostType cost) {
+    void handleNeighbor(const Neighbor &n) {
+        auto childState = generator_.state(n);
         CostType myG = cur_->g + cost;
         ++generated_;
-        auto childNode = oc_.getNode(child);
+        auto childNode = oc_.getNode(childState);
         if (childNode) {
             if (myG < childNode->g) {
                 // only consistent case for now
                 // assert(childNode->bucketPosition() >= 0);
-
                 log<Events::NotParent>(log_, childNode);
                 auto oldPriority = oc_.priority(childNode);
                 childNode->updateG(myG);
@@ -172,8 +171,9 @@ private:
 
             return;
         }
-        NodeUniquePtr newNode(new Node(child));
-        newNode->set(myG, heuristic_(newNode.get()), this->stamp());
+        NodeUniquePtr newNode(new Node(childState));
+        newNode->set(myG, generator_.heuristic(n, newNode.get()),
+                     this->stamp());
         newNode->setParent(cur_);
         log<Events::Generated>(log_, newNode.get());
         log<Events::EnteredOpen>(log_, newNode.get());

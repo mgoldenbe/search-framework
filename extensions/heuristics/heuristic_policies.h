@@ -1,5 +1,5 @@
-#ifndef HEURISTIC_WRAPPERS_H
-#define HEURISTIC_WRAPPERS_H
+#ifndef HEURISTIC_POLICIES_H
+#define HEURISTIC_POLICIES_H
 
 /// \file
 /// \brief Wrappers around heuristics to be used by the search algorithms.
@@ -19,9 +19,9 @@ struct ZeroHeuristic {
     ZeroHeuristic(MyAlgorithm &) {}
 
     /// Computes the heuristic.
-    /// \param n The node for which the heuristic is to be computed.
+    /// \param s The state for which the heuristic is to be computed.
     /// \return The heuristic value. In this case, zero.
-    CostType operator()(Node *n) const {(void)n; return CostType(0);}
+    CostType operator()(const State &s, Node *) const { return CostType(0); }
 };
 
 /// A simple wrapper around a single heuristic to single goal.
@@ -36,13 +36,23 @@ struct SimpleHeuristicToGoal {
         : alg_(alg), goal_(alg.instance().goal()) {}
 
     /// Computes the heuristic.
-    /// \param n The node for which the heuristic is to be computed.
+    /// \param s The state for which the heuristic is to be computed.
     /// \return The heuristic value.
-    CostType operator()(Node *n) const {
-        auto &s = n->state();
+    CostType operator()(const State &s, Node *) const {
         return heuristic_(s, goal_);
     }
 
+    /// Computes the dynamic heuristic.
+    /// \param s The parent state.
+    /// \param h The heuristic at \c s.
+    /// \param a The action.
+    /// \param c The cost of action.
+    /// \param g The goal state.
+    /// \return The heuristic value.
+    int operator()(const State &s, int h, State::Action a,
+                   State::CostType c, Node *) const {
+        return heuristic_(s, h, a, c, goal_);
+    }
 private:
     MyAlgorithm &alg_;
     State goal_; ///< The goal state.
@@ -71,10 +81,10 @@ struct MinHeuristicToGoals {
     MinHeuristicToGoals(MyAlgorithm &alg) : alg_(alg) {}
 
     /// Computes the heuristic.
+    /// \param s The state for which the heuristic is to be computed.
     /// \param n The node for which the heuristic is to be computed.
     /// \return The heuristic value.
-    CostType operator()(Node *n) const {
-        auto &s = n->state();
+    CostType operator()(const State &s, Node *n) const {
         auto &goals = alg_.goalHandler().activeGoals();
         assert(goals.size() > 0);
         int responsible = goals[0].second;

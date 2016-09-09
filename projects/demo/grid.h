@@ -1,0 +1,13 @@
+#ifndef SLB_CONFIG_GRID_H
+#define SLB_CONFIG_GRID_H
+
+#include "common.h"
+
+#define SLB_DOMAINS_GRID_MAP
+#define SLB_STATE GridMapState<>
+#define SLB_COST_TYPE double
+#define SLB_UNIFORM_DOMAIN false
+#define SLB_COST_DIAGONAL 1.5
+#define SLB_BASE_HEURISTIC Domains::OctileHeuristic
+
+#endif

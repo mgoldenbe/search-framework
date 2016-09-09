@@ -5,6 +5,6 @@
 /// \brief Implementation of heuristics.
 /// \author Meir Goldenberg
 
-#include "heuristic_wrappers.h"
+#include "heuristic_policies.h"
 
 #endif

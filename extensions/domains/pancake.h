@@ -215,7 +215,9 @@ struct GapHeuristic {
     /// \param s The state from which the heuristic value is needed.
     /// \return The gap heuristic from \c s to the goal state with ordered
     /// pancakes.
-    int operator()(const Pancake &s) const {
+    /// \note The last parameter is for reasons of uniformity, so the caller can
+    /// pass the goal state.
+    int operator()(const Pancake &s, const Pancake &) const {
         return s.gapHeuristic();
     }
 };
@@ -230,7 +232,10 @@ struct DynamicGapHeuristic {
     /// \param a The action.
     /// \return The gap heuristic to the goal state with ordered
     /// pancakes. that results from applying \c a to \c s.
-    int operator()(const Pancake &s, int h, Pancake::Action a) const {
+    /// \note The last two parameters are for reasons of uniformity, so the caller can
+    /// pass the action cost and the goal state.
+    int operator()(const Pancake &s, int h, Pancake::Action a,
+                   Pancake::CostType, const Pancake &) const {
         return h + s.gapDelta(a);
     }
 };
