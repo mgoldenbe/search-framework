@@ -22,12 +22,12 @@
 #define ALG_TPARAMS_NO_DEFAULTS                                                \
     bool logFlag, class Node_, template <class>                                \
                                class GoalHandler_, template <class>            \
-                                                   class Heuristic_,           \
+                                                   class InitialHeuristic_,    \
         template <class>                                                       \
         class Generator_
 
 /// Template arguments to be used for inheriting from \ref Algorithm.
-#define ALG_TARGS logFlag, Node_, GoalHandler_, Heuristic_, Generator_
+#define ALG_TARGS logFlag, Node_, GoalHandler_, InitialHeuristic_, Generator_
 
 /// Type aliases to be defined by all search algorithms. See the documentation
 /// for these aliases inside the \ref Algorithm class.
@@ -40,7 +40,6 @@
     using NodeUniquePtr = typename Traits::NodeUniquePtr;                      \
     using State = typename Traits::State;                                      \
     using MyInstance = typename Traits::MyInstance;                            \
-    using Neighbor = typename Traits::Neighbor;                                \
     using MyAlgorithmLog = typename Traits::MyAlgorithmLog;
 
 /// Data members of \ref Algorithm to be used by all search algorithms.
@@ -50,7 +49,7 @@
     using Base::instance_;                                                     \
     using Base::start_;                                                        \
     using Base::goalHandler_;                                                  \
-    using Base::heuristic_;                                                    \
+    using Base::initialHeuristic_;                                                    \
     using Base::generator_;                                                    \
     using Base::expanded_;                                                     \
     using Base::generated_;                                                    \
@@ -97,10 +96,18 @@ struct BaseTraits {
 template <class Concrete, ALG_TPARAMS>
 struct Algorithm {
     BASE_TRAITS_TYPES
+
+    // The following types cannot be part of BASE_TRAITS_TYPES, since they are
+    // dependent on Concrete.
+
+    /// The goal handler policy type.
     using GoalHandler = GoalHandler_<Concrete>;
-    using Heuristic = Heuristic_<Concrete>;
+
+    /// The initial heuristic policy type.
+    using InitialHeuristic = InitialHeuristic_<Concrete>;
+
+    /// The generator policy type.
     using Generator = Generator_<Concrete>;
-    using Neighbor = Generator::Neighbor;
 
     /// Returns the statistics about the search algorithm's
     /// performance for solving the particular instance.
@@ -120,7 +127,7 @@ struct Algorithm {
 
     MyInstance &instance() { return instance_; }
     GoalHandler &goalHandler() { return goalHandler_; }
-    Heuristic &heuristic() { return heuristic_; }
+    InitialHeuristic &initalHeuristic() { return initialHeuristic_; }
 
     /// Returns the current time stamp of the search algorithm.
     /// The number of generated nodes is currently used as the stamp.
@@ -138,7 +145,7 @@ protected:
     Algorithm(const MyInstance &instance)
         : instance_(instance), start_(instance_.start()),
           goalHandler_(static_cast<Concrete &>(*this)),
-          heuristic_(static_cast<Concrete &>(*this)),
+          initialHeuristic_(static_cast<Concrete &>(*this)),
           generator_(static_cast<Concrete &>(*this)) {}
 
     MyInstance instance_; ///< The problem instance.
@@ -153,7 +160,7 @@ protected:
     GoalHandler goalHandler_;
 
     /// The initial heuristic used by the search algorithm.
-    Heuristic heuristic_;
+    InitialHeuristic initialHeuristic_;
 
     /// The generator used by the search algorithm.
     Generator generator_;

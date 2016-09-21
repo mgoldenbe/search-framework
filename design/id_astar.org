@@ -29,3 +29,5 @@ This policy is specific to IDA* and determines the class that handles going a le
   + Applies the move.
 - The destructor:
   + Applies the reverse move.
+* Heuristics
+The work on IDA* revealed that a multiplicity of heuristics is possible. This will be worked on in a separate [[file:heuristics.org][file]].

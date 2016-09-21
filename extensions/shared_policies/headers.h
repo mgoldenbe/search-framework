@@ -5,6 +5,7 @@
 /// \brief Policy classes for search algorithms and algorithmic variants.
 /// \author Meir Goldenberg
 
+// See also http://stackoverflow.com/questions/8401827/crtp-and-type-visibility
 template <typename MyAlgorithm> class AlgorithmTraits {};
 
 /// Type aliases used by many policies.

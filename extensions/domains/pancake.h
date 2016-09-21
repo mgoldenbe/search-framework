@@ -35,8 +35,8 @@ struct Pancake: Base {
     /// must provide this name.
     using CostType = int;
 
-    using SNeighbor = StateNeighbor<Pancake>; ///< State neighbor type.
-    using ANeighbor = ActionNeighbor<Pancake>; ///< Action neighbor type.
+    using SNeighbor = StateNeighbor<const Pancake>;  ///< State neighbor type.
+    using ANeighbor = ActionNeighbor<const Pancake>; ///< Action neighbor type.
 
     /// The type for representing an action. An action is the position up to
     /// (and including) which the pancakes are to be reversed.
@@ -70,7 +70,7 @@ struct Pancake: Base {
     /// \param a The action to be applied, i.e. the position up to (and
     /// including) which the pancakes are to be reversed.
     /// \return The state after the action.
-    Pancake apply(Action a) {
+    Pancake &apply(Action a) {
         std::reverse(pancakes_.begin(), pancakes_.begin() + a + 1);
         return *this;
     }
@@ -86,17 +86,19 @@ struct Pancake: Base {
 
     /// Computes the state neighbors of the state.
     /// \return Vector of state neighbors of the state.
-    std::vector<const SNeighbor> stateSuccessors() const {
-        std::vector<const SNeighbor> res;
-        for (auto a: actions())
-            res.push_back(this->apply(a));
+    std::vector<SNeighbor> stateSuccessors() const {
+        std::vector<SNeighbor> res;
+        for (auto a: actions()) {
+            auto n = Pancake{*this}.apply(a);
+            res.push_back(std::move(n));
+        }
         return res;
     }
 
     /// Computes the action neighbors of the state.
     /// \return Vector of action neighbors of the state.
-    std::vector<const ANeighbor> actionSuccessors() const {
-        std::vector<const ANeighbor> res;
+    std::vector<ANeighbor> actionSuccessors() const {
+        std::vector<ANeighbor> res;
         for (auto a : actions()) res.push_back(std::move(a));
         return res;
     }
@@ -106,7 +108,6 @@ struct Pancake: Base {
     /// \return The gap heuristic from the state obtained by applying
     /// the given action to the goal state with ordered pancakes.
     int gapDelta(Action a) const {
-        int res = 0;
         if (a < pancakes_.size() - 1) {
             if (gap(a, a + 1) && !gap(0, a + 1)) return -1;
             if (gap(0, a + 1) && !gap(a, a + 1)) return 1;
@@ -186,17 +187,17 @@ private:
 
     /// Is there a gap between positions i and i+1?
     /// \return \true if there is a gap and \false otherwise
-    bool gap(int i) { return gap(i, i + 1); }
+    bool gap(int i) const { return gap(i, i + 1); }
 
     /// Is there a gap between positions i and j?
     /// \return \true if there is a gap and \false otherwise
-    bool gap(int i, int j) {
+    bool gap(int i, int j) const {
         return (abs(pancakes_[i] - pancakes_[j]) > 1);
     }
 
     /// Is the largest pancake in place?
     /// \return \true if the largest pancake is in place and \false otherwise
-    bool largestInPlace() {
+    bool largestInPlace() const {
         return (pancakes_.back() == (int)pancakes_.size() - 1);
     }
 };
@@ -210,6 +211,9 @@ namespace Domains {
 /// Functor for computing the gap heuristic to the goal state with ordered
 /// pancakes.
 struct GapHeuristic {
+    /// The constructor
+    GapHeuristic(const Pancake &) {}
+
     /// The call operator. Computes the gap heuristic from the given state to
     /// the goal state with ordered pancakes.
     /// \param s The state from which the heuristic value is needed.
@@ -217,7 +221,7 @@ struct GapHeuristic {
     /// pancakes.
     /// \note The last parameter is for reasons of uniformity, so the caller can
     /// pass the goal state.
-    int operator()(const Pancake &s, const Pancake &) const {
+    int operator()(const Pancake &s) const {
         return s.gapHeuristic();
     }
 };
@@ -225,31 +229,34 @@ struct GapHeuristic {
 /// Functor for computing the dynamic gap heuristic to the goal state with
 /// ordered pancakes.
 struct DynamicGapHeuristic {
+    /// The constructor
+    DynamicGapHeuristic(const Pancake &) {}
+
     /// The call operator. Dynamically computes the gap heuristic that results
     /// from applying a given action.
-    /// \param s The parent state.
-    /// \param h The heuristic at \c s.
-    /// \param a The action.
-    /// \return The gap heuristic to the goal state with ordered
-    /// pancakes. that results from applying \c a to \c s.
-    /// \note The last two parameters are for reasons of uniformity, so the caller can
-    /// pass the action cost and the goal state.
-    int operator()(const Pancake &s, int h, Pancake::Action a,
-                   Pancake::CostType, const Pancake &) const {
-        return h + s.gapDelta(a);
+    /// \param parent The parent state.
+    /// \param n The neighbor.
+    template <class Neighbor>
+    int operator()(const Pancake &parent, Pancake::CostType, const Neighbor &n) const {
+        return parent.gapDelta(n.action());
     }
 };
 
 /// Functor for computing the gap heuristic to the given goal state.
 struct GapHeuristicToGoal {
+    /// The constructor
+    GapHeuristicToGoal(const Pancake &goal) : goal_(goal) {}
+
     /// The call operator. Computes the gap heuristic from the given state to
     /// the given goal state.
     /// \param s The state from which the heuristic value is needed.
-    /// \param goal The goal state.
-    /// \return The gap heuristic from \c s to \c goal.
-    int operator()(const Pancake &s, const Pancake &goal) const {
-        return s.gapHeuristic(goal);
+    /// \return The gap heuristic from \c s to \c goal_.
+    int operator()(const Pancake &s) const {
+        return s.gapHeuristic(goal_);
     }
+
+private:
+    const Pancake &goal_; ///< The goal state.
 };
 
 }

@@ -22,8 +22,12 @@
 #include "extensions/headers.h"
 
 template <class MyAlgorithm>
-using buildGraphOL =
+using BuildGraphOL =
     OpenList_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
+
+template <class MyAlgorithm>
+using BuildGenerator =
+    StatesGenerator<MyAlgorithm, HeuristicPolicy::Zero>;
 
 /// Builds the state graph of the domain.
 /// \return The state graph of the domain.
@@ -33,8 +37,9 @@ StateGraph<Domains::SLB_STATE> buildGraph() {
 
     auto instance = MyInstance(std::vector<State>(1),
                                std::vector<State>(1), MeasureSet{});
-    Astar<false, SLB_NODE, NoGoalHandler, ZeroHeuristic, buildGraphOL> myAstar(
-        instance);
+    Astar<false, SLB_NODE, NoGoalHandler, HeuristicPolicy::Zero, BuildGenerator,
+          BuildGraphOL>
+        myAstar(instance);
     myAstar.run();
     return myAstar.graph();
 }

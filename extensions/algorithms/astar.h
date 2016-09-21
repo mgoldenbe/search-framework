@@ -16,6 +16,8 @@ struct AlgorithmTraits<Astar<ALG_TARGS, Open>> {
     using MyAlgorithm = Astar<ALG_TARGS, Open>;
     /// The open and closed lists type.
     using OC = OpenClosedList<Open<MyAlgorithm>>;
+    using Generator = Generator_<MyAlgorithm>;
+    //using Neighbor = typename Generator::Neighbor;
 };
 
 /// The \c A* search algorithm.
@@ -28,15 +30,17 @@ struct AlgorithmTraits<Astar<ALG_TARGS, Open>> {
 /// \note See the documentation of \ref ALG_TYPES and \ref ALG_DATA.
 template <ALG_TPARAMS, template <class> class Open_ = SLB_OL>
 struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
-    using MyType = Astar; ///< The type of Astar.
-    using DirectBase = Algorithm<MyType, ALG_TARGS>;
-    using GoalHandler = typename DirectBase::GoalHandler;
-    using Heuristic = typename DirectBase::Heuristic;
-    using Open = Open_<Astar>;
-
     BASE_TRAITS_TYPES
+    using Open = Open_<Astar>;
     using OC = typename AlgorithmTraits<Astar>::OC;
+    using Neighbor = typename AlgorithmTraits<Astar>::Generator::Neighbor;
 
+    using DirectBase = Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS>;
+    using GoalHandler = typename DirectBase::GoalHandler;
+    using InitialHeuristic = typename DirectBase::InitialHeuristic;
+    using Generator = typename DirectBase::Generator;
+
+    using MyType = Astar; ///< The type of Astar; required for \ref ALG_DATA symbol.
     ALG_DATA
 
     /// Initializes the algorithm based on the problem instance.
@@ -50,7 +54,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     ReturnType run() {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
-        startNode->set(0, heuristic_(start_), this->stamp());
+        startNode->set(0, initialHeuristic_(startNode.get()), this->stamp());
         log<Events::MarkedStart>(log_, startNode.get());
         goalHandler_.logInit();
         oc_.add(startNode);
@@ -79,7 +83,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
         for (const auto &el: oc_.hash()) {
             auto from = make_deref_shared<const State>(el.second->state());
             res.add(from);
-            for (auto &n : from->successors()) {
+            for (auto &n : from->stateSuccessors()) {
                 // `add` cares for duplicates
                 res.add(from, make_deref_shared<const State>(n.state()),
                         n.cost());
@@ -138,7 +142,7 @@ private:
             return;
         }
         ++expanded_;
-        neighbors_ = generator_.successors();
+        neighbors_ = generator_.successors(cur_->state());
         for (auto &n : neighbors_)
             handleNeighbor(n);
         log<Events::Closed>(log_, cur_);
@@ -149,7 +153,7 @@ private:
     /// \param cost The cost of the action that led to the child.
     void handleNeighbor(const Neighbor &n) {
         auto childState = generator_.state(n);
-        CostType myG = cur_->g + cost;
+        CostType myG = cur_->g + n.cost();
         ++generated_;
         auto childNode = oc_.getNode(childState);
         if (childNode) {
