@@ -12,6 +12,7 @@
 #define SLB_NODE_DATA SLB_NODE_DATA_T<Domains::SLB_STATE>
 #define SLB_OL_PRIORITY GreaterPriority_SmallF_LargeG
 #define SLB_GOAL_HANDLER SingleGoalHandler
+#define SLB_GENERATOR StatesGeneratorPolicy
 #define SLB_HEURISTIC HeuristicPolicy::SingleGoal
 #define SLB_INIT_HEURISTIC SLB_HEURISTIC
 #define SLB_ALGORITHM Astar

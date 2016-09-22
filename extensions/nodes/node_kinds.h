@@ -22,6 +22,10 @@ struct Base: ManagedNode<> {
                                                // for making them private and
                                                // having getters and setters.
 
+    /// Returns the heuristic value
+    /// \return The heuristic value
+    CostType h() const {return f - g;}
+    
     /// Updates g-value of the node
     /// \param newG The new g-value.
     void updateG(CostType newG) {

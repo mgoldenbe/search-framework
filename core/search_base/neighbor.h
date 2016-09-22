@@ -86,7 +86,7 @@ struct ActionNeighbor: Cost<State_, uniformFlag>  {
     ActionNeighbor(Action &&a, CostType c = CostType{1}) : MyCost(c), a_{a} {}
     /// Returns the action.
     /// \return Const reference to the action.
-    const Action &action() { return a_; }
+    const Action &action() const { return a_; }
 
 private:
     Action a_; ///< The action.

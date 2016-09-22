@@ -8,7 +8,6 @@
 #define SLB_COST_TYPE int
 #define SLB_UNIFORM_DOMAIN false
 #define SLB_CMD_LINE_ADD CommandLine::IncWorst
-#define SLB_GENERATOR StatesGeneratorPolicy
 
 #undef SLB_HEURISTIC
 #define SLB_HEURISTIC HeuristicPolicy::Zero

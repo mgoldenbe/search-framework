@@ -95,7 +95,8 @@ struct DynamicSingleGoalT {
     /// \return The heuristic value.
     template <class Neighbor>
     CostType operator()(const Neighbor &n, Node *node) const {
-        return node->parent.h() + heuristic_(node.parent().state(), n);
+        assert(node->parent());
+        return node->parent()->h() + heuristic_(node->parent()->state(), n.cost(), n);
     }
 
 private:
@@ -105,7 +106,7 @@ private:
 /// The policy of dynamic heuristic to default goal.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-using DynamicSingleGoal = DynamicSingleGoalT<MyAlgorithm, SLB_BASE_HEURISTIC>;
+using DynamicSingleGoal = DynamicSingleGoalT<MyAlgorithm, SLB_BASE_DYNAMIC_HEURISTIC>;
 
 /// Computes minimum among heuristics to goals that have not been found (with
 /// the required quality) yet.

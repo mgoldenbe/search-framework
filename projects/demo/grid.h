@@ -9,6 +9,5 @@
 #define SLB_UNIFORM_DOMAIN false
 #define SLB_COST_DIAGONAL 1.5
 #define SLB_BASE_HEURISTIC Domains::OctileHeuristic<>
-#define SLB_GENERATOR StatesGeneratorPolicy
 
 #endif
