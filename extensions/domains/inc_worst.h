@@ -38,7 +38,7 @@ struct IncWorst: Base {
 
     /// The type for representing a single neighbor state. Every domain
     /// must provide this name.
-    using Neighbor = StateNeighbor<IncWorst, false>;
+    using SNeighbor = StateNeighbor<const IncWorst, false>;
 
     using Row = enum {top, bottom};
 
@@ -73,8 +73,8 @@ struct IncWorst: Base {
 
     /// Computes the neighbors of the state.
     /// \return Vector of neighbors of the state.
-    std::vector<Neighbor> successors() const {
-        std::vector<Neighbor> res;
+    std::vector<SNeighbor> stateSuccessors() const {
+        std::vector<SNeighbor> res;
         int nn = (n_ != 0 ? n_ - 1 : k_); // the neighbor stage
         switch (row_) {
         case bottom:
@@ -181,7 +181,7 @@ private:
     /// \param to Target state.
     /// \return The cost from \c from to \c to.
     int cost(const IncWorst &from, const IncWorst &to) const {
-        for (auto &n: from.successors())
+        for (auto &n: from.stateSuccessors())
             if (n.state() == to)
                 return n.cost();
         assert(0);

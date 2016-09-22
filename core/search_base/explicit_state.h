@@ -58,7 +58,7 @@ struct ExplicitState: Base {
     /// \tparam Neighbor The type for representing a single neighbor state.
     /// \return Vector of neighbors of the state.
     template<class Neighbor>
-    std::vector<Neighbor> successors() const {
+    std::vector<Neighbor> locationSuccessors() const {
         std::vector<Neighbor> res;
         for (auto &n: space_->template neighbors<Neighbor>(loc_))
             res.push_back(std::move(n));
@@ -120,37 +120,42 @@ template<class ExplicitSpace>
 std::unique_ptr<ExplicitSpace> ExplicitState<ExplicitSpace>::space_ = nullptr;
 
 /// The Manhattan heuristic functor.
+/// \tparam State The type representing the explicit domain.
+template <class State = SLB_STATE>
 struct ManhattanHeuristic {
-    /// The function-call operator. Computes the heuristic.
-    /// \tparam ExplicitSpace The type for storing the explicit space (e.g. a
-    /// map).
-    /// \param s The state from which the heuristic is to be computed.
+    /// The constructor
     /// \param goal The goal state.
+    ManhattanHeuristic(const State &goal)
+        : goal_(goal) {}
+
+    /// The function-call operator. Computes the heuristic.
+    /// \param s The state from which the heuristic is to be computed.
     /// \return The heuristic function from \c s to \c goal.
-    template <class ExplicitSpace>
-    typename ExplicitSpace::CostType
-    operator()(const ExplicitState<ExplicitSpace> &s,
-               const ExplicitState<ExplicitSpace> &goal) const {
-        return ExplicitState<ExplicitSpace>::space()->manhattan(s.raw(),
-                                                                goal.raw());
+    typename State::CostType operator()(const State &s) const {
+        return State::space()->manhattan(s.raw(), goal_.raw());
     }
+
+private:
+    const State &goal_;
 };
 
 /// The octile heuristic functor.
+/// \tparam State The type representing the explicit domain.
+template <class State = SLB_STATE>
 struct OctileHeuristic {
-    /// The function-call operator. Computes the heuristic.
-    /// \tparam ExplicitSpace The type for storing the explicit space (e.g. a
-    /// map).
-    /// \param s The state from which the heuristic is to be computed.
+    /// The constructor
     /// \param goal The goal state.
+    OctileHeuristic(const State &goal) : goal_(goal) {}
+
+    /// The function-call operator. Computes the heuristic.
+    /// \param s The state from which the heuristic is to be computed.
     /// \return The heuristic function from \c s to \c goal.
-    template <class ExplicitSpace>
-    typename ExplicitSpace::CostType
-    operator()(const ExplicitState<ExplicitSpace> &s,
-               const ExplicitState<ExplicitSpace> &goal) const {
-        return ExplicitState<ExplicitSpace>::space()->octile(s.raw(),
-                                                             goal.raw());
+    typename State::CostType operator()(const State &s) const {
+        return State::space()->octile(s.raw(), goal_.raw());
     }
+
+private:
+    const State &goal_;
 };
 
 }

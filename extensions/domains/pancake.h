@@ -245,6 +245,7 @@ struct DynamicGapHeuristic {
 /// Functor for computing the gap heuristic to the given goal state.
 struct GapHeuristicToGoal {
     /// The constructor
+    /// \param goal The goal state.
     GapHeuristicToGoal(const Pancake &goal) : goal_(goal) {}
 
     /// The call operator. Computes the gap heuristic from the given state to
