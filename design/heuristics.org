@@ -1,0 +1,22 @@
+* Variability
+The following possibilities need to be taken into account when designing the work with heuristics:
+- Single goal: default or specific
+- Multiple goals (more complicated goal conditions are out of the scope right now)
+- Regular or dynamic
+- Possibly with goal-independent and/or goal-dependent pre-processing, possibly saving the results of pre-processing in a file and reading from it.
+* The design
+Heuristics are organized in several levels to make arbitrarily complex structures possible.
+** The base heuristic
+- We call the actual domain-specific heuristic a /base heuristic/. The base heuristic is implemented by a functor.
+- The results of goal-independent pre-processing are stored as /static/ data of the functor. The base heuristic might have a private static member function /build/ to perform the pre-processing. Depending on run-time configuration, it may perform file I/O. /build/ is templated on the State, i.e. the type representing the domain. This should expose all the necessary knowledge of the domain to perform the pre-processing.
+- Each base heuristic object is a goal-specific heuristic. So, the constructor takes a goal state argument. In the case of a default goal state (as in the Pancake puzzle), that default goal will be passed. The constructor may call /build/ if needed. The latter will make sure to execute its main body only once by using a static flag variable.
+- The base heuristic object may implement one of the two forms of /operator()/:
+  + Taking a state. This corresponds to a regular heuristic.
+  + Taking a parent state and a neighbor. In this case, /operator()/ is templated on the the neighbor type. In addition, it returns the change of heuristic value and not the heuristic value itself. The addition is done by the heuristic policy (see below), which has the node information, so it has the information about the heuristic value of the parent node.
+- Note that some heuristics look like domain-independent (i.e. the differential heuristic), but their data’s specialization for a particular domain with the above interface can be implemented. This part will be crystallized when we implement the differential heuristic in a domain-independent way and specialize it to a particular domain, such as grid maps.
+** Single-goal heuristic policy.
+- A heuristic policy is a regular policy of an algorithm in that it keeps a reference to the algorithm.
+- Two constructors are provided: taking no arguments and taking a goal state. The constructor taking no arguments takes the goal state from the algorithm by using a policy service. The constructor initializes the base heuristic.
+- A heuristic function is provided that takes as arguments a neighbor and a node pointer. It calls the base heuristic.
+** Multiple-goal heuristic policy.
+- A multiple-goal heuristic policy is templated on a single-goal heuristic policy. Its constructor initializes a single-goal heuristic policy for each goal. Its heuristic takes as arguments a neighbor and a node pointer and calls the single-goal heuristic policies’ heuristics.
