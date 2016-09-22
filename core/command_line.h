@@ -91,6 +91,12 @@ struct CommandLine: Base, Additions {
         return (mode == 'w' ? 1 : INT_MAX);
     }
 
+    /// Returns \c true if the first goal in the instance being created should
+    /// be the default state of the domain and \c false otherwise.
+    /// \return \c true the first goal in the instance being created should be
+    /// the default state of the domain and \c false otherwise.
+    bool defaultGoal() { return defaultGoal_.getValue(); }
+
     /// Returns \c true if per-problem-instance statistics are to appear on the
     /// output and \c false otherwise.
     /// \return \c true if per-problem-instance statistics are to appear on the
@@ -135,6 +141,10 @@ private:
     /// instance.
     TCLAP::ValueArg<int> nGoals_;
 
+    /// Command line option for the switch showing whether the first goal in the
+    /// instance being created should be the default state of the domain.
+    TCLAP::SwitchArg defaultGoal_;
+
     /// Command line option for the switch showing whether per-problem-instance
     /// statistics are to appear on the output.
     TCLAP::SwitchArg perInstance_;
@@ -169,6 +179,10 @@ private:
                    false, -1, "int", cmd_),
           nGoals_("", "nGoals", "Number of goal states in an instance", false,
                   -1, "int", cmd_),
+          defaultGoal_("", "defaultGoal", "Make the default state of the "
+                                          "domain the first goal in the "
+                                          "instance being created",
+                       cmd_, false),
           perInstance_("p", "perInstance", "Output per-instance stats", cmd_,
                        false),
           hideTitle_("", "hideTitle", "Do not show the title line", cmd_,

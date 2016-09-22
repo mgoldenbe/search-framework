@@ -158,7 +158,10 @@ std::vector<Instance<State>> makeInstances(int n) {
         for (int i = 0; i != nStarts; i++)
             start.push_back(uniqueRandomState(start));
         for (int i = 0; i != nGoals; i++)
-            goal.push_back(uniqueRandomState(goal));
+            if (i == 0 && CMD_T.defaultGoal())
+                goal.push_back(State{});
+            else
+                goal.push_back(uniqueRandomState(goal));
         res.push_back(MyInstance(start, goal));
     }
     if (res[0].measures().size()) // otherwise, no measure to sort on
