@@ -46,11 +46,11 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     /// Initializes the algorithm based on the problem instance.
     /// \param instance The problem instance.
     Astar(const MyInstance &instance)
-        : Base(instance), oc_(*this), cur_(nullptr), neighbors_() {}
+        : Base(instance), oc_(*this), cur_(nullptr) {}
 
     /// Runs the algorithm.
-    /// \return The solution cost, which is the average of solution costs among
-    /// the goals. If there is no solution, then \c CostType{-1} is returned.
+    /// \return The solution cost. If there is no solution, then \c CostType{-1}
+    /// is returned.
     ReturnType run() {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
@@ -106,9 +106,6 @@ private:
 
     Node *cur_; ///< The currently selected node.
 
-    /// The children of the currently selected node.
-    std::vector<Neighbor> neighbors_;
-
     // Stats
     Measure denied_{"Denied"}; ///< The number of denied expansions.
 
@@ -142,8 +139,8 @@ private:
             return;
         }
         ++expanded_;
-        neighbors_ = generator_.successors(cur_->state());
-        for (auto &n : neighbors_)
+        auto neighbors = generator_.successors(cur_->state());
+        for (auto &n : neighbors)
             handleNeighbor(n);
         log<Events::Closed>(log_, cur_);
     }
@@ -151,7 +148,7 @@ private:
     /// Handles the current neighbor.
     /// \param n The selected child.
     /// \param cost The cost of the action that led to the child.
-    void handleNeighbor(const Neighbor &n) {
+    void handleNeighbor(Neighbor &n) {
         auto childState = generator_.state(n);
         CostType myG = cur_->g + n.cost();
         ++generated_;
@@ -176,7 +173,7 @@ private:
             return;
         }
         NodeUniquePtr newNode(new Node(childState));
-	newNode->setParent(cur_);
+        newNode->setParent(cur_);
         newNode->set(myG, generator_.heuristic(n, newNode.get()),
                      this->stamp());
         log<Events::Generated>(log_, newNode.get());

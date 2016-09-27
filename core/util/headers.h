@@ -7,6 +7,7 @@
 /// \name Some useful simple declarations that do not deserve a
 /// special file.
 /// @{
+
 struct Nothing {}; // too bad this is not defined by the standard
 
 template <typename...>

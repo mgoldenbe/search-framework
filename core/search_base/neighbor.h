@@ -62,7 +62,7 @@ struct StateNeighbor: Cost<State_, uniformFlag>  {
     /// Returns the neighbor state.
     /// \return Reference to the neighbor state.
     /// \note This reference must be non-const to allow moving the neighbor
-    const State &state() const { return s_; }
+    State &state() { return s_; }
 
 private:
     State s_; ///< The neighbor state.

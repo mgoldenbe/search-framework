@@ -38,7 +38,7 @@ struct IncWorst: Base {
 
     /// The type for representing a single neighbor state. Every domain
     /// must provide this name.
-    using SNeighbor = StateNeighbor<const IncWorst, false>;
+    using SNeighbor = StateNeighbor<IncWorst, false>;
 
     using Row = enum {top, bottom};
 

@@ -11,9 +11,11 @@ template <typename MyAlgorithm> class AlgorithmTraits {};
 /// Type aliases used by many policies.
 #define POLICY_TYPES                                                           \
     using MyInstance = typename AlgorithmTraits<MyAlgorithm>::MyInstance;      \
+    static constexpr bool logFlag = AlgorithmTraits<MyAlgorithm>::logFlag_;    \
     using Log = typename AlgorithmTraits<MyAlgorithm>::MyAlgorithmLog;         \
     using CostType = typename AlgorithmTraits<MyAlgorithm>::CostType;          \
     using Node = typename AlgorithmTraits<MyAlgorithm>::Node;                  \
+    using NodeData = typename AlgorithmTraits<MyAlgorithm>::NodeData;          \
     using State = typename AlgorithmTraits<MyAlgorithm>::State;
 
 #include "goal_handlers.h"

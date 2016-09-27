@@ -149,11 +149,16 @@ void rawLog(Log &log, const Node *n, const Node *parentSubstitution,
 /// Events::NothingToDo event is generated in \ref Astar for an example of when
 /// this is useful.
 template <template <class> class Event, class Log, class Node>
-void log(Log &log, const Node *n,
+void log(Log &mylog, const Node *n,
          const Node *parentSubstitution = nullptr) {
     constexpr bool logFlag = !std::is_same<Log, Nothing>::value;
-    return rawLog<Event>(log, n, parentSubstitution,
+    return rawLog<Event>(mylog, n, parentSubstitution,
                          std::integral_constant<bool, logFlag>{});
 }
 
+template <template <class> class Event, class Log, class Node>
+void log(Log &mylog, const std::unique_ptr<Node> &n,
+         const std::unique_ptr<Node> &parentSubstitution = nullptr) {
+    log<Event>(mylog, n.get(), parentSubstitution.get());
+}
 #endif

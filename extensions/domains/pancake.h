@@ -35,8 +35,8 @@ struct Pancake: Base {
     /// must provide this name.
     using CostType = int;
 
-    using SNeighbor = StateNeighbor<const Pancake>;  ///< State neighbor type.
-    using ANeighbor = ActionNeighbor<const Pancake>; ///< Action neighbor type.
+    using SNeighbor = StateNeighbor<Pancake>;  ///< State neighbor type.
+    using ANeighbor = ActionNeighbor<Pancake>; ///< Action neighbor type.
 
     /// The type for representing an action. An action is the position up to
     /// (and including) which the pancakes are to be reversed.
@@ -82,6 +82,13 @@ struct Pancake: Base {
         for (auto i = 1U; i != pancakes_.size(); ++i)
             res.push_back(i);
         return res;
+    }
+
+    /// Returns the reverse of the given action.
+    /// \param a The action whose reverse is to be returned.
+    /// \return The reverse of the given action.
+    static Action reverseAction(Action a) {
+        return a;
     }
 
     /// Computes the state neighbors of the state.

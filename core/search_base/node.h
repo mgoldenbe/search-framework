@@ -37,12 +37,25 @@ struct SearchNode : public NodeData_ {
     /// \param s The state.
     SearchNode(State &&s) : state_(s) {}
 
+
+    /// Returns reference to the state to which the node corresponds.
+    /// \return Reference to the state to which the node corresponds.
+    State &state() { return state_; }
+
     /// Returns const reference to the state to which the node corresponds.
     /// \return Const reference to the state to which the node corresponds.
     const State &state() const { return state_; }
 
-    /// Returns pointer to the parent node (the latter is const).
-    /// \return Pointer to the parent node (the latter is const).
+    /// Assigns a different state to the node.
+    /// \param s The state to assign.
+    void setState(State &&s) { state_ = std::move(s); }
+
+    /// Returns pointer to the parent node.
+    /// \return Pointer to the parent node.
+    MyType *parent() { return parent_; }
+
+    /// Returns pointer to const parent node.
+    /// \return Pointer to const parent node.
     const MyType *parent() const { return parent_; }
 
     /// Nodes comparison.

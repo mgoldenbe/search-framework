@@ -21,7 +21,7 @@ struct GridMapState : ExplicitState<GridMap<CostType>> {
 
     /// The type for representing a single neighbor state. Every domain
     /// must provide this name.
-    using SNeighbor = StateNeighbor<const MyType, uniformFlag>;
+    using SNeighbor = StateNeighbor<MyType, uniformFlag>;
 
     /// Computes the neighbors of the state.
     /// \return Vector of neighbors of the state.
