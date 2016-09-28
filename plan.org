@@ -104,12 +104,43 @@ CLOSED: [2016-09-27 Tue 16:04]
   - Make sure to not put in a lot of implementation details — I have the right to submit a regular paper as well!
   - Make sure to not exceed 5 pages.c
   - Make sure to comply with all the instructions: https://www.elsevier.com/books-and-journals/content-innovation/original-software-publications#instructions-how-to-submit-your-software-work
-* Remains on 27.09: [1/13]
+* Remains on 27.09: [2/13]
 Each thing on this list is not long. They should take one day on average. The days remaining until Sukkot are: 28.09–30.09, 5.10–7.10, 9.10–10.10, 13–14.10. So, 10 days, which are also very busy. There are 13 items on the list, so I should expect to submit the paper in the first two weeks after Sukkot, e.g. by 4.11. I will then update k-goal config files to work with Roni. 
 ** DONE Organize folders. 
 CLOSED: [2016-09-28 Wed 12:43]
 Make sure IDA* and A* configs compile and run with and without -v 0. 
-** TODO See if I can get rid of AlgorithmTraits similarly to how I got rid of logFlag there.
+** DONE See if I can get rid of AlgorithmTraits similarly to how I got rid of logFlag there.
+CLOSED: [2016-09-28 Wed 15:48]
+Answer: we need it. logFlag is different, since it is data and gets inherited by concrete algorithms. For types, using CRTP makes a problem.
+http://stackoverflow.com/a/2749029/2725810
+Here is an example that shows the problem:
+#+BEGIN_SRC C++
+template <class MyAlg>
+struct Gen {
+    bool x = MyAlg::flag; // this line is fine
+    typename MyAlg::T y;  // this does not compile
+};
+
+template <class Concrete, bool flag_, template <class> class MyGen>
+struct Alg {
+    static const bool flag = flag_;
+    using T = int;
+
+    MyGen<Concrete> g_; // If we have Alg instead of Concrete here, all works
+};
+
+template <bool flag_, template <class> class MyGen = Gen>
+struct Astar : Alg<Astar<flag_, MyGen>, flag_, MyGen> {
+    using Base = Alg<Astar<flag_, MyGen>, flag_, MyGen>;
+    using Base::T;
+};
+
+int main() {
+    Astar<true> a; (void)a;
+    return 0;
+}
+#+END_SRC
+
 ** TODO Introduce necessary namespaces and make the naming consistent (singular/plural).
 There should be a namespace for each policy.
 ** TODO Make a note in documentation about the possible deviation of configs in video from the current configs.

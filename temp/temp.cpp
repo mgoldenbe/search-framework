@@ -8,19 +8,27 @@
 #include <iomanip>
 #include <sstream>
 
-template <class T>
-struct A {
-    bool x = T::flag;
+template <class MyAlg>
+struct Gen {
+    bool x = MyAlg::flag; // this line is fine
+    typename MyAlg::T y;  // this does not compile
 };
 
-template <bool flag_>
-struct B {
+template <class Concrete, bool flag_, template <class> class MyGen>
+struct Alg {
     static const bool flag = flag_;
+    using T = int;
+
+    MyGen<Concrete> g_; // If we have Alg instead of Concrete here, all works
 };
 
-template <bool flag_> struct C : B <flag_> {};
+template <bool flag_, template <class> class MyGen = Gen>
+struct Astar : Alg<Astar<flag_, MyGen>, flag_, MyGen> {
+    using Base = Alg<Astar<flag_, MyGen>, flag_, MyGen>;
+    using Base::T;
+};
 
 int main() {
-    A<C<false>> a; (void)a;
+    Astar<true> a; (void)a;
     return 0;
 }
