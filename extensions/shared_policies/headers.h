@@ -18,6 +18,10 @@ template <typename MyAlgorithm> class AlgorithmTraits {};
     using NodeData = typename AlgorithmTraits<MyAlgorithm>::NodeData;          \
     using State = typename AlgorithmTraits<MyAlgorithm>::State;
 
+#include "backtrack_lock.h"
 #include "goal_handlers.h"
+#include "heuristic_policies.h"
+#include "generators.h"
+#include "open_list.h"
 
 #endif

@@ -5,8 +5,7 @@
 /// \brief The \ref IdAstar class.
 /// \author Meir Goldenberg
 
-#include "../algorithm.h"
-#include "backtrack.h"
+#include "algorithm.h"
 
 // The symbols tool is currently not smart enough to take care of unused symbols
 // that are templates.

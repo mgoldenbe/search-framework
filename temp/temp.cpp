@@ -8,24 +8,19 @@
 #include <iomanip>
 #include <sstream>
 
+template <class T>
 struct A {
-    int x;
+    bool x = T::flag;
 };
 
-template <class T>
+template <bool flag_>
 struct B {
-    B(T &a) : a_(a) {}
-    T &a_;
+    static const bool flag = flag_;
 };
 
-template <class T>
-void f(B<T> &b) {
-    b.a_.x = 5;
-}
+template <bool flag_> struct C : B <flag_> {};
 
 int main() {
-    A a{5};
-    B<const A> b{a};
-    f(b);
+    A<C<false>> a; (void)a;
     return 0;
 }

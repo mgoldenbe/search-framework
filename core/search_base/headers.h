@@ -6,9 +6,9 @@
 /// algorithms.
 /// \author Meir Goldenberg
 
+#include "backtrack.h"
 #include "instance.h"
 #include "open_closed_list.h"
-#include "open_list.h"
 #include "explicit_state.h"
 #include "neighbor.h"
 #include "node.h"

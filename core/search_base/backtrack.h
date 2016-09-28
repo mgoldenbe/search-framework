@@ -5,16 +5,12 @@
 /// \brief The class for handling backtracking in IDA*.
 /// \author Meir Goldenberg
 
-#include "backtrack_lock.h"
-
 /// Handles backtracking in IDA*.
 /// \tparam Algorithm The search algorithm.
 /// \tparam Lock_ The RAII class for handling backtracking.
 template <class MyAlgorithm, template <class, bool> class Lock_>
 struct Backtrack {
-    POLICY_TYPES
-
-    using Lock = Lock_<MyAlgorithm, logFlag>;
+    using Lock = Lock_<MyAlgorithm, MyAlgorithm::logFlag>;
 
     /// Policy constructor.
     Backtrack(MyAlgorithm &alg) : alg_(alg) {

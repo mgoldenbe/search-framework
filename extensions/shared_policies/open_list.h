@@ -9,8 +9,6 @@
    -- faster update by using hints
 */
 
-#include "node.h"
-
 /// The underlying map type. Compared to std::map, this type fixes the allocator.
 /// \tparam Key The key type.
 /// \tparam T The value type.
