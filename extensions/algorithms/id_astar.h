@@ -43,7 +43,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
     using Neighbor = typename Generator::Neighbor;
 
     using MyType = IdAstar; ///< Required for \ref ALG_DATA symbol.
-    using Backtrack = typename ::Backtrack<MyType, BacktrackLock>;
+    using MyBacktrack = Backtrack<MyType, BacktrackLock>;
     ALG_DATA
 
     /// Initializes the algorithm based on the problem instance.
@@ -58,7 +58,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
         TimerLock lock{time_}; (void)lock;
         threshold_ = initialHeuristic_(cur_.get());
         cur_->set(0, threshold_, this->stamp());
-        log<Events::MarkedStart>(log_, cur_.get());
+        log<ext::event::MarkedStart>(log_, cur_.get());
         goalHandler_.logInit();
 
         while (true) {
@@ -78,7 +78,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
             next_threshold_ = std::min(next_threshold_, cur_->f);
             return false;
         }
-        log<Events::Selected>(log_, cur_);
+        log<ext::event::Selected>(log_, cur_);
         goalHandler_.onSelect();
         if (goalHandler_.done()) return true;
 
@@ -89,7 +89,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
             auto btLock = backtrack_.lock(n); (void)btLock;
             if (iteration()) return true;
         }
-        log<Events::Closed>(log_, cur_);
+        log<ext::event::Closed>(log_, cur_);
         return false;
     }
 
@@ -99,7 +99,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
     /// @}
 private:
     std::unique_ptr<Node> cur_; ///< The currently selected node.
-    Backtrack backtrack_;
+    MyBacktrack backtrack_;
     CostType threshold_, next_threshold_;
 };
 

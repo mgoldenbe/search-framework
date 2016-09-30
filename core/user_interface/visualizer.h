@@ -5,6 +5,12 @@
 /// \brief The \ref Visualizer class, which handles the user interface.
 /// \author Meir Goldenberg
 
+/// \namespace core::ui
+/// The user interface.
+namespace ui {
+
+using namespace util;
+
 #include "drawer.h"
 #include "filters.h"
 #include "menus.h"
@@ -297,5 +303,7 @@ private:
     bool drawFlag_ = false; ///< \c True if re-drawing of the whole graphical
                             /// representation is required, e.g. upon scaling.
 };
+
+} // namespace
 
 #endif

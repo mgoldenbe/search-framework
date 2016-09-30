@@ -21,25 +21,38 @@
 #include "core/headers.h"
 #include "extensions/headers.h"
 
-template <class MyAlgorithm>
-using BuildGraphOL =
-    OpenList_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
+using namespace slb;
+
+using namespace core;
+using namespace ui;
+using namespace commandLine;
+
+using namespace ext;
+using algorithm::Astar;
+
+using namespace policy;
+using namespace generator;
+using namespace goalHandler;
+using namespace openList;
 
 template <class MyAlgorithm>
-using BuildGenerator =
-    StatesGenerator<MyAlgorithm, HeuristicPolicy::Zero>;
+using BuildGraphOL =
+    BucketedStdMap_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
+
+template <class MyAlgorithm>
+using BuildGenerator = StatesT<MyAlgorithm, heuristic::Zero>;
 
 /// Builds the state graph of the domain.
 /// \return The state graph of the domain.
-StateGraph<Domains::SLB_STATE> buildGraph() {
-    using State = Domains::SLB_STATE;
+StateGraph<SLB_STATE> buildGraph() {
+    using State = SLB_STATE;
     using MyInstance = Instance<State>;
 
     auto instance = MyInstance(std::vector<State>(1),
                                std::vector<State>(1), MeasureSet{});
-    Astar<false, SLB_NODE, NoGoalHandler, HeuristicPolicy::Zero, BuildGenerator,
+    Astar<false, SLB_NODE, NoGoal, heuristic::Zero, BuildGenerator,
           BuildGraphOL>
-        myAstar(instance);
+        myAstar{instance};
     myAstar.run();
     return myAstar.graph();
 }
@@ -47,9 +60,9 @@ StateGraph<Domains::SLB_STATE> buildGraph() {
 /// Runs a search algorithm for a set of problem instances.
 void run() {
     if (CMD.spaceInitFileName_isSet())
-        Domains::SLB_STATE::initSpace(CMD.spaceInitFileName());
+        SLB_STATE::initSpace(CMD.spaceInitFileName());
 
-    auto res = readInstancesFile<Domains::SLB_STATE>(CMD.instancesFileName());
+    auto res = readInstancesFile<SLB_STATE>(CMD.instancesFileName());
     Stats stats;
     if (CMD.visualizeInstance() >= 0) {
         if (CMD.visualizeInstance() >= static_cast<int>(res.size()))
@@ -83,8 +96,8 @@ void run() {
 /// Creates a new set of problem instances and saves it in a file.
 void makeInstances() {
     if (CMD.spaceInitFileName_isSet())
-        Domains::SLB_STATE::initSpace(CMD.spaceInitFileName());
-    makeInstancesFile<Domains::SLB_STATE>(CMD.instancesFileName());
+        SLB_STATE::initSpace(CMD.spaceInitFileName());
+    makeInstancesFile<SLB_STATE>(CMD.instancesFileName());
 }
 
 /// Reads the command line and dispatches to run one of the scenarios.
@@ -93,7 +106,7 @@ void makeInstances() {
 /// \return The exit code.
 int main(int argc, char **argv) {
     try {
-        CommandLine::CommandLine<>::instance(
+        commandLine::CommandLine<>::instance(
             argc, argv); // to initialize command line
 
         if (CMD.nInstances() != -1)

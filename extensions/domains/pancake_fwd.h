@@ -5,12 +5,9 @@
 /// \brief Forward declarations for \ref pancake.h.
 /// \author Meir Goldenberg
 
-namespace Domains {
-class Pancake;
-}
-
-namespace CommandLine {
+namespace pancake {
 struct Pancake;
-}
+struct CommandLine;
+} // namespace
 
 #endif

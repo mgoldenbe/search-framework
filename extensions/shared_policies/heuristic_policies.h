@@ -5,11 +5,13 @@
 /// \brief Wrappers around heuristics to be used by the search algorithms.
 /// \author Meir Goldenberg
 
+/// \namespace ext::policy::heuristic
+/// Wrappers around heuristics to be used by the search algorithms.
+namespace heuristic {
+
 /// Used by the MinHeuristicToGoals handler.
 #define SLB_MIN_HEURISTIC_COMPARE_T                                            \
     SLB_MIN_HEURISTIC_COMPARE<typename AlgorithmTraits<MyAlgorithm>::CostType>
-
-namespace HeuristicPolicy {
 
 /// Heuristic that always returns zero.
 /// \tparam MyAlgorithm The search algorithm.
@@ -183,6 +185,7 @@ template <class MyAlgorithm>
 using MinMultipleGoals =
     MinMultipleGoalsT<MyAlgorithm, SLB_SINGLE_GOAL_HEURISTIC,
                          SLB_MIN_HEURISTIC_COMPARE_T>;
-}
+
+} // namespace
 
 #endif

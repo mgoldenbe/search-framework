@@ -11,9 +11,9 @@ template <ALG_TPARAMS_NO_DEFAULTS, template <class> class Open>
 struct Astar; // Forward declare for the following type traits to work.
 
 template <ALG_TPARAMS_NO_DEFAULTS, template <class> class Open>
-struct AlgorithmTraits<Astar<ALG_TARGS, Open>> {
+struct AlgorithmTraits<ext::algorithm::Astar<ALG_TARGS, Open>> {
     BASE_TRAITS_TYPES
-    using MyAlgorithm = Astar<ALG_TARGS, Open>;
+    using MyAlgorithm = ext::algorithm::Astar<ALG_TARGS, Open>;
     /// The open and closed lists type.
     using OC = OpenClosedList<Open<MyAlgorithm>>;
     using Generator = Generator_<MyAlgorithm>;
@@ -55,12 +55,12 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
         startNode->set(0, initialHeuristic_(startNode.get()), this->stamp());
-        log<Events::MarkedStart>(log_, startNode.get());
+        log<ext::event::MarkedStart>(log_, startNode.get());
         goalHandler_.logInit();
         oc_.add(startNode);
         while (!oc_.empty() && !goalHandler_.done()) {
             cur_ = oc_.minNode();
-            log<Events::Selected>(log_, cur_);
+            log<ext::event::Selected>(log_, cur_);
             handleSelected();
         }
         if (!goalHandler_.done()) res_ = -1;
@@ -78,14 +78,16 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
 
     /// Computes the state graph based on the closed list.
     /// \return The state graph computed based on the closed list.
-    StateGraph<State> graph() const {
-        StateGraph<State> res;
+    core::ui::StateGraph<State> graph() const {
+        core::ui::StateGraph<State> res;
         for (const auto &el: oc_.hash()) {
-            auto from = make_deref_shared<const State>(el.second->state());
+            auto from = core::util::make_deref_shared<const State>(
+                el.second->state());
             res.add(from);
             for (auto &n : from->stateSuccessors()) {
                 // `add` cares for duplicates
-                res.add(from, make_deref_shared<const State>(n.state()),
+                res.add(from, core::util::make_deref_shared<const State>(
+                                  n.state()),
                         n.cost());
             }
         }
@@ -116,7 +118,8 @@ private:
         // In the latter case, onSelect returns bool, otherwise it returns
         // void.
         handleSelected(
-            std::integral_constant<bool, onSelectReturns<GoalHandler>()>());
+            std::integral_constant<
+                bool, policy::goalHandler::onSelectReturns<GoalHandler>()>());
     }
 
     /// Handles the selected node in the case that suspensions are to be dealt
@@ -142,7 +145,7 @@ private:
         auto neighbors = generator_.successors(cur_->state());
         for (auto &n : neighbors)
             handleNeighbor(n);
-        log<Events::Closed>(log_, cur_);
+        log<ext::event::Closed>(log_, cur_);
     }
 
     /// Handles the current neighbor.
@@ -157,17 +160,17 @@ private:
             if (myG < childNode->g) {
                 // only consistent case for now
                 // assert(childNode->bucketPosition() >= 0);
-                log<Events::NotParent>(log_, childNode);
+                log<ext::event::NotParent>(log_, childNode);
                 auto oldPriority = oc_.priority(childNode);
                 childNode->updateG(myG);
                 childNode->setParent(cur_);
                 oc_.update(childNode, oldPriority);
-                log<Events::Generated>(log_, childNode);
-                log<Events::EnteredOpen>(log_, childNode);
+                log<ext::event::Generated>(log_, childNode);
+                log<ext::event::EnteredOpen>(log_, childNode);
             }
             else {
-                log<Events::NothingToDo>(log_, childNode, cur_);
-                log<Events::HideLast>(log_, childNode);
+                log<ext::event::NothingToDo>(log_, childNode, cur_);
+                log<ext::event::HideLast>(log_, childNode);
             }
 
             return;
@@ -176,8 +179,8 @@ private:
         newNode->setParent(cur_);
         newNode->set(myG, generator_.heuristic(n, newNode.get()),
                      this->stamp());
-        log<Events::Generated>(log_, newNode.get());
-        log<Events::EnteredOpen>(log_, newNode.get());
+        log<ext::event::Generated>(log_, newNode.get());
+        log<ext::event::EnteredOpen>(log_, newNode.get());
         oc_.add(newNode);
     }
 };

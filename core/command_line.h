@@ -6,12 +6,12 @@
 /// \author Meir Goldenberg
 
 /// Short-hand notation for global access to the command line object.
-#define CMD CommandLine::CommandLine<>::instance()
-#define CMD_TPARAM class CmdT = CommandLine::CommandLine<>
+#define CMD slb::core::commandLine::CommandLine<>::instance()
+#define CMD_TPARAM class CmdT = slb::core::commandLine::CommandLine<>
 #define CMD_T CmdT::instance()
 
 
-namespace CommandLine {
+namespace commandLine {
 
 /// Empty additions to the command line.
 struct Nothing {

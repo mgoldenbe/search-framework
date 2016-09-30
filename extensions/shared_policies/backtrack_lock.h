@@ -5,17 +5,21 @@
 /// \brief Policies for handling backtracking in IDA*.
 /// \author Meir Goldenberg
 
+/// \namespace ext::policy::backtrackLock
+/// Policies for handling backtracking in IDA*.
+namespace backtrackLock {
+
 /// Base for a class handling RAII for backtracking in IDA* when the state is
 /// updated in place.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-struct InplaceLockBase {
+struct InplaceBase {
     POLICY_TYPES
 
     /// The constructor.
     /// \param cur The node being expanded by IDA*.
     template <class Neighbor>
-    InplaceLockBase(MyAlgorithm &alg, Node *cur, Neighbor &)
+    InplaceBase(MyAlgorithm &alg, Node *cur, Neighbor &)
         : alg_(alg), cur_(cur) {}
 
 private:
@@ -47,20 +51,20 @@ protected:
 /// \note The second template parameter is \c true when the log of algorithmic
 /// events is kept and \c false otherwise.
 template <class MyAlgorithm, bool = false>
-struct InplaceLock : InplaceLockBase<MyAlgorithm> {
+struct Inplace : InplaceBase<MyAlgorithm> {
     POLICY_TYPES
-    using Base = InplaceLockBase<MyAlgorithm>;
+    using Base = InplaceBase<MyAlgorithm>;
 
     static const bool keepsParent = false;
 
     template <class Neighbor>
-    InplaceLock(MyAlgorithm &alg, Node *cur, Neighbor &n)
+    Inplace(MyAlgorithm &alg, Node *cur, Neighbor &n)
         : Base(alg, cur, n) {
         Base::set(n);
     }
-    InplaceLock(InplaceLock &&) = default;
+    Inplace(Inplace &&) = default;
 
-    ~InplaceLock() {
+    ~Inplace() {
         Base::unset();
     }
 };
@@ -69,22 +73,22 @@ struct InplaceLock : InplaceLockBase<MyAlgorithm> {
 /// log is kept, so that a copy of the parent state needs to be kept.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-struct InplaceLock<MyAlgorithm, true>: InplaceLockBase<MyAlgorithm> {
+struct Inplace<MyAlgorithm, true>: InplaceBase<MyAlgorithm> {
     POLICY_TYPES
 
-    using Base = InplaceLockBase<MyAlgorithm>;
+    using Base = InplaceBase<MyAlgorithm>;
     using Base::cur_;
 
     static const bool keepsParent = true;
 
     template <class Neighbor>
-    InplaceLock(MyAlgorithm &alg, Node *cur, Neighbor &n)
+    Inplace(MyAlgorithm &alg, Node *cur, Neighbor &n)
         : Base(alg, cur, n) {
         set(n);
     }
-    InplaceLock(InplaceLock &&) = default;
+    Inplace(Inplace &&) = default;
 
-    ~InplaceLock() {
+    ~Inplace() {
         Base::unset();
     }
 private:
@@ -107,7 +111,7 @@ private:
 /// kept.
 /// The second template parameter is not used, just for uniformity.
 template <class MyAlgorithm, bool>
-struct CopyLock {
+struct Copy {
     POLICY_TYPES
 
     static const bool keepsParent = true;
@@ -115,13 +119,13 @@ struct CopyLock {
     /// The constructor.
     /// \param cur The node being expanded by IDA*.
     template <class Neighbor>
-    CopyLock(MyAlgorithm &alg, Node *cur, Neighbor &n)
+    Copy(MyAlgorithm &alg, Node *cur, Neighbor &n)
         : alg_(alg), cur_(cur) {
         set(n);
     }
-    CopyLock(CopyLock &&) = default;
+    Copy(Copy &&) = default;
 
-    ~CopyLock() {
+    ~Copy() {
         unset();
     }
 
@@ -144,5 +148,7 @@ private:
         std::swap(*cur_, *parent_);
     }
 };
+
+} // namespace
 
 #endif

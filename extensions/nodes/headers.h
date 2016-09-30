@@ -6,6 +6,12 @@
 /// algorithms and algorithmic variants.
 /// \author Meir Goldenberg
 
+/// \namespace ext::node
+/// The various node data structures.
+namespace node {
+
 #include "node_kinds.h"
+
+} // namespace
 
 #endif

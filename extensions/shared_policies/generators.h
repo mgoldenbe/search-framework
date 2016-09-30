@@ -5,17 +5,21 @@
 /// \brief Generators to be used by the search algorithms.
 /// \author Meir Goldenberg
 
+/// \namespace ext::policy::generator
+/// Generators to be used by the search algorithms.
+namespace generator {
+
 /// Generator that generates state neighbors.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm, template <class> class Heuristic>
-struct StatesGenerator {
+struct StatesT {
     POLICY_TYPES
 
     using Neighbor = typename State::SNeighbor;
 
     /// The contructor.
     /// \param alg Reference to the search algorithm.
-    StatesGenerator(MyAlgorithm &alg) : alg_(alg), heuristic_(alg) {}
+    StatesT(MyAlgorithm &alg) : alg_(alg), heuristic_(alg) {}
 
     /// Returns the neighbor state.
     /// \return Reference to the neighbor state.
@@ -45,19 +49,19 @@ private:
     Heuristic<MyAlgorithm> heuristic_; ///< The heuristic.
 };
 template <class MyAlgorithm>
-using StatesGeneratorPolicy = StatesGenerator<MyAlgorithm, SLB_HEURISTIC>;
+using States = StatesT<MyAlgorithm, SLB_HEURISTIC>;
 
 /// Generator that generates action neighbors.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm, template <class> class Heuristic>
-struct ActionsGenerator {
+struct ActionsT {
     POLICY_TYPES
 
     using Neighbor = typename State::ANeighbor;
 
     /// The contructor.
     /// \param alg Reference to the search algorithm.
-    ActionsGenerator(MyAlgorithm &alg) : alg_(alg), heuristic_(alg) {}
+    ActionsT(MyAlgorithm &alg) : alg_(alg), heuristic_(alg) {}
 
     /// Returns the neighbor state.
     /// \return Reference to the neighbor state.
@@ -87,6 +91,8 @@ private:
     Heuristic<MyAlgorithm> heuristic_; ///< The heuristic.
 };
 template <class MyAlgorithm>
-using ActionsGeneratorPolicy = ActionsGenerator<MyAlgorithm, SLB_HEURISTIC>;
+using Actions = ActionsT<MyAlgorithm, SLB_HEURISTIC>;
+
+} // namespace
 
 #endif

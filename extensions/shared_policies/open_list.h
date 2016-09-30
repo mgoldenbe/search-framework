@@ -2,8 +2,14 @@
 #define OPEN_LIST_H
 
 /// \file
-/// \brief A flexible open list implementation.
+/// \brief Open list implementations.
 /// \author Meir Goldenberg
+
+/// \namespace ext::policy::openList
+/// Open list implementations.
+namespace openList {
+
+using core::util::nodeStr;
 
 /* TODO:
    -- faster update by using hints
@@ -106,7 +112,7 @@ template <class MyAlgorithm_, class Node_ = SLB_NODE,
           template <class KeyType> class GreaterPriority_ = SLB_OL_PRIORITY,
           template <typename, typename, typename> class Container =
               SLB_OL_CONTAINER>
-struct OpenList_T {
+struct BucketedStdMap_T {
     /// The search algorithm type.
     using MyAlgorithm = MyAlgorithm_;
 
@@ -129,7 +135,7 @@ struct OpenList_T {
     using BucketsContainer =
         Container<KeyType, std::vector<Node *>, GreaterPriority>;
 
-    OpenList_T(MyAlgorithm &alg): alg_(alg) {
+    BucketedStdMap_T(MyAlgorithm &alg): alg_(alg) {
 #ifndef NDEBUG
         // just to prevent the compiler from throwing it away,
         // so it should be available for use in gdb.
@@ -198,7 +204,7 @@ struct OpenList_T {
     /// vector indices. We could insert into un-ordered map first, but then we
     /// lose the performance benefits (checked with a simple prototype).
     void recompute() {
-        OpenList_T newOL(alg_);
+        BucketedStdMap_T newOL(alg_);
         for (const auto &b: buckets_) {
             for (auto n: b.second) {
                 n->updateH(alg_.heuristic()(n));
@@ -258,7 +264,9 @@ private:
 /// with same priority.
 /// \tparam MyAlgorithm The search algorithm type.
 template <class MyAlgorithm>
-using OpenList = OpenList_T<MyAlgorithm, SLB_NODE, SLB_OL_KEY_TYPE,
-                            SLB_OL_PRIORITY, SLB_OL_CONTAINER>;
+using BucketedStdMap = BucketedStdMap_T<MyAlgorithm, SLB_NODE, SLB_OL_KEY_TYPE,
+                                        SLB_OL_PRIORITY, SLB_OL_CONTAINER>;
+
+} // namespace
 
 #endif

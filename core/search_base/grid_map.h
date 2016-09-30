@@ -6,7 +6,12 @@
 /// \brief The \ref GridMap class.
 /// \author Meir Goldenberg
 
-namespace Domains {
+#ifndef SLB_COST_DIAGONAL
+#define SLB_COST_DIAGONAL 1
+#endif
+
+using util::sureRead;
+using util::split;
 
 /// The type for 4 or 8-connected grid explicit domain.
 /// \tparam CostType_ Type for action cost in the search domain.
@@ -206,7 +211,5 @@ private:
         res.push_back(Neighbor((typename Neighbor::State{n}), cost));
     }
 };
-
-}
 
 #endif

@@ -4,8 +4,8 @@
 #include "pancake.astar.h"
 
 #undef SLB_ALGORITHM
-#define SLB_ALGORITHM IdAstar
+#define SLB_ALGORITHM ext::algorithm::IdAstar
 
-#define SLB_ID_ASTAR_BACKTRACK_LOCK CopyLock
+#define SLB_ID_ASTAR_BACKTRACK_LOCK ext::policy::backtrackLock::Copy
 
 #endif

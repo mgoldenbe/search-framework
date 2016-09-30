@@ -6,11 +6,23 @@
 /// support them.
 /// \author Meir Goldenberg
 
+namespace slb {
+
+/// \namespace ext
+/// The user extensions.
+namespace ext {
+using namespace core::sb;
+using core::ui::log;
+
 #include "domains/headers.h"
 #include "nodes/headers.h"
 #include "events/headers.h"
 #include "shared_policies/headers.h"
 #include "algorithms/headers.h"
-#include "instance_measures/instance_measures.h"
+#include "instance_measures/headers.h"
+
+} // namespace
+} // namespace
+
 
 #endif

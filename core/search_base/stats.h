@@ -41,7 +41,7 @@ struct Measure {
     /// \param os The stream.
     /// \return The modified stream.
     template <class Stream> Stream &dump(Stream &os) const {
-        return os << double2str(x_);
+        return os << util::double2str(x_);
     }
 
     /// Sets the value of the measure to the given value.

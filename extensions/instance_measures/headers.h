@@ -5,6 +5,12 @@
 /// \brief Implementation of instance measures.
 /// \author Meir Goldenberg
 
+/// \namespace ext::instanceMeasure
+/// Measures for instances.
+namespace instanceMeasure {
+
 #include "instance_measures.h"
+
+} // namespace
 
 #endif

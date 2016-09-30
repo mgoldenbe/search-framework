@@ -19,8 +19,8 @@ struct VisualEvent {
     using EdgeDescriptor = typename Graph::EdgeDescriptor;
     /// @}
 
-    using VertexStyle = ::VertexStyle; ///< See \ref VertexStyle.
-    using EdgeStyle = ::EdgeStyle; ///< See \ref EdgeStyle.
+    using VertexStyle = ui::VertexStyle; ///< See \ref VertexStyle.
+    using EdgeStyle = ui::EdgeStyle; ///< See \ref EdgeStyle.
 
     /// Description of change of visual representation of a single vertex.
     struct VertexChange {
@@ -47,7 +47,7 @@ struct VisualEvent {
         : g_(g) {
         using Event = typename VisualLog::AlgorithmEvent;
         bool hideLastFlag =
-            (e->eventType() == Events::EventType::HIDE_LAST_EVENT);
+            (e->eventType() == EventType::HIDE_LAST_EVENT);
         const Event &myEvent = (hideLastFlag ? e->previousEvent() : e);
 
         if (hideLastFlag) // to pass correct current styles to
@@ -67,7 +67,7 @@ struct VisualEvent {
 
         // We don't have a way to draw two edges in opposite directions, so each
         // each event needs to affect both directions. One example when this is
-        // needed is the Events::NotGenerated event generated in Astar
+        // needed is the ext::event::NotGenerated event generated in Astar
         int sizeNow = edgeChanges_.size();
         for (int i = 0; i != sizeNow; i++) {
             auto ec = edgeChanges_[i];

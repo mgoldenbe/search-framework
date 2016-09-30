@@ -13,8 +13,8 @@
 /// \tparam NodeData_ The structure storing the data kept by the node.
 /// \tparam BucketPosition Type used for storing the node's position in the open
 /// list (when applicable).
-template <class State_ = Domains::SLB_STATE,
-          class NodeData_ = Node::SLB_NODE_DATA,
+template <class State_ = SLB_STATE,
+          class NodeData_ = SLB_NODE_DATA,
           typename BucketPosition = SLB_BUCKET_POSITION_TYPE>
 struct SearchNode : public NodeData_ {
     /// The state type, represents the domain.

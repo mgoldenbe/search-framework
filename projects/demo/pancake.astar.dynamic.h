@@ -1,23 +1,16 @@
 #ifndef SLB_CONFIG_PANCAKE_DYNAMIC_H
 #define SLB_CONFIG_PANCAKE_DYNAMIC_H
 
-#include "common.h"
+#include "pancake.astar.h"
 
-#define SLB_DOMAINS_PANCAKE
-#define SLB_COST_TYPE int
-#define SLB_UNIFORM_DOMAIN true
-#define SLB_STATE Pancake
-#define SLB_CMD_LINE_ADD CommandLine::Pancake
-#define SLB_BASE_HEURISTIC Domains::GapHeuristic
-
-#define SLB_BASE_DYNAMIC_HEURISTIC Domains::DynamicGapHeuristic
+#define SLB_BASE_DYNAMIC_HEURISTIC ext::domain::pancake::DynamicGapHeuristic
 
 #undef SLB_GENERATOR
-#define SLB_GENERATOR ActionsGeneratorPolicy
+#define SLB_GENERATOR ext::policy::generator::Actions
 
 #undef SLB_HEURISTIC
-#define SLB_HEURISTIC HeuristicPolicy::DynamicSingleGoal
+#define SLB_HEURISTIC ext::policy::heuristic::DynamicSingleGoal
 
 #undef SLB_INIT_HEURISTIC
-#define SLB_INIT_HEURISTIC HeuristicPolicy::SingleGoal
+#define SLB_INIT_HEURISTIC ext::policy::heuristic::SingleGoal
 #endif

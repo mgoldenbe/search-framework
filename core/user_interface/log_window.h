@@ -89,7 +89,7 @@ template <class Node> struct LogWindow {
     void fillEventsPad() {
         logTable_.clear();
 
-        Events::Base<Node>::dumpTitle(logTable_);
+        EventBase<Node>::dumpTitle(logTable_);
         for (auto &e : log_.algorithmLog().events())
             if (!hideFiltered_ || log_.inFilter(e->step())) {
                 e->dump(logTable_);

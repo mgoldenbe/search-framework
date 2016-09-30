@@ -143,11 +143,48 @@ int main() {
 
 ** TODO Introduce necessary namespaces and make the naming consistent (singular/plural).
 There should be a namespace for each policy.
-** TODO Make a note in documentation about the possible deviation of configs in video from the current configs.
-** TODO Make sure that std::move is used wherever needed (i.e. wherever right reference is used). 
+This one turned out to be challenging. Lesson: apply such changes little by little instead of breaking the whole code. The changes are:
+- Make Pancake reside in ext::domain::pancake and include namespace specifier with SLB_STATE. Remember about the forward declaration of Pancake. Temporarily derive Pancakes from Domains::Base.
+- Make CommandLine::Pancake be ext::domain::pancake::CommandLine.
+- Make GapHeuristic also be in ext::domain::pancake.
+- Rename CommandLine namespace for commandLine.
+- Get rid of domain Domains, rename Domains::Base for DomainBase.
+- Make similar changes for the GridMapState and IncWorst domains. Factor out the namespaces into the headers.h.
+- Move Astar into ext::algorithm.
+- Move DomainBase into a separate file.
+- Move AlgorithmTraits into ext::algorithm. In POLICY_TYPES, introduce the Traits alias.
+- Move the definition of AlgorithmTraits into algorithm.h. Leave in shared_policies/headers.h only the forward declaration. While on it, move BASE_TRAITS_TYPES to appear after BaseTraits.
+- Move all the algorithms into ext::algorithm, factoring ext::algorithm out into headers.h. While on this, simplify the configuration file pancake.idastar.h.
+- Rename Events::Base into EventBase. While on it, add a virtual destructor to EventBase.
+- Rename the Events namespace for /event/.
+- Rename the InstanceMeasures namespace for instanceMeasure and put it into ext::. Move the forward declaration out of instance.h and make it list the actual classes.
+- Rename the Nodes namespace for /node/. Move the forward declaration out of declare_default.h and make it list the actual classes. Move ManagedNode out of namespace. Factor out namespaces where forgot to do so.
+  Also put events in the ext::event namespace (they were in event:: before).
+- Put BacktrackLock policies into ext::policy::backtrackLock::.
+- Put generator policies into ext::policy::generator::.
+- Put goal handling policies into ext::policy::goalHandler::.
+- Put heuristic policies into ext::policy::heuristic::.
+- Shorten the names of BacktrackLock policies.
+- Shorten the names of generator policies.
+- Shorten the names of goal handling policies.
+- Put OpenList into ext::policy::openList and rename it to be BucketedStdMap.
+- Get rig of the need for NODE_DATA_T in configuration files.
+- Factor out ext::policy:: and comment policy::.
+- Factor out ext:: and comment it. Also, move grid_map to core/search_base.
+- Comment nested namespaces.
+- Add slbcore::sb. The names slbcore is temporary to avoid conflicts with boost::core. We will rename it to slb::core later.
+- Add slbcore::ui
+- Add slbcore::util
+- Factor out slbcore::
+- Add slb:: and rename slb::slbcore for slb::core.
 ** TODO Document the components of IDA*.
-** TODO Document utils/.
-** TODO Make sure that everything is documented.
+** TODO Document utils/ and include it in doxygen configuration file.
+** TODO Make sure the output of doxygen is error-free.
+** TODO Make sure that all the namespaces and namespace members appear correctly in the doxygen configuration.
+** TODO Make two notes in documentation: 
+- About the deviation of configs in video from the current configs.
+- About the namespaces matching the physical structure.
+** TODO Make sure that std::move is used wherever needed (i.e. wherever right reference is used). 
 ** TODO Either add to bugs or fix the issue with layout computation not converging.
 ** TODO Improve the symbols tool.
 ** TODO Make final check that all (really all) demo versions run with and without -v 0. 

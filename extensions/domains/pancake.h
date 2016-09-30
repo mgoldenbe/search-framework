@@ -5,10 +5,12 @@
 /// \brief The \ref Pancake class and the related heuristics.
 /// \author Meir Goldenberg
 
-namespace CommandLine {
+/// \namespace ext::domain::pancake
+/// \brief The Pancake puzzle.
+namespace pancake {
 
 /// Additions to the command line related to the Pancake puzzle domain.
-struct Pancake {
+struct CommandLine {
     /// Returns the number of pancakes.
     /// \return The number of pancakes.
     int nPancakes() { return nPancakes_.getValue(); }
@@ -20,18 +22,15 @@ private:
 protected:
     /// Injects this addition to the command line object.
     /// \param cmd The command-line object.
-    Pancake(TCLAP::CmdLine &cmd_)
+    CommandLine(TCLAP::CmdLine &cmd_)
         : nPancakes_("", "nPancakes", "Number of pancakes", false, -1, "int",
                      cmd_) {}
 };
 
-}
-
-namespace Domains {
-
 /// The pancake puzzle domain.
-struct Pancake: Base {
-    /// The type representing the cost of actions in the domain. Every domain
+struct Pancake : DomainBase {
+    /// The type representing the cost of actions in the domain. Every
+    /// domain
     /// must provide this name.
     using CostType = int;
 
@@ -45,18 +44,18 @@ struct Pancake: Base {
     /// Initializes the state with ordered pancakes.
     Pancake() : pancakes_(CMD.nPancakes()) {
         int i = -1;
-        for (auto &el: pancakes_) el = ++i;
+        for (auto &el : pancakes_) el = ++i;
     }
 
     /// Initializes the state from a string, e.g. "[1, 4, 2, 3, 0]".
     /// \param s The string.
     Pancake(const std::string &s) {
-        for (auto el: split(s, {' ', ',', '[', ']'}))
+        for (auto el : split(s, {' ', ',', '[', ']'}))
             pancakes_.push_back(std::stoi(el));
     }
 
     /// The default copy constructor.
-    Pancake (const Pancake &) = default;
+    Pancake(const Pancake &) = default;
 
     /// The default assignment operator.
     /// \return Reference to the assigned state.
@@ -79,23 +78,20 @@ struct Pancake: Base {
     /// \return Vector of actions available from the state.
     std::vector<Action> actions() const {
         std::vector<Action> res;
-        for (auto i = 1U; i != pancakes_.size(); ++i)
-            res.push_back(i);
+        for (auto i = 1U; i != pancakes_.size(); ++i) res.push_back(i);
         return res;
     }
 
     /// Returns the reverse of the given action.
     /// \param a The action whose reverse is to be returned.
     /// \return The reverse of the given action.
-    static Action reverseAction(Action a) {
-        return a;
-    }
+    static Action reverseAction(Action a) { return a; }
 
     /// Computes the state neighbors of the state.
     /// \return Vector of state neighbors of the state.
     std::vector<SNeighbor> stateSuccessors() const {
         std::vector<SNeighbor> res;
-        for (auto a: actions()) {
+        for (auto a : actions()) {
             auto n = Pancake{*this}.apply(a);
             res.push_back(std::move(n));
         }
@@ -110,7 +106,8 @@ struct Pancake: Base {
         return res;
     }
 
-    /// Computes the change in gap heuristic from the state obtained by applying
+    /// Computes the change in gap heuristic from the state obtained by
+    /// applying
     /// the given action to the goal state with ordered pancakes.
     /// \return The gap heuristic from the state obtained by applying
     /// the given action to the goal state with ordered pancakes.
@@ -127,9 +124,11 @@ struct Pancake: Base {
         return 0;
     }
 
-    /// Computes the gap heuristic from the state to the goal state with ordered
+    /// Computes the gap heuristic from the state to the goal state with
+    /// ordered
     /// pancakes.
-    /// \return The gap heuristic from the state to the goal state with ordered
+    /// \return The gap heuristic from the state to the goal state with
+    /// ordered
     /// pancakes.
     int gapHeuristic() const {
         int res = 0;
@@ -163,8 +162,7 @@ struct Pancake: Base {
     /// \tparam The stream type.
     /// \param o The stream.
     /// \return The modified stream.
-    template <class Stream>
-    Stream &dump(Stream &o) const {
+    template <class Stream> Stream &dump(Stream &o) const {
         return o << pancakes_;
     }
 
@@ -177,7 +175,8 @@ struct Pancake: Base {
 
     /// The equality operator.
     /// \param rhs The right-hand side of the operator.
-    /// \return \c true if the two states compare equal and \c false otherwise.
+    /// \return \c true if the two states compare equal and \c false
+    /// otherwise.
     bool operator==(const Pancake &rhs) const {
         return pancakes_ == rhs.pancakes_;
     }
@@ -189,6 +188,7 @@ struct Pancake: Base {
         res.shuffle();
         return res;
     }
+
 private:
     std::vector<int> pancakes_; ///< The underlying state representation.
 
@@ -203,17 +203,14 @@ private:
     }
 
     /// Is the largest pancake in place?
-    /// \return \true if the largest pancake is in place and \false otherwise
+    /// \return \true if the largest pancake is in place and \false
+    /// otherwise
     bool largestInPlace() const {
         return (pancakes_.back() == (int)pancakes_.size() - 1);
     }
 };
 
-}
-
 //------------------------- HEURISTICS ------------------//
-
-namespace Domains {
 
 /// Functor for computing the gap heuristic to the goal state with ordered
 /// pancakes.
@@ -228,9 +225,7 @@ struct GapHeuristic {
     /// pancakes.
     /// \note The last parameter is for reasons of uniformity, so the caller can
     /// pass the goal state.
-    int operator()(const Pancake &s) const {
-        return s.gapHeuristic();
-    }
+    int operator()(const Pancake &s) const { return s.gapHeuristic(); }
 };
 
 /// Functor for computing the dynamic gap heuristic to the goal state with
@@ -244,7 +239,8 @@ struct DynamicGapHeuristic {
     /// \param parent The parent state.
     /// \param n The neighbor.
     template <class Neighbor>
-    int operator()(const Pancake &parent, Pancake::CostType, const Neighbor &n) const {
+    int operator()(const Pancake &parent, Pancake::CostType,
+                   const Neighbor &n) const {
         return parent.gapDelta(n.action());
     }
 };
@@ -259,14 +255,12 @@ struct GapHeuristicToGoal {
     /// the given goal state.
     /// \param s The state from which the heuristic value is needed.
     /// \return The gap heuristic from \c s to \c goal_.
-    int operator()(const Pancake &s) const {
-        return s.gapHeuristic(goal_);
-    }
+    int operator()(const Pancake &s) const { return s.gapHeuristic(goal_); }
 
 private:
     const Pancake &goal_; ///< The goal state.
 };
 
-}
+} // namespace
 
 #endif

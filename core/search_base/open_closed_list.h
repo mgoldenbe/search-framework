@@ -37,7 +37,8 @@ template <class OpenList> struct OpenClosedList {
     using State = typename Node::State;
 
     /// The type of the underlying hash table for the closed list.
-    using HashType = std::unordered_map<State, NodeUniquePtr, StateHash<State>>;
+    using HashType =
+        std::unordered_map<State, NodeUniquePtr, util::StateHash<State>>;
 
     OpenClosedList(MyAlgorithm &alg) : ol_(alg) {}
 

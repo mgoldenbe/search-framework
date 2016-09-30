@@ -6,10 +6,13 @@
 /// page 75 of "Heuristic Search" by Stefan Edelkamp).
 /// \author Meir Goldenberg
 
-namespace CommandLine {
+/// \namespace ext::domain::incWorst
+/// The worst case example for an inconsistent heuristics (as appears on
+/// page 75 of "Heuristic Search" by Stefan Edelkamp).
+namespace incWorst {
 
 /// Additions to the command line related to the Pancake puzzle domain.
-struct IncWorst {
+struct CommandLine {
     /// Returns the number of stages.
     /// \return The number of stages.
     int nStages() { return nStages_.getValue(); }
@@ -21,17 +24,13 @@ private:
 protected:
     /// Injects this addition to the command line object.
     /// \param cmd The command-line object.
-    IncWorst(TCLAP::CmdLine &cmd_)
+    CommandLine(TCLAP::CmdLine &cmd_)
         : nStages_("", "nStages", "Number of stages for the IncWorst domain",
                    false, -1, "int", cmd_) {}
 };
 
-}
-
-namespace Domains {
-
 /// The worst case example for an inconsistent heuristics.
-struct IncWorst: Base {
+struct IncWorst: DomainBase {
     /// The type representing the cost of actions in the domain. Every domain
     /// must provide this name.
     using CostType = int;

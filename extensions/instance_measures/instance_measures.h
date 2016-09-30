@@ -5,8 +5,6 @@
 /// \brief Implementation of instance measures.
 /// \author Meir Goldenberg
 
-namespace InstanceMeasures {
-
 /// No measures.
 struct Nothing {
     /// Call operator to compute the measures.
@@ -51,7 +49,5 @@ struct CostGoal0Goal1 : Base {
         return res;
     }
 };
-
-}
 
 #endif

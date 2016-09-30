@@ -4,18 +4,9 @@
 #ifndef UTIL_HEADERS_H
 #define UTIL_HEADERS_H
 
-/// \name Some useful simple declarations that do not deserve a
-/// special file.
-/// @{
-
-struct Nothing {}; // too bad this is not defined by the standard
-
-template <typename...>
-struct voider { using type = void; };
-
-template <typename... Ts>
-using void_t = typename voider<Ts...>::type;
-/// @}
+/// \namespace core::util
+/// Utility facilities.
+namespace util {
 
 #include "memory.h"
 #include "hash.h"
@@ -35,5 +26,6 @@ using void_t = typename voider<Ts...>::type;
 #include "reflection/struct_diff.h"
 #include "reflection/struct_2_stream.h"
 
+} // namespace
 
 #endif

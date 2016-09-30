@@ -7,6 +7,10 @@
 
 #include "stats.h"
 
+using util::stuff;
+using util::str;
+using util::Table;
+
 /// Parses the given title line of the instances file to determine how many
 /// start and goal states each instance would contain. Returns a measure set
 /// with the titles already set.
@@ -37,10 +41,6 @@ MeasureSet parseInstancesTitle(std::string &s, int &nStarts, int &nGoals) {
     return res;
 }
 
-namespace InstanceMeasures {
-class SLB_INSTANCE_MEASURES;
-}
-
 /// The type for an instance with an arbitrary (but fixed) number of start and
 /// goal states.
 /// \tparam State The state type, represents the domain.
@@ -55,7 +55,7 @@ struct Instance {
     /// \param start Vector of start states.
     /// \param goal Vector of goal states.
     template <
-        typename InstanceMeasures = InstanceMeasures::SLB_INSTANCE_MEASURES>
+        typename InstanceMeasures = SLB_INSTANCE_MEASURES>
     Instance(const std::vector<State> &start, const std::vector<State> &goal)
         : start_(start), goal_(goal), measures_(InstanceMeasures{}(*this)) {}
 

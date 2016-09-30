@@ -5,12 +5,10 @@
 /// \brief Forward declarations for \ref pancake.h.
 /// \author Meir Goldenberg
 
-namespace Domains {
-class IncWorst;
-}
-
-namespace CommandLine {
-class IncWorst;
-}
+/// \namespace ext::domain::incWorst
+namespace incWorst {
+struct IncWorst;
+struct CommandLine;
+} // namespace
 
 #endif

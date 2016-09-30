@@ -5,27 +5,11 @@
 /// \brief The \ref ExplicitState class and the related heuristics.
 /// \author Meir Goldenberg
 
-namespace Domains {
-
-/// A type for common features of domains.
-struct Base {
-    /// Sets the space for this state class by reading it from the given file.
-    static void initSpace(const std::string &) {}
-
-    /// Returns the textual label for the vertex representing the state.
-    /// \return The textual label for the vertex representing the state.
-    std::string visualLabel() const {return "";}
-
-    /// Returns the textual label for the edge to the given state.
-    /// \return The textual label for the edge to \c to.
-    std::string visualLabel(const Base &) const {return "";}
-};
-
 /// The base class for a state in an explicit domain. It can be viewed as a
 /// wrapper for the location type defined by the explicit domain.
 /// \tparam ExplicitSpace The type for storing the explicit space (e.g. a map).
 template<class ExplicitSpace>
-struct ExplicitState: Base {
+struct ExplicitState: DomainBase {
     /// The type representing the cost of actions in the domain.
     using CostType = typename ExplicitSpace::CostType;
 
@@ -158,5 +142,4 @@ private:
     const State &goal_;
 };
 
-}
 #endif

@@ -16,8 +16,8 @@
 /// reference to the original \ref AlgorithmLog.
 template <class Node = SLB_NODE>
 struct VisualLog: CurrentStyles<typename Node::State> {
-    /// See \ref Events::Base<Node>::Event
-    using AlgorithmEvent = typename Events::Base<Node>::Event;
+    /// See \ref EventBase<Node>::Event
+    using AlgorithmEvent = typename EventBase<Node>::Event;
 
     /// The state type, represents the domain.
     using State = typename Node::State;

@@ -5,7 +5,9 @@
 /// \brief The \ref GridMapState class.
 /// \author Meir Goldenberg
 
-namespace Domains {
+/// \namespace ext::domain::gridMap
+/// \brief The grid map domain.
+namespace gridMap {
 
 /// Explicit state specific to the Grid Map domain.
 /// \tparam CostType The type representing the cost of actions in the domain.

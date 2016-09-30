@@ -6,22 +6,32 @@
 /// \author Meir Goldenberg
 
 // See also http://stackoverflow.com/questions/8401827/crtp-and-type-visibility
-template <typename MyAlgorithm> class AlgorithmTraits {};
+
+namespace algorithm {
+template <typename MyAlgorithm> struct AlgorithmTraits;
+} // namespace
 
 /// Type aliases used by many policies.
 #define POLICY_TYPES                                                           \
-    using MyInstance = typename AlgorithmTraits<MyAlgorithm>::MyInstance;      \
-    static constexpr bool logFlag = AlgorithmTraits<MyAlgorithm>::logFlag_;    \
-    using Log = typename AlgorithmTraits<MyAlgorithm>::MyAlgorithmLog;         \
-    using CostType = typename AlgorithmTraits<MyAlgorithm>::CostType;          \
-    using Node = typename AlgorithmTraits<MyAlgorithm>::Node;                  \
-    using NodeData = typename AlgorithmTraits<MyAlgorithm>::NodeData;          \
-    using State = typename AlgorithmTraits<MyAlgorithm>::State;
+    using Traits = ext::algorithm::AlgorithmTraits<MyAlgorithm>;               \
+    using MyInstance = typename Traits::MyInstance;      \
+    static constexpr bool logFlag = Traits::logFlag_;    \
+    using Log = typename Traits::MyAlgorithmLog;         \
+    using CostType = typename Traits::CostType;          \
+    using Node = typename Traits::Node;                  \
+    using NodeData = typename Traits::NodeData;          \
+    using State = typename Traits::State;
+
+/// \namespace ext::policy
+/// Policy classes for search algorithms and algorithmic variants.
+namespace policy {
 
 #include "backtrack_lock.h"
 #include "goal_handlers.h"
 #include "heuristic_policies.h"
 #include "generators.h"
 #include "open_list.h"
+
+} // namespace
 
 #endif
