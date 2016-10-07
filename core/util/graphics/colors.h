@@ -1,7 +1,12 @@
 #ifndef COLORS_H
 #define COLORS_H
 
-// The source of colors: http://xkcd.com/color/rgb/
+///@file
+///@brief The colors.
+/// \author Meir Goldenberg
+
+/// The colors.
+/// \note The source of colors: http://xkcd.com/color/rgb/
 enum class Color {
     NOVAL,
     CLOUDY_BLUE,
@@ -955,6 +960,7 @@ enum class Color {
     PURPLE
 };
 
+/// The RGB values of the colors in \ref Color.
 std::vector<int> RGBValues{
     0xffffff, 0xacc2d9, 0x56ae57, 0xb2996e, 0xa8ff04, 0x69d84f, 0x894585,
     0x70b23f, 0xd4ffff, 0x65ab7c, 0x952e8f, 0xfcfc81, 0xa5a391, 0x388004,

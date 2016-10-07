@@ -161,7 +161,7 @@ template <class Node> struct Drawer {
         auto cr = graphics_.cr;
         Color ec = style.color;
         if (ec == Color::NOVAL) return;
-        cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
+        cairo_set_source_rgb(cr, rgb::red(ec), rgb::green(ec), rgb::blue(ec));
         cairo_set_line_width(cr, style.widthFactor * EdgeStyle::widthBase);
         gu::Circle cFrom{gu::Point{pointMap_.at(from)[0], pointMap_.at(from)[1]},
                          VertexStyle::sizeBase};
@@ -243,7 +243,7 @@ private:
         auto cr = graphics_.cr;
         Color fc = style.fillColor;
         if (fc == Color::NOVAL) return;
-        cairo_set_source_rgb(cr, RGB::red(fc), RGB::green(fc), RGB::blue(fc));
+        cairo_set_source_rgb(cr, rgb::red(fc), rgb::green(fc), rgb::blue(fc));
         cairo_set_line_width(cr, 0.0);
         cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
         switch (style.shape) {
@@ -266,7 +266,7 @@ private:
         auto cr = graphics_.cr;
         Color ec = style.emphasisColor;
         if (ec == Color::NOVAL) return;
-        cairo_set_source_rgb(cr, RGB::red(ec), RGB::green(ec), RGB::blue(ec));
+        cairo_set_source_rgb(cr, rgb::red(ec), rgb::green(ec), rgb::blue(ec));
         switch (style.shape) {
         case VertexShape::CIRCLE:
             cairo_arc(cr, pointMap_.at(vd)[0], pointMap_.at(vd)[1],
@@ -293,7 +293,7 @@ private:
         // Compute and set color
         auto cr = graphics_.cr;
         Color fc = style.fillColor;
-        cairo_set_source_rgb(cr, RGB::cred(fc), RGB::cgreen(fc), RGB::cblue(fc));
+        cairo_set_source_rgb(cr, rgb::cred(fc), rgb::cgreen(fc), rgb::cblue(fc));
 
         double vx = pointMap_.at(vd)[0];
         double vy = pointMap_.at(vd)[1];
@@ -317,7 +317,7 @@ private:
         // Compute and set color
         auto cr = graphics_.cr;
         Color c = style.color;
-        cairo_set_source_rgb(cr, RGB::cred(c), RGB::cgreen(c), RGB::cblue(c));
+        cairo_set_source_rgb(cr, rgb::cred(c), rgb::cgreen(c), rgb::cblue(c));
 
         // Position of text center and size of text
         double vx = (pointMap_.at(from)[0] + pointMap_.at(to)[0]) / 2;

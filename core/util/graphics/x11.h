@@ -1,7 +1,17 @@
 #ifndef UTIL_X11_H
 #define UTIL_X11_H
 
-//This function should give us a new x11 surface to draw on.
+///@file
+///@brief X11 window-related utilities.
+/// \author Meir Goldenberg
+
+/// Creates a new X11 surface to draw on.
+/// \param d The display.
+/// \param w The window.
+/// \param root The root window.
+/// \param x The x-coordinate of the top left corner.
+/// \param y The y-coordinate of the top left corner.
+/// \return The new X11 surface.
 cairo_surface_t *create_x11_surface(Display *d, Window &w, Window &root, int *x,
                                     int *y) {
     Drawable da;

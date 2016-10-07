@@ -1,8 +1,9 @@
-///@file
-///@brief INTERFACES CHECKED.
-
 #ifndef NODE_2_STREAM_H
 #define NODE_2_STREAM_H
+
+///@file
+///@brief Low-level facilities for reflection of node data structures.
+/// \author Meir Goldenberg
 
 struct print_visitor {
     template<typename CharT, class FieldData>

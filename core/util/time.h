@@ -1,16 +1,23 @@
-///@file
-///@brief INTERFACES CHECKED.
-
 #ifndef UTIL_TIME_H
 #define UTIL_TIME_H
 
-// http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/
+///@file
+///@brief Time-related utilities.
+/// \author Meir Goldenberg
+
+/// Sleep for the given amount of time, while dealing with interrupts.
+/// \param req Amount of time to sleep.
+/// \param rem Remaining amount of time to sleep after the interrupt.
+/// \note The code is taken from http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/
 void __nsleep(const struct timespec *req, struct timespec *rem) {
     struct timespec temp_rem;
     if (nanosleep(req, rem) == -1)
         __nsleep(rem, &temp_rem);
 }
 
+/// Sleep for the given amount of time, while dealing with interrupts.
+/// \param milisec Amount of time to sleep in milliseconds.
+/// \note The code is taken from http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/
 int msleep(unsigned long milisec) {
     struct timespec req = {0,0}, rem = {0,0};
     time_t sec = (int)(milisec / 1000);

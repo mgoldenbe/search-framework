@@ -99,8 +99,9 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
     /// @}
 private:
     std::unique_ptr<Node> cur_; ///< The currently selected node.
-    MyBacktrack backtrack_;
-    CostType threshold_, next_threshold_;
+    MyBacktrack backtrack_; ///< The backtracking policy.
+    CostType threshold_; ///< The current iteration's cost threshold.
+    CostType next_threshold_; ///< The cost threshold for the next iteration.
 };
 
 #endif

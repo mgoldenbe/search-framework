@@ -5,14 +5,15 @@
 /// \brief The class for handling backtracking in IDA*.
 /// \author Meir Goldenberg
 
-/// Handles backtracking in IDA*.
+/// Handles backtracking in linear-space algorithms such as IDA*.
 /// \tparam Algorithm The search algorithm.
 /// \tparam Lock_ The RAII class for handling backtracking.
 template <class MyAlgorithm, template <class, bool> class Lock_>
 struct Backtrack {
+    /// The RAII class for handling backtracking.
     using Lock = Lock_<MyAlgorithm, MyAlgorithm::logFlag>;
 
-    /// Policy constructor.
+    /// The constructor.
     Backtrack(MyAlgorithm &alg) : alg_(alg) {
         auto cur = alg.cur();
         if (!Lock::keepsParent)
@@ -21,7 +22,9 @@ struct Backtrack {
             cur->setParent(cur);
     }
 
-    /// Makes the backtrack RAII object.
+    /// Makes the backtrack RAII object for a neighbor.
+    /// \tparam Neighbor The neighbor type.
+    /// \param n The neighbor.
     /// \return The backtrack RAII object.
     template <class Neighbor>
     Lock lock(Neighbor &n) { return Lock(alg_, alg_.cur(), n); }

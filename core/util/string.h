@@ -1,9 +1,14 @@
 ///@file
-///@brief INTERFACES CHECKED.
+///@brief String-related utilities.
+/// \author Meir Goldenberg
 
 #ifndef UTIL_STRING_H
 #define UTIL_STRING_H
 
+/// Trim white-space characters from the end of string.
+/// \param str The string to be trimmed.
+/// \param whitespace The characters to be considered as white-space.
+/// \return The string after trimming.
 std::string trim(const std::string &str,
                  const std::string &whitespace = " \t") {
     const auto strBegin = str.find_first_not_of(whitespace);
@@ -12,6 +17,10 @@ std::string trim(const std::string &str,
     return str.substr(strBegin, strEnd - strBegin + 1);
 }
 
+/// Split the string using the giving characters.
+/// \param str The string to be trimmed.
+/// \param delims The characters to be used for splitting.
+/// \return The strings resulting from the split.
 std::vector<std::string> split(const std::string &s,
                                const std::vector<char> &delims) {
     std::vector<std::string> res;

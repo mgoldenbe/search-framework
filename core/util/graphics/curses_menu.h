@@ -1,6 +1,21 @@
 #ifndef MENU_UTILITLIES_H
 #define MENU_UTILITLIES_H
 
+///@file
+///@brief The utilities for working with \c curses menu.
+/// \author Meir Goldenberg
+
+/// Creates a \c curses menu.
+/// \param w The window.
+/// \param items The menu items.
+/// \param choices The string representation of the menu items.
+/// \param nonSelectable The string representation of the menu items that are
+/// non-selectable.
+/// \param selected The string representation of the menu items that are
+/// initially selected.
+/// \param maxMenuRows The maximal number of rows that the menu can occupy.
+/// \param multiFlag \c true if several items can be selected from the new menu and \c false otherwise.
+/// \return The created menu.
 MENU *createMenu(WINDOW *w, std::vector<ITEM *> &items,
                  const std::vector<std::string> &choices,
                  const std::vector<std::string> &nonSelectable,
@@ -38,6 +53,8 @@ MENU *createMenu(WINDOW *w, std::vector<ITEM *> &items,
     return res;
 }
 
+/// Destroys the menu and frees the resources.
+/// \param m The menu to be destroyed.
 void destroyMenu(MENU *m) {
     if (!m) return;
     unpost_menu(m);
@@ -45,10 +62,18 @@ void destroyMenu(MENU *m) {
     free_menu(m);
 }
 
+/// Returns the current menu choice.
+/// \return The string representation of the currently chosen item.
+/// \note This function should be used only for a menu in which only a single
+/// item can be selected.
 std::string menuChoice(MENU *m) {
     return item_name(current_item(m));
 }
 
+/// Returns the current menu choices.
+/// \return The string representation of the currently chosen items.
+/// \note This function should be used only for a menu in which multiple items
+/// can be selected.
 std::vector<std::string> menuChoices(MENU *m) {
     std::vector<std::string> res;
     for (auto i = 0U; i < (unsigned)m->nitems; ++i) {
