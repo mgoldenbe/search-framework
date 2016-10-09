@@ -63,7 +63,7 @@ double angle(const Point &from, const Point &to) {
 /// \param angle The required angle with the positive direction
 /// of the X-axis.
 /// \param width The required shift.
-\return The point on the circle at a given angle with the positive direction
+/// \return The point on the circle at a given angle with the positive direction
 /// of the X-axis and shifted inside the circle to a given distance.
 /// \note \c width cannot be greater than diameter.
 Point circlePoint(const Circle &c, double angle, double width = 0.0) {
