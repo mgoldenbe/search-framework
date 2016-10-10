@@ -75,7 +75,7 @@ private:
 template <typename State_, bool uniformFlag = true>
 struct ActionNeighbor: Cost<State_, uniformFlag>  {
     using State = State_; ///< The state type, represents the domain.
-    using MyCost = Cost<State_, uniformFlag>;
+    using MyCost = Cost<State_, uniformFlag>; ///< Action cost type.
     using Action = typename State::Action; ///< Action type.
     using CostType = typename State::CostType; ///< Action cost type.
 

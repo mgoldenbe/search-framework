@@ -2,7 +2,7 @@
 #define PANCAKE_H
 
 /// \file
-/// \brief The \ref Pancake class and the related heuristics.
+/// \brief The \ref pancake::Pancake class and the related heuristics.
 /// \author Meir Goldenberg
 
 /// \namespace ext::domain::pancake

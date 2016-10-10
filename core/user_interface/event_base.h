@@ -210,6 +210,9 @@ protected:
     Event previousEvent_;
 
 private:
+    /// Get a smart pointer to the state stored with the given search node.
+    /// n The search node.
+    /// \return Smart pointer to the state stored with \c n.
     StateSharedPtr stateFromNode(const Node *n) {
         return make_deref_shared<const State>(n->state());
     }

@@ -55,6 +55,7 @@ cairo_surface_t *create_x11_surface(Display *d, Window &w, Window &root, int *x,
     return sfc;
 }
 
+/// \cond NOPE
 // Function to create an X11 keyboard event
 // http://www.doctort.org/adam/nerd-notes/x11-fake-keypress-event.html
 XKeyEvent createKeyEvent(Display *display, Window &win, Window &winRoot,
@@ -81,6 +82,6 @@ XKeyEvent createKeyEvent(Display *display, Window &win, Window &winRoot,
 
     return event;
 }
-
+/// \endcond
 
 #endif

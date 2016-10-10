@@ -35,10 +35,18 @@ using namespace generator;
 using namespace goalHandler;
 using namespace openList;
 
+/// The open list policy of \ref Astar for building the state graph of the
+/// domain.
+/// \tparam As every policy, this one needs to have the search algorithm type
+/// template parameter.
 template <class MyAlgorithm>
 using BuildGraphOL =
     BucketedStdMap_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
 
+/// The generator policy of \ref Astar for building the state graph of the
+/// domain.
+/// \tparam As every policy, this one needs to have the search algorithm type
+/// template parameter.
 template <class MyAlgorithm>
 using BuildGenerator = StatesT<MyAlgorithm, heuristic::Zero>;
 

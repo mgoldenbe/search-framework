@@ -10,19 +10,21 @@
 
 /// \defgroup LayoutTraits Layout Traits
 /// Checking whether the State has a function for computing layout.
-/// Used for tag dispatch in \ref computePointMap_ "Drawer::computePointMap_"
+/// Used for tag dispatch in \ref Drawer.
 /// @{
 
 /// Declared only if \c State does not have a function for computing layout.
 template <class State, typename = void_t<>>
 struct has_layout : std::false_type {};
 
+/// \cond NOPE
 /// Declared only if \c State has a function for computing layout.
 template <class State>
 struct has_layout<State,
                   void_t<decltype(std::declval<State>().visualLocation(
                       std::declval<double &>(), std::declval<double &>()))>>
     : std::true_type {};
+/// \endcond
 
 /// Evaluates to \c void only if \c State has a function for computing layout.
 template <class State>
@@ -213,16 +215,18 @@ private:
     /// Indicates wither the vertex and edge labels should be shown.
     bool showLabels_ = false;
 
-    /// @{
-    /// \anchor computePointMap_
-    /// \name Computing the layout.
-    /// Uses SFINAE to use the \c visualLocation function of State it has one or
-    /// automatic layout otherwise.
-    /// See \ref HasNoLayout<State> and HasLayout<State>.
+    /// Computes the automatic layout in the absence of the \c visualLocation
+    /// member function of \c State.
+    /// \tparam State The search state type.
+    /// \note The return type is used for SFINAE. It evaluates to \c void.
     template <class State = State> HasNoLayout<State> computePointMap_() {
         pointMap_ = g_.layout(true, true);
     }
 
+    /// Computes the automatic layout using the \c visualLocation member
+    /// function of \c State.
+    /// \tparam State The search state type.
+    /// \note The return type is used for SFINAE. It evaluates to \c void.
     template <class State = State> HasLayout<State> computePointMap_() {
         for (auto vd : g_.vertexRange()) {
             auto state = g_.state(vd);
@@ -234,7 +238,6 @@ private:
             pointMap_[vd] = myPoint;
         }
     }
-    /// @}
 
     /// Fills inside the vertex according to the given style.
     /// \param vd The vertex identifier.

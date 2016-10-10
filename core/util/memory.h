@@ -19,7 +19,7 @@ std::shared_ptr<T> unique2shared(std::unique_ptr<T> &p) {
 template <typename T>
 class deref_shared_ptr: private std::shared_ptr<T> {
 public:
-    using Base = std::shared_ptr<T>; /// The standard shared pointer.
+    using Base = std::shared_ptr<T>; ///< The standard shared pointer.
 
     using Base::operator->;
     using Base::operator*;
@@ -57,7 +57,7 @@ public:
         return *this;
     }
 
-    /// The function similar to \c std::make_shared for \ref deref_shared.
+    /// The function similar to \c std::make_shared for \ref deref_shared_ptr.
     /// \tparam TT The pointed to type.
     /// \tparam Args The template argument list for the constructor.
     template <class TT, class... Args>
@@ -114,14 +114,17 @@ bool operator==(std::nullptr_t, const deref_shared_ptr<T> &rhs) {
 /// Comparison operator for \ref deref_shared_ptr for the case of \c nullptr on the right.
 /// \tparam T The type pointed to by the left-hand side.
 /// \param lhs The left-hand side of the comparison.
+/// \param rhs The right-hand side of the comparison.
 /// \return \c true if lhs!=nullptr and \c false otherwise.
 template <class T>
 bool operator!=(const deref_shared_ptr<T> &lhs, std::nullptr_t rhs) {
     return !(operator==(lhs, rhs));
 }
 
-/// Comparison operator for \ref deref_shared_ptr for the case of \c nullptr on the left.
+/// Comparison operator for \ref deref_shared_ptr for the case of \c nullptr on
+/// the left.
 /// \tparam T The type pointed to by the right-hand side.
+/// \param lhs The left-hand side of the comparison.
 /// \param rhs The right-hand side of the comparison.
 /// \return \c true if nullptr!=rhs and \c false otherwise.
 template <class T>
@@ -129,7 +132,7 @@ bool operator!=(std::nullptr_t lhs, const deref_shared_ptr<T> &rhs) {
     return !(operator==(lhs, rhs));
 }
 
-/// The function similar to \c std::make_shared for \ref deref_shared.
+/// The function similar to \c std::make_shared for \ref deref_shared_ptr.
 /// \tparam TT The pointed to type.
 /// \tparam Args The template argument list for the constructor.
 template< class T, class... Args >

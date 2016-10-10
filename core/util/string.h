@@ -18,7 +18,7 @@ std::string trim(const std::string &str,
 }
 
 /// Split the string using the giving characters.
-/// \param str The string to be trimmed.
+/// \param s The string to be trimmed.
 /// \param delims The characters to be used for splitting.
 /// \return The strings resulting from the split.
 std::vector<std::string> split(const std::string &s,

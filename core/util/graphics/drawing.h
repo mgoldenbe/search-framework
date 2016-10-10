@@ -69,7 +69,7 @@ void moveTo(cairo_t *cr, const gu::Point &p) { cairo_move_to(cr, p.x, p.y); }
 
 /// Draws line to the given point.
 /// \param cr The drawing context.
-/// \param p The point to draw to.
+/// \param to The point to draw to.
 /// \param strokeFlag If \c true, \c cairo_stroke is performed at the end.
 void lineTo(cairo_t *cr, const gu::Point &to, bool strokeFlag = true) {
     cairo_line_to(cr, to.x, to.y);

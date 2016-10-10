@@ -2,7 +2,7 @@
 #define VISUALIZER_H
 
 /// \file
-/// \brief The \ref Visualizer class, which handles the user interface.
+/// \brief The \ref ui::Visualizer class, which handles the user interface.
 /// \author Meir Goldenberg
 
 /// \namespace core::ui

@@ -14,12 +14,12 @@ template <typename MyAlgorithm> struct AlgorithmTraits;
 /// Type aliases used by many policies.
 #define POLICY_TYPES                                                           \
     using Traits = ext::algorithm::AlgorithmTraits<MyAlgorithm>;               \
-    using MyInstance = typename Traits::MyInstance;      \
-    static constexpr bool logFlag = Traits::logFlag_;    \
-    using Log = typename Traits::MyAlgorithmLog;         \
-    using CostType = typename Traits::CostType;          \
-    using Node = typename Traits::Node;                  \
-    using NodeData = typename Traits::NodeData;          \
+    using MyInstance = typename Traits::MyInstance;                            \
+    static constexpr bool logFlag = Traits::logFlag_;                          \
+    using Log = typename Traits::MyAlgorithmLog;                               \
+    using CostType = typename Traits::CostType;                                \
+    using Node = typename Traits::Node;                                        \
+    using NodeData = typename Traits::NodeData;                                \
     using State = typename Traits::State;
 
 /// \namespace ext::policy

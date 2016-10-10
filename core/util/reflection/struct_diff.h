@@ -1,8 +1,11 @@
-///@file
-///@brief INTERFACES CHECKED.
-
 #ifndef UTIL_STRUCT_DIFF_H
 #define UTIL_STRUCT_DIFF_H
+
+/// \cond NOPE
+
+///@file
+///@brief Low-level facilities for reflection of node data structures.
+/// \author Meir Goldenberg
 
 struct second_node_visitor {
     template <typename CharT, class FieldData1, class FieldData2>
@@ -66,5 +69,7 @@ std::string nodesDiff(
     res += ")";
     return res;
 }
+
+/// \endcond
 
 #endif

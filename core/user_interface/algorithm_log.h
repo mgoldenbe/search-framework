@@ -132,7 +132,7 @@ void rawLog(Log &log, const Node *n, const Node *parentSubstitution,
             std::make_shared<Event<Node>>(log, n, parentSubstitution));
 }
 
-/// The function that all algorithms use for logging an event. The function uses
+/// The function that algorithms use for logging an event. The function uses
 /// tag dispatch on the type of the log to make sure that no run-time overhead
 /// is incurred when no log is used (i.e. when the type of the log is \ref
 /// Nothing).
@@ -140,12 +140,11 @@ void rawLog(Log &log, const Node *n, const Node *parentSubstitution,
 /// from \ref EventBase<Node>.
 /// \tparam Log The type of the log. It should be either an instantiation of \ref AlgorithmLog or \ref Nothing.
 /// \tparam Node The node type.
-/// \param log The log.
+/// \param mylog The log.
 /// \param n The current node in the search.
 /// \param parentSubstitution The node whose state should be used as a parent
-/// state instead of the parent stored in \n. See How the \ref
-/// ext::event::NothingToDo event is generated in \ref Astar for an example of when
-/// this is useful.
+/// state instead of the parent stored in \n. See How the
+/// \ref event::NothingToDo event is generated in \ref Astar for an example of when this is useful.
 template <template <class> class Event, class Log, class Node>
 void log(Log &mylog, const Node *n,
          const Node *parentSubstitution = nullptr) {
@@ -154,6 +153,20 @@ void log(Log &mylog, const Node *n,
                          std::integral_constant<bool, logFlag>{});
 }
 
+/// The function that algorithms use for logging an event. The function uses
+/// tag dispatch on the type of the log to make sure that no run-time overhead
+/// is incurred when no log is used (i.e. when the type of the log is \ref
+/// Nothing).
+/// \tparam Event The particular event class. It should be a class derived
+/// from \ref EventBase<Node>.
+/// \tparam Log The type of the log. It should be either an instantiation of \ref AlgorithmLog or \ref Nothing.
+/// \tparam Node The node type.
+/// \param mylog The log.
+/// \param n The current node in the search.
+/// \param parentSubstitution The node whose state should be used as a parent
+/// state instead of the parent stored in \n. See How the \ref
+/// event::NothingToDo event is generated in \ref Astar for an example of when
+/// this is useful.
 template <template <class> class Event, class Log, class Node>
 void log(Log &mylog, const std::unique_ptr<Node> &n,
          const std::unique_ptr<Node> &parentSubstitution = nullptr) {

@@ -11,6 +11,7 @@ namespace generator {
 
 /// Generator that generates state neighbors.
 /// \tparam MyAlgorithm The search algorithm.
+/// \tparam Heuristic The heuristic policy.
 template <class MyAlgorithm, template <class> class Heuristic>
 struct StatesT {
     POLICY_TYPES
@@ -48,11 +49,14 @@ private:
     MyAlgorithm &alg_; ///< Reference to the search algorithm.
     Heuristic<MyAlgorithm> heuristic_; ///< The heuristic.
 };
+/// Generator that generates state neighbors.
+/// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
 using States = StatesT<MyAlgorithm, SLB_HEURISTIC>;
 
 /// Generator that generates action neighbors.
 /// \tparam MyAlgorithm The search algorithm.
+/// \tparam Heuristic The heuristic policy.
 template <class MyAlgorithm, template <class> class Heuristic>
 struct ActionsT {
     POLICY_TYPES
@@ -90,6 +94,8 @@ private:
     MyAlgorithm &alg_; ///< Reference to the search algorithm.
     Heuristic<MyAlgorithm> heuristic_; ///< The heuristic.
 };
+/// Generator that generates action neighbors.
+/// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
 using Actions = ActionsT<MyAlgorithm, SLB_HEURISTIC>;
 

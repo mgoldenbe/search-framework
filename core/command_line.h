@@ -2,12 +2,18 @@
 #define COMMAND_LINE_H
 
 /// \file
-/// \brief The \ref CommandLine class.
+/// \brief The \ref commandLine::CommandLine class.
 /// \author Meir Goldenberg
 
 /// Short-hand notation for global access to the command line object.
 #define CMD slb::core::commandLine::CommandLine<>::instance()
+
+/// Short-hand notation for the template parameter giving access to the command
+/// line object.
 #define CMD_TPARAM class CmdT = slb::core::commandLine::CommandLine<>
+
+///  Short-hand notation for accessing the command line object through the
+///  template parameter. See \ref CMD_TPARAM.
 #define CMD_T CmdT::instance()
 
 

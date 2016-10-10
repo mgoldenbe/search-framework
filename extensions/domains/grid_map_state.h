@@ -2,7 +2,7 @@
 #define GRID_MAP_STATE_H
 
 /// \file
-/// \brief The \ref GridMapState class.
+/// \brief The \ref gridMap::GridMapState class.
 /// \author Meir Goldenberg
 
 /// \namespace ext::domain::gridMap

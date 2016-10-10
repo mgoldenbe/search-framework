@@ -9,6 +9,11 @@
 /// Policies for handling conditions related to goal states.
 namespace goalHandler {
 
+/// Checks at compile-time whether the given goal handler's \c onSelect member
+/// function has a return value.
+/// \tparam Handler The goal handler policy.
+/// \return \c true if given goal handler's \c onSelect member
+/// function has a return value and \c false otherwise.
 template <class Handler>
 constexpr bool onSelectReturns() {
     return std::is_same<decltype(std::declval<Handler>().onSelect()),

@@ -15,7 +15,7 @@ struct MenuBase {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = VisualizerData<Node>;
 

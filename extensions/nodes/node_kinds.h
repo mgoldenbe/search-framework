@@ -32,7 +32,7 @@ struct BaseT: ManagedNode<> {
     }
 
     /// Updates h-value of the node
-    /// \param newG The new g-value.
+    /// \param newH The new h-value.
     void updateH(CostType newH) {
         f = g + newH;
     }

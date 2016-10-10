@@ -8,12 +8,12 @@
 #include <iomanip>
 #include <sstream>
 
-template <class> struct A;
-using B = A<int>;
-template <class> struct A { using T = int; };
+template <class State>
+struct has_layout<State,
+                  void_t<decltype(std::declval<State>().visualLocation(
+                      std::declval<double &>(), std::declval<double &>()))>>
+    : std::true_type {};
 
 int main() {
-    A<int>::T x; (void)x;
-    B::T y; (void)y;
     return 0;
 }

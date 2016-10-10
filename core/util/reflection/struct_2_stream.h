@@ -1,6 +1,8 @@
 #ifndef NODE_2_STREAM_H
 #define NODE_2_STREAM_H
 
+/// \cond NOPE
+
 ///@file
 ///@brief Low-level facilities for reflection of node data structures.
 /// \author Meir Goldenberg
@@ -75,5 +77,7 @@ auto operator<<(std::basic_ostream<charT> &o, const Node &n)
     -> decltype(dumpNode(o, n)) {
     return dumpNode(o, n);
 }
+
+/// \endcond
 
 #endif

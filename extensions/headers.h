@@ -8,7 +8,7 @@
 
 namespace slb {
 
-/// \namespace ext
+/// \namespace slb::ext
 /// The user extensions.
 namespace ext {
 using namespace core::sb;
