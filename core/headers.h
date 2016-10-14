@@ -11,13 +11,13 @@ namespace slb {
 /// Empty structure. Too bad this is not defined by the standard
 struct Nothing {};
 
-/// Used for some SFINAE magic.
-template <typename...>
-struct voider { using type = void; };
+/// The trait used for some SFINAE magic.
+template <typename...> struct voider {
+    using type = void; ///< The type.
+};
 
 /// Used for some SFINAE magic.
-template <typename... Ts>
-using void_t = typename voider<Ts...>::type;
+template <typename... Ts> using void_t = typename voider<Ts...>::type;
 
 /// \namespace slb::core
 /// The core facilities of the framework.

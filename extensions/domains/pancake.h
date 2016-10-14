@@ -22,9 +22,9 @@ private:
 protected:
     /// Injects this addition to the command line object.
     /// \param cmd The command-line object.
-    CommandLine(TCLAP::CmdLine &cmd_)
+    CommandLine(TCLAP::CmdLine &cmd)
         : nPancakes_("", "nPancakes", "Number of pancakes", false, -1, "int",
-                     cmd_) {}
+                     cmd) {}
 };
 
 /// The pancake puzzle domain.
@@ -193,17 +193,17 @@ private:
     std::vector<int> pancakes_; ///< The underlying state representation.
 
     /// Is there a gap between positions i and i+1?
-    /// \return \true if there is a gap and \false otherwise
+    /// \return \c true if there is a gap and \c false otherwise
     bool gap(int i) const { return gap(i, i + 1); }
 
     /// Is there a gap between positions i and j?
-    /// \return \true if there is a gap and \false otherwise
+    /// \return \c true if there is a gap and \c false otherwise
     bool gap(int i, int j) const {
         return (abs(pancakes_[i] - pancakes_[j]) > 1);
     }
 
     /// Is the largest pancake in place?
-    /// \return \true if the largest pancake is in place and \false
+    /// \return \c true if the largest pancake is in place and \c false
     /// otherwise
     bool largestInPlace() const {
         return (pancakes_.back() == (int)pancakes_.size() - 1);

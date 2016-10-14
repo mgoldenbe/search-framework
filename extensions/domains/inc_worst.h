@@ -39,7 +39,7 @@ struct IncWorst: DomainBase {
     /// must provide this name.
     using SNeighbor = StateNeighbor<IncWorst, false>;
 
-    using Row = enum {top, bottom};
+    using Row = enum {top, bottom}; ///< The type for row identification.
 
     /// Initializes the start state.
     IncWorst() : k_(CMD.nStages() - 1), row_(bottom), n_(k_ - 1) {

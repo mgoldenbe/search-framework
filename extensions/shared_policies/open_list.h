@@ -135,6 +135,8 @@ struct BucketedStdMap_T {
     using BucketsContainer =
         Container<KeyType, std::vector<Node *>, GreaterPriority>;
 
+    /// The constructor.
+    /// \param alg Reference to the search algorithm.
     BucketedStdMap_T(MyAlgorithm &alg): alg_(alg) {
 #ifndef NDEBUG
         // just to prevent the compiler from throwing it away,

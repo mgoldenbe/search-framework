@@ -84,11 +84,11 @@ As explained in \ref s-configuration, most of the framework's facilities are imp
 To avoid such circular dependencies, we need to forward-declare the names corresponding to the default template arguments. For this reason, the convention is that user-provided facilities should provide a header with forward declarations. This header's name should have the suffix `_fwd.h`. For example, the Pancake Puzzle domain is shipped in two headers: `extensions/domains/pancake.h` and `extensions/domains/pancake_fwd.h`. 
 <!-- In particular, if additional command line options are defined, the class defining them should be forward-declared.  -->
 
-The *forward-declaration headers* must be `#include`-d in the final source before the core facilities as described in the next subsection.
+The *forward-declaration headers* must be `# include`-d in the final source before the core facilities as described in the next subsection.
 
 ### The single-unit compilation model {#s-single-unit}
-Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of `#include`-directives makes this unit easy to manage:
-- First, all the third-party facilities (i.e. the facilities coming from the standard library, the `Boost` library etc.) are `#include`-d as a single header called `outside_headers.h`. This header is suitable for pre-compilation, which is currently not employed. On my computer, the framework compiles in under ten seconds. <!-- I got only 25% speed-up from using pre-compilation. -->
+Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of `# include`-directives makes this unit easy to manage:
+- First, all the third-party facilities (i.e. the facilities coming from the standard library, the `Boost` library etc.) are `# include`-d as a single header called `outside_headers.h`. This header is suitable for pre-compilation, which is currently not employed. On my computer, the framework compiles in under ten seconds. <!-- I got only 25% speed-up from using pre-compilation. -->
 - The main `.cpp` file includes:
   - the configuration file 
   - `extensions/headers_fwd.h`
@@ -118,7 +118,7 @@ The framework employs the following conventions regarding the names of the pre-p
 The framework employs the [Templatized C++ Command Line Parser Library](http://tclap.sourceforge.net/) to parse the command line. The following subsections present the framework's features related to using the command line.
 
 ### Command line options for user-provided facilities {#s-user-cmd}
-In addition to the standard command options (see below), the framework makes it possible to define command line options specific to user-provided facilities. For this reason, the class \ref CommandLine::CommandLine is a template that accepts a class implementing additional command line options as the template argument. See \ref CommandLine::Pancake for an example of such a class. Also, see the [video demo](https://youtu.be/QUBkkErdnFM) for an example of configuring the framework to use additional command line options.
+In addition to the standard command options (see below), the framework makes it possible to define command line options specific to user-provided facilities. For this reason, the class \ref commandLine::CommandLine is a template that accepts a class implementing additional command line options as the template argument. See \ref pancake::CommandLine for an example of such a class. Also, see the [video demo](https://youtu.be/QUBkkErdnFM) for an example of configuring the framework to use additional command line options.
 
 One can view the standard command line options by running the following command from the root directory.
 
@@ -126,7 +126,7 @@ One can view the standard command line options by running the following command 
 This particular configuration file (i.e. `projects/demo/grid.h`) was chosen because it does not define any additional command line options.
 
 ### Using the command line object {#s-singleton}
-The class \ref CommandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref CommandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by the user-provided facilities by calling the \ref CommandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function. 
+The class \ref commandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref commandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by the user-provided facilities by calling the \ref commandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function. 
 
 The command line object cannot be accessed from the *core facilities* by using the \ref CMD macro. This is because the classes implementing the user-provided additional command line options are only forward-declared, but not defined, by the time the compiler parses the core facilities. Hence, the core facilities that need access to the command-line object need to make this object available through template parameters. The file \ref instance.h provides a few examples of accessing the command line object from core facilities (look for the functions with the \ref CMD_TPARAM macro in the template parameters list).
 
@@ -179,7 +179,7 @@ Please refer to \ref Astar::run to see how events are logged in the existing cod
 <!-- Each event defines a visualization effect. It is convenient to derive the events from pre-made bases, which correspond to different kinds of visualization effects. The existing bases are defined in \ref event_types.h and the existing events are defined in \ref events.h. -->
 
 ## Managed search nodes {#s-nodes}
-*Managed search nodes* are yet another convenience that was achieved through the use of macros. A managed search node inherits from \ref ManagedNode and declares its data members using the \ref REFLECTABLE macro. Such managed nodes are endowed with [reflection capabilities](http://stackoverflow.com/a/11744832/2725810), which the framework uses to define universal output operators. Please refer to \ref node_kinds.h for examples of defining managed search nodes. 
+*Managed search nodes* are yet another convenience that was achieved through the use of macros. A managed search node inherits from \ref ManagedNode and declares its data members using the \c REFLECTABLE macro. Such managed nodes are endowed with [reflection capabilities](http://stackoverflow.com/a/11744832/2725810), which the framework uses to define universal output operators. Please refer to \ref node_kinds.h for examples of defining managed search nodes. 
 
 <!-- In particular, this alleviates the need to define an output operator for that node. In addition, the framework is capable to compare the contents of two managed node and produce a string that summarizes the differences. These reflection capabilities come very handy for the textual log analysis tool. -->
 
