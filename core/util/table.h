@@ -141,13 +141,14 @@ struct Table {
     }
 
 private:
-    std::vector<Row> rows_; /// The rows of the table.
-    std::vector<int> widths_; /// The width of the columns.
-    int space_; /// The amount of space between the columns.
-    Row currentRow_; /// The row currently being filled out.
-    bool hideTitle_ = false; /// The flag showing whether the title row needs to
-                             /// be shown during the next operation of the
-                             /// output operator.
+    std::vector<Row> rows_; ///< The rows of the table.
+    std::vector<int> widths_; ///< The width of the columns.
+    int space_; ///< The amount of space between the columns.
+    Row currentRow_; ///< The row currently being filled out.
+
+    /// The flag showing whether the title row needs to be shown during the next
+    /// operation of the output operator.
+    bool hideTitle_ = false;
 };
 
 /// A function to test \ref Table.

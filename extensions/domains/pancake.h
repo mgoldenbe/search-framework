@@ -5,8 +5,8 @@
 /// \brief The \ref pancake::Pancake class and the related heuristics.
 /// \author Meir Goldenberg
 
-/// \namespace ext::domain::pancake
-/// \brief The Pancake puzzle.
+/// \namespace slb::ext::domain::pancake
+/// The Pancake puzzle.
 namespace pancake {
 
 /// Additions to the command line related to the Pancake puzzle domain.

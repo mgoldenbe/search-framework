@@ -5,7 +5,7 @@
 /// \brief Implementation of the search algorithms.
 /// \author Meir Goldenberg
 
-/// \namespace ext::algorithm
+/// \namespace slb::ext::algorithm
 /// The search algorithms.
 namespace algorithm {
 

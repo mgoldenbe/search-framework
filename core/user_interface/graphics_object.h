@@ -70,8 +70,8 @@ struct Graphics {
     }
 
     /// Update the size of the window and the drawing surface.
-    /// \param New x-dimension of the window.
-    /// \param New y-dimension of the window.
+    /// \param x New x-dimension of the window.
+    /// \param y New y-dimension of the window.
     void updateWindowSize(int x, int y) {
         windowXSize = x;
         windowYSize = y;

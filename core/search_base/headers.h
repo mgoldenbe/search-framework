@@ -6,7 +6,7 @@
 /// algorithms.
 /// \author Meir Goldenberg
 
-/// \namespace core::sb
+/// \namespace slb::core::sb
 /// The search base. These are facilities that support implementation of various
 /// heuristic search algorithms.
 namespace sb {

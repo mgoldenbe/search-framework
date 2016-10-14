@@ -11,7 +11,7 @@ namespace slb {
 /// \namespace slb::ext
 /// The user extensions.
 namespace ext {
-using namespace core::sb;
+using namespace slb::core::sb;
 using core::ui::log;
 
 #include "domains/headers.h"

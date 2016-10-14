@@ -124,7 +124,7 @@ struct MenuMain : public MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -153,7 +153,7 @@ struct MenuRun : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -185,7 +185,7 @@ struct MenuStep : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -218,7 +218,7 @@ struct MenuJump : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -253,7 +253,7 @@ struct MenuJumpStep : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -304,7 +304,7 @@ struct MenuEnterState : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -356,7 +356,7 @@ struct MenuFilter : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -404,7 +404,7 @@ struct MenuGo : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -432,7 +432,7 @@ struct MenuSpeed : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -465,7 +465,7 @@ struct MenuSearchDirection : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -502,7 +502,7 @@ struct MenuEditFilter : MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 
@@ -551,7 +551,7 @@ struct MenuLayout : public MenuBase<AllMenus, Node> {
     /// Just a short name for the base class for all the menus.
     using Base = MenuBase<AllMenus, Node>;
 
-    /// The base of \ref Visualizer holding the visualizer's constituent
+    /// The base of \ref ui::Visualizer holding the visualizer's constituent
     /// components.
     using Data = typename Base::Data;
 

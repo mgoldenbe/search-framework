@@ -6,7 +6,7 @@
 /// page 75 of "Heuristic Search" by Stefan Edelkamp).
 /// \author Meir Goldenberg
 
-/// \namespace ext::domain::incWorst
+/// \namespace slb::ext::domain::incWorst
 /// The worst case example for an inconsistent heuristics (as appears on
 /// page 75 of "Heuristic Search" by Stefan Edelkamp).
 namespace incWorst {
@@ -24,9 +24,9 @@ private:
 protected:
     /// Injects this addition to the command line object.
     /// \param cmd The command-line object.
-    CommandLine(TCLAP::CmdLine &cmd_)
+    CommandLine(TCLAP::CmdLine &cmd)
         : nStages_("", "nStages", "Number of stages for the IncWorst domain",
-                   false, -1, "int", cmd_) {}
+                   false, -1, "int", cmd) {}
 };
 
 /// The worst case example for an inconsistent heuristics.

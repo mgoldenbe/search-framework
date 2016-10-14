@@ -5,7 +5,7 @@
 /// \brief Wrappers around heuristics to be used by the search algorithms.
 /// \author Meir Goldenberg
 
-/// \namespace ext::policy::heuristic
+/// \namespace slb::ext::policy::heuristic
 /// Wrappers around heuristics to be used by the search algorithms.
 namespace heuristic {
 
@@ -148,7 +148,7 @@ struct MinMultipleGoalsT {
             node);
     }
 private:
-    MyAlgorithm &alg_;
+    MyAlgorithm &alg_; ///< Reference to the search algorithm.
     std::vector<SingleGoalHeuristic>
         singleGoalHeuristics_; ///< The single goal heuristic.
 

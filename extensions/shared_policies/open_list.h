@@ -5,7 +5,7 @@
 /// \brief Open list implementations.
 /// \author Meir Goldenberg
 
-/// \namespace ext::policy::openList
+/// \namespace slb::ext::policy::openList
 /// Open list implementations.
 namespace openList {
 

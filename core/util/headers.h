@@ -4,7 +4,7 @@
 #ifndef UTIL_HEADERS_H
 #define UTIL_HEADERS_H
 
-/// \namespace core::util
+/// \namespace slb::core::util
 /// Utility facilities.
 namespace util {
 

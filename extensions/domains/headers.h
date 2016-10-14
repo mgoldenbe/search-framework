@@ -5,7 +5,7 @@
 /// \brief Implementation of the domains.
 /// \author Meir Goldenberg
 
-/// \namespace ext::domain
+/// \namespace slb::ext::domain
 /// The search domains.
 namespace domain {
 

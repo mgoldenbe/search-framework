@@ -7,6 +7,7 @@
 
 // See also http://stackoverflow.com/questions/8401827/crtp-and-type-visibility
 
+/// \namespace slb::ext::algorithm
 namespace algorithm {
 template <typename MyAlgorithm> struct AlgorithmTraits;
 } // namespace
@@ -22,7 +23,7 @@ template <typename MyAlgorithm> struct AlgorithmTraits;
     using NodeData = typename Traits::NodeData;                                \
     using State = typename Traits::State;
 
-/// \namespace ext::policy
+/// \namespace slb::ext::policy
 /// Policy classes for search algorithms and algorithmic variants.
 namespace policy {
 

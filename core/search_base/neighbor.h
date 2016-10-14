@@ -50,7 +50,8 @@ template <typename State_> struct Cost<State_, true> {
 template <typename State_, bool uniformFlag = true>
 struct StateNeighbor: Cost<State_, uniformFlag>  {
     using State = State_; ///< The state type, represents the domain.
-    using MyCost = Cost<State_, uniformFlag>;
+    using MyCost =
+        Cost<State_, uniformFlag>; ///< The type for storing the neighbor cost.
     using CostType = typename State::CostType; ///< Action cost type.
 
     /// Initializes the neighbor based on the neighbor state and cost

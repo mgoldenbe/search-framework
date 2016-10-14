@@ -5,7 +5,7 @@
 /// \brief Generators to be used by the search algorithms.
 /// \author Meir Goldenberg
 
-/// \namespace ext::policy::generator
+/// \namespace slb::ext::policy::generator
 /// Generators to be used by the search algorithms.
 namespace generator {
 
@@ -16,6 +16,7 @@ template <class MyAlgorithm, template <class> class Heuristic>
 struct StatesT {
     POLICY_TYPES
 
+    /// The search neighbor type.
     using Neighbor = typename State::SNeighbor;
 
     /// The contructor.
@@ -61,6 +62,7 @@ template <class MyAlgorithm, template <class> class Heuristic>
 struct ActionsT {
     POLICY_TYPES
 
+    /// The search neighbor type.
     using Neighbor = typename State::ANeighbor;
 
     /// The contructor.
@@ -77,6 +79,7 @@ struct ActionsT {
 
     /// Computes the heuristic.
     /// \param n The neighbor for which the heuristic is to be computed.
+    /// \param node The search node for which the heuristic is to be computed.
     /// \return The heuristic value.
     CostType heuristic(const Neighbor &n, Node *node) const {
         return heuristic_(n, node);

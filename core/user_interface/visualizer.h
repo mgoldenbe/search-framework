@@ -5,7 +5,7 @@
 /// \brief The \ref ui::Visualizer class, which handles the user interface.
 /// \author Meir Goldenberg
 
-/// \namespace core::ui
+/// \namespace slb::core::ui
 /// The user interface.
 namespace ui {
 

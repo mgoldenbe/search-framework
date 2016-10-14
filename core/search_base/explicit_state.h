@@ -120,7 +120,7 @@ struct ManhattanHeuristic {
     }
 
 private:
-    const State &goal_;
+    const State &goal_; ///< The goal state.
 };
 
 /// The octile heuristic functor.
@@ -139,7 +139,7 @@ struct OctileHeuristic {
     }
 
 private:
-    const State &goal_;
+    const State &goal_; ///< The goal state.
 };
 
 #endif

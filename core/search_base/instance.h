@@ -82,7 +82,7 @@ struct Instance {
     /// \return Non-const reference to the vector of goal states.
     /// \note The reference in the return value is non-const, since some search
     /// algorithms need to modify the set of goals as the algorithm progresses.
-    /// See \ref MinHeuristicGoalHandler for an example.
+    /// See \ref goalHandler::MinHeuristic for an example.
     const std::vector<State> &goals() const { return goal_; }
 
     /// Returns a vector of single-goal instances, one instance for each goal
@@ -121,7 +121,7 @@ struct Instance {
 private:
     std::vector<State> start_; ///< The start states.
     std::vector<State> goal_;  ///< The goal states.
-    MeasureSet measures_;
+    MeasureSet measures_; ///< The measures associated with the instance.
 };
 
 /// Computes a random state that is not in the given vector of states.

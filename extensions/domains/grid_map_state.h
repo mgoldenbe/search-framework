@@ -5,7 +5,7 @@
 /// \brief The \ref gridMap::GridMapState class.
 /// \author Meir Goldenberg
 
-/// \namespace ext::domain::gridMap
+/// \namespace slb::ext::domain::gridMap
 /// \brief The grid map domain.
 namespace gridMap {
 

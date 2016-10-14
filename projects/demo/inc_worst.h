@@ -10,7 +10,7 @@
 #define SLB_CMD_LINE_ADD ext::domain::incWorst::CommandLine
 
 #undef SLB_HEURISTIC
-#define SLB_HEURISTIC HeuristicPolicy::Zero
+#define SLB_HEURISTIC ext::policy::heuristic::Zero
 
 #undef SLB_OL_PRIORITY
 #define SLB_OL_PRIORITY GreaterPriority_SmallG

@@ -5,7 +5,7 @@
 /// \brief Forward declaration headers.
 /// \author Meir Goldenberg
 
-/// \namespace ext::domain
+/// \namespace slb::ext::domain
 namespace domain {
 
 #include "extensions/domains/pancake_fwd.h"

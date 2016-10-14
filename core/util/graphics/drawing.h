@@ -5,6 +5,7 @@
 ///@brief Drawing utilities.
 /// \author Meir Goldenberg
 
+/// \namespace slb::core::util::rgb
 /// Functions for dealing with RGB color components.
 namespace rgb {
 

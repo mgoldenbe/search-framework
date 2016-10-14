@@ -5,7 +5,7 @@
 /// \brief Implementation of instance measures.
 /// \author Meir Goldenberg
 
-/// \namespace ext::instanceMeasure
+/// \namespace slb::ext::instanceMeasure
 /// Measures for instances.
 namespace instanceMeasure {
 

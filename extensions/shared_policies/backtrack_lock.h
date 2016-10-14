@@ -5,7 +5,7 @@
 /// \brief Policies for handling backtracking in IDA*.
 /// \author Meir Goldenberg
 
-/// \namespace ext::policy::backtrackLock
+/// \namespace slb::ext::policy::backtrackLock
 /// Policies for handling backtracking in IDA*.
 namespace backtrackLock {
 
@@ -171,7 +171,7 @@ private:
 
     /// The node being expanded by IDA*.
     Node *cur_;
-    std::unique_ptr<Node> parent_ = nullptr; /// The parent node.
+    std::unique_ptr<Node> parent_ = nullptr; ///< The parent node.
 
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.

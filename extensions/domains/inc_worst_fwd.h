@@ -5,7 +5,7 @@
 /// \brief Forward declarations for \ref pancake.h.
 /// \author Meir Goldenberg
 
-/// \namespace ext::domain::incWorst
+/// \namespace slb::ext::domain::incWorst
 namespace incWorst {
 struct IncWorst;
 struct CommandLine;

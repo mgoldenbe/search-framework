@@ -20,7 +20,9 @@
 /// \note The state type needs to implement moving copy constructor for
 /// insertions into the list to be efficient.
 template <class OpenList> struct OpenClosedList {
+    /// The search algorithm.
     using MyAlgorithm = typename OpenList::MyAlgorithm;
+
     /// The node type.
     using Node = typename OpenList::Node;
 
@@ -40,6 +42,8 @@ template <class OpenList> struct OpenClosedList {
     using HashType =
         std::unordered_map<State, NodeUniquePtr, util::StateHash<State>>;
 
+    /// The constructor.
+    /// \param alg Reference to the search algorithm.
     OpenClosedList(MyAlgorithm &alg) : ol_(alg) {}
 
     /// Dumps the list to \c stderr for debugging.
