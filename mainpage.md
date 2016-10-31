@@ -84,11 +84,11 @@ As explained in \ref s-configuration, most of the framework's facilities are imp
 To avoid such circular dependencies, we need to forward-declare the names corresponding to the default template arguments. For this reason, the convention is that user-provided facilities should provide a header with forward declarations. This header's name should have the suffix `_fwd.h`. For example, the Pancake Puzzle domain is shipped in two headers: `extensions/domains/pancake.h` and `extensions/domains/pancake_fwd.h`. 
 <!-- In particular, if additional command line options are defined, the class defining them should be forward-declared.  -->
 
-The *forward-declaration headers* must be `# include`-d in the final source before the core facilities as described in the next subsection.
+The *forward-declaration headers* must be <code>\#include</code>-d in the final source before the core facilities as described in the next subsection.
 
 ### The single-unit compilation model {#s-single-unit}
-Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of `# include`-directives makes this unit easy to manage:
-- First, all the third-party facilities (i.e. the facilities coming from the standard library, the `Boost` library etc.) are `# include`-d as a single header called `outside_headers.h`. This header is suitable for pre-compilation, which is currently not employed. On my computer, the framework compiles in under ten seconds. <!-- I got only 25% speed-up from using pre-compilation. -->
+Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of <code>\#include</code>-directives makes this unit easy to manage:
+- First, all the third-party facilities (i.e. the facilities coming from the standard library, the `Boost` library etc.) are <code>\#include</code>-d as a single header called `outside_headers.h`. This header is suitable for pre-compilation, which is currently not employed. On my computer, the framework compiles in under ten seconds. <!-- I got only 25% speed-up from using pre-compilation. -->
 - The main `.cpp` file includes:
   - the configuration file 
   - `extensions/headers_fwd.h`
