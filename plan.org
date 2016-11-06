@@ -183,9 +183,11 @@ CLOSED: [2016-10-07 Fri 12:32]
 ** DONE Document util/ except util/reflection/ and include it in doxygen configuration file.
 CLOSED: [2016-10-09 Sun 12:28]
 ** TODO Make sure the output of doxygen is error-free.
+- It looks like both this and the following problem will be fixed if we make doxygen ignore include-guards and macros. This is the result of a bug in Doxygen that an #include in a namespace confuses it.
+- I prefer to wait: may be the bug will be fixed. Also, the absence of guards has the potential of having things appear in documentation several times.
+- After the discussion (http://softwareengineering.stackexchange.com/q/335240/216771), I decided to not include headers inside namespaces.
 ** TODO Make sure that all the namespaces and namespace members appear correctly in the doxygen configuration.
-** TODO Make two notes in documentation: 
-- About the deviation of configs in video from the current configs.
+** TODO Make notes in documentation: 
 - About the namespaces matching the physical structure.
 ** TODO Make sure that std::move is used wherever needed (i.e. wherever right reference is used). 
 ** TODO Either add to bugs or fix the issue with layout computation not converging.
