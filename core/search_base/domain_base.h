@@ -2,8 +2,12 @@
 #define DOMAIN_BASE_H
 
 /// \file
-/// \brief The \ref DomainBase class.
+/// \brief The \ref slb::core::sb::DomainBase class.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace core {
+namespace sb {
 
 /// A type for common features of domains.
 struct DomainBase {
@@ -18,5 +22,9 @@ struct DomainBase {
     /// \return The textual label for the edge to \c to.
     std::string visualLabel(const DomainBase &) const {return "";}
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

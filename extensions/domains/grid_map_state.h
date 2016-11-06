@@ -2,8 +2,12 @@
 #define GRID_MAP_STATE_H
 
 /// \file
-/// \brief The \ref gridMap::GridMapState class.
+/// \brief The grid-based path finding domain.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace ext {
+namespace domain {
 
 /// \namespace slb::ext::domain::gridMap
 /// \brief The grid map domain.
@@ -46,6 +50,9 @@ struct GridMapState : ExplicitState<GridMap<CostType>> {
     }
 };
 
-}
+} // namespace
+} // namespace
+} // namespace
+} // namespace
 
 #endif

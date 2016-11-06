@@ -5,6 +5,10 @@
 ///@brief The utilities for working with \c curses menu.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Creates a \c curses menu.
 /// \param w The window.
 /// \param items The menu items.
@@ -83,5 +87,9 @@ std::vector<std::string> menuChoices(MENU *m) {
     }
     return res;
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

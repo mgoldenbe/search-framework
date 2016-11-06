@@ -2,7 +2,7 @@
 #define COMMAND_LINE_H
 
 /// \file
-/// \brief The \ref commandLine::CommandLine class.
+/// \brief The \ref slb::core::commandLine::CommandLine class.
 /// \author Meir Goldenberg
 
 /// Short-hand notation for global access to the command line object.
@@ -16,7 +16,10 @@
 ///  template parameter. See \ref CMD_TPARAM.
 #define CMD_T CmdT::instance()
 
+namespace slb {
+namespace core {
 
+/// Command line-related facilities.
 namespace commandLine {
 
 /// Empty additions to the command line.
@@ -209,5 +212,8 @@ private:
     }
 };
 
-}
+} // namespace
+} // namespace
+} // namespace
+
 #endif

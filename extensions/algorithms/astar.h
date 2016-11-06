@@ -2,10 +2,14 @@
 #define ASTAR_H
 
 /// \file
-/// \brief The \ref Astar class.
+/// \brief The \ref slb::ext::algorithm::Astar class.
 /// \author Meir Goldenberg
 
 #include "algorithm.h"
+
+namespace slb {
+namespace ext {
+namespace algorithm {
 
 template <ALG_TPARAMS_NO_DEFAULTS, template <class> class Open>
 struct Astar; // Forward declare for the following type traits to work.
@@ -204,5 +208,9 @@ private:
         oc_.add(newNode);
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

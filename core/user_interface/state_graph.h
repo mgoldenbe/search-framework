@@ -5,6 +5,10 @@
 /// \brief The state space graph used for visualization.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace ui {
+
 using namespace boost;
 
 /// The state space graph used for visualization.
@@ -229,5 +233,9 @@ private:
     /// Randomly permutes positions of vertices in \c baseLayout_.
     void randomizeBaseLayout();
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

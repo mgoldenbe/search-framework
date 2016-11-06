@@ -5,6 +5,10 @@
 ///@brief The colors.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// The colors.
 /// \note The source of colors: http://xkcd.com/color/rgb/
 enum class Color {
@@ -1099,4 +1103,8 @@ std::vector<int> RGBValues{
     0xffff14, 0xc20078, 0x96f97b, 0xf97306, 0x029386, 0x95d0fc, 0xe50000,
     0x653700, 0xff81c0, 0x0343df, 0x15b01a, 0x7e1e9c};
 
+} // namespace
+} // namespace
+} // namespace
+ 
 #endif

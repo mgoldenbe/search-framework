@@ -5,6 +5,10 @@
 ///@brief Memory-related utilities.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Releases moves a pointer from \c std::unique_ptr to \c std::shared_ptr.
 /// \tparam T The type being pointed to.
 /// \param p The pointer to be released.
@@ -148,5 +152,9 @@ template <typename T>
 deref_shared_ptr<T> unique2derefshared(std::unique_ptr<T> &p) {
     return deref_shared_ptr<T>(p.release());
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

@@ -2,10 +2,14 @@
 #define VISUAL_EVENT_H
 
 /// \file
-/// \brief The \ref VisualEvent class.
+/// \brief The \ref slb::core::ui::VisualEvent class.
 /// \author Meir Goldenberg
 
 #include "event_base.h"
+
+namespace slb {
+namespace core {
+namespace ui {
 
 /// The event for visualization.
 /// \tparam State The state type, represents the domain.
@@ -138,5 +142,9 @@ private:
     /// Changes of visual representations of edges.
     std::vector<EdgeChange> edgeChanges_;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

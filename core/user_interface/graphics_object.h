@@ -5,6 +5,10 @@
 /// \brief Facilities for manipulating the drawing surface.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace ui {
+
 /// Objects of this class hold all the information needed for drawing.
 struct Graphics {
     /// Creates the window, initializes the surface and the drawing context.
@@ -286,5 +290,9 @@ private:
             (origDeltaY_ - g_.margin * g_.windowYSize) / g_.scaleFactor);
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

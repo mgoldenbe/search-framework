@@ -6,6 +6,10 @@
 /// page 75 of "Heuristic Search" by Stefan Edelkamp).
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+namespace domain {
+
 /// \namespace slb::ext::domain::incWorst
 /// The worst case example for an inconsistent heuristics (as appears on
 /// page 75 of "Heuristic Search" by Stefan Edelkamp).
@@ -187,6 +191,9 @@ private:
     }
 };
 
-}
+} // namespace
+} // namespace
+} // namespace
+} // namespace
 
 #endif

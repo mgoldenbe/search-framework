@@ -8,6 +8,10 @@
 #include "algorithm_log.h"
 #include "current_styles.h"
 
+namespace slb {
+namespace core {
+namespace ui {
+
 /// Type of event.
 enum class EventType {
     NORMAL,         /// As it sounds. Most events are normal.
@@ -66,12 +70,12 @@ template <class Node = SLB_NODE> struct EventBase {
 
     /// Initializes the event based on the given search node.
     /// \param log The log that contains the event. This means that the log
-    /// is an intrusive container. See \ref AlgorithmLog<Node>.
+    /// is an intrusive container. See \ref AlgorithmLog.
     /// \param n The node.
     /// \param parentSubstitution The node whose state should be used as a
     /// parent state instead of the parent stored in \n. See How the \ref
-    /// NothingToDo event is generated in \ref Astar for an example of when this
-    /// is useful.
+    /// ext::event::NothingToDo event is generated in \ref ext::algorithm::Astar
+    /// for an example of when this is useful.
     EventBase(const AlgorithmLog<Node> &log, const Node *n,
          const Node *parentSubstitution = nullptr)
         : log_(log), state_(stateFromNode(n)),
@@ -147,7 +151,7 @@ template <class Node = SLB_NODE> struct EventBase {
     }
 
     /// Dumps the event into a given output stream in column format. The stream
-    /// will usually be a \ref Table, which handles the column width
+    /// will usually be a \ref util::Table, which handles the column width
     /// automatically.
     /// \tparam Stream The output stream type.
     /// \param o The output stream.
@@ -194,9 +198,9 @@ protected:
     /// the state from which the search algorithm arrived to \ref state_.
     StateSharedPtr parent_;
     /// The node whose state should be used as a
-    /// parent state instead of the parent stored in \n. See How the \ref
-    /// NothingToDo event is generated in \ref Astar for an example of when this
-    /// is useful.
+    /// parent state instead of the parent stored in \n. See how the \ref
+    /// ext::event::NothingToDo event is generated in \ref ext::algorithm::Astar
+    /// for an example of when this is useful.
     StateSharedPtr parentSubstitution_;
 
     /// The information that was kept with the search node from which the event
@@ -217,5 +221,9 @@ private:
         return make_deref_shared<const State>(n->state());
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

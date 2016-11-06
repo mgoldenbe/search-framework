@@ -3,12 +3,17 @@
 #define GRID_MAP_H
 
 /// \file
-/// \brief The \ref GridMap class.
+/// \brief The \ref slb::core::sb::GridMap class.
 /// \author Meir Goldenberg
 
 #ifndef SLB_COST_DIAGONAL
+/// Default value for the diagonal move cost.
 #define SLB_COST_DIAGONAL 1
 #endif
+
+namespace slb {
+namespace core {
+namespace sb {
 
 using util::sureRead;
 using util::split;
@@ -211,5 +216,9 @@ private:
         res.push_back(Neighbor((typename Neighbor::State{n}), cost));
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

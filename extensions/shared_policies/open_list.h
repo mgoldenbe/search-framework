@@ -5,6 +5,10 @@
 /// \brief Open list implementations.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+namespace policy {
+
 /// \namespace slb::ext::policy::openList
 /// Open list implementations.
 namespace openList {
@@ -269,6 +273,9 @@ template <class MyAlgorithm>
 using BucketedStdMap = BucketedStdMap_T<MyAlgorithm, SLB_NODE, SLB_OL_KEY_TYPE,
                                         SLB_OL_PRIORITY, SLB_OL_CONTAINER>;
 
+} // namespace
+} // namespace
+} // namespace
 } // namespace
 
 #endif

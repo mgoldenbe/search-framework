@@ -2,10 +2,14 @@
 #define PER_GOAL_H
 
 /// \file
-/// \brief The \ref PerGoal class.
+/// \brief The \ref slb::ext::algorithm::PerGoal class.
 /// \author Meir Goldenberg
 
 #include "algorithm.h"
+
+namespace slb {
+namespace ext {
+namespace algorithm {
 
 /// \c PerGoal is a meta search algorithm for solving instances with multiple
 /// goals. It runs some other search algorithm for each goal state and combines
@@ -77,5 +81,9 @@ private:
     /// solving for all goal states.
     Stats stats_;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

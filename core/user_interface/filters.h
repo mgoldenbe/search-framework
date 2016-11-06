@@ -5,6 +5,10 @@
 /// \brief Event filters for log analysis and visualization.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace ui {
+
 /// The abstract base for all filters.
 /// \tparam Node The search node type. It is needed since some filters might
 /// operate on the information stored with the node.
@@ -155,5 +159,9 @@ private:
     /// The constituent filters.
     std::vector<FilterBase<Node> *> filters_;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

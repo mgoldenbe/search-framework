@@ -5,10 +5,17 @@
 /// \brief Forward declarations for \ref pancake.h.
 /// \author Meir Goldenberg
 
-/// \namespace slb::ext::domain::pancake
+namespace slb {
+namespace ext {
+namespace domain {
 namespace pancake {
+
 struct Pancake;
 struct CommandLine;
+
+} // namespace
+} // namespace
+} // namespace
 } // namespace
 
 #endif

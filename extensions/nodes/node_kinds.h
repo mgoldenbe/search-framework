@@ -1,10 +1,14 @@
+#ifndef NODE_KINDS_H
+#define NODE_KINDS_H
+
 /// \file
 /// \brief Structures containing the node data for several search algorithm
 /// variants.
 /// \author Meir Goldenberg
 
-#ifndef NODE_KINDS_H
-#define NODE_KINDS_H
+namespace slb {
+namespace ext {
+namespace node {
 
 /// Regular node storing \c g and \c f.
 /// \tparam State_ The state type, represents the domain.
@@ -62,5 +66,9 @@ struct ResponsibleGoalT : ManagedNode<BaseT<State>> {
     /// The goal that was responsible for the heuristic value
     REFLECTABLE((int) responsibleGoal)
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

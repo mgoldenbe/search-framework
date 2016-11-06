@@ -5,9 +5,15 @@
 /// \brief Implementation of the domains.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+
 /// \namespace slb::ext::domain
 /// The search domains.
-namespace domain {
+namespace domain {}
+
+} // namespace
+} // namespace
 
 #ifdef SLB_DOMAINS_INC_WORST
 #include "inc_worst.h"
@@ -20,7 +26,5 @@ namespace domain {
 #ifdef SLB_DOMAINS_PANCAKE
 #include "pancake.h"
 #endif
-
-} // namespace
 
 #endif

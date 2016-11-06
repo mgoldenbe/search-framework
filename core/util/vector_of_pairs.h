@@ -5,6 +5,10 @@
 ///@brief Utilities for working with a vector of pairs.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Find the first coordinate corresponding to the second one in a vector of pairs.
 /// \tparam T1 The type of the first coordinate.
 /// \tparam T2 The type of the second coordinate.
@@ -56,5 +60,9 @@ std::vector<T2> projectSecond(const std::vector<std::pair<T1, T2>> &v) {
                    [](const std::pair<T1, T2> &p) { return p.second; });
     return res;
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

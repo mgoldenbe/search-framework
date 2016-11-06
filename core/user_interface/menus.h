@@ -7,6 +7,10 @@
 
 #include "visualizer_data.h"
 
+namespace slb {
+namespace core {
+namespace ui {
+
 /// The base class for all the menus.
 /// \tparam AllMenus The type for holding all the menus.
 /// \tparam Node The search node type.
@@ -704,5 +708,9 @@ private:
     /// Max number of rows in the menu.
     int maxMenuRows_ = 3;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

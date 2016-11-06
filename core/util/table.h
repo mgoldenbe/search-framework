@@ -2,8 +2,12 @@
 #define TABLE_H
 
 ///@file
-///@brief The \ref Table class.
+///@brief The \ref slb::core::util::Table class.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace core {
+namespace util {
 
 /// The row of the \ref Table.
 struct Row {
@@ -161,5 +165,9 @@ void testTable() {
     std::cout << t;
     std::cout << t.row(2) << std::endl;
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

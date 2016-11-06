@@ -2,10 +2,14 @@
 #define TYPIST_H
 
 /// \file
-/// \brief The \ref LogWindow class.
+/// \brief The \ref  slb::core::ui::LogWindow class.
 /// \author Meir Goldenberg
 
 #include "form.h"
+
+namespace slb {
+namespace core {
+namespace ui {
 
 /// Makes sure the terminal is not left in mess in the case of a crash.
 void sigterm_handler(int) {
@@ -313,5 +317,9 @@ private:
                  maxColumn_ - 1);
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

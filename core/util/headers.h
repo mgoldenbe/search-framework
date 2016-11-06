@@ -4,9 +4,16 @@
 #ifndef UTIL_HEADERS_H
 #define UTIL_HEADERS_H
 
+namespace slb {
+namespace core {
+
 /// \namespace slb::core::util
 /// Utility facilities.
-namespace util {
+namespace util {}
+
+} // namespace
+} // namespace
+
 
 #include "memory.h"
 #include "hash.h"
@@ -25,7 +32,5 @@ namespace util {
 
 #include "reflection/struct_diff.h"
 #include "reflection/struct_2_stream.h"
-
-} // namespace
 
 #endif

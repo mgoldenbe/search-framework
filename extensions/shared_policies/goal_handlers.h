@@ -5,6 +5,10 @@
 /// \brief Policies for handling conditions related to goal states.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+namespace policy {
+
 /// \namespace slb::ext::policy::goalHandler
 /// Policies for handling conditions related to goal states.
 namespace goalHandler {
@@ -309,6 +313,9 @@ protected:
     }
 };
 
+} // namespace
+} // namespace
+} // namespace
 } // namespace
 
 #endif

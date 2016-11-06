@@ -5,6 +5,10 @@
 #ifndef UTIL_STREAM_H
 #define UTIL_STREAM_H
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Get an arbitrary object's string representation.
 /// \tparam T The object's type.
 /// \param t The object.
@@ -55,5 +59,9 @@ auto operator<<(std::basic_ostream<charT> &o, const T &t)
     // operators of Table.
     return t.dump(o);
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

@@ -118,7 +118,7 @@ The framework employs the following conventions regarding the names of the pre-p
 The framework employs the [Templatized C++ Command Line Parser Library](http://tclap.sourceforge.net/) to parse the command line. The following subsections present the framework's features related to using the command line.
 
 ### Command line options for user-provided facilities {#s-user-cmd}
-In addition to the standard command options (see below), the framework makes it possible to define command line options specific to user-provided facilities. For this reason, the class \ref commandLine::CommandLine is a template that accepts a class implementing additional command line options as the template argument. See \ref pancake::CommandLine for an example of such a class. Also, see the [video demo](https://youtu.be/QUBkkErdnFM) for an example of configuring the framework to use additional command line options.
+In addition to the standard command options (see below), the framework makes it possible to define command line options specific to user-provided facilities. For this reason, the class \ref slb::core::commandLine::CommandLine is a template that accepts a class implementing additional command line options as the template argument. See \ref slb::ext::domain::pancake::CommandLine for an example of such a class. Also, see the [video demo](https://youtu.be/QUBkkErdnFM) for an example of configuring the framework to use additional command line options.
 
 One can view the standard command line options by running the following command from the root directory.
 
@@ -126,7 +126,7 @@ One can view the standard command line options by running the following command 
 This particular configuration file (i.e. `projects/demo/grid.h`) was chosen because it does not define any additional command line options.
 
 ### Using the command line object {#s-singleton}
-The class \ref commandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref commandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by the user-provided facilities by calling the \ref commandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function. 
+The class \ref slb::core::commandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref slb::core::commandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by the user-provided facilities by calling the \ref slb::core::commandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function. 
 
 The command line object cannot be accessed from the *core facilities* by using the \ref CMD macro. This is because the classes implementing the user-provided additional command line options are only forward-declared, but not defined, by the time the compiler parses the core facilities. Hence, the core facilities that need access to the command-line object need to make this object available through template parameters. The file \ref instance.h provides a few examples of accessing the command line object from core facilities (look for the functions with the \ref CMD_TPARAM macro in the template parameters list).
 
@@ -169,17 +169,17 @@ We would like to make sure that no branching occurs in the latter case. Hence, w
 
 
 ## Events {#s-events}
-Each algorithm implementation can define event classes. An event object describes something that happened during the algorithm's execution, such as node selection, node generation etc. The event classes must inherit (possibly indirectly) from \ref Events::Base. This enables storing the events in the log, analyzing the log in the textual mode and visualizing algorithm's execution. See the [video demo](https://youtu.be/QUBkkErdnFM) for some examples of these capabilities. 
+Each algorithm implementation can define event classes. An event object describes something that happened during the algorithm's execution, such as node selection, node generation etc. The event classes must inherit (possibly indirectly) from \ref slb::core::ui::EventBase. This enables storing the events in the log, analyzing the log in the textual mode and visualizing algorithm's execution. See the [video demo](https://youtu.be/QUBkkErdnFM) for some examples of these capabilities. 
 
-To make sure that no logging-related run-time overhead is incurred in production runs, we provide the \ref log function. This function employs *tag dispatch* to choose one of two behaviors *at compile time* based on the compile-time configuration: 
+To make sure that no logging-related run-time overhead is incurred in production runs, we provide the \ref slb::core::ui::log function. This function employs *tag dispatch* to choose one of two behaviors *at compile time* based on the compile-time configuration: 
 - Do nothing. 
 - Construct an event based on the function arguments and add that event into the log. 
-Please refer to \ref Astar::run to see how events are logged in the existing code.
+Please refer to \ref slb::ext::algorithm::Astar::run to see how events are logged in the existing code.
 
 <!-- Each event defines a visualization effect. It is convenient to derive the events from pre-made bases, which correspond to different kinds of visualization effects. The existing bases are defined in \ref event_types.h and the existing events are defined in \ref events.h. -->
 
 ## Managed search nodes {#s-nodes}
-*Managed search nodes* are yet another convenience that was achieved through the use of macros. A managed search node inherits from \ref ManagedNode and declares its data members using the \c REFLECTABLE macro. Such managed nodes are endowed with [reflection capabilities](http://stackoverflow.com/a/11744832/2725810), which the framework uses to define universal output operators. Please refer to \ref node_kinds.h for examples of defining managed search nodes. 
+*Managed search nodes* are yet another convenience that was achieved through the use of macros. A managed search node inherits from \ref slb::core::sb::ManagedNode and declares its data members using the \c REFLECTABLE macro. Such managed nodes are endowed with [reflection capabilities](http://stackoverflow.com/a/11744832/2725810), which the framework uses to define universal output operators. Please refer to \ref node_kinds.h for examples of defining managed search nodes. 
 
 <!-- In particular, this alleviates the need to define an output operator for that node. In addition, the framework is capable to compare the contents of two managed node and produce a string that summarizes the differences. These reflection capabilities come very handy for the textual log analysis tool. -->
 

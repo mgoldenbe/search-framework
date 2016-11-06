@@ -13,6 +13,9 @@ namespace slb {
 namespace ext {
 using namespace slb::core::sb;
 using core::ui::log;
+} // namespace
+
+} // namespace
 
 #include "domains/headers.h"
 #include "nodes/headers.h"
@@ -20,9 +23,5 @@ using core::ui::log;
 #include "shared_policies/headers.h"
 #include "algorithms/headers.h"
 #include "instance_measures/headers.h"
-
-} // namespace
-} // namespace
-
 
 #endif

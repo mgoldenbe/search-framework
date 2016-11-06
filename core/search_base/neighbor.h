@@ -5,6 +5,10 @@
 /// \brief The types for a single neighbor of a given state.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace sb {
+
 /// The type for storing the cost of a neighbor.
 /// \tparam State The state type, represents the domain.
 /// \tparam uniformFlag Determines whether the domain is a uniform cost one or
@@ -92,5 +96,9 @@ struct ActionNeighbor: Cost<State_, uniformFlag>  {
 private:
     Action a_; ///< The action.
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

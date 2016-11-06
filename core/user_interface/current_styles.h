@@ -2,11 +2,15 @@
 #define CURRENT_STYLES_H
 
 /// \file current_styles.h
-/// \brief The \ref CurrentStyles class.
+/// \brief The \ref slb::core::ui::CurrentStyles class.
 /// \author Meir Goldenberg
 
 #include "graph_layouts.h"
 #include "style.h"
+
+namespace slb {
+namespace core {
+namespace ui {
 
 /// A class for storing the current styles of vertices and edges in the visual
 /// representation.
@@ -76,5 +80,9 @@ protected:
     /// There is no hash function for \ref EdgeDescriptor, hence a sorted map.
     std::map<EdgeDescriptor, EdgeStyle> edgeStyles_;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

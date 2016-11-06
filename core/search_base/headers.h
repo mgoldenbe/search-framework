@@ -6,12 +6,17 @@
 /// algorithms.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+
 /// \namespace slb::core::sb
 /// The search base. These are facilities that support implementation of various
 /// heuristic search algorithms.
 namespace sb {
-
 using util::operator<<; // Printing states.
+} // namespace
+} // namespace
+} // namespace
 
 #include "backtrack.h"
 #include "instance.h"
@@ -21,7 +26,5 @@ using util::operator<<; // Printing states.
 #include "grid_map.h"
 #include "neighbor.h"
 #include "node.h"
-
-} // namespace
 
 #endif

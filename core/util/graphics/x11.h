@@ -5,6 +5,10 @@
 ///@brief X11 window-related utilities.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Creates a new X11 surface to draw on.
 /// \param d The display.
 /// \param w The window.
@@ -83,5 +87,9 @@ XKeyEvent createKeyEvent(Display *display, Window &win, Window &winRoot,
     return event;
 }
 /// \endcond
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

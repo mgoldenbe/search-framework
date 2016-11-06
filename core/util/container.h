@@ -5,6 +5,10 @@
 ///@brief Container utilities.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Checks whether an element is contained in the container.
 /// \tparam V The container type.
 /// \tparam T The element type.
@@ -72,5 +76,9 @@ void shuffleMap(MapType &map) {
     for (auto &el : map) v.push_back(std::ref(el.second));
     shuffleRefs(v.begin(), v.end());
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

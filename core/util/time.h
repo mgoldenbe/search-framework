@@ -5,6 +5,10 @@
 ///@brief Time-related utilities.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Sleep for the given amount of time, while dealing with interrupts.
 /// \param req Amount of time to sleep.
 /// \param rem Remaining amount of time to sleep after the interrupt.
@@ -27,5 +31,9 @@ int msleep(unsigned long milisec) {
     __nsleep(&req, &rem);
     return 1;
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

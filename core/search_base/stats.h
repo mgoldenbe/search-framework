@@ -6,6 +6,10 @@
 /// performance.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace sb {
+
 /// The type for a single named performance measure.
 struct Measure {
     /// Initializes the measure with a name.
@@ -302,5 +306,9 @@ private:
     /// The measure sets for the solved problem instances.
     std::vector<MeasureSet> s_;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

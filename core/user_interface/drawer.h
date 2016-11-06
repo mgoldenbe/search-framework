@@ -4,9 +4,13 @@
 #include "visual_log.h"
 
 /// \file
-/// \brief The \ref Drawer class and the types used for tag dispatch to compute
-/// the layout of the (partial) domain graph.
+/// \brief The \ref slb::core::ui::Drawer class and the types used for tag
+/// dispatch to compute the layout of the (partial) domain graph.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace core {
+namespace ui {
 
 /// \defgroup LayoutTraits Layout Traits
 /// Checking whether the State has a function for computing layout.
@@ -391,5 +395,9 @@ private:
                       << pointMap_.at(vd)[1] << std::endl;
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif
