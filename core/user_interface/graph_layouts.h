@@ -2,11 +2,14 @@
 #define GRAPH_LAYOUTS_H
 
 /// \file graph_layouts.h
-/// \brief Implementation of layout computation methods of the \ref StateGraph
-/// class.
+/// \brief Implementation of the state graph layout computation methods.
 /// \author Meir Goldenberg
 
 #include "state_graph.h"
+
+namespace slb {
+namespace core {
+namespace ui {
 
 /// Dumps graph layout for debugging purposes.
 /// \tparam MyMap The layout mapping type.
@@ -165,5 +168,9 @@ StateGraph<State>::layout(bool kamadaKawaiFlag, bool fruchtermanReingoldFlag) {
 //     double last_delta;
 //     std::map<VertexDescriptor, std::vector<double>> history;
 // };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

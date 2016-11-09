@@ -6,6 +6,10 @@
 #ifndef NODE_KINDS_FWD_H
 #define NODE_KINDS_FWD_H
 
+namespace slb {
+namespace ext {
+namespace node {
+
 template <class State> struct BaseT;
 /// Regular node storing \c g and \c f.
 using Base = BaseT<SLB_STATE>;
@@ -18,5 +22,9 @@ template <class State> struct ResponsibleGoalT;
 /// Node for multi-goal search. Stores the goal responsible for heuristic value
 /// in addition to storing \c g and \c f.
 using ResponsibleGoal  = ResponsibleGoalT<SLB_STATE>;
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

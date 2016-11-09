@@ -5,6 +5,10 @@
 /// \brief Generators to be used by the search algorithms.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+namespace policy {
+
 /// \namespace slb::ext::policy::generator
 /// Generators to be used by the search algorithms.
 namespace generator {
@@ -102,6 +106,9 @@ private:
 template <class MyAlgorithm>
 using Actions = ActionsT<MyAlgorithm, SLB_HEURISTIC>;
 
+} // namespace
+} // namespace
+} // namespace
 } // namespace
 
 #endif

@@ -5,6 +5,10 @@
 /// \brief Wrappers around heuristics to be used by the search algorithms.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+namespace policy {
+
 /// \namespace slb::ext::policy::heuristic
 /// Wrappers around heuristics to be used by the search algorithms.
 namespace heuristic {
@@ -186,6 +190,9 @@ using MinMultipleGoals =
     MinMultipleGoalsT<MyAlgorithm, SLB_SINGLE_GOAL_HEURISTIC,
                          SLB_MIN_HEURISTIC_COMPARE_T>;
 
+} // namespace
+} // namespace
+} // namespace
 } // namespace
 
 #endif

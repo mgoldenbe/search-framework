@@ -5,6 +5,10 @@
 /// \brief Policies for handling backtracking in IDA*.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+namespace policy {
+
 /// \namespace slb::ext::policy::backtrackLock
 /// Policies for handling backtracking in IDA*.
 namespace backtrackLock {
@@ -191,6 +195,9 @@ private:
     }
 };
 
+} // namespace
+} // namespace
+} // namespace
 } // namespace
 
 #endif

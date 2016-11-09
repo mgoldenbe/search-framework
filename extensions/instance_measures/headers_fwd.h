@@ -5,11 +5,6 @@
 /// \brief Forward declaration headers.
 /// \author Meir Goldenberg
 
-/// \namespace slb::ext::instanceMeasure
-namespace instanceMeasure {
-
 #include "instance_measures_fwd.h"
-
-} // namespace
 
 #endif

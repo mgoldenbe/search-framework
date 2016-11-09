@@ -2,8 +2,12 @@
 #define OPEN_CLOSED_LIST_H
 
 /// \file
-/// \brief The \ref OpenClosedList class.
+/// \brief The \ref slb::core::sb::OpenClosedList class.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace core {
+namespace sb {
 
 // See here the discussion of whether nodes should be passed by pointers or by
 // references: http://stackoverflow.com/q/33616355/2725810
@@ -127,5 +131,9 @@ private:
     OpenList ol_; ///< The open list.
     HashType hash_; ///< The closed list.
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

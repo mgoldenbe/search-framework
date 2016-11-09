@@ -5,7 +5,6 @@
 /// \brief The core functionality of the framework.
 /// \author Meir Goldenberg
 
-/// The main namespace of the framework.
 namespace slb {
 
 /// Empty structure. Too bad this is not defined by the standard
@@ -21,14 +20,14 @@ template <typename... Ts> using void_t = typename voider<Ts...>::type;
 
 /// \namespace slb::core
 /// The core facilities of the framework.
-namespace core {
+namespace core {}
+
+} // namespace
+
 
 #include "util/headers.h"
 #include "core/command_line.h"
 #include "search_base/headers.h"
 #include "user_interface/visualizer.h"
-
-} // namespace
-} // namespace
 
 #endif

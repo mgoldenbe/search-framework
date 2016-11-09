@@ -104,7 +104,7 @@ CLOSED: [2016-09-27 Tue 16:04]
   - Make sure to not put in a lot of implementation details — I have the right to submit a regular paper as well!
   - Make sure to not exceed 5 pages.c
   - Make sure to comply with all the instructions: https://www.elsevier.com/books-and-journals/content-innovation/original-software-publications#instructions-how-to-submit-your-software-work
-* Remains on 27.09: [5/15]
+* Remains on 27.09: [7/15]
 Each thing on this list is not long. They should take one day on average. The days remaining until Sukkot are: 28.09–30.09, 5.10–7.10, 9.10–10.10, 13–14.10. So, 10 days, which are also very busy. There are 13 items on the list, so I should expect to submit the paper in the first two weeks after Sukkot, e.g. by 4.11. I will then update k-goal config files to work with Roni. 
 ** DONE Organize folders. 
 CLOSED: [2016-09-28 Wed 12:43]
@@ -182,11 +182,13 @@ This one turned out to be challenging. Lesson: apply such changes little by litt
 CLOSED: [2016-10-07 Fri 12:32]
 ** DONE Document util/ except util/reflection/ and include it in doxygen configuration file.
 CLOSED: [2016-10-09 Sun 12:28]
-** TODO Make sure the output of doxygen is error-free.
+** DONE Make sure the output of doxygen is error-free.
+CLOSED: [2016-11-09 Wed 12:45]
 - It looks like both this and the following problem will be fixed if we make doxygen ignore include-guards and macros. This is the result of a bug in Doxygen that an #include in a namespace confuses it.
 - I prefer to wait: may be the bug will be fixed. Also, the absence of guards has the potential of having things appear in documentation several times.
 - After the discussion (http://softwareengineering.stackexchange.com/q/335240/216771), I decided to not include headers inside namespaces.
-** TODO Make sure that all the namespaces and namespace members appear correctly in the doxygen configuration.
+** DONE Make sure that all the namespaces and namespace members appear correctly in the doxygen configuration.
+CLOSED: [2016-11-09 Wed 12:45]
 ** TODO Make notes in documentation: 
 - About the namespaces matching the physical structure.
 ** TODO Make sure that std::move is used wherever needed (i.e. wherever right reference is used). 

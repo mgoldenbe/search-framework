@@ -5,6 +5,10 @@
 /// \brief The class for handling backtracking in IDA*.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace sb {
+
 /// Handles backtracking in linear-space algorithms such as IDA*.
 /// \tparam Algorithm The search algorithm.
 /// \tparam Lock_ The RAII class for handling backtracking.
@@ -33,5 +37,9 @@ private:
     /// Reference to the search algorithm.
     MyAlgorithm &alg_;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

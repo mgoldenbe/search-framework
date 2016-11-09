@@ -7,6 +7,10 @@
 ///@brief Low-level facilities for reflection of node data structures.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 struct second_node_visitor {
     template <typename CharT, class FieldData1, class FieldData2>
     void operator()(FieldData1 f1, FieldData2 f2, std::basic_ostream<CharT> &o,
@@ -71,5 +75,9 @@ std::string nodesDiff(
 }
 
 /// \endcond
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

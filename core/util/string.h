@@ -5,6 +5,10 @@
 #ifndef UTIL_STRING_H
 #define UTIL_STRING_H
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// Trim white-space characters from the end of string.
 /// \param str The string to be trimmed.
 /// \param whitespace The characters to be considered as white-space.
@@ -101,5 +105,8 @@ std::string stuff(std::string &s, bool throwOnEmpty = false, int nSpaces = 2) {
     return res;
 }
 
+} // namespace
+} // namespace
+} // namespace
 
 #endif

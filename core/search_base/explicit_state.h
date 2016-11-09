@@ -2,8 +2,12 @@
 #define EXPLICIT_STATE_H
 
 /// \file
-/// \brief The \ref ExplicitState class and the related heuristics.
+/// \brief The \ref slb::core::sb::ExplicitState class and the related heuristics.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace core {
+namespace sb {
 
 /// The base class for a state in an explicit domain. It can be viewed as a
 /// wrapper for the location type defined by the explicit domain.
@@ -141,5 +145,9 @@ struct OctileHeuristic {
 private:
     const State &goal_; ///< The goal state.
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

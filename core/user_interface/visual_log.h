@@ -2,11 +2,15 @@
 #define VISUAL_LOG_H
 
 /// \file
-/// \brief The \ref VisualLog class.
+/// \brief The \ref slb::core::ui::VisualLog class.
 /// \author Meir Goldenberg
 
 #include "graphics_object.h"
 #include "visual_event.h"
+
+namespace slb {
+namespace core {
+namespace ui {
 
 /// The log of events suited for visualization purposes.
 /// This log is based on the \ref AlgorithmLog
@@ -22,7 +26,7 @@ struct VisualLog: CurrentStyles<typename Node::State> {
     /// The state type, represents the domain.
     using State = typename Node::State;
 
-    /// See \ref VisualEvent<Node>
+    /// See \ref VisualEvent
     using MyVisualEvent = VisualEvent<State>;
 
     /// \name Types related to the graph of the domain.
@@ -342,5 +346,9 @@ private:
         step_++;
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

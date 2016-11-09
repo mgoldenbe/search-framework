@@ -2,8 +2,12 @@
 #define PANCAKE_H
 
 /// \file
-/// \brief The \ref pancake::Pancake class and the related heuristics.
+/// \brief The Pancake puzzle domain and the related heuristics.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace ext {
+namespace domain {
 
 /// \namespace slb::ext::domain::pancake
 /// The Pancake puzzle.
@@ -261,6 +265,9 @@ private:
     const Pancake &goal_; ///< The goal state.
 };
 
+} // namespace
+} // namespace
+} // namespace
 } // namespace
 
 #endif

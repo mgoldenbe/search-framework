@@ -7,6 +7,10 @@
 
 #include "stats.h"
 
+namespace slb {
+namespace core {
+namespace sb {
+
 using util::stuff;
 using util::str;
 using util::Table;
@@ -82,7 +86,7 @@ struct Instance {
     /// \return Non-const reference to the vector of goal states.
     /// \note The reference in the return value is non-const, since some search
     /// algorithms need to modify the set of goals as the algorithm progresses.
-    /// See \ref goalHandler::MinHeuristic for an example.
+    /// See \ref ext::policy::goalHandler::MinHeuristic for an example.
     const std::vector<State> &goals() const { return goal_; }
 
     /// Returns a vector of single-goal instances, one instance for each goal
@@ -251,5 +255,9 @@ std::vector<Instance<State>> readInstancesFile(const std::string &fname) {
     }
     return res;
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

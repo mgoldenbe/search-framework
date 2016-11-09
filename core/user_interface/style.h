@@ -5,6 +5,10 @@
 /// \brief Types for styles of visual representation of vertices and edges.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace ui {
+
 /// Enumeration of possible shapes for visualizing a vertex.
 enum class VertexShape {CIRCLE};
 
@@ -62,5 +66,9 @@ struct EdgeStyle {
     static double widthBase;  ///< Width corresponding to widthFactor == 1.0.
 };
 double EdgeStyle::widthBase = 5.0;
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

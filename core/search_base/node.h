@@ -1,11 +1,15 @@
-/// \file
-/// \brief The \ref SearchNode class.
-/// \author Meir Goldenberg
-
 #ifndef NODE_H
 #define NODE_H
 
+/// \file
+/// \brief The \ref slb::core::sb::SearchNode class.
+/// \author Meir Goldenberg
+
 #include "managed_node.h"
+
+namespace slb {
+namespace core {
+namespace sb {
 
 /// The search node type. Inherits the data structure to make data (e.g. g- and
 /// f-value) easy to access.
@@ -111,5 +115,9 @@ private:
     /// The position of the node in the open list (when applicable).
     BucketPosition bucketPosition_;
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

@@ -5,6 +5,10 @@
 ///@brief Hashing-related utilities.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// A functor for computing the hash-value of a search state.
 /// \tparam State The search state type.
 template <class State>
@@ -30,5 +34,9 @@ struct StateSharedPtrHash {
         return s->hash();
     }
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

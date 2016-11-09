@@ -7,6 +7,10 @@
 ///@brief Low-level facilities for reflection of node data structures.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 struct print_visitor {
     template<typename CharT, class FieldData>
     void operator()(FieldData f, std::basic_ostream<CharT> &o, int &index) {
@@ -79,5 +83,9 @@ auto operator<<(std::basic_ostream<charT> &o, const Node &n)
 }
 
 /// \endcond
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

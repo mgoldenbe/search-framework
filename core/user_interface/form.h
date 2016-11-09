@@ -6,6 +6,10 @@
 /// \c ncurses cannot be put in pad windows.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace ui {
+
 // Changing cursor:
 // http://stackoverflow.com/q/21102958/2725810
 
@@ -178,5 +182,9 @@ private:
     std::vector<EditField> fields_; ///< Fields the constitute the form.
     int active_{}; ///< Index into \c fields_ indicating the active field.
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

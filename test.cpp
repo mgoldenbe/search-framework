@@ -16,10 +16,7 @@
 // //#include "projects/KGoal/ConfigUniformSearch.h"
 #endif
 
-#include "extensions/headers_fwd.h"
-
-#include "core/headers.h"
-#include "extensions/headers.h"
+#include "slb.h"
 
 using namespace slb;
 
@@ -35,7 +32,7 @@ using namespace generator;
 using namespace goalHandler;
 using namespace openList;
 
-/// The open list policy of \ref Astar for building the state graph of the
+/// The open list policy of \ref slb::ext::algorithm::Astar for building the state graph of the
 /// domain.
 /// \tparam As every policy, this one needs to have the search algorithm type
 /// template parameter.
@@ -43,8 +40,8 @@ template <class MyAlgorithm>
 using BuildGraphOL =
     BucketedStdMap_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
 
-/// The generator policy of \ref Astar for building the state graph of the
-/// domain.
+/// The generator policy of \ref slb::ext::algorithm::Astar for building the
+/// state graph of the domain.
 /// \tparam As every policy, this one needs to have the search algorithm type
 /// template parameter.
 template <class MyAlgorithm>

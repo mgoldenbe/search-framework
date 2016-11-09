@@ -2,15 +2,20 @@
 #define ID_ASTAR_H
 
 /// \file
-/// \brief The \ref IdAstar class.
+/// \brief The \ref slb::ext::algorithm::IdAstar class.
 /// \author Meir Goldenberg
 
 #include "algorithm.h"
+
+namespace slb {
+namespace ext {
+namespace algorithm {
 
 // The symbols tool is currently not smart enough to take care of unused symbols
 // that are templates.
 template <class, bool> struct slb_tcb_nothing {};
 #ifndef SLB_ID_ASTAR_BACKTRACK_LOCK
+/// Default backtracking policy.
 #define SLB_ID_ASTAR_BACKTRACK_LOCK slb_tcb_nothing
 #endif
 
@@ -122,5 +127,9 @@ private:
     CostType threshold_; ///< The current iteration's cost threshold.
     CostType next_threshold_; ///< The cost threshold for the next iteration.
 };
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

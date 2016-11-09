@@ -2,8 +2,11 @@
 #define VISUALIZER_H
 
 /// \file
-/// \brief The \ref ui::Visualizer class, which handles the user interface.
+/// \brief The \ref slb::core::ui::Visualizer class, which handles the user interface.
 /// \author Meir Goldenberg
+
+namespace slb {
+namespace core {
 
 /// \namespace slb::core::ui
 /// The user interface.
@@ -11,9 +14,17 @@ namespace ui {
 
 using namespace util;
 
+} // namespace
+} // namespace
+} // namespace
+
 #include "drawer.h"
 #include "filters.h"
 #include "menus.h"
+
+namespace slb {
+namespace core {
+namespace ui {
 
 // http://stackoverflow.com/a/33421942/2725810
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent
@@ -304,6 +315,8 @@ private:
                             /// representation is required, e.g. upon scaling.
 };
 
+} // namespace
+} // namespace
 } // namespace
 
 #endif

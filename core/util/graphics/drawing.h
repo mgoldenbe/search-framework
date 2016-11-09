@@ -5,6 +5,10 @@
 ///@brief Drawing utilities.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// \namespace slb::core::util::rgb
 /// Functions for dealing with RGB color components.
 namespace rgb {
@@ -138,5 +142,9 @@ void drawText(cairo_t *cr, const std::string s, int size, const gu::Point &p) {
     cairo_show_text(cr, cs);
     cairo_stroke(cr);
 }
+
+} // namespace
+} // namespace
+} // namespace
 
 #endif

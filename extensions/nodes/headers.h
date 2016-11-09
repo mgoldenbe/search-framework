@@ -6,12 +6,17 @@
 /// algorithms and algorithmic variants.
 /// \author Meir Goldenberg
 
+namespace slb {
+namespace ext {
+
 /// \namespace slb::ext::node
 /// The various node data structures.
-namespace node {
+namespace node {}
 
-#include "node_kinds.h"
 
 } // namespace
+} // namespace
+
+#include "node_kinds.h"
 
 #endif

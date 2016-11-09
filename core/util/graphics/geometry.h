@@ -1,6 +1,10 @@
 #ifndef UTIL_GEOMETRY_H
 #define UTIL_GEOMETRY_H
 
+namespace slb {
+namespace core {
+namespace util {
+
 /// \namespace slb::core::util::gu
 /// Geometry utilities.
 namespace gu {
@@ -71,5 +75,10 @@ Point circlePoint(const Circle &c, double angle, double width = 0.0) {
     return {c.center.x + f * c.r * cos(angle),
             c.center.y + f * c.r * sin(angle)};
 }
-}
+
+} // namespace
+} // namespace
+} // namespace
+} // namespace
+
 #endif
