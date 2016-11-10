@@ -62,7 +62,7 @@ struct StateNeighbor: Cost<State_, uniformFlag>  {
     /// of the action that leads to that state.
     /// \param s The neighbor state, which must be a right value.
     /// \param c Cost of the action that leads to \c s.
-    StateNeighbor(State &&s, CostType c = CostType{1}) : MyCost(c), s_{s} {}
+    StateNeighbor(State &&s, CostType c = CostType{1}) : MyCost(c), s_{std::move(s)} {}
 
     /// Returns the neighbor state.
     /// \return Reference to the neighbor state.
@@ -88,7 +88,7 @@ struct ActionNeighbor: Cost<State_, uniformFlag>  {
     /// of the action that leads to that state.
     /// \param a The action, which must be a right value.
     /// \param c Cost of the action that leads to \c s.
-    ActionNeighbor(Action &&a, CostType c = CostType{1}) : MyCost(c), a_{a} {}
+    ActionNeighbor(Action &&a, CostType c = CostType{1}) : MyCost(c), a_{std::move(a)} {}
     /// Returns the action.
     /// \return Const reference to the action.
     const Action &action() const { return a_; }

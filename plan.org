@@ -192,7 +192,10 @@ CLOSED: [2016-11-09 Wed 12:45]
 ** DONE Either add to bugs or fix the issue with layout computation not converging.
 CLOSED: [2016-11-10 Thu 10:11]
 Fixed by implementing a layout tolerance based on time limit.
-** TODO Make sure that std::move is used wherever needed (i.e. wherever right reference is used). 
+** TODO Make sure that std::move is used wherever needed (i.e. wherever right reference is used).
+All such instances are found by:
+grep "&&" */*/*.h | grep -v "if (\|while (\|assert(\|return \|std::move\|default"
+Only 4 instances need to be taken care of.
 ** TODO Improve the symbols tool.
 ** TODO Make final check that all (really all) demo versions run with and without -v 0.
 ** TODO Update the video.
