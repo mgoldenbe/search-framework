@@ -141,7 +141,7 @@ bool operator!=(std::nullptr_t lhs, const deref_shared_ptr<T> &rhs) {
 /// \tparam Args The template argument list for the constructor.
 template< class T, class... Args >
 deref_shared_ptr<T> make_deref_shared( Args&&... args ) {
-    return std::make_shared<T>(args...);
+    return std::make_shared<T>(std::forward<Args...>(args...));
 }
 
 /// Moves an object from \c std::unique_ptr to \ref deref_shared_ptr

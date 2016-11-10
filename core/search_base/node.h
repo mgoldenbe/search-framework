@@ -39,7 +39,7 @@ struct SearchNode : public NodeData_ {
 
     /// Initializes the node based on state that is a right-value.
     /// \param s The state.
-    SearchNode(State &&s) : state_(s) {}
+    SearchNode(State &&s) : state_(std::move(s)) {}
 
 
     /// Returns reference to the state to which the node corresponds.

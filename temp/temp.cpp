@@ -8,21 +8,23 @@
 #include <iomanip>
 #include <sstream>
 
-struct A {};
+struct A{};
 
-struct B: A {};
+void f(const A &a) {
+    (void)a;
+    std::cout << "f &" << std::endl;
+}
 
-struct MySet {
-    MySet(std::initializer_list<A> list) : v_{list} {}
+void f(A &&a) {
+    (void)a;
+    std::cout << "f &&" << std::endl;
+}
 
-private:
-    std::vector<A> v_;
-};
+void g(A &&a) {
+    f(std::forward<A>(a));
+}
 
 int main() {
-    A a;
-    B b;
-    MySet s{a, b};
-    (void)s;
+    g(A{});
     return 0;
 }
