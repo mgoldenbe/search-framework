@@ -83,6 +83,36 @@ template <class State> void StateGraph<State>::randomizeBaseLayout() {
     shuffleMap(baseLayout_);
 }
 
+/// Like boost's \c layout_tolerance<double>, but accepting a time limit as well.
+struct LayoutTolerance  {
+    // For the definition of layout_tolerance, see
+    // http://www.boost.org/doc/libs/1_62_0/boost/graph/kamada_kawai_spring_layout.hpp
+    /// The constructor.
+    /// \param tolerance The tolerance parameter of boost's \c
+    /// layout_tolerance<double>.
+    /// \param timeLimit The time limit in milliseconds.
+    LayoutTolerance(double tolerance, double timeLimit = 1000)
+        : boostTolerance_(tolerance), timeLimit_(timeLimit) {
+        timer_.start();
+    }
+
+    /// Just like boost's \c layout_tolerance<double>, but taking the time
+    /// limit into account.
+    template <typename Graph>
+    bool operator()(double delta_p,
+                    typename boost::graph_traits<Graph>::vertex_descriptor p,
+                    const Graph &g, bool global) {
+        timer_.stop();
+        return boostTolerance_(delta_p, p, g, global) || timer_.value() > timeLimit_;
+    }
+
+private:
+    /// The boost's \c layout_tolerance<double> object.
+    layout_tolerance<double> boostTolerance_;
+    util::Timer timer_{"Timer"}; ///< The timer.
+    double timeLimit_; ///< The time limit in milliseconds.
+};
+
 template <class State>
 // http://stackoverflow.com/q/33912929/2725810
 typename StateGraph<State>::PointMap
@@ -104,7 +134,7 @@ StateGraph<State>::layout(bool kamadaKawaiFlag, bool fruchtermanReingoldFlag) {
         kamada_kawai_spring_layout(lg_, temp, get(edge_bundle, lg_), topology,
                                    side_length(100.0),
                                    // kamada_kawai_done<LayoutGraph>());
-                                   layout_tolerance<double>(0.0001));
+                                   LayoutTolerance(0.000001));
 
         // std::cout << "Done KK" << std::endl;
     }

@@ -18,6 +18,7 @@ namespace util {}
 #include "memory.h"
 #include "hash.h"
 #include "container.h"
+#include "measure.h"
 #include "string.h"
 #include "stream.h"
 #include "table.h"

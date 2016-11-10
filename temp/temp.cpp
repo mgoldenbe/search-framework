@@ -8,12 +8,21 @@
 #include <iomanip>
 #include <sstream>
 
-template <class State>
-struct has_layout<State,
-                  void_t<decltype(std::declval<State>().visualLocation(
-                      std::declval<double &>(), std::declval<double &>()))>>
-    : std::true_type {};
+struct A {};
+
+struct B: A {};
+
+struct MySet {
+    MySet(std::initializer_list<A> list) : v_{list} {}
+
+private:
+    std::vector<A> v_;
+};
 
 int main() {
+    A a;
+    B b;
+    MySet s{a, b};
+    (void)s;
     return 0;
 }
