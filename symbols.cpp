@@ -7,10 +7,11 @@
 /// template arguments.
 ///
 /// The symbol may stand for a template, so that we might need to replace a
-/// symbol with its own template arguments. The tool throws an exception if the
-/// brackets in the latter case are not matched (nested templates are handled).
-/// It also throws an exception if an indication is found that an undefined
-/// symbol is used in the context other than a default template argument.
+/// symbol that has its own template arguments. The tool exits with an error if
+/// the brackets in the latter case are not matched (nested templates are
+/// handled). It also exits with an error if an indication is found that an
+/// undefined symbol is used in the context other than a default template
+/// argument.
 ///
 /// \author Meir Goldenberg
 
@@ -123,7 +124,7 @@ int main(int argc, char **argv) {
     if (errorFlag)
         fatal("There are undefined symbols not in the default template "
                 "argument context.");
-    std::ofstream out(std::string{argv[1]} + ".changed");
+    std::ofstream out(std::string{argv[1]});
     out << target << std::endl;
     return 0;
 }

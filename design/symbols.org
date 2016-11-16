@@ -1,0 +1,24 @@
+Initially I changed all undefined symbols for /Nothing/, which is defined as an empty structure. The problem with this approach is that we might have an undefined symbol used as a default template argument for a template template argument etc.
+
+The next idea was to handle only undefined symbols used as a default template argument and change it for a blank. This does not work, because it may result in a template having a template argument without a default value following a template argument with a default value.
+
+There seem to be two alternative solutions:
+1. Change the unused symbol for an appropriate default template argument value. We need to declare the appropriate Nothing types automatically. So, we might end up with:
+   1) struct Nothing0 {};
+   2) template <int> Nothing1 {};
+   3) template <typename> Nothing2 {};
+   4) template <typename, typename> Nothing3 {};
+
+   The type is determined by looking back from the character preceding /=/:
+   1) Determine whether there is a name used for the type in this particular template (e.g. template<class MyType = SLB_AAA> or template<template <class>>MyType). So, scan back to the first non-whitespace. If that is not />/, then scan further back to first space or />/. If the resulting word is not /struct/ or /class/, then skip it.
+   2) Scan back till and not including /,/ or unmatched /</. 
+
+   We need to keep a set of all such types to avoid declaring the same type twice. As a possible additional feature, if an unused symbol appears both as default template argument and in another context, we can use the same substitution for the other context as well. However, we need to be careful: if we substituted SLB_AAA<int>, then we can substitute for the same type only SLB_AAA<int> and not SLB_AAA.
+   All the types need to be added to the beginning of the target file in /namespace slb/. 
+
+2. Delete the whole struct/class/alias in which the symbol appears.
+   I may determine the limits of the definition as follows:
+   1) Look for whichever of the above words appears last before the undefined symbol.
+   2) If it’s /class/, make sure that the last non-whitespace character is not a comma or an opening bracket, so that it’s not a template argument declaration. If it is, continue looking back.
+   3) Look from that place forward for the first /{/ and the first /;/. If /{/ occurs before /;/, then look for the matching /}/ and then look for ;. 
+The big negative side of the second solution is that we cannot use the classes without defining the symbols that they use for default template arguments. However, sometimes we do not need those symbols! For example, when we use /Astar/ directly from the main /.cpp/ file. In view of this *I choose the first alternative*.
