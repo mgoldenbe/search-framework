@@ -38,7 +38,7 @@ using namespace openList;
 /// template parameter.
 template <class MyAlgorithm>
 using BuildGraphOL =
-    BucketedStdMap_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG>;
+    BucketedStdMap_T<MyAlgorithm, SLB_NODE, DefaultOLKeyType, GreaterPriority_SmallG, ext::policy::openList::OLMap>;
 
 /// The generator policy of \ref slb::ext::algorithm::Astar for building the
 /// state graph of the domain.

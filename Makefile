@@ -38,6 +38,7 @@ default: debug
 compute-hash:
 	@$(COMMON_PREFIX) -E -fdirectives-only $(MAIN_CPP) -o $(HASH_SOURCE)
 	@echo $(MODE) >> $(HASH_SOURCE)
+	@cat symbols.cpp >> $(HASH_SOURCE)
 	@$(MAKE) 3>&2 2>&1 1>&3 build-exec EXEC=.execs/slb`md5sum $(HASH_SOURCE) | colrm 33 | tee $(HASH_CODE)`
 
 # Both builds and executes.
@@ -62,6 +63,9 @@ production: preprocessor
 
 symbols: symbols.cpp Makefile
 	$(COMMON_PREFIX) -O2 symbols.cpp -o symbols
+
+symbols-debug: symbols.cpp Makefile
+	$(COMMON_PREFIX) -g symbols.cpp -o symbols
 
 align: align.cpp Makefile
 	$(COMMON_PREFIX) -O2 align.cpp -o align

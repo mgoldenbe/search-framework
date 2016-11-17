@@ -40,7 +40,7 @@ struct Zero {
 /// Heuristic to single goal.
 /// \tparam MyAlgorithm The search algorithm.
 /// \tparam BaseHeuristic The base heuristic type.
-template <class MyAlgorithm, class BaseHeuristic>
+template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC>
 struct SingleGoalT {
     POLICY_TYPES
 
@@ -75,13 +75,12 @@ private:
 };
 /// The policy of heuristic to a single goal.
 /// \tparam MyAlgorithm The search algorithm.
-template <class MyAlgorithm>
-using SingleGoal = SingleGoalT<MyAlgorithm, SLB_BASE_HEURISTIC>;
+template <class MyAlgorithm> using SingleGoal = SingleGoalT<MyAlgorithm>;
 
 /// Dynamic heuristic to single goal.
 /// \tparam MyAlgorithm The search algorithm.
 /// \tparam BaseHeuristic The base heuristic type.
-template <class MyAlgorithm, class BaseHeuristic>
+template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_DYNAMIC_HEURISTIC>
 struct DynamicSingleGoalT {
     POLICY_TYPES
 
@@ -112,7 +111,7 @@ private:
 /// The policy of dynamic heuristic to default goal.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-using DynamicSingleGoal = DynamicSingleGoalT<MyAlgorithm, SLB_BASE_DYNAMIC_HEURISTIC>;
+using DynamicSingleGoal = DynamicSingleGoalT<MyAlgorithm>;
 
 /// Computes minimum among heuristics to goals that have not been found (with
 /// the required quality) yet.
@@ -120,7 +119,9 @@ using DynamicSingleGoal = DynamicSingleGoalT<MyAlgorithm, SLB_BASE_DYNAMIC_HEURI
 /// \tparam SingleGoalHeuristic The heuristic for a single goal.
 /// \tparam Compare The comparer of heuristic values, e.g. std::less or
 /// std::greater.
-template <class MyAlgorithm, class SingleGoalHeuristic, class Compare>
+template <class MyAlgorithm,
+          class SingleGoalHeuristic = SLB_SINGLE_GOAL_HEURISTIC,
+          class Compare = SLB_MIN_HEURISTIC_COMPARE_T>
 struct MinMultipleGoalsT {
     POLICY_TYPES
 
@@ -186,9 +187,7 @@ private:
 /// the required quality) yet.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-using MinMultipleGoals =
-    MinMultipleGoalsT<MyAlgorithm, SLB_SINGLE_GOAL_HEURISTIC,
-                         SLB_MIN_HEURISTIC_COMPARE_T>;
+using MinMultipleGoals = MinMultipleGoalsT<MyAlgorithm>;
 
 } // namespace
 } // namespace

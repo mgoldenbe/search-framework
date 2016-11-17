@@ -22,3 +22,10 @@ There seem to be two alternative solutions:
    2) If it’s /class/, make sure that the last non-whitespace character is not a comma or an opening bracket, so that it’s not a template argument declaration. If it is, continue looking back.
    3) Look from that place forward for the first /{/ and the first /;/. If /{/ occurs before /;/, then look for the matching /}/ and then look for ;. 
 The big negative side of the second solution is that we cannot use the classes without defining the symbols that they use for default template arguments. However, sometimes we do not need those symbols! For example, when we use /Astar/ directly from the main /.cpp/ file. In view of this *I choose the first alternative*.
+
+I am considering using clang to do a really good job of determining the context of the undefined symbol:
+- The question on tools: http://stackoverflow.com/questions/3471633/building-a-parser-with-clang
+- It seems like LibTooling is what I need: http://clang.llvm.org/docs/LibTooling.html
+- It seems like I want to parse a snippet of code in memory, which means using runToolOnCode.
+- This is the most directly relevant answer I found: http://stackoverflow.com/a/33644235/2725810
+For now, clang is too steep a learning curve. So, I decided to stick with doing things by hand.

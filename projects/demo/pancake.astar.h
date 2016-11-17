@@ -10,4 +10,9 @@
 #define SLB_CMD_LINE_ADD ext::domain::pancake::CommandLine
 #define SLB_BASE_HEURISTIC ext::domain::pancake::GapHeuristic
 
+// #define SLB_OL_KEY_TYPE ext::policy::openList::DefaultOLKeyType
+// #define SLB_OL_CONTAINER ext::policy::openList::OLMap
+// #define SLB_OL ext::policy::openList::BucketedStdMap
+// #define SLB_OL_PRIORITY ext::policy::openList::GreaterPriority_SmallF_LargeG
+
 #endif

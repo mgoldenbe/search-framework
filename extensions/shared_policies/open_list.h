@@ -270,8 +270,7 @@ private:
 /// with same priority.
 /// \tparam MyAlgorithm The search algorithm type.
 template <class MyAlgorithm>
-using BucketedStdMap = BucketedStdMap_T<MyAlgorithm, SLB_NODE, SLB_OL_KEY_TYPE,
-                                        SLB_OL_PRIORITY, SLB_OL_CONTAINER>;
+using BucketedStdMap = BucketedStdMap_T<MyAlgorithm>;
 
 } // namespace
 } // namespace
