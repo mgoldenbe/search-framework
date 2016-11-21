@@ -14,7 +14,7 @@ namespace policy {
 namespace backtrackLock {
 
 /// Base for a class handling RAII for backtracking in IDA* when the state is
-/// updated in place.
+/// updated in place (i.e. \ref core::sb::ActionNeighbor is used).
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
 struct InplaceBase {
@@ -61,7 +61,8 @@ protected:
 /// Handles RAII for backtracking in IDA* when the state is updated in place.
 /// \tparam MyAlgorithm The search algorithm.
 /// \note The second template parameter is \c true when the log of algorithmic
-/// events is kept and \c false otherwise.
+/// events is kept (which necessitates storing the parent state) and \c false
+/// otherwise.
 template <class MyAlgorithm, bool = false>
 struct Inplace : InplaceBase<MyAlgorithm> {
     POLICY_TYPES
@@ -142,7 +143,8 @@ private:
 };
 
 /// A class for handling RAII for backtracking in IDA* when the parent state is
-/// kept.
+/// kept, i.e. \ref core::sb::StateNeighbor (i.e. not \ref
+/// core::sb::ActionNeighbor) is used.
 /// The second template parameter is not used, just for uniformity.
 template <class MyAlgorithm, bool>
 struct Copy {

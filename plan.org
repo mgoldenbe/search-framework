@@ -104,7 +104,7 @@ CLOSED: [2016-09-27 Tue 16:04]
   - Make sure to not put in a lot of implementation details — I have the right to submit a regular paper as well!
   - Make sure to not exceed 5 pages.c
   - Make sure to comply with all the instructions: https://www.elsevier.com/books-and-journals/content-innovation/original-software-publications#instructions-how-to-submit-your-software-work
-* Remains on 27.09: [12/18]
+* Remains on 27.09: [13/18]
 Each thing on this list is not long. They should take one day on average. The days remaining until Sukkot are: 28.09–30.09, 5.10–7.10, 9.10–10.10, 13–14.10. So, 10 days, which are also very busy. There are 13 items on the list, so I should expect to submit the paper in the first two weeks after Sukkot, e.g. by 4.11. I will then update k-goal config files to work with Roni. 
 ** DONE Organize folders. 
 CLOSED: [2016-09-28 Wed 12:43]
@@ -204,7 +204,9 @@ CLOSED: [2016-11-17 Thu 17:44]
 Wrong, \w handles underscore: http://www.cplusplus.com/reference/regex/ECMAScript/
 ** DONE Re-organize configuration files of the demo — factor out pancake.h and astar.h. Then create grid.astar.h etc.
 CLOSED: [2016-11-21 Mon 12:34]
-** TODO Why does idastar.copy require /neighbors/ instead of /actions/. Doesn’t the backtracking policy do the job?
+** DONE Why does idastar.copy require /neighbors/ instead of /actions/. Doesn’t the backtracking policy do the job?
+CLOSED: [2016-11-21 Mon 13:02]
+** TODO Make it unnecessary to define the domain symbols, i.e. to conditionally include domains. This necessitates reversing the inheritance order of CommandLine.
 ** TODO Make final check that all (really all) demo versions run with and without -v 0.
 ** TODO Update the video.
 ** TODO Make changes in the documentation: 
