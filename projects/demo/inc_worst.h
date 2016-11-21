@@ -12,7 +12,4 @@
 #undef SLB_HEURISTIC
 #define SLB_HEURISTIC ext::policy::heuristic::Zero
 
-#undef SLB_OL_PRIORITY
-#define SLB_OL_PRIORITY GreaterPriority_SmallG
-
 #endif

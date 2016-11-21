@@ -39,6 +39,11 @@ protected:
     TCLAP::CmdLine cmd_;
 };
 
+#ifndef SLB_CMD_LINE_ADD
+/// Default command line additions.
+#define SLB_CMD_LINE_ADD Nothing
+#endif
+
 /// Class handling the command line. It is singleton. The command line would
 /// usually be accessed from the other code using the \ref CMD macro.
 /// \tparam Additions Command line additions.

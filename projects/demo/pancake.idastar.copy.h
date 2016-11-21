@@ -1,10 +1,10 @@
-#ifndef SLB_CONFIG_PANCAKE_IDASTAR_H
-#define SLB_CONFIG_PANCAKE_IDASTAR_H
+#ifndef SLB_CONFIG_PANCAKE_IDASTAR_COPY_H
+#define SLB_CONFIG_PANCAKE_IDASTAR_COPY_H
 
-#include "pancake.astar.h"
-
-#undef SLB_ALGORITHM
-#define SLB_ALGORITHM ext::algorithm::IdAstar
+#include "common.h"
+#include "neighbors.h"
+#include "idastar.h"
+#include "pancake.h"
 
 #define SLB_ID_ASTAR_BACKTRACK_LOCK ext::policy::backtrackLock::Copy
 
