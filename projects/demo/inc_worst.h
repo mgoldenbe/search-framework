@@ -3,7 +3,6 @@
 
 #include "common.h"
 
-#define SLB_DOMAINS_INC_WORST
 #define SLB_STATE ext::domain::incWorst::IncWorst
 #define SLB_COST_TYPE int
 #define SLB_UNIFORM_DOMAIN false

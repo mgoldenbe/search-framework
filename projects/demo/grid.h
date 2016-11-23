@@ -1,7 +1,6 @@
 #ifndef SLB_CONFIG_GRID_H
 #define SLB_CONFIG_GRID_H
 
-#define SLB_DOMAINS_GRID_MAP
 #define SLB_STATE ext::domain::gridMap::GridMapState<>
 #define SLB_COST_TYPE double
 #define SLB_UNIFORM_DOMAIN false

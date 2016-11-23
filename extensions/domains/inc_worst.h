@@ -46,7 +46,11 @@ struct IncWorst: DomainBase {
     using Row = enum {top, bottom}; ///< The type for row identification.
 
     /// Initializes the start state.
-    IncWorst() : k_(CMD.nStages() - 1), row_(bottom), n_(k_ - 1) {
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used. Such an instantiation would result in trying to use
+    /// non-existing command line arguments.
+    template <CMD_TPARAM>
+    IncWorst() : k_(CMD_T.nStages() - 1), row_(bottom), n_(k_ - 1) {
         assert(legal(*this));
     }
 
@@ -59,8 +63,12 @@ struct IncWorst: DomainBase {
     }
 
     /// Initializes the state from a string, e.g. "[4, top, 2]".
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used. Such an instantiation would result in trying to use
+    /// non-existing command line arguments.
     /// \param s The string.
-    IncWorst(const std::string &s) : k_(CMD.nStages() - 1) {
+    template <CMD_TPARAM>
+    IncWorst(const std::string &s) : k_(CMD_T.nStages() - 1) {
         auto v = split(s, {' ', ',', '[', ']'});
         row_ = (v[0] == "top" ? top : bottom);
         n_ = std::stoi(v[1]);
@@ -142,7 +150,13 @@ struct IncWorst: DomainBase {
 
     /// Returns a random state.
     /// \return A random state.
-    static IncWorst random() { return IncWorst{}; }
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used. Such an instantiation would result in trying to use
+    /// non-existing command line arguments.
+    template <CMD_TPARAM>
+    static IncWorst random() {
+        return IncWorst{};
+    }
 
 private:
     /// The number of stages - 1.

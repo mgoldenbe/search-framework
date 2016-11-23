@@ -1,7 +1,6 @@
 #ifndef SLB_CONFIG_PANCAKE_H
 #define SLB_CONFIG_PANCAKE_H
 
-#define SLB_DOMAINS_PANCAKE
 #define SLB_COST_TYPE int
 #define SLB_UNIFORM_DOMAIN true
 #define SLB_STATE ext::domain::pancake::Pancake

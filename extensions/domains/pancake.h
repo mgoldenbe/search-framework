@@ -46,7 +46,11 @@ struct Pancake : DomainBase {
     using Action = int;
 
     /// Initializes the state with ordered pancakes.
-    Pancake() : pancakes_(CMD.nPancakes()) {
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used. Such an instantiation would result in trying to use
+    /// non-existing command line arguments.
+    template <CMD_TPARAM>
+    Pancake() : pancakes_(CMD_T.nPancakes()) {
         int i = -1;
         for (auto &el : pancakes_) el = ++i;
     }
@@ -187,6 +191,10 @@ struct Pancake : DomainBase {
 
     /// Returns a random state.
     /// \return A random state.
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used. Such an instantiation would result in trying to use
+    /// non-existing command line arguments.
+    template <CMD_TPARAM>
     static Pancake random() {
         Pancake res{};
         res.shuffle();
