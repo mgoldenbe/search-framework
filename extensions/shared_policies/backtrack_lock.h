@@ -120,7 +120,7 @@ struct Inplace<MyAlgorithm, true>: InplaceBase<MyAlgorithm> {
 
     /// The destructor.
     ~Inplace() {
-        Base::unset();
+        unset();
     }
 private:
     std::unique_ptr<Node> parent_ = nullptr; ///< The parent node.
