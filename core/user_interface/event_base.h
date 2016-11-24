@@ -77,13 +77,14 @@ template <class Node = SLB_NODE> struct EventBase {
     /// ext::event::NothingToDo event is generated in \ref ext::algorithm::Astar
     /// for an example of when this is useful.
     EventBase(const AlgorithmLog<Node> &log, const Node *n,
-         const Node *parentSubstitution = nullptr)
+              const Node *parentSubstitution = nullptr)
         : log_(log), state_(stateFromNode(n)),
           parent_(n->parent() ? stateFromNode(n->parent()) : nullptr),
           parentSubstitution_(
               parentSubstitution ? stateFromNode(parentSubstitution) : nullptr),
           nodeData_(*n), step_(log.size()),
-          previousEvent_(log.getLastEvent(state_, false)) {}
+          lastStateEvent_(log.getLastEvent(state_, false)),
+          lastParentEvent_(parent_ ? log.getLastEvent(parent_) : nullptr) {}
 
     virtual ~EventBase() {}
 
@@ -112,7 +113,12 @@ template <class Node = SLB_NODE> struct EventBase {
 
     /// Returns latest among the past events for the state.
     /// \return Smart pointer to the latest among the past events for the state.
-    Event previousEvent() const { return previousEvent_; }
+    Event lastStateEvent() const { return lastStateEvent_; }
+
+    /// Returns latest among the past events for the parent state.
+    /// \return Smart pointer to the latest among the past events for the parent
+    /// state.
+    Event lastParentEvent() const { return lastParentEvent_; }
 
     /// Returns the string describing the event. This string is displayed in the
     /// log window.
@@ -130,10 +136,10 @@ template <class Node = SLB_NODE> struct EventBase {
     /// algorithm found to arrive to \c state.
     std::vector<StateSharedPtr> path(const StateSharedPtr &state) const {
         std::vector<StateSharedPtr> res;
-        StateSharedPtr s = state; // In contrast with `state`, `s` is not const.
-        while (s) {
-            res.push_back(s);
-            s = log_.getLastEvent(s)->parent();
+        Event e = log_.getLastEvent(state);
+        while (e) {
+            res.push_back(e->state());
+            e = e->lastParentEvent();
         }
         std::reverse(res.begin(), res.end());
         return res;
@@ -211,7 +217,10 @@ protected:
     int step_;
 
     /// The latest among the past events for the state.
-    Event previousEvent_;
+    Event lastStateEvent_;
+
+    /// The latest among the past events for the parent state.
+    Event lastParentEvent_;
 
 private:
     /// Get a smart pointer to the state stored with the given search node.

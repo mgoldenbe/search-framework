@@ -107,7 +107,7 @@ struct AlgorithmLog {
                              bool throwFlag = true) const {
         auto e = getLastEvent(s, throwFlag);
         while (e && e->step() >= step)
-            e = e->previousEvent();
+            e = e->lastStateEvent();
         if (throwFlag && !e)
             throw std::runtime_error("Could not find last event before step " +
                                      str(step) + " for the state " + str(*s));

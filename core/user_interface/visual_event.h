@@ -52,7 +52,7 @@ struct VisualEvent {
         using Event = typename VisualLog::AlgorithmEvent;
         bool hideLastFlag =
             (e->eventType() == EventType::HIDE_LAST_EVENT);
-        const Event &myEvent = (hideLastFlag ? e->previousEvent() : e);
+        const Event &myEvent = (hideLastFlag ? e->lastStateEvent() : e);
 
         if (hideLastFlag) // to pass correct current styles to
                           // myEvent->visualChanges
