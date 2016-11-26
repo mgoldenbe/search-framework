@@ -1,5 +1,5 @@
-#ifndef INC_WORST_H
-#define INC_WORST_H
+#ifndef SLB_DOMAIN_INC_WORST_H
+#define SLB_DOMAIN_INC_WORST_H
 
 /// \file
 /// \brief The worst case example for an inconsistent heuristics (as appears on
@@ -69,7 +69,7 @@ struct IncWorst: DomainBase {
     /// \param s The string.
     template <CMD_TPARAM>
     IncWorst(const std::string &s) : k_(CMD_T.nStages() - 1) {
-        auto v = split(s, {' ', ',', '[', ']'});
+        auto v = core::util::split(s, {' ', ',', '[', ']'});
         row_ = (v[0] == "top" ? top : bottom);
         n_ = std::stoi(v[1]);
         if (!legal(*this)) throw std::invalid_argument("Bad state");

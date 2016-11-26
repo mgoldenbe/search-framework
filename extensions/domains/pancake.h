@@ -1,5 +1,5 @@
-#ifndef PANCAKE_H
-#define PANCAKE_H
+#ifndef SLB_DOMAIN_PANCAKE_H
+#define SLB_DOMAIN_PANCAKE_H
 
 /// \file
 /// \brief The Pancake puzzle domain and the related heuristics.
@@ -58,7 +58,7 @@ struct Pancake : DomainBase {
     /// Initializes the state from a string, e.g. "[1, 4, 2, 3, 0]".
     /// \param s The string.
     Pancake(const std::string &s) {
-        for (auto el : split(s, {' ', ',', '[', ']'}))
+        for (auto el : core::util::split(s, {' ', ',', '[', ']'}))
             pancakes_.push_back(std::stoi(el));
     }
 

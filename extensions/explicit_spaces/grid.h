@@ -1,6 +1,6 @@
 
-#ifndef GRID_MAP_H
-#define GRID_MAP_H
+#ifndef SLB_EXPLICIT_SPACE_GRID_H
+#define SLB_EXPLICIT_SPACE_GRID_H
 
 /// \file
 /// \brief The \ref slb::core::sb::GridMap class.
@@ -12,16 +12,16 @@
 #endif
 
 namespace slb {
-namespace core {
-namespace sb {
+namespace ext {
+namespace explicit_space {
 
-using util::sureRead;
-using util::split;
+using core::util::sureRead;
+using core::util::split;
 
 /// The type for 4 or 8-connected grid explicit domain.
 /// \tparam CostType_ Type for action cost in the search domain.
 template <typename CostType_>
-struct GridMap {
+struct Grid {
     /// Type for action cost in the search domain.
     using CostType = CostType_;
 
@@ -32,7 +32,7 @@ struct GridMap {
 
     /// Initializes the grid based on the contents of the given file.
     /// \param fileName The name of the file that stores the grid.
-    GridMap(std::string fileName) {
+    Grid(std::string fileName) {
         std::ifstream fin(fileName);
         if (!fin)
             throw std::invalid_argument("Could not find " + fileName);

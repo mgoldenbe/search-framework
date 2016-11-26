@@ -16,7 +16,7 @@ namespace domain {}
 } // namespace
 
 #include "inc_worst.h"
-#include "grid_map_state.h"
+#include "grid.h"
 #include "pancake.h"
 
 #endif

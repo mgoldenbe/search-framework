@@ -17,6 +17,7 @@ using core::ui::log;
 
 } // namespace
 
+#include "explicit_spaces/headers.h"
 #include "domains/headers.h"
 #include "nodes/headers.h"
 #include "events/headers.h"

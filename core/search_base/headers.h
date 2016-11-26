@@ -23,7 +23,6 @@ using util::operator<<; // Printing states.
 #include "open_closed_list.h"
 #include "domain_base.h"
 #include "explicit_state.h"
-#include "grid_map.h"
 #include "neighbor.h"
 #include "node.h"
 

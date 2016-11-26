@@ -107,45 +107,6 @@ private:
 template<class ExplicitSpace>
 std::unique_ptr<ExplicitSpace> ExplicitState<ExplicitSpace>::space_ = nullptr;
 
-/// The Manhattan heuristic functor.
-/// \tparam State The type representing the explicit domain.
-template <class State = SLB_STATE>
-struct ManhattanHeuristic {
-    /// The constructor
-    /// \param goal The goal state.
-    ManhattanHeuristic(const State &goal)
-        : goal_(goal) {}
-
-    /// The function-call operator. Computes the heuristic.
-    /// \param s The state from which the heuristic is to be computed.
-    /// \return The heuristic function from \c s to \c goal.
-    typename State::CostType operator()(const State &s) const {
-        return State::space()->manhattan(s.raw(), goal_.raw());
-    }
-
-private:
-    const State &goal_; ///< The goal state.
-};
-
-/// The octile heuristic functor.
-/// \tparam State The type representing the explicit domain.
-template <class State = SLB_STATE>
-struct OctileHeuristic {
-    /// The constructor
-    /// \param goal The goal state.
-    OctileHeuristic(const State &goal) : goal_(goal) {}
-
-    /// The function-call operator. Computes the heuristic.
-    /// \param s The state from which the heuristic is to be computed.
-    /// \return The heuristic function from \c s to \c goal.
-    typename State::CostType operator()(const State &s) const {
-        return State::space()->octile(s.raw(), goal_.raw());
-    }
-
-private:
-    const State &goal_; ///< The goal state.
-};
-
 } // namespace
 } // namespace
 } // namespace
