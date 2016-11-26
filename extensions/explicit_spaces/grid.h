@@ -155,6 +155,14 @@ struct Grid {
         return random();
     }
 
+    /// Fills out the coordinates for the vertex representing the state.
+    /// \param x The x-coordinate to be filled out.
+    /// \param y The y-coordinate to be filled out.
+    void visualLocation(Location loc, double &x, double &y) const {
+        x = column(loc);
+        y = row(loc);
+    }
+
     /// Computes the Manhattan distance heuristic.
     /// \param location The location from which the heuristic is required.
     /// \param goal The location to which the heuristic is required.

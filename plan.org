@@ -104,7 +104,7 @@ CLOSED: [2016-09-27 Tue 16:04]
   - Make sure to not put in a lot of implementation details — I have the right to submit a regular paper as well!
   - Make sure to not exceed 5 pages.c
   - Make sure to comply with all the instructions: https://www.elsevier.com/books-and-journals/content-innovation/original-software-publications#instructions-how-to-submit-your-software-work
-* Remains on 27.09: [16/20]
+* Remains on 27.09: [16/21]
 Each thing on this list is not long. They should take one day on average. The days remaining until Sukkot are: 28.09–30.09, 5.10–7.10, 9.10–10.10, 13–14.10. So, 10 days, which are also very busy. There are 13 items on the list, so I should expect to submit the paper in the first two weeks after Sukkot, e.g. by 4.11. I will then update k-goal config files to work with Roni. 
 ** DONE Organize folders. 
 CLOSED: [2016-09-28 Wed 12:43]
@@ -210,10 +210,12 @@ CLOSED: [2016-11-21 Mon 13:02]
 CLOSED: [2016-11-23 Wed 12:01]
 ** DONE Fix a big design error: it is possible for the solution path to not be available or to be computed incorrectly, including the possibility of an infinite loop in event_base.h:134. This is because an event involving the parent of a state may appear after the last event involving the state. So, with each event, we need to store the last event that involved the state’s parent.
 CLOSED: [2016-11-24 Thu 12:22]
-** DONE Make final check that all (really all) demo versions run with and without -v 0.
-CLOSED: [2016-11-24 Thu 12:22]
-- Pancake with 30 pancakes and visualization seg-faults very quickly.
+** DONE Move grid.h to extensions and move Octile heuristic to it. Also move computation of coordinates for visualization there. 
+CLOSED: [2016-11-26 Sat 19:38]
 ** TODO Update the video.
+** TODO Make names of include guards uniform. 
+** TODO Make final check that all (really all) demo versions run with and without -v 0.
+- Pancake with 30 pancakes and visualization seg-faults very quickly.
 ** TODO Make changes in the documentation: 
 - A note about the namespaces matching the physical structure.
 - A note about the need to make functions that read specific command line arguments templates. As an example of that, constructors of the domains that read domain-specific command line arguments are templates. The functions that invoke those are templates as well.
