@@ -15,8 +15,9 @@ namespace gridMap {
 
 /// Explicit state specific to the Grid Map domain.
 /// \tparam CostType The type representing the cost of actions in the domain.
+/// The default value is \c SLB_COST_TYPE.
 /// \tparam uniformFlag Determines whether the domain is a uniform cost one or
-/// not.
+/// not. The default value is \c SLB_UNIFORM_DOMAIN.
 template <typename CostType, bool uniformFlag>
 struct GridMapState : ExplicitState<GridMap<CostType>> {
     using Base = ExplicitState<GridMap<CostType>>; ///< The base class.

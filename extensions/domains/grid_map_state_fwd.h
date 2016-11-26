@@ -10,7 +10,7 @@ namespace ext {
 namespace domain {
 namespace gridMap {
 
-template <typename = SLB_COST_TYPE, bool = SLB_UNIFORM_DOMAIN>
+template <typename CostType = SLB_COST_TYPE, bool uniformFlag = SLB_UNIFORM_DOMAIN>
 struct GridMapState;
 
 } // namespace
