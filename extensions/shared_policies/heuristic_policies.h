@@ -1,5 +1,5 @@
-#ifndef HEURISTIC_POLICIES_H
-#define HEURISTIC_POLICIES_H
+#ifndef SLB_EXTENSIONS_SHARED_POLICIES_HEURISTIC_POLICIES_H
+#define SLB_EXTENSIONS_SHARED_POLICIES_HEURISTIC_POLICIES_H
 
 /// \file
 /// \brief Wrappers around heuristics to be used by the search algorithms.

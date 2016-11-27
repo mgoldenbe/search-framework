@@ -1,5 +1,5 @@
-#ifndef UTIL_VECTOR_OF_PAIRS_H
-#define UTIL_VECTOR_OF_PAIRS_H
+#ifndef SLB_CORE_UTIL_VECTOR_OF_PAIRS_H
+#define SLB_CORE_UTIL_VECTOR_OF_PAIRS_H
 
 ///@file
 ///@brief Utilities for working with a vector of pairs.

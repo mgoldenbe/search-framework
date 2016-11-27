@@ -1,5 +1,5 @@
-#ifndef GRAPHICS_OBJECT_H
-#define GRAPHICS_OBJECT_H
+#ifndef SLB_CORE_USER_INTERFACE_GRAPHICS_OBJECT_H
+#define SLB_CORE_USER_INTERFACE_GRAPHICS_OBJECT_H
 
 /// \file
 /// \brief Facilities for manipulating the drawing surface.

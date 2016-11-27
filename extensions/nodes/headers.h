@@ -1,5 +1,5 @@
-#ifndef NODE_HEADERS_H
-#define NODE_HEADERS_H
+#ifndef SLB_EXTENSIONS_NODES_HEADERS_H
+#define SLB_EXTENSIONS_NODES_HEADERS_H
 
 /// \file
 /// \brief Structures containing the node data for the implemented search

@@ -1,5 +1,5 @@
-#ifndef FORM_H
-#define FORM_H
+#ifndef SLB_CORE_USER_INTERFACE_FORM_H
+#define SLB_CORE_USER_INTERFACE_FORM_H
 
 /// \file
 /// \brief Implementation of a simple form for \c ncurses. Forms that come with

@@ -1,5 +1,5 @@
-#ifndef VISUAL_LOG_H
-#define VISUAL_LOG_H
+#ifndef SLB_CORE_USER_INTERFACE_VISUAL_LOG_H
+#define SLB_CORE_USER_INTERFACE_VISUAL_LOG_H
 
 /// \file
 /// \brief The \ref slb::core::ui::VisualLog class.

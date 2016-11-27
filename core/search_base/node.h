@@ -1,5 +1,5 @@
-#ifndef NODE_H
-#define NODE_H
+#ifndef SLB_CORE_SEARCH_BASE_NODE_H
+#define SLB_CORE_SEARCH_BASE_NODE_H
 
 /// \file
 /// \brief The \ref slb::core::sb::SearchNode class.

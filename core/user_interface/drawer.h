@@ -1,5 +1,5 @@
-#ifndef DRAWER_H
-#define DRAWER_H
+#ifndef SLB_CORE_USER_INTERFACE_DRAWER_H
+#define SLB_CORE_USER_INTERFACE_DRAWER_H
 
 #include "visual_log.h"
 

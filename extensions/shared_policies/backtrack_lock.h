@@ -1,5 +1,5 @@
-#ifndef BACKTRACK_LOCK_H
-#define BACKTRACK_LOCK_H
+#ifndef SLB_EXTENSIONS_SHARED_POLICIES_BACKTRACK_LOCK_H
+#define SLB_EXTENSIONS_SHARED_POLICIES_BACKTRACK_LOCK_H
 
 /// \file
 /// \brief Policies for handling backtracking in IDA*.

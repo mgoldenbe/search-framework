@@ -1,5 +1,5 @@
-#ifndef DOMAINS_HEADERS_H
-#define DOMAINS_HEADERS_H
+#ifndef SLB_EXTENSIONS_DOMAINS_HEADERS_H
+#define SLB_EXTENSIONS_DOMAINS_HEADERS_H
 
 /// \file
 /// \brief Implementation of the domains.

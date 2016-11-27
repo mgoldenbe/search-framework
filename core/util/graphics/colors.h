@@ -1,5 +1,5 @@
-#ifndef COLORS_H
-#define COLORS_H
+#ifndef SLB_CORE_UTIL_GRAPHICS_COLORS_H
+#define SLB_CORE_UTIL_GRAPHICS_COLORS_H
 
 ///@file
 ///@brief The colors.

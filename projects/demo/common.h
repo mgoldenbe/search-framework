@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_COMMON_H
-#define SLB_CONFIG_COMMON_H
+#ifndef SLB_PROJECTS_DEMO_COMMON_H
+#define SLB_PROJECTS_DEMO_COMMON_H
 
 #define SLB_BUCKET_POSITION_TYPE int
 #define SLB_NODE slb::core::sb::SearchNode<>

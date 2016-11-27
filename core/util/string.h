@@ -2,8 +2,8 @@
 ///@brief String-related utilities.
 /// \author Meir Goldenberg
 
-#ifndef UTIL_STRING_H
-#define UTIL_STRING_H
+#ifndef SLB_CORE_UTIL_STRING_H
+#define SLB_CORE_UTIL_STRING_H
 
 namespace slb {
 namespace core {

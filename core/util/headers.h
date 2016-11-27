@@ -1,8 +1,8 @@
 ///@file
 ///@brief INTERFACES CHECKED.
 
-#ifndef UTIL_HEADERS_H
-#define UTIL_HEADERS_H
+#ifndef SLB_CORE_UTIL_HEADERS_H
+#define SLB_CORE_UTIL_HEADERS_H
 
 namespace slb {
 namespace core {

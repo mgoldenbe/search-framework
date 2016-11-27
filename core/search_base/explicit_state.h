@@ -1,5 +1,5 @@
-#ifndef EXPLICIT_STATE_H
-#define EXPLICIT_STATE_H
+#ifndef SLB_CORE_SEARCH_BASE_EXPLICIT_STATE_H
+#define SLB_CORE_SEARCH_BASE_EXPLICIT_STATE_H
 
 /// \file
 /// \brief The \ref slb::core::sb::ExplicitState class and the related heuristics.

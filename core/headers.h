@@ -1,5 +1,5 @@
-#ifndef CORE_HEADERS_H
-#define CORE_HEADERS_H
+#ifndef SLB_CORE_HEADERS_H
+#define SLB_CORE_HEADERS_H
 
 /// \file
 /// \brief The core functionality of the framework.

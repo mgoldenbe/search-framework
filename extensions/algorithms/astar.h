@@ -1,5 +1,5 @@
-#ifndef ASTAR_H
-#define ASTAR_H
+#ifndef SLB_EXTENSIONS_ALGORITHMS_ASTAR_H
+#define SLB_EXTENSIONS_ALGORITHMS_ASTAR_H
 
 /// \file
 /// \brief The \ref slb::ext::algorithm::Astar class.

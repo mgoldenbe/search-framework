@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_ACTIONS_H
-#define SLB_CONFIG_ACTIONS_H
+#ifndef SLB_PROJECTS_DEMO_ACTIONS_H
+#define SLB_PROJECTS_DEMO_ACTIONS_H
 
 #define SLB_BASE_DYNAMIC_HEURISTIC ext::domain::pancake::DynamicGapHeuristic
 #define SLB_GENERATOR ext::policy::generator::Actions

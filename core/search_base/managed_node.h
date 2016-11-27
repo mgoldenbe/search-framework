@@ -2,8 +2,8 @@
 /// \brief A base for node with reflection.
 /// \author Meir Goldenberg
 
-#ifndef MANAGED_NODE_H
-#define MANAGED_NODE_H
+#ifndef SLB_CORE_SEARCH_BASE_MANAGED_NODE_H
+#define SLB_CORE_SEARCH_BASE_MANAGED_NODE_H
 
 namespace slb {
 namespace core {

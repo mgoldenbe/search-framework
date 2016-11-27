@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_GRID_H
-#define SLB_CONFIG_GRID_H
+#ifndef SLB_PROJECTS_DEMO_GRID_H
+#define SLB_PROJECTS_DEMO_GRID_H
 
 #define SLB_STATE ext::domain::grid::Grid<>
 #define SLB_COST_TYPE double

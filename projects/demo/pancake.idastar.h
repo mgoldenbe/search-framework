@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_PANCAKE_IDASTAR_H
-#define SLB_CONFIG_PANCAKE_IDASTAR_H
+#ifndef SLB_PROJECTS_DEMO_PANCAKE_IDASTAR_H
+#define SLB_PROJECTS_DEMO_PANCAKE_IDASTAR_H
 
 #include "common.h"
 #include "actions.h"

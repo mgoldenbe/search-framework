@@ -1,5 +1,5 @@
-#ifndef INSTANCE_H
-#define INSTANCE_H
+#ifndef SLB_CORE_SEARCH_BASE_INSTANCE_H
+#define SLB_CORE_SEARCH_BASE_INSTANCE_H
 
 /// \file
 /// \brief Facilities for working with problem instances.

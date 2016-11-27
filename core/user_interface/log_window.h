@@ -1,5 +1,5 @@
-#ifndef TYPIST_H
-#define TYPIST_H
+#ifndef SLB_CORE_USER_INTERFACE_LOG_WINDOW_H
+#define SLB_CORE_USER_INTERFACE_LOG_WINDOW_H
 
 /// \file
 /// \brief The \ref  slb::core::ui::LogWindow class.

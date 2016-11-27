@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_PANCAKE_ASTAR_H
-#define SLB_CONFIG_PANCAKE_ASTAR_H
+#ifndef SLB_PROJECTS_DEMO_PANCAKE_ASTAR_H
+#define SLB_PROJECTS_DEMO_PANCAKE_ASTAR_H
 
 #include "common.h"
 #include "neighbors.h"

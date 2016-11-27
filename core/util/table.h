@@ -1,5 +1,5 @@
-#ifndef TABLE_H
-#define TABLE_H
+#ifndef SLB_CORE_UTIL_TABLE_H
+#define SLB_CORE_UTIL_TABLE_H
 
 ///@file
 ///@brief The \ref slb::core::util::Table class.

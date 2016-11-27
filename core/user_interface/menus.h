@@ -1,5 +1,5 @@
-#ifndef MENUS_H
-#define MENUS_H
+#ifndef SLB_CORE_USER_INTERFACE_MENUS_H
+#define SLB_CORE_USER_INTERFACE_MENUS_H
 
 /// \file
 /// \brief Implementation of the menus appearing at the bottom of the log window.

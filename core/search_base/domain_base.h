@@ -1,5 +1,5 @@
-#ifndef DOMAIN_BASE_H
-#define DOMAIN_BASE_H
+#ifndef SLB_CORE_SEARCH_BASE_DOMAIN_BASE_H
+#define SLB_CORE_SEARCH_BASE_DOMAIN_BASE_H
 
 /// \file
 /// \brief The \ref slb::core::sb::DomainBase class.

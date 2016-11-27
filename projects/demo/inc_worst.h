@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_INC_WORST_H
-#define SLB_CONFIG_INC_WORST_H
+#ifndef SLB_PROJECTS_DEMO_INC_WORST_H
+#define SLB_PROJECTS_DEMO_INC_WORST_H
 
 #include "common.h"
 

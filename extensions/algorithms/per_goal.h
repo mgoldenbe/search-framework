@@ -1,5 +1,5 @@
-#ifndef PER_GOAL_H
-#define PER_GOAL_H
+#ifndef SLB_EXTENSIONS_ALGORITHMS_PER_GOAL_H
+#define SLB_EXTENSIONS_ALGORITHMS_PER_GOAL_H
 
 /// \file
 /// \brief The \ref slb::ext::algorithm::PerGoal class.

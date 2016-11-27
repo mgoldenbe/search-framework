@@ -1,5 +1,5 @@
-#ifndef UTIL_DRAWING_H
-#define UTIL_DRAWING_H
+#ifndef SLB_CORE_UTIL_GRAPHICS_DRAWING_H
+#define SLB_CORE_UTIL_GRAPHICS_DRAWING_H
 
 ///@file
 ///@brief Drawing utilities.

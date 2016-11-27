@@ -1,5 +1,5 @@
-#ifndef VISUALIZER_DATA_H
-#define VISUALIZER_DATA_H
+#ifndef SLB_CORE_USER_INTERFACE_VISUALIZER_DATA_H
+#define SLB_CORE_USER_INTERFACE_VISUALIZER_DATA_H
 
 /// \file
 /// \brief The \ref slb::core::ui::VisualizerData class.

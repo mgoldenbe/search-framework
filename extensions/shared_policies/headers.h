@@ -1,5 +1,5 @@
-#ifndef SHARED_POLICIES_HEADERS_H
-#define SHARED_POLICIES_HEADERS_H
+#ifndef SLB_EXTENSIONS_SHARED_POLICIES_HEADERS_H
+#define SLB_EXTENSIONS_SHARED_POLICIES_HEADERS_H
 
 /// \file
 /// \brief Policy classes for search algorithms and algorithmic variants.

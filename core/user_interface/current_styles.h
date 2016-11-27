@@ -1,5 +1,5 @@
-#ifndef CURRENT_STYLES_H
-#define CURRENT_STYLES_H
+#ifndef SLB_CORE_USER_INTERFACE_CURRENT_STYLES_H
+#define SLB_CORE_USER_INTERFACE_CURRENT_STYLES_H
 
 /// \file current_styles.h
 /// \brief The \ref slb::core::ui::CurrentStyles class.

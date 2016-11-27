@@ -1,5 +1,5 @@
-#ifndef FILTERS_H
-#define FILTERS_H
+#ifndef SLB_CORE_USER_INTERFACE_FILTERS_H
+#define SLB_CORE_USER_INTERFACE_FILTERS_H
 
 /// \file
 /// \brief Event filters for log analysis and visualization.

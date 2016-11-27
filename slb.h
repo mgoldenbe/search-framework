@@ -1,5 +1,5 @@
-#ifndef SLB_H
-#define SLB_H
+#ifndef SLB_SLB_H
+#define SLB_SLB_H
 
 /// \namespace slb
 /// The main namespace of the framework.

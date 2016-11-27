@@ -1,5 +1,5 @@
-#ifndef MENU_UTILITLIES_H
-#define MENU_UTILITLIES_H
+#ifndef SLB_CORE_UTIL_GRAPHICS_CURSES_MENU_H
+#define SLB_CORE_UTIL_GRAPHICS_CURSES_MENU_H
 
 ///@file
 ///@brief The utilities for working with \c curses menu.

@@ -3,8 +3,8 @@
 /// search algorithms.
 /// \author Meir Goldenberg
 
-#ifndef NODE_KINDS_FWD_H
-#define NODE_KINDS_FWD_H
+#ifndef SLB_EXTENSIONS_NODES_NODE_KINDS_FWD_H
+#define SLB_EXTENSIONS_NODES_NODE_KINDS_FWD_H
 
 namespace slb {
 namespace ext {

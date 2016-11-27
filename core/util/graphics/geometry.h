@@ -1,5 +1,5 @@
-#ifndef UTIL_GEOMETRY_H
-#define UTIL_GEOMETRY_H
+#ifndef SLB_CORE_UTIL_GRAPHICS_GEOMETRY_H
+#define SLB_CORE_UTIL_GRAPHICS_GEOMETRY_H
 
 namespace slb {
 namespace core {

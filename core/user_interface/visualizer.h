@@ -1,5 +1,5 @@
-#ifndef VISUALIZER_H
-#define VISUALIZER_H
+#ifndef SLB_CORE_USER_INTERFACE_VISUALIZER_H
+#define SLB_CORE_USER_INTERFACE_VISUALIZER_H
 
 /// \file
 /// \brief The \ref slb::core::ui::Visualizer class, which handles the user interface.

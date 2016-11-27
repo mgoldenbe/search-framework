@@ -1,5 +1,5 @@
-#ifndef EXTENSIONS_HEADERS_H
-#define EXTENSIONS_HEADERS_H
+#ifndef SLB_EXTENSIONS_HEADERS_H
+#define SLB_EXTENSIONS_HEADERS_H
 
 /// \file
 /// \brief Search algorithms, algorithmic variants and facilities that directly

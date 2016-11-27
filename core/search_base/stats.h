@@ -1,5 +1,5 @@
-#ifndef STATS_H
-#define STATS_H
+#ifndef SLB_CORE_SEARCH_BASE_STATS_H
+#define SLB_CORE_SEARCH_BASE_STATS_H
 
 /// \file
 /// \brief Facilities for accumulating statistics about the search algorithms'

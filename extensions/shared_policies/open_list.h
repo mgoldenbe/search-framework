@@ -1,5 +1,5 @@
-#ifndef OPEN_LIST_H
-#define OPEN_LIST_H
+#ifndef SLB_EXTENSIONS_SHARED_POLICIES_OPEN_LIST_H
+#define SLB_EXTENSIONS_SHARED_POLICIES_OPEN_LIST_H
 
 /// \file
 /// \brief Open list implementations.

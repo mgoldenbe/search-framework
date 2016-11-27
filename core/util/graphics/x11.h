@@ -1,5 +1,5 @@
-#ifndef UTIL_X11_H
-#define UTIL_X11_H
+#ifndef SLB_CORE_UTIL_GRAPHICS_X11_H
+#define SLB_CORE_UTIL_GRAPHICS_X11_H
 
 ///@file
 ///@brief X11 window-related utilities.

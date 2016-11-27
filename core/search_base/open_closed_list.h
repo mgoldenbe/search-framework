@@ -1,5 +1,5 @@
-#ifndef OPEN_CLOSED_LIST_H
-#define OPEN_CLOSED_LIST_H
+#ifndef SLB_CORE_SEARCH_BASE_OPEN_CLOSED_LIST_H
+#define SLB_CORE_SEARCH_BASE_OPEN_CLOSED_LIST_H
 
 /// \file
 /// \brief The \ref slb::core::sb::OpenClosedList class.

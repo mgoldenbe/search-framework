@@ -1,5 +1,5 @@
-#ifndef UTIL_HASH_H
-#define UTIL_HASH_H
+#ifndef SLB_CORE_UTIL_HASH_H
+#define SLB_CORE_UTIL_HASH_H
 
 ///@file
 ///@brief Hashing-related utilities.

@@ -1,5 +1,5 @@
-#ifndef VISUAL_EVENT_H
-#define VISUAL_EVENT_H
+#ifndef SLB_CORE_USER_INTERFACE_VISUAL_EVENT_H
+#define SLB_CORE_USER_INTERFACE_VISUAL_EVENT_H
 
 /// \file
 /// \brief The \ref slb::core::ui::VisualEvent class.

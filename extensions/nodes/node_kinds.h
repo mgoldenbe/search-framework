@@ -1,5 +1,5 @@
-#ifndef NODE_KINDS_H
-#define NODE_KINDS_H
+#ifndef SLB_EXTENSIONS_NODES_NODE_KINDS_H
+#define SLB_EXTENSIONS_NODES_NODE_KINDS_H
 
 /// \file
 /// \brief Structures containing the node data for several search algorithm

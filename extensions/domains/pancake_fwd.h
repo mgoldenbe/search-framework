@@ -1,5 +1,5 @@
-#ifndef PANCAKE_FWD_H
-#define PANCAKE_FWD_H
+#ifndef SLB_EXTENSIONS_DOMAINS_PANCAKE_FWD_H
+#define SLB_EXTENSIONS_DOMAINS_PANCAKE_FWD_H
 
 /// \file
 /// \brief Forward declarations for \ref pancake.h.

@@ -1,5 +1,5 @@
-#ifndef ALOGORITHM_H
-#define ALOGORITHM_H
+#ifndef SLB_EXTENSIONS_ALGORITHMS_ALGORITHM_H
+#define SLB_EXTENSIONS_ALGORITHMS_ALGORITHM_H
 
 /// \file
 /// \brief Abstract base for search algorithms.

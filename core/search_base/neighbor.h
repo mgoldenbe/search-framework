@@ -1,5 +1,5 @@
-#ifndef STATE_NEIGHBOR_H
-#define STATE_NEIGHBOR_H
+#ifndef SLB_CORE_SEARCH_BASE_NEIGHBOR_H
+#define SLB_CORE_SEARCH_BASE_NEIGHBOR_H
 
 /// \file
 /// \brief The types for a single neighbor of a given state.

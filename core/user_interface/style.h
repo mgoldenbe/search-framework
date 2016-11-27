@@ -1,5 +1,5 @@
-#ifndef STYLE_H
-#define STYLE_H
+#ifndef SLB_CORE_USER_INTERFACE_STYLE_H
+#define SLB_CORE_USER_INTERFACE_STYLE_H
 
 /// \file style.h
 /// \brief Types for styles of visual representation of vertices and edges.

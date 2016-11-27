@@ -1,5 +1,5 @@
-#ifndef SLB_DOMAIN_PANCAKE_H
-#define SLB_DOMAIN_PANCAKE_H
+#ifndef SLB_EXTENSIONS_DOMAINS_PANCAKE_H
+#define SLB_EXTENSIONS_DOMAINS_PANCAKE_H
 
 /// \file
 /// \brief The Pancake puzzle domain and the related heuristics.

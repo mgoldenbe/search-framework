@@ -1,5 +1,5 @@
-#ifndef UTIL_TIME_H
-#define UTIL_TIME_H
+#ifndef SLB_CORE_UTIL_TIME_H
+#define SLB_CORE_UTIL_TIME_H
 
 ///@file
 ///@brief Time-related utilities.

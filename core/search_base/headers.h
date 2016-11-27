@@ -1,5 +1,5 @@
-#ifndef SEARCH_BASE_HEADERS_H
-#define SEARCH_BASE_HEADERS_H
+#ifndef SLB_CORE_SEARCH_BASE_HEADERS_H
+#define SLB_CORE_SEARCH_BASE_HEADERS_H
 
 /// \file
 /// \brief Facilities that support implementation of various heuristic search

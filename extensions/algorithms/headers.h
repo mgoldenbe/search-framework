@@ -1,5 +1,5 @@
-#ifndef ALGORITHMS_HEADERS_H
-#define ALGORITHMS_HEADERS_H
+#ifndef SLB_EXTENSIONS_ALGORITHMS_HEADERS_H
+#define SLB_EXTENSIONS_ALGORITHMS_HEADERS_H
 
 /// \file
 /// \brief Implementation of the search algorithms.

@@ -1,5 +1,5 @@
-#ifndef GENERATORS_H
-#define GENERATORS_H
+#ifndef SLB_EXTENSIONS_SHARED_POLICIES_GENERATORS_H
+#define SLB_EXTENSIONS_SHARED_POLICIES_GENERATORS_H
 
 /// \file
 /// \brief Generators to be used by the search algorithms.

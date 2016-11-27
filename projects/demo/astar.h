@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_ASTAR_H
-#define SLB_CONFIG_ASTAR_H
+#ifndef SLB_PROJECTS_DEMO_ASTAR_H
+#define SLB_PROJECTS_DEMO_ASTAR_H
 
 #define SLB_ALGORITHM ext::algorithm::Astar
 #define SLB_OL_KEY_TYPE ext::policy::openList::DefaultOLKeyType

@@ -1,5 +1,5 @@
-#ifndef GRAPH_H
-#define GRAPH_H
+#ifndef SLB_CORE_USER_INTERFACE_STATE_GRAPH_H
+#define SLB_CORE_USER_INTERFACE_STATE_GRAPH_H
 
 /// \file state_graph.h
 /// \brief The state space graph used for visualization.

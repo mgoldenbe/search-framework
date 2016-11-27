@@ -1,5 +1,5 @@
-#ifndef GRAPH_LAYOUTS_H
-#define GRAPH_LAYOUTS_H
+#ifndef SLB_CORE_USER_INTERFACE_GRAPH_LAYOUTS_H
+#define SLB_CORE_USER_INTERFACE_GRAPH_LAYOUTS_H
 
 /// \file graph_layouts.h
 /// \brief Implementation of the state graph layout computation methods.

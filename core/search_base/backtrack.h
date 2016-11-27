@@ -1,5 +1,5 @@
-#ifndef BACKTRACK_H
-#define BACKTRACK_H
+#ifndef SLB_CORE_SEARCH_BASE_BACKTRACK_H
+#define SLB_CORE_SEARCH_BASE_BACKTRACK_H
 
 /// \file
 /// \brief The class for handling backtracking in IDA*.

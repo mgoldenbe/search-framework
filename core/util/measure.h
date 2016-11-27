@@ -1,5 +1,5 @@
-#ifndef MEASURE_H
-#define MEASURE_H
+#ifndef SLB_CORE_UTIL_MEASURE_H
+#define SLB_CORE_UTIL_MEASURE_H
 
 /// \file
 /// \brief The type for a single named performance measure and a timer derived

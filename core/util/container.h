@@ -1,5 +1,5 @@
-#ifndef UTIL_CONTAINER_H
-#define UTIL_CONTAINER_H
+#ifndef SLB_CORE_UTIL_CONTAINER_H
+#define SLB_CORE_UTIL_CONTAINER_H
 
 ///@file
 ///@brief Container utilities.

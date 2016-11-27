@@ -1,5 +1,5 @@
-#ifndef COMMAND_LINE_H
-#define COMMAND_LINE_H
+#ifndef SLB_CORE_COMMAND_LINE_H
+#define SLB_CORE_COMMAND_LINE_H
 
 /// \file
 /// \brief The \ref slb::core::commandLine::CommandLine class.

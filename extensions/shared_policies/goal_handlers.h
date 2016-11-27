@@ -1,5 +1,5 @@
-#ifndef GOAL_HANDLER_H
-#define GOAL_HANDLER_H
+#ifndef SLB_EXTENSIONS_SHARED_POLICIES_GOAL_HANDLERS_H
+#define SLB_EXTENSIONS_SHARED_POLICIES_GOAL_HANDLERS_H
 
 /// \file
 /// \brief Policies for handling conditions related to goal states.

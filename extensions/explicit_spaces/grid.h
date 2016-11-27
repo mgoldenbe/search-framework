@@ -1,6 +1,6 @@
 
-#ifndef SLB_EXPLICIT_SPACE_GRID_H
-#define SLB_EXPLICIT_SPACE_GRID_H
+#ifndef SLB_EXTENSIONS_EXPLICIT_SPACES_GRID_H
+#define SLB_EXTENSIONS_EXPLICIT_SPACES_GRID_H
 
 /// \file
 /// \brief The \ref slb::core::sb::GridMap class.

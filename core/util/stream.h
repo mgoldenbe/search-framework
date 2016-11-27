@@ -2,8 +2,8 @@
 ///@brief Stream output-related utilities.
 /// \author Meir Goldenberg
 
-#ifndef UTIL_STREAM_H
-#define UTIL_STREAM_H
+#ifndef SLB_CORE_UTIL_STREAM_H
+#define SLB_CORE_UTIL_STREAM_H
 
 namespace slb {
 namespace core {

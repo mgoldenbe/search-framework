@@ -1,5 +1,5 @@
-#ifndef SLB_CONFIG_NEIGHBORS_H
-#define SLB_CONFIG_NEIGHBORS_H
+#ifndef SLB_PROJECTS_DEMO_NEIGHBORS_H
+#define SLB_PROJECTS_DEMO_NEIGHBORS_H
 
 #define SLB_GENERATOR ext::policy::generator::States
 #define SLB_HEURISTIC ext::policy::heuristic::SingleGoal

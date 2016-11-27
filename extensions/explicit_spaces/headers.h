@@ -1,5 +1,5 @@
-#ifndef EXPLICIT_SPACES_HEADERS_H
-#define EXPLICIT_SPACES_HEADERS_H
+#ifndef SLB_EXTENSIONS_EXPLICIT_SPACES_HEADERS_H
+#define SLB_EXTENSIONS_EXPLICIT_SPACES_HEADERS_H
 
 /// \file
 /// \brief Implementation of the explicit spaces.

@@ -1,5 +1,5 @@
-#ifndef SLB_DOMAIN_INC_WORST_H
-#define SLB_DOMAIN_INC_WORST_H
+#ifndef SLB_EXTENSIONS_DOMAINS_INC_WORST_H
+#define SLB_EXTENSIONS_DOMAINS_INC_WORST_H
 
 /// \file
 /// \brief The worst case example for an inconsistent heuristics (as appears on

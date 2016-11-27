@@ -1,5 +1,5 @@
-#ifndef SLB_DOMAINS_HEADERS_FWD_H
-#define SLB_DOMAINS_HEADERS_FWD_H
+#ifndef SLB_EXTENSIONS_DOMAINS_HEADERS_FWD_H
+#define SLB_EXTENSIONS_DOMAINS_HEADERS_FWD_H
 
 /// \file
 /// \brief Forward declaration headers.

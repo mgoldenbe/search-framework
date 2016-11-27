@@ -1,5 +1,5 @@
-#ifndef CONFIG_MAX_H
-#define CONFIG_MAX_H
+#ifndef SLB_PROJECTS_KGOAL_CONFIG_MAX_H
+#define SLB_PROJECTS_KGOAL_CONFIG_MAX_H
 
 #include "min.h"
 
