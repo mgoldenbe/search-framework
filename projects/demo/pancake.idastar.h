@@ -2,7 +2,7 @@
 #define SLB_PROJECTS_DEMO_PANCAKE_IDASTAR_H
 
 #include "common.h"
-#include "actions.h"
+#include "action_neighbors.h"
 #include "idastar.h"
 #include "pancake.h"
 

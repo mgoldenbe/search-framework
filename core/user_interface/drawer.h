@@ -355,7 +355,7 @@ private:
     /// The new x-dimension of the drawing.
     /// The new y-dimension of the drawing.
     void scaleLayout_(int x, int y) {
-        double minEdgeDistance = distancePercentile(0.1);
+        double minEdgeDistance = distancePercentile(0.001);
         double vertexSize = minEdgeDistance / 3;
         std::vector<double> xs, ys;
         for (auto el : pointMap_) {
