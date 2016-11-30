@@ -3,7 +3,7 @@
 #define SLB_EXTENSIONS_EXPLICIT_SPACES_GRID_H
 
 /// \file
-/// \brief The \ref slb::core::sb::GridMap class.
+/// \brief The \ref slb::ext::explicit_space::Grid class.
 /// \author Meir Goldenberg
 
 #ifndef SLB_COST_DIAGONAL
@@ -156,6 +156,7 @@ struct Grid {
     }
 
     /// Fills out the coordinates for the vertex representing the state.
+    /// \param loc The state.
     /// \param x The x-coordinate to be filled out.
     /// \param y The y-coordinate to be filled out.
     void visualLocation(Location loc, double &x, double &y) const {
