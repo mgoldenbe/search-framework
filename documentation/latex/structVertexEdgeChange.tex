@@ -1,0 +1,99 @@
+\hypertarget{structVertexEdgeChange}{}\subsection{Vertex\+Edge\+Change$<$ Node $>$ Struct Template Reference}
+\label{structVertexEdgeChange}\index{Vertex\+Edge\+Change$<$ Node $>$@{Vertex\+Edge\+Change$<$ Node $>$}}
+
+
+An event that applies visual changes to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+types.\+h$>$}
+
+
+
+Inheritance diagram for Vertex\+Edge\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structVertexEdgeChange__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Vertex\+Edge\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structVertexEdgeChange__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structVertexEdgeChange_ab66be57732c14cf2580365a4f7f2bd28}{Direct\+Base} = \hyperlink{structUniformChange}{Uniform\+Change}$<$ Node $>$\hypertarget{structVertexEdgeChange_ab66be57732c14cf2580365a4f7f2bd28}{}\label{structVertexEdgeChange_ab66be57732c14cf2580365a4f7f2bd28}
+
+\begin{DoxyCompactList}\small\item\em The direct base class. \end{DoxyCompactList}\item 
+using \hyperlink{structVertexEdgeChange_a67eef315b21cfa81fdb92280ed529ea2}{State\+Set} = typename \hyperlink{structUniformChange_afc89af5d5e897d7664eb9ae7770d145c}{Direct\+Base\+::\+State\+Set}\hypertarget{structVertexEdgeChange_a67eef315b21cfa81fdb92280ed529ea2}{}\label{structVertexEdgeChange_a67eef315b21cfa81fdb92280ed529ea2}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating states. \end{DoxyCompactList}\item 
+using \hyperlink{structVertexEdgeChange_a8dd16f5fa3044ccb636ea6432ec5cd83}{Edge\+Set} = typename \hyperlink{structUniformChange_a2afec8b1a5887f2c6fad054d6b739fc5}{Direct\+Base\+::\+Edge\+Set}\hypertarget{structVertexEdgeChange_a8dd16f5fa3044ccb636ea6432ec5cd83}{}\label{structVertexEdgeChange_a8dd16f5fa3044ccb636ea6432ec5cd83}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating edges of the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structVertexEdgeChange_ad8dcad41b2d4e273c7fadaa4ff857ed3}{participants} (\hyperlink{structUniformChange_afc89af5d5e897d7664eb9ae7770d145c}{State\+Set} \&states, \hyperlink{structUniformChange_a2afec8b1a5887f2c6fad054d6b739fc5}{Edge\+Set} \&edges) const 
+\begin{DoxyCompactList}\small\item\em Fills out the sets of participating states and edges of the state graph. In this case, these sets consist of the state associated with the event and the edge by which the search algorithm arrived to this state, respectively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct Vertex\+Edge\+Change$<$ Node $>$}
+
+An event that applies visual changes to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 114 of file event\+\_\+types.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Vertex\+Edge\+Change@{Vertex\+Edge\+Change}!participants@{participants}}
+\index{participants@{participants}!Vertex\+Edge\+Change@{Vertex\+Edge\+Change}}
+\paragraph[{\texorpdfstring{participants(\+State\+Set \&states, Edge\+Set \&edges) const }{participants(StateSet &states, EdgeSet &edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual void {\bf Vertex\+Edge\+Change}$<$ Node $>$\+::participants (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+Set} \&}]{states, }
+\item[{{\bf Edge\+Set} \&}]{edges}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structVertexEdgeChange_ad8dcad41b2d4e273c7fadaa4ff857ed3}{}\label{structVertexEdgeChange_ad8dcad41b2d4e273c7fadaa4ff857ed3}
+
+
+Fills out the sets of participating states and edges of the state graph. In this case, these sets consist of the state associated with the event and the edge by which the search algorithm arrived to this state, respectively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em states} & The set of participating states to be filled out. In this case, it is a single state -- the state associated with the event. \\
+\hline
+{\em edges} & The set of participating edges to be filled out. In this case, it is a single edge -- the edge by which the search algorithm arrived to the state associated with the event. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{structUniformChange_aabe64e47649e99afee7a67969eb98c90}{Uniform\+Change$<$ Node $>$}.
+
+
+
+Definition at line 146 of file event\+\_\+types.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{event__types_8h}{event\+\_\+types.\+h}\end{DoxyCompactItemize}

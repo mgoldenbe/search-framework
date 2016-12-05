@@ -1,0 +1,467 @@
+\hypertarget{structDrawer}{}\subsection{Drawer$<$ Node $>$ Struct Template Reference}
+\label{structDrawer}\index{Drawer$<$ Node $>$@{Drawer$<$ Node $>$}}
+
+
+Draws the (partial) domain graph with given styles for visual representation of vertices and edges.  
+
+
+
+
+{\ttfamily \#include $<$drawer.\+h$>$}
+
+
+
+Collaboration diagram for Drawer$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structDrawer__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structDrawer_a885374e914d2706604a45c4615da1a94}{State} = typename Node\+::\+State\hypertarget{structDrawer_a885374e914d2706604a45c4615da1a94}{}\label{structDrawer_a885374e914d2706604a45c4615da1a94}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structDrawer_a2a65d4731ffb3bcf0102e830a831e575}{Graph} = \hyperlink{structStateGraph}{State\+Graph}$<$ \hyperlink{structDrawer_a885374e914d2706604a45c4615da1a94}{State} $>$\hypertarget{structDrawer_a2a65d4731ffb3bcf0102e830a831e575}{}\label{structDrawer_a2a65d4731ffb3bcf0102e830a831e575}
+
+\begin{DoxyCompactList}\small\item\em The domain graph type. \end{DoxyCompactList}\item 
+using \hyperlink{structDrawer_a92e48b34c17108cc5a5a66ab84ad648b}{My\+Visual\+Log} = \hyperlink{structVisualLog}{Visual\+Log}$<$ Node $>$\hypertarget{structDrawer_a92e48b34c17108cc5a5a66ab84ad648b}{}\label{structDrawer_a92e48b34c17108cc5a5a66ab84ad648b}
+
+\begin{DoxyCompactList}\small\item\em The log of visual events. \end{DoxyCompactList}\item 
+using \hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} = typename \hyperlink{structStateGraph_a95d7ea26b0d0d07d3488068a8e9be53c}{Graph\+::\+Vertex\+Descriptor}\hypertarget{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{}\label{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}
+
+\begin{DoxyCompactList}\small\item\em Vertex identifier. \end{DoxyCompactList}\item 
+using \hyperlink{structDrawer_a891606fa8dc76c97b3be46d2e64a8280}{Point} = typename \hyperlink{structStateGraph_acd6bb467c5261e07f777dd1c4ea575c5}{Graph\+::\+Point}\hypertarget{structDrawer_a891606fa8dc76c97b3be46d2e64a8280}{}\label{structDrawer_a891606fa8dc76c97b3be46d2e64a8280}
+
+\begin{DoxyCompactList}\small\item\em Type for vertex coordinates (used for computing the layout) \end{DoxyCompactList}\item 
+using \hyperlink{structDrawer_aab5295b2d9eedf3bab3cb4829cdcfb11}{Point\+Map} = typename \hyperlink{structStateGraph_a21b31bbe893554826be5aee67ef0cab9}{Graph\+::\+Point\+Map}\hypertarget{structDrawer_aab5295b2d9eedf3bab3cb4829cdcfb11}{}\label{structDrawer_aab5295b2d9eedf3bab3cb4829cdcfb11}
+
+\begin{DoxyCompactList}\small\item\em Map for storing the layout, i.\+e. the coordinates of each vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDrawer_a72a2f72e0132189a808ce21333695c3b}{Drawer} (\hyperlink{structDrawer_a2a65d4731ffb3bcf0102e830a831e575}{Graph} \&g, const \hyperlink{structDrawer_a92e48b34c17108cc5a5a66ab84ad648b}{My\+Visual\+Log} \&\hyperlink{algorithm__log_8h_a56be41e5d18609f6adf769e9c49804da}{log})\hypertarget{structDrawer_a72a2f72e0132189a808ce21333695c3b}{}\label{structDrawer_a72a2f72e0132189a808ce21333695c3b}
+
+\begin{DoxyCompactList}\small\item\em Initializes the drawer with the given (partial) domain graph and log of visual events. \end{DoxyCompactList}\item 
+const \hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} \hyperlink{structDrawer_a6f150f3851e48763b22e38da305fa046}{coords\+To\+VD} (double x, double y) const 
+\begin{DoxyCompactList}\small\item\em Computes vertex in the (partial) domain graph based on point coordinates. This function is used to implement clickable vertices. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_ac8835ed2848df7b5e625863ab7b702a3}{make\+Layout} (bool draw\+Flag=false)
+\begin{DoxyCompactList}\small\item\em Computes the layout of the (partial) domain graph and scales it to the current scale. \end{DoxyCompactList}\item 
+\hyperlink{structGraphics}{Graphics} \& \hyperlink{structDrawer_a386495daac9db1d050b090cd6fcbabbc}{graphics} ()
+\begin{DoxyCompactList}\small\item\em Returns the graphics object. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_ab166935e37b498932d8f166322851b65}{draw} ()\hypertarget{structDrawer_ab166935e37b498932d8f166322851b65}{}\label{structDrawer_ab166935e37b498932d8f166322851b65}
+
+\begin{DoxyCompactList}\small\item\em Draws all vertices and edges with styles corresponding to the current state in the log of visual events. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_a5046a31e175475ac536ce5e43f0157ae}{draw\+Vertex} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} vd, const \hyperlink{structVertexStyle}{Vertex\+Style} \&style)
+\begin{DoxyCompactList}\small\item\em Draws the given vertex with the given representation style. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_a0efc5d5a322925c227e0f40819b68a7e}{draw\+Vertex} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} vd)
+\begin{DoxyCompactList}\small\item\em Draws the given vertex with the representation style corresponding to the current state of the log of visual events. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_ae5037b3b5d28d05ffcdcfafc7f56ae5e}{draw\+Edge} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} from, \hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} to, const \hyperlink{structEdgeStyle}{Edge\+Style} \&style)
+\begin{DoxyCompactList}\small\item\em Draws the given edge with the given representation style. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_af59cf78a0b46e0ef021e72bb09964d3a}{draw\+Edge} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} from, \hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} to)
+\begin{DoxyCompactList}\small\item\em Draws the given edge with the representation style corresponding to the current state of the log of visual events. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_ab5afbdc9fa1e7d42b3cfb8af35580c34}{show\+Labels} (bool flag)
+\begin{DoxyCompactList}\small\item\em Sets the mode for either showing or hiding the labels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class State  = State$>$ }\\\hyperlink{group__LayoutTraits_ga27d19bcdfcf6ace6fba8ccd91863b86d}{Has\+No\+Layout}$<$ \hyperlink{structDrawer_a885374e914d2706604a45c4615da1a94}{State} $>$ \hyperlink{structDrawer_a7aa445e37b1d97f5dad696e1090492bb}{compute\+Point\+Map\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Computes the automatic layout in the absence of the {\ttfamily visual\+Location} member function of {\ttfamily State}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State  = State$>$ }\\\hyperlink{group__LayoutTraits_gafe4e4c85f662ba4dcaf4228dc7967941}{Has\+Layout}$<$ \hyperlink{structDrawer_a885374e914d2706604a45c4615da1a94}{State} $>$ \hyperlink{structDrawer_af0c4aa7e19a2ba6b6271672c1a276b41}{compute\+Point\+Map\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Computes the automatic layout using the {\ttfamily visual\+Location} member function of {\ttfamily State}. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_a32faad1fed06d78dbda29019ff40f2f8}{fill\+Vertex} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} vd, const \hyperlink{structVertexStyle}{Vertex\+Style} \&style)
+\begin{DoxyCompactList}\small\item\em Fills inside the vertex according to the given style. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_a76fca15330a0cc76a90bac0544ef177a}{emphasize\+Vertex} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} vd, const \hyperlink{structVertexStyle}{Vertex\+Style} \&style)
+\begin{DoxyCompactList}\small\item\em Draws the emphasis mark of the vertex (if there is one) according to the given style. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_a5236ae6a77fa0e8b51b6b495c9eecc3e}{label\+Vertex} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} vd, const \hyperlink{structVertexStyle}{Vertex\+Style} \&style)
+\begin{DoxyCompactList}\small\item\em Labels the vertex. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_a4cac975f28f1a9afa284d50cd56070df}{label\+Edge} (\hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} from, \hyperlink{structDrawer_a5bccdf5b5e846fb1a958dca6b5f0a1f6}{Vertex\+Descriptor} to, const \hyperlink{structEdgeStyle}{Edge\+Style} \&style)
+\begin{DoxyCompactList}\small\item\em Labels the edge. \end{DoxyCompactList}\item 
+double \hyperlink{structDrawer_a4f5fb8bc23a21740019e05875fb1ec74}{distance\+Percentile} (double p)
+\begin{DoxyCompactList}\small\item\em Computes a p-\/percentile of edge pixel-\/lengths. p must be between 0 and 1. If p == 0, then the pixel-\/length of the shortest edge is returned. If p == 1, the pixel-\/length of the longest edge is returned. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_a6b1a70d8bc2fcf5060fb8ce48440351d}{scale\+Layout\+\_\+} (int x, int y)\hypertarget{structDrawer_a6b1a70d8bc2fcf5060fb8ce48440351d}{}\label{structDrawer_a6b1a70d8bc2fcf5060fb8ce48440351d}
+
+\begin{DoxyCompactList}\small\item\em Scales the layout (i.\+e. modified \hyperlink{structDrawer_ab1a5cc1a964c099bd30b5239d9188c99}{point\+Map\+\_\+}) to the given dimensions. The new x-\/dimension of the drawing. The new y-\/dimension of the drawing. \end{DoxyCompactList}\item 
+void \hyperlink{structDrawer_af67a222ef8bec63a37bcbd8ccb88560d}{dump\+Layout} ()\hypertarget{structDrawer_af67a222ef8bec63a37bcbd8ccb88560d}{}\label{structDrawer_af67a222ef8bec63a37bcbd8ccb88560d}
+
+\begin{DoxyCompactList}\small\item\em Dumps the layout to stderr for debugging purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDrawer_a2a65d4731ffb3bcf0102e830a831e575}{Graph} \& \hyperlink{structDrawer_a6f4114ac4de373e180c725eb7dfc7635}{g\+\_\+}\hypertarget{structDrawer_a6f4114ac4de373e180c725eb7dfc7635}{}\label{structDrawer_a6f4114ac4de373e180c725eb7dfc7635}
+
+\begin{DoxyCompactList}\small\item\em The (partial) domain graph. \end{DoxyCompactList}\item 
+const \hyperlink{structDrawer_a92e48b34c17108cc5a5a66ab84ad648b}{My\+Visual\+Log} \& \hyperlink{structDrawer_a4ccab3d9098d1967c077c872040e6bb7}{log\+\_\+}\hypertarget{structDrawer_a4ccab3d9098d1967c077c872040e6bb7}{}\label{structDrawer_a4ccab3d9098d1967c077c872040e6bb7}
+
+\begin{DoxyCompactList}\small\item\em The log of visual events. \end{DoxyCompactList}\item 
+\hyperlink{structDrawer_aab5295b2d9eedf3bab3cb4829cdcfb11}{Point\+Map} \hyperlink{structDrawer_ab1a5cc1a964c099bd30b5239d9188c99}{point\+Map\+\_\+}\hypertarget{structDrawer_ab1a5cc1a964c099bd30b5239d9188c99}{}\label{structDrawer_ab1a5cc1a964c099bd30b5239d9188c99}
+
+\begin{DoxyCompactList}\small\item\em The layout. \end{DoxyCompactList}\item 
+\hyperlink{structGraphics}{Graphics} \hyperlink{structDrawer_a88e3a5314d61b335029f6e8dea85e38d}{graphics\+\_\+}\hypertarget{structDrawer_a88e3a5314d61b335029f6e8dea85e38d}{}\label{structDrawer_a88e3a5314d61b335029f6e8dea85e38d}
+
+\begin{DoxyCompactList}\small\item\em The graphics object holding all the information needed for drawing. \end{DoxyCompactList}\item 
+bool \hyperlink{structDrawer_a9042fd2e9d4874e0ff4900ee8d97a6bf}{show\+Labels\+\_\+} = false\hypertarget{structDrawer_a9042fd2e9d4874e0ff4900ee8d97a6bf}{}\label{structDrawer_a9042fd2e9d4874e0ff4900ee8d97a6bf}
+
+\begin{DoxyCompactList}\small\item\em Indicates wither the vertex and edge labels should be shown. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node$>$\\*
+struct Drawer$<$ Node $>$}
+
+Draws the (partial) domain graph with given styles for visual representation of vertices and edges. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type, which is used here to refer to the visual log. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 47 of file drawer.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Drawer@{Drawer}!compute\+Point\+Map\+\_\+@{compute\+Point\+Map\+\_\+}}
+\index{compute\+Point\+Map\+\_\+@{compute\+Point\+Map\+\_\+}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{compute\+Point\+Map\+\_\+()}{computePointMap_()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ template$<$class State  = State$>$ {\bf Has\+No\+Layout}$<${\bf State}$>$ {\bf Drawer}$<$ Node $>$\+::compute\+Point\+Map\+\_\+ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structDrawer_a7aa445e37b1d97f5dad696e1090492bb}{}\label{structDrawer_a7aa445e37b1d97f5dad696e1090492bb}
+
+
+Computes the automatic layout in the absence of the {\ttfamily visual\+Location} member function of {\ttfamily State}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The search state type. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+The return type is used for S\+F\+I\+N\+AE. It evaluates to {\ttfamily void}. 
+\end{DoxyNote}
+
+
+Definition at line 222 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!compute\+Point\+Map\+\_\+@{compute\+Point\+Map\+\_\+}}
+\index{compute\+Point\+Map\+\_\+@{compute\+Point\+Map\+\_\+}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{compute\+Point\+Map\+\_\+()}{computePointMap_()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ template$<$class State  = State$>$ {\bf Has\+Layout}$<${\bf State}$>$ {\bf Drawer}$<$ Node $>$\+::compute\+Point\+Map\+\_\+ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structDrawer_af0c4aa7e19a2ba6b6271672c1a276b41}{}\label{structDrawer_af0c4aa7e19a2ba6b6271672c1a276b41}
+
+
+Computes the automatic layout using the {\ttfamily visual\+Location} member function of {\ttfamily State}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The search state type. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+The return type is used for S\+F\+I\+N\+AE. It evaluates to {\ttfamily void}. 
+\end{DoxyNote}
+
+
+Definition at line 230 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!coords\+To\+VD@{coords\+To\+VD}}
+\index{coords\+To\+VD@{coords\+To\+VD}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{coords\+To\+V\+D(double x, double y) const }{coordsToVD(double x, double y) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ const {\bf Vertex\+Descriptor} {\bf Drawer}$<$ Node $>$\+::coords\+To\+VD (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_a6f150f3851e48763b22e38da305fa046}{}\label{structDrawer_a6f150f3851e48763b22e38da305fa046}
+
+
+Computes vertex in the (partial) domain graph based on point coordinates. This function is used to implement clickable vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate. \\
+\hline
+{\em y} & The y-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Identifier of the vertex corresponding to the given coordinates. If there is no corresponding vertex, {\ttfamily nullptr} is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!distance\+Percentile@{distance\+Percentile}}
+\index{distance\+Percentile@{distance\+Percentile}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{distance\+Percentile(double p)}{distancePercentile(double p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ double {\bf Drawer}$<$ Node $>$\+::distance\+Percentile (
+\begin{DoxyParamCaption}
+\item[{double}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structDrawer_a4f5fb8bc23a21740019e05875fb1ec74}{}\label{structDrawer_a4f5fb8bc23a21740019e05875fb1ec74}
+
+
+Computes a p-\/percentile of edge pixel-\/lengths. p must be between 0 and 1. If p == 0, then the pixel-\/length of the shortest edge is returned. If p == 1, the pixel-\/length of the longest edge is returned. 
+
+\begin{DoxyReturn}{Returns}
+The p-\/percentile of edge pixel-\/lengths. 
+\end{DoxyReturn}
+
+
+Definition at line 337 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!draw\+Edge@{draw\+Edge}}
+\index{draw\+Edge@{draw\+Edge}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{draw\+Edge(\+Vertex\+Descriptor from, Vertex\+Descriptor to, const Edge\+Style \&style)}{drawEdge(VertexDescriptor from, VertexDescriptor to, const EdgeStyle &style)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::draw\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{from, }
+\item[{{\bf Vertex\+Descriptor}}]{to, }
+\item[{const {\bf Edge\+Style} \&}]{style}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_ae5037b3b5d28d05ffcdcfafc7f56ae5e}{}\label{structDrawer_ae5037b3b5d28d05ffcdcfafc7f56ae5e}
+
+
+Draws the given edge with the given representation style. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The edge-\/source vertex identifier. \\
+\hline
+{\em to} & The edge-\/target vertex identifier. \\
+\hline
+{\em style} & The visual representation style. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 158 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!draw\+Edge@{draw\+Edge}}
+\index{draw\+Edge@{draw\+Edge}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{draw\+Edge(\+Vertex\+Descriptor from, Vertex\+Descriptor to)}{drawEdge(VertexDescriptor from, VertexDescriptor to)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::draw\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{from, }
+\item[{{\bf Vertex\+Descriptor}}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_af59cf78a0b46e0ef021e72bb09964d3a}{}\label{structDrawer_af59cf78a0b46e0ef021e72bb09964d3a}
+
+
+Draws the given edge with the representation style corresponding to the current state of the log of visual events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The edge-\/source vertex identifier. \\
+\hline
+{\em to} & The edge-\/target vertex identifier. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 189 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!draw\+Vertex@{draw\+Vertex}}
+\index{draw\+Vertex@{draw\+Vertex}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{draw\+Vertex(\+Vertex\+Descriptor vd, const Vertex\+Style \&style)}{drawVertex(VertexDescriptor vd, const VertexStyle &style)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::draw\+Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd, }
+\item[{const {\bf Vertex\+Style} \&}]{style}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_a5046a31e175475ac536ce5e43f0157ae}{}\label{structDrawer_a5046a31e175475ac536ce5e43f0157ae}
+
+
+Draws the given vertex with the given representation style. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & The vertex identifier. \\
+\hline
+{\em style} & The visual representation style. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!draw\+Vertex@{draw\+Vertex}}
+\index{draw\+Vertex@{draw\+Vertex}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{draw\+Vertex(\+Vertex\+Descriptor vd)}{drawVertex(VertexDescriptor vd)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::draw\+Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_a0efc5d5a322925c227e0f40819b68a7e}{}\label{structDrawer_a0efc5d5a322925c227e0f40819b68a7e}
+
+
+Draws the given vertex with the representation style corresponding to the current state of the log of visual events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & The vertex identifier. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 152 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!emphasize\+Vertex@{emphasize\+Vertex}}
+\index{emphasize\+Vertex@{emphasize\+Vertex}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{emphasize\+Vertex(\+Vertex\+Descriptor vd, const Vertex\+Style \&style)}{emphasizeVertex(VertexDescriptor vd, const VertexStyle &style)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::emphasize\+Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd, }
+\item[{const {\bf Vertex\+Style} \&}]{style}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structDrawer_a76fca15330a0cc76a90bac0544ef177a}{}\label{structDrawer_a76fca15330a0cc76a90bac0544ef177a}
+
+
+Draws the emphasis mark of the vertex (if there is one) according to the given style. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & The vertex identifier. \\
+\hline
+{\em style} & The visual presentation style for the vertex. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 268 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!fill\+Vertex@{fill\+Vertex}}
+\index{fill\+Vertex@{fill\+Vertex}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{fill\+Vertex(\+Vertex\+Descriptor vd, const Vertex\+Style \&style)}{fillVertex(VertexDescriptor vd, const VertexStyle &style)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::fill\+Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd, }
+\item[{const {\bf Vertex\+Style} \&}]{style}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structDrawer_a32faad1fed06d78dbda29019ff40f2f8}{}\label{structDrawer_a32faad1fed06d78dbda29019ff40f2f8}
+
+
+Fills inside the vertex according to the given style. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & The vertex identifier. \\
+\hline
+{\em style} & The visual presentation style for the vertex. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 245 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!graphics@{graphics}}
+\index{graphics@{graphics}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{graphics()}{graphics()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ {\bf Graphics}\& {\bf Drawer}$<$ Node $>$\+::graphics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_a386495daac9db1d050b090cd6fcbabbc}{}\label{structDrawer_a386495daac9db1d050b090cd6fcbabbc}
+
+
+Returns the graphics object. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the graphics object. 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!label\+Edge@{label\+Edge}}
+\index{label\+Edge@{label\+Edge}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{label\+Edge(\+Vertex\+Descriptor from, Vertex\+Descriptor to, const Edge\+Style \&style)}{labelEdge(VertexDescriptor from, VertexDescriptor to, const EdgeStyle &style)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::label\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{from, }
+\item[{{\bf Vertex\+Descriptor}}]{to, }
+\item[{const {\bf Edge\+Style} \&}]{style}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structDrawer_a4cac975f28f1a9afa284d50cd56070df}{}\label{structDrawer_a4cac975f28f1a9afa284d50cd56070df}
+
+
+Labels the edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The edge-\/source vertex identifier. \\
+\hline
+{\em to} & The edge-\/target vertex identifier. \\
+\hline
+{\em style} & The visual representation style. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 312 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!label\+Vertex@{label\+Vertex}}
+\index{label\+Vertex@{label\+Vertex}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{label\+Vertex(\+Vertex\+Descriptor vd, const Vertex\+Style \&style)}{labelVertex(VertexDescriptor vd, const VertexStyle &style)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::label\+Vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd, }
+\item[{const {\bf Vertex\+Style} \&}]{style}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structDrawer_a5236ae6a77fa0e8b51b6b495c9eecc3e}{}\label{structDrawer_a5236ae6a77fa0e8b51b6b495c9eecc3e}
+
+
+Labels the vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & The vertex identifier. \\
+\hline
+{\em style} & The visual presentation style for the vertex. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 290 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!make\+Layout@{make\+Layout}}
+\index{make\+Layout@{make\+Layout}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{make\+Layout(bool draw\+Flag=false)}{makeLayout(bool drawFlag=false)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::make\+Layout (
+\begin{DoxyParamCaption}
+\item[{bool}]{draw\+Flag = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_ac8835ed2848df7b5e625863ab7b702a3}{}\label{structDrawer_ac8835ed2848df7b5e625863ab7b702a3}
+
+
+Computes the layout of the (partial) domain graph and scales it to the current scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em draw\+Flag} & If {\ttfamily true}, then \hyperlink{structDrawer_ab166935e37b498932d8f166322851b65}{draw} is called. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file drawer.\+h.
+
+\index{Drawer@{Drawer}!show\+Labels@{show\+Labels}}
+\index{show\+Labels@{show\+Labels}!Drawer@{Drawer}}
+\paragraph[{\texorpdfstring{show\+Labels(bool flag)}{showLabels(bool flag)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node $>$ void {\bf Drawer}$<$ Node $>$\+::show\+Labels (
+\begin{DoxyParamCaption}
+\item[{bool}]{flag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structDrawer_ab5afbdc9fa1e7d42b3cfb8af35580c34}{}\label{structDrawer_ab5afbdc9fa1e7d42b3cfb8af35580c34}
+
+
+Sets the mode for either showing or hiding the labels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & If {\ttfamily true}, the labels will be shown. They will be hidden otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 200 of file drawer.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{drawer_8h}{drawer.\+h}\end{DoxyCompactItemize}

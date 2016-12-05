@@ -1,0 +1,58 @@
+\hypertarget{open__list_8h}{}\subsection{extensions/shared\+\_\+policies/open\+\_\+list.h File Reference}
+\label{open__list_8h}\index{extensions/shared\+\_\+policies/open\+\_\+list.\+h@{extensions/shared\+\_\+policies/open\+\_\+list.\+h}}
+
+
+Open list implementations.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{open__list_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType}{slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type$<$ Node $>$}
+\begin{DoxyCompactList}\small\item\em Nodes are ordered in the open list based on g and f. The particular ordering rules are defined by the other policies. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1GreaterPriority__SmallF__LargeG}{slb\+::ext\+::policy\+::open\+List\+::\+Greater\+Priority\+\_\+\+Small\+F\+\_\+\+Large\+G$<$ Key\+Type $>$}
+\begin{DoxyCompactList}\small\item\em Functor that compares keys based on f-\/value and breaks ties in favor of larger g-\/value. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1GreaterPriority__SmallG}{slb\+::ext\+::policy\+::open\+List\+::\+Greater\+Priority\+\_\+\+Small\+G$<$ Key\+Type $>$}
+\begin{DoxyCompactList}\small\item\em Functor that compares keys based on g-\/value and prioritizes in favor of a smaller g-\/value. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T}{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+\+T$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$}
+\begin{DoxyCompactList}\small\item\em A flexible open list base on {\ttfamily std\+::map} whose values are buckets of nodes with same priority. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext}{slb\+::ext}
+\begin{DoxyCompactList}\small\item\em The user extensions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1policy}{slb\+::ext\+::policy}
+\begin{DoxyCompactList}\small\item\em Policy classes for search algorithms and algorithmic variants. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1policy_1_1openList}{slb\+::ext\+::policy\+::open\+List}
+\begin{DoxyCompactList}\small\item\em Open list implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Key , typename T , class Compare  = std\+::less$<$\+Key$>$$>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1policy_1_1openList_ae328455bada2886ad728a9f54bfa1f6a}{slb\+::ext\+::policy\+::open\+List\+::\+O\+L\+Map} = std\+::map$<$ Key, T, Compare, std\+::allocator$<$ std\+::pair$<$ const Key, T $>$$>$$>$
+\begin{DoxyCompactList}\small\item\em The underlying map type. Compared to std\+::map, this type fixes the allocator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1policy_1_1openList_af51e9574befd1fada8e2695f7acb83b8}{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map} = Bucketed\+Std\+Map\+\_\+T$<$ My\+Algorithm $>$
+\begin{DoxyCompactList}\small\item\em A flexible open list base on {\ttfamily std\+::map} whose values are buckets of nodes with same priority. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Node $>$ }\\bool \hyperlink{namespaceslb_1_1ext_1_1policy_1_1openList_a2c6edf71e8c589936199f80fdcbf0d87}{slb\+::ext\+::policy\+::open\+List\+::operator==} (const Default\+O\+L\+Key\+Type$<$ Node $>$ \&lhs, const Default\+O\+L\+Key\+Type$<$ Node $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison of two keys. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream , class Node $>$ }\\Stream \& \hyperlink{namespaceslb_1_1ext_1_1policy_1_1openList_a6b1e0c2d8b4051676686357801771250}{slb\+::ext\+::policy\+::open\+List\+::operator$<$$<$} (Stream \&o, const Default\+O\+L\+Key\+Type$<$ Node $>$ \&key)
+\begin{DoxyCompactList}\small\item\em Output the given key to a given stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Open list implementations. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

@@ -1,0 +1,240 @@
+\hypertarget{classTCLAP_1_1SwitchArg}{}\subsection{T\+C\+L\+AP\+:\+:Switch\+Arg Class Reference}
+\label{classTCLAP_1_1SwitchArg}\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+
+
+{\ttfamily \#include $<$Switch\+Arg.\+h$>$}
+
+
+
+Inheritance diagram for T\+C\+L\+AP\+:\+:Switch\+Arg\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{classTCLAP_1_1SwitchArg__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for T\+C\+L\+AP\+:\+:Switch\+Arg\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classTCLAP_1_1SwitchArg__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTCLAP_1_1SwitchArg_a3895b036fa2d36e4fcfa41dfcdb298c1}{Switch\+Arg} (const std\+::string \&flag, const std\+::string \&name, const std\+::string \&desc, bool def=false, \hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$v=N\+U\+LL)
+\item 
+\hyperlink{classTCLAP_1_1SwitchArg_af7e9628155772af0686f6a2114dfe78b}{Switch\+Arg} (const std\+::string \&flag, const std\+::string \&name, const std\+::string \&desc, \hyperlink{classTCLAP_1_1CmdLineInterface}{Cmd\+Line\+Interface} \&parser, bool def=false, \hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$v=N\+U\+LL)
+\item 
+virtual bool \hyperlink{classTCLAP_1_1SwitchArg_a624f98df6c4907efec95ffc353e9d08c}{process\+Arg} (int $\ast$i, std\+::vector$<$ std\+::string $>$ \&args)
+\item 
+bool \hyperlink{classTCLAP_1_1SwitchArg_af5fbd44d462539941b09e960034d692c}{combined\+Switches\+Match} (std\+::string \&combined)
+\item 
+bool \hyperlink{classTCLAP_1_1SwitchArg_aed1bc8a81a9bda4013cfcf407ccc7716}{get\+Value} ()
+\item 
+virtual void \hyperlink{classTCLAP_1_1SwitchArg_af8561d903ec3c11f5f2175e6db179d9c}{reset} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTCLAP_1_1SwitchArg_a0389ecebecc504d9756703d46e8cf3ca}{\+\_\+value}
+\item 
+bool \hyperlink{classTCLAP_1_1SwitchArg_ae25a99eb06fc2ee75a3b98edba1d5d8d}{\+\_\+default}
+\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTCLAP_1_1SwitchArg_a8b609b058744c2bdc04f14ffabb4197f}{last\+Combined} (std\+::string \&combined)
+\item 
+void \hyperlink{classTCLAP_1_1SwitchArg_aa8febb767176919bd220b235bf4ea158}{common\+Processing} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+A simple switch argument. If the switch is set on the command line, then the get\+Value method will return the opposite of the default value for the switch. 
+
+Definition at line 39 of file Switch\+Arg.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!Switch\+Arg@{Switch\+Arg}}
+\index{Switch\+Arg@{Switch\+Arg}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{Switch\+Arg(const std\+::string \&flag, const std\+::string \&name, const std\+::string \&desc, bool def=false, Visitor $\ast$v=\+N\+U\+L\+L)}{SwitchArg(const std::string &flag, const std::string &name, const std::string &desc, bool def=false, Visitor *v=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+C\+L\+A\+P\+::\+Switch\+Arg\+::\+Switch\+Arg (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{flag, }
+\item[{const std\+::string \&}]{name, }
+\item[{const std\+::string \&}]{desc, }
+\item[{bool}]{def = {\ttfamily false}, }
+\item[{{\bf Visitor} $\ast$}]{v = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1SwitchArg_a3895b036fa2d36e4fcfa41dfcdb298c1}{}\label{classTCLAP_1_1SwitchArg_a3895b036fa2d36e4fcfa41dfcdb298c1}
+\hyperlink{classTCLAP_1_1SwitchArg}{Switch\+Arg} constructor. 
+\begin{DoxyParams}{Parameters}
+{\em flag} & -\/ The one character flag that identifies this argument on the command line. \\
+\hline
+{\em name} & -\/ A one word name for the argument. Can be used as a long flag on the command line. \\
+\hline
+{\em desc} & -\/ A description of what the argument is for or does. \\
+\hline
+{\em def} & -\/ The default value for this Switch. \\
+\hline
+{\em v} & -\/ An optional visitor. You probably should not use this unless you have a very good reason. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 135 of file Switch\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!Switch\+Arg@{Switch\+Arg}}
+\index{Switch\+Arg@{Switch\+Arg}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{Switch\+Arg(const std\+::string \&flag, const std\+::string \&name, const std\+::string \&desc, Cmd\+Line\+Interface \&parser, bool def=false, Visitor $\ast$v=\+N\+U\+L\+L)}{SwitchArg(const std::string &flag, const std::string &name, const std::string &desc, CmdLineInterface &parser, bool def=false, Visitor *v=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+C\+L\+A\+P\+::\+Switch\+Arg\+::\+Switch\+Arg (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{flag, }
+\item[{const std\+::string \&}]{name, }
+\item[{const std\+::string \&}]{desc, }
+\item[{{\bf Cmd\+Line\+Interface} \&}]{parser, }
+\item[{bool}]{def = {\ttfamily false}, }
+\item[{{\bf Visitor} $\ast$}]{v = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1SwitchArg_af7e9628155772af0686f6a2114dfe78b}{}\label{classTCLAP_1_1SwitchArg_af7e9628155772af0686f6a2114dfe78b}
+\hyperlink{classTCLAP_1_1SwitchArg}{Switch\+Arg} constructor. 
+\begin{DoxyParams}{Parameters}
+{\em flag} & -\/ The one character flag that identifies this argument on the command line. \\
+\hline
+{\em name} & -\/ A one word name for the argument. Can be used as a long flag on the command line. \\
+\hline
+{\em desc} & -\/ A description of what the argument is for or does. \\
+\hline
+{\em parser} & -\/ A \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} parser object to add this \hyperlink{classTCLAP_1_1Arg}{Arg} to \\
+\hline
+{\em def} & -\/ The default value for this Switch. \\
+\hline
+{\em v} & -\/ An optional visitor. You probably should not use this unless you have a very good reason. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 145 of file Switch\+Arg.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!combined\+Switches\+Match@{combined\+Switches\+Match}}
+\index{combined\+Switches\+Match@{combined\+Switches\+Match}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{combined\+Switches\+Match(std\+::string \&combined)}{combinedSwitchesMatch(std::string &combined)}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Switch\+Arg\+::combined\+Switches\+Match (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{combined}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1SwitchArg_af5fbd44d462539941b09e960034d692c}{}\label{classTCLAP_1_1SwitchArg_af5fbd44d462539941b09e960034d692c}
+Checks a string to see if any of the chars in the string match the flag for this Switch. 
+
+Definition at line 169 of file Switch\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!common\+Processing@{common\+Processing}}
+\index{common\+Processing@{common\+Processing}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{common\+Processing()}{commonProcessing()}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Switch\+Arg\+::common\+Processing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classTCLAP_1_1SwitchArg_aa8febb767176919bd220b235bf4ea158}{}\label{classTCLAP_1_1SwitchArg_aa8febb767176919bd220b235bf4ea158}
+Does the common processing of process\+Arg. 
+
+Definition at line 204 of file Switch\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{get\+Value()}{getValue()}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Switch\+Arg\+::get\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1SwitchArg_aed1bc8a81a9bda4013cfcf407ccc7716}{}\label{classTCLAP_1_1SwitchArg_aed1bc8a81a9bda4013cfcf407ccc7716}
+Returns bool, whether or not the switch has been set. 
+
+Definition at line 158 of file Switch\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!last\+Combined@{last\+Combined}}
+\index{last\+Combined@{last\+Combined}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{last\+Combined(std\+::string \&combined)}{lastCombined(std::string &combined)}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Switch\+Arg\+::last\+Combined (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{combined}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classTCLAP_1_1SwitchArg_a8b609b058744c2bdc04f14ffabb4197f}{}\label{classTCLAP_1_1SwitchArg_a8b609b058744c2bdc04f14ffabb4197f}
+Checks to see if we\textquotesingle{}ve found the last match in a combined string. 
+
+Definition at line 160 of file Switch\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!process\+Arg@{process\+Arg}}
+\index{process\+Arg@{process\+Arg}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{process\+Arg(int $\ast$i, std\+::vector$<$ std\+::string $>$ \&args)}{processArg(int *i, std::vector< std::string > &args)}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Switch\+Arg\+::process\+Arg (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{i, }
+\item[{std\+::vector$<$ std\+::string $>$ \&}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1SwitchArg_a624f98df6c4907efec95ffc353e9d08c}{}\label{classTCLAP_1_1SwitchArg_a624f98df6c4907efec95ffc353e9d08c}
+Handles the processing of the argument. This re-\/implements the \hyperlink{classTCLAP_1_1Arg}{Arg} version of this method to set the \+\_\+value of the argument appropriately. 
+\begin{DoxyParams}{Parameters}
+{\em i} & -\/ Pointer the the current argument in the list. \\
+\hline
+{\em args} & -\/ Mutable list of strings. Passed in from \hyperlink{test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main()}. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1Arg_a61ffe2f660a76111d256f7b22a686146}{T\+C\+L\+A\+P\+::\+Arg}.
+
+
+
+Reimplemented in \hyperlink{classTCLAP_1_1MultiSwitchArg_a91c3d349570f21d8af6dc90767d747a2}{T\+C\+L\+A\+P\+::\+Multi\+Switch\+Arg}.
+
+
+
+Definition at line 223 of file Switch\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!reset@{reset}}
+\index{reset@{reset}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Switch\+Arg\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1SwitchArg_af8561d903ec3c11f5f2175e6db179d9c}{}\label{classTCLAP_1_1SwitchArg_af8561d903ec3c11f5f2175e6db179d9c}
+Clears the \hyperlink{classTCLAP_1_1Arg}{Arg} object and allows it to be reused by new command lines. 
+
+Reimplemented from \hyperlink{classTCLAP_1_1Arg_ab5b5dc9a9b0381561f0684523f943a2c}{T\+C\+L\+A\+P\+::\+Arg}.
+
+
+
+Reimplemented in \hyperlink{classTCLAP_1_1MultiSwitchArg_ac320530811dbca7fdcb2a41ab252fce4}{T\+C\+L\+A\+P\+::\+Multi\+Switch\+Arg}.
+
+
+
+Definition at line 255 of file Switch\+Arg.\+h.
+
+
+
+\subsubsection{Member Data Documentation}
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!\+\_\+default@{\+\_\+default}}
+\index{\+\_\+default@{\+\_\+default}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{\+\_\+default}{_default}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Switch\+Arg\+::\+\_\+default\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1SwitchArg_ae25a99eb06fc2ee75a3b98edba1d5d8d}{}\label{classTCLAP_1_1SwitchArg_ae25a99eb06fc2ee75a3b98edba1d5d8d}
+Used to support the \hyperlink{classTCLAP_1_1SwitchArg_af8561d903ec3c11f5f2175e6db179d9c}{reset()} method so that \hyperlink{classTCLAP_1_1ValueArg}{Value\+Arg} can be reset to their constructed value. 
+
+Definition at line 52 of file Switch\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}!\+\_\+value@{\+\_\+value}}
+\index{\+\_\+value@{\+\_\+value}!T\+C\+L\+A\+P\+::\+Switch\+Arg@{T\+C\+L\+A\+P\+::\+Switch\+Arg}}
+\paragraph[{\texorpdfstring{\+\_\+value}{_value}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Switch\+Arg\+::\+\_\+value\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1SwitchArg_a0389ecebecc504d9756703d46e8cf3ca}{}\label{classTCLAP_1_1SwitchArg_a0389ecebecc504d9756703d46e8cf3ca}
+The value of the switch. 
+
+Definition at line 46 of file Switch\+Arg.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/outside1/tclap/Switch\+Arg.\+h\end{DoxyCompactItemize}

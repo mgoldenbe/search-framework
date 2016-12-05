@@ -1,0 +1,110 @@
+\hypertarget{structevent_1_1VertexEmphasis}{}\subsection{event\+:\+:Vertex\+Emphasis$<$ Node $>$ Struct Template Reference}
+\label{structevent_1_1VertexEmphasis}\index{event\+::\+Vertex\+Emphasis$<$ Node $>$@{event\+::\+Vertex\+Emphasis$<$ Node $>$}}
+
+
+An event that marks the vertex corresponding to the state associated with the event.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+
+
+Inheritance diagram for event\+:\+:Vertex\+Emphasis$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{structevent_1_1VertexEmphasis__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for event\+:\+:Vertex\+Emphasis$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{structevent_1_1VertexEmphasis__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structevent_1_1VertexEmphasis_aeb2bf5f9be1943f67b74a3a3bfbd34c3}{State\+Shared\+Ptr} = typename \hyperlink{structEventBase}{Event\+Base}$<$ Node $>$\+::\hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr}\hypertarget{structevent_1_1VertexEmphasis_aeb2bf5f9be1943f67b74a3a3bfbd34c3}{}\label{structevent_1_1VertexEmphasis_aeb2bf5f9be1943f67b74a3a3bfbd34c3}
+
+\begin{DoxyCompactList}\small\item\em Shared pointer to constant state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structevent_1_1VertexEmphasis_a7766c6d137289cf309cafd190957a01f}{change} (\hyperlink{structVertexStyle}{Vertex\+Style} \&style, const \hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr} \&) const override\hypertarget{structevent_1_1VertexEmphasis_a7766c6d137289cf309cafd190957a01f}{}\label{structevent_1_1VertexEmphasis_a7766c6d137289cf309cafd190957a01f}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating state. In this case, the change is the mark with color and size returned by \hyperlink{structevent_1_1VertexEmphasis_ae9052ba6963c84824922b4c8df56146c}{color} and \hyperlink{structevent_1_1VertexEmphasis_a2213738af67f360ce354f237052ed4fb}{size} methods, respectively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{colors_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} \hyperlink{structevent_1_1VertexEmphasis_ae9052ba6963c84824922b4c8df56146c}{color} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the color of the mark that will be applied to the vertex. \end{DoxyCompactList}\item 
+virtual double \hyperlink{structevent_1_1VertexEmphasis_a2213738af67f360ce354f237052ed4fb}{size} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the size of the mark that will be applied to the vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct event\+::\+Vertex\+Emphasis$<$ Node $>$}
+
+An event that marks the vertex corresponding to the state associated with the event. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 222 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{event\+::\+Vertex\+Emphasis@{event\+::\+Vertex\+Emphasis}!color@{color}}
+\index{color@{color}!event\+::\+Vertex\+Emphasis@{event\+::\+Vertex\+Emphasis}}
+\paragraph[{\texorpdfstring{color() const =0}{color() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual {\bf Color} {\bf event\+::\+Vertex\+Emphasis}$<$ Node $>$\+::color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}\hypertarget{structevent_1_1VertexEmphasis_ae9052ba6963c84824922b4c8df56146c}{}\label{structevent_1_1VertexEmphasis_ae9052ba6963c84824922b4c8df56146c}
+
+
+Returns the color of the mark that will be applied to the vertex. 
+
+\begin{DoxyReturn}{Returns}
+the color of the mark that will be applied to the vertex. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{structevent_1_1MarkedGoal_a8598bc6d750ad378149cca8f1e635ba8}{event\+::\+Marked\+Goal$<$ Node $>$}, and \hyperlink{structevent_1_1MarkedStart_a4108fb94976d0397186bd214d7729268}{event\+::\+Marked\+Start$<$ Node $>$}.
+
+\index{event\+::\+Vertex\+Emphasis@{event\+::\+Vertex\+Emphasis}!size@{size}}
+\index{size@{size}!event\+::\+Vertex\+Emphasis@{event\+::\+Vertex\+Emphasis}}
+\paragraph[{\texorpdfstring{size() const =0}{size() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual double {\bf event\+::\+Vertex\+Emphasis}$<$ Node $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}\hypertarget{structevent_1_1VertexEmphasis_a2213738af67f360ce354f237052ed4fb}{}\label{structevent_1_1VertexEmphasis_a2213738af67f360ce354f237052ed4fb}
+
+
+Returns the size of the mark that will be applied to the vertex. 
+
+\begin{DoxyReturn}{Returns}
+the size of the mark that will be applied to the vertex. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{structevent_1_1MarkedGoal_a428f40eb708919e50ad1956bc466bdbe}{event\+::\+Marked\+Goal$<$ Node $>$}, and \hyperlink{structevent_1_1MarkedStart_afb81cf71f52527b0faf77132d217a036}{event\+::\+Marked\+Start$<$ Node $>$}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{extensions_2events_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

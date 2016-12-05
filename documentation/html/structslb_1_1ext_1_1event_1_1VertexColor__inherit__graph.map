@@ -1,0 +1,8 @@
+<map id="slb::ext::event::VertexColor&lt; Node &gt;" name="slb::ext::event::VertexColor&lt; Node &gt;">
+<area shape="rect" id="node5" href="$structslb_1_1ext_1_1event_1_1DeniedExpansion.html" title="Event that visualizes a node&#39;s expansion being denied following suspension (see SuspendedExpansion). " alt="" coords="872,5,1087,47"/>
+<area shape="rect" id="node6" href="$structslb_1_1ext_1_1event_1_1ResumedExpansion.html" title="Event that visualizes a node&#39;s expansion being resumed following suspension (see SuspendedExpansion)..." alt="" coords="895,71,1064,112"/>
+<area shape="rect" id="node7" href="$structslb_1_1ext_1_1event_1_1Selected.html" title="Event that visualizes having selected a node. " alt="" coords="897,136,1061,177"/>
+<area shape="rect" id="node8" href="$structslb_1_1ext_1_1event_1_1SuspendedExpansion.html" title="Event that visualizes a node&#39;s expansion being suspended. The expansion may be refused or resumed pen..." alt="" coords="890,201,1069,243"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1event_1_1VertexChange.html" title="An event that applies visual changes to the vertex of the state graph corresponding to the state asso..." alt="" coords="397,104,593,145"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1event_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="191,104,349,145"/>
+</map>

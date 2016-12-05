@@ -1,0 +1,128 @@
+\hypertarget{structActionNeighbor}{}\subsection{Action\+Neighbor$<$ State\+\_\+, uniform\+Flag $>$ Struct Template Reference}
+\label{structActionNeighbor}\index{Action\+Neighbor$<$ State\+\_\+, uniform\+Flag $>$@{Action\+Neighbor$<$ State\+\_\+, uniform\+Flag $>$}}
+
+
+The type for an action neighbor of a given state.  
+
+
+
+
+{\ttfamily \#include $<$neighbor.\+h$>$}
+
+
+
+Inheritance diagram for Action\+Neighbor$<$ State\+\_\+, uniform\+Flag $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{structActionNeighbor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Action\+Neighbor$<$ State\+\_\+, uniform\+Flag $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{structActionNeighbor__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structActionNeighbor_a0101b08dc663ea7c1f0fac1de10b5ed5}{State} = State\+\_\+\hypertarget{structActionNeighbor_a0101b08dc663ea7c1f0fac1de10b5ed5}{}\label{structActionNeighbor_a0101b08dc663ea7c1f0fac1de10b5ed5}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structActionNeighbor_a1ac13b278fe6631f40af5fa4da580495}{My\+Cost} = \hyperlink{structCost}{Cost}$<$ State\+\_\+, uniform\+Flag $>$\hypertarget{structActionNeighbor_a1ac13b278fe6631f40af5fa4da580495}{}\label{structActionNeighbor_a1ac13b278fe6631f40af5fa4da580495}
+
+\begin{DoxyCompactList}\small\item\em Action cost type. \end{DoxyCompactList}\item 
+using \hyperlink{structActionNeighbor_addfe8c4e48dfb6b7470701c68cb33a07}{Action} = typename State\+::\+Action\hypertarget{structActionNeighbor_addfe8c4e48dfb6b7470701c68cb33a07}{}\label{structActionNeighbor_addfe8c4e48dfb6b7470701c68cb33a07}
+
+\begin{DoxyCompactList}\small\item\em Action type. \end{DoxyCompactList}\item 
+using \hyperlink{structActionNeighbor_a0eb38c22f9f38a82eeba97c9801b1fd5}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structActionNeighbor_a0eb38c22f9f38a82eeba97c9801b1fd5}{}\label{structActionNeighbor_a0eb38c22f9f38a82eeba97c9801b1fd5}
+
+\begin{DoxyCompactList}\small\item\em Action cost type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structActionNeighbor_a293ef1ed1c81340a4ff6df4fe4977a77}{Action\+Neighbor} (\hyperlink{structActionNeighbor_addfe8c4e48dfb6b7470701c68cb33a07}{Action} \&\&a, \hyperlink{structCost_a22a996cdc08b472c30d1f410496e041a}{Cost\+Type} c=\hyperlink{structCost_a22a996cdc08b472c30d1f410496e041a}{Cost\+Type}\{1\})
+\begin{DoxyCompactList}\small\item\em Initializes the neighbor based on the neighbor state and cost of the action that leads to that state. \end{DoxyCompactList}\item 
+const \hyperlink{structActionNeighbor_addfe8c4e48dfb6b7470701c68cb33a07}{Action} \& \hyperlink{structActionNeighbor_ab42e04a933ca75a946ac8bfbb9eaa4c4}{action} () const 
+\begin{DoxyCompactList}\small\item\em Returns the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structActionNeighbor_addfe8c4e48dfb6b7470701c68cb33a07}{Action} \hyperlink{structActionNeighbor_a48022f1a81f2aff7c73b601e081d6248}{a\+\_\+}\hypertarget{structActionNeighbor_a48022f1a81f2aff7c73b601e081d6248}{}\label{structActionNeighbor_a48022f1a81f2aff7c73b601e081d6248}
+
+\begin{DoxyCompactList}\small\item\em The action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename State\+\_\+, bool uniform\+Flag = true$>$\\*
+struct Action\+Neighbor$<$ State\+\_\+, uniform\+Flag $>$}
+
+The type for an action neighbor of a given state. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+{\em uniform\+Flag} & Determines whether the domain is a uniform cost one or not. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 77 of file neighbor.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Action\+Neighbor@{Action\+Neighbor}!Action\+Neighbor@{Action\+Neighbor}}
+\index{Action\+Neighbor@{Action\+Neighbor}!Action\+Neighbor@{Action\+Neighbor}}
+\paragraph[{\texorpdfstring{Action\+Neighbor(\+Action \&\&a, Cost\+Type c=\+Cost\+Type\lcurly{}1\rcurly{})}{ActionNeighbor(Action &&a, CostType c=CostType\{1\})}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename State\+\_\+ , bool uniform\+Flag = true$>$ {\bf Action\+Neighbor}$<$ State\+\_\+, uniform\+Flag $>$\+::{\bf Action\+Neighbor} (
+\begin{DoxyParamCaption}
+\item[{{\bf Action} \&\&}]{a, }
+\item[{{\bf Cost\+Type}}]{c = {\ttfamily {\bf Cost\+Type}\{1\}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structActionNeighbor_a293ef1ed1c81340a4ff6df4fe4977a77}{}\label{structActionNeighbor_a293ef1ed1c81340a4ff6df4fe4977a77}
+
+
+Initializes the neighbor based on the neighbor state and cost of the action that leads to that state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The action, which must be a right value. \\
+\hline
+{\em c} & \hyperlink{structCost}{Cost} of the action that leads to {\ttfamily s}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 87 of file neighbor.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Action\+Neighbor@{Action\+Neighbor}!action@{action}}
+\index{action@{action}!Action\+Neighbor@{Action\+Neighbor}}
+\paragraph[{\texorpdfstring{action() const }{action() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename State\+\_\+ , bool uniform\+Flag = true$>$ const {\bf Action}\& {\bf Action\+Neighbor}$<$ State\+\_\+, uniform\+Flag $>$\+::action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structActionNeighbor_ab42e04a933ca75a946ac8bfbb9eaa4c4}{}\label{structActionNeighbor_ab42e04a933ca75a946ac8bfbb9eaa4c4}
+
+
+Returns the action. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the action. 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file neighbor.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{neighbor_8h}{neighbor.\+h}\end{DoxyCompactItemize}

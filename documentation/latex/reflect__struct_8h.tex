@@ -1,0 +1,147 @@
+\hypertarget{reflect__struct_8h}{}\subsection{core/util/outside1/reflect\+\_\+struct.h File Reference}
+\label{reflect__struct_8h}\index{core/util/outside1/reflect\+\_\+struct.\+h@{core/util/outside1/reflect\+\_\+struct.\+h}}
+
+
+Source\+: \href{http://stackoverflow.com/a/11744832/2725810}{\tt http\+://stackoverflow.\+com/a/11744832/2725810}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$boost/fusion/include/adapt\+\_\+struct.\+hpp$>$}\\*
+{\ttfamily \#include $<$boost/mpl/for\+\_\+each.\+hpp$>$}\\*
+{\ttfamily \#include $<$boost/mpl/range\+\_\+c.\+hpp$>$}\\*
+{\ttfamily \#include $<$boost/bind.\+hpp$>$}\\*
+Include dependency graph for reflect\+\_\+struct.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reflect__struct_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{reflect__struct_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmake__const}{make\+\_\+const$<$ M, T $>$}
+\item 
+struct \hyperlink{structmake__const_3_01const_01M_00_01T_01_4}{make\+\_\+const$<$ const M, T $>$}
+\item 
+struct \hyperlink{structreflector}{reflector}
+\item 
+struct \hyperlink{structreflector_1_1fields}{reflector\+::fields$<$ T $>$}
+\item 
+struct \hyperlink{structfield__visitor}{field\+\_\+visitor}
+\end{DoxyCompactItemize}
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries R\+EM}(...)~\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+\hypertarget{reflect__struct_8h_a737eda892f12ba68de02b246e6809910}{}\label{reflect__struct_8h_a737eda892f12ba68de02b246e6809910}
+
+\item 
+\#define {\bfseries E\+AT}(...)\hypertarget{reflect__struct_8h_a698c90e0d8c29ffcfed62eba186e05eb}{}\label{reflect__struct_8h_a698c90e0d8c29ffcfed62eba186e05eb}
+
+\item 
+\#define {\bfseries T\+Y\+P\+E\+OF}(x)~D\+E\+T\+A\+I\+L\+\_\+\+T\+Y\+P\+E\+OF(D\+E\+T\+A\+I\+L\+\_\+\+T\+Y\+P\+E\+O\+F\+\_\+\+P\+R\+O\+BE x, )\hypertarget{reflect__struct_8h_a698e99f1653dfd7628c04eaf9c26ec51}{}\label{reflect__struct_8h_a698e99f1653dfd7628c04eaf9c26ec51}
+
+\item 
+\#define {\bfseries D\+E\+T\+A\+I\+L\+\_\+\+T\+Y\+P\+E\+OF}(...)~S\+L\+B\+\_\+\+C\+O\+R\+E\+\_\+\+U\+T\+I\+L\+\_\+\+O\+U\+T\+S\+I\+D\+E\+\_\+\+R\+E\+F\+L\+E\+C\+T\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+H\+E\+AD(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)\hypertarget{reflect__struct_8h_a8d0a57fde6a46b820c2ac446355ecee3}{}\label{reflect__struct_8h_a8d0a57fde6a46b820c2ac446355ecee3}
+
+\item 
+\#define {\bfseries S\+L\+B\+\_\+\+C\+O\+R\+E\+\_\+\+U\+T\+I\+L\+\_\+\+O\+U\+T\+S\+I\+D\+E\+\_\+\+R\+E\+F\+L\+E\+C\+T\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+H\+E\+AD}(x, ...)~R\+EM x\hypertarget{reflect__struct_8h_a7e1cb84e2a7f66f7d4b16bd8ebc4483d}{}\label{reflect__struct_8h_a7e1cb84e2a7f66f7d4b16bd8ebc4483d}
+
+\item 
+\#define {\bfseries D\+E\+T\+A\+I\+L\+\_\+\+T\+Y\+P\+E\+O\+F\+\_\+\+P\+R\+O\+BE}(...)~(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+),\hypertarget{reflect__struct_8h_a78bd95b4279f50b18b3ae8921e5b789d}{}\label{reflect__struct_8h_a78bd95b4279f50b18b3ae8921e5b789d}
+
+\item 
+\#define {\bfseries S\+T\+R\+IP}(x)~E\+AT x\hypertarget{reflect__struct_8h_a4fe91c27bd8b5e89ba2b072d1c0b73ed}{}\label{reflect__struct_8h_a4fe91c27bd8b5e89ba2b072d1c0b73ed}
+
+\item 
+\#define {\bfseries P\+A\+IR}(x)~R\+EM x\hypertarget{reflect__struct_8h_aa456461e361a475f4ec9516f2b582d18}{}\label{reflect__struct_8h_aa456461e361a475f4ec9516f2b582d18}
+
+\item 
+\#define {\bfseries R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+0}(...)
+\item 
+\#define {\bfseries R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+1}(...)~static const int fields\+\_\+n = 0;\hypertarget{reflect__struct_8h_ab2ac7df5cf7f77d64f088ba3efbdcbad}{}\label{reflect__struct_8h_ab2ac7df5cf7f77d64f088ba3efbdcbad}
+
+\item 
+\#define {\bfseries R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+\+C\+O\+N\+S\+T2}(b, ...)~R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+\#\#b(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)\hypertarget{reflect__struct_8h_af58c76743b04caee6c3488983b1d80fd}{}\label{reflect__struct_8h_af58c76743b04caee6c3488983b1d80fd}
+
+\item 
+\#define {\bfseries R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+\+C\+O\+N\+ST}(b, ...)~R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+\+C\+O\+N\+S\+T2(b,\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)\hypertarget{reflect__struct_8h_a5a92bd1ddd60c4aa850774a050d29a2d}{}\label{reflect__struct_8h_a5a92bd1ddd60c4aa850774a050d29a2d}
+
+\item 
+\#define {\bfseries R\+E\+F\+L\+E\+C\+T\+A\+B\+LE}(...)~R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+\+C\+O\+N\+ST(B\+O\+O\+S\+T\+\_\+\+P\+P\+\_\+\+I\+S\+\_\+\+E\+M\+P\+TY(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+), \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)\hypertarget{reflect__struct_8h_ad243b32b539e90810f385a13d480c96b}{}\label{reflect__struct_8h_ad243b32b539e90810f385a13d480c96b}
+
+\item 
+\#define {\bfseries R\+E\+F\+L\+E\+C\+T\+\_\+\+E\+A\+CH}(r,  data,  i,  x)
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class C , class Visitor $>$ }\\void {\bfseries visit\+\_\+each} (C \&c, Visitor v)\hypertarget{reflect__struct_8h_aa5a832f02073ff5634c515b650a64791}{}\label{reflect__struct_8h_aa5a832f02073ff5634c515b650a64791}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Source\+: \href{http://stackoverflow.com/a/11744832/2725810}{\tt http\+://stackoverflow.\+com/a/11744832/2725810}. 
+
+
+
+\subsubsection{Macro Definition Documentation}
+\index{reflect\+\_\+struct.\+h@{reflect\+\_\+struct.\+h}!R\+E\+F\+L\+E\+C\+T\+\_\+\+E\+A\+CH@{R\+E\+F\+L\+E\+C\+T\+\_\+\+E\+A\+CH}}
+\index{R\+E\+F\+L\+E\+C\+T\+\_\+\+E\+A\+CH@{R\+E\+F\+L\+E\+C\+T\+\_\+\+E\+A\+CH}!reflect\+\_\+struct.\+h@{reflect\+\_\+struct.\+h}}
+\paragraph[{\texorpdfstring{R\+E\+F\+L\+E\+C\+T\+\_\+\+E\+A\+CH}{REFLECT_EACH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+F\+L\+E\+C\+T\+\_\+\+E\+A\+CH(
+\begin{DoxyParamCaption}
+\item[{}]{r, }
+\item[{}]{data, }
+\item[{}]{i, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{reflect__struct_8h_af8d717145a8d32ec324a7f196b2a6043}{}\label{reflect__struct_8h_af8d717145a8d32ec324a7f196b2a6043}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+PAIR(x);                                                                   \(\backslash\)
+    template <class Self> \textcolor{keyword}{struct }field\_data<i, Self> \{                         \(\backslash\)
+        Self &\textcolor{keyword}{self};                                                            \(\backslash\)
+        field\_data(Self &\textcolor{keyword}{self}) : self(self) \{\}                                 \(\backslash\)
+                                                                               \(\backslash\)
+        typename make\_const<Self, TYPEOF(x)>::type &\textcolor{keyword}{get}() \{                    \(\backslash\)
+            return \textcolor{keyword}{self}.STRIP(x);                                              \(\backslash\)
+        \}                                                                      \(\backslash\)
+        typename boost::add\_const<TYPEOF(x)>::type &\textcolor{keyword}{get}() \textcolor{keyword}{const} \{              \(\backslash\)
+            return \textcolor{keyword}{self}.STRIP(x);                                              \(\backslash\)
+        \}                                                                      \(\backslash\)
+        const \textcolor{keywordtype}{char} *name()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} BOOST\_PP\_STRINGIZE(STRIP(x)); \}      \(\backslash\)
+    \};
+\end{DoxyCode}
+
+
+Definition at line 65 of file reflect\+\_\+struct.\+h.
+
+\index{reflect\+\_\+struct.\+h@{reflect\+\_\+struct.\+h}!R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+0@{R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+0}}
+\index{R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+0@{R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+0}!reflect\+\_\+struct.\+h@{reflect\+\_\+struct.\+h}}
+\paragraph[{\texorpdfstring{R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+0}{REFLECTABLE_0}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E\+\_\+0(
+\begin{DoxyParamCaption}
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{reflect__struct_8h_a1895da49eedec963a20e70d3980820ab}{}\label{reflect__struct_8h_a1895da49eedec963a20e70d3980820ab}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} fields\_n = BOOST\_PP\_VARIADIC\_SIZE(\_\_VA\_ARGS\_\_);           \(\backslash\)
+    friend \textcolor{keyword}{struct }\hyperlink{structreflector}{reflector};                                                   \(\backslash\)
+    template <int N, class Self> \textcolor{keyword}{struct }field\_data \{\};                         \(\backslash\)
+    BOOST\_PP\_SEQ\_FOR\_EACH\_I(REFLECT\_EACH, data,                                \(\backslash\)
+                            BOOST\_PP\_VARIADIC\_TO\_SEQ(\_\_VA\_ARGS\_\_))
+\end{DoxyCode}
+
+
+Definition at line 48 of file reflect\+\_\+struct.\+h.
+

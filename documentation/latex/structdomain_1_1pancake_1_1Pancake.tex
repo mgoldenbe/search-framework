@@ -1,0 +1,475 @@
+\hypertarget{structdomain_1_1pancake_1_1Pancake}{}\subsection{domain\+:\+:pancake\+:\+:Pancake Struct Reference}
+\label{structdomain_1_1pancake_1_1Pancake}\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+
+
+The pancake puzzle domain.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+
+
+Inheritance diagram for domain\+:\+:pancake\+:\+:Pancake\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{structdomain_1_1pancake_1_1Pancake__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for domain\+:\+:pancake\+:\+:Pancake\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{structdomain_1_1pancake_1_1Pancake__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structdomain_1_1pancake_1_1Pancake_a7805c33e70c8dd2859c7e93148575239}{Cost\+Type} = int\hypertarget{structdomain_1_1pancake_1_1Pancake_a7805c33e70c8dd2859c7e93148575239}{}\label{structdomain_1_1pancake_1_1Pancake_a7805c33e70c8dd2859c7e93148575239}
+
+\begin{DoxyCompactList}\small\item\em The type representing the cost of actions in the domain. Every domain must provide this name. \end{DoxyCompactList}\item 
+using \hyperlink{structdomain_1_1pancake_1_1Pancake_af7820a082306e9c40299c58164e6a712}{S\+Neighbor} = \hyperlink{structStateNeighbor}{State\+Neighbor}$<$ \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} $>$\hypertarget{structdomain_1_1pancake_1_1Pancake_af7820a082306e9c40299c58164e6a712}{}\label{structdomain_1_1pancake_1_1Pancake_af7820a082306e9c40299c58164e6a712}
+
+\begin{DoxyCompactList}\small\item\em State neighbor type. \end{DoxyCompactList}\item 
+using \hyperlink{structdomain_1_1pancake_1_1Pancake_aed3aa4ec5da474b51d98578696a5683d}{A\+Neighbor} = \hyperlink{structActionNeighbor}{Action\+Neighbor}$<$ \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} $>$\hypertarget{structdomain_1_1pancake_1_1Pancake_aed3aa4ec5da474b51d98578696a5683d}{}\label{structdomain_1_1pancake_1_1Pancake_aed3aa4ec5da474b51d98578696a5683d}
+
+\begin{DoxyCompactList}\small\item\em Action neighbor type. \end{DoxyCompactList}\item 
+using \hyperlink{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}{Action} = int\hypertarget{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}{}\label{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}
+
+\begin{DoxyCompactList}\small\item\em The type for representing an action. An action is the position up to (and including) which the pancakes are to be reversed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structdomain_1_1pancake_1_1Pancake_ac2575e81e762d460e99100d10008fcc8}{Pancake} ()\hypertarget{structdomain_1_1pancake_1_1Pancake_ac2575e81e762d460e99100d10008fcc8}{}\label{structdomain_1_1pancake_1_1Pancake_ac2575e81e762d460e99100d10008fcc8}
+
+\begin{DoxyCompactList}\small\item\em Initializes the state with ordered pancakes. \end{DoxyCompactList}\item 
+\hyperlink{structdomain_1_1pancake_1_1Pancake_a1e80688a11629bc3628a116723726692}{Pancake} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Initializes the state from a string, e.\+g. \char`\"{}\mbox{[}1, 4, 2, 3, 0\mbox{]}\char`\"{}. \end{DoxyCompactList}\item 
+\hyperlink{structdomain_1_1pancake_1_1Pancake_a9e8c50925c8c328199e9f4468976b1dd}{Pancake} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&)=default\hypertarget{structdomain_1_1pancake_1_1Pancake_a9e8c50925c8c328199e9f4468976b1dd}{}\label{structdomain_1_1pancake_1_1Pancake_a9e8c50925c8c328199e9f4468976b1dd}
+
+\begin{DoxyCompactList}\small\item\em The default copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \& \hyperlink{structdomain_1_1pancake_1_1Pancake_ac348c426e2256ef3651954e0efdcd5ea}{operator=} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&)=default
+\begin{DoxyCompactList}\small\item\em The default assignment operator. \end{DoxyCompactList}\item 
+const std\+::vector$<$ int $>$ \& \hyperlink{structdomain_1_1pancake_1_1Pancake_a6b06daff688b8fde3b203cb5af9962c1}{get\+Pancakes} () const 
+\begin{DoxyCompactList}\small\item\em Returns the raw representation of the state as a vector. \end{DoxyCompactList}\item 
+\hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \& \hyperlink{structdomain_1_1pancake_1_1Pancake_aa7e4c0977dcb50e7565093fa36934488}{apply} (\hyperlink{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}{Action} a)
+\begin{DoxyCompactList}\small\item\em Applies an action to the state. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}{Action} $>$ \hyperlink{structdomain_1_1pancake_1_1Pancake_a187e2cba39d1268d9e50851aa91daa6d}{actions} () const 
+\begin{DoxyCompactList}\small\item\em Computes the actions available from the state. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structdomain_1_1pancake_1_1Pancake_af7820a082306e9c40299c58164e6a712}{S\+Neighbor} $>$ \hyperlink{structdomain_1_1pancake_1_1Pancake_aa1f8a9ba48d02700f5facf91359f4d31}{state\+Successors} () const 
+\begin{DoxyCompactList}\small\item\em Computes the state neighbors of the state. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structdomain_1_1pancake_1_1Pancake_aed3aa4ec5da474b51d98578696a5683d}{A\+Neighbor} $>$ \hyperlink{structdomain_1_1pancake_1_1Pancake_a74724a902242ac1e3cebbc14215945d7}{action\+Successors} () const 
+\begin{DoxyCompactList}\small\item\em Computes the action neighbors of the state. \end{DoxyCompactList}\item 
+int \hyperlink{structdomain_1_1pancake_1_1Pancake_ad2a19a9216a372a52acad79d82e6df44}{gap\+Delta} (\hyperlink{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}{Action} a) const 
+\begin{DoxyCompactList}\small\item\em Computes the change in gap heuristic from the state obtained by applying the given action to the goal state with ordered pancakes. \end{DoxyCompactList}\item 
+int \hyperlink{structdomain_1_1pancake_1_1Pancake_ad6360e4b9e044f30c3ac99a45b164e80}{gap\+Heuristic} () const 
+\begin{DoxyCompactList}\small\item\em Computes the gap heuristic from the state to the goal state with ordered pancakes. \end{DoxyCompactList}\item 
+int \hyperlink{structdomain_1_1pancake_1_1Pancake_a536ab7035bad11c79c55715c7e9de27f}{gap\+Heuristic} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&goal) const 
+\begin{DoxyCompactList}\small\item\em Computes the gap heuristic from the state to the given goal state. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \hyperlink{structdomain_1_1pancake_1_1Pancake_a2c14262529c18fa792860653de161bdd}{hash} () const 
+\begin{DoxyCompactList}\small\item\em Computes the hash-\/code of the state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structdomain_1_1pancake_1_1Pancake_a1b75518ba1217a4e218840c0fba6a00c}{dump} (Stream \&o) const 
+\begin{DoxyCompactList}\small\item\em Dumps the state to the given stream. \end{DoxyCompactList}\item 
+void \hyperlink{structdomain_1_1pancake_1_1Pancake_a125f1bad5e4e504e0819d30056613ef2}{shuffle} ()\hypertarget{structdomain_1_1pancake_1_1Pancake_a125f1bad5e4e504e0819d30056613ef2}{}\label{structdomain_1_1pancake_1_1Pancake_a125f1bad5e4e504e0819d30056613ef2}
+
+\begin{DoxyCompactList}\small\item\em Randomly shuffles the pancakes. \end{DoxyCompactList}\item 
+bool \hyperlink{structdomain_1_1pancake_1_1Pancake_a84530523caee0e84dc3f691f5b3536a3}{operator==} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em The equality operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}{Action} \hyperlink{structdomain_1_1pancake_1_1Pancake_a6fef9cf51c8756adc506728ea6108373}{reverse\+Action} (\hyperlink{structdomain_1_1pancake_1_1Pancake_a58ceacb6a181cbcdb34169b300957f95}{Action} a)
+\begin{DoxyCompactList}\small\item\em Returns the reverse of the given action. \end{DoxyCompactList}\item 
+static \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \hyperlink{structdomain_1_1pancake_1_1Pancake_ad370c66579f3aefca74b3a8da4a710ed}{random} ()
+\begin{DoxyCompactList}\small\item\em Returns a random state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structdomain_1_1pancake_1_1Pancake_a122870b530e74c655a156bb6f513712b}{gap} (int i) const 
+\begin{DoxyCompactList}\small\item\em Is there a gap between positions i and i+1? \end{DoxyCompactList}\item 
+bool \hyperlink{structdomain_1_1pancake_1_1Pancake_a30fb4f2b3b8bccf01898b6d18a3ab39a}{gap} (int i, int j) const 
+\begin{DoxyCompactList}\small\item\em Is there a gap between positions i and j? \end{DoxyCompactList}\item 
+bool \hyperlink{structdomain_1_1pancake_1_1Pancake_af5b67e9da581228aa246ff02814dbc4c}{largest\+In\+Place} () const 
+\begin{DoxyCompactList}\small\item\em Is the largest pancake in place? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \hyperlink{structdomain_1_1pancake_1_1Pancake_aef6a3a8c658afe603446e180c966b62f}{pancakes\+\_\+}\hypertarget{structdomain_1_1pancake_1_1Pancake_aef6a3a8c658afe603446e180c966b62f}{}\label{structdomain_1_1pancake_1_1Pancake_aef6a3a8c658afe603446e180c966b62f}
+
+\begin{DoxyCompactList}\small\item\em The underlying state representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The pancake puzzle domain. 
+
+Definition at line 32 of file headers.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!Pancake@{Pancake}}
+\index{Pancake@{Pancake}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{Pancake(const std\+::string \&s)}{Pancake(const std::string &s)}}]{\setlength{\rightskip}{0pt plus 5cm}domain\+::pancake\+::\+Pancake\+::\+Pancake (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a1e80688a11629bc3628a116723726692}{}\label{structdomain_1_1pancake_1_1Pancake_a1e80688a11629bc3628a116723726692}
+
+
+Initializes the state from a string, e.\+g. \char`\"{}\mbox{[}1, 4, 2, 3, 0\mbox{]}\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The string. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!actions@{actions}}
+\index{actions@{actions}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{actions() const }{actions() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Action}$>$ domain\+::pancake\+::\+Pancake\+::actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a187e2cba39d1268d9e50851aa91daa6d}{}\label{structdomain_1_1pancake_1_1Pancake_a187e2cba39d1268d9e50851aa91daa6d}
+
+
+Computes the actions available from the state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of actions available from the state. 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!action\+Successors@{action\+Successors}}
+\index{action\+Successors@{action\+Successors}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{action\+Successors() const }{actionSuccessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf A\+Neighbor}$>$ domain\+::pancake\+::\+Pancake\+::action\+Successors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a74724a902242ac1e3cebbc14215945d7}{}\label{structdomain_1_1pancake_1_1Pancake_a74724a902242ac1e3cebbc14215945d7}
+
+
+Computes the action neighbors of the state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of action neighbors of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!apply@{apply}}
+\index{apply@{apply}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{apply(\+Action a)}{apply(Action a)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pancake}\& domain\+::pancake\+::\+Pancake\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Action}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_aa7e4c0977dcb50e7565093fa36934488}{}\label{structdomain_1_1pancake_1_1Pancake_aa7e4c0977dcb50e7565093fa36934488}
+
+
+Applies an action to the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The action to be applied, i.\+e. the position up to (and including) which the pancakes are to be reversed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state after the action. 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!dump@{dump}}
+\index{dump@{dump}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&o) const }{dump(Stream &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Stream $>$ Stream\& domain\+::pancake\+::\+Pancake\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a1b75518ba1217a4e218840c0fba6a00c}{}\label{structdomain_1_1pancake_1_1Pancake_a1b75518ba1217a4e218840c0fba6a00c}
+
+
+Dumps the state to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em The} & stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 166 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!gap@{gap}}
+\index{gap@{gap}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{gap(int i) const }{gap(int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool domain\+::pancake\+::\+Pancake\+::gap (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a122870b530e74c655a156bb6f513712b}{}\label{structdomain_1_1pancake_1_1Pancake_a122870b530e74c655a156bb6f513712b}
+
+
+Is there a gap between positions i and i+1? 
+
+\begin{DoxyReturn}{Returns}
+if there is a gap and  otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 198 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!gap@{gap}}
+\index{gap@{gap}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{gap(int i, int j) const }{gap(int i, int j) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool domain\+::pancake\+::\+Pancake\+::gap (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a30fb4f2b3b8bccf01898b6d18a3ab39a}{}\label{structdomain_1_1pancake_1_1Pancake_a30fb4f2b3b8bccf01898b6d18a3ab39a}
+
+
+Is there a gap between positions i and j? 
+
+\begin{DoxyReturn}{Returns}
+if there is a gap and  otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 202 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!gap\+Delta@{gap\+Delta}}
+\index{gap\+Delta@{gap\+Delta}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{gap\+Delta(\+Action a) const }{gapDelta(Action a) const }}]{\setlength{\rightskip}{0pt plus 5cm}int domain\+::pancake\+::\+Pancake\+::gap\+Delta (
+\begin{DoxyParamCaption}
+\item[{{\bf Action}}]{a}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_ad2a19a9216a372a52acad79d82e6df44}{}\label{structdomain_1_1pancake_1_1Pancake_ad2a19a9216a372a52acad79d82e6df44}
+
+
+Computes the change in gap heuristic from the state obtained by applying the given action to the goal state with ordered pancakes. 
+
+\begin{DoxyReturn}{Returns}
+The gap heuristic from the state obtained by applying the given action to the goal state with ordered pancakes. 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!gap\+Heuristic@{gap\+Heuristic}}
+\index{gap\+Heuristic@{gap\+Heuristic}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{gap\+Heuristic() const }{gapHeuristic() const }}]{\setlength{\rightskip}{0pt plus 5cm}int domain\+::pancake\+::\+Pancake\+::gap\+Heuristic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_ad6360e4b9e044f30c3ac99a45b164e80}{}\label{structdomain_1_1pancake_1_1Pancake_ad6360e4b9e044f30c3ac99a45b164e80}
+
+
+Computes the gap heuristic from the state to the goal state with ordered pancakes. 
+
+\begin{DoxyReturn}{Returns}
+The gap heuristic from the state to the goal state with ordered pancakes. 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!gap\+Heuristic@{gap\+Heuristic}}
+\index{gap\+Heuristic@{gap\+Heuristic}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{gap\+Heuristic(const Pancake \&goal) const }{gapHeuristic(const Pancake &goal) const }}]{\setlength{\rightskip}{0pt plus 5cm}int domain\+::pancake\+::\+Pancake\+::gap\+Heuristic (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pancake} \&}]{goal}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a536ab7035bad11c79c55715c7e9de27f}{}\label{structdomain_1_1pancake_1_1Pancake_a536ab7035bad11c79c55715c7e9de27f}
+
+
+Computes the gap heuristic from the state to the given goal state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The goal state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The gap heuristic from the state to {\ttfamily goal}. 
+\end{DoxyReturn}
+
+
+Definition at line 145 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!get\+Pancakes@{get\+Pancakes}}
+\index{get\+Pancakes@{get\+Pancakes}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{get\+Pancakes() const }{getPancakes() const }}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<$int$>$\& domain\+::pancake\+::\+Pancake\+::get\+Pancakes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a6b06daff688b8fde3b203cb5af9962c1}{}\label{structdomain_1_1pancake_1_1Pancake_a6b06daff688b8fde3b203cb5af9962c1}
+
+
+Returns the raw representation of the state as a vector. 
+
+\begin{DoxyReturn}{Returns}
+The raw representation of the state as a vector. 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!hash@{hash}}
+\index{hash@{hash}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{hash() const }{hash() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t domain\+::pancake\+::\+Pancake\+::hash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a2c14262529c18fa792860653de161bdd}{}\label{structdomain_1_1pancake_1_1Pancake_a2c14262529c18fa792860653de161bdd}
+
+
+Computes the hash-\/code of the state. 
+
+\begin{DoxyReturn}{Returns}
+The hash-\/code of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 157 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!largest\+In\+Place@{largest\+In\+Place}}
+\index{largest\+In\+Place@{largest\+In\+Place}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{largest\+In\+Place() const }{largestInPlace() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool domain\+::pancake\+::\+Pancake\+::largest\+In\+Place (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_af5b67e9da581228aa246ff02814dbc4c}{}\label{structdomain_1_1pancake_1_1Pancake_af5b67e9da581228aa246ff02814dbc4c}
+
+
+Is the largest pancake in place? 
+
+\begin{DoxyReturn}{Returns}
+if the largest pancake is in place and  otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 209 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!operator=@{operator=}}
+\index{operator=@{operator=}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{operator=(const Pancake \&)=default}{operator=(const Pancake &)=default}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pancake}\& domain\+::pancake\+::\+Pancake\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pancake} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_ac348c426e2256ef3651954e0efdcd5ea}{}\label{structdomain_1_1pancake_1_1Pancake_ac348c426e2256ef3651954e0efdcd5ea}
+
+
+The default assignment operator. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the assigned state. 
+\end{DoxyReturn}
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!operator==@{operator==}}
+\index{operator==@{operator==}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{operator==(const Pancake \&rhs) const }{operator==(const Pancake &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool domain\+::pancake\+::\+Pancake\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pancake} \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a84530523caee0e84dc3f691f5b3536a3}{}\label{structdomain_1_1pancake_1_1Pancake_a84530523caee0e84dc3f691f5b3536a3}
+
+
+The equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the operator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the two states compare equal and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!random@{random}}
+\index{random@{random}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{random()}{random()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Pancake} domain\+::pancake\+::\+Pancake\+::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_ad370c66579f3aefca74b3a8da4a710ed}{}\label{structdomain_1_1pancake_1_1Pancake_ad370c66579f3aefca74b3a8da4a710ed}
+
+
+Returns a random state. 
+
+\begin{DoxyReturn}{Returns}
+A random state. 
+\end{DoxyReturn}
+
+
+Definition at line 187 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!reverse\+Action@{reverse\+Action}}
+\index{reverse\+Action@{reverse\+Action}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{reverse\+Action(\+Action a)}{reverseAction(Action a)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Action} domain\+::pancake\+::\+Pancake\+::reverse\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Action}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_a6fef9cf51c8756adc506728ea6108373}{}\label{structdomain_1_1pancake_1_1Pancake_a6fef9cf51c8756adc506728ea6108373}
+
+
+Returns the reverse of the given action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The action whose reverse is to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reverse of the given action. 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file headers.\+h.
+
+\index{domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}!state\+Successors@{state\+Successors}}
+\index{state\+Successors@{state\+Successors}!domain\+::pancake\+::\+Pancake@{domain\+::pancake\+::\+Pancake}}
+\paragraph[{\texorpdfstring{state\+Successors() const }{stateSuccessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf S\+Neighbor}$>$ domain\+::pancake\+::\+Pancake\+::state\+Successors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1Pancake_aa1f8a9ba48d02700f5facf91359f4d31}{}\label{structdomain_1_1pancake_1_1Pancake_aa1f8a9ba48d02700f5facf91359f4d31}
+
+
+Computes the state neighbors of the state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of state neighbors of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 93 of file headers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{extensions_2domains_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

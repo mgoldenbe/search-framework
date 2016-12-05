@@ -1,0 +1,4 @@
+<map id="ui::Visualizer&lt; Node &gt;" name="ui::Visualizer&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structVisualizerData.html" title="The base of ui::Visualizer holding the visualizer&#39;s constituent components. " alt="" coords="5,95,168,121"/>
+<area shape="rect" id="node3" href="$structStateGraph.html" title="The state space graph used for visualization. " alt="" coords="15,5,158,32"/>
+</map>

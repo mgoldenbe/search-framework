@@ -1,0 +1,125 @@
+\hypertarget{structbacktrackLock_1_1Copy}{}\subsection{backtrack\+Lock\+:\+:Copy$<$ My\+Algorithm, bool $>$ Struct Template Reference}
+\label{structbacktrackLock_1_1Copy}\index{backtrack\+Lock\+::\+Copy$<$ My\+Algorithm, bool $>$@{backtrack\+Lock\+::\+Copy$<$ My\+Algorithm, bool $>$}}
+
+
+A class for handling R\+A\+II for backtracking in I\+D\+A$\ast$ when the parent state is kept. The second template parameter is not used, just for uniformity.  
+
+
+
+
+{\ttfamily \#include $<$backtrack\+\_\+lock.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{structbacktrackLock_1_1Copy_a6bcb87c21e4c2cf6d66d2baac51067c8}{Copy} (My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+\hyperlink{structbacktrackLock_1_1Copy_a0727da2f9e00ef1335f9f795f3924eb2}{Copy} (\hyperlink{structbacktrackLock_1_1Copy}{Copy} \&\&)=default\hypertarget{structbacktrackLock_1_1Copy_a0727da2f9e00ef1335f9f795f3924eb2}{}\label{structbacktrackLock_1_1Copy_a0727da2f9e00ef1335f9f795f3924eb2}
+
+\begin{DoxyCompactList}\small\item\em The moving constructor. \end{DoxyCompactList}\item 
+\hyperlink{structbacktrackLock_1_1Copy_aeac2bb6f22a261f9e5af9d2af698ea92}{$\sim$\+Copy} ()\hypertarget{structbacktrackLock_1_1Copy_aeac2bb6f22a261f9e5af9d2af698ea92}{}\label{structbacktrackLock_1_1Copy_aeac2bb6f22a261f9e5af9d2af698ea92}
+
+\begin{DoxyCompactList}\small\item\em The destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} const bool \hyperlink{structbacktrackLock_1_1Copy_af524e4a6ca5a955d468bcb90f9be0c0e}{keeps\+Parent} = true\hypertarget{structbacktrackLock_1_1Copy_af524e4a6ca5a955d468bcb90f9be0c0e}{}\label{structbacktrackLock_1_1Copy_af524e4a6ca5a955d468bcb90f9be0c0e}
+
+\begin{DoxyCompactList}\small\item\em Whether the parent state is to be stored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Neighbor $>$ }\\void \hyperlink{structbacktrackLock_1_1Copy_af6284ea7a8847471b0ccdd68d5701812}{set} (Neighbor \&n)
+\begin{DoxyCompactList}\small\item\em Does the necessary bookkeeping for searching the given neighbor. \end{DoxyCompactList}\item 
+void \hyperlink{structbacktrackLock_1_1Copy_a33802cdb1f994fa64867bbb5b70e5725}{unset} ()\hypertarget{structbacktrackLock_1_1Copy_a33802cdb1f994fa64867bbb5b70e5725}{}\label{structbacktrackLock_1_1Copy_a33802cdb1f994fa64867bbb5b70e5725}
+
+\begin{DoxyCompactList}\small\item\em Does the necessary bookkeeping before backtracking to the parent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+My\+Algorithm \& \hyperlink{structbacktrackLock_1_1Copy_ae50942176fa6240ac51103253f3c9f1d}{alg\+\_\+}\hypertarget{structbacktrackLock_1_1Copy_ae50942176fa6240ac51103253f3c9f1d}{}\label{structbacktrackLock_1_1Copy_ae50942176fa6240ac51103253f3c9f1d}
+
+\begin{DoxyCompactList}\small\item\em Reference to the search algorithm. \end{DoxyCompactList}\item 
+Node $\ast$ \hyperlink{structbacktrackLock_1_1Copy_a92b47e6b4793fc27dfb6f1e1624c596c}{cur\+\_\+}\hypertarget{structbacktrackLock_1_1Copy_a92b47e6b4793fc27dfb6f1e1624c596c}{}\label{structbacktrackLock_1_1Copy_a92b47e6b4793fc27dfb6f1e1624c596c}
+
+\begin{DoxyCompactList}\small\item\em The node being expanded by I\+D\+A$\ast$. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ Node $>$ \hyperlink{structbacktrackLock_1_1Copy_aaf817503fe91301c4b2c951414950554}{parent\+\_\+} = nullptr\hypertarget{structbacktrackLock_1_1Copy_aaf817503fe91301c4b2c951414950554}{}\label{structbacktrackLock_1_1Copy_aaf817503fe91301c4b2c951414950554}
+
+\begin{DoxyCompactList}\small\item\em The parent node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm, bool$>$\\*
+struct backtrack\+Lock\+::\+Copy$<$ My\+Algorithm, bool $>$}
+
+A class for handling R\+A\+II for backtracking in I\+D\+A$\ast$ when the parent state is kept. The second template parameter is not used, just for uniformity. 
+
+Definition at line 144 of file backtrack\+\_\+lock.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{backtrack\+Lock\+::\+Copy@{backtrack\+Lock\+::\+Copy}!Copy@{Copy}}
+\index{Copy@{Copy}!backtrack\+Lock\+::\+Copy@{backtrack\+Lock\+::\+Copy}}
+\paragraph[{\texorpdfstring{Copy(\+My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)}{Copy(MyAlgorithm &alg, Node *cur, Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , bool $>$ template$<$class Neighbor $>$ {\bf backtrack\+Lock\+::\+Copy}$<$ My\+Algorithm, bool $>$\+::{\bf Copy} (
+\begin{DoxyParamCaption}
+\item[{My\+Algorithm \&}]{alg, }
+\item[{Node $\ast$}]{cur, }
+\item[{Neighbor \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structbacktrackLock_1_1Copy_a6bcb87c21e4c2cf6d66d2baac51067c8}{}\label{structbacktrackLock_1_1Copy_a6bcb87c21e4c2cf6d66d2baac51067c8}
+
+
+The constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & The search algorithm. \\
+\hline
+{\em cur} & The node being expanded by I\+D\+A$\ast$. \\
+\hline
+{\em n} & The neighbor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file backtrack\+\_\+lock.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{backtrack\+Lock\+::\+Copy@{backtrack\+Lock\+::\+Copy}!set@{set}}
+\index{set@{set}!backtrack\+Lock\+::\+Copy@{backtrack\+Lock\+::\+Copy}}
+\paragraph[{\texorpdfstring{set(\+Neighbor \&n)}{set(Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , bool $>$ template$<$class Neighbor $>$ void {\bf backtrack\+Lock\+::\+Copy}$<$ My\+Algorithm, bool $>$\+::set (
+\begin{DoxyParamCaption}
+\item[{Neighbor \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structbacktrackLock_1_1Copy_af6284ea7a8847471b0ccdd68d5701812}{}\label{structbacktrackLock_1_1Copy_af6284ea7a8847471b0ccdd68d5701812}
+
+
+Does the necessary bookkeeping for searching the given neighbor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neighbor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 180 of file backtrack\+\_\+lock.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{backtrack__lock_8h}{backtrack\+\_\+lock.\+h}\end{DoxyCompactItemize}

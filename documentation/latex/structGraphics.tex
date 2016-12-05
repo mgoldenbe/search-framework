@@ -1,0 +1,141 @@
+\hypertarget{structGraphics}{}\subsection{Graphics Struct Reference}
+\label{structGraphics}\index{Graphics@{Graphics}}
+
+
+Objects of this class hold all the information needed for drawing.  
+
+
+
+
+{\ttfamily \#include $<$graphics\+\_\+object.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structGraphics_af2e8fe67fd31ec263c843a6e28b29d3c}{Graphics} ()\hypertarget{structGraphics_af2e8fe67fd31ec263c843a6e28b29d3c}{}\label{structGraphics_af2e8fe67fd31ec263c843a6e28b29d3c}
+
+\begin{DoxyCompactList}\small\item\em Creates the window, initializes the surface and the drawing context. \end{DoxyCompactList}\item 
+\hyperlink{structGraphics_a7841c9a961ac9bca33bd30ddf8066cdb}{$\sim$\+Graphics} ()\hypertarget{structGraphics_a7841c9a961ac9bca33bd30ddf8066cdb}{}\label{structGraphics_a7841c9a961ac9bca33bd30ddf8066cdb}
+
+\begin{DoxyCompactList}\small\item\em Frees the resources. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphics_aa467e53017741e5e964d58c2c43ea54e}{scale} ()\hypertarget{structGraphics_aa467e53017741e5e964d58c2c43ea54e}{}\label{structGraphics_aa467e53017741e5e964d58c2c43ea54e}
+
+\begin{DoxyCompactList}\small\item\em Restores the scale to 1.\+0. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphics_a94e4fc92cbc56d3b5deaf8a08e791b8d}{translate} ()\hypertarget{structGraphics_a94e4fc92cbc56d3b5deaf8a08e791b8d}{}\label{structGraphics_a94e4fc92cbc56d3b5deaf8a08e791b8d}
+
+\begin{DoxyCompactList}\small\item\em Restores the user coordinates (0,0) to device coordinate (0,0) \end{DoxyCompactList}\item 
+void \hyperlink{structGraphics_a67e22daf21a367331c2b1cdb255ce59a}{restore} ()\hypertarget{structGraphics_a67e22daf21a367331c2b1cdb255ce59a}{}\label{structGraphics_a67e22daf21a367331c2b1cdb255ce59a}
+
+\begin{DoxyCompactList}\small\item\em Restores both the scale to 1.\+0 and translation to make the origin same in both user and device coordinates. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphics_a9af634ab9bb4a6272cedf7aeb6fcb33f}{scale} (double factor)
+\begin{DoxyCompactList}\small\item\em Scales the graphical representation of the (partial) domain graph. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphics_abe26afa57385b735253726b8e34143d9}{update\+Window\+Size} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Update the size of the window and the drawing surface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structGraphics_a08ef5c048c2699a1bd2ee000eb9a5632}{window\+X\+Size} = 500\hypertarget{structGraphics_a08ef5c048c2699a1bd2ee000eb9a5632}{}\label{structGraphics_a08ef5c048c2699a1bd2ee000eb9a5632}
+
+\begin{DoxyCompactList}\small\item\em the x-\/dimension of the window \end{DoxyCompactList}\item 
+int \hyperlink{structGraphics_ad3851ef75738fa79ac8942df532f2b16}{window\+Y\+Size} = 500\hypertarget{structGraphics_ad3851ef75738fa79ac8942df532f2b16}{}\label{structGraphics_ad3851ef75738fa79ac8942df532f2b16}
+
+\begin{DoxyCompactList}\small\item\em the y-\/dimension of the window \end{DoxyCompactList}\item 
+int \hyperlink{structGraphics_a010c97c47dc7c138dbd967bff45ef05d}{sizeX} = 500\hypertarget{structGraphics_a010c97c47dc7c138dbd967bff45ef05d}{}\label{structGraphics_a010c97c47dc7c138dbd967bff45ef05d}
+
+\begin{DoxyCompactList}\small\item\em the x-\/dimension of the drawing with the current scaling factor. \end{DoxyCompactList}\item 
+int \hyperlink{structGraphics_ae901ea1e9a4b34bb67f460874255e8b1}{sizeY} = 500\hypertarget{structGraphics_ae901ea1e9a4b34bb67f460874255e8b1}{}\label{structGraphics_ae901ea1e9a4b34bb67f460874255e8b1}
+
+\begin{DoxyCompactList}\small\item\em the y-\/dimension of the drawing with the current scaling factor. \end{DoxyCompactList}\item 
+double \hyperlink{structGraphics_acbb032725cc5455962da4f08eda54dbf}{margin} = 1.\+0\hypertarget{structGraphics_acbb032725cc5455962da4f08eda54dbf}{}\label{structGraphics_acbb032725cc5455962da4f08eda54dbf}
+
+\begin{DoxyCompactList}\small\item\em The factor of window width/height added to the drawing surface compared to the window size on each side. For example, margin==1.\+0 means that the dimensions of the drawing surface are three times larger than the corresponding dimensions of the window. \end{DoxyCompactList}\item 
+double \hyperlink{structGraphics_aa2df2655edc4bc0ea99147b8daab1dd0}{scale\+Factor} = 1.\+0\hypertarget{structGraphics_aa2df2655edc4bc0ea99147b8daab1dd0}{}\label{structGraphics_aa2df2655edc4bc0ea99147b8daab1dd0}
+
+\begin{DoxyCompactList}\small\item\em Current scaling factor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf The information needed for drawing.}\par
+{\em Please refer to \href{https://www.cairographics.org/Xlib/}{\tt https\+://www.\+cairographics.\+org/\+Xlib/} for more information. }\begin{DoxyCompactItemize}
+\item 
+Display $\ast$ {\bfseries display} \{\}\hypertarget{structGraphics_a371a8ff8f34c4d96a259269f5662a614}{}\label{structGraphics_a371a8ff8f34c4d96a259269f5662a614}
+
+\item 
+Window {\bfseries w}\hypertarget{structGraphics_ad9ab0f65602f4d2fbe99e91a3ec4da5b}{}\label{structGraphics_ad9ab0f65602f4d2fbe99e91a3ec4da5b}
+
+\item 
+Window {\bfseries root}\hypertarget{structGraphics_a1cc34948659fb569cc66b2ad9b197637}{}\label{structGraphics_a1cc34948659fb569cc66b2ad9b197637}
+
+\item 
+cairo\+\_\+surface\+\_\+t $\ast$ {\bfseries surface} \{\}\hypertarget{structGraphics_a6f12e34cca00e2b761666a26d988897f}{}\label{structGraphics_a6f12e34cca00e2b761666a26d988897f}
+
+\item 
+cairo\+\_\+t $\ast$ {\bfseries cr} \{\}\hypertarget{structGraphics_ad2025f409fd7c00944183dd97fcc039f}{}\label{structGraphics_ad2025f409fd7c00944183dd97fcc039f}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Top-\/left corner of the drawing.}\par
+{\em Device coordinates of the top-\/left corner of the drawing surface at the time of the last re-\/drawing. }\begin{DoxyCompactItemize}
+\item 
+double {\bfseries zeroX} = 0.\+0\hypertarget{structGraphics_a9d60d8901c5220488c2da6a942811752}{}\label{structGraphics_a9d60d8901c5220488c2da6a942811752}
+
+\item 
+double {\bfseries zeroY} = 0.\+0\hypertarget{structGraphics_adcab16f1bc39b82caf208fa5890a89d7}{}\label{structGraphics_adcab16f1bc39b82caf208fa5890a89d7}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsubsection{Detailed Description}
+Objects of this class hold all the information needed for drawing. 
+
+Definition at line 9 of file graphics\+\_\+object.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Graphics@{Graphics}!scale@{scale}}
+\index{scale@{scale}!Graphics@{Graphics}}
+\paragraph[{\texorpdfstring{scale(double factor)}{scale(double factor)}}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::scale (
+\begin{DoxyParamCaption}
+\item[{double}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structGraphics_a9af634ab9bb4a6272cedf7aeb6fcb33f}{}\label{structGraphics_a9af634ab9bb4a6272cedf7aeb6fcb33f}
+
+
+Scales the graphical representation of the (partial) domain graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em factor} & The scaling factor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file graphics\+\_\+object.\+h.
+
+\index{Graphics@{Graphics}!update\+Window\+Size@{update\+Window\+Size}}
+\index{update\+Window\+Size@{update\+Window\+Size}!Graphics@{Graphics}}
+\paragraph[{\texorpdfstring{update\+Window\+Size(int x, int y)}{updateWindowSize(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::update\+Window\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structGraphics_abe26afa57385b735253726b8e34143d9}{}\label{structGraphics_abe26afa57385b735253726b8e34143d9}
+
+
+Update the size of the window and the drawing surface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & New x-\/dimension of the window. \\
+\hline
+{\em y} & New y-\/dimension of the window. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file graphics\+\_\+object.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{graphics__object_8h}{graphics\+\_\+object.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,238 @@
+\hypertarget{structAllMenus}{}\subsection{All\+Menus$<$ Node $>$ Struct Template Reference}
+\label{structAllMenus}\index{All\+Menus$<$ Node $>$@{All\+Menus$<$ Node $>$}}
+
+
+A holder for all the menus with an indicator of which menu and form are currently active.  
+
+
+
+
+{\ttfamily \#include $<$menus.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structAllMenus_a527325d893a588fd01389fb752955278}{All\+Menus} (\hyperlink{structVisualizerData}{Visualizer\+Data}$<$ Node $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Initializes all the menus and sets the root menu as the current menu. \end{DoxyCompactList}\item 
+\hyperlink{structAllMenus_ae635f658d90c70ff7dcf874e7e02b402}{$\sim$\+All\+Menus} ()\hypertarget{structAllMenus_ae635f658d90c70ff7dcf874e7e02b402}{}\label{structAllMenus_ae635f658d90c70ff7dcf874e7e02b402}
+
+\begin{DoxyCompactList}\small\item\em Destroys the current menu. \end{DoxyCompactList}\item 
+void \hyperlink{structAllMenus_afad1364659427dc3da6bd7c6ed7fa193}{handle\+Enter} ()\hypertarget{structAllMenus_afad1364659427dc3da6bd7c6ed7fa193}{}\label{structAllMenus_afad1364659427dc3da6bd7c6ed7fa193}
+
+\begin{DoxyCompactList}\small\item\em Handles the pressed Enter key by passing it to the handler of the currently active menu. \end{DoxyCompactList}\item 
+void \hyperlink{structAllMenus_a4a7e37ec19e54266dda2e810d29dd145}{handle\+Esc} ()\hypertarget{structAllMenus_a4a7e37ec19e54266dda2e810d29dd145}{}\label{structAllMenus_a4a7e37ec19e54266dda2e810d29dd145}
+
+\begin{DoxyCompactList}\small\item\em Handles the pressed Esc key by passing it to the handler of the currently active menu. \end{DoxyCompactList}\item 
+void \hyperlink{structAllMenus_afb8cd847d5b48c078d8009d2da649053}{set\+Menu} (\hyperlink{structMenuBase}{Menu\+Base}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ $\ast$new\+Menu, \hyperlink{structLogWindow}{Log\+Window}$<$ Node $>$ \&log\+Window)
+\begin{DoxyCompactList}\small\item\em Sets the new acive menu. The previously active menu is destroyed and the new active menu is created. This was the easiest way to reset things. \end{DoxyCompactList}\item 
+\hyperlink{structMenuBase}{Menu\+Base}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ $\ast$ \hyperlink{structAllMenus_a9cea512531b7836f2597d21ba4ed3c05}{cur\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Returns the currently active menu. \end{DoxyCompactList}\item 
+\hyperlink{structForm}{Form} \& \hyperlink{structAllMenus_ae1e3a1a7363b1bf71f3f84f7ffecd7e4}{cur\+Form} ()
+\begin{DoxyCompactList}\small\item\em Returns the currently active form. \end{DoxyCompactList}\item 
+M\+E\+NU $\ast$ \hyperlink{structAllMenus_a2828529e873a27cfc66df5fc22199367}{raw} ()
+\begin{DoxyCompactList}\small\item\em Returns the currently active menu in the raw {\ttfamily ncurses} format. \end{DoxyCompactList}\item 
+std\+::vector$<$ I\+T\+EM $\ast$ $>$ \hyperlink{structAllMenus_add93d7be2cf96634cddcbaa56c8a1ff2}{menu\+Items} ()
+\begin{DoxyCompactList}\small\item\em Returns the items of the active menu in the raw {\ttfamily ncurses} format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structAllMenus_a612b3829ee9824dd9e48dd8f506eafc4}{hide\+Filtered} = true\hypertarget{structAllMenus_a612b3829ee9824dd9e48dd8f506eafc4}{}\label{structAllMenus_a612b3829ee9824dd9e48dd8f506eafc4}
+
+\begin{DoxyCompactList}\small\item\em Indicates wither the filtered out events should be shown in the events pad of the log window. Always kept in sync with \hyperlink{structLogWindow_a56d791526d401dfbaa9c582e535f3e90}{Log\+Window\+::hide\+Filtered\+\_\+}. \end{DoxyCompactList}\item 
+bool \hyperlink{structAllMenus_a97e40a3fb93df25a85c1b8f4518dd079}{show\+Labels} = false\hypertarget{structAllMenus_a97e40a3fb93df25a85c1b8f4518dd079}{}\label{structAllMenus_a97e40a3fb93df25a85c1b8f4518dd079}
+
+\begin{DoxyCompactList}\small\item\em Indicates wither the vertex and edge labels should be shown. Always kept in sync with \hyperlink{structDrawer_a9042fd2e9d4874e0ff4900ee8d97a6bf}{Drawer\+::show\+Labels\+\_\+}. \end{DoxyCompactList}\item 
+\hyperlink{structMenuMain}{Menu\+Main}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a5061de2c0d5791b4e1bd843f53de43d6}{menu\+Main}\hypertarget{structAllMenus_a5061de2c0d5791b4e1bd843f53de43d6}{}\label{structAllMenus_a5061de2c0d5791b4e1bd843f53de43d6}
+
+\begin{DoxyCompactList}\small\item\em The root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuRun}{Menu\+Run}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a13d82c597357731ab89d632721a01784}{menu\+Run}\hypertarget{structAllMenus_a13d82c597357731ab89d632721a01784}{}\label{structAllMenus_a13d82c597357731ab89d632721a01784}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing the Run option from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuEnterState}{Menu\+Enter\+State}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_afb009765aaf502a3ab3fdd5d151db952}{menu\+Enter\+State}\hypertarget{structAllMenus_afb009765aaf502a3ab3fdd5d151db952}{}\label{structAllMenus_afb009765aaf502a3ab3fdd5d151db952}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing the Search option from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuFilter}{Menu\+Filter}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a57e9685de43bbc68fb8ae47806aede25}{menu\+Filter}\hypertarget{structAllMenus_a57e9685de43bbc68fb8ae47806aede25}{}\label{structAllMenus_a57e9685de43bbc68fb8ae47806aede25}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing the \hyperlink{structFilter}{Filter} option from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuGo}{Menu\+Go}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a96f78f945e18445b528c2f13e15153d7}{menu\+Go}\hypertarget{structAllMenus_a96f78f945e18445b528c2f13e15153d7}{}\label{structAllMenus_a96f78f945e18445b528c2f13e15153d7}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Go from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuSpeed}{Menu\+Speed}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a235fc465612bfb1a04c7ad347c24bfac}{menu\+Speed}\hypertarget{structAllMenus_a235fc465612bfb1a04c7ad347c24bfac}{}\label{structAllMenus_a235fc465612bfb1a04c7ad347c24bfac}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Speed from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuSearchDirection}{Menu\+Search\+Direction}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a658f1b612d7ac62aa05ea2fb42cdd668}{menu\+Search\+Direction}\hypertarget{structAllMenus_a658f1b612d7ac62aa05ea2fb42cdd668}{}\label{structAllMenus_a658f1b612d7ac62aa05ea2fb42cdd668}
+
+\begin{DoxyCompactList}\small\item\em The menu for choosing the search direction after specifying the search in the search menu (reached when choosing the Search option from the root menu). \end{DoxyCompactList}\item 
+\hyperlink{structMenuEditFilter}{Menu\+Edit\+Filter}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_aa7c437e79545aff2b480f71521badb97}{menu\+Edit\+Filter}\hypertarget{structAllMenus_aa7c437e79545aff2b480f71521badb97}{}\label{structAllMenus_aa7c437e79545aff2b480f71521badb97}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Filter-\/$>$Edit from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuStep}{Menu\+Step}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a98de0ff50a68c211405d4942fd01e30b}{menu\+Step}\hypertarget{structAllMenus_a98de0ff50a68c211405d4942fd01e30b}{}\label{structAllMenus_a98de0ff50a68c211405d4942fd01e30b}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Step from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuJump}{Menu\+Jump}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_ab61952e51ba624cfebe0076f51ac507e}{menu\+Jump}\hypertarget{structAllMenus_ab61952e51ba624cfebe0076f51ac507e}{}\label{structAllMenus_ab61952e51ba624cfebe0076f51ac507e}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Jump from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuJumpStep}{Menu\+Jump\+Step}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_a9b58d35c1b4f82e78756e04c07b9cbf4}{menu\+Jump\+Step}\hypertarget{structAllMenus_a9b58d35c1b4f82e78756e04c07b9cbf4}{}\label{structAllMenus_a9b58d35c1b4f82e78756e04c07b9cbf4}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Jump-\/$>$Step from the root menu. \end{DoxyCompactList}\item 
+\hyperlink{structMenuLayout}{Menu\+Layout}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ \hyperlink{structAllMenus_af806a447c14dce08d834d4dc2da69ed5}{menu\+Layout}\hypertarget{structAllMenus_af806a447c14dce08d834d4dc2da69ed5}{}\label{structAllMenus_af806a447c14dce08d834d4dc2da69ed5}
+
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Layout from the root menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+M\+E\+NU $\ast$ \hyperlink{structAllMenus_aff7d2fba069f0bc987a28202992239f3}{raw\+\_\+} = nullptr\hypertarget{structAllMenus_aff7d2fba069f0bc987a28202992239f3}{}\label{structAllMenus_aff7d2fba069f0bc987a28202992239f3}
+
+\begin{DoxyCompactList}\small\item\em The currently active menu in the raw {\ttfamily ncurses} format. \end{DoxyCompactList}\item 
+\hyperlink{structMenuBase}{Menu\+Base}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$ $\ast$ \hyperlink{structAllMenus_a7ba49283dcb78afe40b4e9cb84edcdcf}{m\+\_\+} = nullptr\hypertarget{structAllMenus_a7ba49283dcb78afe40b4e9cb84edcdcf}{}\label{structAllMenus_a7ba49283dcb78afe40b4e9cb84edcdcf}
+
+\begin{DoxyCompactList}\small\item\em The currently active menu. \end{DoxyCompactList}\item 
+std\+::vector$<$ I\+T\+EM $\ast$ $>$ \hyperlink{structAllMenus_ac92c8f85c7ab34717c3857fc35205623}{menu\+Items\+\_\+}\hypertarget{structAllMenus_ac92c8f85c7ab34717c3857fc35205623}{}\label{structAllMenus_ac92c8f85c7ab34717c3857fc35205623}
+
+\begin{DoxyCompactList}\small\item\em Vector of pointers to items (in the raw {\ttfamily ncurses} format.) of the currently active menu. \end{DoxyCompactList}\item 
+int \hyperlink{structAllMenus_a0339bd5a960d04c32241237953a5627c}{max\+Menu\+Rows\+\_\+} = 3\hypertarget{structAllMenus_a0339bd5a960d04c32241237953a5627c}{}\label{structAllMenus_a0339bd5a960d04c32241237953a5627c}
+
+\begin{DoxyCompactList}\small\item\em Max number of rows in the menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node$>$\\*
+struct All\+Menus$<$ Node $>$}
+
+A holder for all the menus with an indicator of which menu and form are currently active. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 586 of file menus.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{All\+Menus@{All\+Menus}!All\+Menus@{All\+Menus}}
+\index{All\+Menus@{All\+Menus}!All\+Menus@{All\+Menus}}
+\paragraph[{\texorpdfstring{All\+Menus(\+Visualizer\+Data$<$ Node $>$ \&data)}{AllMenus(VisualizerData< Node > &data)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node$>$ {\bf All\+Menus}$<$ Node $>$\+::{\bf All\+Menus} (
+\begin{DoxyParamCaption}
+\item[{{\bf Visualizer\+Data}$<$ Node $>$ \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAllMenus_a527325d893a588fd01389fb752955278}{}\label{structAllMenus_a527325d893a588fd01389fb752955278}
+
+
+Initializes all the menus and sets the root menu as the current menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & reference to the constituent components of the visualizer. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 589 of file menus.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{All\+Menus@{All\+Menus}!cur\+Form@{cur\+Form}}
+\index{cur\+Form@{cur\+Form}!All\+Menus@{All\+Menus}}
+\paragraph[{\texorpdfstring{cur\+Form()}{curForm()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node$>$ {\bf Form}\& {\bf All\+Menus}$<$ Node $>$\+::cur\+Form (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAllMenus_ae1e3a1a7363b1bf71f3f84f7ffecd7e4}{}\label{structAllMenus_ae1e3a1a7363b1bf71f3f84f7ffecd7e4}
+
+
+Returns the currently active form. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the currently active menu. 
+\end{DoxyReturn}
+
+
+Definition at line 681 of file menus.\+h.
+
+\index{All\+Menus@{All\+Menus}!cur\+Menu@{cur\+Menu}}
+\index{cur\+Menu@{cur\+Menu}!All\+Menus@{All\+Menus}}
+\paragraph[{\texorpdfstring{cur\+Menu()}{curMenu()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node$>$ {\bf Menu\+Base}$<${\bf All\+Menus}, Node$>$$\ast$ {\bf All\+Menus}$<$ Node $>$\+::cur\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAllMenus_a9cea512531b7836f2597d21ba4ed3c05}{}\label{structAllMenus_a9cea512531b7836f2597d21ba4ed3c05}
+
+
+Returns the currently active menu. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the currently active menu. 
+\end{DoxyReturn}
+
+
+Definition at line 677 of file menus.\+h.
+
+\index{All\+Menus@{All\+Menus}!menu\+Items@{menu\+Items}}
+\index{menu\+Items@{menu\+Items}!All\+Menus@{All\+Menus}}
+\paragraph[{\texorpdfstring{menu\+Items()}{menuItems()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node$>$ std\+::vector$<$I\+T\+EM $\ast$$>$ {\bf All\+Menus}$<$ Node $>$\+::menu\+Items (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAllMenus_add93d7be2cf96634cddcbaa56c8a1ff2}{}\label{structAllMenus_add93d7be2cf96634cddcbaa56c8a1ff2}
+
+
+Returns the items of the active menu in the raw {\ttfamily ncurses} format. 
+
+\begin{DoxyReturn}{Returns}
+Vector of pointers to items (in the raw {\ttfamily ncurses} format.) of the currently active menu. 
+\end{DoxyReturn}
+
+
+Definition at line 691 of file menus.\+h.
+
+\index{All\+Menus@{All\+Menus}!raw@{raw}}
+\index{raw@{raw}!All\+Menus@{All\+Menus}}
+\paragraph[{\texorpdfstring{raw()}{raw()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node$>$ M\+E\+NU$\ast$ {\bf All\+Menus}$<$ Node $>$\+::raw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAllMenus_a2828529e873a27cfc66df5fc22199367}{}\label{structAllMenus_a2828529e873a27cfc66df5fc22199367}
+
+
+Returns the currently active menu in the raw {\ttfamily ncurses} format. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the currently active menu in the raw {\ttfamily ncurses} format. 
+\end{DoxyReturn}
+
+
+Definition at line 686 of file menus.\+h.
+
+\index{All\+Menus@{All\+Menus}!set\+Menu@{set\+Menu}}
+\index{set\+Menu@{set\+Menu}!All\+Menus@{All\+Menus}}
+\paragraph[{\texorpdfstring{set\+Menu(\+Menu\+Base$<$ All\+Menus, Node $>$ $\ast$new\+Menu, Log\+Window$<$ Node $>$ \&log\+Window)}{setMenu(MenuBase< AllMenus, Node > *newMenu, LogWindow< Node > &logWindow)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node$>$ void {\bf All\+Menus}$<$ Node $>$\+::set\+Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf Menu\+Base}$<$ {\bf All\+Menus}$<$ Node $>$, Node $>$ $\ast$}]{new\+Menu, }
+\item[{{\bf Log\+Window}$<$ Node $>$ \&}]{log\+Window}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAllMenus_afb8cd847d5b48c078d8009d2da649053}{}\label{structAllMenus_afb8cd847d5b48c078d8009d2da649053}
+
+
+Sets the new acive menu. The previously active menu is destroyed and the new active menu is created. This was the easiest way to reset things. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Menu} & The newly active menu. \\
+\hline
+{\em log\+Window} & Reference to the log window. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 661 of file menus.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{menus_8h}{menus.\+h}\end{DoxyCompactItemize}

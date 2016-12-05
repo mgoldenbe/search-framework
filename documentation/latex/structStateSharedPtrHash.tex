@@ -1,0 +1,64 @@
+\hypertarget{structStateSharedPtrHash}{}\subsection{State\+Shared\+Ptr\+Hash$<$ State $>$ Struct Template Reference}
+\label{structStateSharedPtrHash}\index{State\+Shared\+Ptr\+Hash$<$ State $>$@{State\+Shared\+Ptr\+Hash$<$ State $>$}}
+
+
+A functor for computing the hash-\/value of a search state based on a smart pointer.  
+
+
+
+
+{\ttfamily \#include $<$hash.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::size\+\_\+t \hyperlink{structStateSharedPtrHash_a9661adbae2847b90ba0bff07f5d17f43}{operator()} (const \hyperlink{classderef__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ const State $>$ \&s) const 
+\begin{DoxyCompactList}\small\item\em The call operator. Computes the hash-\/value of a search state based on a smart pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State$>$\\*
+struct State\+Shared\+Ptr\+Hash$<$ State $>$}
+
+A functor for computing the hash-\/value of a search state based on a smart pointer. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The search state type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 24 of file hash.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{State\+Shared\+Ptr\+Hash@{State\+Shared\+Ptr\+Hash}!operator()@{operator()}}
+\index{operator()@{operator()}!State\+Shared\+Ptr\+Hash@{State\+Shared\+Ptr\+Hash}}
+\paragraph[{\texorpdfstring{operator()(const deref\+\_\+shared\+\_\+ptr$<$ const State $>$ \&s) const }{operator()(const deref_shared_ptr< const State > &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ std\+::size\+\_\+t {\bf State\+Shared\+Ptr\+Hash}$<$ State $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ const State $>$ \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStateSharedPtrHash_a9661adbae2847b90ba0bff07f5d17f43}{}\label{structStateSharedPtrHash_a9661adbae2847b90ba0bff07f5d17f43}
+
+
+The call operator. Computes the hash-\/value of a search state based on a smart pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The smart pointer to the state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hash-\/value of {\ttfamily s}. 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file hash.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{hash_8h}{hash.\+h}\end{DoxyCompactItemize}

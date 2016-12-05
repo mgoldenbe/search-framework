@@ -1,0 +1,119 @@
+\hypertarget{structevent_1_1PathChange}{}\subsection{event\+:\+:Path\+Change$<$ Node $>$ Struct Template Reference}
+\label{structevent_1_1PathChange}\index{event\+::\+Path\+Change$<$ Node $>$@{event\+::\+Path\+Change$<$ Node $>$}}
+
+
+An event that applies visual changes to states and edges of the state graph along a path.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+
+
+Inheritance diagram for event\+:\+:Path\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structevent_1_1PathChange__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for event\+:\+:Path\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{structevent_1_1PathChange__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structevent_1_1PathChange_a9bca82a66498824f49c428e11172ddd5}{Direct\+Base} = \hyperlink{structevent_1_1UniformChange}{Uniform\+Change}$<$ Node $>$\hypertarget{structevent_1_1PathChange_a9bca82a66498824f49c428e11172ddd5}{}\label{structevent_1_1PathChange_a9bca82a66498824f49c428e11172ddd5}
+
+\begin{DoxyCompactList}\small\item\em The direct base class. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1PathChange_a085476f3c356f1b3bd2474d312eb95b0}{State\+Set} = typename \hyperlink{structevent_1_1UniformChange_a71997f4cc920d6c5c65fab2049d5e42d}{Direct\+Base\+::\+State\+Set}\hypertarget{structevent_1_1PathChange_a085476f3c356f1b3bd2474d312eb95b0}{}\label{structevent_1_1PathChange_a085476f3c356f1b3bd2474d312eb95b0}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating states. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1PathChange_a871f9d2b34bc3ca51984d3248000daa3}{Edge\+Set} = typename \hyperlink{structevent_1_1UniformChange_a01841b7c7ff05760a96c8b239f82a29c}{Direct\+Base\+::\+Edge\+Set}\hypertarget{structevent_1_1PathChange_a871f9d2b34bc3ca51984d3248000daa3}{}\label{structevent_1_1PathChange_a871f9d2b34bc3ca51984d3248000daa3}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating edges of the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structevent_1_1PathChange_ac59e743e16542351947d4eabc9a614c0}{participants} (\hyperlink{structevent_1_1UniformChange_a71997f4cc920d6c5c65fab2049d5e42d}{State\+Set} \&states, \hyperlink{structevent_1_1UniformChange_a01841b7c7ff05760a96c8b239f82a29c}{Edge\+Set} \&edges) const 
+\begin{DoxyCompactList}\small\item\em Fills out the sets of participating states and edges of the state graph. In this case, these are states and edges along the path returned by the \hyperlink{structevent_1_1PathChange_a60309c4327aa98364fdc2d6d49b49358}{path} method. \end{DoxyCompactList}\item 
+virtual \hyperlink{structevent_1_1UniformChange_a71997f4cc920d6c5c65fab2049d5e42d}{State\+Set} \hyperlink{structevent_1_1PathChange_a60309c4327aa98364fdc2d6d49b49358}{path} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the path to which the visual changes are applied. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct event\+::\+Path\+Change$<$ Node $>$}
+
+An event that applies visual changes to states and edges of the state graph along a path. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 159 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{event\+::\+Path\+Change@{event\+::\+Path\+Change}!participants@{participants}}
+\index{participants@{participants}!event\+::\+Path\+Change@{event\+::\+Path\+Change}}
+\paragraph[{\texorpdfstring{participants(\+State\+Set \&states, Edge\+Set \&edges) const }{participants(StateSet &states, EdgeSet &edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual void {\bf event\+::\+Path\+Change}$<$ Node $>$\+::participants (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+Set} \&}]{states, }
+\item[{{\bf Edge\+Set} \&}]{edges}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structevent_1_1PathChange_ac59e743e16542351947d4eabc9a614c0}{}\label{structevent_1_1PathChange_ac59e743e16542351947d4eabc9a614c0}
+
+
+Fills out the sets of participating states and edges of the state graph. In this case, these are states and edges along the path returned by the \hyperlink{structevent_1_1PathChange_a60309c4327aa98364fdc2d6d49b49358}{path} method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em states} & The set of participating states to be filled out. In this case, these are states along the path returned by the \hyperlink{structevent_1_1PathChange_a60309c4327aa98364fdc2d6d49b49358}{path} method. \\
+\hline
+{\em edges} & The set of participating edges to be filled out. In this case, these are edges along the path returned by the \hyperlink{structevent_1_1PathChange_a60309c4327aa98364fdc2d6d49b49358}{path} method. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{structevent_1_1UniformChange_a582bd18d2ec423a5baf7e6b9263ae762}{event\+::\+Uniform\+Change$<$ Node $>$}.
+
+
+
+Definition at line 180 of file headers.\+h.
+
+\index{event\+::\+Path\+Change@{event\+::\+Path\+Change}!path@{path}}
+\index{path@{path}!event\+::\+Path\+Change@{event\+::\+Path\+Change}}
+\paragraph[{\texorpdfstring{path() const =0}{path() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual {\bf State\+Set} {\bf event\+::\+Path\+Change}$<$ Node $>$\+::path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{structevent_1_1PathChange_a60309c4327aa98364fdc2d6d49b49358}{}\label{structevent_1_1PathChange_a60309c4327aa98364fdc2d6d49b49358}
+
+
+Returns the path to which the visual changes are applied. 
+
+\begin{DoxyReturn}{Returns}
+The states along the path to which the visual changes are applied. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{structevent_1_1SolutionPathChange_a04f9ebe9ddc1c12f18dee935ddb8bc03}{event\+::\+Solution\+Path\+Change$<$ Node $>$}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{extensions_2events_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

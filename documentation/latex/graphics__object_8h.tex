@@ -1,0 +1,55 @@
+\hypertarget{graphics__object_8h}{}\subsection{core/user\+\_\+interface/graphics\+\_\+object.h File Reference}
+\label{graphics__object_8h}\index{core/user\+\_\+interface/graphics\+\_\+object.\+h@{core/user\+\_\+interface/graphics\+\_\+object.\+h}}
+
+
+Facilities for manipulating the drawing surface.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{graphics__object_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1Graphics}{slb\+::core\+::ui\+::\+Graphics}
+\begin{DoxyCompactList}\small\item\em Objects of this class hold all the information needed for drawing. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1PatternLock}{slb\+::core\+::ui\+::\+Pattern\+Lock}
+\begin{DoxyCompactList}\small\item\em Implements a R\+A\+II technique to save and restore the current drawing. This can be used, for example, to shift the whole drawing (all one needs to do is to translate the drawing after acquiring a \hyperlink{structslb_1_1core_1_1ui_1_1PatternLock}{Pattern\+Lock}). \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1GroupLock}{slb\+::core\+::ui\+::\+Group\+Lock}
+\begin{DoxyCompactList}\small\item\em A \hyperlink{structslb_1_1core_1_1ui_1_1GroupLock}{Group\+Lock} object is created in order that the following drawing is done in a group, possibly on top of the current drawing. ~\newline
+It cares for a lot of nitty-\/gritty details without which strange things happen. ~\newline
+Uses \hyperlink{structslb_1_1core_1_1ui_1_1PatternLock}{Pattern\+Lock} to implement its functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1ui}{slb\+::core\+::ui}
+\begin{DoxyCompactList}\small\item\em The user interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceslb_1_1core_1_1ui_ac32e15bebf42bd64ce1dd79b29fd4060}{slb\+::core\+::ui\+::delta\+Translate} (Graphics \&g, double \&deltaX, double \&deltaY, bool abs\+Flag=true)
+\begin{DoxyCompactList}\small\item\em Computes the drawing translation since the last re-\/drawing. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1ui_afd86604f78b366f9c76a1a6789b25ae6}{slb\+::core\+::ui\+::reset\+Origin} (Graphics \&g)
+\begin{DoxyCompactList}\small\item\em Sets {\ttfamily g.\+zeroX} and {\ttfamily g.\+zeroY} to the current device coordinates of the top-\/left corner of the drawing (including the clipped part). After this, \hyperlink{namespaceslb_1_1core_1_1ui_ac32e15bebf42bd64ce1dd79b29fd4060}{delta\+Translate} computes the translation of zero along both dimensions. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1ui_a53e1eecbdf9fc3968ec3329cd8037d8b}{slb\+::core\+::ui\+::delta\+TranslateX} (Graphics \&g)
+\begin{DoxyCompactList}\small\item\em Computes the drawing translation along the X-\/dimension since the last re-\/drawing. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1ui_a34759b10173dfdb7d3039fd8ef723467}{slb\+::core\+::ui\+::delta\+TranslateY} (Graphics \&g)
+\begin{DoxyCompactList}\small\item\em Computes the drawing translation along the Y-\/dimension since the last re-\/drawing. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceslb_1_1core_1_1ui_a1e3c4987555edac188707140195b73bb}{slb\+::core\+::ui\+::redraw} (Graphics \&g)
+\begin{DoxyCompactList}\small\item\em Determines whether the translation exceeds the margin, in which case some of the clipped off area will need to be loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Facilities for manipulating the drawing surface. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

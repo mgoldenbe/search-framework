@@ -1,0 +1,450 @@
+\hypertarget{structslb_1_1core_1_1sb_1_1GridMap}{}\subsection{slb\+:\+:core\+:\+:sb\+:\+:Grid\+Map$<$ Cost\+Type\+\_\+ $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1sb_1_1GridMap}\index{slb\+::core\+::sb\+::\+Grid\+Map$<$ Cost\+Type\+\_\+ $>$@{slb\+::core\+::sb\+::\+Grid\+Map$<$ Cost\+Type\+\_\+ $>$}}
+
+
+The type for 4 or 8-\/connected grid explicit domain.  
+
+
+
+
+{\ttfamily \#include $<$grid\+\_\+map.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a7e34c6c6b867bb15e2062f5c9ae3458c}{Cost\+Type} = Cost\+Type\+\_\+\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a7e34c6c6b867bb15e2062f5c9ae3458c}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a7e34c6c6b867bb15e2062f5c9ae3458c}
+
+\begin{DoxyCompactList}\small\item\em Type for action cost in the search domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} = int\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{}\label{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}
+
+\begin{DoxyCompactList}\small\item\em The type used internally by this explicit space to represent a state. To distinguish this state type from the state type used by search algorithms, we call this state type {\ttfamily location}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a55ee78cfbd7a6cb6f39796b9009167e2}{Grid\+Map} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Initializes the grid based on the contents of the given file. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_aff0cbd3845da8e84f6f65c82285af135}{location} (int r, int c) const 
+\begin{DoxyCompactList}\small\item\em Returns location based on row and column in the grid. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a9c090d9a064d8da8518a2443f50882ff}{row} (\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} loc) const 
+\begin{DoxyCompactList}\small\item\em Returns row based on location. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a55dcbbc6f1ef1c1447113a1df96c3f85}{column} (\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} loc) const 
+\begin{DoxyCompactList}\small\item\em Returns column based on location. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a627a821c61ac847aebbe2a4ac90355fe}{passable} (int r, int c) const 
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the location {\ttfamily }(r,c) is passable and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_aa3e65ae4681eee4a020ad87192d99ebb}{passable} (\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} loc) const 
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the location {\ttfamily loc} is passable and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor $>$ }\\std\+::vector$<$ Neighbor $>$ \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a278fdbb3d1d8e394f4c180ff5b011f34}{neighbors} (int loc) const 
+\begin{DoxyCompactList}\small\item\em Computes the set of neighbors of the given location. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a6887d7a53491a61b67fe9f17007a71d4}{location} (const std\+::string str) const 
+\begin{DoxyCompactList}\small\item\em Returns a location based on the given string, e.\+g. \char`\"{}\mbox{[}105, 400\mbox{]}\char`\"{}. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a2c7b8171037751b9a12a185d7bc55123}{random} () const 
+\begin{DoxyCompactList}\small\item\em Returns a random location. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a5d504373b0edd401eed70460e81a8965}{default\+Location} () const 
+\begin{DoxyCompactList}\small\item\em Returns the default location. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a7e34c6c6b867bb15e2062f5c9ae3458c}{Cost\+Type} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_adcf846e0ae2d5fe0bfad3e69662374ed}{manhattan} (\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_aff0cbd3845da8e84f6f65c82285af135}{location}, \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} goal) const 
+\begin{DoxyCompactList}\small\item\em Computes the Manhattan distance heuristic. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a7e34c6c6b867bb15e2062f5c9ae3458c}{Cost\+Type} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a317a84378468f39ab5450de7eb29ef0d}{octile} (\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_aff0cbd3845da8e84f6f65c82285af135}{location}, \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} goal) const 
+\begin{DoxyCompactList}\small\item\em Computes the octile distance heuristic. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a9cfb469ec32dd84b339f3ecf05339cdd}{location\+Short\+Str} (\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_aff0cbd3845da8e84f6f65c82285af135}{location}) const 
+\begin{DoxyCompactList}\small\item\em Returns the string representation of the given location. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_acaeba8512098541db61ed0c3cb36c0a5}{location\+Str} (\hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_aff0cbd3845da8e84f6f65c82285af135}{location}) const 
+\begin{DoxyCompactList}\small\item\em Returns the string representation of the given location. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Neighbor $>$ }\\void \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a6ce65b56e3b50be31600ec13f012b8ab}{add\+Neighbor} (std\+::vector$<$ Neighbor $>$ \&res, \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ad7f78dfb03ac219e9f9047c17996d9f5}{Location} n, bool diagonal\+Flag=false) const 
+\begin{DoxyCompactList}\small\item\em Adds a neighbor corresponding to the given location to the given set of neighbors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ bool $>$ \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a18d734925993bdd03ded2787cb95dbab}{v\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a18d734925993bdd03ded2787cb95dbab}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a18d734925993bdd03ded2787cb95dbab}
+
+\begin{DoxyCompactList}\small\item\em The encoding of the map. {\ttfamily true} stands for passable, {\ttfamily false} stands for impassable. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_ae6ab38febeefca1ed099e27f1a83161c}{width\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_ae6ab38febeefca1ed099e27f1a83161c}{}\label{structslb_1_1core_1_1sb_1_1GridMap_ae6ab38febeefca1ed099e27f1a83161c}
+
+\begin{DoxyCompactList}\small\item\em Map\textquotesingle{}s width (i.\+e. number of columns). \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a985a6ce6e8b28bb2500a2d8065474b1a}{height\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a985a6ce6e8b28bb2500a2d8065474b1a}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a985a6ce6e8b28bb2500a2d8065474b1a}
+
+\begin{DoxyCompactList}\small\item\em Map\textquotesingle{}s height (i.\+e. number of rows). \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a11c8e0fecc93bbf1830404b6bb07db3a}{octile\+Flag\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a11c8e0fecc93bbf1830404b6bb07db3a}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a11c8e0fecc93bbf1830404b6bb07db3a}
+
+\begin{DoxyCompactList}\small\item\em If {\ttfamily true}, the map is 8-\/connected; otherwise, the map is 4-\/connected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename Cost\+Type\+\_\+$>$\\*
+struct slb\+::core\+::sb\+::\+Grid\+Map$<$ Cost\+Type\+\_\+ $>$}
+
+The type for 4 or 8-\/connected grid explicit domain. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Cost\+Type\+\_\+} & Type for action cost in the search domain. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 24 of file grid\+\_\+map.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!Grid\+Map@{Grid\+Map}}
+\index{Grid\+Map@{Grid\+Map}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{Grid\+Map(std\+::string file\+Name)}{GridMap(std::string fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::{\bf Grid\+Map} (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a55ee78cfbd7a6cb6f39796b9009167e2}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a55ee78cfbd7a6cb6f39796b9009167e2}
+
+
+Initializes the grid based on the contents of the given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file that stores the grid. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file grid\+\_\+map.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!add\+Neighbor@{add\+Neighbor}}
+\index{add\+Neighbor@{add\+Neighbor}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{add\+Neighbor(std\+::vector$<$ Neighbor $>$ \&res, Location n, bool diagonal\+Flag=false) const }{addNeighbor(std::vector< Neighbor > &res, Location n, bool diagonalFlag=false) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ template$<$class Neighbor $>$ void {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::add\+Neighbor (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ Neighbor $>$ \&}]{res, }
+\item[{{\bf Location}}]{n, }
+\item[{bool}]{diagonal\+Flag = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a6ce65b56e3b50be31600ec13f012b8ab}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a6ce65b56e3b50be31600ec13f012b8ab}
+
+
+Adds a neighbor corresponding to the given location to the given set of neighbors. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The type for a single neighbor of a given state. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em res} & The set of neighbors to be updated. \\
+\hline
+{\em n} & The location whose corresponding state is to be added. \\
+\hline
+{\em diagonal\+Flag} & {\ttfamily true} indicates that a diagonal move led to {\ttfamily n}. {\ttfamily false} indicates that a straight move led to {\ttfamily n}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The {\ttfamily Neighbor} type holds the states as used by the search algorithms, not locations. This is done to avoid extra copying. 
+\end{DoxyNote}
+
+
+Definition at line 212 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!column@{column}}
+\index{column@{column}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{column(\+Location loc) const }{column(Location loc) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ int {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::column (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a55dcbbc6f1ef1c1447113a1df96c3f85}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a55dcbbc6f1ef1c1447113a1df96c3f85}
+
+
+Returns column based on location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & The location. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The column corresponding to {\ttfamily loc}. 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!default\+Location@{default\+Location}}
+\index{default\+Location@{default\+Location}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{default\+Location() const }{defaultLocation() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf Location} {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::default\+Location (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a5d504373b0edd401eed70460e81a8965}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a5d504373b0edd401eed70460e81a8965}
+
+
+Returns the default location. 
+
+\begin{DoxyReturn}{Returns}
+The default location. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Right now this function simply calls \hyperlink{structslb_1_1core_1_1sb_1_1GridMap_a2c7b8171037751b9a12a185d7bc55123}{random}. 
+\end{DoxyNote}
+
+
+Definition at line 154 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!location@{location}}
+\index{location@{location}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{location(int r, int c) const }{location(int r, int c) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf Location} {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::location (
+\begin{DoxyParamCaption}
+\item[{int}]{r, }
+\item[{int}]{c}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_aff0cbd3845da8e84f6f65c82285af135}{}\label{structslb_1_1core_1_1sb_1_1GridMap_aff0cbd3845da8e84f6f65c82285af135}
+
+
+Returns location based on row and column in the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The row. \\
+\hline
+{\em c} & The column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The location corresponding to the position {\ttfamily }(r,c) in the grid. 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!location@{location}}
+\index{location@{location}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{location(const std\+::string str) const }{location(const std::string str) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf Location} {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::location (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{str}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a6887d7a53491a61b67fe9f17007a71d4}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a6887d7a53491a61b67fe9f17007a71d4}
+
+
+Returns a location based on the given string, e.\+g. \char`\"{}\mbox{[}105, 400\mbox{]}\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The location based on the given string. 
+\end{DoxyReturn}
+
+
+Definition at line 131 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!location\+Short\+Str@{location\+Short\+Str}}
+\index{location\+Short\+Str@{location\+Short\+Str}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{location\+Short\+Str(\+Location location) const }{locationShortStr(Location location) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ std\+::string {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::location\+Short\+Str (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{location}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a9cfb469ec32dd84b339f3ecf05339cdd}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a9cfb469ec32dd84b339f3ecf05339cdd}
+
+
+Returns the string representation of the given location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The location whose string representation is needed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representation of {\ttfamily location}. 
+\end{DoxyReturn}
+
+
+Definition at line 181 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!location\+Str@{location\+Str}}
+\index{location\+Str@{location\+Str}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{location\+Str(\+Location location) const }{locationStr(Location location) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ std\+::string {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::location\+Str (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{location}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_acaeba8512098541db61ed0c3cb36c0a5}{}\label{structslb_1_1core_1_1sb_1_1GridMap_acaeba8512098541db61ed0c3cb36c0a5}
+
+
+Returns the string representation of the given location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The location whose string representation is needed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representation of {\ttfamily location}. 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!manhattan@{manhattan}}
+\index{manhattan@{manhattan}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{manhattan(\+Location location, Location goal) const }{manhattan(Location location, Location goal) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf Cost\+Type} {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::manhattan (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{location, }
+\item[{{\bf Location}}]{goal}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_adcf846e0ae2d5fe0bfad3e69662374ed}{}\label{structslb_1_1core_1_1sb_1_1GridMap_adcf846e0ae2d5fe0bfad3e69662374ed}
+
+
+Computes the Manhattan distance heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The location from which the heuristic is required. \\
+\hline
+{\em goal} & The location to which the heuristic is required. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Manhattan distance heuristic from {\ttfamily location} to {\ttfamily goal}. 
+\end{DoxyReturn}
+
+
+Definition at line 162 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!neighbors@{neighbors}}
+\index{neighbors@{neighbors}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{neighbors(int loc) const }{neighbors(int loc) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ template$<$class Neighbor $>$ std\+::vector$<$Neighbor$>$ {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::neighbors (
+\begin{DoxyParamCaption}
+\item[{int}]{loc}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a278fdbb3d1d8e394f4c180ff5b011f34}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a278fdbb3d1d8e394f4c180ff5b011f34}
+
+
+Computes the set of neighbors of the given location. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The type for a single neighbor of a given state. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & The location whose set of neighbors is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The set of neighbors of the given location. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The {\ttfamily Neighbor} type holds the states as used by the search algorithms, not locations. This is done to avoid extra copying. 
+\end{DoxyNote}
+
+
+Definition at line 97 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!octile@{octile}}
+\index{octile@{octile}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{octile(\+Location location, Location goal) const }{octile(Location location, Location goal) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf Cost\+Type} {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::octile (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{location, }
+\item[{{\bf Location}}]{goal}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a317a84378468f39ab5450de7eb29ef0d}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a317a84378468f39ab5450de7eb29ef0d}
+
+
+Computes the octile distance heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The location from which the heuristic is required. \\
+\hline
+{\em goal} & The location to which the heuristic is required. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The octile distance heuristic from {\ttfamily location} to {\ttfamily goal}. 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!passable@{passable}}
+\index{passable@{passable}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{passable(int r, int c) const }{passable(int r, int c) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ bool {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::passable (
+\begin{DoxyParamCaption}
+\item[{int}]{r, }
+\item[{int}]{c}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a627a821c61ac847aebbe2a4ac90355fe}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a627a821c61ac847aebbe2a4ac90355fe}
+
+
+Returns {\ttfamily true} if the location {\ttfamily }(r,c) is passable and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the location {\ttfamily }(r,c) is passable and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!passable@{passable}}
+\index{passable@{passable}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{passable(\+Location loc) const }{passable(Location loc) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ bool {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::passable (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_aa3e65ae4681eee4a020ad87192d99ebb}{}\label{structslb_1_1core_1_1sb_1_1GridMap_aa3e65ae4681eee4a020ad87192d99ebb}
+
+
+Returns {\ttfamily true} if the location {\ttfamily loc} is passable and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the location {\ttfamily loc} is passable and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!random@{random}}
+\index{random@{random}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{random() const }{random() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf Location} {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a2c7b8171037751b9a12a185d7bc55123}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a2c7b8171037751b9a12a185d7bc55123}
+
+
+Returns a random location. 
+
+\begin{DoxyReturn}{Returns}
+A random location. 
+\end{DoxyReturn}
+
+
+Definition at line 139 of file grid\+\_\+map.\+h.
+
+\index{slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}!row@{row}}
+\index{row@{row}!slb\+::core\+::sb\+::\+Grid\+Map@{slb\+::core\+::sb\+::\+Grid\+Map}}
+\paragraph[{\texorpdfstring{row(\+Location loc) const }{row(Location loc) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ int {\bf slb\+::core\+::sb\+::\+Grid\+Map}$<$ Cost\+Type\+\_\+ $>$\+::row (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1GridMap_a9c090d9a064d8da8518a2443f50882ff}{}\label{structslb_1_1core_1_1sb_1_1GridMap_a9c090d9a064d8da8518a2443f50882ff}
+
+
+Returns row based on location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & The location. \textbackslash{} return The row corresponding to {\ttfamily loc}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file grid\+\_\+map.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{grid__map_8h}{grid\+\_\+map.\+h}\end{DoxyCompactItemize}

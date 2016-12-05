@@ -1,0 +1,58 @@
+\hypertarget{structdomain_1_1pancake_1_1DynamicGapHeuristic}{}\subsection{domain\+:\+:pancake\+:\+:Dynamic\+Gap\+Heuristic Struct Reference}
+\label{structdomain_1_1pancake_1_1DynamicGapHeuristic}\index{domain\+::pancake\+::\+Dynamic\+Gap\+Heuristic@{domain\+::pancake\+::\+Dynamic\+Gap\+Heuristic}}
+
+
+Functor for computing the dynamic gap heuristic to the goal state with ordered pancakes.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structdomain_1_1pancake_1_1DynamicGapHeuristic_a07309831bacb18920f9b3b2a6f4b72a2}{Dynamic\+Gap\+Heuristic} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&)\hypertarget{structdomain_1_1pancake_1_1DynamicGapHeuristic_a07309831bacb18920f9b3b2a6f4b72a2}{}\label{structdomain_1_1pancake_1_1DynamicGapHeuristic_a07309831bacb18920f9b3b2a6f4b72a2}
+
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor $>$ }\\int \hyperlink{structdomain_1_1pancake_1_1DynamicGapHeuristic_ad53e1c9a3fd4e4cc5191ff61ca5f3ba1}{operator()} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&parent, \hyperlink{structdomain_1_1pancake_1_1Pancake_a7805c33e70c8dd2859c7e93148575239}{Pancake\+::\+Cost\+Type}, const Neighbor \&n) const 
+\begin{DoxyCompactList}\small\item\em The call operator. Dynamically computes the gap heuristic that results from applying a given action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Functor for computing the dynamic gap heuristic to the goal state with ordered pancakes. 
+
+Definition at line 234 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{domain\+::pancake\+::\+Dynamic\+Gap\+Heuristic@{domain\+::pancake\+::\+Dynamic\+Gap\+Heuristic}!operator()@{operator()}}
+\index{operator()@{operator()}!domain\+::pancake\+::\+Dynamic\+Gap\+Heuristic@{domain\+::pancake\+::\+Dynamic\+Gap\+Heuristic}}
+\paragraph[{\texorpdfstring{operator()(const Pancake \&parent, Pancake\+::\+Cost\+Type, const Neighbor \&n) const }{operator()(const Pancake &parent, Pancake::CostType, const Neighbor &n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Neighbor $>$ int domain\+::pancake\+::\+Dynamic\+Gap\+Heuristic\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pancake} \&}]{parent, }
+\item[{{\bf Pancake\+::\+Cost\+Type}}]{, }
+\item[{const Neighbor \&}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1DynamicGapHeuristic_ad53e1c9a3fd4e4cc5191ff61ca5f3ba1}{}\label{structdomain_1_1pancake_1_1DynamicGapHeuristic_ad53e1c9a3fd4e4cc5191ff61ca5f3ba1}
+
+
+The call operator. Dynamically computes the gap heuristic that results from applying a given action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent state. \\
+\hline
+{\em n} & The neighbor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 243 of file headers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{extensions_2domains_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

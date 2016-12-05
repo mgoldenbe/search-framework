@@ -1,0 +1,4 @@
+<map id="slb::ext::policy::backtrackLock::InplaceBase&lt; MyAlgorithm &gt;" name="slb::ext::policy::backtrackLock::InplaceBase&lt; MyAlgorithm &gt;">
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace.html" title="Handles RAII for backtracking in IDA* when the state is updated in place. " alt="" coords="280,5,477,47"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4.html" title="Handles RAII for backtracking in IDA* when the state is updated in place and log is kept..." alt="" coords="284,70,473,126"/>
+</map>

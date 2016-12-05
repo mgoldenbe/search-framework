@@ -1,0 +1,160 @@
+\hypertarget{structgenerator_1_1ActionsT}{}\subsection{generator\+:\+:ActionsT$<$ My\+Algorithm, Heuristic $>$ Struct Template Reference}
+\label{structgenerator_1_1ActionsT}\index{generator\+::\+Actions\+T$<$ My\+Algorithm, Heuristic $>$@{generator\+::\+Actions\+T$<$ My\+Algorithm, Heuristic $>$}}
+
+
+Generator that generates action neighbors.  
+
+
+
+
+{\ttfamily \#include $<$generators.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structgenerator_1_1ActionsT_a40dcae773c79aa663b32c939474bcf13}{Neighbor} = typename State\+::\+A\+Neighbor\hypertarget{structgenerator_1_1ActionsT_a40dcae773c79aa663b32c939474bcf13}{}\label{structgenerator_1_1ActionsT_a40dcae773c79aa663b32c939474bcf13}
+
+\begin{DoxyCompactList}\small\item\em The search neighbor type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structgenerator_1_1ActionsT_a5cce4e0a1ecf3ab4127e83af97cad8a5}{ActionsT} (My\+Algorithm \&alg)
+\begin{DoxyCompactList}\small\item\em The contructor. \end{DoxyCompactList}\item 
+State \hyperlink{structgenerator_1_1ActionsT_a5515a3dc42d2b1081c2d683054cf2d6a}{state} (\hyperlink{structgenerator_1_1ActionsT_a40dcae773c79aa663b32c939474bcf13}{Neighbor} \&n) const 
+\begin{DoxyCompactList}\small\item\em Returns the neighbor state. \end{DoxyCompactList}\item 
+Cost\+Type \hyperlink{structgenerator_1_1ActionsT_abff2d91a6ed45e98ac65eb1b6123bfd5}{heuristic} (const \hyperlink{structgenerator_1_1ActionsT_a40dcae773c79aa663b32c939474bcf13}{Neighbor} \&n, Node $\ast$node) const 
+\begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structgenerator_1_1ActionsT_a40dcae773c79aa663b32c939474bcf13}{Neighbor} $>$ \hyperlink{structgenerator_1_1ActionsT_a9ae350b07ca2c4b95c819ac727454f14}{successors} (const State \&s) const 
+\begin{DoxyCompactList}\small\item\em Computes the successors of the given state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+My\+Algorithm \& \hyperlink{structgenerator_1_1ActionsT_ae911ab6d018dbea9c1f57fccd9f5c954}{alg\+\_\+}\hypertarget{structgenerator_1_1ActionsT_ae911ab6d018dbea9c1f57fccd9f5c954}{}\label{structgenerator_1_1ActionsT_ae911ab6d018dbea9c1f57fccd9f5c954}
+
+\begin{DoxyCompactList}\small\item\em Reference to the search algorithm. \end{DoxyCompactList}\item 
+Heuristic$<$ My\+Algorithm $>$ \hyperlink{structgenerator_1_1ActionsT_aa6aee0841e32bbc28f7f042976701ec1}{heuristic\+\_\+}\hypertarget{structgenerator_1_1ActionsT_aa6aee0841e32bbc28f7f042976701ec1}{}\label{structgenerator_1_1ActionsT_aa6aee0841e32bbc28f7f042976701ec1}
+
+\begin{DoxyCompactList}\small\item\em The heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm, template$<$ class $>$ class Heuristic$>$\\*
+struct generator\+::\+Actions\+T$<$ My\+Algorithm, Heuristic $>$}
+
+Generator that generates action neighbors. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+{\em Heuristic} & The heuristic policy. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 62 of file generators.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{generator\+::\+ActionsT@{generator\+::\+ActionsT}!ActionsT@{ActionsT}}
+\index{ActionsT@{ActionsT}!generator\+::\+ActionsT@{generator\+::\+ActionsT}}
+\paragraph[{\texorpdfstring{Actions\+T(\+My\+Algorithm \&alg)}{ActionsT(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ {\bf generator\+::\+ActionsT}$<$ My\+Algorithm, Heuristic $>$\+::{\bf ActionsT} (
+\begin{DoxyParamCaption}
+\item[{My\+Algorithm \&}]{alg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structgenerator_1_1ActionsT_a5cce4e0a1ecf3ab4127e83af97cad8a5}{}\label{structgenerator_1_1ActionsT_a5cce4e0a1ecf3ab4127e83af97cad8a5}
+
+
+The contructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & Reference to the search algorithm. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file generators.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{generator\+::\+ActionsT@{generator\+::\+ActionsT}!heuristic@{heuristic}}
+\index{heuristic@{heuristic}!generator\+::\+ActionsT@{generator\+::\+ActionsT}}
+\paragraph[{\texorpdfstring{heuristic(const Neighbor \&n, Node $\ast$node) const }{heuristic(const Neighbor &n, Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ Cost\+Type {\bf generator\+::\+ActionsT}$<$ My\+Algorithm, Heuristic $>$\+::heuristic (
+\begin{DoxyParamCaption}
+\item[{const {\bf Neighbor} \&}]{n, }
+\item[{Node $\ast$}]{node}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structgenerator_1_1ActionsT_abff2d91a6ed45e98ac65eb1b6123bfd5}{}\label{structgenerator_1_1ActionsT_abff2d91a6ed45e98ac65eb1b6123bfd5}
+
+
+Computes the heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neighbor for which the heuristic is to be computed. \\
+\hline
+{\em node} & The search node for which the heuristic is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic value. 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file generators.\+h.
+
+\index{generator\+::\+ActionsT@{generator\+::\+ActionsT}!state@{state}}
+\index{state@{state}!generator\+::\+ActionsT@{generator\+::\+ActionsT}}
+\paragraph[{\texorpdfstring{state(\+Neighbor \&n) const }{state(Neighbor &n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ State {\bf generator\+::\+ActionsT}$<$ My\+Algorithm, Heuristic $>$\+::state (
+\begin{DoxyParamCaption}
+\item[{{\bf Neighbor} \&}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structgenerator_1_1ActionsT_a5515a3dc42d2b1081c2d683054cf2d6a}{}\label{structgenerator_1_1ActionsT_a5515a3dc42d2b1081c2d683054cf2d6a}
+
+
+Returns the neighbor state. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the neighbor state. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This reference must be non-\/const to allow moving the neighbor 
+\end{DoxyNote}
+
+
+Definition at line 75 of file generators.\+h.
+
+\index{generator\+::\+ActionsT@{generator\+::\+ActionsT}!successors@{successors}}
+\index{successors@{successors}!generator\+::\+ActionsT@{generator\+::\+ActionsT}}
+\paragraph[{\texorpdfstring{successors(const State \&s) const }{successors(const State &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ std\+::vector$<${\bf Neighbor}$>$ {\bf generator\+::\+ActionsT}$<$ My\+Algorithm, Heuristic $>$\+::successors (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structgenerator_1_1ActionsT_a9ae350b07ca2c4b95c819ac727454f14}{}\label{structgenerator_1_1ActionsT_a9ae350b07ca2c4b95c819ac727454f14}
+
+
+Computes the successors of the given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of successors. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This member could be static; made it non-\/static for reasons of uniformity. 
+\end{DoxyNote}
+
+
+Definition at line 93 of file generators.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{generators_8h}{generators.\+h}\end{DoxyCompactItemize}

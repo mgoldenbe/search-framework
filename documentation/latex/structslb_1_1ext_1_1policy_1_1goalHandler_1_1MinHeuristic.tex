@@ -1,0 +1,164 @@
+\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Min\+Heuristic$<$ My\+Algorithm $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic}\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic$<$ My\+Algorithm $>$@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic$<$ My\+Algorithm $>$}}
+
+
+Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used.  
+
+
+
+
+{\ttfamily \#include $<$goal\+\_\+handlers.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Min\+Heuristic$<$ My\+Algorithm $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Min\+Heuristic$<$ My\+Algorithm $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_ad7cb2f43451ba91104e7668169ad78e1}{Direct\+Base} = \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal}{Multiple\+Goal}$<$ My\+Algorithm $>$\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_ad7cb2f43451ba91104e7668169ad78e1}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_ad7cb2f43451ba91104e7668169ad78e1}
+
+\begin{DoxyCompactList}\small\item\em The direct base. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a9f40fe0f7368588b4edf8aa19bc5bac6}{on\+Select} ()
+\begin{DoxyCompactList}\small\item\em Handles selection of a node by the search algorithm. If the goal responsible for the heuristic value of the node had been found with the required quality, the heuristic is re-\/computed based on the remaining goals. If the node\textquotesingle{}s cost grows based on that check, then {\ttfamily false} is returned indicating the denial of expansion of this node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$bool erase\+Flag = false$>$ }\\bool \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a19b3a6aea0c0081e4f89b462aa1eb798}{is\+Active} (int goal\+Id)
+\begin{DoxyCompactList}\small\item\em Determines whether the goal with the given index into the array of goal states is active. Optionally removes the goal from the list of active goals. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a2d834f5a6adf6f78f3e71d034da8ce00}{is\+Denied} (Node $\ast$n)
+\begin{DoxyCompactList}\small\item\em Determines whether the given search node should be denied expansion. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a1eb0a18fac3ea555744fedeaaae22115}{update} (Node $\ast$n)
+\begin{DoxyCompactList}\small\item\em Update the information associated with the given search node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm$>$\\*
+struct slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic$<$ My\+Algorithm $>$}
+
+Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 198 of file goal\+\_\+handlers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}!is\+Active@{is\+Active}}
+\index{is\+Active@{is\+Active}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}}
+\paragraph[{\texorpdfstring{is\+Active(int goal\+Id)}{isActive(int goalId)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$bool erase\+Flag = false$>$ bool {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}$<$ My\+Algorithm $>$\+::is\+Active (
+\begin{DoxyParamCaption}
+\item[{int}]{goal\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a19b3a6aea0c0081e4f89b462aa1eb798}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a19b3a6aea0c0081e4f89b462aa1eb798}
+
+
+Determines whether the goal with the given index into the array of goal states is active. Optionally removes the goal from the list of active goals. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em erase\+Flag} & If {\ttfamily true} and the goal is active the goal is removed from the list of active goals. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em goal\+Id} & The index into the array of goal states for the goal state of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily goal} is an active goal and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 247 of file goal\+\_\+handlers.\+h.
+
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}!is\+Denied@{is\+Denied}}
+\index{is\+Denied@{is\+Denied}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}}
+\paragraph[{\texorpdfstring{is\+Denied(\+Node $\ast$n)}{isDenied(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ bool {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}$<$ My\+Algorithm $>$\+::is\+Denied (
+\begin{DoxyParamCaption}
+\item[{Node $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a2d834f5a6adf6f78f3e71d034da8ce00}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a2d834f5a6adf6f78f3e71d034da8ce00}
+
+
+Determines whether the given search node should be denied expansion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The search node of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the given search node should be denied expansion and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file goal\+\_\+handlers.\+h.
+
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}!on\+Select@{on\+Select}}
+\index{on\+Select@{on\+Select}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}}
+\paragraph[{\texorpdfstring{on\+Select()}{onSelect()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ bool {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}$<$ My\+Algorithm $>$\+::on\+Select (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a9f40fe0f7368588b4edf8aa19bc5bac6}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a9f40fe0f7368588b4edf8aa19bc5bac6}
+
+
+Handles selection of a node by the search algorithm. If the goal responsible for the heuristic value of the node had been found with the required quality, the heuristic is re-\/computed based on the remaining goals. If the node\textquotesingle{}s cost grows based on that check, then {\ttfamily false} is returned indicating the denial of expansion of this node. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the currently selected node should be expanded and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file goal\+\_\+handlers.\+h.
+
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}!update@{update}}
+\index{update@{update}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}}
+\paragraph[{\texorpdfstring{update(\+Node $\ast$n)}{update(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ void {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic}$<$ My\+Algorithm $>$\+::update (
+\begin{DoxyParamCaption}
+\item[{Node $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a1eb0a18fac3ea555744fedeaaae22115}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic_a1eb0a18fac3ea555744fedeaaae22115}
+
+
+Update the information associated with the given search node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The search node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 276 of file goal\+\_\+handlers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{goal__handlers_8h}{goal\+\_\+handlers.\+h}\end{DoxyCompactItemize}

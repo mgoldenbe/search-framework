@@ -1,0 +1,115 @@
+\hypertarget{structevent_1_1UniformChange}{}\subsection{event\+:\+:Uniform\+Change$<$ Node $>$ Struct Template Reference}
+\label{structevent_1_1UniformChange}\index{event\+::\+Uniform\+Change$<$ Node $>$@{event\+::\+Uniform\+Change$<$ Node $>$}}
+
+
+An event that applies the same visual changes to all participating states and edges.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+
+
+Inheritance diagram for event\+:\+:Uniform\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structevent_1_1UniformChange__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for event\+:\+:Uniform\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{structevent_1_1UniformChange__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structevent_1_1UniformChange_ab1e7d4054a2132fdb3b58295145f78cd}{State} = typename Node\+::\+State\hypertarget{structevent_1_1UniformChange_ab1e7d4054a2132fdb3b58295145f78cd}{}\label{structevent_1_1UniformChange_ab1e7d4054a2132fdb3b58295145f78cd}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr} = core\+::util\+::deref\+\_\+shared\+\_\+ptr$<$ const \hyperlink{structevent_1_1UniformChange_ab1e7d4054a2132fdb3b58295145f78cd}{State} $>$\hypertarget{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{}\label{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}
+
+\begin{DoxyCompactList}\small\item\em Shared pointer to constant state. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1UniformChange_a71997f4cc920d6c5c65fab2049d5e42d}{State\+Set} = std\+::vector$<$ \hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr} $>$\hypertarget{structevent_1_1UniformChange_a71997f4cc920d6c5c65fab2049d5e42d}{}\label{structevent_1_1UniformChange_a71997f4cc920d6c5c65fab2049d5e42d}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating states. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1UniformChange_a74eab4759202393dcf9438a25bd9261e}{Edge} = std\+::pair$<$ \hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr}, \hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr} $>$\hypertarget{structevent_1_1UniformChange_a74eab4759202393dcf9438a25bd9261e}{}\label{structevent_1_1UniformChange_a74eab4759202393dcf9438a25bd9261e}
+
+\begin{DoxyCompactList}\small\item\em The type representing an edge in the state graph. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1UniformChange_a01841b7c7ff05760a96c8b239f82a29c}{Edge\+Set} = std\+::vector$<$ \hyperlink{structevent_1_1UniformChange_a74eab4759202393dcf9438a25bd9261e}{Edge} $>$\hypertarget{structevent_1_1UniformChange_a01841b7c7ff05760a96c8b239f82a29c}{}\label{structevent_1_1UniformChange_a01841b7c7ff05760a96c8b239f82a29c}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating edges of the state graph. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1UniformChange_a6039f813fbef8495b804a903457baad4}{Visual\+Changes} = typename \hyperlink{structEventBase}{Event\+Base}$<$ Node $>$\+::\hyperlink{structevent_1_1UniformChange_a6039f813fbef8495b804a903457baad4}{Visual\+Changes}\hypertarget{structevent_1_1UniformChange_a6039f813fbef8495b804a903457baad4}{}\label{structevent_1_1UniformChange_a6039f813fbef8495b804a903457baad4}
+
+\begin{DoxyCompactList}\small\item\em The type for holding all the visual changes associated with the event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structevent_1_1UniformChange_a6039f813fbef8495b804a903457baad4}{Visual\+Changes} \hyperlink{structevent_1_1UniformChange_a713ac604c61e1c9472fba0d6c6f4c333}{visual\+Changes} (const \hyperlink{structCurrentStyles}{Current\+Styles}$<$ \hyperlink{structevent_1_1UniformChange_ab1e7d4054a2132fdb3b58295145f78cd}{State} $>$ \&styles) const 
+\begin{DoxyCompactList}\small\item\em Returns the visual changes associated with the event. The changes are computed based on the supplied current styles of vertices and edges in the visual representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structevent_1_1UniformChange_a582bd18d2ec423a5baf7e6b9263ae762}{participants} (\hyperlink{structevent_1_1UniformChange_a71997f4cc920d6c5c65fab2049d5e42d}{State\+Set} \&, \hyperlink{structevent_1_1UniformChange_a01841b7c7ff05760a96c8b239f82a29c}{Edge\+Set} \&) const =0\hypertarget{structevent_1_1UniformChange_a582bd18d2ec423a5baf7e6b9263ae762}{}\label{structevent_1_1UniformChange_a582bd18d2ec423a5baf7e6b9263ae762}
+
+\begin{DoxyCompactList}\small\item\em Fills out the sets of participating states and edges of the state graph. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structevent_1_1UniformChange_af044e7e42b19d8d80fb239f0fadfd7ae}{change} (\hyperlink{structVertexStyle}{Vertex\+Style} \&, const \hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr} \&) const \hypertarget{structevent_1_1UniformChange_af044e7e42b19d8d80fb239f0fadfd7ae}{}\label{structevent_1_1UniformChange_af044e7e42b19d8d80fb239f0fadfd7ae}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating state. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structevent_1_1UniformChange_ab8c9f954ef9d681d33b65770f4352f70}{change} (\hyperlink{structEdgeStyle}{Edge\+Style} \&, const \hyperlink{structevent_1_1UniformChange_a74eab4759202393dcf9438a25bd9261e}{Edge} \&) const \hypertarget{structevent_1_1UniformChange_ab8c9f954ef9d681d33b65770f4352f70}{}\label{structevent_1_1UniformChange_ab8c9f954ef9d681d33b65770f4352f70}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating edge of the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct event\+::\+Uniform\+Change$<$ Node $>$}
+
+An event that applies the same visual changes to all participating states and edges. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 19 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{event\+::\+Uniform\+Change@{event\+::\+Uniform\+Change}!visual\+Changes@{visual\+Changes}}
+\index{visual\+Changes@{visual\+Changes}!event\+::\+Uniform\+Change@{event\+::\+Uniform\+Change}}
+\paragraph[{\texorpdfstring{visual\+Changes(const Current\+Styles$<$ State $>$ \&styles) const }{visualChanges(const CurrentStyles< State > &styles) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ {\bf Visual\+Changes} {\bf event\+::\+Uniform\+Change}$<$ Node $>$\+::visual\+Changes (
+\begin{DoxyParamCaption}
+\item[{const {\bf Current\+Styles}$<$ {\bf State} $>$ \&}]{styles}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structevent_1_1UniformChange_a713ac604c61e1c9472fba0d6c6f4c333}{}\label{structevent_1_1UniformChange_a713ac604c61e1c9472fba0d6c6f4c333}
+
+
+Returns the visual changes associated with the event. The changes are computed based on the supplied current styles of vertices and edges in the visual representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em styles} & Current styles of vertices and edges in the visual representation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The visual changes associated with the event and corresponding to {\ttfamily styles}. 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file headers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{extensions_2events_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="MenuLayout&lt; AllMenus, Node &gt;" name="MenuLayout&lt; AllMenus, Node &gt;">
+<area shape="rect" id="node2" href="$structMenuBase.html" title="The base class for all the menus. " alt="" coords="86,184,241,225"/>
+<area shape="rect" id="node3" href="$structForm.html" title="A simple form for ncurses. Forms that come with ncurses cannot be put in pad windows. " alt="" coords="5,95,57,121"/>
+<area shape="rect" id="node4" href="$structVisualizerData.html" title="The base of ui::Visualizer holding the visualizer&#39;s constituent components. " alt="" coords="82,95,245,121"/>
+<area shape="rect" id="node5" href="$structStateGraph.html" title="The state space graph used for visualization. " alt="" coords="92,5,235,32"/>
+<area shape="rect" id="node6" href="$structAllMenus.html" title="A holder for all the menus with an indicator of which menu and form are currently active..." alt="" coords="269,95,399,121"/>
+</map>

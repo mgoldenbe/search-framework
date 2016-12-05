@@ -1,0 +1,7 @@
+<map id="extensions/shared_policies/headers.h" name="extensions/shared_policies/headers.h">
+<area shape="rect" id="node2" href="$backtrack__lock_8h.html" title="Policies for handling backtracking in IDA*. " alt="" coords="5,95,127,121"/>
+<area shape="rect" id="node3" href="$goal__handlers_8h.html" title="Policies for handling conditions related to goal states. " alt="" coords="151,95,264,121"/>
+<area shape="rect" id="node4" href="$heuristic__policies_8h.html" title="Wrappers around heuristics to be used by the search algorithms. " alt="" coords="289,95,422,121"/>
+<area shape="rect" id="node5" href="$generators_8h.html" title="Generators to be used by the search algorithms. " alt="" coords="447,95,541,121"/>
+<area shape="rect" id="node6" href="$open__list_8h.html" title="Open list implementations. " alt="" coords="566,95,651,121"/>
+</map>

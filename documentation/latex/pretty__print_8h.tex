@@ -1,0 +1,129 @@
+\hypertarget{pretty__print_8h}{}\subsection{core/util/outside1/pretty\+\_\+print.h File Reference}
+\label{pretty__print_8h}\index{core/util/outside1/pretty\+\_\+print.\+h@{core/util/outside1/pretty\+\_\+print.\+h}}
+
+
+Source\+: \href{http://louisdx.github.io/cxx-prettyprint/}{\tt http\+://louisdx.\+github.\+io/cxx-\/prettyprint/}.  
+
+
+{\ttfamily \#include $<$cstddef$>$}\\*
+{\ttfamily \#include $<$iterator$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+{\ttfamily \#include $<$ostream$>$}\\*
+{\ttfamily \#include $<$set$>$}\\*
+{\ttfamily \#include $<$tuple$>$}\\*
+{\ttfamily \#include $<$type\+\_\+traits$>$}\\*
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\\*
+{\ttfamily \#include $<$utility$>$}\\*
+{\ttfamily \#include $<$valarray$>$}\\*
+Include dependency graph for pretty\+\_\+print.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pretty__print_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{pretty__print_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpretty__print_1_1detail_1_1sfinae__base}{pretty\+\_\+print\+::detail\+::sfinae\+\_\+base}
+\item 
+struct \hyperlink{structpretty__print_1_1detail_1_1has__const__iterator}{pretty\+\_\+print\+::detail\+::has\+\_\+const\+\_\+iterator$<$ T $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1detail_1_1has__begin__end}{pretty\+\_\+print\+::detail\+::has\+\_\+begin\+\_\+end$<$ T $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters__values}{pretty\+\_\+print\+::delimiters\+\_\+values$<$ T\+Char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters}{pretty\+\_\+print\+::delimiters$<$ T, T\+Char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1print__container__helper}{pretty\+\_\+print\+::print\+\_\+container\+\_\+helper$<$ T, T\+Char, T\+Char\+Traits, T\+Delimiters $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1print__container__helper_1_1printer}{pretty\+\_\+print\+::print\+\_\+container\+\_\+helper$<$ T, T\+Char, T\+Char\+Traits, T\+Delimiters $>$\+::printer$<$ U $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1print__container__helper_1_1printer_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4}{pretty\+\_\+print\+::print\+\_\+container\+\_\+helper$<$ T, T\+Char, T\+Char\+Traits, T\+Delimiters $>$\+::printer$<$ std\+::pair$<$ T1, T2 $>$ $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1print__container__helper_1_1printer_3_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4}{pretty\+\_\+print\+::print\+\_\+container\+\_\+helper$<$ T, T\+Char, T\+Char\+Traits, T\+Delimiters $>$\+::printer$<$ std\+::tuple$<$ Args... $>$ $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1print__container__helper_1_1printer_3_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4_1_1Int}{pretty\+\_\+print\+::print\+\_\+container\+\_\+helper$<$ T, T\+Char, T\+Char\+Traits, T\+Delimiters $>$\+::printer$<$ std\+::tuple$<$ Args... $>$ $>$\+::\+Int$<$ I $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1is__container}{pretty\+\_\+print\+::is\+\_\+container$<$ T $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1is__container_3_01T[N]_4}{pretty\+\_\+print\+::is\+\_\+container$<$ T\mbox{[}\+N\mbox{]}$>$}
+\item 
+struct \hyperlink{structpretty__print_1_1is__container_3_01char[N]_4}{pretty\+\_\+print\+::is\+\_\+container$<$ char\mbox{[}\+N\mbox{]}$>$}
+\item 
+struct \hyperlink{structpretty__print_1_1is__container_3_01std_1_1valarray_3_01T_01_4_01_4}{pretty\+\_\+print\+::is\+\_\+container$<$ std\+::valarray$<$ T $>$ $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1is__container_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4}{pretty\+\_\+print\+::is\+\_\+container$<$ std\+::pair$<$ T1, T2 $>$ $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1is__container_3_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4}{pretty\+\_\+print\+::is\+\_\+container$<$ std\+::tuple$<$ Args... $>$ $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01T_00_01char_01_4}{pretty\+\_\+print\+::delimiters$<$ T, char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01T_00_01wchar__t_01_4}{pretty\+\_\+print\+::delimiters$<$ T, wchar\+\_\+t $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1set_3_01T_00_01TComp_00_01TAllocator_01_4_00_01char_01_4}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::set$<$ T, T\+Comp, T\+Allocator $>$, char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1set_3_01T_00_01TComp_00_01TAllocator_01_4_00_01wchar__t_01_4}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::set$<$ T, T\+Comp, T\+Allocator $>$, wchar\+\_\+t $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1multiset_3_01T_00_01TComp_00_01TAllocator_01_4_00_01char_01_4}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::multiset$<$ T, T\+Comp, T\+Allocator $>$, char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1multiset_3_01T_00_01TComp_00_01TAllocator_01_4_00_01wchar__t_01_4}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::multiset$<$ T, T\+Comp, T\+Allocator $>$, wchar\+\_\+t $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1unordered__set_3_01T_00_01THash_00_01TEqual_00_9d58038da02264e434f8b08cedf60f18}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::unordered\+\_\+set$<$ T, T\+Hash, T\+Equal, T\+Allocator $>$, char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1unordered__set_3_01T_00_01THash_00_01TEqual_00_b9dca71ea935633d29c7d36890ecd10a}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::unordered\+\_\+set$<$ T, T\+Hash, T\+Equal, T\+Allocator $>$, wchar\+\_\+t $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1unordered__multiset_3_01T_00_01THash_00_01TEqua5962598375835d6c8f207a9a7f10e137}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::unordered\+\_\+multiset$<$ T, T\+Hash, T\+Equal, T\+Allocator $>$, char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1unordered__multiset_3_01T_00_01THash_00_01TEqua6ff035f2b1f179176ae9326e9c79f116}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::unordered\+\_\+multiset$<$ T, T\+Hash, T\+Equal, T\+Allocator $>$, wchar\+\_\+t $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01std_1_1pair_3_01T1_00_01T2_01_4_00_01char_01_4}{pretty\+\_\+print\+::delimiters$<$ std\+::pair$<$ T1, T2 $>$, char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1pair_3_01T1_00_01T2_01_4_00_01wchar__t_01_4}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::pair$<$ T1, T2 $>$, wchar\+\_\+t $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01std_1_1tuple_3_01Args_8_8_8_01_4_00_01char_01_4}{pretty\+\_\+print\+::delimiters$<$ std\+::tuple$<$ Args... $>$, char $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1delimiters_3_01_1_1std_1_1tuple_3_01Args_8_8_8_01_4_00_01wchar__t_01_4}{pretty\+\_\+print\+::delimiters$<$ \+::std\+::tuple$<$ Args... $>$, wchar\+\_\+t $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1custom__delims__base}{pretty\+\_\+print\+::custom\+\_\+delims\+\_\+base}
+\item 
+struct \hyperlink{structpretty__print_1_1custom__delims__wrapper}{pretty\+\_\+print\+::custom\+\_\+delims\+\_\+wrapper$<$ T, Delims $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1custom__delims}{pretty\+\_\+print\+::custom\+\_\+delims$<$ Delims $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1array__wrapper__n}{pretty\+\_\+print\+::array\+\_\+wrapper\+\_\+n$<$ T $>$}
+\item 
+struct \hyperlink{structpretty__print_1_1bucket__print__wrapper}{pretty\+\_\+print\+::bucket\+\_\+print\+\_\+wrapper$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename T\+Char , typename T\+Char\+Traits , typename T\+Delimiters $>$ }\\std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \& {\bfseries pretty\+\_\+print\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \&stream, const print\+\_\+container\+\_\+helper$<$ T, T\+Char, T\+Char\+Traits, T\+Delimiters $>$ \&helper)\hypertarget{pretty__print_8h_a2a7ac55cb686e0102b4ad66521e00a1f}{}\label{pretty__print_8h_a2a7ac55cb686e0102b4ad66521e00a1f}
+
+\item 
+{\footnotesize template$<$typename T\+Char , typename T\+Char\+Traits , typename Delims $>$ }\\std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \& {\bfseries pretty\+\_\+print\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \&s, const custom\+\_\+delims$<$ Delims $>$ \&p)\hypertarget{pretty__print_8h_aaee84a867c95284a60d676cf27d5fdd2}{}\label{pretty__print_8h_aaee84a867c95284a60d676cf27d5fdd2}
+
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structpretty__print_1_1array__wrapper__n}{pretty\+\_\+print\+::array\+\_\+wrapper\+\_\+n}$<$ T $>$ {\bfseries pretty\+\_\+print\+\_\+array} (const T $\ast$const a, size\+\_\+t n)\hypertarget{pretty__print_8h_af104b319ede30632b24d2aa37661d260}{}\label{pretty__print_8h_af104b319ede30632b24d2aa37661d260}
+
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structpretty__print_1_1bucket__print__wrapper}{pretty\+\_\+print\+::bucket\+\_\+print\+\_\+wrapper}$<$ T $>$ {\bfseries bucket\+\_\+print} (const T \&m, typename T\+::size\+\_\+type n)\hypertarget{pretty__print_8h_a6d1c9f81f9007fd43eb48426a75c4032}{}\label{pretty__print_8h_a6d1c9f81f9007fd43eb48426a75c4032}
+
+\item 
+{\footnotesize template$<$typename T , typename T\+Char , typename T\+Char\+Traits $>$ }\\enable\+\_\+if$<$ \+::\hyperlink{structpretty__print_1_1is__container}{pretty\+\_\+print\+::is\+\_\+container}$<$ T $>$\+::value, basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \& $>$\+::type {\bfseries std\+::operator$<$$<$} (basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \&stream, const T \&container)\hypertarget{pretty__print_8h_ac26893d6e6bf990e271f5455d559c464}{}\label{pretty__print_8h_ac26893d6e6bf990e271f5455d559c464}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Source\+: \href{http://louisdx.github.io/cxx-prettyprint/}{\tt http\+://louisdx.\+github.\+io/cxx-\/prettyprint/}. 
+

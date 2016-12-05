@@ -1,0 +1,32 @@
+\hypertarget{namespaceslb_1_1ext_1_1algorithm}{}\subsection{slb\+:\+:ext\+:\+:algorithm Namespace Reference}
+\label{namespaceslb_1_1ext_1_1algorithm}\index{slb\+::ext\+::algorithm@{slb\+::ext\+::algorithm}}
+
+
+The search algorithms.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1Algorithm}{Algorithm}
+\begin{DoxyCompactList}\small\item\em Abstract base for search algorithms. \end{DoxyCompactList}\item 
+struct \hyperlink{classslb_1_1ext_1_1algorithm_1_1AlgorithmTraits}{Algorithm\+Traits}
+\begin{DoxyCompactList}\small\item\em Types associated with concrete algorithms. See also \href{http://stackoverflow.com/questions/8401827/crtp-and-type-visibility}{\tt http\+://stackoverflow.\+com/questions/8401827/crtp-\/and-\/type-\/visibility}. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01ext_1_1algorithm_1_1Astar_3_01ALG__TARGS_00_01Open_01_4_01_4}{Algorithm\+Traits$<$ ext\+::algorithm\+::\+Astar$<$ A\+L\+G\+\_\+\+T\+A\+R\+G\+S, Open $>$ $>$}
+\begin{DoxyCompactList}\small\item\em The traits of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{Astar}. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_01_4_01_4}{Algorithm\+Traits$<$ Id\+Astar$<$ A\+L\+G\+\_\+\+T\+A\+R\+G\+S, Backtrack\+Lock $>$ $>$}
+\begin{DoxyCompactList}\small\item\em The traits of \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{Id\+Astar}. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{Astar}
+\begin{DoxyCompactList}\small\item\em The {\ttfamily A$\ast$} search algorithm. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1BaseTraits}{Base\+Traits}
+\begin{DoxyCompactList}\small\item\em Traits shared by all algorithms. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{Id\+Astar}
+\begin{DoxyCompactList}\small\item\em The {\ttfamily I\+D\+A$\ast$} search algorithm. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1PerGoal}{Per\+Goal}
+\begin{DoxyCompactList}\small\item\em {\ttfamily \hyperlink{structslb_1_1ext_1_1algorithm_1_1PerGoal}{Per\+Goal}} is a meta search algorithm for solving instances with multiple goals. It runs some other search algorithm for each goal state and combines results. Each goal state is solved independently of all others. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1slb__tcb__nothing}{slb\+\_\+tcb\+\_\+nothing}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The search algorithms. 

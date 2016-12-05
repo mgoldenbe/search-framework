@@ -1,0 +1,73 @@
+\hypertarget{structCost_3_01State___00_01true_01_4}{}\subsection{Cost$<$ State\+\_\+, true $>$ Struct Template Reference}
+\label{structCost_3_01State___00_01true_01_4}\index{Cost$<$ State\+\_\+, true $>$@{Cost$<$ State\+\_\+, true $>$}}
+
+
+Specialization of the type for storing the cost of a neighbor for uniform domains.  
+
+
+
+
+{\ttfamily \#include $<$neighbor.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structCost_3_01State___00_01true_01_4_ad6d2eca98963076b0d43d13a6031b076}{State} = State\+\_\+\hypertarget{structCost_3_01State___00_01true_01_4_ad6d2eca98963076b0d43d13a6031b076}{}\label{structCost_3_01State___00_01true_01_4_ad6d2eca98963076b0d43d13a6031b076}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structCost_3_01State___00_01true_01_4_ab4443fb7dc26647260e82934ca5d928b}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structCost_3_01State___00_01true_01_4_ab4443fb7dc26647260e82934ca5d928b}{}\label{structCost_3_01State___00_01true_01_4_ab4443fb7dc26647260e82934ca5d928b}
+
+\begin{DoxyCompactList}\small\item\em Action cost type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structCost_3_01State___00_01true_01_4_aee8966b40c47cb7ff9037c6f0c89be22}{Cost} (\hyperlink{structCost_3_01State___00_01true_01_4_ab4443fb7dc26647260e82934ca5d928b}{Cost\+Type})\hypertarget{structCost_3_01State___00_01true_01_4_aee8966b40c47cb7ff9037c6f0c89be22}{}\label{structCost_3_01State___00_01true_01_4_aee8966b40c47cb7ff9037c6f0c89be22}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+constexpr \hyperlink{structCost_3_01State___00_01true_01_4_ab4443fb7dc26647260e82934ca5d928b}{Cost\+Type} \hyperlink{structCost_3_01State___00_01true_01_4_a07883d458cf6b240eea51fdeaadcc1d8}{cost} () const 
+\begin{DoxyCompactList}\small\item\em Returns cost of the action that leads to the neighbor state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename State\+\_\+$>$\\*
+struct Cost$<$ State\+\_\+, true $>$}
+
+Specialization of the type for storing the cost of a neighbor for uniform domains. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+{\em uniform\+Flag} & Determines whether the domain is a uniform cost one or not. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 32 of file neighbor.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Cost$<$ State\+\_\+, true $>$@{Cost$<$ State\+\_\+, true $>$}!cost@{cost}}
+\index{cost@{cost}!Cost$<$ State\+\_\+, true $>$@{Cost$<$ State\+\_\+, true $>$}}
+\paragraph[{\texorpdfstring{cost() const }{cost() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename State\+\_\+ $>$ constexpr {\bf Cost\+Type} {\bf Cost}$<$ State\+\_\+, true $>$\+::cost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structCost_3_01State___00_01true_01_4_a07883d458cf6b240eea51fdeaadcc1d8}{}\label{structCost_3_01State___00_01true_01_4_a07883d458cf6b240eea51fdeaadcc1d8}
+
+
+Returns cost of the action that leads to the neighbor state. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{structCost}{Cost} of the action that leads to the neighbor state. 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file neighbor.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{neighbor_8h}{neighbor.\+h}\end{DoxyCompactItemize}

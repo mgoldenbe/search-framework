@@ -1,0 +1,152 @@
+\hypertarget{structgridMap_1_1GridMapState}{}\subsection{grid\+Map\+:\+:Grid\+Map\+State$<$ Cost\+Type, uniform\+Flag $>$ Struct Template Reference}
+\label{structgridMap_1_1GridMapState}\index{grid\+Map\+::\+Grid\+Map\+State$<$ Cost\+Type, uniform\+Flag $>$@{grid\+Map\+::\+Grid\+Map\+State$<$ Cost\+Type, uniform\+Flag $>$}}
+
+
+Explicit state specific to the Grid Map domain.  
+
+
+
+
+{\ttfamily \#include $<$grid\+\_\+map\+\_\+state.\+h$>$}
+
+
+
+Inheritance diagram for grid\+Map\+:\+:Grid\+Map\+State$<$ Cost\+Type, uniform\+Flag $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{structgridMap_1_1GridMapState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for grid\+Map\+:\+:Grid\+Map\+State$<$ Cost\+Type, uniform\+Flag $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{structgridMap_1_1GridMapState__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structgridMap_1_1GridMapState_ae7020192b3e6ea72d9d6101ba17bfa62}{Base} = \hyperlink{structExplicitState}{Explicit\+State}$<$ \hyperlink{structGridMap}{Grid\+Map}$<$ \hyperlink{structExplicitState_aa49e13944e1f40aaeb4ed7190234b21e}{Cost\+Type} $>$$>$\hypertarget{structgridMap_1_1GridMapState_ae7020192b3e6ea72d9d6101ba17bfa62}{}\label{structgridMap_1_1GridMapState_ae7020192b3e6ea72d9d6101ba17bfa62}
+
+\begin{DoxyCompactList}\small\item\em The base class. \end{DoxyCompactList}\item 
+using \hyperlink{structgridMap_1_1GridMapState_a70aeaf4e8c61a642520a4aeda234ef71}{My\+Type} = \hyperlink{structgridMap_1_1GridMapState}{Grid\+Map\+State}$<$ \hyperlink{structExplicitState_aa49e13944e1f40aaeb4ed7190234b21e}{Cost\+Type}, uniform\+Flag $>$
+\begin{DoxyCompactList}\small\item\em $<$ Inherit constructors \end{DoxyCompactList}\item 
+using \hyperlink{structgridMap_1_1GridMapState_ae3f997c80d854a2fa6eae8f949263211}{S\+Neighbor} = \hyperlink{structStateNeighbor}{State\+Neighbor}$<$ \hyperlink{structgridMap_1_1GridMapState_a70aeaf4e8c61a642520a4aeda234ef71}{My\+Type}, uniform\+Flag $>$\hypertarget{structgridMap_1_1GridMapState_ae3f997c80d854a2fa6eae8f949263211}{}\label{structgridMap_1_1GridMapState_ae3f997c80d854a2fa6eae8f949263211}
+
+\begin{DoxyCompactList}\small\item\em The type for representing a single neighbor state. Every domain must provide this name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structgridMap_1_1GridMapState_ae3f997c80d854a2fa6eae8f949263211}{S\+Neighbor} $>$ \hyperlink{structgridMap_1_1GridMapState_a51e51be8330d908b286a67c1be65b241}{state\+Successors} () const 
+\begin{DoxyCompactList}\small\item\em Computes the neighbors of the state. \end{DoxyCompactList}\item 
+void \hyperlink{structgridMap_1_1GridMapState_a99af798ed7930b5d07007ba4bb88a47c}{visual\+Location} (double \&x, double \&y) const 
+\begin{DoxyCompactList}\small\item\em Fills out the coordinates for the vertex representing the state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structgridMap_1_1GridMapState}{Grid\+Map\+State} \hyperlink{structgridMap_1_1GridMapState_ac0a27a479d8e1e206400bb139a57df9f}{random} ()
+\begin{DoxyCompactList}\small\item\em Returns a random state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename Cost\+Type, bool uniform\+Flag$>$\\*
+struct grid\+Map\+::\+Grid\+Map\+State$<$ Cost\+Type, uniform\+Flag $>$}
+
+Explicit state specific to the Grid Map domain. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Cost\+Type} & The type representing the cost of actions in the domain. \\
+\hline
+{\em uniform\+Flag} & Determines whether the domain is a uniform cost one or not. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 17 of file grid\+\_\+map\+\_\+state.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}!My\+Type@{My\+Type}}
+\index{My\+Type@{My\+Type}!grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}}
+\paragraph[{\texorpdfstring{My\+Type}{MyType}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type , bool uniform\+Flag$>$ using {\bf grid\+Map\+::\+Grid\+Map\+State}$<$ {\bf Cost\+Type}, uniform\+Flag $>$\+::{\bf My\+Type} =  {\bf Grid\+Map\+State}$<${\bf Cost\+Type}, uniform\+Flag$>$}\hypertarget{structgridMap_1_1GridMapState_a70aeaf4e8c61a642520a4aeda234ef71}{}\label{structgridMap_1_1GridMapState_a70aeaf4e8c61a642520a4aeda234ef71}
+
+
+$<$ Inherit constructors 
+
+This state type. 
+
+Definition at line 22 of file grid\+\_\+map\+\_\+state.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}!random@{random}}
+\index{random@{random}!grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}}
+\paragraph[{\texorpdfstring{random()}{random()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type , bool uniform\+Flag$>$ static {\bf Grid\+Map\+State} {\bf grid\+Map\+::\+Grid\+Map\+State}$<$ {\bf Cost\+Type}, uniform\+Flag $>$\+::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structgridMap_1_1GridMapState_ac0a27a479d8e1e206400bb139a57df9f}{}\label{structgridMap_1_1GridMapState_ac0a27a479d8e1e206400bb139a57df9f}
+
+
+Returns a random state. 
+
+\begin{DoxyReturn}{Returns}
+A random state. 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file grid\+\_\+map\+\_\+state.\+h.
+
+\index{grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}!state\+Successors@{state\+Successors}}
+\index{state\+Successors@{state\+Successors}!grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}}
+\paragraph[{\texorpdfstring{state\+Successors() const }{stateSuccessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type , bool uniform\+Flag$>$ std\+::vector$<${\bf S\+Neighbor}$>$ {\bf grid\+Map\+::\+Grid\+Map\+State}$<$ {\bf Cost\+Type}, uniform\+Flag $>$\+::state\+Successors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structgridMap_1_1GridMapState_a51e51be8330d908b286a67c1be65b241}{}\label{structgridMap_1_1GridMapState_a51e51be8330d908b286a67c1be65b241}
+
+
+Computes the neighbors of the state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of neighbors of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file grid\+\_\+map\+\_\+state.\+h.
+
+\index{grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}!visual\+Location@{visual\+Location}}
+\index{visual\+Location@{visual\+Location}!grid\+Map\+::\+Grid\+Map\+State@{grid\+Map\+::\+Grid\+Map\+State}}
+\paragraph[{\texorpdfstring{visual\+Location(double \&x, double \&y) const }{visualLocation(double &x, double &y) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type , bool uniform\+Flag$>$ void {\bf grid\+Map\+::\+Grid\+Map\+State}$<$ {\bf Cost\+Type}, uniform\+Flag $>$\+::visual\+Location (
+\begin{DoxyParamCaption}
+\item[{double \&}]{x, }
+\item[{double \&}]{y}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structgridMap_1_1GridMapState_a99af798ed7930b5d07007ba4bb88a47c}{}\label{structgridMap_1_1GridMapState_a99af798ed7930b5d07007ba4bb88a47c}
+
+
+Fills out the coordinates for the vertex representing the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate to be filled out. \\
+\hline
+{\em y} & The y-\/coordinate to be filled out. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file grid\+\_\+map\+\_\+state.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{grid__map__state_8h}{grid\+\_\+map\+\_\+state.\+h}\end{DoxyCompactItemize}

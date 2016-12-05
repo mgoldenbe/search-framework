@@ -1,0 +1,2473 @@
+\hypertarget{namespaceslb_1_1core_1_1util}{}\subsection{slb\+:\+:core\+:\+:util Namespace Reference}
+\label{namespaceslb_1_1core_1_1util}\index{slb\+::core\+::util@{slb\+::core\+::util}}
+
+
+Utility facilities.  
+
+
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb_1_1core_1_1util_1_1gu}{gu}
+\begin{DoxyCompactList}\small\item\em Geometry utilities. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb}{rgb}
+\begin{DoxyCompactList}\small\item\em Functions for dealing with R\+GB color components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}
+\begin{DoxyCompactList}\small\item\em Shared pointer whose {\ttfamily operator==} compares the pointed to values. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1Measure}{Measure}
+\begin{DoxyCompactList}\small\item\em The type for a single named performance measure. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1Row}{Row}
+\begin{DoxyCompactList}\small\item\em The row of the \hyperlink{structslb_1_1core_1_1util_1_1Table}{Table}. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1StateHash}{State\+Hash}
+\begin{DoxyCompactList}\small\item\em A functor for computing the hash-\/value of a search state. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1StateSharedPtrHash}{State\+Shared\+Ptr\+Hash}
+\begin{DoxyCompactList}\small\item\em A functor for computing the hash-\/value of a search state based on a smart pointer. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1Table}{Table}
+\begin{DoxyCompactList}\small\item\em The class for handling tabular output, where the columns need to be aligned. The user does not need to determine the width of columns in advance. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1Timer}{Timer}
+\begin{DoxyCompactList}\small\item\em A special measure for timing. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1TimerLock}{Timer\+Lock}
+\begin{DoxyCompactList}\small\item\em Provides R\+A\+II mechanism so the authors of search algorithm implementations should not need to worry about remembering to stop the timer for every possible execution path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceslb_1_1core_1_1util_afae144e1a65658559242f5cf4fce426f}{Color} \{ \\*
+{\bfseries N\+O\+V\+AL}, 
+{\bfseries C\+L\+O\+U\+D\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+P\+A\+S\+T\+E\+L\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+U\+ST}, 
+\\*
+{\bfseries E\+L\+E\+C\+T\+R\+I\+C\+\_\+\+L\+I\+ME}, 
+{\bfseries F\+R\+E\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+E\+G\+G\+P\+L\+A\+NT}, 
+{\bfseries N\+A\+S\+T\+Y\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries R\+E\+A\+L\+L\+Y\+\_\+\+L\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries T\+EA}, 
+{\bfseries W\+A\+R\+M\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+I\+S\+H\+\_\+\+T\+AN}, 
+\\*
+{\bfseries C\+E\+M\+E\+NT}, 
+{\bfseries D\+A\+R\+K\+\_\+\+G\+R\+A\+S\+S\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+T\+E\+AL}, 
+{\bfseries G\+R\+E\+Y\+\_\+\+T\+E\+AL}, 
+\\*
+{\bfseries M\+A\+C\+A\+R\+O\+N\+I\+\_\+\+A\+N\+D\+\_\+\+C\+H\+E\+E\+SE}, 
+{\bfseries P\+I\+N\+K\+I\+S\+H\+\_\+\+T\+AN}, 
+{\bfseries S\+P\+R\+U\+CE}, 
+{\bfseries S\+T\+R\+O\+N\+G\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries T\+O\+X\+I\+C\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries W\+I\+N\+D\+O\+W\+S\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+L\+U\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+L\+U\+E\+\_\+\+W\+I\+T\+H\+\_\+\+A\+\_\+\+H\+I\+N\+T\+\_\+\+O\+F\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries B\+O\+O\+G\+ER}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+S\+E\+A\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+G\+R\+E\+E\+N\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+E\+E\+P\+\_\+\+T\+U\+R\+Q\+U\+O\+I\+SE}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+\_\+\+T\+E\+AL}, 
+{\bfseries S\+T\+R\+O\+N\+G\+\_\+\+P\+I\+NK}, 
+{\bfseries B\+L\+A\+ND}, 
+{\bfseries D\+E\+E\+P\+\_\+\+A\+Q\+UA}, 
+\\*
+{\bfseries L\+A\+V\+E\+N\+D\+E\+R\+\_\+\+P\+I\+NK}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+M\+O\+S\+S\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+S\+E\+A\+F\+O\+A\+M\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries O\+L\+I\+V\+E\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries P\+I\+G\+\_\+\+P\+I\+NK}, 
+{\bfseries D\+E\+E\+P\+\_\+\+L\+I\+L\+AC}, 
+{\bfseries D\+E\+S\+E\+RT}, 
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+L\+A\+V\+E\+N\+D\+ER}, 
+\\*
+{\bfseries P\+U\+R\+P\+L\+E\+Y\+\_\+\+G\+R\+EY}, 
+{\bfseries P\+U\+R\+P\+LY}, 
+{\bfseries C\+A\+N\+D\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+P\+A\+S\+T\+E\+L\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+O\+R\+I\+N\+G\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries K\+I\+W\+I\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries O\+R\+A\+N\+G\+E\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries T\+E\+A\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+L\+I\+G\+H\+T\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries E\+G\+G\+\_\+\+S\+H\+E\+LL}, 
+{\bfseries E\+G\+G\+P\+L\+A\+N\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries P\+O\+W\+D\+E\+R\+\_\+\+P\+I\+NK}, 
+{\bfseries R\+E\+D\+D\+I\+S\+H\+\_\+\+G\+R\+EY}, 
+{\bfseries B\+A\+B\+Y\+\_\+\+S\+H\+I\+T\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries L\+I\+L\+I\+AC}, 
+\\*
+{\bfseries S\+T\+O\+R\+M\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries U\+G\+L\+Y\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries C\+U\+S\+T\+A\+RD}, 
+{\bfseries D\+A\+R\+K\+I\+S\+H\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries D\+E\+E\+P\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+B\+E\+I\+GE}, 
+{\bfseries M\+A\+N\+I\+L\+LA}, 
+{\bfseries O\+F\+F\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries B\+A\+T\+T\+L\+E\+S\+H\+I\+P\+\_\+\+G\+R\+EY}, 
+{\bfseries B\+R\+O\+W\+N\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+U\+I\+SE}, 
+{\bfseries K\+E\+L\+L\+E\+Y\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+I\+C\+K\+L\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries S\+U\+N\+N\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries A\+Z\+UL}, 
+{\bfseries D\+A\+R\+K\+G\+R\+E\+EN}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+\_\+\+O\+V\+E\+R\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries L\+I\+C\+H\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+A\+L\+E\+\_\+\+G\+O\+LD}, 
+\\*
+{\bfseries S\+U\+N\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries T\+A\+N\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+U\+R\+P\+LE}, 
+{\bfseries B\+U\+T\+T\+E\+R\+S\+C\+O\+T\+CH}, 
+\\*
+{\bfseries T\+O\+U\+PE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+C\+R\+E\+AM}, 
+{\bfseries I\+N\+D\+I\+A\+N\+\_\+\+R\+ED}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+L\+A\+V\+E\+N\+D\+AR}, 
+\\*
+{\bfseries P\+O\+I\+S\+O\+N\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+A\+B\+Y\+\_\+\+P\+U\+K\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+Y\+E\+L\+L\+O\+W\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+H\+A\+R\+C\+O\+A\+L\+\_\+\+G\+R\+EY}, 
+\\*
+{\bfseries S\+Q\+U\+A\+SH}, 
+{\bfseries C\+I\+N\+N\+A\+M\+ON}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+P\+E\+A\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries R\+A\+D\+I\+O\+A\+C\+T\+I\+V\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries R\+A\+W\+\_\+\+S\+I\+E\+N\+NA}, 
+{\bfseries B\+A\+B\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries C\+O\+C\+OA}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+R\+O\+Y\+A\+L\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries O\+R\+A\+N\+G\+E\+I\+SH}, 
+{\bfseries R\+U\+S\+T\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries S\+A\+N\+D\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries S\+W\+A\+MP}, 
+\\*
+{\bfseries T\+E\+A\+L\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+U\+R\+N\+T\+\_\+\+S\+I\+E\+NA}, 
+{\bfseries C\+A\+MO}, 
+{\bfseries D\+U\+S\+K\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries F\+E\+RN}, 
+{\bfseries O\+L\+D\+\_\+\+R\+O\+SE}, 
+{\bfseries P\+A\+L\+E\+\_\+\+L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+E\+A\+C\+H\+Y\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries R\+O\+S\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+L\+U\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+R\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+N\+E\+O\+N\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+S\+E\+A\+F\+O\+AM}, 
+{\bfseries T\+I\+F\+F\+A\+N\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries W\+A\+S\+H\+E\+D\+\_\+\+O\+U\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+O\+W\+N\+Y\+\_\+\+O\+R\+A\+N\+GE}, 
+\\*
+{\bfseries N\+I\+C\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries S\+A\+P\+P\+H\+I\+RE}, 
+{\bfseries G\+R\+E\+Y\+I\+S\+H\+\_\+\+T\+E\+AL}, 
+{\bfseries O\+R\+A\+N\+G\+E\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries P\+A\+R\+C\+H\+M\+E\+NT}, 
+{\bfseries S\+T\+R\+AW}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+D\+A\+R\+K\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries T\+E\+R\+R\+A\+C\+O\+TA}, 
+\\*
+{\bfseries U\+G\+L\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries C\+L\+E\+A\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries C\+R\+E\+ME}, 
+{\bfseries F\+O\+A\+M\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries G\+R\+E\+Y\+\_\+\+O\+V\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+O\+LD}, 
+{\bfseries S\+E\+A\+F\+O\+A\+M\+\_\+\+B\+L\+UE}, 
+{\bfseries T\+O\+P\+AZ}, 
+\\*
+{\bfseries V\+I\+O\+L\+E\+T\+\_\+\+P\+I\+NK}, 
+{\bfseries W\+I\+N\+T\+E\+R\+G\+R\+E\+EN}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+\_\+\+T\+AN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+F\+U\+C\+H\+S\+IA}, 
+\\*
+{\bfseries I\+N\+D\+I\+G\+O\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+Y\+E\+L\+L\+O\+W\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+A\+L\+E\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+{\bfseries R\+I\+C\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries S\+U\+N\+F\+L\+O\+W\+E\+R\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries G\+R\+E\+E\+N\+\_\+\+O\+V\+E\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+E\+A\+T\+H\+ER}, 
+{\bfseries R\+A\+C\+I\+N\+G\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries V\+I\+V\+I\+D\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+R\+O\+Y\+A\+L\+\_\+\+B\+L\+UE}, 
+{\bfseries H\+A\+Z\+EL}, 
+{\bfseries M\+U\+T\+E\+D\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries B\+O\+O\+G\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+A\+N\+A\+RY}, 
+{\bfseries C\+O\+O\+L\+\_\+\+G\+R\+EY}, 
+{\bfseries D\+A\+R\+K\+\_\+\+T\+A\+U\+PE}, 
+\\*
+{\bfseries D\+A\+R\+K\+I\+S\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries T\+R\+U\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+O\+R\+A\+L\+\_\+\+P\+I\+NK}, 
+{\bfseries D\+A\+R\+K\+\_\+\+S\+A\+GE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+S\+L\+A\+T\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries F\+L\+A\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries M\+U\+S\+H\+R\+O\+OM}, 
+{\bfseries R\+I\+C\+H\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries D\+I\+R\+T\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries G\+R\+E\+E\+N\+B\+L\+UE}, 
+{\bfseries I\+C\+K\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+K\+H\+A\+KI}, 
+\\*
+{\bfseries W\+A\+R\+M\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+H\+O\+T\+\_\+\+P\+I\+NK}, 
+{\bfseries D\+E\+E\+P\+\_\+\+S\+E\+A\+\_\+\+B\+L\+UE}, 
+{\bfseries C\+A\+R\+M\+I\+NE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+Y\+E\+L\+L\+O\+W\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+A\+L\+E\+\_\+\+P\+E\+A\+CH}, 
+{\bfseries P\+L\+U\+M\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries G\+O\+L\+D\+E\+N\+\_\+\+R\+OD}, 
+\\*
+{\bfseries N\+E\+O\+N\+\_\+\+R\+ED}, 
+{\bfseries O\+L\+D\+\_\+\+P\+I\+NK}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+P\+A\+L\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+L\+O\+O\+D\+\_\+\+O\+R\+A\+N\+GE}, 
+\\*
+{\bfseries G\+R\+A\+P\+E\+F\+R\+U\+IT}, 
+{\bfseries S\+A\+N\+D\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries C\+L\+A\+Y\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+B\+L\+U\+E\+\_\+\+G\+R\+EY}, 
+\\*
+{\bfseries F\+L\+A\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+E\+N\+\_\+\+B\+L\+UE}, 
+{\bfseries W\+A\+R\+M\+\_\+\+P\+I\+NK}, 
+{\bfseries D\+O\+D\+G\+E\+R\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries G\+R\+O\+S\+S\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries I\+CE}, 
+{\bfseries M\+E\+T\+A\+L\+L\+I\+C\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+A\+L\+E\+\_\+\+S\+A\+L\+M\+ON}, 
+\\*
+{\bfseries S\+A\+P\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries A\+L\+G\+AE}, 
+{\bfseries B\+L\+U\+E\+Y\+\_\+\+G\+R\+EY}, 
+{\bfseries G\+R\+E\+E\+N\+Y\+\_\+\+G\+R\+EY}, 
+\\*
+{\bfseries H\+I\+G\+H\+L\+I\+G\+H\+T\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+L\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+M\+I\+NT}, 
+{\bfseries R\+A\+W\+\_\+\+U\+M\+B\+ER}, 
+\\*
+{\bfseries V\+I\+V\+I\+D\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+E\+E\+P\+\_\+\+L\+A\+V\+E\+N\+D\+ER}, 
+{\bfseries D\+U\+L\+L\+\_\+\+T\+E\+AL}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries M\+U\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+I\+N\+KY}, 
+{\bfseries R\+E\+D\+\_\+\+W\+I\+NE}, 
+{\bfseries S\+H\+I\+T\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries T\+A\+N\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries D\+A\+R\+K\+B\+L\+UE}, 
+{\bfseries R\+O\+SA}, 
+{\bfseries L\+I\+P\+S\+T\+I\+CK}, 
+\\*
+{\bfseries P\+A\+L\+E\+\_\+\+M\+A\+U\+VE}, 
+{\bfseries C\+L\+A\+R\+ET}, 
+{\bfseries D\+A\+N\+D\+E\+L\+I\+ON}, 
+{\bfseries O\+R\+A\+N\+G\+E\+R\+ED}, 
+\\*
+{\bfseries P\+O\+O\+P\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries R\+U\+BY}, 
+{\bfseries D\+A\+RK}, 
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+T\+U\+R\+Q\+U\+O\+I\+SE}, 
+\\*
+{\bfseries P\+A\+S\+T\+E\+L\+\_\+\+R\+ED}, 
+{\bfseries P\+I\+S\+S\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+C\+Y\+AN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+C\+O\+R\+AL}, 
+\\*
+{\bfseries A\+L\+G\+A\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+I\+S\+H\+\_\+\+R\+ED}, 
+{\bfseries R\+E\+D\+D\+Y\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries B\+L\+U\+S\+H\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries C\+A\+M\+O\+U\+F\+L\+A\+G\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+A\+W\+N\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+U\+T\+TY}, 
+{\bfseries V\+I\+B\+R\+A\+N\+T\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+S\+A\+ND}, 
+{\bfseries P\+U\+R\+P\+L\+E\+\_\+\+O\+V\+E\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries S\+A\+F\+F\+R\+ON}, 
+{\bfseries T\+W\+I\+L\+I\+G\+HT}, 
+\\*
+{\bfseries W\+A\+R\+M\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries B\+L\+U\+E\+G\+R\+EY}, 
+{\bfseries B\+U\+B\+B\+L\+E\+\_\+\+G\+U\+M\+\_\+\+P\+I\+NK}, 
+{\bfseries D\+U\+C\+K\+\_\+\+E\+G\+G\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+C\+Y\+AN}, 
+{\bfseries P\+E\+T\+R\+OL}, 
+{\bfseries R\+O\+Y\+AL}, 
+{\bfseries B\+U\+T\+T\+ER}, 
+\\*
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries O\+F\+F\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries P\+A\+L\+E\+\_\+\+O\+L\+I\+V\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries O\+R\+A\+N\+G\+I\+SH}, 
+\\*
+{\bfseries L\+E\+AF}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+L\+U\+E\+\_\+\+G\+R\+EY}, 
+{\bfseries D\+R\+I\+E\+D\+\_\+\+B\+L\+O\+OD}, 
+{\bfseries L\+I\+G\+H\+T\+I\+S\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries R\+U\+S\+T\+Y\+\_\+\+R\+ED}, 
+{\bfseries L\+A\+V\+E\+N\+D\+E\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+A\+S\+S\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+M\+I\+N\+T\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+U\+N\+F\+L\+O\+W\+ER}, 
+{\bfseries V\+E\+L\+V\+ET}, 
+{\bfseries B\+R\+I\+C\+K\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries L\+I\+G\+H\+T\+I\+S\+H\+\_\+\+R\+ED}, 
+\\*
+{\bfseries P\+U\+R\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries T\+W\+I\+L\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries V\+I\+O\+L\+E\+T\+\_\+\+R\+ED}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+Y\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries C\+A\+R\+N\+A\+T\+I\+ON}, 
+{\bfseries M\+U\+D\+D\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries D\+A\+R\+K\+\_\+\+S\+E\+A\+F\+O\+A\+M\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+E\+E\+P\+\_\+\+R\+O\+SE}, 
+\\*
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+R\+ED}, 
+{\bfseries G\+R\+E\+Y\+\_\+\+O\+V\+E\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+E\+M\+O\+N\+\_\+\+L\+I\+ME}, 
+{\bfseries P\+U\+R\+P\+L\+E\+\_\+\+O\+V\+E\+R\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries B\+R\+O\+W\+N\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries P\+U\+R\+P\+L\+E\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries W\+I\+S\+T\+E\+R\+IA}, 
+{\bfseries B\+A\+N\+A\+N\+A\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries L\+I\+P\+S\+T\+I\+C\+K\+\_\+\+R\+ED}, 
+{\bfseries W\+A\+T\+E\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+R\+O\+W\+N\+\_\+\+G\+R\+EY}, 
+{\bfseries V\+I\+B\+R\+A\+N\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries B\+A\+B\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+A\+R\+F\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries E\+G\+G\+S\+H\+E\+L\+L\+\_\+\+B\+L\+UE}, 
+{\bfseries S\+A\+N\+D\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries C\+O\+O\+L\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+A\+LE}, 
+{\bfseries B\+L\+U\+E\+\_\+\+O\+V\+E\+R\+\_\+\+G\+R\+EY}, 
+{\bfseries H\+O\+T\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+\\*
+{\bfseries G\+R\+E\+Y\+B\+L\+UE}, 
+{\bfseries P\+U\+R\+P\+L\+EY}, 
+{\bfseries B\+A\+B\+Y\+\_\+\+S\+H\+I\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+O\+W\+N\+I\+S\+H\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+A\+Q\+U\+A\+M\+A\+R\+I\+NE}, 
+{\bfseries D\+I\+A\+R\+R\+H\+EA}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+M\+U\+S\+T\+A\+RD}, 
+{\bfseries P\+A\+L\+E\+\_\+\+S\+K\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries T\+U\+R\+T\+L\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+O\+L\+I\+VE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+G\+R\+E\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries G\+R\+E\+E\+N\+Y\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries L\+E\+M\+O\+N\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+P\+E\+R\+I\+W\+I\+N\+K\+LE}, 
+{\bfseries S\+E\+A\+W\+E\+E\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries S\+U\+N\+S\+H\+I\+N\+E\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries U\+G\+L\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+P\+I\+NK}, 
+{\bfseries P\+U\+K\+E\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+L\+I\+G\+H\+T\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries V\+I\+R\+I\+D\+I\+AN}, 
+{\bfseries B\+I\+LE}, 
+{\bfseries F\+A\+D\+E\+D\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+P\+A\+L\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries V\+I\+B\+R\+A\+N\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+L\+I\+ME}, 
+{\bfseries S\+P\+E\+A\+R\+M\+I\+NT}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+A\+Q\+U\+A\+M\+A\+R\+I\+NE}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+S\+A\+GE}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+G\+R\+E\+EN}, 
+{\bfseries B\+A\+B\+Y\+\_\+\+P\+OO}, 
+{\bfseries D\+A\+R\+K\+\_\+\+S\+E\+A\+F\+O\+AM}, 
+\\*
+{\bfseries D\+E\+E\+P\+\_\+\+T\+E\+AL}, 
+{\bfseries H\+E\+A\+T\+H\+ER}, 
+{\bfseries R\+U\+S\+T\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries D\+I\+R\+T\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries F\+E\+R\+N\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+L\+I\+L\+AC}, 
+{\bfseries W\+E\+I\+R\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+E\+A\+C\+O\+C\+K\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries A\+V\+O\+C\+A\+D\+O\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries F\+A\+D\+E\+D\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries G\+R\+A\+P\+E\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries H\+O\+T\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries L\+I\+M\+E\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries M\+A\+N\+GO}, 
+{\bfseries S\+H\+A\+M\+R\+O\+CK}, 
+{\bfseries B\+U\+B\+B\+L\+E\+G\+UM}, 
+\\*
+{\bfseries P\+U\+R\+P\+L\+I\+S\+H\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries V\+O\+M\+I\+T\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries P\+A\+L\+E\+\_\+\+C\+Y\+AN}, 
+{\bfseries K\+E\+Y\+\_\+\+L\+I\+ME}, 
+\\*
+{\bfseries T\+O\+M\+A\+T\+O\+\_\+\+R\+ED}, 
+{\bfseries L\+I\+G\+H\+T\+G\+R\+E\+EN}, 
+{\bfseries M\+E\+R\+L\+OT}, 
+{\bfseries N\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries P\+U\+R\+P\+L\+E\+I\+S\+H\+\_\+\+P\+I\+NK}, 
+{\bfseries A\+P\+P\+LE}, 
+{\bfseries B\+A\+B\+Y\+\_\+\+P\+O\+O\+P\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+R\+E\+E\+N\+\_\+\+A\+P\+P\+LE}, 
+\\*
+{\bfseries H\+E\+L\+I\+O\+T\+R\+O\+PE}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+\_\+\+O\+V\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries A\+L\+M\+O\+S\+T\+\_\+\+B\+L\+A\+CK}, 
+{\bfseries C\+O\+O\+L\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries L\+E\+A\+F\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries M\+U\+S\+T\+A\+R\+D\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries D\+U\+SK}, 
+{\bfseries D\+U\+L\+L\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries F\+R\+O\+G\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries V\+I\+V\+I\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries F\+L\+U\+R\+O\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries K\+I\+WI}, 
+{\bfseries S\+E\+A\+W\+E\+ED}, 
+{\bfseries N\+A\+V\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries U\+L\+T\+R\+A\+M\+A\+R\+I\+N\+E\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries I\+R\+IS}, 
+{\bfseries P\+A\+S\+T\+E\+L\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+I\+S\+H\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries P\+E\+R\+R\+Y\+W\+I\+N\+K\+LE}, 
+\\*
+{\bfseries T\+E\+A\+L\+I\+SH}, 
+{\bfseries D\+A\+R\+K\+\_\+\+P\+L\+UM}, 
+{\bfseries P\+E\+AR}, 
+{\bfseries P\+I\+N\+K\+I\+S\+H\+\_\+\+O\+R\+A\+N\+GE}, 
+\\*
+{\bfseries M\+I\+D\+N\+I\+G\+H\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+U\+R\+P\+LE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+M\+I\+NT}, 
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+T\+AN}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+U\+R\+G\+U\+N\+DY}, 
+{\bfseries T\+U\+R\+Q\+U\+O\+I\+S\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries U\+G\+L\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries S\+A\+N\+DY}, 
+\\*
+{\bfseries E\+L\+E\+C\+T\+R\+I\+C\+\_\+\+P\+I\+NK}, 
+{\bfseries M\+U\+T\+E\+D\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries M\+I\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+R\+E\+Y\+I\+SH}, 
+\\*
+{\bfseries N\+E\+O\+N\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries B\+A\+N\+A\+NA}, 
+{\bfseries C\+A\+R\+N\+A\+T\+I\+O\+N\+\_\+\+P\+I\+NK}, 
+{\bfseries T\+O\+M\+A\+TO}, 
+\\*
+{\bfseries S\+EA}, 
+{\bfseries M\+U\+D\+D\+Y\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries T\+U\+R\+Q\+U\+O\+I\+S\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+U\+FF}, 
+\\*
+{\bfseries F\+A\+WN}, 
+{\bfseries M\+U\+T\+E\+D\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+A\+L\+E\+\_\+\+R\+O\+SE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+M\+I\+N\+T\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries A\+M\+E\+T\+H\+Y\+ST}, 
+{\bfseries B\+L\+U\+E\+\_\+\+O\+V\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+H\+E\+S\+T\+N\+UT}, 
+{\bfseries S\+I\+C\+K\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries P\+EA}, 
+{\bfseries R\+U\+S\+T\+Y\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries S\+T\+O\+NE}, 
+{\bfseries R\+O\+S\+E\+\_\+\+R\+ED}, 
+\\*
+{\bfseries P\+A\+L\+E\+\_\+\+A\+Q\+UA}, 
+{\bfseries D\+E\+E\+P\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries E\+A\+R\+TH}, 
+{\bfseries M\+O\+S\+S\+Y\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries G\+R\+A\+S\+S\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+A\+L\+E\+\_\+\+L\+I\+M\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+A\+L\+E\+\_\+\+G\+R\+EY}, 
+\\*
+{\bfseries A\+S\+P\+A\+R\+A\+G\+US}, 
+{\bfseries B\+L\+U\+E\+B\+E\+R\+RY}, 
+{\bfseries P\+U\+R\+P\+L\+E\+\_\+\+R\+ED}, 
+{\bfseries P\+A\+L\+E\+\_\+\+L\+I\+ME}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+T\+E\+AL}, 
+{\bfseries C\+A\+R\+A\+M\+EL}, 
+{\bfseries D\+E\+E\+P\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+P\+E\+A\+CH}, 
+\\*
+{\bfseries M\+I\+L\+K\+\_\+\+C\+H\+O\+C\+O\+L\+A\+TE}, 
+{\bfseries O\+C\+H\+ER}, 
+{\bfseries O\+F\+F\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+U\+R\+P\+L\+Y\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+B\+L\+UE}, 
+{\bfseries D\+U\+S\+K\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries G\+O\+L\+D\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+E\+I\+GE}, 
+\\*
+{\bfseries B\+U\+T\+T\+E\+R\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries D\+U\+S\+K\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries F\+R\+E\+N\+C\+H\+\_\+\+B\+L\+UE}, 
+{\bfseries U\+G\+L\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries O\+R\+A\+N\+G\+I\+S\+H\+\_\+\+R\+ED}, 
+{\bfseries S\+H\+A\+M\+R\+O\+C\+K\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries O\+R\+A\+N\+G\+I\+S\+H\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries T\+R\+E\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+E\+E\+P\+\_\+\+V\+I\+O\+L\+ET}, 
+{\bfseries G\+U\+N\+M\+E\+T\+AL}, 
+{\bfseries B\+L\+U\+E\+\_\+\+O\+V\+E\+R\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries C\+H\+E\+R\+RY}, 
+{\bfseries S\+A\+N\+D\+Y\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries W\+A\+R\+M\+\_\+\+G\+R\+EY}, 
+{\bfseries D\+A\+R\+K\+\_\+\+I\+N\+D\+I\+GO}, 
+\\*
+{\bfseries M\+I\+D\+N\+I\+G\+HT}, 
+{\bfseries B\+L\+U\+E\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+R\+E\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries S\+O\+F\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries B\+L\+O\+OD}, 
+{\bfseries B\+R\+O\+W\+N\+\_\+\+R\+ED}, 
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+G\+R\+EY}, 
+{\bfseries B\+E\+R\+RY}, 
+\\*
+{\bfseries P\+OO}, 
+{\bfseries P\+U\+R\+P\+L\+E\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+S\+A\+L\+M\+ON}, 
+{\bfseries S\+N\+OT}, 
+\\*
+{\bfseries E\+A\+S\+T\+E\+R\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+Y\+E\+L\+L\+O\+W\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+N\+A\+V\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+R\+AB}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+R\+O\+SE}, 
+{\bfseries R\+O\+U\+GE}, 
+{\bfseries P\+U\+R\+P\+L\+I\+S\+H\+\_\+\+R\+ED}, 
+{\bfseries S\+L\+I\+M\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+A\+B\+Y\+\_\+\+P\+O\+OP}, 
+{\bfseries I\+R\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+I\+N\+K\+\_\+\+O\+V\+E\+R\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+N\+A\+VY}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+P\+L\+UM}, 
+{\bfseries P\+I\+N\+K\+I\+S\+H\+\_\+\+G\+R\+EY}, 
+{\bfseries D\+I\+R\+T\+Y\+\_\+\+O\+R\+A\+N\+GE}, 
+\\*
+{\bfseries R\+U\+S\+T\+\_\+\+R\+ED}, 
+{\bfseries P\+A\+L\+E\+\_\+\+L\+I\+L\+AC}, 
+{\bfseries O\+R\+A\+N\+G\+E\+Y\+\_\+\+R\+ED}, 
+{\bfseries P\+R\+I\+M\+A\+R\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries K\+E\+R\+M\+I\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+O\+W\+N\+I\+S\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries M\+U\+R\+K\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries W\+H\+E\+AT}, 
+\\*
+{\bfseries V\+E\+R\+Y\+\_\+\+D\+A\+R\+K\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries B\+O\+T\+T\+L\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries W\+A\+T\+E\+R\+M\+E\+L\+ON}, 
+{\bfseries D\+E\+E\+P\+\_\+\+S\+K\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries F\+I\+R\+E\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+R\+ED}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+\_\+\+O\+C\+H\+RE}, 
+{\bfseries P\+U\+M\+P\+K\+I\+N\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries P\+A\+L\+E\+\_\+\+O\+L\+I\+VE}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+L\+I\+L\+AC}, 
+{\bfseries L\+I\+G\+H\+T\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+A\+R\+O\+L\+I\+N\+A\+\_\+\+B\+L\+UE}, 
+{\bfseries M\+U\+L\+B\+E\+R\+RY}, 
+\\*
+{\bfseries S\+H\+O\+C\+K\+I\+N\+G\+\_\+\+P\+I\+NK}, 
+{\bfseries A\+U\+B\+U\+RN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+L\+I\+M\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+E\+L\+A\+D\+ON}, 
+\\*
+{\bfseries P\+I\+N\+K\+I\+S\+H\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries P\+O\+O\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+S\+K\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries C\+E\+L\+E\+RY}, 
+\\*
+{\bfseries D\+I\+R\+T\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries S\+T\+R\+A\+W\+B\+E\+R\+RY}, 
+{\bfseries D\+A\+R\+K\+\_\+\+L\+I\+ME}, 
+{\bfseries C\+O\+P\+P\+ER}, 
+\\*
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries M\+U\+T\+E\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries R\+O\+B\+I\+N\+S\+\_\+\+E\+GG}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+A\+Q\+UA}, 
+\\*
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+L\+A\+V\+E\+N\+D\+ER}, 
+{\bfseries I\+V\+O\+RY}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+L\+I\+G\+H\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+N\+A\+VY}, 
+\\*
+{\bfseries P\+I\+N\+K\+\_\+\+R\+ED}, 
+{\bfseries O\+L\+I\+V\+E\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries P\+O\+O\+P\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries M\+U\+S\+T\+A\+R\+D\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries O\+C\+E\+A\+N\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+D\+A\+R\+K\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+N\+A\+V\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries M\+I\+N\+T\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries A\+D\+O\+BE}, 
+{\bfseries B\+A\+R\+N\+EY}, 
+{\bfseries J\+A\+D\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+L\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+L\+I\+ME}, 
+{\bfseries D\+A\+R\+K\+\_\+\+K\+H\+A\+KI}, 
+{\bfseries O\+R\+A\+N\+G\+E\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries O\+C\+RE}, 
+{\bfseries M\+A\+I\+ZE}, 
+{\bfseries F\+A\+D\+E\+D\+\_\+\+P\+I\+NK}, 
+{\bfseries B\+R\+I\+T\+I\+S\+H\+\_\+\+R\+A\+C\+I\+N\+G\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+A\+N\+D\+S\+T\+O\+NE}, 
+{\bfseries M\+U\+D\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+S\+E\+A\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries R\+O\+B\+I\+N\+\_\+\+E\+G\+G\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries A\+Q\+U\+A\+\_\+\+M\+A\+R\+I\+NE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+S\+E\+A\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries S\+O\+F\+T\+\_\+\+P\+I\+NK}, 
+{\bfseries O\+R\+A\+N\+G\+E\+Y\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries C\+H\+E\+R\+R\+Y\+\_\+\+R\+ED}, 
+{\bfseries B\+U\+R\+N\+T\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries B\+R\+O\+W\+N\+I\+S\+H\+\_\+\+G\+R\+EY}, 
+{\bfseries C\+A\+M\+EL}, 
+\\*
+{\bfseries P\+U\+R\+P\+L\+I\+S\+H\+\_\+\+G\+R\+EY}, 
+{\bfseries M\+A\+R\+I\+NE}, 
+{\bfseries G\+R\+E\+Y\+I\+S\+H\+\_\+\+P\+I\+NK}, 
+{\bfseries P\+A\+L\+E\+\_\+\+T\+U\+R\+Q\+U\+O\+I\+SE}, 
+\\*
+{\bfseries P\+A\+S\+T\+E\+L\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries B\+L\+U\+E\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries C\+A\+N\+A\+R\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries F\+A\+D\+E\+D\+\_\+\+R\+ED}, 
+\\*
+{\bfseries S\+E\+P\+IA}, 
+{\bfseries C\+O\+F\+F\+EE}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+{\bfseries M\+O\+C\+HA}, 
+\\*
+{\bfseries E\+C\+RU}, 
+{\bfseries P\+U\+R\+P\+L\+E\+I\+SH}, 
+{\bfseries C\+R\+A\+N\+B\+E\+R\+RY}, 
+{\bfseries D\+A\+R\+K\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+R\+O\+W\+N\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries D\+U\+S\+K\+Y\+\_\+\+R\+O\+SE}, 
+{\bfseries M\+E\+L\+ON}, 
+{\bfseries S\+I\+C\+K\+L\+Y\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+I\+L\+V\+ER}, 
+{\bfseries P\+U\+R\+P\+L\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+U\+R\+P\+L\+E\+I\+S\+H\+\_\+\+B\+L\+UE}, 
+{\bfseries H\+O\+S\+P\+I\+T\+A\+L\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+H\+I\+T\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries M\+I\+D\+\_\+\+B\+L\+UE}, 
+{\bfseries A\+M\+B\+ER}, 
+{\bfseries E\+A\+S\+T\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+O\+F\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries C\+E\+R\+U\+L\+E\+A\+N\+\_\+\+B\+L\+UE}, 
+{\bfseries G\+O\+L\+D\+E\+N\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+T\+U\+R\+Q\+U\+O\+I\+SE}, 
+\\*
+{\bfseries R\+E\+D\+\_\+\+P\+I\+NK}, 
+{\bfseries R\+E\+D\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries G\+R\+E\+Y\+I\+S\+H\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries V\+E\+R\+M\+I\+L\+L\+I\+ON}, 
+\\*
+{\bfseries R\+U\+S\+S\+ET}, 
+{\bfseries S\+T\+E\+E\+L\+\_\+\+G\+R\+EY}, 
+{\bfseries L\+I\+G\+H\+T\+E\+R\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+V\+I\+O\+L\+ET}, 
+\\*
+{\bfseries P\+R\+U\+S\+S\+I\+A\+N\+\_\+\+B\+L\+UE}, 
+{\bfseries S\+L\+A\+T\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+I\+R\+T\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries D\+A\+R\+K\+\_\+\+B\+L\+U\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries P\+I\+NE}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+G\+O\+LD}, 
+{\bfseries B\+L\+U\+I\+SH}, 
+\\*
+{\bfseries D\+A\+R\+K\+I\+S\+H\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+U\+L\+L\+\_\+\+R\+ED}, 
+{\bfseries P\+I\+N\+K\+Y\+\_\+\+R\+ED}, 
+{\bfseries B\+R\+O\+N\+ZE}, 
+\\*
+{\bfseries P\+A\+L\+E\+\_\+\+T\+E\+AL}, 
+{\bfseries M\+I\+L\+I\+T\+A\+R\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+A\+R\+B\+I\+E\+\_\+\+P\+I\+NK}, 
+{\bfseries B\+U\+B\+B\+L\+E\+G\+U\+M\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries P\+E\+A\+\_\+\+S\+O\+U\+P\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+M\+U\+S\+T\+A\+RD}, 
+{\bfseries S\+H\+IT}, 
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries V\+E\+R\+Y\+\_\+\+D\+A\+R\+K\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+I\+RT}, 
+{\bfseries D\+U\+S\+K\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries R\+E\+D\+\_\+\+V\+I\+O\+L\+ET}, 
+\\*
+{\bfseries L\+E\+M\+O\+N\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries P\+I\+S\+T\+A\+C\+H\+IO}, 
+{\bfseries D\+U\+L\+L\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries D\+A\+R\+K\+\_\+\+L\+I\+M\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries D\+E\+N\+I\+M\+\_\+\+B\+L\+UE}, 
+{\bfseries T\+E\+A\+L\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+I\+S\+H\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+U\+R\+P\+L\+E\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+I\+N\+D\+I\+GO}, 
+{\bfseries S\+W\+A\+M\+P\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+O\+W\+N\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+M\+A\+R\+O\+ON}, 
+\\*
+{\bfseries H\+O\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+F\+O\+R\+E\+S\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries F\+A\+D\+E\+D\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+R\+A\+B\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+L\+I\+M\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries S\+N\+O\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+I\+SH}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+L\+U\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+O\+R\+D\+E\+A\+UX}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+M\+A\+U\+VE}, 
+{\bfseries O\+C\+E\+AN}, 
+{\bfseries M\+A\+R\+I\+G\+O\+LD}, 
+\\*
+{\bfseries M\+U\+D\+D\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+U\+L\+L\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries S\+T\+E\+EL}, 
+{\bfseries E\+L\+E\+C\+T\+R\+I\+C\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries F\+L\+U\+O\+R\+E\+S\+C\+E\+N\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+I\+S\+H\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries B\+L\+U\+SH}, 
+{\bfseries S\+O\+F\+T\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries L\+E\+M\+ON}, 
+{\bfseries P\+U\+R\+P\+L\+E\+\_\+\+G\+R\+EY}, 
+{\bfseries A\+C\+I\+D\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries P\+A\+L\+E\+\_\+\+L\+A\+V\+E\+N\+D\+ER}, 
+{\bfseries V\+I\+O\+L\+E\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+F\+O\+R\+E\+S\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+U\+R\+N\+T\+\_\+\+R\+ED}, 
+\\*
+{\bfseries K\+H\+A\+K\+I\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+E\+R\+I\+SE}, 
+{\bfseries F\+A\+D\+E\+D\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries A\+P\+R\+I\+C\+OT}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+O\+L\+I\+V\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+R\+E\+Y\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries G\+R\+E\+E\+N\+\_\+\+G\+R\+EY}, 
+{\bfseries T\+R\+U\+E\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries P\+A\+L\+E\+\_\+\+V\+I\+O\+L\+ET}, 
+{\bfseries P\+E\+R\+I\+W\+I\+N\+K\+L\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+S\+K\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+L\+U\+R\+P\+LE}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries B\+L\+U\+E\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+T\+E\+AL}, 
+{\bfseries B\+R\+O\+W\+N\+I\+S\+H\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries P\+E\+A\+\_\+\+S\+O\+UP}, 
+{\bfseries F\+O\+R\+E\+ST}, 
+{\bfseries B\+A\+R\+N\+E\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries U\+L\+T\+R\+A\+M\+A\+R\+I\+NE}, 
+\\*
+{\bfseries P\+U\+R\+P\+L\+I\+SH}, 
+{\bfseries P\+U\+K\+E\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries B\+L\+U\+I\+S\+H\+\_\+\+G\+R\+EY}, 
+{\bfseries D\+A\+R\+K\+\_\+\+P\+E\+R\+I\+W\+I\+N\+K\+LE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+L\+I\+L\+AC}, 
+{\bfseries R\+E\+D\+D\+I\+SH}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+M\+A\+R\+O\+ON}, 
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries T\+E\+R\+R\+A\+\_\+\+C\+O\+T\+TA}, 
+{\bfseries A\+V\+O\+C\+A\+DO}, 
+{\bfseries M\+A\+R\+I\+N\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries T\+E\+A\+L\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+L\+A\+T\+E\+\_\+\+G\+R\+EY}, 
+{\bfseries L\+I\+G\+H\+T\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries E\+L\+E\+C\+T\+R\+I\+C\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries G\+O\+L\+D\+E\+N\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+L\+A\+V\+E\+N\+D\+ER}, 
+{\bfseries U\+M\+B\+ER}, 
+\\*
+{\bfseries P\+O\+OP}, 
+{\bfseries D\+A\+R\+K\+\_\+\+P\+E\+A\+CH}, 
+{\bfseries J\+U\+N\+G\+L\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries E\+G\+G\+S\+H\+E\+LL}, 
+\\*
+{\bfseries D\+E\+N\+IM}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries D\+U\+L\+L\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries C\+H\+O\+C\+O\+L\+A\+T\+E\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries W\+I\+N\+E\+\_\+\+R\+ED}, 
+{\bfseries N\+E\+O\+N\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+I\+R\+T\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+T\+AN}, 
+\\*
+{\bfseries I\+C\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries C\+A\+D\+E\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+M\+A\+U\+VE}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+L\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries G\+R\+E\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries P\+A\+S\+T\+E\+L\+\_\+\+P\+I\+NK}, 
+{\bfseries V\+E\+R\+Y\+\_\+\+L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+S\+K\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries E\+V\+E\+R\+G\+R\+E\+EN}, 
+{\bfseries D\+U\+L\+L\+\_\+\+P\+I\+NK}, 
+{\bfseries A\+U\+B\+E\+R\+G\+I\+NE}, 
+{\bfseries M\+A\+H\+O\+G\+A\+NY}, 
+\\*
+{\bfseries R\+E\+D\+D\+I\+S\+H\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries D\+E\+E\+P\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries V\+O\+M\+I\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+U\+R\+P\+L\+E\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries F\+A\+D\+E\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+A\+M\+O\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+I\+N\+K\+Y\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries P\+I\+N\+K\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries B\+R\+O\+W\+N\+I\+S\+H\+\_\+\+R\+ED}, 
+{\bfseries D\+A\+R\+K\+\_\+\+R\+O\+SE}, 
+{\bfseries M\+UD}, 
+\\*
+{\bfseries B\+R\+O\+W\+N\+I\+SH}, 
+{\bfseries E\+M\+E\+R\+A\+L\+D\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+A\+L\+E\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries D\+U\+L\+L\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries B\+U\+R\+N\+T\+\_\+\+U\+M\+B\+ER}, 
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+L\+AY}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+A\+Q\+UA}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+O\+L\+I\+V\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+R\+O\+W\+N\+I\+S\+H\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+A\+Q\+UA}, 
+{\bfseries P\+U\+R\+P\+L\+I\+S\+H\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+S\+A\+L\+M\+ON}, 
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+G\+R\+EY}, 
+{\bfseries J\+A\+DE}, 
+{\bfseries U\+G\+L\+Y\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+B\+E\+I\+GE}, 
+{\bfseries E\+M\+E\+R\+A\+LD}, 
+{\bfseries P\+A\+L\+E\+\_\+\+R\+ED}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+\\*
+{\bfseries S\+KY}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+C\+Y\+AN}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries R\+E\+D\+D\+I\+S\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries R\+E\+D\+D\+I\+S\+H\+\_\+\+P\+I\+NK}, 
+{\bfseries O\+R\+C\+H\+ID}, 
+{\bfseries D\+I\+R\+T\+Y\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries O\+R\+A\+N\+G\+E\+\_\+\+R\+ED}, 
+\\*
+{\bfseries D\+E\+E\+P\+\_\+\+R\+ED}, 
+{\bfseries O\+R\+A\+N\+G\+E\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries C\+O\+B\+A\+L\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries N\+E\+O\+N\+\_\+\+P\+I\+NK}, 
+\\*
+{\bfseries R\+O\+S\+E\+\_\+\+P\+I\+NK}, 
+{\bfseries G\+R\+E\+Y\+I\+S\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries R\+A\+S\+P\+B\+E\+R\+RY}, 
+{\bfseries A\+Q\+U\+A\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+A\+L\+M\+O\+N\+\_\+\+P\+I\+NK}, 
+{\bfseries T\+A\+N\+G\+E\+R\+I\+NE}, 
+{\bfseries B\+R\+O\+W\+N\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries R\+E\+D\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries P\+U\+M\+P\+K\+IN}, 
+{\bfseries P\+I\+N\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries C\+H\+A\+R\+C\+O\+AL}, 
+\\*
+{\bfseries B\+A\+B\+Y\+\_\+\+P\+I\+NK}, 
+{\bfseries C\+O\+R\+N\+F\+L\+O\+W\+ER}, 
+{\bfseries B\+L\+U\+E\+\_\+\+V\+I\+O\+L\+ET}, 
+{\bfseries C\+H\+O\+C\+O\+L\+A\+TE}, 
+\\*
+{\bfseries G\+R\+E\+Y\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries S\+C\+A\+R\+L\+ET}, 
+{\bfseries G\+R\+E\+E\+N\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries D\+A\+R\+K\+\_\+\+O\+L\+I\+VE}, 
+\\*
+{\bfseries S\+I\+E\+N\+NA}, 
+{\bfseries P\+A\+S\+T\+E\+L\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries T\+E\+R\+R\+A\+C\+O\+T\+TA}, 
+{\bfseries A\+Q\+U\+A\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries S\+A\+G\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+L\+O\+O\+D\+\_\+\+R\+ED}, 
+{\bfseries D\+E\+E\+P\+\_\+\+P\+I\+NK}, 
+{\bfseries G\+R\+A\+SS}, 
+\\*
+{\bfseries M\+O\+SS}, 
+{\bfseries P\+A\+S\+T\+E\+L\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+L\+U\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+R\+E\+E\+N\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+T\+AN}, 
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+A\+L\+E\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries V\+O\+M\+IT}, 
+\\*
+{\bfseries F\+O\+R\+R\+E\+S\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+L\+A\+V\+E\+N\+D\+ER}, 
+{\bfseries D\+A\+R\+K\+\_\+\+V\+I\+O\+L\+ET}, 
+{\bfseries P\+U\+R\+P\+L\+E\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+C\+Y\+AN}, 
+{\bfseries O\+L\+I\+V\+E\+\_\+\+D\+R\+AB}, 
+{\bfseries P\+I\+N\+K\+I\+SH}, 
+{\bfseries C\+O\+B\+A\+LT}, 
+\\*
+{\bfseries N\+E\+O\+N\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+T\+U\+R\+Q\+U\+O\+I\+SE}, 
+{\bfseries A\+P\+P\+L\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+U\+L\+L\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries W\+I\+NE}, 
+{\bfseries P\+O\+W\+D\+E\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries O\+F\+F\+\_\+\+W\+H\+I\+TE}, 
+{\bfseries E\+L\+E\+C\+T\+R\+I\+C\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+T\+U\+R\+Q\+U\+O\+I\+SE}, 
+{\bfseries B\+L\+U\+E\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries A\+Z\+U\+RE}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+R\+ED}, 
+\\*
+{\bfseries P\+I\+N\+K\+I\+S\+H\+\_\+\+R\+ED}, 
+{\bfseries C\+O\+R\+N\+F\+L\+O\+W\+E\+R\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+O\+L\+I\+VE}, 
+{\bfseries G\+R\+A\+PE}, 
+\\*
+{\bfseries G\+R\+E\+Y\+I\+S\+H\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+U\+R\+P\+L\+I\+S\+H\+\_\+\+B\+L\+UE}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+I\+S\+H\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+R\+E\+E\+N\+I\+S\+H\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries M\+E\+D\+I\+U\+M\+\_\+\+B\+L\+UE}, 
+{\bfseries D\+U\+S\+T\+Y\+\_\+\+R\+O\+SE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+V\+I\+O\+L\+ET}, 
+{\bfseries M\+I\+D\+N\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries B\+L\+U\+I\+S\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries R\+E\+D\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+{\bfseries G\+R\+E\+E\+N\+I\+SH}, 
+\\*
+{\bfseries O\+C\+E\+A\+N\+\_\+\+B\+L\+UE}, 
+{\bfseries C\+O\+R\+AL}, 
+{\bfseries C\+R\+E\+AM}, 
+{\bfseries R\+E\+D\+D\+I\+S\+H\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries B\+U\+R\+N\+T\+\_\+\+S\+I\+E\+N\+NA}, 
+{\bfseries B\+R\+I\+CK}, 
+{\bfseries S\+A\+GE}, 
+{\bfseries G\+R\+E\+Y\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries W\+H\+I\+TE}, 
+{\bfseries R\+O\+B\+I\+N\+S\+\_\+\+E\+G\+G\+\_\+\+B\+L\+UE}, 
+{\bfseries M\+O\+S\+S\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries S\+T\+E\+E\+L\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries E\+G\+G\+P\+L\+A\+NT}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries L\+E\+A\+F\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+EY}, 
+\\*
+{\bfseries P\+U\+KE}, 
+{\bfseries P\+I\+N\+K\+I\+S\+H\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries S\+E\+A\+\_\+\+B\+L\+UE}, 
+{\bfseries P\+A\+L\+E\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries S\+L\+A\+T\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+L\+U\+E\+\_\+\+G\+R\+EY}, 
+{\bfseries H\+U\+N\+T\+E\+R\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries F\+U\+C\+H\+S\+IA}, 
+\\*
+{\bfseries C\+R\+I\+M\+S\+ON}, 
+{\bfseries P\+A\+L\+E\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries O\+C\+H\+RE}, 
+{\bfseries M\+U\+S\+T\+A\+R\+D\+\_\+\+Y\+E\+L\+L\+OW}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+R\+ED}, 
+{\bfseries C\+E\+R\+U\+L\+E\+AN}, 
+{\bfseries P\+A\+L\+E\+\_\+\+P\+I\+NK}, 
+{\bfseries D\+E\+E\+P\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries R\+U\+ST}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+T\+E\+AL}, 
+{\bfseries S\+L\+A\+TE}, 
+{\bfseries G\+O\+L\+D\+E\+N\+R\+OD}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+Y\+E\+L\+L\+OW}, 
+{\bfseries D\+A\+R\+K\+\_\+\+G\+R\+EY}, 
+{\bfseries A\+R\+M\+Y\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+R\+E\+Y\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries S\+E\+A\+F\+O\+AM}, 
+{\bfseries P\+U\+CE}, 
+{\bfseries S\+P\+R\+I\+N\+G\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+O\+R\+A\+N\+GE}, 
+\\*
+{\bfseries S\+A\+ND}, 
+{\bfseries P\+A\+S\+T\+E\+L\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries M\+I\+NT}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+O\+R\+A\+N\+GE}, 
+\\*
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+P\+I\+NK}, 
+{\bfseries C\+H\+A\+R\+T\+R\+E\+U\+SE}, 
+{\bfseries D\+E\+E\+P\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+B\+R\+O\+WN}, 
+\\*
+{\bfseries T\+A\+U\+PE}, 
+{\bfseries P\+E\+A\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+U\+K\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries K\+E\+L\+L\+Y\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries S\+E\+A\+F\+O\+A\+M\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries B\+L\+U\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries K\+H\+A\+KI}, 
+{\bfseries B\+U\+R\+G\+U\+N\+DY}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+T\+E\+AL}, 
+{\bfseries B\+R\+I\+C\+K\+\_\+\+R\+ED}, 
+{\bfseries R\+O\+Y\+A\+L\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries P\+L\+UM}, 
+\\*
+{\bfseries M\+I\+N\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries G\+O\+LD}, 
+{\bfseries B\+A\+B\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries Y\+E\+L\+L\+O\+W\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries D\+A\+R\+K\+\_\+\+R\+ED}, 
+{\bfseries P\+A\+L\+E\+\_\+\+B\+L\+UE}, 
+{\bfseries G\+R\+A\+S\+S\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries N\+A\+VY}, 
+{\bfseries A\+Q\+U\+A\+M\+A\+R\+I\+NE}, 
+{\bfseries B\+U\+R\+N\+T\+\_\+\+O\+R\+A\+N\+GE}, 
+{\bfseries N\+E\+O\+N\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+{\bfseries R\+O\+SE}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+P\+I\+NK}, 
+{\bfseries M\+U\+S\+T\+A\+RD}, 
+\\*
+{\bfseries I\+N\+D\+I\+GO}, 
+{\bfseries L\+I\+ME}, 
+{\bfseries S\+E\+A\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+E\+R\+I\+W\+I\+N\+K\+LE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+P\+I\+NK}, 
+{\bfseries O\+L\+I\+V\+E\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries P\+E\+A\+CH}, 
+{\bfseries P\+A\+L\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+R\+O\+WN}, 
+{\bfseries H\+O\+T\+\_\+\+P\+I\+NK}, 
+{\bfseries B\+L\+A\+CK}, 
+{\bfseries L\+I\+L\+AC}, 
+\\*
+{\bfseries N\+A\+V\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries R\+O\+Y\+A\+L\+\_\+\+B\+L\+UE}, 
+{\bfseries B\+E\+I\+GE}, 
+{\bfseries S\+A\+L\+M\+ON}, 
+\\*
+{\bfseries O\+L\+I\+VE}, 
+{\bfseries M\+A\+R\+O\+ON}, 
+{\bfseries B\+R\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+P\+U\+R\+P\+LE}, 
+\\*
+{\bfseries M\+A\+U\+VE}, 
+{\bfseries F\+O\+R\+E\+S\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries A\+Q\+UA}, 
+{\bfseries C\+Y\+AN}, 
+\\*
+{\bfseries T\+AN}, 
+{\bfseries D\+A\+R\+K\+\_\+\+B\+L\+UE}, 
+{\bfseries L\+A\+V\+E\+N\+D\+ER}, 
+{\bfseries T\+U\+R\+Q\+U\+O\+I\+SE}, 
+\\*
+{\bfseries D\+A\+R\+K\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries V\+I\+O\+L\+ET}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+P\+U\+R\+P\+LE}, 
+{\bfseries L\+I\+M\+E\+\_\+\+G\+R\+E\+EN}, 
+\\*
+{\bfseries G\+R\+EY}, 
+{\bfseries S\+K\+Y\+\_\+\+B\+L\+UE}, 
+{\bfseries Y\+E\+L\+L\+OW}, 
+{\bfseries M\+A\+G\+E\+N\+TA}, 
+\\*
+{\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+{\bfseries O\+R\+A\+N\+GE}, 
+{\bfseries T\+E\+AL}, 
+{\bfseries L\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+\\*
+{\bfseries R\+ED}, 
+{\bfseries B\+R\+O\+WN}, 
+{\bfseries P\+I\+NK}, 
+{\bfseries B\+L\+UE}, 
+\\*
+{\bfseries G\+R\+E\+EN}, 
+{\bfseries P\+U\+R\+P\+LE}
+ \}\begin{DoxyCompactList}\small\item\em The colors. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class V , typename T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a5aeaa9f908f1b6df7bb9eb67a78de2f8}{in} (const V \&v, const T \&el)
+\begin{DoxyCompactList}\small\item\em Checks whether an element is contained in the container. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class V , typename T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_aea02104c8916b2d55097b3a824d68023}{in\+Erase} (V \&v, const T \&el)
+\begin{DoxyCompactList}\small\item\em Checks whether an element is contained in the container. If the element is contained, it is erased. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class V , typename T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a1a96151123c3caa16e91369aa68ed5da}{push\+\_\+back\+\_\+unique} (V \&v, const T \&el)
+\begin{DoxyCompactList}\small\item\em Push back a unique element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Random\+It $>$ }\\void \hyperlink{namespaceslb_1_1core_1_1util_a66d6fd147a0764a6c1c1873e68f336d4}{shuffle\+Refs} (Random\+It first, Random\+It last)
+\begin{DoxyCompactList}\small\item\em Shuffle a vector of std\+::reference\+\_\+wrapper. The algorithm is version 1 from \href{http://en.cppreference.com/w/cpp/algorithm/random_shuffle}{\tt http\+://en.\+cppreference.\+com/w/cpp/algorithm/random\+\_\+shuffle}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Map\+Type $>$ }\\void \hyperlink{namespaceslb_1_1core_1_1util_aca5f759e4a73804fcd828af403904190}{shuffle\+Map} (Map\+Type \&map)
+\begin{DoxyCompactList}\small\item\em Shuffle a map. \end{DoxyCompactList}\item 
+M\+E\+NU $\ast$ \hyperlink{namespaceslb_1_1core_1_1util_a9ecb2bc008a69c458151515197ce018c}{create\+Menu} (W\+I\+N\+D\+OW $\ast$w, std\+::vector$<$ I\+T\+EM $\ast$ $>$ \&items, const std\+::vector$<$ std\+::string $>$ \&choices, const std\+::vector$<$ std\+::string $>$ \&non\+Selectable, const std\+::vector$<$ std\+::string $>$ \&selected, int max\+Menu\+Rows, bool multi\+Flag=false)
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily curses} menu. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a1ba19280252473582d7a52ff677107be}{destroy\+Menu} (M\+E\+NU $\ast$m)
+\begin{DoxyCompactList}\small\item\em Destroys the menu and frees the resources. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a5f6196dcf481c926229079d9b4153cbc}{menu\+Choice} (M\+E\+NU $\ast$m)
+\begin{DoxyCompactList}\small\item\em Returns the current menu choice. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{namespaceslb_1_1core_1_1util_a46276e10206643d3cee0d5c2c0eeb5ac}{menu\+Choices} (M\+E\+NU $\ast$m)
+\begin{DoxyCompactList}\small\item\em Returns the current menu choices. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a8d1707b9caf4ff4b66d90c512974bd19}{move\+To} (cairo\+\_\+t $\ast$cr, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{gu\+::\+Point} \&p)
+\begin{DoxyCompactList}\small\item\em Moves to the given point. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a5ceb479b918ab45219b1b509183a57cc}{line\+To} (cairo\+\_\+t $\ast$cr, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{gu\+::\+Point} \&to, bool stroke\+Flag=true)
+\begin{DoxyCompactList}\small\item\em Draws line to the given point. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a05a341116f08209b05c9822725be127e}{line} (cairo\+\_\+t $\ast$cr, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{gu\+::\+Point} \&from, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{gu\+::\+Point} \&to, bool stroke\+Flag=true)
+\begin{DoxyCompactList}\small\item\em Connects two points with a line. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_ac07fdd8a1daaeee3d5c8b8445c5c9110}{connect\+Circles} (cairo\+\_\+t $\ast$cr, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Circle}{gu\+::\+Circle} \&from, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Circle}{gu\+::\+Circle} \&to)
+\begin{DoxyCompactList}\small\item\em Connects two circles with a line. The line is a segment of the line that connects the centers with the part within the circles removed. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a265ab01b21987f23478c4a960a50820e}{inscribe\+Polygon} (cairo\+\_\+t $\ast$cr, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Circle}{gu\+::\+Circle} \&c, int n, double angle, bool fill\+Flag)
+\begin{DoxyCompactList}\small\item\em Draws equilateral n-\/polygon inscribed into the circle with one of the vertices at the specified angle of the circle. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a95928fbd32acc4010efe2c6fc5d7191e}{draw\+Text} (cairo\+\_\+t $\ast$cr, const std\+::string s, int size, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{gu\+::\+Point} \&p)
+\begin{DoxyCompactList}\small\item\em Draws text of given font size centered around the given point. \end{DoxyCompactList}\item 
+cairo\+\_\+surface\+\_\+t $\ast$ \hyperlink{namespaceslb_1_1core_1_1util_af57d4bad2c58dd80bdfb6e8fa9fca62c}{create\+\_\+x11\+\_\+surface} (Display $\ast$d, Window \&w, Window \&root, int $\ast$x, int $\ast$y)
+\begin{DoxyCompactList}\small\item\em Creates a new X11 surface to draw on. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a903619e2dfde6392a7384dbfeaa6eafc}{double2str} (double f)
+\begin{DoxyCompactList}\small\item\em Converts double to string, while getting rid of exponent notation and trailing zeros. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \hyperlink{namespaceslb_1_1core_1_1util_ab3e706fd0a5bcfdbcdac11c8e6ee5f31}{unique2shared} (std\+::unique\+\_\+ptr$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Releases moves a pointer from {\ttfamily std\+::unique\+\_\+ptr} to {\ttfamily std\+::shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , class U $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a6524ef64141336dce5cec7062b756569}{operator==} (const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&lhs, const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , class U $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a6a344fb210c4db8ba8a67de43ed8ea35}{operator!=} (const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&lhs, const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a4e0953eb5fd3073c0057f7de724c0f91}{operator==} (const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&lhs, std\+::nullptr\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the right. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a8e196a0adbb3f886af645dc3bcc0c8f8}{operator==} (std\+::nullptr\+\_\+t, const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the left. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a08e1702769bfbe3411dad3f0a68f526a}{operator!=} (const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&lhs, std\+::nullptr\+\_\+t rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the right. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a62443a5539cf3e36e67a7343806b65a3}{operator!=} (std\+::nullptr\+\_\+t lhs, const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the left. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , class... Args$>$ }\\\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \hyperlink{namespaceslb_1_1core_1_1util_a1d307411caad59a01d41cbb34ea71d8c}{make\+\_\+deref\+\_\+shared} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \hyperlink{namespaceslb_1_1core_1_1util_acb7cbe60d3098ca39a993fb6a5640a2f}{unique2derefshared} (std\+::unique\+\_\+ptr$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Moves an object from {\ttfamily std\+::unique\+\_\+ptr} to \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a2e7207fe123391c539ef9924d347f7e1}{str} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Get an arbitrary object\textquotesingle{}s string representation. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a390411b2bdd9cdf930071614c6712579}{sure\+Read} (std\+::ifstream \&fin)
+\begin{DoxyCompactList}\small\item\em Read from a file and assert that no errors occurred during the read. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_ae3ed6a8de55ec15aa85f72911546e20d}{sure\+Read} (std\+::ifstream \&fin, const std\+::string \&\hyperlink{namespaceslb_1_1core_1_1util_a2e7207fe123391c539ef9924d347f7e1}{str})
+\begin{DoxyCompactList}\small\item\em Read from a file and assert that the read string is equal to the given one. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceslb_1_1core_1_1util_a06aba127ff89c79f893cf9e1cb10ff79}{dumpT} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Dump an object to {\ttfamily stderr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename charT , typename T $>$ }\\auto \hyperlink{namespaceslb_1_1core_1_1util_a719c889c611ba3d22441ad3d29243e1a}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ charT $>$ \&o, const T \&t) -\/$>$ decltype(t.\+dump(o))
+\begin{DoxyCompactList}\small\item\em Output operator for all classes that define the dump member function accepting {\ttfamily std\+::basic\+\_\+ostream}. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a47a5d48f761811dede67fba654950c34}{trim} (const std\+::string \&\hyperlink{namespaceslb_1_1core_1_1util_a2e7207fe123391c539ef9924d347f7e1}{str}, const std\+::string \&whitespace=\char`\"{} \textbackslash{}t\char`\"{})
+\begin{DoxyCompactList}\small\item\em Trim white-\/space characters from the end of string. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{namespaceslb_1_1core_1_1util_a0b17f4ccc4a084619d95187d7dad6f65}{split} (const std\+::string \&s, const std\+::vector$<$ char $>$ \&delims)
+\begin{DoxyCompactList}\small\item\em Split the string using the giving characters. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_ad3241e5d4d570f8547a7ce25cf830ed9}{stuff} (std\+::string \&s, bool throw\+On\+Empty=false, int n\+Spaces=2)
+\begin{DoxyCompactList}\small\item\em Looks for the first substring that begins with a non-\/space character and ends either at the end of string or with the given number of spaces. The original string is modified to contain the non-\/parsed part of the string. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a4a58db5cca1c87149055968926cd0cd6}{test\+Table} ()\hypertarget{namespaceslb_1_1core_1_1util_a4a58db5cca1c87149055968926cd0cd6}{}\label{namespaceslb_1_1core_1_1util_a4a58db5cca1c87149055968926cd0cd6}
+
+\begin{DoxyCompactList}\small\item\em A function to test \hyperlink{structslb_1_1core_1_1util_1_1Table}{Table}. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_accd7b27a31d025a5e141e3cd1eaad44f}{\+\_\+\+\_\+nsleep} (const struct timespec $\ast$req, struct timespec $\ast$rem)
+\begin{DoxyCompactList}\small\item\em Sleep for the given amount of time, while dealing with interrupts. \end{DoxyCompactList}\item 
+int \hyperlink{namespaceslb_1_1core_1_1util_a8982c5b1b1f4f7476f32f8f657ef3d9a}{msleep} (unsigned long milisec)
+\begin{DoxyCompactList}\small\item\em Sleep for the given amount of time, while dealing with interrupts. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\T1 \hyperlink{namespaceslb_1_1core_1_1util_aaf1dc3177dbb76fc2bc069c283139d90}{find\+First} (std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v, const T2 \&el)
+\begin{DoxyCompactList}\small\item\em Find the first coordinate corresponding to the second one in a vector of pairs. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\T2 \hyperlink{namespaceslb_1_1core_1_1util_a95c07c3747fafdb0ef19871bbc131158}{find\+Second} (std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v, const T1 \&el)
+\begin{DoxyCompactList}\small\item\em Find the second coordinate corresponding to the first one in a vector of pairs. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\std\+::vector$<$ T1 $>$ \hyperlink{namespaceslb_1_1core_1_1util_a7c70c706b5364fdd7b14480d1dac38f5}{project\+First} (const std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v)
+\begin{DoxyCompactList}\small\item\em Compute the projection onto the first coordinate of a vector of pairs. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\std\+::vector$<$ T2 $>$ \hyperlink{namespaceslb_1_1core_1_1util_aa515b7535bb7f9a49dccfea197855dec}{project\+Second} (const std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v)
+\begin{DoxyCompactList}\small\item\em Compute the projection onto the second coordinate of a vector of pairs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \hyperlink{namespaceslb_1_1core_1_1util_a5f4cfdcebbe811ab08a9bab966f79f18}{R\+G\+B\+Values}\hypertarget{namespaceslb_1_1core_1_1util_a5f4cfdcebbe811ab08a9bab966f79f18}{}\label{namespaceslb_1_1core_1_1util_a5f4cfdcebbe811ab08a9bab966f79f18}
+
+\begin{DoxyCompactList}\small\item\em The R\+GB values of the colors in \hyperlink{namespaceslb_1_1core_1_1util_afae144e1a65658559242f5cf4fce426f}{Color}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Utility facilities. 
+
+\subsubsection{Enumeration Type Documentation}
+\index{slb\+::core\+::util@{slb\+::core\+::util}!Color@{Color}}
+\index{Color@{Color}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{Color}{Color}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf slb\+::core\+::util\+::\+Color}\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{namespaceslb_1_1core_1_1util_afae144e1a65658559242f5cf4fce426f}{}\label{namespaceslb_1_1core_1_1util_afae144e1a65658559242f5cf4fce426f}
+
+
+The colors. 
+
+\begin{DoxyNote}{Note}
+The source of colors\+: \href{http://xkcd.com/color/rgb/}{\tt http\+://xkcd.\+com/color/rgb/} 
+\end{DoxyNote}
+
+
+Definition at line 14 of file colors.\+h.
+
+
+
+\subsubsection{Function Documentation}
+\index{slb\+::core\+::util@{slb\+::core\+::util}!\+\_\+\+\_\+nsleep@{\+\_\+\+\_\+nsleep}}
+\index{\+\_\+\+\_\+nsleep@{\+\_\+\+\_\+nsleep}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{\+\_\+\+\_\+nsleep(const struct timespec $\ast$req, struct timespec $\ast$rem)}{__nsleep(const struct timespec *req, struct timespec *rem)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::\+\_\+\+\_\+nsleep (
+\begin{DoxyParamCaption}
+\item[{const struct timespec $\ast$}]{req, }
+\item[{struct timespec $\ast$}]{rem}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_accd7b27a31d025a5e141e3cd1eaad44f}{}\label{namespaceslb_1_1core_1_1util_accd7b27a31d025a5e141e3cd1eaad44f}
+
+
+Sleep for the given amount of time, while dealing with interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & Amount of time to sleep. \\
+\hline
+{\em rem} & Remaining amount of time to sleep after the interrupt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The code is taken from \href{http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/}{\tt http\+://cc.\+byexamples.\+com/2007/05/25/nanosleep-\/is-\/better-\/than-\/sleep-\/and-\/usleep/} 
+\end{DoxyNote}
+
+
+Definition at line 16 of file time.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!connect\+Circles@{connect\+Circles}}
+\index{connect\+Circles@{connect\+Circles}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{connect\+Circles(cairo\+\_\+t $\ast$cr, const gu\+::\+Circle \&from, const gu\+::\+Circle \&to)}{connectCircles(cairo_t *cr, const gu::Circle &from, const gu::Circle &to)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::connect\+Circles (
+\begin{DoxyParamCaption}
+\item[{cairo\+\_\+t $\ast$}]{cr, }
+\item[{const {\bf gu\+::\+Circle} \&}]{from, }
+\item[{const {\bf gu\+::\+Circle} \&}]{to}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_ac07fdd8a1daaeee3d5c8b8445c5c9110}{}\label{namespaceslb_1_1core_1_1util_ac07fdd8a1daaeee3d5c8b8445c5c9110}
+
+
+Connects two circles with a line. The line is a segment of the line that connects the centers with the part within the circles removed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & The drawing context. \\
+\hline
+{\em from} & The source circle. \\
+\hline
+{\em to} & The target circle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file drawing.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!create\+\_\+x11\+\_\+surface@{create\+\_\+x11\+\_\+surface}}
+\index{create\+\_\+x11\+\_\+surface@{create\+\_\+x11\+\_\+surface}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{create\+\_\+x11\+\_\+surface(\+Display $\ast$d, Window \&w, Window \&root, int $\ast$x, int $\ast$y)}{create_x11_surface(Display *d, Window &w, Window &root, int *x, int *y)}}]{\setlength{\rightskip}{0pt plus 5cm}cairo\+\_\+surface\+\_\+t$\ast$ slb\+::core\+::util\+::create\+\_\+x11\+\_\+surface (
+\begin{DoxyParamCaption}
+\item[{Display $\ast$}]{d, }
+\item[{Window \&}]{w, }
+\item[{Window \&}]{root, }
+\item[{int $\ast$}]{x, }
+\item[{int $\ast$}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_af57d4bad2c58dd80bdfb6e8fa9fca62c}{}\label{namespaceslb_1_1core_1_1util_af57d4bad2c58dd80bdfb6e8fa9fca62c}
+
+
+Creates a new X11 surface to draw on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The display. \\
+\hline
+{\em w} & The window. \\
+\hline
+{\em root} & The root window. \\
+\hline
+{\em x} & The x-\/coordinate of the top left corner. \\
+\hline
+{\em y} & The y-\/coordinate of the top left corner. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new X11 surface. 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file x11.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!create\+Menu@{create\+Menu}}
+\index{create\+Menu@{create\+Menu}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{create\+Menu(\+W\+I\+N\+D\+O\+W $\ast$w, std\+::vector$<$ I\+T\+E\+M $\ast$ $>$ \&items, const std\+::vector$<$ std\+::string $>$ \&choices, const std\+::vector$<$ std\+::string $>$ \&non\+Selectable, const std\+::vector$<$ std\+::string $>$ \&selected, int max\+Menu\+Rows, bool multi\+Flag=false)}{createMenu(WINDOW *w, std::vector< ITEM * > &items, const std::vector< std::string > &choices, const std::vector< std::string > &nonSelectable, const std::vector< std::string > &selected, int maxMenuRows, bool multiFlag=false)}}]{\setlength{\rightskip}{0pt plus 5cm}M\+E\+NU$\ast$ slb\+::core\+::util\+::create\+Menu (
+\begin{DoxyParamCaption}
+\item[{W\+I\+N\+D\+OW $\ast$}]{w, }
+\item[{std\+::vector$<$ I\+T\+EM $\ast$ $>$ \&}]{items, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{choices, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{non\+Selectable, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{selected, }
+\item[{int}]{max\+Menu\+Rows, }
+\item[{bool}]{multi\+Flag = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a9ecb2bc008a69c458151515197ce018c}{}\label{namespaceslb_1_1core_1_1util_a9ecb2bc008a69c458151515197ce018c}
+
+
+Creates a {\ttfamily curses} menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & The window. \\
+\hline
+{\em items} & The menu items. \\
+\hline
+{\em choices} & The string representation of the menu items. \\
+\hline
+{\em non\+Selectable} & The string representation of the menu items that are non-\/selectable. \\
+\hline
+{\em selected} & The string representation of the menu items that are initially selected. \\
+\hline
+{\em max\+Menu\+Rows} & The maximal number of rows that the menu can occupy. \\
+\hline
+{\em multi\+Flag} & {\ttfamily true} if several items can be selected from the new menu and {\ttfamily false} otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created menu. 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file curses\+\_\+menu.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!destroy\+Menu@{destroy\+Menu}}
+\index{destroy\+Menu@{destroy\+Menu}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{destroy\+Menu(\+M\+E\+N\+U $\ast$m)}{destroyMenu(MENU *m)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::destroy\+Menu (
+\begin{DoxyParamCaption}
+\item[{M\+E\+NU $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a1ba19280252473582d7a52ff677107be}{}\label{namespaceslb_1_1core_1_1util_a1ba19280252473582d7a52ff677107be}
+
+
+Destroys the menu and frees the resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The menu to be destroyed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 62 of file curses\+\_\+menu.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!double2str@{double2str}}
+\index{double2str@{double2str}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{double2str(double f)}{double2str(double f)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string slb\+::core\+::util\+::double2str (
+\begin{DoxyParamCaption}
+\item[{double}]{f}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a903619e2dfde6392a7384dbfeaa6eafc}{}\label{namespaceslb_1_1core_1_1util_a903619e2dfde6392a7384dbfeaa6eafc}
+
+
+Converts double to string, while getting rid of exponent notation and trailing zeros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The number to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representation of {\ttfamily c} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The original code is taken from \href{http://stackoverflow.com/a/14966508/2725810}{\tt http\+://stackoverflow.\+com/a/14966508/2725810}. I modified the code to not print numbers like 3.\+9999999999999999 or 3.\+00000000004. For such numbers, only {\ttfamily n90} 9\textquotesingle{}s none of the 0\textquotesingle{}s are kept, so we get 3.\+99 and 3, respectively. 
+\end{DoxyNote}
+
+
+Definition at line 51 of file string.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!draw\+Text@{draw\+Text}}
+\index{draw\+Text@{draw\+Text}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{draw\+Text(cairo\+\_\+t $\ast$cr, const std\+::string s, int size, const gu\+::\+Point \&p)}{drawText(cairo_t *cr, const std::string s, int size, const gu::Point &p)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::draw\+Text (
+\begin{DoxyParamCaption}
+\item[{cairo\+\_\+t $\ast$}]{cr, }
+\item[{const std\+::string}]{s, }
+\item[{int}]{size, }
+\item[{const {\bf gu\+::\+Point} \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a95928fbd32acc4010efe2c6fc5d7191e}{}\label{namespaceslb_1_1core_1_1util_a95928fbd32acc4010efe2c6fc5d7191e}
+
+
+Draws text of given font size centered around the given point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & The drawing context. \\
+\hline
+{\em s} & The text to be drawn. \\
+\hline
+{\em size} & The font size. \\
+\hline
+{\em p} & The center of the text. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file drawing.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!dumpT@{dumpT}}
+\index{dumpT@{dumpT}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{dump\+T(const T \&t)}{dumpT(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void slb\+::core\+::util\+::dumpT (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a06aba127ff89c79f893cf9e1cb10ff79}{}\label{namespaceslb_1_1core_1_1util_a06aba127ff89c79f893cf9e1cb10ff79}
+
+
+Dump an object to {\ttfamily stderr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The object type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file stream.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!find\+First@{find\+First}}
+\index{find\+First@{find\+First}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{find\+First(std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v, const T2 \&el)}{findFirst(std::vector< std::pair< T1, T2 >> &v, const T2 &el)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ T1 slb\+::core\+::util\+::find\+First (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&}]{v, }
+\item[{const T2 \&}]{el}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_aaf1dc3177dbb76fc2bc069c283139d90}{}\label{namespaceslb_1_1core_1_1util_aaf1dc3177dbb76fc2bc069c283139d90}
+
+
+Find the first coordinate corresponding to the second one in a vector of pairs. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T1} & The type of the first coordinate. \\
+\hline
+{\em T2} & The type of the second coordinate. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector of pairs. \\
+\hline
+{\em el} & The second coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sought first coordinate. 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file vector\+\_\+of\+\_\+pairs.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!find\+Second@{find\+Second}}
+\index{find\+Second@{find\+Second}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{find\+Second(std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v, const T1 \&el)}{findSecond(std::vector< std::pair< T1, T2 >> &v, const T1 &el)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ T2 slb\+::core\+::util\+::find\+Second (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&}]{v, }
+\item[{const T1 \&}]{el}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a95c07c3747fafdb0ef19871bbc131158}{}\label{namespaceslb_1_1core_1_1util_a95c07c3747fafdb0ef19871bbc131158}
+
+
+Find the second coordinate corresponding to the first one in a vector of pairs. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T1} & The type of the first coordinate. \\
+\hline
+{\em T2} & The type of the second coordinate. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector of pairs. \\
+\hline
+{\em el} & The first coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sought second coordinate. 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file vector\+\_\+of\+\_\+pairs.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!in@{in}}
+\index{in@{in}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{in(const V \&v, const T \&el)}{in(const V &v, const T &el)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V , typename T $>$ bool slb\+::core\+::util\+::in (
+\begin{DoxyParamCaption}
+\item[{const V \&}]{v, }
+\item[{const T \&}]{el}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a5aeaa9f908f1b6df7bb9eb67a78de2f8}{}\label{namespaceslb_1_1core_1_1util_a5aeaa9f908f1b6df7bb9eb67a78de2f8}
+
+
+Checks whether an element is contained in the container. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & The container type. \\
+\hline
+{\em T} & The element type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The container. \\
+\hline
+{\em el} & The element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the element is contained in the container and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file container.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!in\+Erase@{in\+Erase}}
+\index{in\+Erase@{in\+Erase}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{in\+Erase(\+V \&v, const T \&el)}{inErase(V &v, const T &el)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V , typename T $>$ bool slb\+::core\+::util\+::in\+Erase (
+\begin{DoxyParamCaption}
+\item[{V \&}]{v, }
+\item[{const T \&}]{el}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_aea02104c8916b2d55097b3a824d68023}{}\label{namespaceslb_1_1core_1_1util_aea02104c8916b2d55097b3a824d68023}
+
+
+Checks whether an element is contained in the container. If the element is contained, it is erased. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & The container type. \\
+\hline
+{\em T} & The element type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The container. \\
+\hline
+{\em el} & The element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the element is (i.\+e. was) in the container and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file container.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!inscribe\+Polygon@{inscribe\+Polygon}}
+\index{inscribe\+Polygon@{inscribe\+Polygon}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{inscribe\+Polygon(cairo\+\_\+t $\ast$cr, const gu\+::\+Circle \&c, int n, double angle, bool fill\+Flag)}{inscribePolygon(cairo_t *cr, const gu::Circle &c, int n, double angle, bool fillFlag)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::inscribe\+Polygon (
+\begin{DoxyParamCaption}
+\item[{cairo\+\_\+t $\ast$}]{cr, }
+\item[{const {\bf gu\+::\+Circle} \&}]{c, }
+\item[{int}]{n, }
+\item[{double}]{angle, }
+\item[{bool}]{fill\+Flag}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a265ab01b21987f23478c4a960a50820e}{}\label{namespaceslb_1_1core_1_1util_a265ab01b21987f23478c4a960a50820e}
+
+
+Draws equilateral n-\/polygon inscribed into the circle with one of the vertices at the specified angle of the circle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & The drawing context. \\
+\hline
+{\em c} & The circle. \\
+\hline
+{\em n} & The number of vertices of the polygon. \\
+\hline
+{\em angle} & The angle in radians. \\
+\hline
+{\em fill\+Flag} & If {\ttfamily true}, the polygon is filled. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 112 of file drawing.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!line@{line}}
+\index{line@{line}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{line(cairo\+\_\+t $\ast$cr, const gu\+::\+Point \&from, const gu\+::\+Point \&to, bool stroke\+Flag=true)}{line(cairo_t *cr, const gu::Point &from, const gu::Point &to, bool strokeFlag=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::line (
+\begin{DoxyParamCaption}
+\item[{cairo\+\_\+t $\ast$}]{cr, }
+\item[{const {\bf gu\+::\+Point} \&}]{from, }
+\item[{const {\bf gu\+::\+Point} \&}]{to, }
+\item[{bool}]{stroke\+Flag = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a05a341116f08209b05c9822725be127e}{}\label{namespaceslb_1_1core_1_1util_a05a341116f08209b05c9822725be127e}
+
+
+Connects two points with a line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & The drawing context. \\
+\hline
+{\em from} & The source point. \\
+\hline
+{\em to} & The target point. \\
+\hline
+{\em stroke\+Flag} & If {\ttfamily true}, {\ttfamily cairo\+\_\+stroke} is performed at the end. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file drawing.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!line\+To@{line\+To}}
+\index{line\+To@{line\+To}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{line\+To(cairo\+\_\+t $\ast$cr, const gu\+::\+Point \&to, bool stroke\+Flag=true)}{lineTo(cairo_t *cr, const gu::Point &to, bool strokeFlag=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::line\+To (
+\begin{DoxyParamCaption}
+\item[{cairo\+\_\+t $\ast$}]{cr, }
+\item[{const {\bf gu\+::\+Point} \&}]{to, }
+\item[{bool}]{stroke\+Flag = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a5ceb479b918ab45219b1b509183a57cc}{}\label{namespaceslb_1_1core_1_1util_a5ceb479b918ab45219b1b509183a57cc}
+
+
+Draws line to the given point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & The drawing context. \\
+\hline
+{\em to} & The point to draw to. \\
+\hline
+{\em stroke\+Flag} & If {\ttfamily true}, {\ttfamily cairo\+\_\+stroke} is performed at the end. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file drawing.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!make\+\_\+deref\+\_\+shared@{make\+\_\+deref\+\_\+shared}}
+\index{make\+\_\+deref\+\_\+shared@{make\+\_\+deref\+\_\+shared}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{make\+\_\+deref\+\_\+shared(\+Args \&\&...\+args)}{make_deref_shared(Args &&...args)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class... Args$>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$T$>$ slb\+::core\+::util\+::make\+\_\+deref\+\_\+shared (
+\begin{DoxyParamCaption}
+\item[{Args \&\&...}]{args}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a1d307411caad59a01d41cbb34ea71d8c}{}\label{namespaceslb_1_1core_1_1util_a1d307411caad59a01d41cbb34ea71d8c}
+
+
+The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TT} & The pointed to type. \\
+\hline
+{\em Args} & The template argument list for the constructor. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 143 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!menu\+Choice@{menu\+Choice}}
+\index{menu\+Choice@{menu\+Choice}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{menu\+Choice(\+M\+E\+N\+U $\ast$m)}{menuChoice(MENU *m)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string slb\+::core\+::util\+::menu\+Choice (
+\begin{DoxyParamCaption}
+\item[{M\+E\+NU $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a5f6196dcf481c926229079d9b4153cbc}{}\label{namespaceslb_1_1core_1_1util_a5f6196dcf481c926229079d9b4153cbc}
+
+
+Returns the current menu choice. 
+
+\begin{DoxyReturn}{Returns}
+The string representation of the currently chosen item. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be used only for a menu in which only a single item can be selected. 
+\end{DoxyNote}
+
+
+Definition at line 73 of file curses\+\_\+menu.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!menu\+Choices@{menu\+Choices}}
+\index{menu\+Choices@{menu\+Choices}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{menu\+Choices(\+M\+E\+N\+U $\ast$m)}{menuChoices(MENU *m)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::string$>$ slb\+::core\+::util\+::menu\+Choices (
+\begin{DoxyParamCaption}
+\item[{M\+E\+NU $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a46276e10206643d3cee0d5c2c0eeb5ac}{}\label{namespaceslb_1_1core_1_1util_a46276e10206643d3cee0d5c2c0eeb5ac}
+
+
+Returns the current menu choices. 
+
+\begin{DoxyReturn}{Returns}
+The string representation of the currently chosen items. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be used only for a menu in which multiple items can be selected. 
+\end{DoxyNote}
+
+
+Definition at line 81 of file curses\+\_\+menu.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!move\+To@{move\+To}}
+\index{move\+To@{move\+To}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{move\+To(cairo\+\_\+t $\ast$cr, const gu\+::\+Point \&p)}{moveTo(cairo_t *cr, const gu::Point &p)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::util\+::move\+To (
+\begin{DoxyParamCaption}
+\item[{cairo\+\_\+t $\ast$}]{cr, }
+\item[{const {\bf gu\+::\+Point} \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a8d1707b9caf4ff4b66d90c512974bd19}{}\label{namespaceslb_1_1core_1_1util_a8d1707b9caf4ff4b66d90c512974bd19}
+
+
+Moves to the given point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & The drawing context. \\
+\hline
+{\em p} & The point to move to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 73 of file drawing.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!msleep@{msleep}}
+\index{msleep@{msleep}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{msleep(unsigned long milisec)}{msleep(unsigned long milisec)}}]{\setlength{\rightskip}{0pt plus 5cm}int slb\+::core\+::util\+::msleep (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{milisec}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a8982c5b1b1f4f7476f32f8f657ef3d9a}{}\label{namespaceslb_1_1core_1_1util_a8982c5b1b1f4f7476f32f8f657ef3d9a}
+
+
+Sleep for the given amount of time, while dealing with interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em milisec} & Amount of time to sleep in milliseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The code is taken from \href{http://cc.byexamples.com/2007/05/25/nanosleep-is-better-than-sleep-and-usleep/}{\tt http\+://cc.\+byexamples.\+com/2007/05/25/nanosleep-\/is-\/better-\/than-\/sleep-\/and-\/usleep/} 
+\end{DoxyNote}
+
+
+Definition at line 25 of file time.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{operator"!=(const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, const deref\+\_\+shared\+\_\+ptr$<$ U $>$ \&rhs)}{operator!=(const deref_shared_ptr< T > &lhs, const deref_shared_ptr< U > &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class U $>$ bool slb\+::core\+::util\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{lhs, }
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ U $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a6a344fb210c4db8ba8a67de43ed8ea35}{}\label{namespaceslb_1_1core_1_1util_a6a344fb210c4db8ba8a67de43ed8ea35}
+
+
+Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type pointed to by the left-\/hand side. \\
+\hline
+{\em U} & The type pointed to by the right-\/hand side. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & The left-\/hand side of the comparison. \\
+\hline
+{\em rhs} & The left-\/hand side of the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if lhs!=rhs and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{operator"!=(const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, std\+::nullptr\+\_\+t rhs)}{operator!=(const deref_shared_ptr< T > &lhs, std::nullptr_t rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool slb\+::core\+::util\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{lhs, }
+\item[{std\+::nullptr\+\_\+t}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a08e1702769bfbe3411dad3f0a68f526a}{}\label{namespaceslb_1_1core_1_1util_a08e1702769bfbe3411dad3f0a68f526a}
+
+
+Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the right. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type pointed to by the left-\/hand side. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & The left-\/hand side of the comparison. \\
+\hline
+{\em rhs} & The right-\/hand side of the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if lhs!=nullptr and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{operator"!=(std\+::nullptr\+\_\+t lhs, const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&rhs)}{operator!=(std::nullptr_t lhs, const deref_shared_ptr< T > &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool slb\+::core\+::util\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{std\+::nullptr\+\_\+t}]{lhs, }
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a62443a5539cf3e36e67a7343806b65a3}{}\label{namespaceslb_1_1core_1_1util_a62443a5539cf3e36e67a7343806b65a3}
+
+
+Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the left. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type pointed to by the right-\/hand side. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & The left-\/hand side of the comparison. \\
+\hline
+{\em rhs} & The right-\/hand side of the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if nullptr!=rhs and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{operator$<$$<$(std\+::basic\+\_\+ostream$<$ char\+T $>$ \&o, const T \&t) -\/$>$ decltype(t.\+dump(o))}{operator<<(std::basic_ostream< charT > &o, const T &t) -> decltype(t.dump(o))}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename charT , typename T $>$ auto slb\+::core\+::util\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::basic\+\_\+ostream$<$ charT $>$ \&}]{o, }
+\item[{const T \&}]{t}
+\end{DoxyParamCaption}
+) -\/$>$ decltype(t.\+dump(o)) }\hypertarget{namespaceslb_1_1core_1_1util_a719c889c611ba3d22441ad3d29243e1a}{}\label{namespaceslb_1_1core_1_1util_a719c889c611ba3d22441ad3d29243e1a}
+
+
+Output operator for all classes that define the dump member function accepting {\ttfamily std\+::basic\+\_\+ostream}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em charT} & The character type for {\ttfamily std\+::basic\+\_\+ostream}. \\
+\hline
+{\em T} & The type of the object to be output. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The updated output stream. 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file stream.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!operator==@{operator==}}
+\index{operator==@{operator==}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{operator==(const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, const deref\+\_\+shared\+\_\+ptr$<$ U $>$ \&rhs)}{operator==(const deref_shared_ptr< T > &lhs, const deref_shared_ptr< U > &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class U $>$ bool slb\+::core\+::util\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{lhs, }
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ U $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a6524ef64141336dce5cec7062b756569}{}\label{namespaceslb_1_1core_1_1util_a6524ef64141336dce5cec7062b756569}
+
+
+Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type pointed to by the left-\/hand side. \\
+\hline
+{\em U} & The type pointed to by the right-\/hand side. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & The left-\/hand side of the comparison. \\
+\hline
+{\em rhs} & The left-\/hand side of the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if lhs==rhs and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!operator==@{operator==}}
+\index{operator==@{operator==}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{operator==(const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, std\+::nullptr\+\_\+t)}{operator==(const deref_shared_ptr< T > &lhs, std::nullptr_t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool slb\+::core\+::util\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{lhs, }
+\item[{std\+::nullptr\+\_\+t}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a4e0953eb5fd3073c0057f7de724c0f91}{}\label{namespaceslb_1_1core_1_1util_a4e0953eb5fd3073c0057f7de724c0f91}
+
+
+Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the right. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type pointed to by the left-\/hand side. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & The left-\/hand side of the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if lhs==nullptr and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!operator==@{operator==}}
+\index{operator==@{operator==}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{operator==(std\+::nullptr\+\_\+t, const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&rhs)}{operator==(std::nullptr_t, const deref_shared_ptr< T > &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool slb\+::core\+::util\+::operator== (
+\begin{DoxyParamCaption}
+\item[{std\+::nullptr\+\_\+t}]{, }
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a8e196a0adbb3f886af645dc3bcc0c8f8}{}\label{namespaceslb_1_1core_1_1util_a8e196a0adbb3f886af645dc3bcc0c8f8}
+
+
+Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the left. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type pointed to by the right-\/hand side. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if nullptr==rhs and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!project\+First@{project\+First}}
+\index{project\+First@{project\+First}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{project\+First(const std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v)}{projectFirst(const std::vector< std::pair< T1, T2 >> &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ std\+::vector$<$T1$>$ slb\+::core\+::util\+::project\+First (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a7c70c706b5364fdd7b14480d1dac38f5}{}\label{namespaceslb_1_1core_1_1util_a7c70c706b5364fdd7b14480d1dac38f5}
+
+
+Compute the projection onto the first coordinate of a vector of pairs. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T1} & The type of the first coordinate. \\
+\hline
+{\em T2} & The type of the second coordinate. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector of pairs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The projection onto the first coordinate. 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file vector\+\_\+of\+\_\+pairs.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!project\+Second@{project\+Second}}
+\index{project\+Second@{project\+Second}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{project\+Second(const std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&v)}{projectSecond(const std::vector< std::pair< T1, T2 >> &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T1 , typename T2 $>$ std\+::vector$<$T2$>$ slb\+::core\+::util\+::project\+Second (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::pair$<$ T1, T2 $>$$>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_aa515b7535bb7f9a49dccfea197855dec}{}\label{namespaceslb_1_1core_1_1util_aa515b7535bb7f9a49dccfea197855dec}
+
+
+Compute the projection onto the second coordinate of a vector of pairs. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T1} & The type of the first coordinate. \\
+\hline
+{\em T2} & The type of the second coordinate. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector of pairs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The projection onto the second coordinate. 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file vector\+\_\+of\+\_\+pairs.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!push\+\_\+back\+\_\+unique@{push\+\_\+back\+\_\+unique}}
+\index{push\+\_\+back\+\_\+unique@{push\+\_\+back\+\_\+unique}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{push\+\_\+back\+\_\+unique(\+V \&v, const T \&el)}{push_back_unique(V &v, const T &el)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V , typename T $>$ bool slb\+::core\+::util\+::push\+\_\+back\+\_\+unique (
+\begin{DoxyParamCaption}
+\item[{V \&}]{v, }
+\item[{const T \&}]{el}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a1a96151123c3caa16e91369aa68ed5da}{}\label{namespaceslb_1_1core_1_1util_a1a96151123c3caa16e91369aa68ed5da}
+
+
+Push back a unique element. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & The container type. \\
+\hline
+{\em T} & The element type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The container. \\
+\hline
+{\em el} & The element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the element has been added now. 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file container.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!shuffle\+Map@{shuffle\+Map}}
+\index{shuffle\+Map@{shuffle\+Map}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{shuffle\+Map(\+Map\+Type \&map)}{shuffleMap(MapType &map)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Map\+Type $>$ void slb\+::core\+::util\+::shuffle\+Map (
+\begin{DoxyParamCaption}
+\item[{Map\+Type \&}]{map}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_aca5f759e4a73804fcd828af403904190}{}\label{namespaceslb_1_1core_1_1util_aca5f759e4a73804fcd828af403904190}
+
+
+Shuffle a map. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Map\+Type} & The map type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em map} & The map. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file container.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!shuffle\+Refs@{shuffle\+Refs}}
+\index{shuffle\+Refs@{shuffle\+Refs}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{shuffle\+Refs(\+Random\+It first, Random\+It last)}{shuffleRefs(RandomIt first, RandomIt last)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Random\+It $>$ void slb\+::core\+::util\+::shuffle\+Refs (
+\begin{DoxyParamCaption}
+\item[{Random\+It}]{first, }
+\item[{Random\+It}]{last}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a66d6fd147a0764a6c1c1873e68f336d4}{}\label{namespaceslb_1_1core_1_1util_a66d6fd147a0764a6c1c1873e68f336d4}
+
+
+Shuffle a vector of std\+::reference\+\_\+wrapper. The algorithm is version 1 from \href{http://en.cppreference.com/w/cpp/algorithm/random_shuffle}{\tt http\+://en.\+cppreference.\+com/w/cpp/algorithm/random\+\_\+shuffle}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Random\+It} & The random iterator type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em first} & The beginning of the range. \\
+\hline
+{\em last} & The end of the range. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file container.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!split@{split}}
+\index{split@{split}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{split(const std\+::string \&s, const std\+::vector$<$ char $>$ \&delims)}{split(const std::string &s, const std::vector< char > &delims)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::string$>$ slb\+::core\+::util\+::split (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s, }
+\item[{const std\+::vector$<$ char $>$ \&}]{delims}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a0b17f4ccc4a084619d95187d7dad6f65}{}\label{namespaceslb_1_1core_1_1util_a0b17f4ccc4a084619d95187d7dad6f65}
+
+
+Split the string using the giving characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The string to be trimmed. \\
+\hline
+{\em delims} & The characters to be used for splitting. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The strings resulting from the split. 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file string.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!str@{str}}
+\index{str@{str}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{str(const T \&t)}{str(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\+::string slb\+::core\+::util\+::str (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a2e7207fe123391c539ef9924d347f7e1}{}\label{namespaceslb_1_1core_1_1util_a2e7207fe123391c539ef9924d347f7e1}
+
+
+Get an arbitrary object\textquotesingle{}s string representation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The object\textquotesingle{}s type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representation of {\ttfamily t}. 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file stream.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!stuff@{stuff}}
+\index{stuff@{stuff}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{stuff(std\+::string \&s, bool throw\+On\+Empty=false, int n\+Spaces=2)}{stuff(std::string &s, bool throwOnEmpty=false, int nSpaces=2)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string slb\+::core\+::util\+::stuff (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{s, }
+\item[{bool}]{throw\+On\+Empty = {\ttfamily false}, }
+\item[{int}]{n\+Spaces = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_ad3241e5d4d570f8547a7ce25cf830ed9}{}\label{namespaceslb_1_1core_1_1util_ad3241e5d4d570f8547a7ce25cf830ed9}
+
+
+Looks for the first substring that begins with a non-\/space character and ends either at the end of string or with the given number of spaces. The original string is modified to contain the non-\/parsed part of the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The string. \\
+\hline
+{\em throw\+On\+Empty} & If {\ttfamily true} and not non-\/space character is found, an exception is thrown. \\
+\hline
+{\em n\+Spaces} & Number of spaces between tokens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The found token. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+{\ttfamily s} is modified to contain the non-\/parsed part of the string. 
+\end{DoxyNote}
+
+
+Definition at line 91 of file string.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!sure\+Read@{sure\+Read}}
+\index{sure\+Read@{sure\+Read}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{sure\+Read(std\+::ifstream \&fin)}{sureRead(std::ifstream &fin)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string slb\+::core\+::util\+::sure\+Read (
+\begin{DoxyParamCaption}
+\item[{std\+::ifstream \&}]{fin}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a390411b2bdd9cdf930071614c6712579}{}\label{namespaceslb_1_1core_1_1util_a390411b2bdd9cdf930071614c6712579}
+
+
+Read from a file and assert that no errors occurred during the read. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fin} & The file input stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string that was read. 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file stream.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!sure\+Read@{sure\+Read}}
+\index{sure\+Read@{sure\+Read}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{sure\+Read(std\+::ifstream \&fin, const std\+::string \&str)}{sureRead(std::ifstream &fin, const std::string &str)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string slb\+::core\+::util\+::sure\+Read (
+\begin{DoxyParamCaption}
+\item[{std\+::ifstream \&}]{fin, }
+\item[{const std\+::string \&}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_ae3ed6a8de55ec15aa85f72911546e20d}{}\label{namespaceslb_1_1core_1_1util_ae3ed6a8de55ec15aa85f72911546e20d}
+
+
+Read from a file and assert that the read string is equal to the given one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fin} & The file input stream. \\
+\hline
+{\em str} & The given string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string that was read. 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file stream.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!trim@{trim}}
+\index{trim@{trim}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{trim(const std\+::string \&str, const std\+::string \&whitespace="" \textbackslash{}t"")}{trim(const std::string &str, const std::string &whitespace=" \textbackslash{}t")}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string slb\+::core\+::util\+::trim (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{str, }
+\item[{const std\+::string \&}]{whitespace = {\ttfamily \char`\"{}~\textbackslash{}t\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a47a5d48f761811dede67fba654950c34}{}\label{namespaceslb_1_1core_1_1util_a47a5d48f761811dede67fba654950c34}
+
+
+Trim white-\/space characters from the end of string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be trimmed. \\
+\hline
+{\em whitespace} & The characters to be considered as white-\/space. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string after trimming. 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file string.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!unique2derefshared@{unique2derefshared}}
+\index{unique2derefshared@{unique2derefshared}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{unique2derefshared(std\+::unique\+\_\+ptr$<$ T $>$ \&p)}{unique2derefshared(std::unique_ptr< T > &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$T$>$ slb\+::core\+::util\+::unique2derefshared (
+\begin{DoxyParamCaption}
+\item[{std\+::unique\+\_\+ptr$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_acb7cbe60d3098ca39a993fb6a5640a2f}{}\label{namespaceslb_1_1core_1_1util_acb7cbe60d3098ca39a993fb6a5640a2f}
+
+
+Moves an object from {\ttfamily std\+::unique\+\_\+ptr} to \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The pointed to type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The pointer to the object to be moved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. 
+\end{DoxyReturn}
+
+
+Definition at line 152 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!unique2shared@{unique2shared}}
+\index{unique2shared@{unique2shared}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{unique2shared(std\+::unique\+\_\+ptr$<$ T $>$ \&p)}{unique2shared(std::unique_ptr< T > &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\+::shared\+\_\+ptr$<$T$>$ slb\+::core\+::util\+::unique2shared (
+\begin{DoxyParamCaption}
+\item[{std\+::unique\+\_\+ptr$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_ab3e706fd0a5bcfdbcdac11c8e6ee5f31}{}\label{namespaceslb_1_1core_1_1util_ab3e706fd0a5bcfdbcdac11c8e6ee5f31}
+
+
+Releases moves a pointer from {\ttfamily std\+::unique\+\_\+ptr} to {\ttfamily std\+::shared\+\_\+ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type being pointed to. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The pointer to be released. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shared pointer to the same object. 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file memory.\+h.
+

@@ -1,0 +1,151 @@
+\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4}{}\subsection{backtrack\+Lock\+:\+:Inplace$<$ My\+Algorithm, true $>$ Struct Template Reference}
+\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4}\index{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}}
+
+
+Handles R\+A\+II for backtracking in I\+D\+A$\ast$ when the state is updated in place and log is kept, so that a copy of the parent state needs to be kept.  
+
+
+
+
+{\ttfamily \#include $<$backtrack\+\_\+lock.\+h$>$}
+
+
+
+Inheritance diagram for backtrack\+Lock\+:\+:Inplace$<$ My\+Algorithm, true $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for backtrack\+Lock\+:\+:Inplace$<$ My\+Algorithm, true $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a8f09f4a3e01d7c16d0b232bb44b41eb5}{Base} = \hyperlink{structbacktrackLock_1_1InplaceBase}{Inplace\+Base}$<$ My\+Algorithm $>$\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a8f09f4a3e01d7c16d0b232bb44b41eb5}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a8f09f4a3e01d7c16d0b232bb44b41eb5}
+
+\begin{DoxyCompactList}\small\item\em The base class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ac4267673410927c8b5fafabefce5ccc4}{Inplace} (My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+\hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a394d60615781ea6a23f0672ca5df729f}{Inplace} (\hyperlink{structbacktrackLock_1_1Inplace}{Inplace} \&\&)=default\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a394d60615781ea6a23f0672ca5df729f}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a394d60615781ea6a23f0672ca5df729f}
+
+\begin{DoxyCompactList}\small\item\em The moving constructor. \end{DoxyCompactList}\item 
+\hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a6765dbd8251de9945821312faf3cf29d}{$\sim$\+Inplace} ()\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a6765dbd8251de9945821312faf3cf29d}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a6765dbd8251de9945821312faf3cf29d}
+
+\begin{DoxyCompactList}\small\item\em The destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const bool \hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a81b757ca0b93b1f47743393f94e4d0d9}{keeps\+Parent} = true\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a81b757ca0b93b1f47743393f94e4d0d9}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a81b757ca0b93b1f47743393f94e4d0d9}
+
+\begin{DoxyCompactList}\small\item\em Whether the parent state is to be stored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Neighbor $>$ }\\void \hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_afe567d9e39a5078be0a698b92da58ae4}{set} (Neighbor \&n)
+\begin{DoxyCompactList}\small\item\em Does the necessary bookkeeping for searching the given neighbor. \end{DoxyCompactList}\item 
+void \hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ae06e372d27262f364fceb132d293d384}{unset} ()\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ae06e372d27262f364fceb132d293d384}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ae06e372d27262f364fceb132d293d384}
+
+\begin{DoxyCompactList}\small\item\em Does the necessary bookkeeping before backtracking to the parent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ Node $>$ \hyperlink{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a590bca538ce5cd0526b1467f599eb750}{parent\+\_\+} = nullptr\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a590bca538ce5cd0526b1467f599eb750}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a590bca538ce5cd0526b1467f599eb750}
+
+\begin{DoxyCompactList}\small\item\em The parent node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm$>$\\*
+struct backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}
+
+Handles R\+A\+II for backtracking in I\+D\+A$\ast$ when the state is updated in place and log is kept, so that a copy of the parent state needs to be kept. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 93 of file backtrack\+\_\+lock.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}!Inplace@{Inplace}}
+\index{Inplace@{Inplace}!backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}}
+\paragraph[{\texorpdfstring{Inplace(\+My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)}{Inplace(MyAlgorithm &alg, Node *cur, Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ {\bf backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, true $>$\+::{\bf Inplace} (
+\begin{DoxyParamCaption}
+\item[{My\+Algorithm \&}]{alg, }
+\item[{Node $\ast$}]{cur, }
+\item[{Neighbor \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ac4267673410927c8b5fafabefce5ccc4}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ac4267673410927c8b5fafabefce5ccc4}
+
+
+The constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & The search algorithm. \\
+\hline
+{\em cur} & The node being expanded by I\+D\+A$\ast$. \\
+\hline
+{\em n} & The neighbor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 108 of file backtrack\+\_\+lock.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}!set@{set}}
+\index{set@{set}!backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}}
+\paragraph[{\texorpdfstring{set(\+Neighbor \&n)}{set(Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ void {\bf backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, true $>$\+::set (
+\begin{DoxyParamCaption}
+\item[{Neighbor \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_afe567d9e39a5078be0a698b92da58ae4}{}\label{structbacktrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_afe567d9e39a5078be0a698b92da58ae4}
+
+
+Does the necessary bookkeeping for searching the given neighbor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neighbor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file backtrack\+\_\+lock.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{backtrack__lock_8h}{backtrack\+\_\+lock.\+h}\end{DoxyCompactItemize}

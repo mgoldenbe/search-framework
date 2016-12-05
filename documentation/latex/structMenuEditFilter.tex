@@ -1,0 +1,124 @@
+\hypertarget{structMenuEditFilter}{}\subsection{Menu\+Edit\+Filter$<$ All\+Menus, Node $>$ Struct Template Reference}
+\label{structMenuEditFilter}\index{Menu\+Edit\+Filter$<$ All\+Menus, Node $>$@{Menu\+Edit\+Filter$<$ All\+Menus, Node $>$}}
+
+
+The menu reached when choosing Filter-\/$>$Edit from the root menu.  
+
+
+
+
+{\ttfamily \#include $<$menus.\+h$>$}
+
+
+
+Inheritance diagram for Menu\+Edit\+Filter$<$ All\+Menus, Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{structMenuEditFilter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Menu\+Edit\+Filter$<$ All\+Menus, Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structMenuEditFilter__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structMenuEditFilter_a1b46d585549456851c3962bc8940b629}{Base} = \hyperlink{structMenuBase}{Menu\+Base}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$\hypertarget{structMenuEditFilter_a1b46d585549456851c3962bc8940b629}{}\label{structMenuEditFilter_a1b46d585549456851c3962bc8940b629}
+
+\begin{DoxyCompactList}\small\item\em Just a short name for the base class for all the menus. \end{DoxyCompactList}\item 
+using \hyperlink{structMenuEditFilter_aeb679761ae6ed5297829227df88e4fce}{Data} = typename \hyperlink{structMenuBase_a473a45fd8adbc75a9220b64753ae3837}{Base\+::\+Data}\hypertarget{structMenuEditFilter_aeb679761ae6ed5297829227df88e4fce}{}\label{structMenuEditFilter_aeb679761ae6ed5297829227df88e4fce}
+
+\begin{DoxyCompactList}\small\item\em The base of \hyperlink{structui_1_1Visualizer}{ui\+::\+Visualizer} holding the visualizer\textquotesingle{}s constituent components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structMenuEditFilter_aaf747696a982b27503d7fc666f492c63}{Menu\+Edit\+Filter} (\hyperlink{structAllMenus}{All\+Menus} \&m, \hyperlink{structVisualizerData}{Visualizer\+Data}$<$ Node $>$ \&\hyperlink{structMenuBase_a819aaaa06ede3bffbb12c1390657ef64}{data})
+\begin{DoxyCompactList}\small\item\em Initializes the menu. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{structMenuEditFilter_a0918b1d46e7488b562b9e8e36e3d60f5}{multi} () const override
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} because this menu is a multi-\/choice one. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structMenuEditFilter_a7d4f60896f4a44285f9c40accbff4a58}{handle\+Enter} ()\hypertarget{structMenuEditFilter_a7d4f60896f4a44285f9c40accbff4a58}{}\label{structMenuEditFilter_a7d4f60896f4a44285f9c40accbff4a58}
+
+\begin{DoxyCompactList}\small\item\em Handles the pressed Enter key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class All\+Menus, class Node$>$\\*
+struct Menu\+Edit\+Filter$<$ All\+Menus, Node $>$}
+
+The menu reached when choosing Filter-\/$>$Edit from the root menu. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \hyperlink{structAllMenus}{All\+Menus}} & The type for holding all the menus. \\
+\hline
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 501 of file menus.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Menu\+Edit\+Filter@{Menu\+Edit\+Filter}!Menu\+Edit\+Filter@{Menu\+Edit\+Filter}}
+\index{Menu\+Edit\+Filter@{Menu\+Edit\+Filter}!Menu\+Edit\+Filter@{Menu\+Edit\+Filter}}
+\paragraph[{\texorpdfstring{Menu\+Edit\+Filter(\+All\+Menus \&m, Visualizer\+Data$<$ Node $>$ \&data)}{MenuEditFilter(AllMenus &m, VisualizerData< Node > &data)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ {\bf Menu\+Edit\+Filter}$<$ {\bf All\+Menus}, Node $>$\+::{\bf Menu\+Edit\+Filter} (
+\begin{DoxyParamCaption}
+\item[{{\bf All\+Menus} \&}]{m, }
+\item[{{\bf Visualizer\+Data}$<$ Node $>$ \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMenuEditFilter_aaf747696a982b27503d7fc666f492c63}{}\label{structMenuEditFilter_aaf747696a982b27503d7fc666f492c63}
+
+
+Initializes the menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Back-\/reference to the whole menu. \\
+\hline
+{\em data} & reference to the constituent components of the visualizer. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 512 of file menus.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Menu\+Edit\+Filter@{Menu\+Edit\+Filter}!multi@{multi}}
+\index{multi@{multi}!Menu\+Edit\+Filter@{Menu\+Edit\+Filter}}
+\paragraph[{\texorpdfstring{multi() const override}{multi() const override}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ virtual bool {\bf Menu\+Edit\+Filter}$<$ {\bf All\+Menus}, Node $>$\+::multi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{structMenuEditFilter_a0918b1d46e7488b562b9e8e36e3d60f5}{}\label{structMenuEditFilter_a0918b1d46e7488b562b9e8e36e3d60f5}
+
+
+Returns {\ttfamily true} because this menu is a multi-\/choice one. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} because this menu is a multi-\/choice one. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{structMenuBase_ad62b0a19c0e62d6816535e928088bb47}{Menu\+Base$<$ All\+Menus, Node $>$}.
+
+
+
+Definition at line 526 of file menus.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{menus_8h}{menus.\+h}\end{DoxyCompactItemize}

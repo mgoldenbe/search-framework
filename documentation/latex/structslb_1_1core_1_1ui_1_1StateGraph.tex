@@ -1,0 +1,482 @@
+\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph}{}\subsection{slb\+:\+:core\+:\+:ui\+:\+:State\+Graph$<$ State $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1ui_1_1StateGraph}\index{slb\+::core\+::ui\+::\+State\+Graph$<$ State $>$@{slb\+::core\+::ui\+::\+State\+Graph$<$ State $>$}}
+
+
+The state space graph used for visualization.  
+
+
+
+
+{\ttfamily \#include $<$state\+\_\+graph.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_abd4aca3db1572710c32f035489deddef}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_abd4aca3db1572710c32f035489deddef}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_abd4aca3db1572710c32f035489deddef}
+
+\begin{DoxyCompactList}\small\item\em Type of edge cost. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} = \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ const State $>$\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}
+
+\begin{DoxyCompactList}\small\item\em Smart pointer to state. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} = boost\+::adjacency\+\_\+list$<$ vecS, setS, directedS, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_abd4aca3db1572710c32f035489deddef}{Cost\+Type} $>$\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}
+
+\begin{DoxyCompactList}\small\item\em The actual graph type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7743969e6b32517e10baca298625522b}{Vertex\+Iterator} = typename graph\+\_\+traits$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} $>$\+::vertex\+\_\+iterator\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a7743969e6b32517e10baca298625522b}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a7743969e6b32517e10baca298625522b}
+
+\begin{DoxyCompactList}\small\item\em Iterator for looping over vertices. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a586a27745242d8925a67f2f5ec6335f7}{Vertex\+Range} = decltype(make\+\_\+iterator\+\_\+range(vertices(std\+::declval$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} $>$())))\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a586a27745242d8925a67f2f5ec6335f7}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a586a27745242d8925a67f2f5ec6335f7}
+
+\begin{DoxyCompactList}\small\item\em Iterator range that can be used to range-\/loop on vertices. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a43d35f2a042bffa0d84013cee6af8dd1}{Edge\+Range} = decltype(make\+\_\+iterator\+\_\+range(edges(std\+::declval$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} $>$())))\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a43d35f2a042bffa0d84013cee6af8dd1}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a43d35f2a042bffa0d84013cee6af8dd1}
+
+\begin{DoxyCompactList}\small\item\em Iterator range that can be used to range-\/loop on edges. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} = typename graph\+\_\+traits$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} $>$\+::vertex\+\_\+descriptor\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}
+
+\begin{DoxyCompactList}\small\item\em Vertex identifier. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} = typename boost\+::graph\+\_\+traits$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} $>$\+::edge\+\_\+descriptor\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}
+
+\begin{DoxyCompactList}\small\item\em Edge identifier. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a2ba22d3efc94008c1ad2ed7f338e2fa9}{Adjacent\+Range} = decltype(make\+\_\+iterator\+\_\+range(adjacent\+\_\+vertices(std\+::declval$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} $>$(), std\+::declval$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} $>$())))\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a2ba22d3efc94008c1ad2ed7f338e2fa9}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a2ba22d3efc94008c1ad2ed7f338e2fa9}
+
+\begin{DoxyCompactList}\small\item\em Iterator range that can be used to range-\/loop over adjacency list of of a vertex. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a891b8f21d1affa3c2d7f6d1ca008a48d}{Layout\+Graph} = boost\+::adjacency\+\_\+list$<$ vecS, vecS, undirectedS, int, double $>$\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a891b8f21d1affa3c2d7f6d1ca008a48d}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a891b8f21d1affa3c2d7f6d1ca008a48d}
+
+\begin{DoxyCompactList}\small\item\em Special graph type used for computing the layout. See \href{http://stackoverflow.com/q/33903879/2725810}{\tt http\+://stackoverflow.\+com/q/33903879/2725810} for the discussion of this issue. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ac4690596402a1b99f516532605a961d5}{Layout\+Vertex\+Descriptor} = typename graph\+\_\+traits$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a891b8f21d1affa3c2d7f6d1ca008a48d}{Layout\+Graph} $>$\+::vertex\+\_\+descriptor\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ac4690596402a1b99f516532605a961d5}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ac4690596402a1b99f516532605a961d5}
+
+\begin{DoxyCompactList}\small\item\em Vertex descriptor for \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a891b8f21d1affa3c2d7f6d1ca008a48d}{Layout\+Graph}. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a86d2316b03ddf9f3da4d6255d20a39d8}{Point} = square\+\_\+topology$<$$>$\+::point\+\_\+type\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a86d2316b03ddf9f3da4d6255d20a39d8}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a86d2316b03ddf9f3da4d6255d20a39d8}
+
+\begin{DoxyCompactList}\small\item\em Type for vertex coordinates (used for computing the layout) \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_abc09edc649d6690817cb6219e3feefb0}{Point\+Map} = std\+::map$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a86d2316b03ddf9f3da4d6255d20a39d8}{Point} $>$\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_abc09edc649d6690817cb6219e3feefb0}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_abc09edc649d6690817cb6219e3feefb0}
+
+\begin{DoxyCompactList}\small\item\em Map for storing the layout, i.\+e. the coordinates of each vertex. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a61fcf354fe3879a3f51438dbd1e37c8b}{Layout\+Point\+Map} = std\+::map$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ac4690596402a1b99f516532605a961d5}{Layout\+Vertex\+Descriptor}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a86d2316b03ddf9f3da4d6255d20a39d8}{Point} $>$\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a61fcf354fe3879a3f51438dbd1e37c8b}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a61fcf354fe3879a3f51438dbd1e37c8b}
+
+\begin{DoxyCompactList}\small\item\em Just like \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_abc09edc649d6690817cb6219e3feefb0}{Point\+Map}, but using \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ac4690596402a1b99f516532605a961d5}{Layout\+Vertex\+Descriptor} to identify the vertices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a929de7f53069b3a9e1a521448dea2ca8}{State\+Graph} ()\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a929de7f53069b3a9e1a521448dea2ca8}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a929de7f53069b3a9e1a521448dea2ca8}
+
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a586a27745242d8925a67f2f5ec6335f7}{Vertex\+Range} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a1ac081aed1b5782302cbcf5ce24c3648}{vertex\+Range} () const 
+\begin{DoxyCompactList}\small\item\em Returns the iterator range that can be used to range-\/loop on the vertices. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a43d35f2a042bffa0d84013cee6af8dd1}{Edge\+Range} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_acd12801c38cb03dca92fe67d4ae3188b}{edge\+Range} () const 
+\begin{DoxyCompactList}\small\item\em Returns the iterator range that can be used to range-\/loop on the edges. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a36ee87cbf0db9e2389b85a3883eadf09}{edge} (\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab706be51cb6a847bcc7ec3eacb569abb}{from}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a96f73bac974845d5b2d039e88b23289f}{to}) const 
+\begin{DoxyCompactList}\small\item\em Returns edge based on two vertex descriptors. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab706be51cb6a847bcc7ec3eacb569abb}{from} (\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} ed) const 
+\begin{DoxyCompactList}\small\item\em Returns the source vertex of the given edge. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a96f73bac974845d5b2d039e88b23289f}{to} (\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} ed) const 
+\begin{DoxyCompactList}\small\item\em Returns the target vertex of the given edge. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a08f262bf14c187ffbfc20751776dd4f9}{inverse} (\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} ed) const 
+\begin{DoxyCompactList}\small\item\em Returns the inverse of the given edge. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ac753df12e05c3727c06591f0e9a9a63b}{state} (\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} vd) const 
+\begin{DoxyCompactList}\small\item\em Returns state corresponding to the given vertex. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ac2bf05da4085a606436a97d9a21fceec}{vertex} (const \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} \&s) const 
+\begin{DoxyCompactList}\small\item\em Returns the vertex corresponding to the given state. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_acd14b8c54233386514915dd9a590d2fa}{edge} (const \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} \&\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab706be51cb6a847bcc7ec3eacb569abb}{from}, const \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} \&\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a96f73bac974845d5b2d039e88b23289f}{to}) const 
+\begin{DoxyCompactList}\small\item\em Returns the edge between the given states. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a2ba22d3efc94008c1ad2ed7f338e2fa9}{Adjacent\+Range} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_acc373676a821ded7cde60b99d8b83be7}{adjacent\+Vertex\+Range} (\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} vd) const 
+\begin{DoxyCompactList}\small\item\em Computes vertices adjacent to the given vertex. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab4cabebae1f5f7000184d8941c4d5073}{add} (const \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} \&s)
+\begin{DoxyCompactList}\small\item\em Adds a state to the graph. Performs duplicate checking. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a23b860c1a1b5d5aeb4220246594d5602}{add} (const \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} \&\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab706be51cb6a847bcc7ec3eacb569abb}{from}, const \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a96f73bac974845d5b2d039e88b23289f}{to}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_abd4aca3db1572710c32f035489deddef}{Cost\+Type} cost)
+\begin{DoxyCompactList}\small\item\em Adds a directed edge between the two given states to the graph. If the vertex corresponding to the target state {\ttfamily to} does not exist, it is added as well. The edge is added only if an edge from {\ttfamily from} to {\ttfamily to} does not exist already. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ae2e9d82bc2fcbbf3ba1a6e68ad566850}{dump} () const \hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ae2e9d82bc2fcbbf3ba1a6e68ad566850}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ae2e9d82bc2fcbbf3ba1a6e68ad566850}
+
+\begin{DoxyCompactList}\small\item\em Dumps the graph contents to std\+::cerr. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_abc09edc649d6690817cb6219e3feefb0}{Point\+Map} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a86b595a67d92fa9991f823db3649c105}{layout} (bool kamada\+Kawai\+Flag=true, bool fruchterman\+Reingold\+Flag=true)
+\begin{DoxyCompactList}\small\item\em Computes a graph layout. Unless additional layout options are turned on, a randomized circular layout is used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Edge\+Descriptor} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_aafbde9fc1b97fd86cf56d8ad15621757}{null\+\_\+edge}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_aafbde9fc1b97fd86cf56d8ad15621757}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_aafbde9fc1b97fd86cf56d8ad15621757}
+
+\begin{DoxyCompactList}\small\item\em The value to be used as a \char`\"{}no edge\char`\"{} descriptor. See \href{http://stackoverflow.com/a/11584557/2725810}{\tt http\+://stackoverflow.\+com/a/11584557/2725810}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7d18a5ed30ef2371a3b1a29e76fa4791}{init\+Layout\+Graph} ()\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a7d18a5ed30ef2371a3b1a29e76fa4791}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a7d18a5ed30ef2371a3b1a29e76fa4791}
+
+\begin{DoxyCompactList}\small\item\em Initializes the {\ttfamily lg\+\_\+} from {\ttfamily g\+\_\+}. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af1bf9b6a8961273f8d5a74591bdb1dd8}{init\+Base\+Layout} (bool circular\+Flag=true)
+\begin{DoxyCompactList}\small\item\em Initializes the base layout. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a47d88e0edf2f46fe4a66341d47220689}{randomize\+Base\+Layout} ()\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a47d88e0edf2f46fe4a66341d47220689}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a47d88e0edf2f46fe4a66341d47220689}
+
+\begin{DoxyCompactList}\small\item\em Randomly permutes positions of vertices in {\ttfamily base\+Layout\+\_\+}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_af2cacea8f7165ee45140ff842a243c90}{Graph} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a18275db28c4bab5cf98bf52a9e3a5a58}{g\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a18275db28c4bab5cf98bf52a9e3a5a58}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a18275db28c4bab5cf98bf52a9e3a5a58}
+
+\begin{DoxyCompactList}\small\item\em The boost graph representation. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a367045176eaaf1580231bf5a4c35e2f8}{State\+Shared\+Ptr}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor}, \hyperlink{structslb_1_1core_1_1util_1_1StateSharedPtrHash}{State\+Shared\+Ptr\+Hash}$<$ State $>$ $>$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a03d2f0c74daa3badf70c096ab2367db0}{stov\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a03d2f0c74daa3badf70c096ab2367db0}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a03d2f0c74daa3badf70c096ab2367db0}
+
+\begin{DoxyCompactList}\small\item\em State-\/to-\/vertex mapping. \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ac4690596402a1b99f516532605a961d5}{Layout\+Vertex\+Descriptor} $>$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a0b24478dc038ce8bd1b03c86969e92e4}{graph\+To\+Layout\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a0b24478dc038ce8bd1b03c86969e92e4}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a0b24478dc038ce8bd1b03c86969e92e4}
+
+\begin{DoxyCompactList}\small\item\em Mapping to vertices of the layout graph. \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ac4690596402a1b99f516532605a961d5}{Layout\+Vertex\+Descriptor}, \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Vertex\+Descriptor} $>$ \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a865824b7c07448cc5e03899842596b1c}{layout\+To\+Graph\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a865824b7c07448cc5e03899842596b1c}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a865824b7c07448cc5e03899842596b1c}
+
+\begin{DoxyCompactList}\small\item\em Mapping from vertices of the layout graph. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a891b8f21d1affa3c2d7f6d1ca008a48d}{Layout\+Graph} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_aca03214581c231b20169c1ffacc159bd}{lg\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_aca03214581c231b20169c1ffacc159bd}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_aca03214581c231b20169c1ffacc159bd}
+
+\begin{DoxyCompactList}\small\item\em The graph representation used for computing the layout. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a61fcf354fe3879a3f51438dbd1e37c8b}{Layout\+Point\+Map} \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab763fdf38ffd5e348faf99fc9d74be3c}{base\+Layout\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ab763fdf38ffd5e348faf99fc9d74be3c}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ab763fdf38ffd5e348faf99fc9d74be3c}
+
+\begin{DoxyCompactList}\small\item\em The initial layout before applying advanced algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State$>$\\*
+struct slb\+::core\+::ui\+::\+State\+Graph$<$ State $>$}
+
+The state space graph used for visualization. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 17 of file state\+\_\+graph.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!add@{add}}
+\index{add@{add}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{add(const State\+Shared\+Ptr \&s)}{add(const StateSharedPtr &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Vertex\+Descriptor} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{const {\bf State\+Shared\+Ptr} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ab4cabebae1f5f7000184d8941c4d5073}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ab4cabebae1f5f7000184d8941c4d5073}
+
+
+Adds a state to the graph. Performs duplicate checking. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Smart pointer to the state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The descriptor of the newly added vertex. 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!add@{add}}
+\index{add@{add}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{add(const State\+Shared\+Ptr \&from, const State\+Shared\+Ptr to, Cost\+Type cost)}{add(const StateSharedPtr &from, const StateSharedPtr to, CostType cost)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ void {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{const {\bf State\+Shared\+Ptr} \&}]{from, }
+\item[{const {\bf State\+Shared\+Ptr}}]{to, }
+\item[{{\bf Cost\+Type}}]{cost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a23b860c1a1b5d5aeb4220246594d5602}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a23b860c1a1b5d5aeb4220246594d5602}
+
+
+Adds a directed edge between the two given states to the graph. If the vertex corresponding to the target state {\ttfamily to} does not exist, it is added as well. The edge is added only if an edge from {\ttfamily from} to {\ttfamily to} does not exist already. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The source state. \\
+\hline
+{\em to} & The target state. \\
+\hline
+{\em cost} & Edge cost. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 169 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!adjacent\+Vertex\+Range@{adjacent\+Vertex\+Range}}
+\index{adjacent\+Vertex\+Range@{adjacent\+Vertex\+Range}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{adjacent\+Vertex\+Range(\+Vertex\+Descriptor vd) const }{adjacentVertexRange(VertexDescriptor vd) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Adjacent\+Range} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::adjacent\+Vertex\+Range (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_acc373676a821ded7cde60b99d8b83be7}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_acc373676a821ded7cde60b99d8b83be7}
+
+
+Computes vertices adjacent to the given vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & The vertex descriptor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iterator range that can be used to range-\/loop over the adjacent vertices of {\ttfamily vd}. 
+\end{DoxyReturn}
+
+
+Definition at line 147 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!edge@{edge}}
+\index{edge@{edge}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{edge(\+Vertex\+Descriptor from, Vertex\+Descriptor to) const }{edge(VertexDescriptor from, VertexDescriptor to) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Edge\+Descriptor} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{from, }
+\item[{{\bf Vertex\+Descriptor}}]{to}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a36ee87cbf0db9e2389b85a3883eadf09}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a36ee87cbf0db9e2389b85a3883eadf09}
+
+
+Returns edge based on two vertex descriptors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The source vertex \\
+\hline
+{\em to} & The target vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge descriptor. 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!edge@{edge}}
+\index{edge@{edge}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{edge(const State\+Shared\+Ptr \&from, const State\+Shared\+Ptr \&to) const }{edge(const StateSharedPtr &from, const StateSharedPtr &to) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Edge\+Descriptor} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::edge (
+\begin{DoxyParamCaption}
+\item[{const {\bf State\+Shared\+Ptr} \&}]{from, }
+\item[{const {\bf State\+Shared\+Ptr} \&}]{to}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_acd14b8c54233386514915dd9a590d2fa}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_acd14b8c54233386514915dd9a590d2fa}
+
+
+Returns the edge between the given states. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Shared pointer to the source state. \\
+\hline
+{\em to} & Shared pointer to the target state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge descriptor. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The said edge must exist. 
+\end{DoxyPrecond}
+
+
+Definition at line 138 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!edge\+Range@{edge\+Range}}
+\index{edge\+Range@{edge\+Range}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{edge\+Range() const }{edgeRange() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Edge\+Range} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::edge\+Range (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_acd12801c38cb03dca92fe67d4ae3188b}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_acd12801c38cb03dca92fe67d4ae3188b}
+
+
+Returns the iterator range that can be used to range-\/loop on the edges. 
+
+\begin{DoxyReturn}{Returns}
+The iterator range. 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!from@{from}}
+\index{from@{from}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{from(\+Edge\+Descriptor ed) const }{from(EdgeDescriptor ed) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Vertex\+Descriptor} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::from (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge\+Descriptor}}]{ed}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ab706be51cb6a847bcc7ec3eacb569abb}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ab706be51cb6a847bcc7ec3eacb569abb}
+
+
+Returns the source vertex of the given edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ed} & The edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source vertex descriptor. 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!init\+Base\+Layout@{init\+Base\+Layout}}
+\index{init\+Base\+Layout@{init\+Base\+Layout}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{init\+Base\+Layout(bool circular\+Flag=true)}{initBaseLayout(bool circularFlag=true)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ void {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::init\+Base\+Layout (
+\begin{DoxyParamCaption}
+\item[{bool}]{circular\+Flag = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_af1bf9b6a8961273f8d5a74591bdb1dd8}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_af1bf9b6a8961273f8d5a74591bdb1dd8}
+
+
+Initializes the base layout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em circular\+Flag} & If {\ttfamily true}, circlular layout is used. Otherwise, random layout is used. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file graph\+\_\+layouts.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!inverse@{inverse}}
+\index{inverse@{inverse}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{inverse(\+Edge\+Descriptor ed) const }{inverse(EdgeDescriptor ed) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Edge\+Descriptor} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::inverse (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge\+Descriptor}}]{ed}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a08f262bf14c187ffbfc20751776dd4f9}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a08f262bf14c187ffbfc20751776dd4f9}
+
+
+Returns the inverse of the given edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ed} & The edge descriptor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The inverse edge descriptor. 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!layout@{layout}}
+\index{layout@{layout}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{layout(bool kamada\+Kawai\+Flag=true, bool fruchterman\+Reingold\+Flag=true)}{layout(bool kamadaKawaiFlag=true, bool fruchtermanReingoldFlag=true)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ {\bf State\+Graph}$<$ State $>$\+::{\bf Point\+Map} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::layout (
+\begin{DoxyParamCaption}
+\item[{bool}]{kamada\+Kawai\+Flag = {\ttfamily true}, }
+\item[{bool}]{fruchterman\+Reingold\+Flag = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a86b595a67d92fa9991f823db3649c105}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a86b595a67d92fa9991f823db3649c105}
+
+
+Computes a graph layout. Unless additional layout options are turned on, a randomized circular layout is used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kamada\+Kawai\+Flag} & If {\ttfamily true}, the Kamada-\/\+Kawai layout algorithm is used. \\
+\hline
+{\em fruchterman\+Reingold\+Flag} & If {\ttfamily true}, the Fruchterman-\/\+Reingold layout algorithm is used. If {\ttfamily kamada\+Kawai\+Flag} is set as well, then the Kamada-\/\+Kawai algorithm is applied first. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph layout. 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file graph\+\_\+layouts.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!state@{state}}
+\index{state@{state}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{state(\+Vertex\+Descriptor vd) const }{state(VertexDescriptor vd) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf State\+Shared\+Ptr} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::state (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ac753df12e05c3727c06591f0e9a9a63b}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ac753df12e05c3727c06591f0e9a9a63b}
+
+
+Returns state corresponding to the given vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & The vertex descriptor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared pointer to the corresponding state. If {\ttfamily vd} is invalid, {\ttfamily nullptr} is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!to@{to}}
+\index{to@{to}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{to(\+Edge\+Descriptor ed) const }{to(EdgeDescriptor ed) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Vertex\+Descriptor} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::to (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge\+Descriptor}}]{ed}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a96f73bac974845d5b2d039e88b23289f}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a96f73bac974845d5b2d039e88b23289f}
+
+
+Returns the target vertex of the given edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ed} & The edge descriptor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The target vertex descriptor. 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!vertex@{vertex}}
+\index{vertex@{vertex}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{vertex(const State\+Shared\+Ptr \&s) const }{vertex(const StateSharedPtr &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Vertex\+Descriptor} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::vertex (
+\begin{DoxyParamCaption}
+\item[{const {\bf State\+Shared\+Ptr} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_ac2bf05da4085a606436a97d9a21fceec}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_ac2bf05da4085a606436a97d9a21fceec}
+
+
+Returns the vertex corresponding to the given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Shared pointer to state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vertex descriptor. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The vertex corresponding to {\ttfamily s} must exist. 
+\end{DoxyPrecond}
+
+
+Definition at line 127 of file state\+\_\+graph.\+h.
+
+\index{slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}!vertex\+Range@{vertex\+Range}}
+\index{vertex\+Range@{vertex\+Range}!slb\+::core\+::ui\+::\+State\+Graph@{slb\+::core\+::ui\+::\+State\+Graph}}
+\paragraph[{\texorpdfstring{vertex\+Range() const }{vertexRange() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Vertex\+Range} {\bf slb\+::core\+::ui\+::\+State\+Graph}$<$ State $>$\+::vertex\+Range (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1StateGraph_a1ac081aed1b5782302cbcf5ce24c3648}{}\label{structslb_1_1core_1_1ui_1_1StateGraph_a1ac081aed1b5782302cbcf5ce24c3648}
+
+
+Returns the iterator range that can be used to range-\/loop on the vertices. 
+
+\begin{DoxyReturn}{Returns}
+The iterator range. 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file state\+\_\+graph.\+h.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{state__graph_8h}{state\+\_\+graph.\+h}\item 
+core/user\+\_\+interface/\hyperlink{graph__layouts_8h}{graph\+\_\+layouts.\+h}\end{DoxyCompactItemize}

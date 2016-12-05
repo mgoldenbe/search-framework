@@ -1,0 +1,377 @@
+\hypertarget{structMeasureSet}{}\subsection{Measure\+Set Struct Reference}
+\label{structMeasureSet}\index{Measure\+Set@{Measure\+Set}}
+
+
+All the measures for a single problem instance.  
+
+
+
+
+{\ttfamily \#include $<$stats.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structMeasureSet_ae27132ddda27621abc1178a3fb3744b3}{iterator} = std\+::vector$<$ \hyperlink{structMeasure}{Measure} $>$\+::\hyperlink{structMeasureSet_ae27132ddda27621abc1178a3fb3744b3}{iterator}\hypertarget{structMeasureSet_ae27132ddda27621abc1178a3fb3744b3}{}\label{structMeasureSet_ae27132ddda27621abc1178a3fb3744b3}
+
+\begin{DoxyCompactList}\small\item\em Iterator for \hyperlink{structMeasureSet}{Measure\+Set}. \end{DoxyCompactList}\item 
+using \hyperlink{structMeasureSet_af26a4657a3e2a42f86409a7604f1876e}{const\+\_\+iterator} = std\+::vector$<$ \hyperlink{structMeasure}{Measure} $>$\+::\hyperlink{structMeasureSet_af26a4657a3e2a42f86409a7604f1876e}{const\+\_\+iterator}\hypertarget{structMeasureSet_af26a4657a3e2a42f86409a7604f1876e}{}\label{structMeasureSet_af26a4657a3e2a42f86409a7604f1876e}
+
+\begin{DoxyCompactList}\small\item\em Const iterator for \hyperlink{structMeasureSet}{Measure\+Set}. \end{DoxyCompactList}\item 
+using \hyperlink{structMeasureSet_ac20e7769213c1d60e0b3a08aa0ef470a}{reference} = std\+::vector$<$ \hyperlink{structMeasure}{Measure} $>$\+::\hyperlink{structMeasureSet_ac20e7769213c1d60e0b3a08aa0ef470a}{reference}\hypertarget{structMeasureSet_ac20e7769213c1d60e0b3a08aa0ef470a}{}\label{structMeasureSet_ac20e7769213c1d60e0b3a08aa0ef470a}
+
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based for-\/loop with a reference loop variable. \end{DoxyCompactList}\item 
+using \hyperlink{structMeasureSet_aa294da3254d6c95367732ae64056b3c0}{const\+\_\+reference} = std\+::vector$<$ \hyperlink{structMeasure}{Measure} $>$\+::\hyperlink{structMeasureSet_aa294da3254d6c95367732ae64056b3c0}{const\+\_\+reference}\hypertarget{structMeasureSet_aa294da3254d6c95367732ae64056b3c0}{}\label{structMeasureSet_aa294da3254d6c95367732ae64056b3c0}
+
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based for-\/loop with a const-\/reference loop variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structMeasureSet_a3d447146891ebc838e8bef05cf91eabe}{Measure\+Set} (std\+::initializer\+\_\+list$<$ \hyperlink{structMeasure}{Measure} $>$ list)\hypertarget{structMeasureSet_a3d447146891ebc838e8bef05cf91eabe}{}\label{structMeasureSet_a3d447146891ebc838e8bef05cf91eabe}
+
+\begin{DoxyCompactList}\small\item\em Initializes the measure-\/set based on an initializer list of measures. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet_ae27132ddda27621abc1178a3fb3744b3}{iterator} \hyperlink{structMeasureSet_a52dc81c49e4e0116765f6c2399723ff0}{begin} ()
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based loop. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet_ae27132ddda27621abc1178a3fb3744b3}{iterator} \hyperlink{structMeasureSet_abaea10a7aabe9766ae83717d82b55a19}{end} ()
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based loop. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet_af26a4657a3e2a42f86409a7604f1876e}{const\+\_\+iterator} \hyperlink{structMeasureSet_a1698050c23dd31afb957918bfe50949f}{begin} () const 
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based for-\/loop with a const loop variable. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet_af26a4657a3e2a42f86409a7604f1876e}{const\+\_\+iterator} \hyperlink{structMeasureSet_acf1951c87618406fed81fea80fc479e0}{end} () const 
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based for-\/loop with a const loop variable. \end{DoxyCompactList}\item 
+int \hyperlink{structMeasureSet_a681d1374e259bc3b81e4419aa20e7c30}{size} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of measures in the set. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet_aa294da3254d6c95367732ae64056b3c0}{const\+\_\+reference} \hyperlink{structMeasureSet_aa734b46cd89f0c066de6705b7e27968a}{operator\mbox{[}$\,$\mbox{]}} (std\+::size\+\_\+t n) const 
+\begin{DoxyCompactList}\small\item\em Returns the measure with the given index. \end{DoxyCompactList}\item 
+void \hyperlink{structMeasureSet_afbad8c6ad284a9ef5a7e765b9ecd77ef}{append} (const \hyperlink{structMeasure}{Measure} \&m)
+\begin{DoxyCompactList}\small\item\em Appends the given measure to the set. \end{DoxyCompactList}\item 
+void \hyperlink{structMeasureSet_a9e8a34eded45702b15fa8b16eb4baa3e}{prepend} (const \hyperlink{structMeasure}{Measure} \&m)
+\begin{DoxyCompactList}\small\item\em Inserts the given measure to the beginning of the set. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet}{Measure\+Set} \& \hyperlink{structMeasureSet_a7f7c1665e93c793a543a1c61542a6926}{append} (const \hyperlink{structMeasureSet}{Measure\+Set} \&s)
+\begin{DoxyCompactList}\small\item\em Appends all measures in the given set to the set. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet}{Measure\+Set} \& \hyperlink{structMeasureSet_a7d57e1bce5791fb066695e09d50b7809}{operator+=} (const \hyperlink{structMeasureSet}{Measure\+Set} \&rhs)
+\begin{DoxyCompactList}\small\item\em Adds the values of the measures from the right-\/hand side operand to the corresponding values in the set. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structMeasureSet_a349c9dd3a4befc31c18aa866c773c7d0}{dump\+Title} (Stream \&os, const std\+::string \&prefix\+Title=\char`\"{}\char`\"{}) const 
+\begin{DoxyCompactList}\small\item\em Dumps the measure titles to the given stream. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structMeasureSet_a4b5515f8fc1d1ac439ccc29b0f904e7b}{dump\+Values} (Stream \&os, const std\+::string \&prefix\+Data=\char`\"{}\char`\"{}) const 
+\begin{DoxyCompactList}\small\item\em Dumps the measures\textquotesingle{} values to the given stream. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structMeasureSet_a3f3de2eddb766c3ecd0fc8d1c41e8c7a}{dump} (Stream \&os, const std\+::string \&prefix\+Title=\char`\"{}\char`\"{}, const std\+::string \&prefix\+Data=\char`\"{}\char`\"{}, bool title\+Flag=false) const 
+\begin{DoxyCompactList}\small\item\em Dumps the set to the given stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structMeasure}{Measure} $>$ \hyperlink{structMeasureSet_aaff370fe3b9d9c73f3d008096df938be}{s\+\_\+}\hypertarget{structMeasureSet_aaff370fe3b9d9c73f3d008096df938be}{}\label{structMeasureSet_aaff370fe3b9d9c73f3d008096df938be}
+
+\begin{DoxyCompactList}\small\item\em The vector of measures in the set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+All the measures for a single problem instance. 
+
+\begin{DoxyNote}{Note}
+The word \char`\"{}set\char`\"{} here does not have its usual mathematical connotation of being non-\/order-\/preserving. 
+\end{DoxyNote}
+
+
+Definition at line 95 of file stats.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Measure\+Set@{Measure\+Set}!append@{append}}
+\index{append@{append}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{append(const Measure \&m)}{append(const Measure &m)}}]{\setlength{\rightskip}{0pt plus 5cm}void Measure\+Set\+::append (
+\begin{DoxyParamCaption}
+\item[{const {\bf Measure} \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_afbad8c6ad284a9ef5a7e765b9ecd77ef}{}\label{structMeasureSet_afbad8c6ad284a9ef5a7e765b9ecd77ef}
+
+
+Appends the given measure to the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The measure to append. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 138 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!append@{append}}
+\index{append@{append}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{append(const Measure\+Set \&s)}{append(const MeasureSet &s)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Measure\+Set}\& Measure\+Set\+::append (
+\begin{DoxyParamCaption}
+\item[{const {\bf Measure\+Set} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a7f7c1665e93c793a543a1c61542a6926}{}\label{structMeasureSet_a7f7c1665e93c793a543a1c61542a6926}
+
+
+Appends all measures in the given set to the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The set to append. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!begin@{begin}}
+\index{begin@{begin}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{begin()}{begin()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iterator} Measure\+Set\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a52dc81c49e4e0116765f6c2399723ff0}{}\label{structMeasureSet_a52dc81c49e4e0116765f6c2399723ff0}
+
+
+Needed to enable range-\/based loop. 
+
+\begin{DoxyReturn}{Returns}
+The {\ttfamily begin} iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!begin@{begin}}
+\index{begin@{begin}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf const\+\_\+iterator} Measure\+Set\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a1698050c23dd31afb957918bfe50949f}{}\label{structMeasureSet_a1698050c23dd31afb957918bfe50949f}
+
+
+Needed to enable range-\/based for-\/loop with a const loop variable. 
+
+\begin{DoxyReturn}{Returns}
+The {\ttfamily begin} const iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!dump@{dump}}
+\index{dump@{dump}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&os, const std\+::string \&prefix\+Title="""", const std\+::string \&prefix\+Data="""", bool title\+Flag=false) const }{dump(Stream &os, const std::string &prefixTitle="", const std::string &prefixData="", bool titleFlag=false) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Stream $>$ Stream\& Measure\+Set\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{os, }
+\item[{const std\+::string \&}]{prefix\+Title = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{const std\+::string \&}]{prefix\+Data = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{bool}]{title\+Flag = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a3f3de2eddb766c3ecd0fc8d1c41e8c7a}{}\label{structMeasureSet_a3f3de2eddb766c3ecd0fc8d1c41e8c7a}
+
+
+Dumps the set to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The stream. \\
+\hline
+{\em prefix\+Title} & The string to prefix the title row with. \\
+\hline
+{\em prefix\+Data} & The string to prefix the data row with. \\
+\hline
+{\em title\+Flag} & The title row will be output only if this flag is {\ttfamily true}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!dump\+Title@{dump\+Title}}
+\index{dump\+Title@{dump\+Title}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{dump\+Title(\+Stream \&os, const std\+::string \&prefix\+Title="""") const }{dumpTitle(Stream &os, const std::string &prefixTitle="") const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Stream $>$ Stream\& Measure\+Set\+::dump\+Title (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{os, }
+\item[{const std\+::string \&}]{prefix\+Title = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a349c9dd3a4befc31c18aa866c773c7d0}{}\label{structMeasureSet_a349c9dd3a4befc31c18aa866c773c7d0}
+
+
+Dumps the measure titles to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The stream. \\
+\hline
+{\em prefix\+Title} & The string to prefix the title row with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!dump\+Values@{dump\+Values}}
+\index{dump\+Values@{dump\+Values}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{dump\+Values(\+Stream \&os, const std\+::string \&prefix\+Data="""") const }{dumpValues(Stream &os, const std::string &prefixData="") const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Stream $>$ Stream\& Measure\+Set\+::dump\+Values (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{os, }
+\item[{const std\+::string \&}]{prefix\+Data = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a4b5515f8fc1d1ac439ccc29b0f904e7b}{}\label{structMeasureSet_a4b5515f8fc1d1ac439ccc29b0f904e7b}
+
+
+Dumps the measures\textquotesingle{} values to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The stream. \\
+\hline
+{\em prefix\+Data} & The string to prefix the data row with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!end@{end}}
+\index{end@{end}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{end()}{end()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iterator} Measure\+Set\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_abaea10a7aabe9766ae83717d82b55a19}{}\label{structMeasureSet_abaea10a7aabe9766ae83717d82b55a19}
+
+
+Needed to enable range-\/based loop. 
+
+\begin{DoxyReturn}{Returns}
+The {\ttfamily end} iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!end@{end}}
+\index{end@{end}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf const\+\_\+iterator} Measure\+Set\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_acf1951c87618406fed81fea80fc479e0}{}\label{structMeasureSet_acf1951c87618406fed81fea80fc479e0}
+
+
+Needed to enable range-\/based for-\/loop with a const loop variable. 
+
+\begin{DoxyReturn}{Returns}
+The {\ttfamily end} const iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{operator+=(const Measure\+Set \&rhs)}{operator+=(const MeasureSet &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Measure\+Set}\& Measure\+Set\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Measure\+Set} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a7d57e1bce5791fb066695e09d50b7809}{}\label{structMeasureSet_a7d57e1bce5791fb066695e09d50b7809}
+
+
+Adds the values of the measures from the right-\/hand side operand to the corresponding values in the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The set the values of whose measures are to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the modified set. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily rhs} contains the same number of measures as the set. 
+\end{DoxyPrecond}
+
+
+Definition at line 156 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{operator[](std\+::size\+\_\+t n) const }{operator[](std::size_t n) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf const\+\_\+reference} Measure\+Set\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_aa734b46cd89f0c066de6705b7e27968a}{}\label{structMeasureSet_aa734b46cd89f0c066de6705b7e27968a}
+
+
+Returns the measure with the given index. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the measure with the index {\ttfamily n}. 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!prepend@{prepend}}
+\index{prepend@{prepend}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{prepend(const Measure \&m)}{prepend(const Measure &m)}}]{\setlength{\rightskip}{0pt plus 5cm}void Measure\+Set\+::prepend (
+\begin{DoxyParamCaption}
+\item[{const {\bf Measure} \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a9e8a34eded45702b15fa8b16eb4baa3e}{}\label{structMeasureSet_a9e8a34eded45702b15fa8b16eb4baa3e}
+
+
+Inserts the given measure to the beginning of the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The measure to insert. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file stats.\+h.
+
+\index{Measure\+Set@{Measure\+Set}!size@{size}}
+\index{size@{size}!Measure\+Set@{Measure\+Set}}
+\paragraph[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Measure\+Set\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasureSet_a681d1374e259bc3b81e4419aa20e7c30}{}\label{structMeasureSet_a681d1374e259bc3b81e4419aa20e7c30}
+
+
+Returns the number of measures in the set. 
+
+\begin{DoxyReturn}{Returns}
+The number of measures in the set. 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file stats.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{stats_8h}{stats.\+h}\end{DoxyCompactItemize}

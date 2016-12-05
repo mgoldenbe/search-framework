@@ -1,0 +1,81 @@
+\hypertarget{namespaceslb_1_1ext_1_1policy_1_1heuristic}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:heuristic Namespace Reference}
+\label{namespaceslb_1_1ext_1_1policy_1_1heuristic}\index{slb\+::ext\+::policy\+::heuristic@{slb\+::ext\+::policy\+::heuristic}}
+
+
+Wrappers around heuristics to be used by the search algorithms.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1DynamicSingleGoalT}{Dynamic\+Single\+GoalT}
+\begin{DoxyCompactList}\small\item\em Dynamic heuristic to single goal. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT}{Min\+Multiple\+GoalsT}
+\begin{DoxyCompactList}\small\item\em Computes minimum among heuristics to goals that have not been found (with the required quality) yet. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT}{Single\+GoalT}
+\begin{DoxyCompactList}\small\item\em Heuristic to single goal. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1Zero}{Zero}
+\begin{DoxyCompactList}\small\item\em Heuristic that always returns zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1policy_1_1heuristic_a6cee0282472a5ca36af95af31fc3513d}{Single\+Goal} = \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT}{Single\+GoalT}$<$ My\+Algorithm $>$
+\begin{DoxyCompactList}\small\item\em The policy of heuristic to a single goal. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1policy_1_1heuristic_abd4d8d1b33c56751ff726b83181b0609}{Dynamic\+Single\+Goal} = \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1DynamicSingleGoalT}{Dynamic\+Single\+GoalT}$<$ My\+Algorithm $>$
+\begin{DoxyCompactList}\small\item\em The policy of dynamic heuristic to default goal. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1policy_1_1heuristic_adb60983019024c0557fb57be8feab48c}{Min\+Multiple\+Goals} = \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT}{Min\+Multiple\+GoalsT}$<$ My\+Algorithm $>$
+\begin{DoxyCompactList}\small\item\em Computes minimum among heuristics to goals that have not been found (with the required quality) yet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Wrappers around heuristics to be used by the search algorithms. 
+
+\subsubsection{Typedef Documentation}
+\index{slb\+::ext\+::policy\+::heuristic@{slb\+::ext\+::policy\+::heuristic}!Dynamic\+Single\+Goal@{Dynamic\+Single\+Goal}}
+\index{Dynamic\+Single\+Goal@{Dynamic\+Single\+Goal}!slb\+::ext\+::policy\+::heuristic@{slb\+::ext\+::policy\+::heuristic}}
+\paragraph[{\texorpdfstring{Dynamic\+Single\+Goal}{DynamicSingleGoal}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ using {\bf slb\+::ext\+::policy\+::heuristic\+::\+Dynamic\+Single\+Goal} = typedef {\bf Dynamic\+Single\+GoalT}$<$My\+Algorithm$>$}\hypertarget{namespaceslb_1_1ext_1_1policy_1_1heuristic_abd4d8d1b33c56751ff726b83181b0609}{}\label{namespaceslb_1_1ext_1_1policy_1_1heuristic_abd4d8d1b33c56751ff726b83181b0609}
+
+
+The policy of dynamic heuristic to default goal. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 114 of file heuristic\+\_\+policies.\+h.
+
+\index{slb\+::ext\+::policy\+::heuristic@{slb\+::ext\+::policy\+::heuristic}!Min\+Multiple\+Goals@{Min\+Multiple\+Goals}}
+\index{Min\+Multiple\+Goals@{Min\+Multiple\+Goals}!slb\+::ext\+::policy\+::heuristic@{slb\+::ext\+::policy\+::heuristic}}
+\paragraph[{\texorpdfstring{Min\+Multiple\+Goals}{MinMultipleGoals}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ using {\bf slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+Goals} = typedef {\bf Min\+Multiple\+GoalsT}$<$My\+Algorithm$>$}\hypertarget{namespaceslb_1_1ext_1_1policy_1_1heuristic_adb60983019024c0557fb57be8feab48c}{}\label{namespaceslb_1_1ext_1_1policy_1_1heuristic_adb60983019024c0557fb57be8feab48c}
+
+
+Computes minimum among heuristics to goals that have not been found (with the required quality) yet. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 190 of file heuristic\+\_\+policies.\+h.
+
+\index{slb\+::ext\+::policy\+::heuristic@{slb\+::ext\+::policy\+::heuristic}!Single\+Goal@{Single\+Goal}}
+\index{Single\+Goal@{Single\+Goal}!slb\+::ext\+::policy\+::heuristic@{slb\+::ext\+::policy\+::heuristic}}
+\paragraph[{\texorpdfstring{Single\+Goal}{SingleGoal}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ using {\bf slb\+::ext\+::policy\+::heuristic\+::\+Single\+Goal} = typedef {\bf Single\+GoalT}$<$My\+Algorithm$>$}\hypertarget{namespaceslb_1_1ext_1_1policy_1_1heuristic_a6cee0282472a5ca36af95af31fc3513d}{}\label{namespaceslb_1_1ext_1_1policy_1_1heuristic_a6cee0282472a5ca36af95af31fc3513d}
+
+
+The policy of heuristic to a single goal. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 78 of file heuristic\+\_\+policies.\+h.
+

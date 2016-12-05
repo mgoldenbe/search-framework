@@ -1,0 +1,11 @@
+<map id="event::VertexChange&lt; Node &gt;" name="event::VertexChange&lt; Node &gt;">
+<area shape="rect" id="node4" href="$structevent_1_1VertexColor.html" title="An event that changes the color of the vertex corresponding to the state associated with the event..." alt="" coords="599,129,730,171"/>
+<area shape="rect" id="node9" href="$structevent_1_1VertexEmphasis.html" title="An event that marks the vertex corresponding to the state associated with the event. " alt="" coords="585,253,744,295"/>
+<area shape="rect" id="node2" href="$structevent_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="191,192,344,233"/>
+<area shape="rect" id="node5" href="$structevent_1_1DeniedExpansion.html" title="Event that visualizes a node&#39;s expansion being denied following suspension (see SuspendedExpansion). " alt="" coords="804,5,968,47"/>
+<area shape="rect" id="node6" href="$structevent_1_1ResumedExpansion.html" title="Event that visualizes a node&#39;s expansion being resumed following suspension (see SuspendedExpansion)..." alt="" coords="797,71,975,112"/>
+<area shape="rect" id="node7" href="$structevent_1_1Selected.html" title="Event that visualizes having selected a node. " alt="" coords="802,137,970,163"/>
+<area shape="rect" id="node8" href="$structevent_1_1SuspendedExpansion.html" title="Event that visualizes a node&#39;s expansion being suspended. The expansion may be refused or resumed pen..." alt="" coords="792,188,980,229"/>
+<area shape="rect" id="node10" href="$structevent_1_1MarkedGoal.html" title="Event that marks the goal state. " alt="" coords="816,253,956,295"/>
+<area shape="rect" id="node11" href="$structevent_1_1MarkedStart.html" title="Event that marks the start state. " alt="" coords="819,319,953,360"/>
+</map>

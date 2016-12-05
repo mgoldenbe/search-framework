@@ -1,0 +1,215 @@
+\hypertarget{structMeasure}{}\subsection{Measure Struct Reference}
+\label{structMeasure}\index{Measure@{Measure}}
+
+
+The type for a single named performance measure.  
+
+
+
+
+{\ttfamily \#include $<$stats.\+h$>$}
+
+
+
+Inheritance diagram for Measure\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{structMeasure__inherit__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structMeasure_a8a9c52412d8a10256550043de48ee4c5}{Measure} (const std\+::string \&\hyperlink{structMeasure_a3740ab23d87ed974def1cc92e6d38ac3}{name})
+\begin{DoxyCompactList}\small\item\em Initializes the measure with a name. \end{DoxyCompactList}\item 
+\hyperlink{structMeasure_adfe34b3962132da156a9392166a6ee4f}{Measure} (const std\+::string \&\hyperlink{structMeasure_a3740ab23d87ed974def1cc92e6d38ac3}{name}, double x)
+\begin{DoxyCompactList}\small\item\em Initializes the measure with a name and a value. \end{DoxyCompactList}\item 
+void \hyperlink{structMeasure_af0975a252a6cdc10d0a46488a682f218}{operator++} ()\hypertarget{structMeasure_af0975a252a6cdc10d0a46488a682f218}{}\label{structMeasure_af0975a252a6cdc10d0a46488a682f218}
+
+\begin{DoxyCompactList}\small\item\em Increments the measure by 1.\+0. \end{DoxyCompactList}\item 
+\hyperlink{structMeasure}{Measure} \& \hyperlink{structMeasure_a0aab884d52ee53dd897c122aa185a4d9}{operator+=} (const \hyperlink{structMeasure}{Measure} \&rhs)
+\begin{DoxyCompactList}\small\item\em Increments the measure by the value stored by the right-\/hand side operand. \end{DoxyCompactList}\item 
+double \hyperlink{structMeasure_ae30c0892e37a007d90ae5bbe54444267}{value} () const 
+\begin{DoxyCompactList}\small\item\em Returns the measure\textquotesingle{}s current value. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{structMeasure_a3740ab23d87ed974def1cc92e6d38ac3}{name} () const 
+\begin{DoxyCompactList}\small\item\em Returns the measure\textquotesingle{}s name. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structMeasure_a89384053fc7c0e81d7cc482983cb851f}{dump} (Stream \&os) const 
+\begin{DoxyCompactList}\small\item\em Dumps the measure to the given stream. \end{DoxyCompactList}\item 
+void \hyperlink{structMeasure_aba62c8a81ebd05a5cae1a65beb08218e}{set} (double x)
+\begin{DoxyCompactList}\small\item\em Sets the value of the measure to the given value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{structMeasure_a6095870c9cb6ad8ff492490b02ee130e}{x\+\_\+} = 0.\+0\hypertarget{structMeasure_a6095870c9cb6ad8ff492490b02ee130e}{}\label{structMeasure_a6095870c9cb6ad8ff492490b02ee130e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{structMeasure}{Measure}\textquotesingle{}s current value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{structMeasure_af5729e9a71096e418f00c66384a0be6e}{name\+\_\+}\hypertarget{structMeasure_af5729e9a71096e418f00c66384a0be6e}{}\label{structMeasure_af5729e9a71096e418f00c66384a0be6e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{structMeasure}{Measure}\textquotesingle{}s name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The type for a single named performance measure. 
+
+Definition at line 10 of file stats.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Measure@{Measure}!Measure@{Measure}}
+\index{Measure@{Measure}!Measure@{Measure}}
+\paragraph[{\texorpdfstring{Measure(const std\+::string \&name)}{Measure(const std::string &name)}}]{\setlength{\rightskip}{0pt plus 5cm}Measure\+::\+Measure (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasure_a8a9c52412d8a10256550043de48ee4c5}{}\label{structMeasure_a8a9c52412d8a10256550043de48ee4c5}
+
+
+Initializes the measure with a name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the new measure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file stats.\+h.
+
+\index{Measure@{Measure}!Measure@{Measure}}
+\index{Measure@{Measure}!Measure@{Measure}}
+\paragraph[{\texorpdfstring{Measure(const std\+::string \&name, double x)}{Measure(const std::string &name, double x)}}]{\setlength{\rightskip}{0pt plus 5cm}Measure\+::\+Measure (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasure_adfe34b3962132da156a9392166a6ee4f}{}\label{structMeasure_adfe34b3962132da156a9392166a6ee4f}
+
+
+Initializes the measure with a name and a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the new measure. \\
+\hline
+{\em x} & The value of the new measure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file stats.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Measure@{Measure}!dump@{dump}}
+\index{dump@{dump}!Measure@{Measure}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&os) const }{dump(Stream &os) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Stream $>$ Stream\& Measure\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasure_a89384053fc7c0e81d7cc482983cb851f}{}\label{structMeasure_a89384053fc7c0e81d7cc482983cb851f}
+
+
+Dumps the measure to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file stats.\+h.
+
+\index{Measure@{Measure}!name@{name}}
+\index{name@{name}!Measure@{Measure}}
+\paragraph[{\texorpdfstring{name() const }{name() const }}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string\& Measure\+::name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasure_a3740ab23d87ed974def1cc92e6d38ac3}{}\label{structMeasure_a3740ab23d87ed974def1cc92e6d38ac3}
+
+
+Returns the measure\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+The measure\textquotesingle{}s name. 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file stats.\+h.
+
+\index{Measure@{Measure}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Measure@{Measure}}
+\paragraph[{\texorpdfstring{operator+=(const Measure \&rhs)}{operator+=(const Measure &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Measure}\& Measure\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Measure} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasure_a0aab884d52ee53dd897c122aa185a4d9}{}\label{structMeasure_a0aab884d52ee53dd897c122aa185a4d9}
+
+
+Increments the measure by the value stored by the right-\/hand side operand. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the modified measure. 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file stats.\+h.
+
+\index{Measure@{Measure}!set@{set}}
+\index{set@{set}!Measure@{Measure}}
+\paragraph[{\texorpdfstring{set(double x)}{set(double x)}}]{\setlength{\rightskip}{0pt plus 5cm}void Measure\+::set (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasure_aba62c8a81ebd05a5cae1a65beb08218e}{}\label{structMeasure_aba62c8a81ebd05a5cae1a65beb08218e}
+
+
+Sets the value of the measure to the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The new value of the measure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file stats.\+h.
+
+\index{Measure@{Measure}!value@{value}}
+\index{value@{value}!Measure@{Measure}}
+\paragraph[{\texorpdfstring{value() const }{value() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Measure\+::value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMeasure_ae30c0892e37a007d90ae5bbe54444267}{}\label{structMeasure_ae30c0892e37a007d90ae5bbe54444267}
+
+
+Returns the measure\textquotesingle{}s current value. 
+
+\begin{DoxyReturn}{Returns}
+The measure\textquotesingle{}s current value. 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file stats.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{stats_8h}{stats.\+h}\end{DoxyCompactItemize}

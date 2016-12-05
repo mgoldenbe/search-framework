@@ -1,0 +1,146 @@
+\hypertarget{algorithm_8h}{}\subsection{extensions/algorithms/algorithm.h File Reference}
+\label{algorithm_8h}\index{extensions/algorithms/algorithm.\+h@{extensions/algorithms/algorithm.\+h}}
+
+
+Abstract base for search algorithms.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{algorithm_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1BaseTraits}{slb\+::ext\+::algorithm\+::\+Base\+Traits$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S $>$}
+\begin{DoxyCompactList}\small\item\em Traits shared by all algorithms. \end{DoxyCompactList}\item 
+struct \hyperlink{classslb_1_1ext_1_1algorithm_1_1AlgorithmTraits}{slb\+::ext\+::algorithm\+::\+Algorithm\+Traits$<$ My\+Algorithm $>$}
+\begin{DoxyCompactList}\small\item\em Types associated with concrete algorithms. See also \href{http://stackoverflow.com/questions/8401827/crtp-and-type-visibility}{\tt http\+://stackoverflow.\+com/questions/8401827/crtp-\/and-\/type-\/visibility}. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1Algorithm}{slb\+::ext\+::algorithm\+::\+Algorithm$<$ Concrete, A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S $>$}
+\begin{DoxyCompactList}\small\item\em Abstract base for search algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext}{slb\+::ext}
+\begin{DoxyCompactList}\small\item\em The user extensions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1algorithm}{slb\+::ext\+::algorithm}
+\begin{DoxyCompactList}\small\item\em The search algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{algorithm_8h_a521ad67aee0e10fb76ee132a9d5c0768}{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}
+\begin{DoxyCompactList}\small\item\em Common template parameters for search algorithms. \end{DoxyCompactList}\item 
+\#define \hyperlink{algorithm_8h_a8653696505f1009cee94ef5dcba27efa}{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S\+\_\+\+N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+TS}
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{algorithm_8h_a521ad67aee0e10fb76ee132a9d5c0768}{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, but without default values; needed for partial specializations of Algorithm\+Traits. \end{DoxyCompactList}\item 
+\#define \hyperlink{algorithm_8h_a425b5a86fe8dae889a8343e14267c3c0}{A\+L\+G\+\_\+\+T\+A\+R\+GS}~log\+Flag\+\_\+, Node\+\_\+, Goal\+Handler\+\_\+, Initial\+Heuristic\+\_\+, Generator\+\_\+\hypertarget{algorithm_8h_a425b5a86fe8dae889a8343e14267c3c0}{}\label{algorithm_8h_a425b5a86fe8dae889a8343e14267c3c0}
+
+\begin{DoxyCompactList}\small\item\em Template arguments to be used for inheriting from \hyperlink{structslb_1_1ext_1_1algorithm_1_1Algorithm}{slb\+::ext\+::algorithm\+::\+Algorithm}. \end{DoxyCompactList}\item 
+\#define \hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA}
+\begin{DoxyCompactList}\small\item\em Data members of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Algorithm}{slb\+::ext\+::algorithm\+::\+Algorithm} to be used by all search algorithms. \end{DoxyCompactList}\item 
+\#define \hyperlink{algorithm_8h_af9ce42dc0033d5c93cea8af7002ab583}{B\+A\+S\+E\+\_\+\+T\+R\+A\+I\+T\+S\+\_\+\+T\+Y\+P\+ES}
+\begin{DoxyCompactList}\small\item\em Type aliases to be defined by all search algorithms. See the documentation for these aliases inside the \hyperlink{structslb_1_1ext_1_1algorithm_1_1Algorithm}{slb\+::ext\+::algorithm\+::\+Algorithm} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Abstract base for search algorithms. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}
+
+
+\subsubsection{Macro Definition Documentation}
+\index{algorithm.\+h@{algorithm.\+h}!A\+L\+G\+\_\+\+D\+A\+TA@{A\+L\+G\+\_\+\+D\+A\+TA}}
+\index{A\+L\+G\+\_\+\+D\+A\+TA@{A\+L\+G\+\_\+\+D\+A\+TA}!algorithm.\+h@{algorithm.\+h}}
+\paragraph[{\texorpdfstring{A\+L\+G\+\_\+\+D\+A\+TA}{ALG_DATA}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+G\+\_\+\+D\+A\+TA}\hypertarget{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{}\label{algorithm_8h_a64c012078deee9a30405e18ec11e6360}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{using} \hyperlink{namespaceslb_1_1ext_1_1node_a8173225e7ba479ff34ee078e726f8465}{Base} = Algorithm<MyType, ALG\_TARGS>;                                 \(\backslash\)
+    using Base::log\_;                                                          \(\backslash\)
+    using Base::instance\_;                                                     \(\backslash\)
+    using Base::start\_;                                                        \(\backslash\)
+    using Base::goalHandler\_;                                                  \(\backslash\)
+    using Base::initialHeuristic\_;                                                    \(\backslash\)
+    using Base::generator\_;                                                    \(\backslash\)
+    using Base::expanded\_;                                                     \(\backslash\)
+    using Base::generated\_;                                                    \(\backslash\)
+    using Base::time\_;                                                         \(\backslash\)
+    using Base::cost\_;                                                         \(\backslash\)
+    using Base::res\_;
+\end{DoxyCode}
+
+
+Data members of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Algorithm}{slb\+::ext\+::algorithm\+::\+Algorithm} to be used by all search algorithms. 
+
+
+
+Definition at line 35 of file algorithm.\+h.
+
+\index{algorithm.\+h@{algorithm.\+h}!A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS@{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}}
+\index{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS@{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}!algorithm.\+h@{algorithm.\+h}}
+\paragraph[{\texorpdfstring{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}{ALG_TPARAMS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}\hypertarget{algorithm_8h_a521ad67aee0e10fb76ee132a9d5c0768}{}\label{algorithm_8h_a521ad67aee0e10fb76ee132a9d5c0768}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} logFlag\_, \textcolor{keyword}{class }Node\_ = SLB\_NODE,                                     \(\backslash\)
+                         template <class>                                      \(\backslash\)
+                         class GoalHandler\_ = SLB\_GOAL\_HANDLER,                \(\backslash\)
+                         template <class>                                      \(\backslash\)
+                         class InitialHeuristic\_ = SLB\_INIT\_HEURISTIC,         \(\backslash\)
+                         template <class>                                      \(\backslash\)
+                         class Generator\_ = SLB\_GENERATOR
+\end{DoxyCode}
+
+
+Common template parameters for search algorithms. 
+
+
+
+Definition at line 11 of file algorithm.\+h.
+
+\index{algorithm.\+h@{algorithm.\+h}!A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S\+\_\+\+N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+TS@{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S\+\_\+\+N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+TS}}
+\index{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S\+\_\+\+N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+TS@{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S\+\_\+\+N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+TS}!algorithm.\+h@{algorithm.\+h}}
+\paragraph[{\texorpdfstring{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S\+\_\+\+N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+TS}{ALG_TPARAMS_NO_DEFAULTS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S\+\_\+\+N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+TS}\hypertarget{algorithm_8h_a8653696505f1009cee94ef5dcba27efa}{}\label{algorithm_8h_a8653696505f1009cee94ef5dcba27efa}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} logFlag\_, \textcolor{keyword}{class }Node\_, template <class>                               \(\backslash\)
+                                class GoalHandler\_, template <class>           \(\backslash\)
+                                                    class InitialHeuristic\_,   \(\backslash\)
+        template <class>                                                       \(\backslash\)
+        class Generator\_
+\end{DoxyCode}
+
+
+Same as \hyperlink{algorithm_8h_a521ad67aee0e10fb76ee132a9d5c0768}{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, but without default values; needed for partial specializations of Algorithm\+Traits. 
+
+
+
+Definition at line 22 of file algorithm.\+h.
+
+\index{algorithm.\+h@{algorithm.\+h}!B\+A\+S\+E\+\_\+\+T\+R\+A\+I\+T\+S\+\_\+\+T\+Y\+P\+ES@{B\+A\+S\+E\+\_\+\+T\+R\+A\+I\+T\+S\+\_\+\+T\+Y\+P\+ES}}
+\index{B\+A\+S\+E\+\_\+\+T\+R\+A\+I\+T\+S\+\_\+\+T\+Y\+P\+ES@{B\+A\+S\+E\+\_\+\+T\+R\+A\+I\+T\+S\+\_\+\+T\+Y\+P\+ES}!algorithm.\+h@{algorithm.\+h}}
+\paragraph[{\texorpdfstring{B\+A\+S\+E\+\_\+\+T\+R\+A\+I\+T\+S\+\_\+\+T\+Y\+P\+ES}{BASE_TRAITS_TYPES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+S\+E\+\_\+\+T\+R\+A\+I\+T\+S\+\_\+\+T\+Y\+P\+ES}\hypertarget{algorithm_8h_af9ce42dc0033d5c93cea8af7002ab583}{}\label{algorithm_8h_af9ce42dc0033d5c93cea8af7002ab583}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{using} Traits = BaseTraits<ALG\_TARGS>;                   \(\backslash\)
+    using Node = \textcolor{keyword}{typename} Traits::Node;                     \(\backslash\)
+    using NodeData = \textcolor{keyword}{typename} Traits::NodeData;             \(\backslash\)
+    using CostType = \textcolor{keyword}{typename} Traits::CostType;             \(\backslash\)
+    using ReturnType = double;                              \(\backslash\)
+    using NodeUniquePtr = \textcolor{keyword}{typename} Traits::NodeUniquePtr;   \(\backslash\)
+    using State = \textcolor{keyword}{typename} Traits::State;                   \(\backslash\)
+    using MyInstance = \textcolor{keyword}{typename} Traits::MyInstance;         \(\backslash\)
+    using MyAlgorithmLog = \textcolor{keyword}{typename} Traits::MyAlgorithmLog;
+\end{DoxyCode}
+
+
+Type aliases to be defined by all search algorithms. See the documentation for these aliases inside the \hyperlink{structslb_1_1ext_1_1algorithm_1_1Algorithm}{slb\+::ext\+::algorithm\+::\+Algorithm} class. 
+
+
+
+Definition at line 51 of file algorithm.\+h.
+

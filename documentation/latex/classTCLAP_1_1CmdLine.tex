@@ -1,0 +1,652 @@
+\hypertarget{classTCLAP_1_1CmdLine}{}\subsection{T\+C\+L\+AP\+:\+:Cmd\+Line Class Reference}
+\label{classTCLAP_1_1CmdLine}\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+
+
+{\ttfamily \#include $<$Cmd\+Line.\+h$>$}
+
+
+
+Inheritance diagram for T\+C\+L\+AP\+:\+:Cmd\+Line\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classTCLAP_1_1CmdLine__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for T\+C\+L\+AP\+:\+:Cmd\+Line\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTCLAP_1_1CmdLine__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTCLAP_1_1CmdLine_a2e62a3493f8700afb49a7deb872a5b96}{Cmd\+Line} (const std\+::string \&message, const char delimiter= \textquotesingle{} \textquotesingle{}, const std\+::string \&version=\char`\"{}none\char`\"{}, bool help\+And\+Version=true)
+\item 
+virtual \hyperlink{classTCLAP_1_1CmdLine_a8a7bddba32c3d96e2a01e4c8e160e6fa}{$\sim$\+Cmd\+Line} ()
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a94c511d4735ad9b8c97edaa3827f8bbf}{add} (\hyperlink{classTCLAP_1_1Arg}{Arg} \&a)
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_ab8a08e8f4d3ca7709c85416f76e805a3}{add} (\hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$a)
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_afbaa2071d0c3276b383089acabdc0dd2}{xor\+Add} (\hyperlink{classTCLAP_1_1Arg}{Arg} \&a, \hyperlink{classTCLAP_1_1Arg}{Arg} \&b)
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_ac7f2d7ee32a5157f625ad9833ab148cf}{xor\+Add} (std\+::vector$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ \&xors)
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_acb07daf5a1370c176a7b4a6e4119fe6e}{parse} (int argc, const char $\ast$const $\ast$argv)
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a712c3edf86aa0a8a28fb0b6d504d945a}{parse} (std\+::vector$<$ std\+::string $>$ \&args)
+\item 
+\hyperlink{classTCLAP_1_1CmdLineOutput}{Cmd\+Line\+Output} $\ast$ \hyperlink{classTCLAP_1_1CmdLine_ad8aea2617edf53bbc20c8964ee5476e6}{get\+Output} ()
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a4506e305cd10437c7ce5a5ba34cfed0f}{set\+Output} (\hyperlink{classTCLAP_1_1CmdLineOutput}{Cmd\+Line\+Output} $\ast$co)
+\item 
+std\+::string \& \hyperlink{classTCLAP_1_1CmdLine_a85b5653d1a5b48fe6accead64615cf33}{get\+Version} ()
+\item 
+std\+::string \& \hyperlink{classTCLAP_1_1CmdLine_a47a6d496980ee11ffc42e27144a61797}{get\+Program\+Name} ()
+\item 
+std\+::list$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ \& \hyperlink{classTCLAP_1_1CmdLine_a3c281da929a281fb883ea47632b7ad38}{get\+Arg\+List} ()
+\item 
+\hyperlink{classTCLAP_1_1XorHandler}{Xor\+Handler} \& \hyperlink{classTCLAP_1_1CmdLine_a805433b7718d1bc5bc9317bbd061449b}{get\+Xor\+Handler} ()
+\item 
+char \hyperlink{classTCLAP_1_1CmdLine_a3e9f0ac2c1e97d1f8527da713ddd5a8f}{get\+Delimiter} ()
+\item 
+std\+::string \& \hyperlink{classTCLAP_1_1CmdLine_a8f61a8c201e31ada985fa998180fd40f}{get\+Message} ()
+\item 
+bool \hyperlink{classTCLAP_1_1CmdLine_a5b23895feae4f4110b77dae372226475}{has\+Help\+And\+Version} ()
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_aa02055d8f4864bfa9b505e2d26bbbd87}{set\+Exception\+Handling} (const bool state)
+\item 
+bool \hyperlink{classTCLAP_1_1CmdLine_af2cd748a91e22df97c878d7eff8c4ca3}{get\+Exception\+Handling} () const 
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a1721ec47c9d9f5ea2eca2f385fcfd2da}{reset} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a698f47333350312eb949aa1ae4f89ad1}{missing\+Args\+Exception} ()
+\item 
+bool \hyperlink{classTCLAP_1_1CmdLine_a170a4e711c2a6d58a05e9ad3bc03c08a}{\+\_\+empty\+Combined} (const std\+::string \&s)
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a42d669ed2037ac24fc78883aa8600655}{delete\+On\+Exit} (\hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ptr)
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a262b8d929eb5b0dfbfc17637c1325c36}{delete\+On\+Exit} (\hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$ptr)
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ \hyperlink{classTCLAP_1_1CmdLine_a4d70f73542d8184e077688bff3801baf}{\+\_\+arg\+List}
+\item 
+std\+::string \hyperlink{classTCLAP_1_1CmdLine_a8b856dadc54fa30d0dddba4588ef9344}{\+\_\+prog\+Name}
+\item 
+std\+::string \hyperlink{classTCLAP_1_1CmdLine_a3ccd2ae40f6eb97aebca3de9a02f10cf}{\+\_\+message}
+\item 
+std\+::string \hyperlink{classTCLAP_1_1CmdLine_a2b2b52fffed2dcb7df3cdfc582ec8fd1}{\+\_\+version}
+\item 
+int \hyperlink{classTCLAP_1_1CmdLine_a2285207b528d5fad18c82a2ee8155f37}{\+\_\+num\+Required}
+\item 
+char \hyperlink{classTCLAP_1_1CmdLine_a602e65692dc07ea872134f354026a54f}{\+\_\+delimiter}
+\item 
+\hyperlink{classTCLAP_1_1XorHandler}{Xor\+Handler} \hyperlink{classTCLAP_1_1CmdLine_a33846aa10c62ecd61640c93c16ac315d}{\+\_\+xor\+Handler}
+\item 
+std\+::list$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ \hyperlink{classTCLAP_1_1CmdLine_af8d37fbf9d0b60b6acbd737af380f3e5}{\+\_\+arg\+Delete\+On\+Exit\+List}
+\item 
+std\+::list$<$ \hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$ $>$ \hyperlink{classTCLAP_1_1CmdLine_a79b8a947f8100de977574b45b91117ac}{\+\_\+visitor\+Delete\+On\+Exit\+List}
+\item 
+\hyperlink{classTCLAP_1_1CmdLineOutput}{Cmd\+Line\+Output} $\ast$ \hyperlink{classTCLAP_1_1CmdLine_a5152bf4ef26217583a3bc708aa0ea83e}{\+\_\+output}
+\item 
+bool \hyperlink{classTCLAP_1_1CmdLine_a3609d0c13886053b367d1df80efbe67b}{\+\_\+handle\+Exceptions}
+\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTCLAP_1_1CmdLine_ac6479892319106c49ec644bbc68a255e}{Cmd\+Line} (const \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} \&rhs)
+\item 
+\hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} \& {\bfseries operator=} (const \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} \&rhs)\hypertarget{classTCLAP_1_1CmdLine_a46fd7d72c7a5cfeeacf5e9d0ff2cacf7}{}\label{classTCLAP_1_1CmdLine_a46fd7d72c7a5cfeeacf5e9d0ff2cacf7}
+
+\item 
+void \hyperlink{classTCLAP_1_1CmdLine_a955b1935c7b2e5118b2573bd2fbb958c}{\+\_\+constructor} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTCLAP_1_1CmdLine_ab78aec340244f230a41dd946d0138aba}{\+\_\+user\+Set\+Output}
+\item 
+bool \hyperlink{classTCLAP_1_1CmdLine_aea29ec639729a22384ee8759069a5017}{\+\_\+help\+And\+Version}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The base class that manages the command line definition and passes along the parsing to the appropriate \hyperlink{classTCLAP_1_1Arg}{Arg} classes. 
+
+Definition at line 70 of file Cmd\+Line.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!Cmd\+Line@{Cmd\+Line}}
+\index{Cmd\+Line@{Cmd\+Line}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{Cmd\+Line(const Cmd\+Line \&rhs)}{CmdLine(const CmdLine &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+Cmd\+Line (
+\begin{DoxyParamCaption}
+\item[{const {\bf Cmd\+Line} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTCLAP_1_1CmdLine_ac6479892319106c49ec644bbc68a255e}{}\label{classTCLAP_1_1CmdLine_ac6479892319106c49ec644bbc68a255e}
+Prevent accidental copying. \index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!Cmd\+Line@{Cmd\+Line}}
+\index{Cmd\+Line@{Cmd\+Line}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{Cmd\+Line(const std\+::string \&message, const char delimiter= \textquotesingle{} \textquotesingle{}, const std\+::string \&version=""none"", bool help\+And\+Version=true)}{CmdLine(const std::string &message, const char delimiter= ' ', const std::string &version="none", bool helpAndVersion=true)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+Cmd\+Line (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{message, }
+\item[{const char}]{delimiter = {\ttfamily \textquotesingle{}~\textquotesingle{}}, }
+\item[{const std\+::string \&}]{version = {\ttfamily \char`\"{}none\char`\"{}}, }
+\item[{bool}]{help\+And\+Version = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1CmdLine_a2e62a3493f8700afb49a7deb872a5b96}{}\label{classTCLAP_1_1CmdLine_a2e62a3493f8700afb49a7deb872a5b96}
+Command line constructor. Defines how the arguments will be parsed. 
+\begin{DoxyParams}{Parameters}
+{\em message} & -\/ The message to be used in the usage output. \\
+\hline
+{\em delimiter} & -\/ The character that is used to separate the argument flag/name from the value. Defaults to \textquotesingle{} \textquotesingle{} (space). \\
+\hline
+{\em version} & -\/ The version number to be used in the --version switch. \\
+\hline
+{\em help\+And\+Version} & -\/ Whether or not to create the Help and Version switches. Defaults to true. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 323 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!````~Cmd\+Line@{$\sim$\+Cmd\+Line}}
+\index{````~Cmd\+Line@{$\sim$\+Cmd\+Line}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{$\sim$\+Cmd\+Line()}{~CmdLine()}}]{\setlength{\rightskip}{0pt plus 5cm}T\+C\+L\+A\+P\+::\+Cmd\+Line\+::$\sim$\+Cmd\+Line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a8a7bddba32c3d96e2a01e4c8e160e6fa}{}\label{classTCLAP_1_1CmdLine_a8a7bddba32c3d96e2a01e4c8e160e6fa}
+Deletes any resources allocated by a \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} object. 
+
+Definition at line 345 of file Cmd\+Line.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+constructor@{\+\_\+constructor}}
+\index{\+\_\+constructor@{\+\_\+constructor}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+constructor()}{_constructor()}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+constructor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classTCLAP_1_1CmdLine_a955b1935c7b2e5118b2573bd2fbb958c}{}\label{classTCLAP_1_1CmdLine_a955b1935c7b2e5118b2573bd2fbb958c}
+Encapsulates the code common to the constructors (which is all of it). 
+
+Definition at line 356 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+empty\+Combined@{\+\_\+empty\+Combined}}
+\index{\+\_\+empty\+Combined@{\+\_\+empty\+Combined}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+empty\+Combined(const std\+::string \&s)}{_emptyCombined(const std::string &s)}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+empty\+Combined (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a170a4e711c2a6d58a05e9ad3bc03c08a}{}\label{classTCLAP_1_1CmdLine_a170a4e711c2a6d58a05e9ad3bc03c08a}
+Checks whether a name/flag string matches entirely matches the \hyperlink{classTCLAP_1_1Arg_a0abd38f46dbf7d267078134a4817fbb2}{Arg\+::blank\+Char}. Used when multiple switches are combined into a single argument. 
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ The message to be used in the usage. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 511 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!add@{add}}
+\index{add@{add}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{add(\+Arg \&a)}{add(Arg &a)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::add (
+\begin{DoxyParamCaption}
+\item[{{\bf Arg} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a94c511d4735ad9b8c97edaa3827f8bbf}{}\label{classTCLAP_1_1CmdLine_a94c511d4735ad9b8c97edaa3827f8bbf}
+Adds an argument to the list of arguments to be parsed. 
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ Argument to be added. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a13b29ab754c030185e58f779dc355631}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 413 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!add@{add}}
+\index{add@{add}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{add(\+Arg $\ast$a)}{add(Arg *a)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::add (
+\begin{DoxyParamCaption}
+\item[{{\bf Arg} $\ast$}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_ab8a08e8f4d3ca7709c85416f76e805a3}{}\label{classTCLAP_1_1CmdLine_ab8a08e8f4d3ca7709c85416f76e805a3}
+An alternative add. Functionally identical. 
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ Argument to be added. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a7c6a097c0f2a09dd1987e9da1af8b457}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 418 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!delete\+On\+Exit@{delete\+On\+Exit}}
+\index{delete\+On\+Exit@{delete\+On\+Exit}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{delete\+On\+Exit(\+Arg $\ast$ptr)}{deleteOnExit(Arg *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::delete\+On\+Exit (
+\begin{DoxyParamCaption}
+\item[{{\bf Arg} $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a42d669ed2037ac24fc78883aa8600655}{}\label{classTCLAP_1_1CmdLine_a42d669ed2037ac24fc78883aa8600655}
+Perform a delete ptr; operation on ptr when this object is deleted. 
+
+Definition at line 550 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!delete\+On\+Exit@{delete\+On\+Exit}}
+\index{delete\+On\+Exit@{delete\+On\+Exit}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{delete\+On\+Exit(\+Visitor $\ast$ptr)}{deleteOnExit(Visitor *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::delete\+On\+Exit (
+\begin{DoxyParamCaption}
+\item[{{\bf Visitor} $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a262b8d929eb5b0dfbfc17637c1325c36}{}\label{classTCLAP_1_1CmdLine_a262b8d929eb5b0dfbfc17637c1325c36}
+Perform a delete ptr; operation on ptr when this object is deleted. 
+
+Definition at line 555 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Arg\+List@{get\+Arg\+List}}
+\index{get\+Arg\+List@{get\+Arg\+List}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Arg\+List()}{getArgList()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ {\bf Arg} $\ast$ $>$ \& T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Arg\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a3c281da929a281fb883ea47632b7ad38}{}\label{classTCLAP_1_1CmdLine_a3c281da929a281fb883ea47632b7ad38}
+Returns the arg\+List. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a4de8d988f5a6f3007c4dfb0fc9dad476}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 583 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Delimiter@{get\+Delimiter}}
+\index{get\+Delimiter@{get\+Delimiter}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Delimiter()}{getDelimiter()}}]{\setlength{\rightskip}{0pt plus 5cm}char T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Delimiter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a3e9f0ac2c1e97d1f8527da713ddd5a8f}{}\label{classTCLAP_1_1CmdLine_a3e9f0ac2c1e97d1f8527da713ddd5a8f}
+Returns the delimiter string. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a7d6a64cff6b3a30e2cf1e81d7b1d4521}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 593 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Exception\+Handling@{get\+Exception\+Handling}}
+\index{get\+Exception\+Handling@{get\+Exception\+Handling}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Exception\+Handling() const }{getExceptionHandling() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Exception\+Handling (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1CmdLine_af2cd748a91e22df97c878d7eff8c4ca3}{}\label{classTCLAP_1_1CmdLine_af2cd748a91e22df97c878d7eff8c4ca3}
+Returns the current state of the internal exception handling.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Parsing exceptions are handled internally. \\
+\hline
+{\em false} & Parsing exceptions are propagated to the caller. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 613 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Message@{get\+Message}}
+\index{get\+Message@{get\+Message}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Message()}{getMessage()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string \& T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a8f61a8c201e31ada985fa998180fd40f}{}\label{classTCLAP_1_1CmdLine_a8f61a8c201e31ada985fa998180fd40f}
+Returns the message string. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a30175a2567f7ab78a2c6bbea9269a2fa}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 598 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Output()}{getOutput()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cmd\+Line\+Output} $\ast$ T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_ad8aea2617edf53bbc20c8964ee5476e6}{}\label{classTCLAP_1_1CmdLine_ad8aea2617edf53bbc20c8964ee5476e6}
+Returns the \hyperlink{classTCLAP_1_1CmdLineOutput}{Cmd\+Line\+Output} object. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_aebc72daedeaeb03e06bb2e6e0f00363d}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 560 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Program\+Name@{get\+Program\+Name}}
+\index{get\+Program\+Name@{get\+Program\+Name}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Program\+Name()}{getProgramName()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string \& T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Program\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a47a6d496980ee11ffc42e27144a61797}{}\label{classTCLAP_1_1CmdLine_a47a6d496980ee11ffc42e27144a61797}
+Returns the program name string. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a1a5672df72a6b5021cd70b37c4dbd0a7}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 578 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Version@{get\+Version}}
+\index{get\+Version@{get\+Version}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Version()}{getVersion()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string \& T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a85b5653d1a5b48fe6accead64615cf33}{}\label{classTCLAP_1_1CmdLine_a85b5653d1a5b48fe6accead64615cf33}
+Returns the version string. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a0a552fa57212800dfb8aec84fb07b8bb}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 573 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!get\+Xor\+Handler@{get\+Xor\+Handler}}
+\index{get\+Xor\+Handler@{get\+Xor\+Handler}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{get\+Xor\+Handler()}{getXorHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Xor\+Handler} \& T\+C\+L\+A\+P\+::\+Cmd\+Line\+::get\+Xor\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a805433b7718d1bc5bc9317bbd061449b}{}\label{classTCLAP_1_1CmdLine_a805433b7718d1bc5bc9317bbd061449b}
+Returns the \hyperlink{classTCLAP_1_1XorHandler}{Xor\+Handler}. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a11ce9c77a1111960741f05e343849e4e}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 588 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!has\+Help\+And\+Version@{has\+Help\+And\+Version}}
+\index{has\+Help\+And\+Version@{has\+Help\+And\+Version}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{has\+Help\+And\+Version()}{hasHelpAndVersion()}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Cmd\+Line\+::has\+Help\+And\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a5b23895feae4f4110b77dae372226475}{}\label{classTCLAP_1_1CmdLine_a5b23895feae4f4110b77dae372226475}
+Indicates whether or not the help and version switches were created automatically. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a441b06b764836a62083b163508210905}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 603 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!missing\+Args\+Exception@{missing\+Args\+Exception}}
+\index{missing\+Args\+Exception@{missing\+Args\+Exception}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{missing\+Args\+Exception()}{missingArgsException()}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::missing\+Args\+Exception (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a698f47333350312eb949aa1ae4f89ad1}{}\label{classTCLAP_1_1CmdLine_a698f47333350312eb949aa1ae4f89ad1}
+Throws an exception listing the missing args. 
+
+Definition at line 523 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!parse@{parse}}
+\index{parse@{parse}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{parse(int argc, const char $\ast$const $\ast$argv)}{parse(int argc, const char *const *argv)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::parse (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{const char $\ast$const $\ast$}]{argv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_acb07daf5a1370c176a7b4a6e4119fe6e}{}\label{classTCLAP_1_1CmdLine_acb07daf5a1370c176a7b4a6e4119fe6e}
+Parses the command line. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & -\/ Number of arguments. \\
+\hline
+{\em argv} & -\/ Array of arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a6649336bddfc8421148718a691fd89b4}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 433 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!parse@{parse}}
+\index{parse@{parse}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{parse(std\+::vector$<$ std\+::string $>$ \&args)}{parse(std::vector< std::string > &args)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::parse (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::string $>$ \&}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1CmdLine_a712c3edf86aa0a8a28fb0b6d504d945a}{}\label{classTCLAP_1_1CmdLine_a712c3edf86aa0a8a28fb0b6d504d945a}
+Parses the command line. 
+\begin{DoxyParams}{Parameters}
+{\em args} & -\/ A vector of strings representing the args. args\mbox{[}0\mbox{]} is still the program name. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 444 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!reset@{reset}}
+\index{reset@{reset}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a1721ec47c9d9f5ea2eca2f385fcfd2da}{}\label{classTCLAP_1_1CmdLine_a1721ec47c9d9f5ea2eca2f385fcfd2da}
+Allows the \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} object to be reused. 
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a6b1fac8a9948ba7e28bc7844a18f39e4}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 618 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!set\+Exception\+Handling@{set\+Exception\+Handling}}
+\index{set\+Exception\+Handling@{set\+Exception\+Handling}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{set\+Exception\+Handling(const bool state)}{setExceptionHandling(const bool state)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::set\+Exception\+Handling (
+\begin{DoxyParamCaption}
+\item[{const bool}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1CmdLine_aa02055d8f4864bfa9b505e2d26bbbd87}{}\label{classTCLAP_1_1CmdLine_aa02055d8f4864bfa9b505e2d26bbbd87}
+Disables or enables \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line}\textquotesingle{}s internal parsing exception handling.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & Should \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} handle parsing exceptions internally? \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 608 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!set\+Output@{set\+Output}}
+\index{set\+Output@{set\+Output}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{set\+Output(\+Cmd\+Line\+Output $\ast$co)}{setOutput(CmdLineOutput *co)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::set\+Output (
+\begin{DoxyParamCaption}
+\item[{{\bf Cmd\+Line\+Output} $\ast$}]{co}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_a4506e305cd10437c7ce5a5ba34cfed0f}{}\label{classTCLAP_1_1CmdLine_a4506e305cd10437c7ce5a5ba34cfed0f}
+
+\begin{DoxyParams}{Parameters}
+{\em co} & -\/ \hyperlink{classTCLAP_1_1CmdLineOutput}{Cmd\+Line\+Output} object that we want to use instead. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_ab208b32bd9489781509d7ecddf8a92a0}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 565 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!xor\+Add@{xor\+Add}}
+\index{xor\+Add@{xor\+Add}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{xor\+Add(\+Arg \&a, Arg \&b)}{xorAdd(Arg &a, Arg &b)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::xor\+Add (
+\begin{DoxyParamCaption}
+\item[{{\bf Arg} \&}]{a, }
+\item[{{\bf Arg} \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_afbaa2071d0c3276b383089acabdc0dd2}{}\label{classTCLAP_1_1CmdLine_afbaa2071d0c3276b383089acabdc0dd2}
+Add two Args that will be xor\textquotesingle{}d. If this method is used, add does not need to be called. 
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ Argument to be added and xor\textquotesingle{}d. \\
+\hline
+{\em b} & -\/ Argument to be added and xor\textquotesingle{}d. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a69859e3713623eb06c9c335248d9c83f}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 405 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!xor\+Add@{xor\+Add}}
+\index{xor\+Add@{xor\+Add}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{xor\+Add(std\+::vector$<$ Arg $\ast$ $>$ \&xors)}{xorAdd(std::vector< Arg * > &xors)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Cmd\+Line\+::xor\+Add (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Arg} $\ast$ $>$ \&}]{xors}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1CmdLine_ac7f2d7ee32a5157f625ad9833ab148cf}{}\label{classTCLAP_1_1CmdLine_ac7f2d7ee32a5157f625ad9833ab148cf}
+Add a list of Args that will be xor\textquotesingle{}d. If this method is used, add does not need to be called. 
+\begin{DoxyParams}{Parameters}
+{\em xors} & -\/ List of Args to be added and xor\textquotesingle{}d. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineInterface_a6a94140e522bcf6104928fcf0c434ab8}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Interface}.
+
+
+
+Definition at line 393 of file Cmd\+Line.\+h.
+
+
+
+\subsubsection{Member Data Documentation}
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+arg\+Delete\+On\+Exit\+List@{\+\_\+arg\+Delete\+On\+Exit\+List}}
+\index{\+\_\+arg\+Delete\+On\+Exit\+List@{\+\_\+arg\+Delete\+On\+Exit\+List}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+arg\+Delete\+On\+Exit\+List}{_argDeleteOnExitList}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<${\bf Arg}$\ast$$>$ T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+arg\+Delete\+On\+Exit\+List\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_af8d37fbf9d0b60b6acbd737af380f3e5}{}\label{classTCLAP_1_1CmdLine_af8d37fbf9d0b60b6acbd737af380f3e5}
+A list of Args to be explicitly deleted when the destructor is called. At the moment, this only includes the three default Args. 
+
+Definition at line 118 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+arg\+List@{\+\_\+arg\+List}}
+\index{\+\_\+arg\+List@{\+\_\+arg\+List}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+arg\+List}{_argList}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<${\bf Arg}$\ast$$>$ T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+arg\+List\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a4d70f73542d8184e077688bff3801baf}{}\label{classTCLAP_1_1CmdLine_a4d70f73542d8184e077688bff3801baf}
+The list of arguments that will be tested against the command line. 
+
+Definition at line 78 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+delimiter@{\+\_\+delimiter}}
+\index{\+\_\+delimiter@{\+\_\+delimiter}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+delimiter}{_delimiter}}]{\setlength{\rightskip}{0pt plus 5cm}char T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+delimiter\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a602e65692dc07ea872134f354026a54f}{}\label{classTCLAP_1_1CmdLine_a602e65692dc07ea872134f354026a54f}
+The character that is used to separate the argument flag/name from the value. Defaults to \textquotesingle{} \textquotesingle{} (space). 
+
+Definition at line 106 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+handle\+Exceptions@{\+\_\+handle\+Exceptions}}
+\index{\+\_\+handle\+Exceptions@{\+\_\+handle\+Exceptions}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+handle\+Exceptions}{_handleExceptions}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+handle\+Exceptions\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a3609d0c13886053b367d1df80efbe67b}{}\label{classTCLAP_1_1CmdLine_a3609d0c13886053b367d1df80efbe67b}
+Should \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} handle parsing exceptions internally? 
+
+Definition at line 135 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+help\+And\+Version@{\+\_\+help\+And\+Version}}
+\index{\+\_\+help\+And\+Version@{\+\_\+help\+And\+Version}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+help\+And\+Version}{_helpAndVersion}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+help\+And\+Version\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTCLAP_1_1CmdLine_aea29ec639729a22384ee8759069a5017}{}\label{classTCLAP_1_1CmdLine_aea29ec639729a22384ee8759069a5017}
+Whether or not to automatically create help and version switches. 
+
+Definition at line 184 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+message@{\+\_\+message}}
+\index{\+\_\+message@{\+\_\+message}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+message}{_message}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+message\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a3ccd2ae40f6eb97aebca3de9a02f10cf}{}\label{classTCLAP_1_1CmdLine_a3ccd2ae40f6eb97aebca3de9a02f10cf}
+A message used to describe the program. Used in the usage output. 
+
+Definition at line 88 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+num\+Required@{\+\_\+num\+Required}}
+\index{\+\_\+num\+Required@{\+\_\+num\+Required}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+num\+Required}{_numRequired}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+num\+Required\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a2285207b528d5fad18c82a2ee8155f37}{}\label{classTCLAP_1_1CmdLine_a2285207b528d5fad18c82a2ee8155f37}
+The number of arguments that are required to be present on the command line. This is set dynamically, based on the Args added to the \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} object. 
+
+Definition at line 100 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+output@{\+\_\+output}}
+\index{\+\_\+output@{\+\_\+output}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+output}{_output}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cmd\+Line\+Output}$\ast$ T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+output\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a5152bf4ef26217583a3bc708aa0ea83e}{}\label{classTCLAP_1_1CmdLine_a5152bf4ef26217583a3bc708aa0ea83e}
+Object that handles all output for the \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line}. 
+
+Definition at line 130 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+prog\+Name@{\+\_\+prog\+Name}}
+\index{\+\_\+prog\+Name@{\+\_\+prog\+Name}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+prog\+Name}{_progName}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+prog\+Name\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a8b856dadc54fa30d0dddba4588ef9344}{}\label{classTCLAP_1_1CmdLine_a8b856dadc54fa30d0dddba4588ef9344}
+The name of the program. Set to argv\mbox{[}0\mbox{]}. 
+
+Definition at line 83 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+user\+Set\+Output@{\+\_\+user\+Set\+Output}}
+\index{\+\_\+user\+Set\+Output@{\+\_\+user\+Set\+Output}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+user\+Set\+Output}{_userSetOutput}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+user\+Set\+Output\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTCLAP_1_1CmdLine_ab78aec340244f230a41dd946d0138aba}{}\label{classTCLAP_1_1CmdLine_ab78aec340244f230a41dd946d0138aba}
+Is set to true when a user sets the output object. We use this so that we don\textquotesingle{}t delete objects that are created outside of this lib. 
+
+Definition at line 179 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+version@{\+\_\+version}}
+\index{\+\_\+version@{\+\_\+version}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+version}{_version}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+version\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a2b2b52fffed2dcb7df3cdfc582ec8fd1}{}\label{classTCLAP_1_1CmdLine_a2b2b52fffed2dcb7df3cdfc582ec8fd1}
+The version to be displayed with the --version switch. 
+
+Definition at line 93 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+visitor\+Delete\+On\+Exit\+List@{\+\_\+visitor\+Delete\+On\+Exit\+List}}
+\index{\+\_\+visitor\+Delete\+On\+Exit\+List@{\+\_\+visitor\+Delete\+On\+Exit\+List}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+visitor\+Delete\+On\+Exit\+List}{_visitorDeleteOnExitList}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<${\bf Visitor}$\ast$$>$ T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+visitor\+Delete\+On\+Exit\+List\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a79b8a947f8100de977574b45b91117ac}{}\label{classTCLAP_1_1CmdLine_a79b8a947f8100de977574b45b91117ac}
+A list of Visitors to be explicitly deleted when the destructor is called. At the moment, these are the Vistors created for the default Args. 
+
+Definition at line 125 of file Cmd\+Line.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}!\+\_\+xor\+Handler@{\+\_\+xor\+Handler}}
+\index{\+\_\+xor\+Handler@{\+\_\+xor\+Handler}!T\+C\+L\+A\+P\+::\+Cmd\+Line@{T\+C\+L\+A\+P\+::\+Cmd\+Line}}
+\paragraph[{\texorpdfstring{\+\_\+xor\+Handler}{_xorHandler}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Xor\+Handler} T\+C\+L\+A\+P\+::\+Cmd\+Line\+::\+\_\+xor\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1CmdLine_a33846aa10c62ecd61640c93c16ac315d}{}\label{classTCLAP_1_1CmdLine_a33846aa10c62ecd61640c93c16ac315d}
+The handler that manages xoring lists of args. 
+
+Definition at line 111 of file Cmd\+Line.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/outside1/tclap/Cmd\+Line.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="slb::core::ui::Visualizer&lt; Node &gt;" name="slb::core::ui::Visualizer&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structslb_1_1core_1_1ui_1_1VisualizerData.html" title="The base of Visualizer holding the visualizer&#39;s constituent components. " alt="" coords="10,109,165,151"/>
+<area shape="rect" id="node3" href="$structslb_1_1core_1_1ui_1_1StateGraph.html" title="The state space graph used for visualization. " alt="" coords="5,5,169,47"/>
+</map>

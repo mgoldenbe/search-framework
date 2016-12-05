@@ -1,0 +1,246 @@
+\hypertarget{structAstar}{}\subsection{Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, Open\+\_\+ $>$ Struct Template Reference}
+\label{structAstar}\index{Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Open\+\_\+ $>$@{Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Open\+\_\+ $>$}}
+
+
+The {\ttfamily A$\ast$} search algorithm.  
+
+
+
+
+{\ttfamily \#include $<$astar.\+h$>$}
+
+
+
+Inheritance diagram for Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, Open\+\_\+ $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{structAstar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, Open\+\_\+ $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structAstar__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structAstar_aff057da86de2a0b4bdf09f8bc9e01668}{Open} = Open\+\_\+$<$ \hyperlink{structAstar}{Astar} $>$\hypertarget{structAstar_aff057da86de2a0b4bdf09f8bc9e01668}{}\label{structAstar_aff057da86de2a0b4bdf09f8bc9e01668}
+
+\begin{DoxyCompactList}\small\item\em The open list type. \end{DoxyCompactList}\item 
+using \hyperlink{structAstar_ad95c7f756780188272cd6e3c11e126de}{OC} = typename \hyperlink{classAlgorithmTraits}{Algorithm\+Traits}$<$ \hyperlink{structAstar}{Astar} $>$\+::\hyperlink{structAstar_ad95c7f756780188272cd6e3c11e126de}{OC}\hypertarget{structAstar_ad95c7f756780188272cd6e3c11e126de}{}\label{structAstar_ad95c7f756780188272cd6e3c11e126de}
+
+\begin{DoxyCompactList}\small\item\em Open\+Closed list type. \end{DoxyCompactList}\item 
+using \hyperlink{structAstar_a9e1e8b116e384bc29d1cd5da0f6ace68}{Neighbor} = typename \hyperlink{classAlgorithmTraits}{Algorithm\+Traits}$<$ \hyperlink{structAstar}{Astar} $>$\+::Generator\+::\+Neighbor\hypertarget{structAstar_a9e1e8b116e384bc29d1cd5da0f6ace68}{}\label{structAstar_a9e1e8b116e384bc29d1cd5da0f6ace68}
+
+\begin{DoxyCompactList}\small\item\em Search neighbor type. \end{DoxyCompactList}\item 
+using \hyperlink{structAstar_aeaa7b3e88040a0d2c8c93cbaed6ff24c}{Direct\+Base} = \hyperlink{structAlgorithm}{Algorithm}$<$ \hyperlink{structAstar}{Astar}$<$ \hyperlink{algorithm_8h_a425b5a86fe8dae889a8343e14267c3c0}{A\+L\+G\+\_\+\+T\+A\+R\+GS}, Open\+\_\+ $>$, \hyperlink{algorithm_8h_a425b5a86fe8dae889a8343e14267c3c0}{A\+L\+G\+\_\+\+T\+A\+R\+GS} $>$\hypertarget{structAstar_aeaa7b3e88040a0d2c8c93cbaed6ff24c}{}\label{structAstar_aeaa7b3e88040a0d2c8c93cbaed6ff24c}
+
+\begin{DoxyCompactList}\small\item\em The direct base. \end{DoxyCompactList}\item 
+using \hyperlink{structAstar_a8cba9d9dc25ba8b183d8a9c4ed01f0c2}{Goal\+Handler} = typename \hyperlink{structAlgorithm_a915f86cad5585ba0adb63d017c7afdb2}{Direct\+Base\+::\+Goal\+Handler}\hypertarget{structAstar_a8cba9d9dc25ba8b183d8a9c4ed01f0c2}{}\label{structAstar_a8cba9d9dc25ba8b183d8a9c4ed01f0c2}
+
+\begin{DoxyCompactList}\small\item\em The goal handler policy. \end{DoxyCompactList}\item 
+using \hyperlink{structAstar_af21d7678a4859a9f078253be94e34d6e}{Initial\+Heuristic} = typename \hyperlink{structAlgorithm_a01a7b5d204e82e4aed951680a38013a5}{Direct\+Base\+::\+Initial\+Heuristic}\hypertarget{structAstar_af21d7678a4859a9f078253be94e34d6e}{}\label{structAstar_af21d7678a4859a9f078253be94e34d6e}
+
+\begin{DoxyCompactList}\small\item\em The initial heuristic policy. \end{DoxyCompactList}\item 
+using \hyperlink{structAstar_a08c3b39a822ab66a9f1c79844f5ecb6c}{Generator} = typename \hyperlink{structAlgorithm_ae48d359026f66d7f6c0d15d964a0e8bd}{Direct\+Base\+::\+Generator}\hypertarget{structAstar_a08c3b39a822ab66a9f1c79844f5ecb6c}{}\label{structAstar_a08c3b39a822ab66a9f1c79844f5ecb6c}
+
+\begin{DoxyCompactList}\small\item\em The generator policy. \end{DoxyCompactList}\item 
+using \hyperlink{structAstar_aaff2d3b0b2aec5a94929b5de17d50aa9}{My\+Type} = \hyperlink{structAstar}{Astar}\hypertarget{structAstar_aaff2d3b0b2aec5a94929b5de17d50aa9}{}\label{structAstar_aaff2d3b0b2aec5a94929b5de17d50aa9}
+
+\begin{DoxyCompactList}\small\item\em The type of \hyperlink{structAstar}{Astar}; required for \hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA} symbol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA} \hyperlink{structAstar_ac4d21b58ac95967feed0559ebfe6a9a4}{Astar} (const My\+Instance \&instance)
+\begin{DoxyCompactList}\small\item\em Initializes the algorithm based on the problem instance. \end{DoxyCompactList}\item 
+Return\+Type \hyperlink{structAstar_a11b9f8a8b4b172d58be86ffe19cd02d5}{run} ()
+\begin{DoxyCompactList}\small\item\em Runs the algorithm. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet}{Measure\+Set} \hyperlink{structAstar_a8bc4daf2cdbf28a19cc802f415996654}{measures} () const 
+\begin{DoxyCompactList}\small\item\em Returns the statistics about the search algorithm\textquotesingle{}s performance for solving the particular instance. \end{DoxyCompactList}\item 
+core\+::ui\+::\+State\+Graph$<$ State $>$ \hyperlink{structAstar_adaf62b4847f7f3215bf8ec25739415b0}{graph} () const 
+\begin{DoxyCompactList}\small\item\em Computes the state graph based on the closed list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Services for policies.}\par
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structAstar_ad95c7f756780188272cd6e3c11e126de}{OC} \& {\bfseries oc} ()\hypertarget{structAstar_a97ccdf223e2e3dc8aa94a27c11fb93c0}{}\label{structAstar_a97ccdf223e2e3dc8aa94a27c11fb93c0}
+
+\item 
+Node $\ast$ {\bfseries cur} ()\hypertarget{structAstar_a15856fccf5885a316155632439539bd6}{}\label{structAstar_a15856fccf5885a316155632439539bd6}
+
+\item 
+\hyperlink{structMeasure}{Measure} \& {\bfseries denied} ()\hypertarget{structAstar_a969d23607126e1b86485f80bde9a2db3}{}\label{structAstar_a969d23607126e1b86485f80bde9a2db3}
+
+\item 
+void {\bfseries recompute\+Open} ()\hypertarget{structAstar_ae0b0e647de113ebc3440f1e576508dec}{}\label{structAstar_ae0b0e647de113ebc3440f1e576508dec}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structAstar_a1d463a6c9ee021bccb10224dbe9c7a07}{handle\+Selected} ()\hypertarget{structAstar_a1d463a6c9ee021bccb10224dbe9c7a07}{}\label{structAstar_a1d463a6c9ee021bccb10224dbe9c7a07}
+
+\begin{DoxyCompactList}\small\item\em Handles the selected node. \end{DoxyCompactList}\item 
+void \hyperlink{structAstar_ae7d7061f3347762c2a998061bcad920c}{handle\+Selected} (std\+::true\+\_\+type)\hypertarget{structAstar_ae7d7061f3347762c2a998061bcad920c}{}\label{structAstar_ae7d7061f3347762c2a998061bcad920c}
+
+\begin{DoxyCompactList}\small\item\em Handles the selected node in the case that suspensions are to be dealt with. \end{DoxyCompactList}\item 
+void \hyperlink{structAstar_aa471125e7d96c4e0586af31cf260c1cf}{handle\+Selected} (std\+::false\+\_\+type)\hypertarget{structAstar_aa471125e7d96c4e0586af31cf260c1cf}{}\label{structAstar_aa471125e7d96c4e0586af31cf260c1cf}
+
+\begin{DoxyCompactList}\small\item\em Handles the selected node in the case that suspensions do not need to be dealt with. \end{DoxyCompactList}\item 
+void \hyperlink{structAstar_a5d570eabfbcf944aee80a68ed389368c}{expand} ()\hypertarget{structAstar_a5d570eabfbcf944aee80a68ed389368c}{}\label{structAstar_a5d570eabfbcf944aee80a68ed389368c}
+
+\begin{DoxyCompactList}\small\item\em Expands the selected node. \end{DoxyCompactList}\item 
+void \hyperlink{structAstar_a2adf43e592d04ac9c3e0fe974cd1a204}{handle\+Neighbor} (\hyperlink{structAstar_a9e1e8b116e384bc29d1cd5da0f6ace68}{Neighbor} \&n)
+\begin{DoxyCompactList}\small\item\em Handles the current neighbor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structAstar_ad95c7f756780188272cd6e3c11e126de}{OC} \hyperlink{structAstar_a02b861c832a0388071fa748c3d5a2d4f}{oc\+\_\+}\hypertarget{structAstar_a02b861c832a0388071fa748c3d5a2d4f}{}\label{structAstar_a02b861c832a0388071fa748c3d5a2d4f}
+
+\begin{DoxyCompactList}\small\item\em The open and closed lists. \end{DoxyCompactList}\item 
+Node $\ast$ \hyperlink{structAstar_a75e08832a63c22763939540e76564be4}{cur\+\_\+}\hypertarget{structAstar_a75e08832a63c22763939540e76564be4}{}\label{structAstar_a75e08832a63c22763939540e76564be4}
+
+\begin{DoxyCompactList}\small\item\em The currently selected node. \end{DoxyCompactList}\item 
+\hyperlink{structMeasure}{Measure} \hyperlink{structAstar_ae0548c7f955d9d386e2d39078e88b16d}{denied\+\_\+} \{\char`\"{}Denied\char`\"{}\}\hypertarget{structAstar_ae0548c7f955d9d386e2d39078e88b16d}{}\label{structAstar_ae0548c7f955d9d386e2d39078e88b16d}
+
+\begin{DoxyCompactList}\small\item\em The number of denied expansions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$\\*
+struct Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Open\+\_\+ $>$}
+
+The {\ttfamily A$\ast$} search algorithm. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em log\+Flag} & If {\ttfamily true}, the events generated by the search algorithm are logged. Otherwise, they are not. \\
+\hline
+{\em Node\+\_\+} & The search node type. \\
+\hline
+{\em Goal\+Handler} & The policy for handling goal conditions. \\
+\hline
+{\em Initial\+Heuristic} & The initial heuristic used by the search algorithm. \\
+\hline
+{\em Open} & The open list type. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+See the documentation for \hyperlink{algorithm_8h_a521ad67aee0e10fb76ee132a9d5c0768}{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS} and \hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA}. 
+\end{DoxyNote}
+
+
+Definition at line 11 of file astar.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Astar@{Astar}!Astar@{Astar}}
+\index{Astar@{Astar}!Astar@{Astar}}
+\paragraph[{\texorpdfstring{Astar(const My\+Instance \&instance)}{Astar(const MyInstance &instance)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$ {\bf A\+L\+G\+\_\+\+D\+A\+TA} {\bf Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Open\+\_\+ $>$\+::{\bf Astar} (
+\begin{DoxyParamCaption}
+\item[{const My\+Instance \&}]{instance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAstar_ac4d21b58ac95967feed0559ebfe6a9a4}{}\label{structAstar_ac4d21b58ac95967feed0559ebfe6a9a4}
+
+
+Initializes the algorithm based on the problem instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & The problem instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file astar.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Astar@{Astar}!graph@{graph}}
+\index{graph@{graph}!Astar@{Astar}}
+\paragraph[{\texorpdfstring{graph() const }{graph() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$ core\+::ui\+::\+State\+Graph$<$State$>$ {\bf Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Open\+\_\+ $>$\+::graph (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAstar_adaf62b4847f7f3215bf8ec25739415b0}{}\label{structAstar_adaf62b4847f7f3215bf8ec25739415b0}
+
+
+Computes the state graph based on the closed list. 
+
+\begin{DoxyReturn}{Returns}
+The state graph computed based on the closed list. 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file astar.\+h.
+
+\index{Astar@{Astar}!handle\+Neighbor@{handle\+Neighbor}}
+\index{handle\+Neighbor@{handle\+Neighbor}!Astar@{Astar}}
+\paragraph[{\texorpdfstring{handle\+Neighbor(\+Neighbor \&n)}{handleNeighbor(Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$ void {\bf Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Open\+\_\+ $>$\+::handle\+Neighbor (
+\begin{DoxyParamCaption}
+\item[{{\bf Neighbor} \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structAstar_a2adf43e592d04ac9c3e0fe974cd1a204}{}\label{structAstar_a2adf43e592d04ac9c3e0fe974cd1a204}
+
+
+Handles the current neighbor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The current neighbor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 174 of file astar.\+h.
+
+\index{Astar@{Astar}!measures@{measures}}
+\index{measures@{measures}!Astar@{Astar}}
+\paragraph[{\texorpdfstring{measures() const }{measures() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$ {\bf Measure\+Set} {\bf Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Open\+\_\+ $>$\+::measures (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAstar_a8bc4daf2cdbf28a19cc802f415996654}{}\label{structAstar_a8bc4daf2cdbf28a19cc802f415996654}
+
+
+Returns the statistics about the search algorithm\textquotesingle{}s performance for solving the particular instance. 
+
+\begin{DoxyReturn}{Returns}
+The statistics about the search algorithm\textquotesingle{}s performance for solving the particular instance. 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file astar.\+h.
+
+\index{Astar@{Astar}!run@{run}}
+\index{run@{run}!Astar@{Astar}}
+\paragraph[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$ Return\+Type {\bf Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Open\+\_\+ $>$\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structAstar_a11b9f8a8b4b172d58be86ffe19cd02d5}{}\label{structAstar_a11b9f8a8b4b172d58be86ffe19cd02d5}
+
+
+Runs the algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The solution cost. If there is no solution, then {\ttfamily Cost\+Type\{-\/1\}} is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file astar.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/algorithms/\hyperlink{astar_8h}{astar.\+h}\end{DoxyCompactItemize}

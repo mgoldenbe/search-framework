@@ -1,0 +1,223 @@
+\hypertarget{structTable}{}\subsection{Table Struct Reference}
+\label{structTable}\index{Table@{Table}}
+
+
+The class for handling tabular output, where the columns need to be aligned. The user does not need to determine the width of columns in advance.  
+
+
+
+
+{\ttfamily \#include $<$table.\+h$>$}
+
+
+
+Collaboration diagram for Table\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{structTable__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTable_a24d7e2ccf7dedb134a3292a16cd8c8dd}{Table} (int space=2)\hypertarget{structTable_a24d7e2ccf7dedb134a3292a16cd8c8dd}{}\label{structTable_a24d7e2ccf7dedb134a3292a16cd8c8dd}
+
+\begin{DoxyCompactList}\small\item\em The constructor based on the desired amount of space between columns. \end{DoxyCompactList}\item 
+const \hyperlink{structRow}{Row} \& \hyperlink{structTable_a1d0a32d9ac2ac965004696358bf3f331}{row} (int n) const 
+\begin{DoxyCompactList}\small\item\em Returns the row with the given number. \end{DoxyCompactList}\item 
+int \hyperlink{structTable_a2c5420361660d9e787487de8d6eb9e44}{size} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of rows in the table. \end{DoxyCompactList}\item 
+void \hyperlink{structTable_a92ce3dba95a8dcf634ef57b1081b8647}{clear} ()\hypertarget{structTable_a92ce3dba95a8dcf634ef57b1081b8647}{}\label{structTable_a92ce3dba95a8dcf634ef57b1081b8647}
+
+\begin{DoxyCompactList}\small\item\em Clears the table. \end{DoxyCompactList}\item 
+void \hyperlink{structTable_ae3f3b22a2b4e766ea06e9f4f7c56ec6d}{remove} (int n)
+\begin{DoxyCompactList}\small\item\em Removes the row with the given number. \end{DoxyCompactList}\item 
+void \hyperlink{structTable_a8158d90f88d1c8d56cdc3becc92aa592}{hide\+Title} ()\hypertarget{structTable_a8158d90f88d1c8d56cdc3becc92aa592}{}\label{structTable_a8158d90f88d1c8d56cdc3becc92aa592}
+
+\begin{DoxyCompactList}\small\item\em Precludes the table title from being output during the next output operation. \end{DoxyCompactList}\item 
+void \hyperlink{structTable_a3f04cf58fdeda2b377fc81c58e098e8b}{show\+Title} ()\hypertarget{structTable_a3f04cf58fdeda2b377fc81c58e098e8b}{}\label{structTable_a3f04cf58fdeda2b377fc81c58e098e8b}
+
+\begin{DoxyCompactList}\small\item\em Causes the table title from being output during the next output operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structRow}{Row} $>$ \hyperlink{structTable_aa7b3161fb0275bbecef8a79c4ecb7c0f}{rows\+\_\+}\hypertarget{structTable_aa7b3161fb0275bbecef8a79c4ecb7c0f}{}\label{structTable_aa7b3161fb0275bbecef8a79c4ecb7c0f}
+
+\begin{DoxyCompactList}\small\item\em The rows of the table. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{structTable_ae6d94495268d7ab8df8ae5a6aeb20064}{widths\+\_\+}\hypertarget{structTable_ae6d94495268d7ab8df8ae5a6aeb20064}{}\label{structTable_ae6d94495268d7ab8df8ae5a6aeb20064}
+
+\begin{DoxyCompactList}\small\item\em The width of the columns. \end{DoxyCompactList}\item 
+int \hyperlink{structTable_a7f8abf0b8caf14b0c3d120d0579cdea5}{space\+\_\+}\hypertarget{structTable_a7f8abf0b8caf14b0c3d120d0579cdea5}{}\label{structTable_a7f8abf0b8caf14b0c3d120d0579cdea5}
+
+\begin{DoxyCompactList}\small\item\em The amount of space between the columns. \end{DoxyCompactList}\item 
+\hyperlink{structRow}{Row} \hyperlink{structTable_ac86d109fd6f2e620f8a330ee6034348f}{current\+Row\+\_\+}\hypertarget{structTable_ac86d109fd6f2e620f8a330ee6034348f}{}\label{structTable_ac86d109fd6f2e620f8a330ee6034348f}
+
+\begin{DoxyCompactList}\small\item\em The row currently being filled out. \end{DoxyCompactList}\item 
+bool \hyperlink{structTable_a195f6d38a4d3bc91577b5d4f08137bca}{hide\+Title\+\_\+} = false\hypertarget{structTable_a195f6d38a4d3bc91577b5d4f08137bca}{}\label{structTable_a195f6d38a4d3bc91577b5d4f08137bca}
+
+\begin{DoxyCompactList}\small\item\em The flag showing whether the title row needs to be shown during the next operation of the output operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structTable}{Table} \& \hyperlink{structTable_ab2f038ef958603508282d43087ec366c}{operator$<$$<$} (\hyperlink{structTable}{Table} \&t, const T \&el)
+\begin{DoxyCompactList}\small\item\em Reads an object into the table. The string representation of the object is appended as a column in the currently last row. \end{DoxyCompactList}\item 
+\hyperlink{structTable}{Table} \& \hyperlink{structTable_a7f0695198091818a2d1568f63270c998}{operator$<$$<$} (\hyperlink{structTable}{Table} \&t, decltype(std\+::endl$<$ char, std\+::char\+\_\+traits$<$ char $>$$>$))
+\begin{DoxyCompactList}\small\item\em Reads {\ttfamily std\+::endl} into the table, which results in closing the current row and adding it into the table. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T\+Char , typename T\+Char\+Traits $>$ }\\std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \& \hyperlink{structTable_af7fb0a93919213bbe6101d2c8de706e3}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \&o, const \hyperlink{structTable}{Table} \&t)
+\begin{DoxyCompactList}\small\item\em The output operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The class for handling tabular output, where the columns need to be aligned. The user does not need to determine the width of columns in advance. 
+
+Definition at line 67 of file table.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Table@{Table}!remove@{remove}}
+\index{remove@{remove}!Table@{Table}}
+\paragraph[{\texorpdfstring{remove(int n)}{remove(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void Table\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structTable_ae3f3b22a2b4e766ea06e9f4f7c56ec6d}{}\label{structTable_ae3f3b22a2b4e766ea06e9f4f7c56ec6d}
+
+
+Removes the row with the given number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The row number (rows are numbered from zero). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file table.\+h.
+
+\index{Table@{Table}!row@{row}}
+\index{row@{row}!Table@{Table}}
+\paragraph[{\texorpdfstring{row(int n) const }{row(int n) const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Row}\& Table\+::row (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structTable_a1d0a32d9ac2ac965004696358bf3f331}{}\label{structTable_a1d0a32d9ac2ac965004696358bf3f331}
+
+
+Returns the row with the given number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The row number (rows are numbered from zero). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Const reference to the row with the given number. 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file table.\+h.
+
+\index{Table@{Table}!size@{size}}
+\index{size@{size}!Table@{Table}}
+\paragraph[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Table\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structTable_a2c5420361660d9e787487de8d6eb9e44}{}\label{structTable_a2c5420361660d9e787487de8d6eb9e44}
+
+
+Returns the number of rows in the table. 
+
+\begin{DoxyReturn}{Returns}
+The number of rows in the table. 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file table.\+h.
+
+
+
+\subsubsection{Friends And Related Function Documentation}
+\index{Table@{Table}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Table@{Table}}
+\paragraph[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Table}\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Table} \&}]{t, }
+\item[{const T \&}]{el}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{structTable_ab2f038ef958603508282d43087ec366c}{}\label{structTable_ab2f038ef958603508282d43087ec366c}
+
+
+Reads an object into the table. The string representation of the object is appended as a column in the currently last row. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the object. t The \hyperlink{structTable}{Table}. el The object to be read. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The updated table. 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file table.\+h.
+
+\index{Table@{Table}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Table@{Table}}
+\paragraph[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Table}\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Table} \&}]{t, }
+\item[{decltype(std\+::endl$<$ char, std\+::char\+\_\+traits$<$ char $>$$>$)}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{structTable_a7f0695198091818a2d1568f63270c998}{}\label{structTable_a7f0695198091818a2d1568f63270c998}
+
+
+Reads {\ttfamily std\+::endl} into the table, which results in closing the current row and adding it into the table. 
+
+\begin{DoxyReturn}{Returns}
+The updated table. 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file table.\+h.
+
+\index{Table@{Table}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Table@{Table}}
+\paragraph[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Char , typename T\+Char\+Traits $>$ std\+::basic\+\_\+ostream$<$T\+Char, T\+Char\+Traits$>$\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \&}]{o, }
+\item[{const {\bf Table} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{structTable_af7fb0a93919213bbe6101d2c8de706e3}{}\label{structTable_af7fb0a93919213bbe6101d2c8de706e3}
+
+
+The output operator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\+Char} & The {\ttfamily T\+Char} parameter of {\ttfamily std\+::basic\+\_\+ostream}. \\
+\hline
+{\em T\+Char\+Traits} & The {\ttfamily T\+Char\+Traits} parameter of {\ttfamily std\+::basic\+\_\+ostream}. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The output stream. \\
+\hline
+{\em t} & The table to be output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated output stream. 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file table.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{table_8h}{table.\+h}\end{DoxyCompactItemize}

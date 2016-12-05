@@ -1,0 +1,162 @@
+\hypertarget{structslb_1_1ext_1_1node_1_1BaseT}{}\subsection{slb\+:\+:ext\+:\+:node\+:\+:BaseT$<$ State $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1node_1_1BaseT}\index{slb\+::ext\+::node\+::\+Base\+T$<$ State $>$@{slb\+::ext\+::node\+::\+Base\+T$<$ State $>$}}
+
+
+Regular node storing {\ttfamily g} and {\ttfamily f}.  
+
+
+
+
+{\ttfamily \#include $<$node\+\_\+kinds.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:node\+:\+:BaseT$<$ State $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{structslb_1_1ext_1_1node_1_1BaseT__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:node\+:\+:BaseT$<$ State $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{structslb_1_1ext_1_1node_1_1BaseT__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{}\label{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}
+
+\begin{DoxyCompactList}\small\item\em The type representing the cost of actions in the domain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1node_1_1BaseT_ada1f4e02d2850b60142fe1ea350b449f}{BaseT} ()\hypertarget{structslb_1_1ext_1_1node_1_1BaseT_ada1f4e02d2850b60142fe1ea350b449f}{}\label{structslb_1_1ext_1_1node_1_1BaseT_ada1f4e02d2850b60142fe1ea350b449f}
+
+\begin{DoxyCompactList}\small\item\em The default constructor. Initializes the node data with zeros. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1node_1_1BaseT_ab29d45f068f928c9d7faca908e610801}{R\+E\+F\+L\+E\+C\+T\+A\+B\+LE} ((\hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type}) g,(\hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type}) f) \hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type} h() const 
+\begin{DoxyCompactList}\small\item\em Returns the heuristic value. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1node_1_1BaseT_aa4a669774984fc1f36e459469910c356}{updateG} (\hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type} newG)
+\begin{DoxyCompactList}\small\item\em Updates g-\/value of the node. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1node_1_1BaseT_ad08ea419ac90831947e8eecf70045dc6}{updateH} (\hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type} newH)
+\begin{DoxyCompactList}\small\item\em Updates h-\/value of the node. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1node_1_1BaseT_ab2113028f54e4267fa9a613354f3b843}{set} (\hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type} g, \hyperlink{structslb_1_1ext_1_1node_1_1BaseT_a25e9417da3d5610b8d379927697ed848}{Cost\+Type} h, int)
+\begin{DoxyCompactList}\small\item\em Sets g and f of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State$>$\\*
+struct slb\+::ext\+::node\+::\+Base\+T$<$ State $>$}
+
+Regular node storing {\ttfamily g} and {\ttfamily f}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State\+\_\+} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 16 of file node\+\_\+kinds.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}!R\+E\+F\+L\+E\+C\+T\+A\+B\+LE@{R\+E\+F\+L\+E\+C\+T\+A\+B\+LE}}
+\index{R\+E\+F\+L\+E\+C\+T\+A\+B\+LE@{R\+E\+F\+L\+E\+C\+T\+A\+B\+LE}!slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}}
+\paragraph[{\texorpdfstring{R\+E\+F\+L\+E\+C\+T\+A\+B\+L\+E((\+Cost\+Type) g,(\+Cost\+Type) f) Cost\+Type h() const }{REFLECTABLE((CostType) g,(CostType) f) CostType h() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ {\bf slb\+::ext\+::node\+::\+BaseT}$<$ State $>$\+::R\+E\+F\+L\+E\+C\+T\+A\+B\+LE (
+\begin{DoxyParamCaption}
+\item[{({\bf Cost\+Type})}]{g, }
+\item[{({\bf Cost\+Type})}]{f}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1node_1_1BaseT_ab29d45f068f928c9d7faca908e610801}{}\label{structslb_1_1ext_1_1node_1_1BaseT_ab29d45f068f928c9d7faca908e610801}
+
+
+Returns the heuristic value. 
+
+\begin{DoxyReturn}{Returns}
+The heuristic value 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file node\+\_\+kinds.\+h.
+
+\index{slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}!set@{set}}
+\index{set@{set}!slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}}
+\paragraph[{\texorpdfstring{set(\+Cost\+Type g, Cost\+Type h, int)}{set(CostType g, CostType h, int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ void {\bf slb\+::ext\+::node\+::\+BaseT}$<$ State $>$\+::set (
+\begin{DoxyParamCaption}
+\item[{{\bf Cost\+Type}}]{g, }
+\item[{{\bf Cost\+Type}}]{h, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1node_1_1BaseT_ab2113028f54e4267fa9a613354f3b843}{}\label{structslb_1_1ext_1_1node_1_1BaseT_ab2113028f54e4267fa9a613354f3b843}
+
+
+Sets g and f of the node. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The g-\/value. \\
+\hline
+{\em h} & The h-\/value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file node\+\_\+kinds.\+h.
+
+\index{slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}!updateG@{updateG}}
+\index{updateG@{updateG}!slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}}
+\paragraph[{\texorpdfstring{update\+G(\+Cost\+Type new\+G)}{updateG(CostType newG)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ void {\bf slb\+::ext\+::node\+::\+BaseT}$<$ State $>$\+::updateG (
+\begin{DoxyParamCaption}
+\item[{{\bf Cost\+Type}}]{newG}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1node_1_1BaseT_aa4a669774984fc1f36e459469910c356}{}\label{structslb_1_1ext_1_1node_1_1BaseT_aa4a669774984fc1f36e459469910c356}
+
+
+Updates g-\/value of the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newG} & The new g-\/value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file node\+\_\+kinds.\+h.
+
+\index{slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}!updateH@{updateH}}
+\index{updateH@{updateH}!slb\+::ext\+::node\+::\+BaseT@{slb\+::ext\+::node\+::\+BaseT}}
+\paragraph[{\texorpdfstring{update\+H(\+Cost\+Type new\+H)}{updateH(CostType newH)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ void {\bf slb\+::ext\+::node\+::\+BaseT}$<$ State $>$\+::updateH (
+\begin{DoxyParamCaption}
+\item[{{\bf Cost\+Type}}]{newH}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1node_1_1BaseT_ad08ea419ac90831947e8eecf70045dc6}{}\label{structslb_1_1ext_1_1node_1_1BaseT_ad08ea419ac90831947e8eecf70045dc6}
+
+
+Updates h-\/value of the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newH} & The new h-\/value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file node\+\_\+kinds.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/nodes/\hyperlink{node__kinds_8h}{node\+\_\+kinds.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,156 @@
+\hypertarget{structheuristic_1_1SingleGoalT}{}\subsection{heuristic\+:\+:Single\+GoalT$<$ My\+Algorithm, Base\+Heuristic $>$ Struct Template Reference}
+\label{structheuristic_1_1SingleGoalT}\index{heuristic\+::\+Single\+Goal\+T$<$ My\+Algorithm, Base\+Heuristic $>$@{heuristic\+::\+Single\+Goal\+T$<$ My\+Algorithm, Base\+Heuristic $>$}}
+
+
+Heuristic to single goal.  
+
+
+
+
+{\ttfamily \#include $<$heuristic\+\_\+policies.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} \hyperlink{structheuristic_1_1SingleGoalT_a38aacbe24326b34e35769b940c9fdb41}{Single\+GoalT} (My\+Algorithm \&alg)
+\begin{DoxyCompactList}\small\item\em The constructor. The goal state is taken from the algorithm by using the policy service. \end{DoxyCompactList}\item 
+\hyperlink{structheuristic_1_1SingleGoalT_a1e42adad6fffb54d2441fa0826a763ef}{Single\+GoalT} (My\+Algorithm \&alg, const State \&goal)
+\begin{DoxyCompactList}\small\item\em The constructor with the goal state supplied as an argument. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor $>$ }\\Cost\+Type \hyperlink{structheuristic_1_1SingleGoalT_aa0215118db550deffaa8d4a4bfd8af03}{operator()} (const Neighbor \&, Node $\ast$node) const 
+\begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\item 
+Cost\+Type \hyperlink{structheuristic_1_1SingleGoalT_ac3b076ed7eeff4b0f0bfd563ab3721ce}{operator()} (Node $\ast$node) const 
+\begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+My\+Algorithm \& \hyperlink{structheuristic_1_1SingleGoalT_a3059bc03513310b4194e9f3d79be3580}{alg\+\_\+}\hypertarget{structheuristic_1_1SingleGoalT_a3059bc03513310b4194e9f3d79be3580}{}\label{structheuristic_1_1SingleGoalT_a3059bc03513310b4194e9f3d79be3580}
+
+\begin{DoxyCompactList}\small\item\em The algorithm reference. \end{DoxyCompactList}\item 
+Base\+Heuristic \hyperlink{structheuristic_1_1SingleGoalT_a9b683565d0c2cdd566cd90ec281b4715}{heuristic\+\_\+}\hypertarget{structheuristic_1_1SingleGoalT_a9b683565d0c2cdd566cd90ec281b4715}{}\label{structheuristic_1_1SingleGoalT_a9b683565d0c2cdd566cd90ec281b4715}
+
+\begin{DoxyCompactList}\small\item\em The underlying heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm, class Base\+Heuristic$>$\\*
+struct heuristic\+::\+Single\+Goal\+T$<$ My\+Algorithm, Base\+Heuristic $>$}
+
+Heuristic to single goal. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+{\em Base\+Heuristic} & The base heuristic type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 42 of file heuristic\+\_\+policies.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}!Single\+GoalT@{Single\+GoalT}}
+\index{Single\+GoalT@{Single\+GoalT}!heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}}
+\paragraph[{\texorpdfstring{Single\+Goal\+T(\+My\+Algorithm \&alg)}{SingleGoalT(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Base\+Heuristic $>$ {\bf P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} {\bf heuristic\+::\+Single\+GoalT}$<$ My\+Algorithm, Base\+Heuristic $>$\+::{\bf Single\+GoalT} (
+\begin{DoxyParamCaption}
+\item[{My\+Algorithm \&}]{alg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structheuristic_1_1SingleGoalT_a38aacbe24326b34e35769b940c9fdb41}{}\label{structheuristic_1_1SingleGoalT_a38aacbe24326b34e35769b940c9fdb41}
+
+
+The constructor. The goal state is taken from the algorithm by using the policy service. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & Reference to the algorithm \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 47 of file heuristic\+\_\+policies.\+h.
+
+\index{heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}!Single\+GoalT@{Single\+GoalT}}
+\index{Single\+GoalT@{Single\+GoalT}!heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}}
+\paragraph[{\texorpdfstring{Single\+Goal\+T(\+My\+Algorithm \&alg, const State \&goal)}{SingleGoalT(MyAlgorithm &alg, const State &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Base\+Heuristic $>$ {\bf heuristic\+::\+Single\+GoalT}$<$ My\+Algorithm, Base\+Heuristic $>$\+::{\bf Single\+GoalT} (
+\begin{DoxyParamCaption}
+\item[{My\+Algorithm \&}]{alg, }
+\item[{const State \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structheuristic_1_1SingleGoalT_a1e42adad6fffb54d2441fa0826a763ef}{}\label{structheuristic_1_1SingleGoalT_a1e42adad6fffb54d2441fa0826a763ef}
+
+
+The constructor with the goal state supplied as an argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & Reference to the algorithm \\
+\hline
+{\em goal} & The goal state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 52 of file heuristic\+\_\+policies.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}!operator()@{operator()}}
+\index{operator()@{operator()}!heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}}
+\paragraph[{\texorpdfstring{operator()(const Neighbor \&, Node $\ast$node) const }{operator()(const Neighbor &, Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Base\+Heuristic $>$ template$<$class Neighbor $>$ Cost\+Type {\bf heuristic\+::\+Single\+GoalT}$<$ My\+Algorithm, Base\+Heuristic $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const Neighbor \&}]{, }
+\item[{Node $\ast$}]{node}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structheuristic_1_1SingleGoalT_aa0215118db550deffaa8d4a4bfd8af03}{}\label{structheuristic_1_1SingleGoalT_aa0215118db550deffaa8d4a4bfd8af03}
+
+
+Computes the heuristic. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The search node for which the heuristic is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic value. 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file heuristic\+\_\+policies.\+h.
+
+\index{heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}!operator()@{operator()}}
+\index{operator()@{operator()}!heuristic\+::\+Single\+GoalT@{heuristic\+::\+Single\+GoalT}}
+\paragraph[{\texorpdfstring{operator()(\+Node $\ast$node) const }{operator()(Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Base\+Heuristic $>$ Cost\+Type {\bf heuristic\+::\+Single\+GoalT}$<$ My\+Algorithm, Base\+Heuristic $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{Node $\ast$}]{node}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structheuristic_1_1SingleGoalT_ac3b076ed7eeff4b0f0bfd563ab3721ce}{}\label{structheuristic_1_1SingleGoalT_ac3b076ed7eeff4b0f0bfd563ab3721ce}
+
+
+Computes the heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The search node for which the heuristic is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic value. 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file heuristic\+\_\+policies.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{heuristic__policies_8h}{heuristic\+\_\+policies.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\hypertarget{goal__handlers_8h}{}\subsection{extensions/shared\+\_\+policies/goal\+\_\+handlers.h File Reference}
+\label{goal__handlers_8h}\index{extensions/shared\+\_\+policies/goal\+\_\+handlers.\+h@{extensions/shared\+\_\+policies/goal\+\_\+handlers.\+h}}
+
+
+Policies for handling conditions related to goal states.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{goal__handlers_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal}{slb\+::ext\+::policy\+::goal\+Handler\+::\+No\+Goal$<$ My\+Algorithm $>$}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when the set of the goal states is empty. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Single\+Goal$<$ My\+Algorithm $>$}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there is a single goal state. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal$<$ My\+Algorithm $>$}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic$<$ My\+Algorithm $>$}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic$<$ My\+Algorithm $>$}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-\/computed whenever a goal is solved with the required quality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext}{slb\+::ext}
+\begin{DoxyCompactList}\small\item\em The user extensions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1policy}{slb\+::ext\+::policy}
+\begin{DoxyCompactList}\small\item\em Policy classes for search algorithms and algorithmic variants. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1policy_1_1goalHandler}{slb\+::ext\+::policy\+::goal\+Handler}
+\begin{DoxyCompactList}\small\item\em Policies for handling conditions related to goal states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Handler $>$ }\\constexpr bool \hyperlink{namespaceslb_1_1ext_1_1policy_1_1goalHandler_aeab06a49da40c2c3c1a7c1dd2ac71b4e}{slb\+::ext\+::policy\+::goal\+Handler\+::on\+Select\+Returns} ()
+\begin{DoxyCompactList}\small\item\em Checks at compile-\/time whether the given goal handler\textquotesingle{}s {\ttfamily on\+Select} member function has a return value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Policies for handling conditions related to goal states. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

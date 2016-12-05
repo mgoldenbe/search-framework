@@ -1,0 +1,99 @@
+\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeChange}{}\subsection{slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Edge\+Change$<$ Node $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1event_1_1VertexEdgeChange}\index{slb\+::ext\+::event\+::\+Vertex\+Edge\+Change$<$ Node $>$@{slb\+::ext\+::event\+::\+Vertex\+Edge\+Change$<$ Node $>$}}
+
+
+An event that applies visual changes to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+types.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Edge\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1ext_1_1event_1_1VertexEdgeChange__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Edge\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structslb_1_1ext_1_1event_1_1VertexEdgeChange__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a6aada3da35cac73cd57cd6278bedd6ff}{Direct\+Base} = \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange}{Uniform\+Change}$<$ Node $>$\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a6aada3da35cac73cd57cd6278bedd6ff}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a6aada3da35cac73cd57cd6278bedd6ff}
+
+\begin{DoxyCompactList}\small\item\em The direct base class. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a47526fb9fbc48c7c89b4124a3b26bd4b}{State\+Set} = typename \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2c45514041ea86f77bbd0147fe06babd}{Direct\+Base\+::\+State\+Set}\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a47526fb9fbc48c7c89b4124a3b26bd4b}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a47526fb9fbc48c7c89b4124a3b26bd4b}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating states. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a460e04554c827db2bec31b48f53195c4}{Edge\+Set} = typename \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_af17825d303d567061f2d510f231d556c}{Direct\+Base\+::\+Edge\+Set}\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a460e04554c827db2bec31b48f53195c4}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a460e04554c827db2bec31b48f53195c4}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating edges of the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a0c2877a01cf793c896b5c8b6ee67f65a}{participants} (\hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2c45514041ea86f77bbd0147fe06babd}{State\+Set} \&states, \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_af17825d303d567061f2d510f231d556c}{Edge\+Set} \&edges) const 
+\begin{DoxyCompactList}\small\item\em Fills out the sets of participating states and edges of the state graph. In this case, these sets consist of the state associated with the event and the edge by which the search algorithm arrived to this state, respectively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct slb\+::ext\+::event\+::\+Vertex\+Edge\+Change$<$ Node $>$}
+
+An event that applies visual changes to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 118 of file event\+\_\+types.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::event\+::\+Vertex\+Edge\+Change@{slb\+::ext\+::event\+::\+Vertex\+Edge\+Change}!participants@{participants}}
+\index{participants@{participants}!slb\+::ext\+::event\+::\+Vertex\+Edge\+Change@{slb\+::ext\+::event\+::\+Vertex\+Edge\+Change}}
+\paragraph[{\texorpdfstring{participants(\+State\+Set \&states, Edge\+Set \&edges) const }{participants(StateSet &states, EdgeSet &edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual void {\bf slb\+::ext\+::event\+::\+Vertex\+Edge\+Change}$<$ Node $>$\+::participants (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+Set} \&}]{states, }
+\item[{{\bf Edge\+Set} \&}]{edges}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a0c2877a01cf793c896b5c8b6ee67f65a}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeChange_a0c2877a01cf793c896b5c8b6ee67f65a}
+
+
+Fills out the sets of participating states and edges of the state graph. In this case, these sets consist of the state associated with the event and the edge by which the search algorithm arrived to this state, respectively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em states} & The set of participating states to be filled out. In this case, it is a single state -- the state associated with the event. \\
+\hline
+{\em edges} & The set of participating edges to be filled out. In this case, it is a single edge -- the edge by which the search algorithm arrived to the state associated with the event. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_aa9f313a6c9ba9a72796286131ab0dde8}{slb\+::ext\+::event\+::\+Uniform\+Change$<$ Node $>$}.
+
+
+
+Definition at line 150 of file event\+\_\+types.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{event__types_8h}{event\+\_\+types.\+h}\end{DoxyCompactItemize}

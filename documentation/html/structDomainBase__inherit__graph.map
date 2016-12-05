@@ -1,0 +1,7 @@
+<map id="DomainBase" name="DomainBase">
+<area shape="rect" id="node2" href="$structExplicitState.html" title="The base class for a state in an explicit domain. It can be viewed as a wrapper for the location type..." alt="" coords="151,5,351,32"/>
+<area shape="rect" id="node3" href="$structExplicitState.html" title="ExplicitState\&lt; GridMap\l\&lt; CostType \&gt; \&gt;" alt="" coords="172,57,329,98"/>
+<area shape="rect" id="node5" href="$structincWorst_1_1IncWorst.html" title="The worst case example for an inconsistent heuristics. " alt="" coords="183,123,318,149"/>
+<area shape="rect" id="node6" href="$structpancake_1_1Pancake.html" title="The pancake puzzle domain. " alt="" coords="185,173,316,200"/>
+<area shape="rect" id="node4" href="$structgridMap_1_1GridMapState.html" title="Explicit state specific to the Grid Map domain. " alt="" coords="399,57,577,98"/>
+</map>

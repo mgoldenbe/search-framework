@@ -1,0 +1,24 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1event_1_1NoChange.html" title="An event with no visual change. However, such an event is useful by virtue of implementing the eventS..." alt="" coords="140,153,315,195"/>
+<area shape="rect" id="node4" href="$structslb_1_1ext_1_1event_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="148,251,307,292"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1event_1_1HideLast.html" title="Event that cancels the visual effect of the previous event. " alt="" coords="378,136,543,177"/>
+<area shape="rect" id="node5" href="$structslb_1_1ext_1_1event_1_1PathChange.html" title="An event that applies visual changes to states and edges of the state graph along a path..." alt="" coords="368,201,553,243"/>
+<area shape="rect" id="node8" href="$structslb_1_1ext_1_1event_1_1VertexChange.html" title="An event that applies visual changes to the vertex of the state graph corresponding to the state asso..." alt="" coords="363,267,559,308"/>
+<area shape="rect" id="node17" href="$structslb_1_1ext_1_1event_1_1VertexEdgeChange.html" title="An event that applies visual changes to both the vertex of the state graph corresponding to the state..." alt="" coords="370,463,551,504"/>
+<area shape="rect" id="node6" href="$structslb_1_1ext_1_1event_1_1SolutionPathChange.html" title="An event that applies visual changes to states and edges of the state graph along the path leading to..." alt="" coords="631,71,791,112"/>
+<area shape="rect" id="node7" href="$structslb_1_1ext_1_1event_1_1SolvedGoal.html" title="Event that visualizes having found a path with required qualities to a goal. " alt="" coords="881,5,1061,47"/>
+<area shape="rect" id="node9" href="$structslb_1_1ext_1_1event_1_1VertexColor.html" title="An event that changes the color of the vertex corresponding to the state associated with the event..." alt="" coords="620,201,803,243"/>
+<area shape="rect" id="node14" href="$structslb_1_1ext_1_1event_1_1VertexEmphasis.html" title="An event that marks the vertex corresponding to the state associated with the event. " alt="" coords="607,332,816,373"/>
+<area shape="rect" id="node10" href="$structslb_1_1ext_1_1event_1_1DeniedExpansion.html" title="Event that visualizes a node&#39;s expansion being denied following suspension (see SuspendedExpansion). " alt="" coords="864,71,1079,112"/>
+<area shape="rect" id="node11" href="$structslb_1_1ext_1_1event_1_1ResumedExpansion.html" title="Event that visualizes a node&#39;s expansion being resumed following suspension (see SuspendedExpansion)..." alt="" coords="887,136,1056,177"/>
+<area shape="rect" id="node12" href="$structslb_1_1ext_1_1event_1_1Selected.html" title="Event that visualizes having selected a node. " alt="" coords="889,201,1053,243"/>
+<area shape="rect" id="node13" href="$structslb_1_1ext_1_1event_1_1SuspendedExpansion.html" title="Event that visualizes a node&#39;s expansion being suspended. The expansion may be refused or resumed pen..." alt="" coords="882,267,1061,308"/>
+<area shape="rect" id="node15" href="$structslb_1_1ext_1_1event_1_1MarkedGoal.html" title="Event that marks the goal state. " alt="" coords="880,332,1063,373"/>
+<area shape="rect" id="node16" href="$structslb_1_1ext_1_1event_1_1MarkedStart.html" title="Event that marks the start state. " alt="" coords="879,397,1063,439"/>
+<area shape="rect" id="node18" href="$structslb_1_1ext_1_1event_1_1VertexEdgeColor.html" title="An event that applies a color change to both the vertex of the state graph corresponding to the state..." alt="" coords="621,561,802,603"/>
+<area shape="rect" id="node19" href="$structslb_1_1ext_1_1event_1_1Closed.html" title="Event that visualizes having closed a node. " alt="" coords="894,463,1049,504"/>
+<area shape="rect" id="node20" href="$structslb_1_1ext_1_1event_1_1EnteredOpen.html" title="Event that visualizes a node entering the Open List. " alt="" coords="892,528,1051,569"/>
+<area shape="rect" id="node21" href="$structslb_1_1ext_1_1event_1_1Generated.html" title="Event that visualizes node generation. " alt="" coords="885,593,1058,635"/>
+<area shape="rect" id="node22" href="$structslb_1_1ext_1_1event_1_1NothingToDo.html" title="Event that visualizes the fact that a node was generated, but nothing needed to be done for it..." alt="" coords="892,659,1051,700"/>
+<area shape="rect" id="node23" href="$structslb_1_1ext_1_1event_1_1NotParent.html" title="Event that visualizes change of parent node. " alt="" coords="885,724,1057,765"/>
+</map>

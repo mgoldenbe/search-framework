@@ -1,0 +1,47 @@
+\hypertarget{structTimerLock}{}\subsection{Timer\+Lock Struct Reference}
+\label{structTimerLock}\index{Timer\+Lock@{Timer\+Lock}}
+
+
+Provides R\+A\+II mechanism so the authors of search algorithm implementations should not need to worry about remembering to stop the timer for every possible execution path.  
+
+
+
+
+{\ttfamily \#include $<$stats.\+h$>$}
+
+
+
+Collaboration diagram for Timer\+Lock\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{structTimerLock__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTimerLock_a736c692f0f32a3c18eacbedcbe828809}{Timer\+Lock} (\hyperlink{structTimer}{Timer} \&timer)\hypertarget{structTimerLock_a736c692f0f32a3c18eacbedcbe828809}{}\label{structTimerLock_a736c692f0f32a3c18eacbedcbe828809}
+
+\begin{DoxyCompactList}\small\item\em Initializes the lock with the given timer and starts the timer. \end{DoxyCompactList}\item 
+\hyperlink{structTimerLock_a43841ef1b05ca49869c1d9204bab114a}{$\sim$\+Timer\+Lock} ()\hypertarget{structTimerLock_a43841ef1b05ca49869c1d9204bab114a}{}\label{structTimerLock_a43841ef1b05ca49869c1d9204bab114a}
+
+\begin{DoxyCompactList}\small\item\em Stops the timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTimer}{Timer} \& \hyperlink{structTimerLock_aad95c8ced4b02c39d05d973706d6cb47}{timer\+\_\+}\hypertarget{structTimerLock_aad95c8ced4b02c39d05d973706d6cb47}{}\label{structTimerLock_aad95c8ced4b02c39d05d973706d6cb47}
+
+\begin{DoxyCompactList}\small\item\em The timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Provides R\+A\+II mechanism so the authors of search algorithm implementations should not need to worry about remembering to stop the timer for every possible execution path. 
+
+Definition at line 83 of file stats.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{stats_8h}{stats.\+h}\end{DoxyCompactItemize}

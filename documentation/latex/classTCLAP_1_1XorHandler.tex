@@ -1,0 +1,135 @@
+\hypertarget{classTCLAP_1_1XorHandler}{}\subsection{T\+C\+L\+AP\+:\+:Xor\+Handler Class Reference}
+\label{classTCLAP_1_1XorHandler}\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+
+
+{\ttfamily \#include $<$Xor\+Handler.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTCLAP_1_1XorHandler_a195391f50b7fe5eb939c2f6d236f571e}{Xor\+Handler} ()
+\item 
+void \hyperlink{classTCLAP_1_1XorHandler_a76f156bf36a8aede334801aa242f31b9}{add} (std\+::vector$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ \&ors)
+\item 
+int \hyperlink{classTCLAP_1_1XorHandler_a3df7722e4c4c5d331de69fc902336b00}{check} (const \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$a)
+\item 
+std\+::string \hyperlink{classTCLAP_1_1XorHandler_aca185a80e9df6e4250a230fa5aec7891}{short\+Usage} ()
+\item 
+void \hyperlink{classTCLAP_1_1XorHandler_a257a855934eb343a0fad3c4e5fe5ff57}{print\+Long\+Usage} (std\+::ostream \&os)
+\item 
+bool \hyperlink{classTCLAP_1_1XorHandler_a1a74fab4667cc591a1e3094c91bc942d}{contains} (const \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$a)
+\item 
+std\+::vector$<$ std\+::vector$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ $>$ \& {\bfseries get\+Xor\+List} ()\hypertarget{classTCLAP_1_1XorHandler_a0e0d95c697d227cc51f82424b8530182}{}\label{classTCLAP_1_1XorHandler_a0e0d95c697d227cc51f82424b8530182}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ $>$ \hyperlink{classTCLAP_1_1XorHandler_a4ebd5b96e23a0ab03bdd431fe622d4e1}{\+\_\+or\+List}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+This class handles lists of \hyperlink{classTCLAP_1_1Arg}{Arg}\textquotesingle{}s that are to be X\+OR\textquotesingle{}d on the command line. This is used by \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} and you shouldn\textquotesingle{}t ever use it. 
+
+Definition at line 38 of file Xor\+Handler.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}!Xor\+Handler@{Xor\+Handler}}
+\index{Xor\+Handler@{Xor\+Handler}!T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+\paragraph[{\texorpdfstring{Xor\+Handler()}{XorHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}T\+C\+L\+A\+P\+::\+Xor\+Handler\+::\+Xor\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1XorHandler_a195391f50b7fe5eb939c2f6d236f571e}{}\label{classTCLAP_1_1XorHandler_a195391f50b7fe5eb939c2f6d236f571e}
+Constructor. Does nothing. 
+
+Definition at line 52 of file Xor\+Handler.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}!add@{add}}
+\index{add@{add}!T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+\paragraph[{\texorpdfstring{add(std\+::vector$<$ Arg $\ast$ $>$ \&ors)}{add(std::vector< Arg * > &ors)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Xor\+Handler\+::add (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Arg} $\ast$ $>$ \&}]{ors}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1XorHandler_a76f156bf36a8aede334801aa242f31b9}{}\label{classTCLAP_1_1XorHandler_a76f156bf36a8aede334801aa242f31b9}
+Add a list of Arg$\ast$\textquotesingle{}s that will be orred together. 
+\begin{DoxyParams}{Parameters}
+{\em ors} & -\/ list of Arg$\ast$ that will be xor\textquotesingle{}d. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file Xor\+Handler.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}!check@{check}}
+\index{check@{check}!T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+\paragraph[{\texorpdfstring{check(const Arg $\ast$a)}{check(const Arg *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+L\+A\+P\+::\+Xor\+Handler\+::check (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arg} $\ast$}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1XorHandler_a3df7722e4c4c5d331de69fc902336b00}{}\label{classTCLAP_1_1XorHandler_a3df7722e4c4c5d331de69fc902336b00}
+Checks whether the specified \hyperlink{classTCLAP_1_1Arg}{Arg} is in one of the xor lists and if it does match one, returns the size of the xor list that the \hyperlink{classTCLAP_1_1Arg}{Arg} matched. If the \hyperlink{classTCLAP_1_1Arg}{Arg} matches, then it also sets the rest of the \hyperlink{classTCLAP_1_1Arg}{Arg}\textquotesingle{}s in the list. You shouldn\textquotesingle{}t use this. 
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ The \hyperlink{classTCLAP_1_1Arg}{Arg} to be checked. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file Xor\+Handler.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}!contains@{contains}}
+\index{contains@{contains}!T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+\paragraph[{\texorpdfstring{contains(const Arg $\ast$a)}{contains(const Arg *a)}}]{\setlength{\rightskip}{0pt plus 5cm}bool T\+C\+L\+A\+P\+::\+Xor\+Handler\+::contains (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arg} $\ast$}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1XorHandler_a1a74fab4667cc591a1e3094c91bc942d}{}\label{classTCLAP_1_1XorHandler_a1a74fab4667cc591a1e3094c91bc942d}
+Simply checks whether the \hyperlink{classTCLAP_1_1Arg}{Arg} is contained in one of the arg lists. 
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ The \hyperlink{classTCLAP_1_1Arg}{Arg} to be checked. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 141 of file Xor\+Handler.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}!print\+Long\+Usage@{print\+Long\+Usage}}
+\index{print\+Long\+Usage@{print\+Long\+Usage}!T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+\paragraph[{\texorpdfstring{print\+Long\+Usage(std\+::ostream \&os)}{printLongUsage(std::ostream &os)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Xor\+Handler\+::print\+Long\+Usage (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os}
+\end{DoxyParamCaption}
+)}\hypertarget{classTCLAP_1_1XorHandler_a257a855934eb343a0fad3c4e5fe5ff57}{}\label{classTCLAP_1_1XorHandler_a257a855934eb343a0fad3c4e5fe5ff57}
+Prints the X\+OR specific long usage. 
+\begin{DoxyParams}{Parameters}
+{\em os} & -\/ Stream to print to. \\
+\hline
+\end{DoxyParams}
+\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}!short\+Usage@{short\+Usage}}
+\index{short\+Usage@{short\+Usage}!T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+\paragraph[{\texorpdfstring{short\+Usage()}{shortUsage()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Xor\+Handler\+::short\+Usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTCLAP_1_1XorHandler_aca185a80e9df6e4250a230fa5aec7891}{}\label{classTCLAP_1_1XorHandler_aca185a80e9df6e4250a230fa5aec7891}
+Returns the X\+OR specific short usage. 
+
+\subsubsection{Member Data Documentation}
+\index{T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}!\+\_\+or\+List@{\+\_\+or\+List}}
+\index{\+\_\+or\+List@{\+\_\+or\+List}!T\+C\+L\+A\+P\+::\+Xor\+Handler@{T\+C\+L\+A\+P\+::\+Xor\+Handler}}
+\paragraph[{\texorpdfstring{\+\_\+or\+List}{_orList}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ std\+::vector$<${\bf Arg}$\ast$$>$ $>$ T\+C\+L\+A\+P\+::\+Xor\+Handler\+::\+\_\+or\+List\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTCLAP_1_1XorHandler_a4ebd5b96e23a0ab03bdd431fe622d4e1}{}\label{classTCLAP_1_1XorHandler_a4ebd5b96e23a0ab03bdd431fe622d4e1}
+The list of of lists of \hyperlink{classTCLAP_1_1Arg}{Arg}\textquotesingle{}s to be or\textquotesingle{}d together. 
+
+Definition at line 45 of file Xor\+Handler.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/outside1/tclap/Xor\+Handler.\+h\end{DoxyCompactItemize}

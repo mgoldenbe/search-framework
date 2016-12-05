@@ -1,0 +1,94 @@
+\hypertarget{structdomain_1_1pancake_1_1GapHeuristicToGoal}{}\subsection{domain\+:\+:pancake\+:\+:Gap\+Heuristic\+To\+Goal Struct Reference}
+\label{structdomain_1_1pancake_1_1GapHeuristicToGoal}\index{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal@{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal}}
+
+
+Functor for computing the gap heuristic to the given goal state.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+
+
+Collaboration diagram for domain\+:\+:pancake\+:\+:Gap\+Heuristic\+To\+Goal\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{structdomain_1_1pancake_1_1GapHeuristicToGoal__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structdomain_1_1pancake_1_1GapHeuristicToGoal_a5b22e091663aa8098acac29779ee9c05}{Gap\+Heuristic\+To\+Goal} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&goal)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+int \hyperlink{structdomain_1_1pancake_1_1GapHeuristicToGoal_a3f6993f8099802cfaf016511fd70282c}{operator()} (const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \&s) const 
+\begin{DoxyCompactList}\small\item\em The call operator. Computes the gap heuristic from the given state to the given goal state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structdomain_1_1pancake_1_1Pancake}{Pancake} \& \hyperlink{structdomain_1_1pancake_1_1GapHeuristicToGoal_a12b7b600d4f2b9f2a95a356ac21eda7d}{goal\+\_\+}\hypertarget{structdomain_1_1pancake_1_1GapHeuristicToGoal_a12b7b600d4f2b9f2a95a356ac21eda7d}{}\label{structdomain_1_1pancake_1_1GapHeuristicToGoal_a12b7b600d4f2b9f2a95a356ac21eda7d}
+
+\begin{DoxyCompactList}\small\item\em The goal state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Functor for computing the gap heuristic to the given goal state. 
+
+Definition at line 250 of file headers.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal@{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal}!Gap\+Heuristic\+To\+Goal@{Gap\+Heuristic\+To\+Goal}}
+\index{Gap\+Heuristic\+To\+Goal@{Gap\+Heuristic\+To\+Goal}!domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal@{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal}}
+\paragraph[{\texorpdfstring{Gap\+Heuristic\+To\+Goal(const Pancake \&goal)}{GapHeuristicToGoal(const Pancake &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal\+::\+Gap\+Heuristic\+To\+Goal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pancake} \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1GapHeuristicToGoal_a5b22e091663aa8098acac29779ee9c05}{}\label{structdomain_1_1pancake_1_1GapHeuristicToGoal_a5b22e091663aa8098acac29779ee9c05}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The goal state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 253 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal@{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal}!operator()@{operator()}}
+\index{operator()@{operator()}!domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal@{domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal}}
+\paragraph[{\texorpdfstring{operator()(const Pancake \&s) const }{operator()(const Pancake &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}int domain\+::pancake\+::\+Gap\+Heuristic\+To\+Goal\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pancake} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structdomain_1_1pancake_1_1GapHeuristicToGoal_a3f6993f8099802cfaf016511fd70282c}{}\label{structdomain_1_1pancake_1_1GapHeuristicToGoal_a3f6993f8099802cfaf016511fd70282c}
+
+
+The call operator. Computes the gap heuristic from the given state to the given goal state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state from which the heuristic value is needed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The gap heuristic from {\ttfamily s} to {\ttfamily goal\+\_\+}. 
+\end{DoxyReturn}
+
+
+Definition at line 259 of file headers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{extensions_2domains_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

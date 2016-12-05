@@ -1,0 +1,50 @@
+\hypertarget{structslb_1_1core_1_1ui_1_1PatternLock}{}\subsection{slb\+:\+:core\+:\+:ui\+:\+:Pattern\+Lock Struct Reference}
+\label{structslb_1_1core_1_1ui_1_1PatternLock}\index{slb\+::core\+::ui\+::\+Pattern\+Lock@{slb\+::core\+::ui\+::\+Pattern\+Lock}}
+
+
+Implements a R\+A\+II technique to save and restore the current drawing. This can be used, for example, to shift the whole drawing (all one needs to do is to translate the drawing after acquiring a \hyperlink{structslb_1_1core_1_1ui_1_1PatternLock}{Pattern\+Lock}).  
+
+
+
+
+{\ttfamily \#include $<$graphics\+\_\+object.\+h$>$}
+
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:ui\+:\+:Pattern\+Lock\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structslb_1_1core_1_1ui_1_1PatternLock__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1PatternLock_aa685f19004b70de18b39f4aec82f9cb2}{Pattern\+Lock} (\hyperlink{structslb_1_1core_1_1ui_1_1Graphics}{Graphics} \&g)\hypertarget{structslb_1_1core_1_1ui_1_1PatternLock_aa685f19004b70de18b39f4aec82f9cb2}{}\label{structslb_1_1core_1_1ui_1_1PatternLock_aa685f19004b70de18b39f4aec82f9cb2}
+
+\begin{DoxyCompactList}\small\item\em Saves the current source as a pattern. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1PatternLock_a34d2e6b47e2e2367ad94dd6bfabb6bd0}{$\sim$\+Pattern\+Lock} ()\hypertarget{structslb_1_1core_1_1ui_1_1PatternLock_a34d2e6b47e2e2367ad94dd6bfabb6bd0}{}\label{structslb_1_1core_1_1ui_1_1PatternLock_a34d2e6b47e2e2367ad94dd6bfabb6bd0}
+
+\begin{DoxyCompactList}\small\item\em Restores the source from the pattern saved in the constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1Graphics}{Graphics} \& \hyperlink{structslb_1_1core_1_1ui_1_1PatternLock_a3df1255d5f212b880d608fb2c4d003ce}{g\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1PatternLock_a3df1255d5f212b880d608fb2c4d003ce}{}\label{structslb_1_1core_1_1ui_1_1PatternLock_a3df1255d5f212b880d608fb2c4d003ce}
+
+\begin{DoxyCompactList}\small\item\em The graphics object. \end{DoxyCompactList}\item 
+cairo\+\_\+pattern\+\_\+t $\ast$ \hyperlink{structslb_1_1core_1_1ui_1_1PatternLock_ac81fe6bf2b263da00294f10df1184027}{p\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1PatternLock_ac81fe6bf2b263da00294f10df1184027}{}\label{structslb_1_1core_1_1ui_1_1PatternLock_ac81fe6bf2b263da00294f10df1184027}
+
+\begin{DoxyCompactList}\small\item\em The saved pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implements a R\+A\+II technique to save and restore the current drawing. This can be used, for example, to shift the whole drawing (all one needs to do is to translate the drawing after acquiring a \hyperlink{structslb_1_1core_1_1ui_1_1PatternLock}{Pattern\+Lock}). 
+
+Definition at line 129 of file graphics\+\_\+object.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{graphics__object_8h}{graphics\+\_\+object.\+h}\end{DoxyCompactItemize}

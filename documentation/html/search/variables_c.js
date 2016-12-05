@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['n_5f',['n_',['../structslb_1_1ext_1_1domain_1_1incWorst_1_1IncWorst.html#aa98abaa062cf78e82ac96c7333b28d77',1,'slb::ext::domain::incWorst::IncWorst']]],
+  ['name_5f',['name_',['../structslb_1_1core_1_1util_1_1Measure.html#a11a556eabcad0982d687224e283b51f8',1,'slb::core::util::Measure']]],
+  ['ncols_5f',['ncols_',['../structslb_1_1core_1_1ui_1_1EditField.html#a31f8b02f9fe179c3d738cc653ebf101f',1,'slb::core::ui::EditField']]],
+  ['next_5fthreshold_5f',['next_threshold_',['../structslb_1_1ext_1_1algorithm_1_1IdAstar.html#acf9900aea8a8239701823d6e96b3968c',1,'slb::ext::algorithm::IdAstar']]],
+  ['ngoals_5f',['nGoals_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#a68720f2ac1005479c84cc6cd681696e3',1,'slb::core::commandLine::CommandLine']]],
+  ['ninstances_5f',['nInstances_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#a45634f339b37747bcc19ce6c9e35d321',1,'slb::core::commandLine::CommandLine']]],
+  ['nmenurows_5f',['nMenuRows_',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a7ebb18c261f95f0212997c48ae98878e',1,'slb::core::ui::LogWindow']]],
+  ['nmessages_5f',['nMessages_',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a9faf4b6f0734aeba24b2651e82a34e96',1,'slb::core::ui::LogWindow']]],
+  ['nodedata_5f',['nodeData_',['../structslb_1_1core_1_1ui_1_1EventBase.html#af94e406ffc21c85314b3ef4379ed40da',1,'slb::core::ui::EventBase']]],
+  ['noeventcount_5f',['noEventCount_',['../structslb_1_1core_1_1ui_1_1Visualizer.html#a1462915618a9a86765383f2addbcdaba',1,'slb::core::ui::Visualizer']]],
+  ['nonselectable_5f',['nonSelectable_',['../structslb_1_1core_1_1ui_1_1MenuBase.html#a18e8015c60668cfc582c40a2bba461cc',1,'slb::core::ui::MenuBase']]],
+  ['now',['now',['../structslb_1_1core_1_1ui_1_1EventBase_1_1VertexChange.html#a8cc56f868302bf5d9761107d595a7620',1,'slb::core::ui::EventBase::VertexChange::now()'],['../structslb_1_1core_1_1ui_1_1EventBase_1_1EdgeChange.html#ab976192c4b6c3d561fc1165b7bdc9f6c',1,'slb::core::ui::EventBase::EdgeChange::now()'],['../structslb_1_1core_1_1ui_1_1VisualEvent_1_1VertexChange.html#a5c38febb1b3fc4319f33b3ff9e96e13c',1,'slb::core::ui::VisualEvent::VertexChange::now()'],['../structslb_1_1core_1_1ui_1_1VisualEvent_1_1EdgeChange.html#a54f50a528016a4321b43dd9ffeb50edf',1,'slb::core::ui::VisualEvent::EdgeChange::now()']]],
+  ['npancakes_5f',['nPancakes_',['../structslb_1_1ext_1_1domain_1_1pancake_1_1CommandLine.html#a7a73482a8683eddcd2fe7481853e7f21',1,'slb::ext::domain::pancake::CommandLine']]],
+  ['nrows_5f',['nrows_',['../structslb_1_1core_1_1ui_1_1EditField.html#a0cf8d62cd3699e057656f71c3e95ffda',1,'slb::core::ui::EditField']]],
+  ['nshownmessages_5f',['nShownMessages_',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a1ad6a6bf6c5aac46ede8209b39fd4474',1,'slb::core::ui::LogWindow']]],
+  ['nstages_5f',['nStages_',['../structslb_1_1ext_1_1domain_1_1incWorst_1_1CommandLine.html#aac068cb2b8b923f43e38c0802d7e8b67',1,'slb::ext::domain::incWorst::CommandLine']]],
+  ['nstarts_5f',['nStarts_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#af848807b96ecf4560989abb9b78bfdf5',1,'slb::core::commandLine::CommandLine']]],
+  ['null_5fedge',['null_edge',['../structslb_1_1core_1_1ui_1_1StateGraph.html#aafbde9fc1b97fd86cf56d8ad15621757',1,'slb::core::ui::StateGraph']]]
+];

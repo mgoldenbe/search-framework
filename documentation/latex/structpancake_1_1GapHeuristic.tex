@@ -1,0 +1,60 @@
+\hypertarget{structpancake_1_1GapHeuristic}{}\subsection{pancake\+:\+:Gap\+Heuristic Struct Reference}
+\label{structpancake_1_1GapHeuristic}\index{pancake\+::\+Gap\+Heuristic@{pancake\+::\+Gap\+Heuristic}}
+
+
+Functor for computing the gap heuristic to the goal state with ordered pancakes.  
+
+
+
+
+{\ttfamily \#include $<$pancake.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structpancake_1_1GapHeuristic_a698b44db4eb2a7ab79d6210289706ca1}{Gap\+Heuristic} (const \hyperlink{structpancake_1_1Pancake}{Pancake} \&)\hypertarget{structpancake_1_1GapHeuristic_a698b44db4eb2a7ab79d6210289706ca1}{}\label{structpancake_1_1GapHeuristic_a698b44db4eb2a7ab79d6210289706ca1}
+
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+int \hyperlink{structpancake_1_1GapHeuristic_a24357ebadcf78ec6987a8af688e1dc33}{operator()} (const \hyperlink{structpancake_1_1Pancake}{Pancake} \&s) const 
+\begin{DoxyCompactList}\small\item\em The call operator. Computes the gap heuristic from the given state to the goal state with ordered pancakes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Functor for computing the gap heuristic to the goal state with ordered pancakes. 
+
+Definition at line 217 of file pancake.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{pancake\+::\+Gap\+Heuristic@{pancake\+::\+Gap\+Heuristic}!operator()@{operator()}}
+\index{operator()@{operator()}!pancake\+::\+Gap\+Heuristic@{pancake\+::\+Gap\+Heuristic}}
+\paragraph[{\texorpdfstring{operator()(const Pancake \&s) const }{operator()(const Pancake &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}int pancake\+::\+Gap\+Heuristic\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pancake} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structpancake_1_1GapHeuristic_a24357ebadcf78ec6987a8af688e1dc33}{}\label{structpancake_1_1GapHeuristic_a24357ebadcf78ec6987a8af688e1dc33}
+
+
+The call operator. Computes the gap heuristic from the given state to the goal state with ordered pancakes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state from which the heuristic value is needed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The gap heuristic from {\ttfamily s} to the goal state with ordered pancakes. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The last parameter is for reasons of uniformity, so the caller can pass the goal state. 
+\end{DoxyNote}
+
+
+Definition at line 228 of file pancake.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{pancake_8h}{pancake.\+h}\end{DoxyCompactItemize}

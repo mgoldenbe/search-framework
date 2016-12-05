@@ -1,0 +1,373 @@
+\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode}{}\subsection{slb\+:\+:core\+:\+:sb\+:\+:Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1sb_1_1SearchNode}\index{slb\+::core\+::sb\+::\+Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$@{slb\+::core\+::sb\+::\+Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$}}
+
+
+The search node type. Inherits the data structure to make data (e.\+g. g-\/ and f-\/value) easy to access.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:sb\+:\+:Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{structslb_1_1core_1_1sb_1_1SearchNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:sb\+:\+:Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{structslb_1_1core_1_1sb_1_1SearchNode__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} = State\+\_\+\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a94388d3bada09043aa13733629f0b1d5}{Node\+Data} = Node\+Data\+\_\+\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a94388d3bada09043aa13733629f0b1d5}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a94388d3bada09043aa13733629f0b1d5}
+
+\begin{DoxyCompactList}\small\item\em The structure storing the data kept by the node. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{My\+Type} = \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode}{Search\+Node}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}
+
+\begin{DoxyCompactList}\small\item\em Type of the node. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a67cdbbbe4aecada5a1f554b4580d228c}{Node\+Unique\+Ptr} = std\+::unique\+\_\+ptr$<$ \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{My\+Type} $>$\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a67cdbbbe4aecada5a1f554b4580d228c}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a67cdbbbe4aecada5a1f554b4580d228c}
+
+\begin{DoxyCompactList}\small\item\em Unique pointer to the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a2bd821c0ee99d2683b8070997a0146af}{Search\+Node} (const \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} \&s)
+\begin{DoxyCompactList}\small\item\em Initializes the node based on state. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1d79667de3a4b5530616ad3a0d056b3b}{Search\+Node} (\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} \&\&s)
+\begin{DoxyCompactList}\small\item\em Initializes the node based on state that is a right-\/value. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} \& \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a5dfa3ce12a34a933f3214f2b1f8564ad}{state} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to the state to which the node corresponds. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} \& \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ac953581eb54cb60095283fc5aa391404}{state} () const 
+\begin{DoxyCompactList}\small\item\em Returns const reference to the state to which the node corresponds. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a652572c856bd30595912f421f46db33d}{set\+State} (\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} \&\&s)
+\begin{DoxyCompactList}\small\item\em Assigns a different state to the node. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{My\+Type} $\ast$ \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a0ca44e44ed2c03f32a82c40a2fec2f25}{parent} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to the parent node. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{My\+Type} $\ast$ \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a820d6bd60d3268f13ececb1cb4443f50}{parent} () const 
+\begin{DoxyCompactList}\small\item\em Returns pointer to const parent node. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_aa65f7504947d00154620d1b198a2d647}{operator==} (const \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{My\+Type} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Nodes comparison. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} $>$ \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_aaa74c727a31774ef126f523323e7b02d}{path} () const 
+\begin{DoxyCompactList}\small\item\em Computes the path by which the state to which the node corresponds was reached by the search. \end{DoxyCompactList}\item 
+Bucket\+Position \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ab437722f9c401c9067237d74e6b8635e}{bucket\+Position} () const 
+\begin{DoxyCompactList}\small\item\em Returns the position of the node in the open list (when applicable). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Stream $>$ }\\Stream \& \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a14a1a06f452df5511c320c9d34cde564}{dump} (Stream \&o) const 
+\begin{DoxyCompactList}\small\item\em Dumps the node (i.\+e. the state, the parent and the data) to the given stream. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a375d866400a6ea4a40098bd96610c843}{set\+Parent} (\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{My\+Type} $\ast$\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a0ca44e44ed2c03f32a82c40a2fec2f25}{parent})
+\begin{DoxyCompactList}\small\item\em Sets the parent node to the given node. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a680c153c5f73e677afc2a3a3a39a68ed}{set\+Bucket\+Position} (Bucket\+Position l)
+\begin{DoxyCompactList}\small\item\em Sets the position of the node in the open list (when applicable). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a1ddf004be6dc181034b39283698985ac}{State} \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a6a2f8f77d81321a937e607ccdb2a703e}{state\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a6a2f8f77d81321a937e607ccdb2a703e}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a6a2f8f77d81321a937e607ccdb2a703e}
+
+\begin{DoxyCompactList}\small\item\em The state corresponding to the node. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_ae2ea0008cdc50ebc06102fcd9e5f29d2}{My\+Type} $\ast$ \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a337b6c4dc39204743cb335c7852064d2}{parent\+\_\+} = nullptr\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a337b6c4dc39204743cb335c7852064d2}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a337b6c4dc39204743cb335c7852064d2}
+
+\begin{DoxyCompactList}\small\item\em The parent node. \end{DoxyCompactList}\item 
+Bucket\+Position \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode_a03acf2069c912ff39e8710b422b848cc}{bucket\+Position\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a03acf2069c912ff39e8710b422b848cc}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a03acf2069c912ff39e8710b422b848cc}
+
+\begin{DoxyCompactList}\small\item\em The position of the node in the open list (when applicable). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State\+\_\+ = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+ = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$\\*
+struct slb\+::core\+::sb\+::\+Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$}
+
+The search node type. Inherits the data structure to make data (e.\+g. g-\/ and f-\/value) easy to access. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State\+\_\+} & The state type, represents the domain. \\
+\hline
+{\em Node\+Data\+\_\+} & The structure storing the data kept by the node. \\
+\hline
+{\em Bucket\+Position} & Type used for storing the node\textquotesingle{}s position in the open list (when applicable). \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 23 of file node.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!Search\+Node@{Search\+Node}}
+\index{Search\+Node@{Search\+Node}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{Search\+Node(const State \&s)}{SearchNode(const State &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::{\bf Search\+Node} (
+\begin{DoxyParamCaption}
+\item[{const {\bf State} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a2bd821c0ee99d2683b8070997a0146af}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a2bd821c0ee99d2683b8070997a0146af}
+
+
+Initializes the node based on state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!Search\+Node@{Search\+Node}}
+\index{Search\+Node@{Search\+Node}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{Search\+Node(\+State \&\&s)}{SearchNode(State &&s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::{\bf Search\+Node} (
+\begin{DoxyParamCaption}
+\item[{{\bf State} \&\&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a1d79667de3a4b5530616ad3a0d056b3b}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a1d79667de3a4b5530616ad3a0d056b3b}
+
+
+Initializes the node based on state that is a right-\/value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file node.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!bucket\+Position@{bucket\+Position}}
+\index{bucket\+Position@{bucket\+Position}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{bucket\+Position() const }{bucketPosition() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ Bucket\+Position {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::bucket\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_ab437722f9c401c9067237d74e6b8635e}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_ab437722f9c401c9067237d74e6b8635e}
+
+
+Returns the position of the node in the open list (when applicable). 
+
+\begin{DoxyReturn}{Returns}
+The position of the node in the open list (when applicable). 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!dump@{dump}}
+\index{dump@{dump}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&o) const }{dump(Stream &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ template$<$typename Stream $>$ Stream\& {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a14a1a06f452df5511c320c9d34cde564}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a14a1a06f452df5511c320c9d34cde564}
+
+
+Dumps the node (i.\+e. the state, the parent and the data) to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The output stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!operator==@{operator==}}
+\index{operator==@{operator==}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{operator==(const My\+Type \&rhs) const }{operator==(const MyType &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ bool {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf My\+Type} \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_aa65f7504947d00154620d1b198a2d647}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_aa65f7504947d00154620d1b198a2d647}
+
+
+Nodes comparison. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The node being compared to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the states corresponding to the nodes compare equal. 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!parent@{parent}}
+\index{parent@{parent}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{parent()}{parent()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf My\+Type}$\ast$ {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a0ca44e44ed2c03f32a82c40a2fec2f25}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a0ca44e44ed2c03f32a82c40a2fec2f25}
+
+
+Returns pointer to the parent node. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the parent node. 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!parent@{parent}}
+\index{parent@{parent}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{parent() const }{parent() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ const {\bf My\+Type}$\ast$ {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a820d6bd60d3268f13ececb1cb4443f50}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a820d6bd60d3268f13ececb1cb4443f50}
+
+
+Returns pointer to const parent node. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to const parent node. 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!path@{path}}
+\index{path@{path}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{path() const }{path() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ const std\+::vector$<${\bf State}$>$ {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_aaa74c727a31774ef126f523323e7b02d}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_aaa74c727a31774ef126f523323e7b02d}
+
+
+Computes the path by which the state to which the node corresponds was reached by the search. 
+
+\begin{DoxyReturn}{Returns}
+The path (as a vector of states) by which the state to which the node corresponds was reached by the search. 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!set\+Bucket\+Position@{set\+Bucket\+Position}}
+\index{set\+Bucket\+Position@{set\+Bucket\+Position}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{set\+Bucket\+Position(\+Bucket\+Position l)}{setBucketPosition(BucketPosition l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ void {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::set\+Bucket\+Position (
+\begin{DoxyParamCaption}
+\item[{Bucket\+Position}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a680c153c5f73e677afc2a3a3a39a68ed}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a680c153c5f73e677afc2a3a3a39a68ed}
+
+
+Sets the position of the node in the open list (when applicable). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The new position of the node in the open list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 109 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!set\+Parent@{set\+Parent}}
+\index{set\+Parent@{set\+Parent}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{set\+Parent(\+My\+Type $\ast$parent)}{setParent(MyType *parent)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ void {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::set\+Parent (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+Type} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a375d866400a6ea4a40098bd96610c843}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a375d866400a6ea4a40098bd96610c843}
+
+
+Sets the parent node to the given node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The new parent node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!set\+State@{set\+State}}
+\index{set\+State@{set\+State}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{set\+State(\+State \&\&s)}{setState(State &&s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ void {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::set\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf State} \&\&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a652572c856bd30595912f421f46db33d}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a652572c856bd30595912f421f46db33d}
+
+
+Assigns a different state to the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state to assign. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!state@{state}}
+\index{state@{state}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{state()}{state()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf State}\& {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::state (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_a5dfa3ce12a34a933f3214f2b1f8564ad}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_a5dfa3ce12a34a933f3214f2b1f8564ad}
+
+
+Returns reference to the state to which the node corresponds. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the state to which the node corresponds. 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file node.\+h.
+
+\index{slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}!state@{state}}
+\index{state@{state}!slb\+::core\+::sb\+::\+Search\+Node@{slb\+::core\+::sb\+::\+Search\+Node}}
+\paragraph[{\texorpdfstring{state() const }{state() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ const {\bf State}\& {\bf slb\+::core\+::sb\+::\+Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::state (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1SearchNode_ac953581eb54cb60095283fc5aa391404}{}\label{structslb_1_1core_1_1sb_1_1SearchNode_ac953581eb54cb60095283fc5aa391404}
+
+
+Returns const reference to the state to which the node corresponds. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the state to which the node corresponds. 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file node.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{node_8h}{node.\+h}\end{DoxyCompactItemize}

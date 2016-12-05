@@ -1,0 +1,4 @@
+<map id="event::SolutionPathChange&lt; Node &gt;" name="event::SolutionPathChange&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structevent_1_1PathChange.html" title="An event that applies visual changes to states and edges of the state graph along a path..." alt="" coords="25,184,167,225"/>
+<area shape="rect" id="node3" href="$structevent_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="19,95,173,136"/>
+</map>

@@ -1,0 +1,100 @@
+\hypertarget{structMenuEnterState}{}\subsection{Menu\+Enter\+State$<$ All\+Menus, Node $>$ Struct Template Reference}
+\label{structMenuEnterState}\index{Menu\+Enter\+State$<$ All\+Menus, Node $>$@{Menu\+Enter\+State$<$ All\+Menus, Node $>$}}
+
+
+The menu reached when choosing the Search option from the root menu.  
+
+
+
+
+{\ttfamily \#include $<$menus.\+h$>$}
+
+
+
+Inheritance diagram for Menu\+Enter\+State$<$ All\+Menus, Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{structMenuEnterState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Menu\+Enter\+State$<$ All\+Menus, Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structMenuEnterState__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structMenuEnterState_a246f25f8850e84631b838c40693b918f}{Base} = \hyperlink{structMenuBase}{Menu\+Base}$<$ \hyperlink{structAllMenus}{All\+Menus}, Node $>$\hypertarget{structMenuEnterState_a246f25f8850e84631b838c40693b918f}{}\label{structMenuEnterState_a246f25f8850e84631b838c40693b918f}
+
+\begin{DoxyCompactList}\small\item\em Just a short name for the base class for all the menus. \end{DoxyCompactList}\item 
+using \hyperlink{structMenuEnterState_a80010570ec9207f5109239d47cd6d712}{Data} = typename \hyperlink{structMenuBase_a473a45fd8adbc75a9220b64753ae3837}{Base\+::\+Data}\hypertarget{structMenuEnterState_a80010570ec9207f5109239d47cd6d712}{}\label{structMenuEnterState_a80010570ec9207f5109239d47cd6d712}
+
+\begin{DoxyCompactList}\small\item\em The base of \hyperlink{structui_1_1Visualizer}{ui\+::\+Visualizer} holding the visualizer\textquotesingle{}s constituent components. \end{DoxyCompactList}\item 
+using \hyperlink{structMenuEnterState_a3fb084f59253258f1c8f9674a7303742}{My\+Visual\+Log} = \hyperlink{structVisualLog}{Visual\+Log}$<$ Node $>$\hypertarget{structMenuEnterState_a3fb084f59253258f1c8f9674a7303742}{}\label{structMenuEnterState_a3fb084f59253258f1c8f9674a7303742}
+
+\begin{DoxyCompactList}\small\item\em The type of the log of visual events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structMenuEnterState_a0b4a90a46f3b206cb79c2b76b8b968c7}{Menu\+Enter\+State} (\hyperlink{structAllMenus}{All\+Menus} \&m, \hyperlink{structVisualizerData}{Visualizer\+Data}$<$ Node $>$ \&\hyperlink{structMenuBase_a819aaaa06ede3bffbb12c1390657ef64}{data})
+\begin{DoxyCompactList}\small\item\em Initializes the menu. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structMenuEnterState_addaa157f0a6f83200ff3ca5efd90da7f}{handle\+Enter} ()\hypertarget{structMenuEnterState_addaa157f0a6f83200ff3ca5efd90da7f}{}\label{structMenuEnterState_addaa157f0a6f83200ff3ca5efd90da7f}
+
+\begin{DoxyCompactList}\small\item\em Handles the pressed Enter key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class All\+Menus, class Node$>$\\*
+struct Menu\+Enter\+State$<$ All\+Menus, Node $>$}
+
+The menu reached when choosing the Search option from the root menu. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \hyperlink{structAllMenus}{All\+Menus}} & The type for holding all the menus. \\
+\hline
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 303 of file menus.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Menu\+Enter\+State@{Menu\+Enter\+State}!Menu\+Enter\+State@{Menu\+Enter\+State}}
+\index{Menu\+Enter\+State@{Menu\+Enter\+State}!Menu\+Enter\+State@{Menu\+Enter\+State}}
+\paragraph[{\texorpdfstring{Menu\+Enter\+State(\+All\+Menus \&m, Visualizer\+Data$<$ Node $>$ \&data)}{MenuEnterState(AllMenus &m, VisualizerData< Node > &data)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ {\bf Menu\+Enter\+State}$<$ {\bf All\+Menus}, Node $>$\+::{\bf Menu\+Enter\+State} (
+\begin{DoxyParamCaption}
+\item[{{\bf All\+Menus} \&}]{m, }
+\item[{{\bf Visualizer\+Data}$<$ Node $>$ \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMenuEnterState_a0b4a90a46f3b206cb79c2b76b8b968c7}{}\label{structMenuEnterState_a0b4a90a46f3b206cb79c2b76b8b968c7}
+
+
+Initializes the menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Back-\/reference to the whole menu. \\
+\hline
+{\em data} & reference to the constituent components of the visualizer. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 317 of file menus.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{menus_8h}{menus.\+h}\end{DoxyCompactItemize}

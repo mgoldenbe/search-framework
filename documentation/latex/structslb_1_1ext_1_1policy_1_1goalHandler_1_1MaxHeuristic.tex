@@ -1,0 +1,118 @@
+\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Max\+Heuristic$<$ My\+Algorithm $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic}\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic$<$ My\+Algorithm $>$@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic$<$ My\+Algorithm $>$}}
+
+
+Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-\/computed whenever a goal is solved with the required quality.  
+
+
+
+
+{\ttfamily \#include $<$goal\+\_\+handlers.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Max\+Heuristic$<$ My\+Algorithm $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Max\+Heuristic$<$ My\+Algorithm $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_ad4d04afe71170bb799d38e7d35ecb66f}{Direct\+Base} = \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal}{Multiple\+Goal}$<$ My\+Algorithm $>$\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_ad4d04afe71170bb799d38e7d35ecb66f}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_ad4d04afe71170bb799d38e7d35ecb66f}
+
+\begin{DoxyCompactList}\small\item\em The direct base. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_a9fa9986f7676f62b950a66b5f31e2322}{stamp} ()
+\begin{DoxyCompactList}\small\item\em Returns the time stamp of the last found goal. This is also when the open list was re-\/computed last. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_aec76c8c57f24948fe158869d9f715418}{done\+Goal} (Node $\ast$n)
+\begin{DoxyCompactList}\small\item\em Handles the found goal. Recomputes the open list and saves the time stamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_a84086a429b193f7447166b92751b1310}{stamp\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_a84086a429b193f7447166b92751b1310}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_a84086a429b193f7447166b92751b1310}
+
+\begin{DoxyCompactList}\small\item\em Time stamp when the last goal was found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm$>$\\*
+struct slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic$<$ My\+Algorithm $>$}
+
+Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-\/computed whenever a goal is solved with the required quality. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 287 of file goal\+\_\+handlers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic}!done\+Goal@{done\+Goal}}
+\index{done\+Goal@{done\+Goal}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic}}
+\paragraph[{\texorpdfstring{done\+Goal(\+Node $\ast$n)}{doneGoal(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ virtual void {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic}$<$ My\+Algorithm $>$\+::done\+Goal (
+\begin{DoxyParamCaption}
+\item[{Node $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_aec76c8c57f24948fe158869d9f715418}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_aec76c8c57f24948fe158869d9f715418}
+
+
+Handles the found goal. Recomputes the open list and saves the time stamp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The goal node. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab142add8215deea2aa12efb093f2b240}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal$<$ My\+Algorithm $>$}.
+
+
+
+Definition at line 309 of file goal\+\_\+handlers.\+h.
+
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic}!stamp@{stamp}}
+\index{stamp@{stamp}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic}}
+\paragraph[{\texorpdfstring{stamp()}{stamp()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ int {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic}$<$ My\+Algorithm $>$\+::stamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_a9fa9986f7676f62b950a66b5f31e2322}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic_a9fa9986f7676f62b950a66b5f31e2322}
+
+
+Returns the time stamp of the last found goal. This is also when the open list was re-\/computed last. 
+
+\begin{DoxyReturn}{Returns}
+/// The time stamp when the last goal was found. 
+\end{DoxyReturn}
+
+
+Definition at line 301 of file goal\+\_\+handlers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{goal__handlers_8h}{goal\+\_\+handlers.\+h}\end{DoxyCompactItemize}

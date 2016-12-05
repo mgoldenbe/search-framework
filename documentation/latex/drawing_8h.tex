@@ -1,0 +1,60 @@
+\hypertarget{drawing_8h}{}\subsection{core/util/graphics/drawing.h File Reference}
+\label{drawing_8h}\index{core/util/graphics/drawing.\+h@{core/util/graphics/drawing.\+h}}
+
+
+Drawing utilities.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{drawing_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1util}{slb\+::core\+::util}
+\begin{DoxyCompactList}\small\item\em Utility facilities. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb}{slb\+::core\+::util\+::rgb}
+\begin{DoxyCompactList}\small\item\em Functions for dealing with R\+GB color components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb_a57ef22044d0e96a852e30686ad0ce0b9}{slb\+::core\+::util\+::rgb\+::red} (Color color)
+\begin{DoxyCompactList}\small\item\em Computes the red component of the color. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb_a8d76b8445a2a7f23aa9216e985f4c9b3}{slb\+::core\+::util\+::rgb\+::green} (Color color)
+\begin{DoxyCompactList}\small\item\em Computes the green component of the color. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb_a5584464a49d0bed3b915ff7b06142d19}{slb\+::core\+::util\+::rgb\+::blue} (Color color)
+\begin{DoxyCompactList}\small\item\em Computes the blue component of the color. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb_a6c08830a72ab29ca0800c658d235d498}{slb\+::core\+::util\+::rgb\+::cred} (Color color)
+\begin{DoxyCompactList}\small\item\em Computes the complement of the red component of the color. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb_a29060597b9fbd1348b91c456f017896a}{slb\+::core\+::util\+::rgb\+::cgreen} (Color color)
+\begin{DoxyCompactList}\small\item\em Computes the complement of the green component of the color. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1rgb_af8fdb63b3bed8d7226c184cf9373e7e9}{slb\+::core\+::util\+::rgb\+::cblue} (Color color)
+\begin{DoxyCompactList}\small\item\em Computes the complement of the blue component of the color. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a8d1707b9caf4ff4b66d90c512974bd19}{slb\+::core\+::util\+::move\+To} (cairo\+\_\+t $\ast$cr, const gu\+::\+Point \&p)
+\begin{DoxyCompactList}\small\item\em Moves to the given point. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a5ceb479b918ab45219b1b509183a57cc}{slb\+::core\+::util\+::line\+To} (cairo\+\_\+t $\ast$cr, const gu\+::\+Point \&to, bool stroke\+Flag=true)
+\begin{DoxyCompactList}\small\item\em Draws line to the given point. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a05a341116f08209b05c9822725be127e}{slb\+::core\+::util\+::line} (cairo\+\_\+t $\ast$cr, const gu\+::\+Point \&from, const gu\+::\+Point \&to, bool stroke\+Flag=true)
+\begin{DoxyCompactList}\small\item\em Connects two points with a line. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_ac07fdd8a1daaeee3d5c8b8445c5c9110}{slb\+::core\+::util\+::connect\+Circles} (cairo\+\_\+t $\ast$cr, const gu\+::\+Circle \&from, const gu\+::\+Circle \&to)
+\begin{DoxyCompactList}\small\item\em Connects two circles with a line. The line is a segment of the line that connects the centers with the part within the circles removed. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a265ab01b21987f23478c4a960a50820e}{slb\+::core\+::util\+::inscribe\+Polygon} (cairo\+\_\+t $\ast$cr, const gu\+::\+Circle \&c, int n, double angle, bool fill\+Flag)
+\begin{DoxyCompactList}\small\item\em Draws equilateral n-\/polygon inscribed into the circle with one of the vertices at the specified angle of the circle. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceslb_1_1core_1_1util_a95928fbd32acc4010efe2c6fc5d7191e}{slb\+::core\+::util\+::draw\+Text} (cairo\+\_\+t $\ast$cr, const std\+::string s, int size, const gu\+::\+Point \&p)
+\begin{DoxyCompactList}\small\item\em Draws text of given font size centered around the given point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Drawing utilities. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

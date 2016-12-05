@@ -1,0 +1,421 @@
+\hypertarget{structincWorst_1_1IncWorst}{}\subsection{inc\+Worst\+:\+:Inc\+Worst Struct Reference}
+\label{structincWorst_1_1IncWorst}\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+
+
+The worst case example for an inconsistent heuristics.  
+
+
+
+
+{\ttfamily \#include $<$inc\+\_\+worst.\+h$>$}
+
+
+
+Inheritance diagram for inc\+Worst\+:\+:Inc\+Worst\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{structincWorst_1_1IncWorst__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for inc\+Worst\+:\+:Inc\+Worst\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{structincWorst_1_1IncWorst__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structincWorst_1_1IncWorst_ad7fd4fc9dbb500cbc86a9e574ba5aba1}{Cost\+Type} = int\hypertarget{structincWorst_1_1IncWorst_ad7fd4fc9dbb500cbc86a9e574ba5aba1}{}\label{structincWorst_1_1IncWorst_ad7fd4fc9dbb500cbc86a9e574ba5aba1}
+
+\begin{DoxyCompactList}\small\item\em The type representing the cost of actions in the domain. Every domain must provide this name. \end{DoxyCompactList}\item 
+using \hyperlink{structincWorst_1_1IncWorst_ad762108f9045255b905bf3495af469d6}{S\+Neighbor} = \hyperlink{structStateNeighbor}{State\+Neighbor}$<$ \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst}, false $>$\hypertarget{structincWorst_1_1IncWorst_ad762108f9045255b905bf3495af469d6}{}\label{structincWorst_1_1IncWorst_ad762108f9045255b905bf3495af469d6}
+
+\begin{DoxyCompactList}\small\item\em The type for representing a single neighbor state. Every domain must provide this name. \end{DoxyCompactList}\item 
+using \hyperlink{structincWorst_1_1IncWorst_abd5c58aa826b8edef33ff888c7d7e664}{Row} = enum\{top, bottom\}\hypertarget{structincWorst_1_1IncWorst_abd5c58aa826b8edef33ff888c7d7e664}{}\label{structincWorst_1_1IncWorst_abd5c58aa826b8edef33ff888c7d7e664}
+
+\begin{DoxyCompactList}\small\item\em The type for row identification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structincWorst_1_1IncWorst_acacb7337675fc7ce60436915eb7ff101}{Inc\+Worst} ()\hypertarget{structincWorst_1_1IncWorst_acacb7337675fc7ce60436915eb7ff101}{}\label{structincWorst_1_1IncWorst_acacb7337675fc7ce60436915eb7ff101}
+
+\begin{DoxyCompactList}\small\item\em Initializes the start state. \end{DoxyCompactList}\item 
+\hyperlink{structincWorst_1_1IncWorst_adf4547e5c1fe712bd2590964ac8fe15d}{Inc\+Worst} (int k, \hyperlink{structincWorst_1_1IncWorst_abd5c58aa826b8edef33ff888c7d7e664}{Row} row, int n)
+\begin{DoxyCompactList}\small\item\em Initializes with the given number of stages, row and the stage number. \end{DoxyCompactList}\item 
+\hyperlink{structincWorst_1_1IncWorst_a6c9144a7277dcf0a1bfcef3c0426e34a}{Inc\+Worst} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Initializes the state from a string, e.\+g. \char`\"{}\mbox{[}4, top, 2\mbox{]}\char`\"{}. \end{DoxyCompactList}\item 
+\hyperlink{structincWorst_1_1IncWorst_aca26ea88e2a41ffb66a9498ee4721166}{Inc\+Worst} (const \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \&)=default\hypertarget{structincWorst_1_1IncWorst_aca26ea88e2a41ffb66a9498ee4721166}{}\label{structincWorst_1_1IncWorst_aca26ea88e2a41ffb66a9498ee4721166}
+
+\begin{DoxyCompactList}\small\item\em The default copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \& \hyperlink{structincWorst_1_1IncWorst_a425c0d30c1845bba61d68cb8b07b3b83}{operator=} (const \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \&)=default
+\begin{DoxyCompactList}\small\item\em The default assignment operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structincWorst_1_1IncWorst_ad762108f9045255b905bf3495af469d6}{S\+Neighbor} $>$ \hyperlink{structincWorst_1_1IncWorst_ab895800d1feb2ac2492a0d0c20d3dd2f}{state\+Successors} () const 
+\begin{DoxyCompactList}\small\item\em Computes the neighbors of the state. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \hyperlink{structincWorst_1_1IncWorst_a91277d450137496d1e722e7f35b5be9d}{hash} () const 
+\begin{DoxyCompactList}\small\item\em Computes the hash-\/code of the state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structincWorst_1_1IncWorst_afa8173c47e8632ed84068454d6b8920a}{dump} (Stream \&o) const 
+\begin{DoxyCompactList}\small\item\em Dumps the state to the given stream. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structincWorst_1_1IncWorst_a96eddb68ce37523e2c15d164e4483c9c}{visual\+Label} () const 
+\begin{DoxyCompactList}\small\item\em Returns the textual label for the vertex representing the state. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structincWorst_1_1IncWorst_aace0d471d214d6ba80aacd98a5029e55}{visual\+Label} (const \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \&to) const 
+\begin{DoxyCompactList}\small\item\em Returns the textual label for the edge to the given state. \end{DoxyCompactList}\item 
+void \hyperlink{structincWorst_1_1IncWorst_a5e25d277fd086fadabffa534c1255060}{visual\+Location} (double \&x, double \&y) const 
+\begin{DoxyCompactList}\small\item\em Fills out the coordinates for the vertex representing the state. \end{DoxyCompactList}\item 
+bool \hyperlink{structincWorst_1_1IncWorst_a972cd440c572bd89494c58fb6b210b85}{operator==} (const \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em The equality operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \hyperlink{structincWorst_1_1IncWorst_a3efb513cd319be10dee6480352b02e7a}{random} ()
+\begin{DoxyCompactList}\small\item\em Returns a random state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structincWorst_1_1IncWorst_a23aa55edf0a034bc8fe19424c0319bb7}{legal} (int k, int row, int n)
+\begin{DoxyCompactList}\small\item\em Checks whether the state is legal. \end{DoxyCompactList}\item 
+bool \hyperlink{structincWorst_1_1IncWorst_ae62a653d8a27ea0eb3c692714312658d}{legal} (const \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \&s)
+\begin{DoxyCompactList}\small\item\em Checks whether the state is legal. \end{DoxyCompactList}\item 
+int \hyperlink{structincWorst_1_1IncWorst_a6b6b34671522801820a08cb0b045b6d6}{cost} (const \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \&from, const \hyperlink{structincWorst_1_1IncWorst}{Inc\+Worst} \&to) const 
+\begin{DoxyCompactList}\small\item\em Returns the cost of the given move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structincWorst_1_1IncWorst_ac529432222de37ab2ca9df6d01e918ad}{k\+\_\+}\hypertarget{structincWorst_1_1IncWorst_ac529432222de37ab2ca9df6d01e918ad}{}\label{structincWorst_1_1IncWorst_ac529432222de37ab2ca9df6d01e918ad}
+
+\begin{DoxyCompactList}\small\item\em The number of stages -\/ 1. \end{DoxyCompactList}\item 
+\hyperlink{structincWorst_1_1IncWorst_abd5c58aa826b8edef33ff888c7d7e664}{Row} \hyperlink{structincWorst_1_1IncWorst_a8fd4af454b17b9b460ca7df6a8e49fb0}{row\+\_\+}\hypertarget{structincWorst_1_1IncWorst_a8fd4af454b17b9b460ca7df6a8e49fb0}{}\label{structincWorst_1_1IncWorst_a8fd4af454b17b9b460ca7df6a8e49fb0}
+
+\begin{DoxyCompactList}\small\item\em Top or bottom row. \end{DoxyCompactList}\item 
+int \hyperlink{structincWorst_1_1IncWorst_a22b8fd7a333a1a5c9ed68166b77c7711}{n\+\_\+}\hypertarget{structincWorst_1_1IncWorst_a22b8fd7a333a1a5c9ed68166b77c7711}{}\label{structincWorst_1_1IncWorst_a22b8fd7a333a1a5c9ed68166b77c7711}
+
+\begin{DoxyCompactList}\small\item\em The stage. Stages are numbered from right to left\+: k, 0, 1, ..., k-\/1. The goal is at stage k in the top row (in contrast to the book, where the goal is in the bottom row). The start is at stage k-\/1 in the bottom row. A node in the top row has the same number as the corresponding node diagonally to the left in the bottom row. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The worst case example for an inconsistent heuristics. 
+
+Definition at line 33 of file inc\+\_\+worst.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!Inc\+Worst@{Inc\+Worst}}
+\index{Inc\+Worst@{Inc\+Worst}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{Inc\+Worst(int k, Row row, int n)}{IncWorst(int k, Row row, int n)}}]{\setlength{\rightskip}{0pt plus 5cm}inc\+Worst\+::\+Inc\+Worst\+::\+Inc\+Worst (
+\begin{DoxyParamCaption}
+\item[{int}]{k, }
+\item[{{\bf Row}}]{row, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_adf4547e5c1fe712bd2590964ac8fe15d}{}\label{structincWorst_1_1IncWorst_adf4547e5c1fe712bd2590964ac8fe15d}
+
+
+Initializes with the given number of stages, row and the stage number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The number of stages. \\
+\hline
+{\em row} & The row. \\
+\hline
+{\em n} & The stage. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!Inc\+Worst@{Inc\+Worst}}
+\index{Inc\+Worst@{Inc\+Worst}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{Inc\+Worst(const std\+::string \&s)}{IncWorst(const std::string &s)}}]{\setlength{\rightskip}{0pt plus 5cm}inc\+Worst\+::\+Inc\+Worst\+::\+Inc\+Worst (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_a6c9144a7277dcf0a1bfcef3c0426e34a}{}\label{structincWorst_1_1IncWorst_a6c9144a7277dcf0a1bfcef3c0426e34a}
+
+
+Initializes the state from a string, e.\+g. \char`\"{}\mbox{[}4, top, 2\mbox{]}\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The string. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file inc\+\_\+worst.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!cost@{cost}}
+\index{cost@{cost}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{cost(const Inc\+Worst \&from, const Inc\+Worst \&to) const }{cost(const IncWorst &from, const IncWorst &to) const }}]{\setlength{\rightskip}{0pt plus 5cm}int inc\+Worst\+::\+Inc\+Worst\+::cost (
+\begin{DoxyParamCaption}
+\item[{const {\bf Inc\+Worst} \&}]{from, }
+\item[{const {\bf Inc\+Worst} \&}]{to}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structincWorst_1_1IncWorst_a6b6b34671522801820a08cb0b045b6d6}{}\label{structincWorst_1_1IncWorst_a6b6b34671522801820a08cb0b045b6d6}
+
+
+Returns the cost of the given move. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Source state. \\
+\hline
+{\em to} & Target state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cost from {\ttfamily from} to {\ttfamily to}. 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!dump@{dump}}
+\index{dump@{dump}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&o) const }{dump(Stream &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Stream $>$ Stream\& inc\+Worst\+::\+Inc\+Worst\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_afa8173c47e8632ed84068454d6b8920a}{}\label{structincWorst_1_1IncWorst_afa8173c47e8632ed84068454d6b8920a}
+
+
+Dumps the state to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em The} & stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!hash@{hash}}
+\index{hash@{hash}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{hash() const }{hash() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t inc\+Worst\+::\+Inc\+Worst\+::hash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_a91277d450137496d1e722e7f35b5be9d}{}\label{structincWorst_1_1IncWorst_a91277d450137496d1e722e7f35b5be9d}
+
+
+Computes the hash-\/code of the state. 
+
+\begin{DoxyReturn}{Returns}
+The hash-\/code of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!legal@{legal}}
+\index{legal@{legal}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{legal(int k, int row, int n)}{legal(int k, int row, int n)}}]{\setlength{\rightskip}{0pt plus 5cm}bool inc\+Worst\+::\+Inc\+Worst\+::legal (
+\begin{DoxyParamCaption}
+\item[{int}]{k, }
+\item[{int}]{row, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structincWorst_1_1IncWorst_a23aa55edf0a034bc8fe19424c0319bb7}{}\label{structincWorst_1_1IncWorst_a23aa55edf0a034bc8fe19424c0319bb7}
+
+
+Checks whether the state is legal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The number of stages. \\
+\hline
+{\em row} & The row. \\
+\hline
+{\em n} & The stage. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the state is legal and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 164 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!legal@{legal}}
+\index{legal@{legal}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{legal(const Inc\+Worst \&s)}{legal(const IncWorst &s)}}]{\setlength{\rightskip}{0pt plus 5cm}bool inc\+Worst\+::\+Inc\+Worst\+::legal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Inc\+Worst} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structincWorst_1_1IncWorst_ae62a653d8a27ea0eb3c692714312658d}{}\label{structincWorst_1_1IncWorst_ae62a653d8a27ea0eb3c692714312658d}
+
+
+Checks whether the state is legal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the state is legal and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!operator=@{operator=}}
+\index{operator=@{operator=}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{operator=(const Inc\+Worst \&)=default}{operator=(const IncWorst &)=default}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Inc\+Worst}\& inc\+Worst\+::\+Inc\+Worst\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Inc\+Worst} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\hypertarget{structincWorst_1_1IncWorst_a425c0d30c1845bba61d68cb8b07b3b83}{}\label{structincWorst_1_1IncWorst_a425c0d30c1845bba61d68cb8b07b3b83}
+
+
+The default assignment operator. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the assigned state. 
+\end{DoxyReturn}
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!operator==@{operator==}}
+\index{operator==@{operator==}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{operator==(const Inc\+Worst \&rhs) const }{operator==(const IncWorst &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool inc\+Worst\+::\+Inc\+Worst\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Inc\+Worst} \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_a972cd440c572bd89494c58fb6b210b85}{}\label{structincWorst_1_1IncWorst_a972cd440c572bd89494c58fb6b210b85}
+
+
+The equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the operator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the two states compare equal and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!random@{random}}
+\index{random@{random}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{random()}{random()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Inc\+Worst} inc\+Worst\+::\+Inc\+Worst\+::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structincWorst_1_1IncWorst_a3efb513cd319be10dee6480352b02e7a}{}\label{structincWorst_1_1IncWorst_a3efb513cd319be10dee6480352b02e7a}
+
+
+Returns a random state. 
+
+\begin{DoxyReturn}{Returns}
+A random state. 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!state\+Successors@{state\+Successors}}
+\index{state\+Successors@{state\+Successors}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{state\+Successors() const }{stateSuccessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf S\+Neighbor}$>$ inc\+Worst\+::\+Inc\+Worst\+::state\+Successors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_ab895800d1feb2ac2492a0d0c20d3dd2f}{}\label{structincWorst_1_1IncWorst_ab895800d1feb2ac2492a0d0c20d3dd2f}
+
+
+Computes the neighbors of the state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of neighbors of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!visual\+Label@{visual\+Label}}
+\index{visual\+Label@{visual\+Label}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{visual\+Label() const }{visualLabel() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string inc\+Worst\+::\+Inc\+Worst\+::visual\+Label (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_a96eddb68ce37523e2c15d164e4483c9c}{}\label{structincWorst_1_1IncWorst_a96eddb68ce37523e2c15d164e4483c9c}
+
+
+Returns the textual label for the vertex representing the state. 
+
+\begin{DoxyReturn}{Returns}
+The textual label for the vertex representing the state. 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!visual\+Label@{visual\+Label}}
+\index{visual\+Label@{visual\+Label}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{visual\+Label(const Inc\+Worst \&to) const }{visualLabel(const IncWorst &to) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string inc\+Worst\+::\+Inc\+Worst\+::visual\+Label (
+\begin{DoxyParamCaption}
+\item[{const {\bf Inc\+Worst} \&}]{to}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_aace0d471d214d6ba80aacd98a5029e55}{}\label{structincWorst_1_1IncWorst_aace0d471d214d6ba80aacd98a5029e55}
+
+
+Returns the textual label for the edge to the given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to} & The target state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The textual label for the edge to {\ttfamily to}. 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file inc\+\_\+worst.\+h.
+
+\index{inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}!visual\+Location@{visual\+Location}}
+\index{visual\+Location@{visual\+Location}!inc\+Worst\+::\+Inc\+Worst@{inc\+Worst\+::\+Inc\+Worst}}
+\paragraph[{\texorpdfstring{visual\+Location(double \&x, double \&y) const }{visualLocation(double &x, double &y) const }}]{\setlength{\rightskip}{0pt plus 5cm}void inc\+Worst\+::\+Inc\+Worst\+::visual\+Location (
+\begin{DoxyParamCaption}
+\item[{double \&}]{x, }
+\item[{double \&}]{y}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structincWorst_1_1IncWorst_a5e25d277fd086fadabffa534c1255060}{}\label{structincWorst_1_1IncWorst_a5e25d277fd086fadabffa534c1255060}
+
+
+Fills out the coordinates for the vertex representing the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate to be filled out. \\
+\hline
+{\em y} & The y-\/coordinate to be filled out. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 123 of file inc\+\_\+worst.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{inc__worst_8h}{inc\+\_\+worst.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,287 @@
+\hypertarget{structslb_1_1core_1_1sb_1_1Instance}{}\subsection{slb\+:\+:core\+:\+:sb\+:\+:Instance$<$ State\+\_\+ $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1sb_1_1Instance}\index{slb\+::core\+::sb\+::\+Instance$<$ State\+\_\+ $>$@{slb\+::core\+::sb\+::\+Instance$<$ State\+\_\+ $>$}}
+
+
+The type for an instance with an arbitrary (but fixed) number of start and goal states.  
+
+
+
+
+{\ttfamily \#include $<$instance.\+h$>$}
+
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:sb\+:\+:Instance$<$ State\+\_\+ $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{structslb_1_1core_1_1sb_1_1Instance__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} = State\+\_\+\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{}\label{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Instance\+Measures  = S\+L\+B\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+M\+E\+A\+S\+U\+R\+ES$>$ }\\\hyperlink{structslb_1_1core_1_1sb_1_1Instance_a06868bf762246e7e847cd539b982caa7}{Instance} (const std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} $>$ \&\hyperlink{structslb_1_1core_1_1sb_1_1Instance_a3a00f96aa0a15f556732befe1eea43ef}{start}, const std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} $>$ \&\hyperlink{structslb_1_1core_1_1sb_1_1Instance_a8bb2fb56eff2e609fd7929449b141f8d}{goal})
+\begin{DoxyCompactList}\small\item\em Initializes the instance based on the given start and goal states. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1Instance_a087f8054483c20ece34433cbba78e2b2}{Instance} (const std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} $>$ \&\hyperlink{structslb_1_1core_1_1sb_1_1Instance_a3a00f96aa0a15f556732befe1eea43ef}{start}, const std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} $>$ \&\hyperlink{structslb_1_1core_1_1sb_1_1Instance_a8bb2fb56eff2e609fd7929449b141f8d}{goal}, const \hyperlink{structslb_1_1core_1_1sb_1_1MeasureSet}{Measure\+Set} \&\hyperlink{structslb_1_1core_1_1sb_1_1Instance_ad2e01a665a65c711a952491cf1790d0f}{measures})
+\begin{DoxyCompactList}\small\item\em Initializes the instance based on the given start and goal states and a set of measures. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} \& \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a3a00f96aa0a15f556732befe1eea43ef}{start} () const 
+\begin{DoxyCompactList}\small\item\em Returns the first start state. Intended for use when the instance contains a single start state. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} \& \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a8bb2fb56eff2e609fd7929449b141f8d}{goal} () const 
+\begin{DoxyCompactList}\small\item\em Returns the first goal state. Intended for use when the instance contains a single goal state. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} $>$ \& \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a5aed2f037cbdb04b8a41a13105388f1e}{goals} () const 
+\begin{DoxyCompactList}\small\item\em Returns the goal states. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{Instance} $>$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a049e21f64e6fbec805db3732dd06e7b4}{goal\+Instances} () const 
+\begin{DoxyCompactList}\small\item\em Returns a vector of single-\/goal instances, one instance for each goal state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a97f58fb3459fb7c4b5e5978ffb2276c6}{dump} (Stream \&os) const 
+\begin{DoxyCompactList}\small\item\em Dumps the instance to the given stream. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structslb_1_1core_1_1sb_1_1Instance_acc69fbc389b99e7c5a2dfe6357c45034}{dump\+Title} (Stream \&os)
+\begin{DoxyCompactList}\small\item\em Dumps the line with column titles to the given stream. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1core_1_1sb_1_1MeasureSet}{Measure\+Set} \& \hyperlink{structslb_1_1core_1_1sb_1_1Instance_ad2e01a665a65c711a952491cf1790d0f}{measures} () const 
+\begin{DoxyCompactList}\small\item\em Returns the measure set of the instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} $>$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a24750a1b89d7a89fddfb4876886303cb}{start\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a24750a1b89d7a89fddfb4876886303cb}{}\label{structslb_1_1core_1_1sb_1_1Instance_a24750a1b89d7a89fddfb4876886303cb}
+
+\begin{DoxyCompactList}\small\item\em The start states. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a631205b5ee8d1a61a05c0d30f766ef2e}{State} $>$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance_a618ac3cc9e2ab9293daa937a46169f79}{goal\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a618ac3cc9e2ab9293daa937a46169f79}{}\label{structslb_1_1core_1_1sb_1_1Instance_a618ac3cc9e2ab9293daa937a46169f79}
+
+\begin{DoxyCompactList}\small\item\em The goal states. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1MeasureSet}{Measure\+Set} \hyperlink{structslb_1_1core_1_1sb_1_1Instance_add0bcde31b71ac69725233b1e33d6a7b}{measures\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_add0bcde31b71ac69725233b1e33d6a7b}{}\label{structslb_1_1core_1_1sb_1_1Instance_add0bcde31b71ac69725233b1e33d6a7b}
+
+\begin{DoxyCompactList}\small\item\em The measures associated with the instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State\+\_\+$>$\\*
+struct slb\+::core\+::sb\+::\+Instance$<$ State\+\_\+ $>$}
+
+The type for an instance with an arbitrary (but fixed) number of start and goal states. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+Multiple starts are currently not fully handled. 
+\end{DoxyNote}
+
+
+Definition at line 53 of file instance.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!Instance@{Instance}}
+\index{Instance@{Instance}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{Instance(const std\+::vector$<$ State $>$ \&start, const std\+::vector$<$ State $>$ \&goal)}{Instance(const std::vector< State > &start, const std::vector< State > &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ template$<$typename Instance\+Measures  = S\+L\+B\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+M\+E\+A\+S\+U\+R\+ES$>$ {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::{\bf Instance} (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ {\bf State} $>$ \&}]{start, }
+\item[{const std\+::vector$<$ {\bf State} $>$ \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a06868bf762246e7e847cd539b982caa7}{}\label{structslb_1_1core_1_1sb_1_1Instance_a06868bf762246e7e847cd539b982caa7}
+
+
+Initializes the instance based on the given start and goal states. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Instance\+Measures} & The functor for computing the instance measures. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Vector of start states. \\
+\hline
+{\em goal} & Vector of goal states. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file instance.\+h.
+
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!Instance@{Instance}}
+\index{Instance@{Instance}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{Instance(const std\+::vector$<$ State $>$ \&start, const std\+::vector$<$ State $>$ \&goal, const Measure\+Set \&measures)}{Instance(const std::vector< State > &start, const std::vector< State > &goal, const MeasureSet &measures)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::{\bf Instance} (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ {\bf State} $>$ \&}]{start, }
+\item[{const std\+::vector$<$ {\bf State} $>$ \&}]{goal, }
+\item[{const {\bf Measure\+Set} \&}]{measures}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a087f8054483c20ece34433cbba78e2b2}{}\label{structslb_1_1core_1_1sb_1_1Instance_a087f8054483c20ece34433cbba78e2b2}
+
+
+Initializes the instance based on the given start and goal states and a set of measures. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Vector of start states. \\
+\hline
+{\em goal} & Vector of goal states. \\
+\hline
+{\em measures} & The set of measures \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file instance.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!dump@{dump}}
+\index{dump@{dump}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&os) const }{dump(Stream &os) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ template$<$class Stream $>$ Stream\& {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a97f58fb3459fb7c4b5e5978ffb2276c6}{}\label{structslb_1_1core_1_1sb_1_1Instance_a97f58fb3459fb7c4b5e5978ffb2276c6}
+
+
+Dumps the instance to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The stream. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file instance.\+h.
+
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!dump\+Title@{dump\+Title}}
+\index{dump\+Title@{dump\+Title}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{dump\+Title(\+Stream \&os)}{dumpTitle(Stream &os)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ template$<$class Stream $>$ Stream\& {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::dump\+Title (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{os}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_acc69fbc389b99e7c5a2dfe6357c45034}{}\label{structslb_1_1core_1_1sb_1_1Instance_acc69fbc389b99e7c5a2dfe6357c45034}
+
+
+Dumps the line with column titles to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The stream. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file instance.\+h.
+
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!goal@{goal}}
+\index{goal@{goal}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{goal() const }{goal() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ const {\bf State}\& {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::goal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a8bb2fb56eff2e609fd7929449b141f8d}{}\label{structslb_1_1core_1_1sb_1_1Instance_a8bb2fb56eff2e609fd7929449b141f8d}
+
+
+Returns the first goal state. Intended for use when the instance contains a single goal state. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the goal state. 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file instance.\+h.
+
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!goal\+Instances@{goal\+Instances}}
+\index{goal\+Instances@{goal\+Instances}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{goal\+Instances() const }{goalInstances() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ std\+::vector$<${\bf Instance}$>$ {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::goal\+Instances (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a049e21f64e6fbec805db3732dd06e7b4}{}\label{structslb_1_1core_1_1sb_1_1Instance_a049e21f64e6fbec805db3732dd06e7b4}
+
+
+Returns a vector of single-\/goal instances, one instance for each goal state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of single-\/goal instances, one instance for each goal state. 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file instance.\+h.
+
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!goals@{goals}}
+\index{goals@{goals}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{goals() const }{goals() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ const std\+::vector$<${\bf State}$>$\& {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::goals (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a5aed2f037cbdb04b8a41a13105388f1e}{}\label{structslb_1_1core_1_1sb_1_1Instance_a5aed2f037cbdb04b8a41a13105388f1e}
+
+
+Returns the goal states. 
+
+\begin{DoxyReturn}{Returns}
+Non-\/const reference to the vector of goal states. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The reference in the return value is non-\/const, since some search algorithms need to modify the set of goals as the algorithm progresses. See \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic}{ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic} for an example. 
+\end{DoxyNote}
+
+
+Definition at line 90 of file instance.\+h.
+
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!measures@{measures}}
+\index{measures@{measures}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{measures() const }{measures() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ const {\bf Measure\+Set}\& {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::measures (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_ad2e01a665a65c711a952491cf1790d0f}{}\label{structslb_1_1core_1_1sb_1_1Instance_ad2e01a665a65c711a952491cf1790d0f}
+
+
+Returns the measure set of the instance. 
+
+\begin{DoxyReturn}{Returns}
+The measure set of the instance. 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file instance.\+h.
+
+\index{slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}!start@{start}}
+\index{start@{start}!slb\+::core\+::sb\+::\+Instance@{slb\+::core\+::sb\+::\+Instance}}
+\paragraph[{\texorpdfstring{start() const }{start() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+$>$ const {\bf State}\& {\bf slb\+::core\+::sb\+::\+Instance}$<$ State\+\_\+ $>$\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Instance_a3a00f96aa0a15f556732befe1eea43ef}{}\label{structslb_1_1core_1_1sb_1_1Instance_a3a00f96aa0a15f556732befe1eea43ef}
+
+
+Returns the first start state. Intended for use when the instance contains a single start state. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the start state. 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file instance.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{instance_8h}{instance.\+h}\end{DoxyCompactItemize}

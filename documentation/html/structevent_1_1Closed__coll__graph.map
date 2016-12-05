@@ -1,0 +1,5 @@
+<map id="event::Closed&lt; Node &gt;" name="event::Closed&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structevent_1_1VertexEdgeColor.html" title="An event that applies a color change to both the vertex of the state graph corresponding to the state..." alt="" coords="12,273,173,315"/>
+<area shape="rect" id="node3" href="$structevent_1_1VertexEdgeChange.html" title="An event that applies visual changes to both the vertex of the state graph corresponding to the state..." alt="" coords="5,184,180,225"/>
+<area shape="rect" id="node4" href="$structevent_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="16,95,169,136"/>
+</map>

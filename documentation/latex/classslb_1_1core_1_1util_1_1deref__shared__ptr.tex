@@ -1,0 +1,227 @@
+\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr}{}\subsection{slb\+:\+:core\+:\+:util\+:\+:deref\+\_\+shared\+\_\+ptr$<$ T $>$ Class Template Reference}
+\label{classslb_1_1core_1_1util_1_1deref__shared__ptr}\index{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr$<$ T $>$@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr$<$ T $>$}}
+
+
+Shared pointer whose {\ttfamily operator==} compares the pointed to values.  
+
+
+
+
+{\ttfamily \#include $<$memory.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:util\+:\+:deref\+\_\+shared\+\_\+ptr$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classslb_1_1core_1_1util_1_1deref__shared__ptr__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:util\+:\+:deref\+\_\+shared\+\_\+ptr$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classslb_1_1core_1_1util_1_1deref__shared__ptr__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_a288bb6317a3a5b58f0d1af011ec323f0}{Base} = std\+::shared\+\_\+ptr$<$ T $>$\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_a288bb6317a3a5b58f0d1af011ec323f0}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_a288bb6317a3a5b58f0d1af011ec323f0}
+
+\begin{DoxyCompactList}\small\item\em The standard shared pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_a30431a65655696d226d519cb1538884d}{deref\+\_\+shared\+\_\+ptr} ()\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_a30431a65655696d226d519cb1538884d}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_a30431a65655696d226d519cb1538884d}
+
+\begin{DoxyCompactList}\small\item\em The default constructor. \end{DoxyCompactList}\item 
+constexpr \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_a739df6c589b420b635dfaa038d32bc96}{deref\+\_\+shared\+\_\+ptr} (std\+::nullptr\+\_\+t)\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_a739df6c589b420b635dfaa038d32bc96}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_a739df6c589b420b635dfaa038d32bc96}
+
+\begin{DoxyCompactList}\small\item\em The constructor based on {\ttfamily nullptr}. \end{DoxyCompactList}\item 
+\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_abeeb35b697324718b90d6e7b32561f6f}{deref\+\_\+shared\+\_\+ptr} (const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} \&rhs)
+\begin{DoxyCompactList}\small\item\em The copy constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Y $>$ }\\\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_a61799e773215340c1f2f6a763d6ed308}{deref\+\_\+shared\+\_\+ptr} (Y $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em The constructor based on a pointer to a type that can be converted to {\ttfamily T}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Y , class Deleter $>$ }\\\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_aaf5ef266fc89518c148b28e7260a869f}{deref\+\_\+shared\+\_\+ptr} (std\+::unique\+\_\+ptr$<$ Y, Deleter $>$ \&\&r)
+\begin{DoxyCompactList}\small\item\em The moving constructor based on a unique pointer to a type that can be converted to {\ttfamily T}. \end{DoxyCompactList}\item 
+\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} \& \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_aec141838789d45a5d1d1bdf83a60d9cf}{operator=} (const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} \&rhs)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_aff37dd35fa8437c3ca360861fc9a0779}{deref\+\_\+shared\+\_\+ptr} (const \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_a288bb6317a3a5b58f0d1af011ec323f0}{Base} \&p)
+\begin{DoxyCompactList}\small\item\em Conversion from a standard shared pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class TT , class... Args$>$ }\\\hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ TT $>$ \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr_a3731f6226e49a2c28f06c420c984b898}{make\+\_\+deref\+\_\+shared} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr$<$ T $>$}
+
+Shared pointer whose {\ttfamily operator==} compares the pointed to values. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type being pointed to. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 24 of file memory.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(const deref\+\_\+shared\+\_\+ptr \&rhs)}{deref_shared_ptr(const deref_shared_ptr &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_abeeb35b697324718b90d6e7b32561f6f}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_abeeb35b697324718b90d6e7b32561f6f}
+
+
+The copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The object being copied. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file memory.\+h.
+
+\index{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(\+Y $\ast$ptr)}{deref_shared_ptr(Y *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$class Y $>$ {\bf slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{Y $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_a61799e773215340c1f2f6a763d6ed308}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_a61799e773215340c1f2f6a763d6ed308}
+
+
+The constructor based on a pointer to a type that can be converted to {\ttfamily T}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Y} & A type that can be converted to T. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to be used for construction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 47 of file memory.\+h.
+
+\index{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(std\+::unique\+\_\+ptr$<$ Y, Deleter $>$ \&\&r)}{deref_shared_ptr(std::unique_ptr< Y, Deleter > &&r)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$class Y , class Deleter $>$ {\bf slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{std\+::unique\+\_\+ptr$<$ Y, Deleter $>$ \&\&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_aaf5ef266fc89518c148b28e7260a869f}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_aaf5ef266fc89518c148b28e7260a869f}
+
+
+The moving constructor based on a unique pointer to a type that can be converted to {\ttfamily T}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Y} & A type that can be converted to T. \\
+\hline
+{\em Deleter} & The deleter of the unique pointer type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The unique pointer to be used for construction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file memory.\+h.
+
+\index{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(const Base \&p)}{deref_shared_ptr(const Base &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Base} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_aff37dd35fa8437c3ca360861fc9a0779}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_aff37dd35fa8437c3ca360861fc9a0779}
+
+
+Conversion from a standard shared pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The standard shared pointer to be converted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 73 of file memory.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}!operator=@{operator=}}
+\index{operator=@{operator=}!slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{operator=(const deref\+\_\+shared\+\_\+ptr \&rhs)}{operator=(const deref_shared_ptr &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf deref\+\_\+shared\+\_\+ptr}\& {\bf slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_aec141838789d45a5d1d1bdf83a60d9cf}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_aec141838789d45a5d1d1bdf83a60d9cf}
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the assignment. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file memory.\+h.
+
+
+
+\subsubsection{Friends And Related Function Documentation}
+\index{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}!make\+\_\+deref\+\_\+shared@{make\+\_\+deref\+\_\+shared}}
+\index{make\+\_\+deref\+\_\+shared@{make\+\_\+deref\+\_\+shared}!slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr@{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{make\+\_\+deref\+\_\+shared}{make_deref_shared}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$class TT , class... Args$>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$TT$>$ make\+\_\+deref\+\_\+shared (
+\begin{DoxyParamCaption}
+\item[{Args \&\&...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classslb_1_1core_1_1util_1_1deref__shared__ptr_a3731f6226e49a2c28f06c420c984b898}{}\label{classslb_1_1core_1_1util_1_1deref__shared__ptr_a3731f6226e49a2c28f06c420c984b898}
+
+
+The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TT} & The pointed to type. \\
+\hline
+{\em Args} & The template argument list for the constructor. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 143 of file memory.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{memory_8h}{memory.\+h}\end{DoxyCompactItemize}

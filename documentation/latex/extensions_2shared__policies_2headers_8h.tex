@@ -1,0 +1,80 @@
+\hypertarget{extensions_2shared__policies_2headers_8h}{}\subsection{extensions/shared\+\_\+policies/headers.h File Reference}
+\label{extensions_2shared__policies_2headers_8h}\index{extensions/shared\+\_\+policies/headers.\+h@{extensions/shared\+\_\+policies/headers.\+h}}
+
+
+Policy classes for search algorithms and algorithmic variants.  
+
+
+{\ttfamily \#include \char`\"{}backtrack\+\_\+lock.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}goal\+\_\+handlers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}heuristic\+\_\+policies.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}generators.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}open\+\_\+list.\+h\char`\"{}}\\*
+Include dependency graph for headers.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{extensions_2shared__policies_2headers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{extensions_2shared__policies_2headers_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{classslb_1_1ext_1_1algorithm_1_1AlgorithmTraits}{slb\+::ext\+::algorithm\+::\+Algorithm\+Traits$<$ My\+Algorithm $>$}
+\begin{DoxyCompactList}\small\item\em Types associated with concrete algorithms. See also \href{http://stackoverflow.com/questions/8401827/crtp-and-type-visibility}{\tt http\+://stackoverflow.\+com/questions/8401827/crtp-\/and-\/type-\/visibility}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext}{slb\+::ext}
+\begin{DoxyCompactList}\small\item\em The user extensions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1algorithm}{slb\+::ext\+::algorithm}
+\begin{DoxyCompactList}\small\item\em The search algorithms. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1policy}{slb\+::ext\+::policy}
+\begin{DoxyCompactList}\small\item\em Policy classes for search algorithms and algorithmic variants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES}
+\begin{DoxyCompactList}\small\item\em Type aliases used by many policies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Policy classes for search algorithms and algorithmic variants. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}
+
+
+\subsubsection{Macro Definition Documentation}
+\index{extensions/shared\+\_\+policies/headers.\+h@{extensions/shared\+\_\+policies/headers.\+h}!P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES@{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES}}
+\index{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES@{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES}!extensions/shared\+\_\+policies/headers.\+h@{extensions/shared\+\_\+policies/headers.\+h}}
+\paragraph[{\texorpdfstring{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES}{POLICY_TYPES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES}\hypertarget{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{}\label{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{using} Traits = ext::algorithm::AlgorithmTraits<MyAlgorithm>;               \(\backslash\)
+    using MyInstance = \textcolor{keyword}{typename} Traits::MyInstance;                            \(\backslash\)
+    static constexpr \textcolor{keywordtype}{bool} logFlag = Traits::logFlag\_;                          \(\backslash\)
+    using Log = \textcolor{keyword}{typename} Traits::MyAlgorithmLog;                               \(\backslash\)
+    using CostType = \textcolor{keyword}{typename} Traits::CostType;                                \(\backslash\)
+    using Node = \textcolor{keyword}{typename} Traits::Node;                                        \(\backslash\)
+    using NodeData = \textcolor{keyword}{typename} Traits::NodeData;                                \(\backslash\)
+    using State = \textcolor{keyword}{typename} Traits::State;
+\end{DoxyCode}
+
+
+Type aliases used by many policies. 
+
+
+
+Definition at line 22 of file headers.\+h.
+

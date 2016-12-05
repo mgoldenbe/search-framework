@@ -1,0 +1,282 @@
+\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase}{}\subsection{slb\+:\+:core\+:\+:ui\+:\+:Menu\+Base$<$ All\+Menus, Node $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1ui_1_1MenuBase}\index{slb\+::core\+::ui\+::\+Menu\+Base$<$ All\+Menus, Node $>$@{slb\+::core\+::ui\+::\+Menu\+Base$<$ All\+Menus, Node $>$}}
+
+
+The base class for all the menus.  
+
+
+
+
+{\ttfamily \#include $<$menus.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:ui\+:\+:Menu\+Base$<$ All\+Menus, Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structslb_1_1core_1_1ui_1_1MenuBase__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:ui\+:\+:Menu\+Base$<$ All\+Menus, Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1core_1_1ui_1_1MenuBase__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a766bcf66d6b83992085bad43a4455585}{Base} = \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase}{Menu\+Base}$<$ \hyperlink{structslb_1_1core_1_1ui_1_1AllMenus}{All\+Menus}, Node $>$\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a766bcf66d6b83992085bad43a4455585}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a766bcf66d6b83992085bad43a4455585}
+
+\begin{DoxyCompactList}\small\item\em Just a short name for the base class for all the menus. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a1803444111552d2e5b87671292dd74cb}{Data} = \hyperlink{structslb_1_1core_1_1ui_1_1VisualizerData}{Visualizer\+Data}$<$ Node $>$\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a1803444111552d2e5b87671292dd74cb}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a1803444111552d2e5b87671292dd74cb}
+
+\begin{DoxyCompactList}\small\item\em The base of \hyperlink{structslb_1_1core_1_1ui_1_1Visualizer}{ui\+::\+Visualizer} holding the visualizer\textquotesingle{}s constituent components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_ab3e3534c24d4fe85425ffdbd26d99800}{Menu\+Base} (\hyperlink{structslb_1_1core_1_1ui_1_1AllMenus}{All\+Menus} \&m, \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a1803444111552d2e5b87671292dd74cb}{Data} \&\hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a475d9457affb2b4fc96737e269d6911f}{data})
+\begin{DoxyCompactList}\small\item\em Initializes with a back-\/reference to the whole menu and reference to the constituent components of the visualizer. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_aa1df75c9c0208448f3a2e5551207894a}{choices} () const 
+\begin{DoxyCompactList}\small\item\em Returns the strings representing the choices for the menu. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_ad8625e43a539491f1b8adeedcfaa5c9f}{non\+Selectable} () const 
+\begin{DoxyCompactList}\small\item\em Returns the strings representing the disabled choices for the menu. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_abfe98b881efe7a8c90d06585e8108388}{multi} () const 
+\begin{DoxyCompactList}\small\item\em Returns whether the menu allows the selection of several choices. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a1803444111552d2e5b87671292dd74cb}{Data} \& \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a475d9457affb2b4fc96737e269d6911f}{data} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to the constituent components of the visualizer. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1Form}{Form} \& \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a2d095f7166ad46154af046d34bd77cd3}{form} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to the form of the menu. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_ad6eeca2af6428b85c933547bc5c8715a}{form\+Empty} () const 
+\begin{DoxyCompactList}\small\item\em Returns whether the currently active form of the menu is empty. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_af6a38ec85013523f3d6fb229cbfb0aaa}{handle\+Enter} ()\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_af6a38ec85013523f3d6fb229cbfb0aaa}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_af6a38ec85013523f3d6fb229cbfb0aaa}
+
+\begin{DoxyCompactList}\small\item\em Handles the pressed Enter key. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a25f675493c97de233c6a2a21a78c5f98}{handle\+Esc} ()\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a25f675493c97de233c6a2a21a78c5f98}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a25f675493c97de233c6a2a21a78c5f98}
+
+\begin{DoxyCompactList}\small\item\em Handles the pressed Esc key. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_ac4aa4af84582448f17fc11d51952624a}{select\+All} ()\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_ac4aa4af84582448f17fc11d51952624a}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_ac4aa4af84582448f17fc11d51952624a}
+
+\begin{DoxyCompactList}\small\item\em Marks all choices as selected. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_ac7e814989c029927a266b5fedfb09c11}{select\+None} ()\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_ac7e814989c029927a266b5fedfb09c11}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_ac7e814989c029927a266b5fedfb09c11}
+
+\begin{DoxyCompactList}\small\item\em Marks all choices as not selected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a67b7eded3ecf04b43f4da92b53a5ae57}{fill\+Choices} ()\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a67b7eded3ecf04b43f4da92b53a5ae57}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a67b7eded3ecf04b43f4da92b53a5ae57}
+
+\begin{DoxyCompactList}\small\item\em Fills the \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a5ada6ccb413d170b2899125ebce9f9b0}{choices\+\_\+} based on \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a1d0c310785fbde8da82aa0e218094050}{enter\+Map\+\_\+}. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a43a378664d6004ac84c2a3ce21d88f75}{choice} () const 
+\begin{DoxyCompactList}\small\item\em Returns the currently active choice. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1AllMenus}{All\+Menus} \& \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a5b2b8876459e3a82c2736bd2637181ab}{m\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a5b2b8876459e3a82c2736bd2637181ab}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a5b2b8876459e3a82c2736bd2637181ab}
+
+\begin{DoxyCompactList}\small\item\em Back-\/reference to the whole menu. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a1803444111552d2e5b87671292dd74cb}{Data} \& \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a95cb3b6b89fe2185631417d0dc7d769f}{data\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a95cb3b6b89fe2185631417d0dc7d769f}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a95cb3b6b89fe2185631417d0dc7d769f}
+
+\begin{DoxyCompactList}\small\item\em Reference to the constituent components of the visualizer. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a766bcf66d6b83992085bad43a4455585}{Base} $\ast$ $>$ $>$ \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a1d0c310785fbde8da82aa0e218094050}{enter\+Map\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a1d0c310785fbde8da82aa0e218094050}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a1d0c310785fbde8da82aa0e218094050}
+
+\begin{DoxyCompactList}\small\item\em For each choice, the menu that needs to be entered. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a5ada6ccb413d170b2899125ebce9f9b0}{choices\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a5ada6ccb413d170b2899125ebce9f9b0}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a5ada6ccb413d170b2899125ebce9f9b0}
+
+\begin{DoxyCompactList}\small\item\em All the choices. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a18e8015c60668cfc582c40a2bba461cc}{non\+Selectable\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a18e8015c60668cfc582c40a2bba461cc}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a18e8015c60668cfc582c40a2bba461cc}
+
+\begin{DoxyCompactList}\small\item\em The choices that cannot be selected. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_a766bcf66d6b83992085bad43a4455585}{Base} $\ast$ \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_ac60a1fbe29a6ce4abe7c0a936f470828}{exit\+Menu\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_ac60a1fbe29a6ce4abe7c0a936f470828}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_ac60a1fbe29a6ce4abe7c0a936f470828}
+
+\begin{DoxyCompactList}\small\item\em The parent of the menu, which will be switched to when the menu is exited by means of pressing Esc. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1Form}{Form} \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase_ad33d49ddd3e91cdf254aa80daacc8466}{form\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_ad33d49ddd3e91cdf254aa80daacc8466}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_ad33d49ddd3e91cdf254aa80daacc8466}
+
+\begin{DoxyCompactList}\small\item\em The form of the menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class All\+Menus, class Node$>$\\*
+struct slb\+::core\+::ui\+::\+Menu\+Base$<$ All\+Menus, Node $>$}
+
+The base class for all the menus. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \hyperlink{structslb_1_1core_1_1ui_1_1AllMenus}{All\+Menus}} & The type for holding all the menus. \\
+\hline
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 18 of file menus.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!Menu\+Base@{Menu\+Base}}
+\index{Menu\+Base@{Menu\+Base}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{Menu\+Base(\+All\+Menus \&m, Data \&data)}{MenuBase(AllMenus &m, Data &data)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::{\bf Menu\+Base} (
+\begin{DoxyParamCaption}
+\item[{{\bf All\+Menus} \&}]{m, }
+\item[{{\bf Data} \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_ab3e3534c24d4fe85425ffdbd26d99800}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_ab3e3534c24d4fe85425ffdbd26d99800}
+
+
+Initializes with a back-\/reference to the whole menu and reference to the constituent components of the visualizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Back-\/reference to the whole menu. \\
+\hline
+{\em data} & reference to the constituent components of the visualizer. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file menus.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!choice@{choice}}
+\index{choice@{choice}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{choice() const }{choice() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ std\+::string {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::choice (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a43a378664d6004ac84c2a3ce21d88f75}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a43a378664d6004ac84c2a3ce21d88f75}
+
+
+Returns the currently active choice. 
+
+\begin{DoxyReturn}{Returns}
+the currently active choice. 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file menus.\+h.
+
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!choices@{choices}}
+\index{choices@{choices}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{choices() const }{choices() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ const std\+::vector$<$std\+::string$>$\& {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::choices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_aa1df75c9c0208448f3a2e5551207894a}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_aa1df75c9c0208448f3a2e5551207894a}
+
+
+Returns the strings representing the choices for the menu. 
+
+\begin{DoxyReturn}{Returns}
+Vector of strings representing the choices for the menu. 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file menus.\+h.
+
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!data@{data}}
+\index{data@{data}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{data()}{data()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ {\bf Data}\& {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a475d9457affb2b4fc96737e269d6911f}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a475d9457affb2b4fc96737e269d6911f}
+
+
+Returns reference to the constituent components of the visualizer. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the constituent components of the visualizer. 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file menus.\+h.
+
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!form@{form}}
+\index{form@{form}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{form()}{form()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ {\bf Form}\& {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::form (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_a2d095f7166ad46154af046d34bd77cd3}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_a2d095f7166ad46154af046d34bd77cd3}
+
+
+Returns reference to the form of the menu. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the form of the menu. 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file menus.\+h.
+
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!form\+Empty@{form\+Empty}}
+\index{form\+Empty@{form\+Empty}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{form\+Empty() const }{formEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ bool {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::form\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_ad6eeca2af6428b85c933547bc5c8715a}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_ad6eeca2af6428b85c933547bc5c8715a}
+
+
+Returns whether the currently active form of the menu is empty. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the currently active form of the menu is empty does not have any fields. 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file menus.\+h.
+
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!multi@{multi}}
+\index{multi@{multi}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{multi() const }{multi() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ virtual bool {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::multi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_abfe98b881efe7a8c90d06585e8108388}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_abfe98b881efe7a8c90d06585e8108388}
+
+
+Returns whether the menu allows the selection of several choices. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the menu allows the selection of several choices. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{structslb_1_1core_1_1ui_1_1MenuEditFilter_aa8f24e2a278602477502f291c9d05dd4}{slb\+::core\+::ui\+::\+Menu\+Edit\+Filter$<$ All\+Menus, Node $>$}, and \hyperlink{structslb_1_1core_1_1ui_1_1MenuEditFilter_aa8f24e2a278602477502f291c9d05dd4}{slb\+::core\+::ui\+::\+Menu\+Edit\+Filter$<$ slb\+::core\+::ui\+::\+All\+Menus, Node $>$}.
+
+
+
+Definition at line 45 of file menus.\+h.
+
+\index{slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}!non\+Selectable@{non\+Selectable}}
+\index{non\+Selectable@{non\+Selectable}!slb\+::core\+::ui\+::\+Menu\+Base@{slb\+::core\+::ui\+::\+Menu\+Base}}
+\paragraph[{\texorpdfstring{non\+Selectable() const }{nonSelectable() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class All\+Menus, class Node$>$ const std\+::vector$<$std\+::string$>$\& {\bf slb\+::core\+::ui\+::\+Menu\+Base}$<$ {\bf All\+Menus}, Node $>$\+::non\+Selectable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1MenuBase_ad8625e43a539491f1b8adeedcfaa5c9f}{}\label{structslb_1_1core_1_1ui_1_1MenuBase_ad8625e43a539491f1b8adeedcfaa5c9f}
+
+
+Returns the strings representing the disabled choices for the menu. 
+
+\begin{DoxyReturn}{Returns}
+Vector of strings representing the disabled choices for the menu. 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file menus.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{menus_8h}{menus.\+h}\end{DoxyCompactItemize}

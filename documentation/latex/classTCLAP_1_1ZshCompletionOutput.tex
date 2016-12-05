@@ -1,0 +1,140 @@
+\hypertarget{classTCLAP_1_1ZshCompletionOutput}{}\subsection{T\+C\+L\+AP\+:\+:Zsh\+Completion\+Output Class Reference}
+\label{classTCLAP_1_1ZshCompletionOutput}\index{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output@{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output}}
+
+
+{\ttfamily \#include $<$Zsh\+Completion\+Output.\+h$>$}
+
+
+
+Inheritance diagram for T\+C\+L\+AP\+:\+:Zsh\+Completion\+Output\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classTCLAP_1_1ZshCompletionOutput__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for T\+C\+L\+AP\+:\+:Zsh\+Completion\+Output\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classTCLAP_1_1ZshCompletionOutput__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classTCLAP_1_1ZshCompletionOutput_a3ea685b174fce7ddf2353129863b49d7}{usage} (\hyperlink{classTCLAP_1_1CmdLineInterface}{Cmd\+Line\+Interface} \&c)
+\item 
+virtual void \hyperlink{classTCLAP_1_1ZshCompletionOutput_a543e705918d769d3d6f4090c403ed0c9}{version} (\hyperlink{classTCLAP_1_1CmdLineInterface}{Cmd\+Line\+Interface} \&c)
+\item 
+virtual void \hyperlink{classTCLAP_1_1ZshCompletionOutput_abcd0ba63a2ac7675d085877fc4d3e8cf}{failure} (\hyperlink{classTCLAP_1_1CmdLineInterface}{Cmd\+Line\+Interface} \&c, \hyperlink{classTCLAP_1_1ArgException}{Arg\+Exception} \&e)
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries basename} (std\+::string \&s)\hypertarget{classTCLAP_1_1ZshCompletionOutput_a3fff80665ab8d6161de6451924c2b954}{}\label{classTCLAP_1_1ZshCompletionOutput_a3fff80665ab8d6161de6451924c2b954}
+
+\item 
+void {\bfseries quote\+Special\+Chars} (std\+::string \&s)\hypertarget{classTCLAP_1_1ZshCompletionOutput_aacd678921212eb6654d7f704da360361}{}\label{classTCLAP_1_1ZshCompletionOutput_aacd678921212eb6654d7f704da360361}
+
+\item 
+std\+::string {\bfseries get\+Mutex\+List} (\hyperlink{classTCLAP_1_1CmdLineInterface}{Cmd\+Line\+Interface} \&\+\_\+cmd, \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$a)\hypertarget{classTCLAP_1_1ZshCompletionOutput_af3fceb65fc2c22ae8cc3c1df8a503184}{}\label{classTCLAP_1_1ZshCompletionOutput_af3fceb65fc2c22ae8cc3c1df8a503184}
+
+\item 
+void {\bfseries print\+Option} (\hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$it, std\+::string mutex)\hypertarget{classTCLAP_1_1ZshCompletionOutput_a33903e3aef02f50799726eb7789fb4d4}{}\label{classTCLAP_1_1ZshCompletionOutput_a33903e3aef02f50799726eb7789fb4d4}
+
+\item 
+void {\bfseries print\+Arg} (\hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$it)\hypertarget{classTCLAP_1_1ZshCompletionOutput_a1d079ecf271977419432fb0caa72d035}{}\label{classTCLAP_1_1ZshCompletionOutput_a1d079ecf271977419432fb0caa72d035}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, std\+::string $>$ {\bfseries common}\hypertarget{classTCLAP_1_1ZshCompletionOutput_aaa1f1d51a31c32ca28df97c951aaad81}{}\label{classTCLAP_1_1ZshCompletionOutput_aaa1f1d51a31c32ca28df97c951aaad81}
+
+\item 
+char {\bfseries the\+Delimiter}\hypertarget{classTCLAP_1_1ZshCompletionOutput_a170dd4ecb233984f3e2b6f853c82b1b0}{}\label{classTCLAP_1_1ZshCompletionOutput_a170dd4ecb233984f3e2b6f853c82b1b0}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+A class that generates a Zsh completion function as output from the \hyperlink{classTCLAP_1_1ZshCompletionOutput_a3ea685b174fce7ddf2353129863b49d7}{usage()} method for the given \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} and its Args. 
+
+Definition at line 43 of file Zsh\+Completion\+Output.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output@{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output}!failure@{failure}}
+\index{failure@{failure}!T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output@{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output}}
+\paragraph[{\texorpdfstring{failure(\+Cmd\+Line\+Interface \&c, Arg\+Exception \&e)}{failure(CmdLineInterface &c, ArgException &e)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output\+::failure (
+\begin{DoxyParamCaption}
+\item[{{\bf Cmd\+Line\+Interface} \&}]{c, }
+\item[{{\bf Arg\+Exception} \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1ZshCompletionOutput_abcd0ba63a2ac7675d085877fc4d3e8cf}{}\label{classTCLAP_1_1ZshCompletionOutput_abcd0ba63a2ac7675d085877fc4d3e8cf}
+Prints (to stderr) an error message, short usage Can be overridden to produce alternative behavior. 
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ The \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} object the output is generated for. \\
+\hline
+{\em e} & -\/ The \hyperlink{classTCLAP_1_1ArgException}{Arg\+Exception} that caused the failure. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineOutput_ad23a57ac3d8d957a4328fc78aec94e16}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Output}.
+
+
+
+Definition at line 129 of file Zsh\+Completion\+Output.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output@{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output}!usage@{usage}}
+\index{usage@{usage}!T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output@{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output}}
+\paragraph[{\texorpdfstring{usage(\+Cmd\+Line\+Interface \&c)}{usage(CmdLineInterface &c)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output\+::usage (
+\begin{DoxyParamCaption}
+\item[{{\bf Cmd\+Line\+Interface} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1ZshCompletionOutput_a3ea685b174fce7ddf2353129863b49d7}{}\label{classTCLAP_1_1ZshCompletionOutput_a3ea685b174fce7ddf2353129863b49d7}
+Prints the usage to stdout. Can be overridden to produce alternative behavior. 
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ The \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} object the output is generated for. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineOutput_a685b13db5bf6bbe5159e49169cd96bbe}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Output}.
+
+
+
+Definition at line 106 of file Zsh\+Completion\+Output.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output@{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output}!version@{version}}
+\index{version@{version}!T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output@{T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output}}
+\paragraph[{\texorpdfstring{version(\+Cmd\+Line\+Interface \&c)}{version(CmdLineInterface &c)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+L\+A\+P\+::\+Zsh\+Completion\+Output\+::version (
+\begin{DoxyParamCaption}
+\item[{{\bf Cmd\+Line\+Interface} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1ZshCompletionOutput_a543e705918d769d3d6f4090c403ed0c9}{}\label{classTCLAP_1_1ZshCompletionOutput_a543e705918d769d3d6f4090c403ed0c9}
+Prints the version to stdout. Can be overridden to produce alternative behavior. 
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ The \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} object the output is generated for. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classTCLAP_1_1CmdLineOutput_ae052fea473132482296de55edb3dd480}{T\+C\+L\+A\+P\+::\+Cmd\+Line\+Output}.
+
+
+
+Definition at line 101 of file Zsh\+Completion\+Output.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/outside1/tclap/Zsh\+Completion\+Output.\+h\end{DoxyCompactItemize}

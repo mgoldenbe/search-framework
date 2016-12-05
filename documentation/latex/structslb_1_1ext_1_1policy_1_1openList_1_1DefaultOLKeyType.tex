@@ -1,0 +1,76 @@
+\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:open\+List\+:\+:Default\+O\+L\+Key\+Type$<$ Node $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType}\index{slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type$<$ Node $>$@{slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type$<$ Node $>$}}
+
+
+Nodes are ordered in the open list based on g and f. The particular ordering rules are defined by the other policies.  
+
+
+
+
+{\ttfamily \#include $<$open\+\_\+list.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_afdae8b0b1b4427bc68c40ecd960cf1ab}{Cost\+Type} = typename Node\+::\+Cost\+Type\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_afdae8b0b1b4427bc68c40ecd960cf1ab}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_afdae8b0b1b4427bc68c40ecd960cf1ab}
+
+\begin{DoxyCompactList}\small\item\em Type for action cost. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_ad5dd2f1bd5ba1c35ed0f197b58d6823a}{Default\+O\+L\+Key\+Type} (const Node $\ast$n)
+\begin{DoxyCompactList}\small\item\em Initializes the key based on the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_afdae8b0b1b4427bc68c40ecd960cf1ab}{Cost\+Type} \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_a89a082636c1559e23c33651906b9a73b}{g}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_a89a082636c1559e23c33651906b9a73b}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_a89a082636c1559e23c33651906b9a73b}
+
+\begin{DoxyCompactList}\small\item\em g-\/cost of the node. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_afdae8b0b1b4427bc68c40ecd960cf1ab}{Cost\+Type} \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_a5ed8cd631d87833d34fccc76880df2e3}{f}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_a5ed8cd631d87833d34fccc76880df2e3}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_a5ed8cd631d87833d34fccc76880df2e3}
+
+\begin{DoxyCompactList}\small\item\em f-\/cost of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node$>$\\*
+struct slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type$<$ Node $>$}
+
+Nodes are ordered in the open list based on g and f. The particular ordering rules are defined by the other policies. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 34 of file open\+\_\+list.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type@{slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type}!Default\+O\+L\+Key\+Type@{Default\+O\+L\+Key\+Type}}
+\index{Default\+O\+L\+Key\+Type@{Default\+O\+L\+Key\+Type}!slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type@{slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type}}
+\paragraph[{\texorpdfstring{Default\+O\+L\+Key\+Type(const Node $\ast$n)}{DefaultOLKeyType(const Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node$>$ {\bf slb\+::ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type}$<$ Node $>$\+::{\bf Default\+O\+L\+Key\+Type} (
+\begin{DoxyParamCaption}
+\item[{const Node $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_ad5dd2f1bd5ba1c35ed0f197b58d6823a}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType_ad5dd2f1bd5ba1c35ed0f197b58d6823a}
+
+
+Initializes the key based on the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file open\+\_\+list.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{open__list_8h}{open\+\_\+list.\+h}\end{DoxyCompactItemize}

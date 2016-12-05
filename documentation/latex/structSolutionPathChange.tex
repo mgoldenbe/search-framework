@@ -1,0 +1,91 @@
+\hypertarget{structSolutionPathChange}{}\subsection{Solution\+Path\+Change$<$ Node $>$ Struct Template Reference}
+\label{structSolutionPathChange}\index{Solution\+Path\+Change$<$ Node $>$@{Solution\+Path\+Change$<$ Node $>$}}
+
+
+An event that applies visual changes to states and edges of the state graph along the path leading to the state associated with the event.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+types.\+h$>$}
+
+
+
+Inheritance diagram for Solution\+Path\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structSolutionPathChange__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Solution\+Path\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structSolutionPathChange__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structSolutionPathChange_ae33e0af33ce7ab2be686078e05d74b88}{Direct\+Base} = \hyperlink{structPathChange}{Path\+Change}$<$ Node $>$\hypertarget{structSolutionPathChange_ae33e0af33ce7ab2be686078e05d74b88}{}\label{structSolutionPathChange_ae33e0af33ce7ab2be686078e05d74b88}
+
+\begin{DoxyCompactList}\small\item\em The direct base class. \end{DoxyCompactList}\item 
+using \hyperlink{structSolutionPathChange_ac2616466667e28ff0aa3ff711f4758f9}{State\+Set} = typename \hyperlink{structUniformChange_afc89af5d5e897d7664eb9ae7770d145c}{Direct\+Base\+::\+State\+Set}\hypertarget{structSolutionPathChange_ac2616466667e28ff0aa3ff711f4758f9}{}\label{structSolutionPathChange_ac2616466667e28ff0aa3ff711f4758f9}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{structUniformChange_afc89af5d5e897d7664eb9ae7770d145c}{State\+Set} \hyperlink{structSolutionPathChange_a445206d31b2cefe2e0a25058186e3867}{path} () const 
+\begin{DoxyCompactList}\small\item\em Returns the path to which the visual changes are applied. In this case, it\textquotesingle{}s the path leading to the state associated with the event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct Solution\+Path\+Change$<$ Node $>$}
+
+An event that applies visual changes to states and edges of the state graph along the path leading to the state associated with the event. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 194 of file event\+\_\+types.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Solution\+Path\+Change@{Solution\+Path\+Change}!path@{path}}
+\index{path@{path}!Solution\+Path\+Change@{Solution\+Path\+Change}}
+\paragraph[{\texorpdfstring{path() const }{path() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual {\bf State\+Set} {\bf Solution\+Path\+Change}$<$ Node $>$\+::path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structSolutionPathChange_a445206d31b2cefe2e0a25058186e3867}{}\label{structSolutionPathChange_a445206d31b2cefe2e0a25058186e3867}
+
+
+Returns the path to which the visual changes are applied. In this case, it\textquotesingle{}s the path leading to the state associated with the event. 
+
+\begin{DoxyReturn}{Returns}
+The states along the path to which the visual changes are applied. In this case, it\textquotesingle{}s the path leading to the state associated with the event. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{structPathChange_a31e266b891b5fe3777f64a0abe2631e8}{Path\+Change$<$ Node $>$}.
+
+
+
+Definition at line 213 of file event\+\_\+types.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{event__types_8h}{event\+\_\+types.\+h}\end{DoxyCompactItemize}

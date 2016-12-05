@@ -1,0 +1,22 @@
+\hypertarget{namespaceslb_1_1ext_1_1policy_1_1backtrackLock}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:backtrack\+Lock Namespace Reference}
+\label{namespaceslb_1_1ext_1_1policy_1_1backtrackLock}\index{slb\+::ext\+::policy\+::backtrack\+Lock@{slb\+::ext\+::policy\+::backtrack\+Lock}}
+
+
+Policies for handling backtracking in I\+D\+A$\ast$.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Copy}{Copy}
+\begin{DoxyCompactList}\small\item\em A class for handling R\+A\+II for backtracking in I\+D\+A$\ast$ when the parent state is kept, i.\+e. \hyperlink{structslb_1_1core_1_1sb_1_1StateNeighbor}{core\+::sb\+::\+State\+Neighbor} (i.\+e. not \hyperlink{structslb_1_1core_1_1sb_1_1ActionNeighbor}{core\+::sb\+::\+Action\+Neighbor}) is used. The second template parameter is not used, just for uniformity. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace}{Inplace}
+\begin{DoxyCompactList}\small\item\em Handles R\+A\+II for backtracking in I\+D\+A$\ast$ when the state is updated in place. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4}{Inplace$<$ My\+Algorithm, true $>$}
+\begin{DoxyCompactList}\small\item\em Handles R\+A\+II for backtracking in I\+D\+A$\ast$ when the state is updated in place and log is kept, so that a copy of the parent state needs to be kept. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase}{Inplace\+Base}
+\begin{DoxyCompactList}\small\item\em Base for a class handling R\+A\+II for backtracking in I\+D\+A$\ast$ when the state is updated in place (i.\+e. \hyperlink{structslb_1_1core_1_1sb_1_1ActionNeighbor}{core\+::sb\+::\+Action\+Neighbor} is used). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Policies for handling backtracking in I\+D\+A$\ast$. 

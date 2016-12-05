@@ -1,0 +1,178 @@
+\hypertarget{namespaceslb_1_1core_1_1util_1_1gu}{}\subsection{slb\+:\+:core\+:\+:util\+:\+:gu Namespace Reference}
+\label{namespaceslb_1_1core_1_1util_1_1gu}\index{slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}}
+
+
+Geometry utilities.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Circle}{Circle}
+\begin{DoxyCompactList}\small\item\em The circle. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point}
+\begin{DoxyCompactList}\small\item\em The point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1gu_a529d378309ce8434c3ef7af3ea9e837c}{distance} (double x1, double y1, double x2, double y2)
+\begin{DoxyCompactList}\small\item\em Computes the Euclidean distance between two points. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1gu_abdca6fd443babed63b1653f3b8e99c42}{distance} (const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \&p1, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \&p2)
+\begin{DoxyCompactList}\small\item\em Computes the Euclidean distance between two points. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \hyperlink{namespaceslb_1_1core_1_1util_1_1gu_a955b2a5a7a5d669c4136eb7a744c97d3}{point\+On\+Line} (const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \&p1, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \&p2, double w)
+\begin{DoxyCompactList}\small\item\em Computes the point a certain proportion of distance from the first point to the second one. So, if 0.\+5 is passed for the third parameter, the middle between the two points is returned. \end{DoxyCompactList}\item 
+double \hyperlink{namespaceslb_1_1core_1_1util_1_1gu_a1292402a8a80202220442b85cc7b057b}{angle} (const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \&from, const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \&to)
+\begin{DoxyCompactList}\small\item\em Computes the angle in radians that a line from {\ttfamily from} to {\ttfamily to} makes with the positive direction of the X-\/axis. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Point}{Point} \hyperlink{namespaceslb_1_1core_1_1util_1_1gu_ac3f0d893ff13987d17f22eac842cce52}{circle\+Point} (const \hyperlink{structslb_1_1core_1_1util_1_1gu_1_1Circle}{Circle} \&c, double \hyperlink{namespaceslb_1_1core_1_1util_1_1gu_a1292402a8a80202220442b85cc7b057b}{angle}, double width=0.\+0)
+\begin{DoxyCompactList}\small\item\em Computes the point on the circle at a given angle with the positive direction of the X-\/axis. Shifts the point inside the circle to a given distance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Geometry utilities. 
+
+\subsubsection{Function Documentation}
+\index{slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}!angle@{angle}}
+\index{angle@{angle}!slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}}
+\paragraph[{\texorpdfstring{angle(const Point \&from, const Point \&to)}{angle(const Point &from, const Point &to)}}]{\setlength{\rightskip}{0pt plus 5cm}double slb\+::core\+::util\+::gu\+::angle (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{from, }
+\item[{const {\bf Point} \&}]{to}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_1_1gu_a1292402a8a80202220442b85cc7b057b}{}\label{namespaceslb_1_1core_1_1util_1_1gu_a1292402a8a80202220442b85cc7b057b}
+
+
+Computes the angle in radians that a line from {\ttfamily from} to {\ttfamily to} makes with the positive direction of the X-\/axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The source point. \\
+\hline
+{\em to} & The target point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle in radians that a line from {\ttfamily from} to {\ttfamily to} makes with the positive direction of the X-\/axis. 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file geometry.\+h.
+
+\index{slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}!circle\+Point@{circle\+Point}}
+\index{circle\+Point@{circle\+Point}!slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}}
+\paragraph[{\texorpdfstring{circle\+Point(const Circle \&c, double angle, double width=0.\+0)}{circlePoint(const Circle &c, double angle, double width=0.0)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} slb\+::core\+::util\+::gu\+::circle\+Point (
+\begin{DoxyParamCaption}
+\item[{const {\bf Circle} \&}]{c, }
+\item[{double}]{angle, }
+\item[{double}]{width = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_1_1gu_ac3f0d893ff13987d17f22eac842cce52}{}\label{namespaceslb_1_1core_1_1util_1_1gu_ac3f0d893ff13987d17f22eac842cce52}
+
+
+Computes the point on the circle at a given angle with the positive direction of the X-\/axis. Shifts the point inside the circle to a given distance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The circle. \\
+\hline
+{\em angle} & The required angle with the positive direction of the X-\/axis. \\
+\hline
+{\em width} & The required shift. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The point on the circle at a given angle with the positive direction of the X-\/axis and shifted inside the circle to a given distance. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+{\ttfamily width} cannot be greater than diameter. 
+\end{DoxyNote}
+
+
+Definition at line 73 of file geometry.\+h.
+
+\index{slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}!distance@{distance}}
+\index{distance@{distance}!slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}}
+\paragraph[{\texorpdfstring{distance(double x1, double y1, double x2, double y2)}{distance(double x1, double y1, double x2, double y2)}}]{\setlength{\rightskip}{0pt plus 5cm}double slb\+::core\+::util\+::gu\+::distance (
+\begin{DoxyParamCaption}
+\item[{double}]{x1, }
+\item[{double}]{y1, }
+\item[{double}]{x2, }
+\item[{double}]{y2}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_1_1gu_a529d378309ce8434c3ef7af3ea9e837c}{}\label{namespaceslb_1_1core_1_1util_1_1gu_a529d378309ce8434c3ef7af3ea9e837c}
+
+
+Computes the Euclidean distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & The x-\/coordinate of the first point. \\
+\hline
+{\em y1} & The y-\/coordinate of the first point. \\
+\hline
+{\em x2} & The x-\/coordinate of the second point. \\
+\hline
+{\em y2} & The y-\/coordinate of the second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Euclidean distance between the two points. 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file geometry.\+h.
+
+\index{slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}!distance@{distance}}
+\index{distance@{distance}!slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}}
+\paragraph[{\texorpdfstring{distance(const Point \&p1, const Point \&p2)}{distance(const Point &p1, const Point &p2)}}]{\setlength{\rightskip}{0pt plus 5cm}double slb\+::core\+::util\+::gu\+::distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p1, }
+\item[{const {\bf Point} \&}]{p2}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_1_1gu_abdca6fd443babed63b1653f3b8e99c42}{}\label{namespaceslb_1_1core_1_1util_1_1gu_abdca6fd443babed63b1653f3b8e99c42}
+
+
+Computes the Euclidean distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The first point. \\
+\hline
+{\em p2} & The second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Euclidean distance between the two points. 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file geometry.\+h.
+
+\index{slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}!point\+On\+Line@{point\+On\+Line}}
+\index{point\+On\+Line@{point\+On\+Line}!slb\+::core\+::util\+::gu@{slb\+::core\+::util\+::gu}}
+\paragraph[{\texorpdfstring{point\+On\+Line(const Point \&p1, const Point \&p2, double w)}{pointOnLine(const Point &p1, const Point &p2, double w)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} slb\+::core\+::util\+::gu\+::point\+On\+Line (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p1, }
+\item[{const {\bf Point} \&}]{p2, }
+\item[{double}]{w}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_1_1gu_a955b2a5a7a5d669c4136eb7a744c97d3}{}\label{namespaceslb_1_1core_1_1util_1_1gu_a955b2a5a7a5d669c4136eb7a744c97d3}
+
+
+Computes the point a certain proportion of distance from the first point to the second one. So, if 0.\+5 is passed for the third parameter, the middle between the two points is returned. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The first point. \\
+\hline
+{\em p2} & The second point. \\
+\hline
+{\em w} & The proportion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The point a certain proportion of distance from the first point to the second one. 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file geometry.\+h.
+

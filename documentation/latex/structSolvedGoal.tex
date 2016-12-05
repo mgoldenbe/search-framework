@@ -1,0 +1,97 @@
+\hypertarget{structSolvedGoal}{}\subsection{Solved\+Goal$<$ Node $>$ Struct Template Reference}
+\label{structSolvedGoal}\index{Solved\+Goal$<$ Node $>$@{Solved\+Goal$<$ Node $>$}}
+
+
+Event that visualizes having found a path with required qualities to a goal.  
+
+
+
+
+{\ttfamily \#include $<$events.\+h$>$}
+
+
+
+Inheritance diagram for Solved\+Goal$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structSolvedGoal__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Solved\+Goal$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structSolvedGoal__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structSolvedGoal_abcb9cbd538270a8f85b556059f6d7b62}{State\+Shared\+Ptr} = typename \hyperlink{structUniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structEventBase_a2c0edb5cda08ce1965f3440a97b3fc87}{State\+Shared\+Ptr}\hypertarget{structSolvedGoal_abcb9cbd538270a8f85b556059f6d7b62}{}\label{structSolvedGoal_abcb9cbd538270a8f85b556059f6d7b62}
+
+\begin{DoxyCompactList}\small\item\em Shared pointer to constant state. \end{DoxyCompactList}\item 
+using \hyperlink{structSolvedGoal_a24fbc32b3600956b02d03183b15df5dc}{Edge} = typename \hyperlink{structUniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structUniformChange_a34b7655a38ac1deb98a5978cb1ad5cf6}{Edge}\hypertarget{structSolvedGoal_a24fbc32b3600956b02d03183b15df5dc}{}\label{structSolvedGoal_a24fbc32b3600956b02d03183b15df5dc}
+
+\begin{DoxyCompactList}\small\item\em The type representing an edge in the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structSolvedGoal_ac6ae80b95582586b6fe46dfe2ddad96b}{change} (\hyperlink{structEdgeStyle}{Edge\+Style} \&style, const \hyperlink{structUniformChange_a34b7655a38ac1deb98a5978cb1ad5cf6}{Edge} \&) const override\hypertarget{structSolvedGoal_ac6ae80b95582586b6fe46dfe2ddad96b}{}\label{structSolvedGoal_ac6ae80b95582586b6fe46dfe2ddad96b}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating edge of the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{structSolvedGoal_afed4db6eb8d7df56e6495d10c40f076b}{event\+Str} () const override
+\begin{DoxyCompactList}\small\item\em Returns the string describing the event. This string is displayed in the log window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct Solved\+Goal$<$ Node $>$}
+
+Event that visualizes having found a path with required qualities to a goal. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 256 of file events.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Solved\+Goal@{Solved\+Goal}!event\+Str@{event\+Str}}
+\index{event\+Str@{event\+Str}!Solved\+Goal@{Solved\+Goal}}
+\paragraph[{\texorpdfstring{event\+Str() const override}{eventStr() const override}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ std\+::string {\bf Solved\+Goal}$<$ Node $>$\+::event\+Str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}\hypertarget{structSolvedGoal_afed4db6eb8d7df56e6495d10c40f076b}{}\label{structSolvedGoal_afed4db6eb8d7df56e6495d10c40f076b}
+
+
+Returns the string describing the event. This string is displayed in the log window. 
+
+\begin{DoxyReturn}{Returns}
+The string describing the event. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{structEventBase_a39b9ccca5a07eb242fbacdcdb9ced3c6}{Event\+Base$<$ Node $>$}.
+
+
+
+Definition at line 281 of file events.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{events_8h}{events.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\hypertarget{instance_8h}{}\subsection{core/search\+\_\+base/instance.h File Reference}
+\label{instance_8h}\index{core/search\+\_\+base/instance.\+h@{core/search\+\_\+base/instance.\+h}}
+
+
+Facilities for working with problem instances.  
+
+
+{\ttfamily \#include \char`\"{}stats.\+h\char`\"{}}\\*
+Include dependency graph for instance.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{instance_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{instance_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{slb\+::core\+::sb\+::\+Instance$<$ State\+\_\+ $>$}
+\begin{DoxyCompactList}\small\item\em The type for an instance with an arbitrary (but fixed) number of start and goal states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1sb}{slb\+::core\+::sb}
+\begin{DoxyCompactList}\small\item\em The search base. These are facilities that support implementation of various heuristic search algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Measure\+Set \hyperlink{namespaceslb_1_1core_1_1sb_a1866330cbea23527482f996faad8b3c4}{slb\+::core\+::sb\+::parse\+Instances\+Title} (std\+::string \&s, int \&n\+Starts, int \&n\+Goals)
+\begin{DoxyCompactList}\small\item\em Parses the given title line of the instances file to determine how many start and goal states each instance would contain. Returns a measure set with the titles already set. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State $>$ }\\State \hyperlink{namespaceslb_1_1core_1_1sb_a68dfc95bb83fc37be7bbaf9d8ea14557}{slb\+::core\+::sb\+::unique\+Random\+State} (const std\+::vector$<$ State $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Computes a random state that is not in the given vector of states. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ Instance$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_a7f194d59f1e10da41faa6d30644e1e06}{slb\+::core\+::sb\+::make\+Instances} (int n)
+\begin{DoxyCompactList}\small\item\em Makes the required number of random instances. The numbers of start and goal states are determined by the command line. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ Instance$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_af8a099333bcb967b7c5fdbe18e004631}{slb\+::core\+::sb\+::make\+Instances\+File} (const std\+::string \&fname)
+\begin{DoxyCompactList}\small\item\em Makes a file with the number of random instances determined by the command line. The numbers of start and goal states are determined by the command line as well. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ Instance$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_a317da634fc4e48ee329cc29851b64745}{slb\+::core\+::sb\+::read\+Instances\+File} (const std\+::string \&fname)
+\begin{DoxyCompactList}\small\item\em Reads the instances file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Facilities for working with problem instances. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

@@ -1,0 +1,5 @@
+<map id="FilterBase&lt; Node &gt;" name="FilterBase&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structFilter.html" title="Composite filter. Does not filter out only the events not filtered out by any of the constituent filt..." alt="" coords="5,80,112,107"/>
+<area shape="rect" id="node3" href="$structFilterEventStr.html" title="Filters based on description strings of events. " alt="" coords="136,80,293,107"/>
+<area shape="rect" id="node4" href="$structFilterState.html" title="Filters by leaving only events related to chosen states. When the list of states is empty..." alt="" coords="318,80,455,107"/>
+</map>

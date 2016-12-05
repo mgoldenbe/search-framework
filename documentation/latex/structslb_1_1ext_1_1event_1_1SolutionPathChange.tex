@@ -1,0 +1,91 @@
+\hypertarget{structslb_1_1ext_1_1event_1_1SolutionPathChange}{}\subsection{slb\+:\+:ext\+:\+:event\+:\+:Solution\+Path\+Change$<$ Node $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1event_1_1SolutionPathChange}\index{slb\+::ext\+::event\+::\+Solution\+Path\+Change$<$ Node $>$@{slb\+::ext\+::event\+::\+Solution\+Path\+Change$<$ Node $>$}}
+
+
+An event that applies visual changes to states and edges of the state graph along the path leading to the state associated with the event.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+types.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:event\+:\+:Solution\+Path\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{structslb_1_1ext_1_1event_1_1SolutionPathChange__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:event\+:\+:Solution\+Path\+Change$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{structslb_1_1ext_1_1event_1_1SolutionPathChange__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1SolutionPathChange_a92dae17928b41c4ad1c8ba9e01a6e52c}{Direct\+Base} = \hyperlink{structslb_1_1ext_1_1event_1_1PathChange}{Path\+Change}$<$ Node $>$\hypertarget{structslb_1_1ext_1_1event_1_1SolutionPathChange_a92dae17928b41c4ad1c8ba9e01a6e52c}{}\label{structslb_1_1ext_1_1event_1_1SolutionPathChange_a92dae17928b41c4ad1c8ba9e01a6e52c}
+
+\begin{DoxyCompactList}\small\item\em The direct base class. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1SolutionPathChange_abc85d367d6fbe81efa7e8d3f7c11c31f}{State\+Set} = typename \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2c45514041ea86f77bbd0147fe06babd}{Direct\+Base\+::\+State\+Set}\hypertarget{structslb_1_1ext_1_1event_1_1SolutionPathChange_abc85d367d6fbe81efa7e8d3f7c11c31f}{}\label{structslb_1_1ext_1_1event_1_1SolutionPathChange_abc85d367d6fbe81efa7e8d3f7c11c31f}
+
+\begin{DoxyCompactList}\small\item\em The type for holding participating states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2c45514041ea86f77bbd0147fe06babd}{State\+Set} \hyperlink{structslb_1_1ext_1_1event_1_1SolutionPathChange_a3e43f9b1a09bd069aad8561723e62f35}{path} () const 
+\begin{DoxyCompactList}\small\item\em Returns the path to which the visual changes are applied. In this case, it\textquotesingle{}s the path leading to the state associated with the event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct slb\+::ext\+::event\+::\+Solution\+Path\+Change$<$ Node $>$}
+
+An event that applies visual changes to states and edges of the state graph along the path leading to the state associated with the event. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 198 of file event\+\_\+types.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::event\+::\+Solution\+Path\+Change@{slb\+::ext\+::event\+::\+Solution\+Path\+Change}!path@{path}}
+\index{path@{path}!slb\+::ext\+::event\+::\+Solution\+Path\+Change@{slb\+::ext\+::event\+::\+Solution\+Path\+Change}}
+\paragraph[{\texorpdfstring{path() const }{path() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual {\bf State\+Set} {\bf slb\+::ext\+::event\+::\+Solution\+Path\+Change}$<$ Node $>$\+::path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structslb_1_1ext_1_1event_1_1SolutionPathChange_a3e43f9b1a09bd069aad8561723e62f35}{}\label{structslb_1_1ext_1_1event_1_1SolutionPathChange_a3e43f9b1a09bd069aad8561723e62f35}
+
+
+Returns the path to which the visual changes are applied. In this case, it\textquotesingle{}s the path leading to the state associated with the event. 
+
+\begin{DoxyReturn}{Returns}
+The states along the path to which the visual changes are applied. In this case, it\textquotesingle{}s the path leading to the state associated with the event. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{structslb_1_1ext_1_1event_1_1PathChange_ac29bb548c1eba3b388ba5344c9072b25}{slb\+::ext\+::event\+::\+Path\+Change$<$ Node $>$}.
+
+
+
+Definition at line 217 of file event\+\_\+types.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{event__types_8h}{event\+\_\+types.\+h}\end{DoxyCompactItemize}

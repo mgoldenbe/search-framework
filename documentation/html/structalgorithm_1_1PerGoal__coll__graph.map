@@ -1,0 +1,5 @@
+<map id="algorithm::PerGoal&lt; logFlag, Node_, BaseAlgorithm &gt;" name="algorithm::PerGoal&lt; logFlag, Node_, BaseAlgorithm &gt;">
+<area shape="rect" id="node2" href="$structInstance.html" title="Instance\&lt; State \&gt;" alt="" coords="5,95,132,121"/>
+<area shape="rect" id="node3" href="$structMeasureSet.html" title="All the measures for a single problem instance. " alt="" coords="23,5,115,32"/>
+<area shape="rect" id="node4" href="$structStats.html" title="Performance statistics of a search algorithm for a set of problem instances. " alt="" coords="157,95,210,121"/>
+</map>

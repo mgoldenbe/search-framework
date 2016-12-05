@@ -1,0 +1,57 @@
+\hypertarget{memory_8h}{}\subsection{core/util/memory.h File Reference}
+\label{memory_8h}\index{core/util/memory.\+h@{core/util/memory.\+h}}
+
+
+Memory-\/related utilities.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{memory_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{slb\+::core\+::util\+::deref\+\_\+shared\+\_\+ptr$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em Shared pointer whose {\ttfamily operator==} compares the pointed to values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1util}{slb\+::core\+::util}
+\begin{DoxyCompactList}\small\item\em Utility facilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \hyperlink{namespaceslb_1_1core_1_1util_ab3e706fd0a5bcfdbcdac11c8e6ee5f31}{slb\+::core\+::util\+::unique2shared} (std\+::unique\+\_\+ptr$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Releases moves a pointer from {\ttfamily std\+::unique\+\_\+ptr} to {\ttfamily std\+::shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , class U $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a6524ef64141336dce5cec7062b756569}{slb\+::core\+::util\+::operator==} (const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, const deref\+\_\+shared\+\_\+ptr$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , class U $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a6a344fb210c4db8ba8a67de43ed8ea35}{slb\+::core\+::util\+::operator!=} (const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, const deref\+\_\+shared\+\_\+ptr$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a4e0953eb5fd3073c0057f7de724c0f91}{slb\+::core\+::util\+::operator==} (const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, std\+::nullptr\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the right. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a8e196a0adbb3f886af645dc3bcc0c8f8}{slb\+::core\+::util\+::operator==} (std\+::nullptr\+\_\+t, const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the left. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a08e1702769bfbe3411dad3f0a68f526a}{slb\+::core\+::util\+::operator!=} (const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&lhs, std\+::nullptr\+\_\+t rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the right. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a62443a5539cf3e36e67a7343806b65a3}{slb\+::core\+::util\+::operator!=} (std\+::nullptr\+\_\+t lhs, const deref\+\_\+shared\+\_\+ptr$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Comparison operator for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr} for the case of {\ttfamily nullptr} on the left. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , class... Args$>$ }\\deref\+\_\+shared\+\_\+ptr$<$ T $>$ \hyperlink{namespaceslb_1_1core_1_1util_a1d307411caad59a01d41cbb34ea71d8c}{slb\+::core\+::util\+::make\+\_\+deref\+\_\+shared} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\deref\+\_\+shared\+\_\+ptr$<$ T $>$ \hyperlink{namespaceslb_1_1core_1_1util_acb7cbe60d3098ca39a993fb6a5640a2f}{slb\+::core\+::util\+::unique2derefshared} (std\+::unique\+\_\+ptr$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Moves an object from {\ttfamily std\+::unique\+\_\+ptr} to \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Memory-\/related utilities. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

@@ -1,0 +1,95 @@
+\hypertarget{structOctileHeuristic}{}\subsection{Octile\+Heuristic$<$ State $>$ Struct Template Reference}
+\label{structOctileHeuristic}\index{Octile\+Heuristic$<$ State $>$@{Octile\+Heuristic$<$ State $>$}}
+
+
+The octile heuristic functor.  
+
+
+
+
+{\ttfamily \#include $<$explicit\+\_\+state.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structOctileHeuristic_a3b72f4fd0718b3c6a1bb7d7bc93481ff}{Octile\+Heuristic} (const State \&goal)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+State\+::\+Cost\+Type \hyperlink{structOctileHeuristic_acb4da00e100d0d28e2f506365ea0e01c}{operator()} (const State \&s) const 
+\begin{DoxyCompactList}\small\item\em The function-\/call operator. Computes the heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const State \& \hyperlink{structOctileHeuristic_a73f7cd714c87d62155d9751d6b477088}{goal\+\_\+}\hypertarget{structOctileHeuristic_a73f7cd714c87d62155d9751d6b477088}{}\label{structOctileHeuristic_a73f7cd714c87d62155d9751d6b477088}
+
+\begin{DoxyCompactList}\small\item\em The goal state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State = S\+L\+B\+\_\+\+S\+T\+A\+TE$>$\\*
+struct Octile\+Heuristic$<$ State $>$}
+
+The octile heuristic functor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The type representing the explicit domain. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 129 of file explicit\+\_\+state.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Octile\+Heuristic@{Octile\+Heuristic}!Octile\+Heuristic@{Octile\+Heuristic}}
+\index{Octile\+Heuristic@{Octile\+Heuristic}!Octile\+Heuristic@{Octile\+Heuristic}}
+\paragraph[{\texorpdfstring{Octile\+Heuristic(const State \&goal)}{OctileHeuristic(const State &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State  = S\+L\+B\+\_\+\+S\+T\+A\+TE$>$ {\bf Octile\+Heuristic}$<$ State $>$\+::{\bf Octile\+Heuristic} (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structOctileHeuristic_a3b72f4fd0718b3c6a1bb7d7bc93481ff}{}\label{structOctileHeuristic_a3b72f4fd0718b3c6a1bb7d7bc93481ff}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The goal state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file explicit\+\_\+state.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Octile\+Heuristic@{Octile\+Heuristic}!operator()@{operator()}}
+\index{operator()@{operator()}!Octile\+Heuristic@{Octile\+Heuristic}}
+\paragraph[{\texorpdfstring{operator()(const State \&s) const }{operator()(const State &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State  = S\+L\+B\+\_\+\+S\+T\+A\+TE$>$ State\+::\+Cost\+Type {\bf Octile\+Heuristic}$<$ State $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structOctileHeuristic_acb4da00e100d0d28e2f506365ea0e01c}{}\label{structOctileHeuristic_acb4da00e100d0d28e2f506365ea0e01c}
+
+
+The function-\/call operator. Computes the heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state from which the heuristic is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic function from {\ttfamily s} to {\ttfamily goal}. 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file explicit\+\_\+state.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{explicit__state_8h}{explicit\+\_\+state.\+h}\end{DoxyCompactItemize}

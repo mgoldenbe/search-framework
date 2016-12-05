@@ -1,0 +1,9 @@
+<map id="slb::ext::event::VertexEdgeChange&lt; Node &gt;" name="slb::ext::event::VertexEdgeChange&lt; Node &gt;">
+<area shape="rect" id="node4" href="$structslb_1_1ext_1_1event_1_1VertexEdgeColor.html" title="An event that applies a color change to both the vertex of the state graph corresponding to the state..." alt="" coords="627,136,808,177"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1event_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="191,136,349,177"/>
+<area shape="rect" id="node5" href="$structslb_1_1ext_1_1event_1_1Closed.html" title="Event that visualizes having closed a node. " alt="" coords="865,5,1020,47"/>
+<area shape="rect" id="node6" href="$structslb_1_1ext_1_1event_1_1EnteredOpen.html" title="Event that visualizes a node entering the Open List. " alt="" coords="863,71,1022,112"/>
+<area shape="rect" id="node7" href="$structslb_1_1ext_1_1event_1_1Generated.html" title="Event that visualizes node generation. " alt="" coords="856,136,1029,177"/>
+<area shape="rect" id="node8" href="$structslb_1_1ext_1_1event_1_1NothingToDo.html" title="Event that visualizes the fact that a node was generated, but nothing needed to be done for it..." alt="" coords="863,201,1022,243"/>
+<area shape="rect" id="node9" href="$structslb_1_1ext_1_1event_1_1NotParent.html" title="Event that visualizes change of parent node. " alt="" coords="857,267,1029,308"/>
+</map>

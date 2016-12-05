@@ -1,0 +1,5 @@
+<map id="Drawer&lt; Node &gt;" name="Drawer&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structGraphics.html" title="Objects of this class hold all the information needed for drawing. " alt="" coords="5,109,80,136"/>
+<area shape="rect" id="node3" href="$structVisualLog.html" title="The log of events suited for visualization purposes. This log is based on the AlgorithmLog generated ..." alt="" coords="105,109,239,136"/>
+<area shape="rect" id="node6" href="$structStateGraph.html" title="The state space graph used for visualization. " alt="" coords="263,109,406,136"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="slb::ext::event::SolutionPathChange&lt; Node &gt;" name="slb::ext::event::SolutionPathChange&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1event_1_1PathChange.html" title="An event that applies visual changes to states and edges of the state graph along a path..." alt="" coords="5,184,191,225"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1event_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="19,95,177,136"/>
+</map>

@@ -1,0 +1,95 @@
+\hypertarget{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic}{}\subsection{slb\+:\+:ext\+:\+:domain\+:\+:grid\+:\+:Octile\+Heuristic$<$ State $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic}\index{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic$<$ State $>$@{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic$<$ State $>$}}
+
+
+The octile heuristic functor.  
+
+
+
+
+{\ttfamily \#include $<$grid.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_a75b0c3549970f0f218481061613fb380}{Octile\+Heuristic} (const State \&goal)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+State\+::\+Cost\+Type \hyperlink{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_a94b66bd3f3e1374743238615694eac8d}{operator()} (const State \&s) const 
+\begin{DoxyCompactList}\small\item\em The function-\/call operator. Computes the heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const State \& \hyperlink{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_ac3a1e0b98bfd9f70d42b697440b2b487}{goal\+\_\+}\hypertarget{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_ac3a1e0b98bfd9f70d42b697440b2b487}{}\label{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_ac3a1e0b98bfd9f70d42b697440b2b487}
+
+\begin{DoxyCompactList}\small\item\em The goal state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State = S\+L\+B\+\_\+\+S\+T\+A\+TE$>$\\*
+struct slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic$<$ State $>$}
+
+The octile heuristic functor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The type representing the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 76 of file grid.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic@{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic}!Octile\+Heuristic@{Octile\+Heuristic}}
+\index{Octile\+Heuristic@{Octile\+Heuristic}!slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic@{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic}}
+\paragraph[{\texorpdfstring{Octile\+Heuristic(const State \&goal)}{OctileHeuristic(const State &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State  = S\+L\+B\+\_\+\+S\+T\+A\+TE$>$ {\bf slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic}$<$ State $>$\+::{\bf Octile\+Heuristic} (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_a75b0c3549970f0f218481061613fb380}{}\label{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_a75b0c3549970f0f218481061613fb380}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The goal state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file grid.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic@{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic}!operator()@{operator()}}
+\index{operator()@{operator()}!slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic@{slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic}}
+\paragraph[{\texorpdfstring{operator()(const State \&s) const }{operator()(const State &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State  = S\+L\+B\+\_\+\+S\+T\+A\+TE$>$ State\+::\+Cost\+Type {\bf slb\+::ext\+::domain\+::grid\+::\+Octile\+Heuristic}$<$ State $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_a94b66bd3f3e1374743238615694eac8d}{}\label{structslb_1_1ext_1_1domain_1_1grid_1_1OctileHeuristic_a94b66bd3f3e1374743238615694eac8d}
+
+
+The function-\/call operator. Computes the heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state from which the heuristic is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic function from {\ttfamily s} to {\ttfamily goal}. 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file grid.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{domains_2grid_8h}{grid.\+h}\end{DoxyCompactItemize}

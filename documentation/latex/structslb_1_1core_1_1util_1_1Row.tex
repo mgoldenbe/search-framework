@@ -1,0 +1,164 @@
+\hypertarget{structslb_1_1core_1_1util_1_1Row}{}\subsection{slb\+:\+:core\+:\+:util\+:\+:Row Struct Reference}
+\label{structslb_1_1core_1_1util_1_1Row}\index{slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}}
+
+
+The row of the \hyperlink{structslb_1_1core_1_1util_1_1Table}{Table}.  
+
+
+
+
+{\ttfamily \#include $<$table.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1util_1_1Row_af8b957c8eb60ef93641d7d0df5c491ec}{Row} (std\+::vector$<$ int $>$ \&widths, const int \&space)
+\begin{DoxyCompactList}\small\item\em Constructor based on the widths of the columns and amount of space between columns. Note that both arguments are passed by reference, so we do not keep a copy for each row. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1Row}{Row} \& \hyperlink{structslb_1_1core_1_1util_1_1Row_a70b2788055360092659e312ad224f8d1}{operator=} (const \hyperlink{structslb_1_1core_1_1util_1_1Row}{Row} \&rhs)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1util_1_1Row_a07135d4d128f05bd99d21de1f1a31b15}{add} (decltype(std\+::setw(0)))\hypertarget{structslb_1_1core_1_1util_1_1Row_a07135d4d128f05bd99d21de1f1a31b15}{}\label{structslb_1_1core_1_1util_1_1Row_a07135d4d128f05bd99d21de1f1a31b15}
+
+\begin{DoxyCompactList}\small\item\em An auxiliary function to make it possible to use {\ttfamily std\+::setw} with the output operator whose left-\/hand side is \hyperlink{structslb_1_1core_1_1util_1_1Table}{Table}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{structslb_1_1core_1_1util_1_1Row_a1a718285cef2a4489be6ec5c1ffc14a4}{add} (const T \&t)\hypertarget{structslb_1_1core_1_1util_1_1Row_a1a718285cef2a4489be6ec5c1ffc14a4}{}\label{structslb_1_1core_1_1util_1_1Row_a1a718285cef2a4489be6ec5c1ffc14a4}
+
+\begin{DoxyCompactList}\small\item\em Add a column. t The column\textquotesingle{}s contents. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1util_1_1Row_a4dd12adac932de87f6aea0f9f3a5fa27}{reset} ()\hypertarget{structslb_1_1core_1_1util_1_1Row_a4dd12adac932de87f6aea0f9f3a5fa27}{}\label{structslb_1_1core_1_1util_1_1Row_a4dd12adac932de87f6aea0f9f3a5fa27}
+
+\begin{DoxyCompactList}\small\item\em Clear the row\textquotesingle{}s contents. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1util_1_1Row_acb93b92f51e12a87702d379f0c82802f}{size} ()
+\begin{DoxyCompactList}\small\item\em Return the number of columns in the row. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1util_1_1Row_a41cee5c9f48efb5a55c7086d1e40cc61}{cells\+\_\+}\hypertarget{structslb_1_1core_1_1util_1_1Row_a41cee5c9f48efb5a55c7086d1e40cc61}{}\label{structslb_1_1core_1_1util_1_1Row_a41cee5c9f48efb5a55c7086d1e40cc61}
+
+\begin{DoxyCompactList}\small\item\em The cells. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \& \hyperlink{structslb_1_1core_1_1util_1_1Row_a90eca7396a74a689fdcc8242d270ebff}{widths\+\_\+}\hypertarget{structslb_1_1core_1_1util_1_1Row_a90eca7396a74a689fdcc8242d270ebff}{}\label{structslb_1_1core_1_1util_1_1Row_a90eca7396a74a689fdcc8242d270ebff}
+
+\begin{DoxyCompactList}\small\item\em Reference to the widths of the columns. \end{DoxyCompactList}\item 
+const int \& \hyperlink{structslb_1_1core_1_1util_1_1Row_af6b20ecf1f1b5611b27577bd34ff0a19}{space\+\_\+}\hypertarget{structslb_1_1core_1_1util_1_1Row_af6b20ecf1f1b5611b27577bd34ff0a19}{}\label{structslb_1_1core_1_1util_1_1Row_af6b20ecf1f1b5611b27577bd34ff0a19}
+
+\begin{DoxyCompactList}\small\item\em Reference to the amount of space between the columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T\+Char , typename T\+Char\+Traits $>$ }\\std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \& \hyperlink{structslb_1_1core_1_1util_1_1Row_ab191f1b6c388f4bd5fd5329e2e41acfa}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \&o, const \hyperlink{structslb_1_1core_1_1util_1_1Row}{Row} \&r)
+\begin{DoxyCompactList}\small\item\em The output operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The row of the \hyperlink{structslb_1_1core_1_1util_1_1Table}{Table}. 
+
+Definition at line 13 of file table.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}!Row@{Row}}
+\index{Row@{Row}!slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}}
+\paragraph[{\texorpdfstring{Row(std\+::vector$<$ int $>$ \&widths, const int \&space)}{Row(std::vector< int > &widths, const int &space)}}]{\setlength{\rightskip}{0pt plus 5cm}slb\+::core\+::util\+::\+Row\+::\+Row (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int $>$ \&}]{widths, }
+\item[{const int \&}]{space}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1Row_af8b957c8eb60ef93641d7d0df5c491ec}{}\label{structslb_1_1core_1_1util_1_1Row_af8b957c8eb60ef93641d7d0df5c491ec}
+
+
+Constructor based on the widths of the columns and amount of space between columns. Note that both arguments are passed by reference, so we do not keep a copy for each row. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em widths} & The widths of the columns. \\
+\hline
+{\em space} & Amount of space between columns. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file table.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}!operator=@{operator=}}
+\index{operator=@{operator=}!slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}}
+\paragraph[{\texorpdfstring{operator=(const Row \&rhs)}{operator=(const Row &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Row}\& slb\+::core\+::util\+::\+Row\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Row} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1Row_a70b2788055360092659e312ad224f8d1}{}\label{structslb_1_1core_1_1util_1_1Row_a70b2788055360092659e312ad224f8d1}
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the assignment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The assigned row. 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file table.\+h.
+
+\index{slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}!size@{size}}
+\index{size@{size}!slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}}
+\paragraph[{\texorpdfstring{size()}{size()}}]{\setlength{\rightskip}{0pt plus 5cm}int slb\+::core\+::util\+::\+Row\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1Row_acb93b92f51e12a87702d379f0c82802f}{}\label{structslb_1_1core_1_1util_1_1Row_acb93b92f51e12a87702d379f0c82802f}
+
+
+Return the number of columns in the row. 
+
+\begin{DoxyReturn}{Returns}
+The number of columns in the row. 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file table.\+h.
+
+
+
+\subsubsection{Friends And Related Function Documentation}
+\index{slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!slb\+::core\+::util\+::\+Row@{slb\+::core\+::util\+::\+Row}}
+\paragraph[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Char , typename T\+Char\+Traits $>$ std\+::basic\+\_\+ostream$<$T\+Char, T\+Char\+Traits$>$\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::basic\+\_\+ostream$<$ T\+Char, T\+Char\+Traits $>$ \&}]{o, }
+\item[{const {\bf Row} \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{structslb_1_1core_1_1util_1_1Row_ab191f1b6c388f4bd5fd5329e2e41acfa}{}\label{structslb_1_1core_1_1util_1_1Row_ab191f1b6c388f4bd5fd5329e2e41acfa}
+
+
+The output operator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\+Char} & The {\ttfamily T\+Char} parameter of {\ttfamily std\+::basic\+\_\+ostream}. \\
+\hline
+{\em T\+Char\+Traits} & The {\ttfamily T\+Char\+Traits} parameter of {\ttfamily std\+::basic\+\_\+ostream}. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The output stream. \\
+\hline
+{\em r} & The row to be output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated output stream. 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file table.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{table_8h}{table.\+h}\end{DoxyCompactItemize}

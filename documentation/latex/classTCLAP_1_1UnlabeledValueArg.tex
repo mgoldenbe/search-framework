@@ -1,0 +1,305 @@
+\hypertarget{classTCLAP_1_1UnlabeledValueArg}{}\subsection{T\+C\+L\+AP\+:\+:Unlabeled\+Value\+Arg$<$ T $>$ Class Template Reference}
+\label{classTCLAP_1_1UnlabeledValueArg}\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg$<$ T $>$@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Unlabeled\+Value\+Arg.\+h$>$}
+
+
+
+Inheritance diagram for T\+C\+L\+AP\+:\+:Unlabeled\+Value\+Arg$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classTCLAP_1_1UnlabeledValueArg__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for T\+C\+L\+AP\+:\+:Unlabeled\+Value\+Arg$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classTCLAP_1_1UnlabeledValueArg__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTCLAP_1_1UnlabeledValueArg_acba2fddd0719ccd90f48fcf06aaffbee}{Unlabeled\+Value\+Arg} (const std\+::string \&name, const std\+::string \&desc, bool req, T value, const std\+::string \&type\+Desc, bool ignoreable=false, \hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$v=N\+U\+LL)
+\item 
+\hyperlink{classTCLAP_1_1UnlabeledValueArg_a9eafea8158d27a5af48e92f62debcf65}{Unlabeled\+Value\+Arg} (const std\+::string \&name, const std\+::string \&desc, bool req, T value, const std\+::string \&type\+Desc, \hyperlink{classTCLAP_1_1CmdLineInterface}{Cmd\+Line\+Interface} \&parser, bool ignoreable=false, \hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$v=N\+U\+LL)
+\item 
+\hyperlink{classTCLAP_1_1UnlabeledValueArg_a2aa148ef6a2016bb3f32a33a7c644404}{Unlabeled\+Value\+Arg} (const std\+::string \&name, const std\+::string \&desc, bool req, T value, \hyperlink{classTCLAP_1_1Constraint}{Constraint}$<$ T $>$ $\ast$constraint, bool ignoreable=false, \hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$v=N\+U\+LL)
+\item 
+\hyperlink{classTCLAP_1_1UnlabeledValueArg_afd3af78fccd14f2654e9b2f981ead12f}{Unlabeled\+Value\+Arg} (const std\+::string \&name, const std\+::string \&desc, bool req, T value, \hyperlink{classTCLAP_1_1Constraint}{Constraint}$<$ T $>$ $\ast$constraint, \hyperlink{classTCLAP_1_1CmdLineInterface}{Cmd\+Line\+Interface} \&parser, bool ignoreable=false, \hyperlink{classTCLAP_1_1Visitor}{Visitor} $\ast$v=N\+U\+LL)
+\item 
+virtual bool \hyperlink{classTCLAP_1_1UnlabeledValueArg_ad853d7950a659b0d4ee2cda3f61261fd}{process\+Arg} (int $\ast$i, std\+::vector$<$ std\+::string $>$ \&args)
+\item 
+virtual std\+::string \hyperlink{classTCLAP_1_1UnlabeledValueArg_abda4d1d695003ba165b6797e03007a99}{short\+ID} (const std\+::string \&val=\char`\"{}val\char`\"{}) const 
+\item 
+virtual std\+::string \hyperlink{classTCLAP_1_1UnlabeledValueArg_ade738f42a7867324ce780b0c240b0460}{long\+ID} (const std\+::string \&val=\char`\"{}val\char`\"{}) const 
+\item 
+virtual bool \hyperlink{classTCLAP_1_1UnlabeledValueArg_a74632cd4d169481518cb1a871f97b412}{operator==} (const \hyperlink{classTCLAP_1_1Arg}{Arg} \&a) const 
+\item 
+virtual void \hyperlink{classTCLAP_1_1UnlabeledValueArg_a8670fc7797254e602d302318063f3515}{add\+To\+List} (std\+::list$<$ \hyperlink{classTCLAP_1_1Arg}{Arg} $\ast$ $>$ \&arg\+List) const 
+\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\\*
+class T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg$<$ T $>$}
+
+The basic unlabeled argument that parses a value. This is a template class, which means the type T defines the type that a given object will attempt to parse when an \hyperlink{classTCLAP_1_1UnlabeledValueArg}{Unlabeled\+Value\+Arg} is reached in the list of args that the \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} iterates over. 
+
+Definition at line 43 of file Unlabeled\+Value\+Arg.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}}
+\index{Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{Unlabeled\+Value\+Arg(const std\+::string \&name, const std\+::string \&desc, bool req, T value, const std\+::string \&type\+Desc, bool ignoreable=false, Visitor $\ast$v=\+N\+U\+L\+L)}{UnlabeledValueArg(const std::string &name, const std::string &desc, bool req, T value, const std::string &typeDesc, bool ignoreable=false, Visitor *v=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::{\bf Unlabeled\+Value\+Arg} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{const std\+::string \&}]{desc, }
+\item[{bool}]{req, }
+\item[{T}]{val, }
+\item[{const std\+::string \&}]{type\+Desc, }
+\item[{bool}]{ignoreable = {\ttfamily false}, }
+\item[{{\bf Visitor} $\ast$}]{v = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classTCLAP_1_1UnlabeledValueArg_acba2fddd0719ccd90f48fcf06aaffbee}{}\label{classTCLAP_1_1UnlabeledValueArg_acba2fddd0719ccd90f48fcf06aaffbee}
+\hyperlink{classTCLAP_1_1UnlabeledValueArg}{Unlabeled\+Value\+Arg} constructor. 
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ A one word name for the argument. Note that this is used for identification, not as a long flag. \\
+\hline
+{\em desc} & -\/ A description of what the argument is for or does. \\
+\hline
+{\em req} & -\/ Whether the argument is required on the command line. \\
+\hline
+{\em value} & -\/ The default value assigned to this argument if it is not present on the command line. \\
+\hline
+{\em type\+Desc} & -\/ A short, human readable description of the type that this object expects. This is used in the generation of the U\+S\+A\+GE statement. The goal is to be helpful to the end user of the program. \\
+\hline
+{\em ignoreable} & -\/ Allows you to specify that this argument can be ignored if the \textquotesingle{}--\textquotesingle{} flag is set. This defaults to false (cannot be ignored) and should generally stay that way unless you have some special need for certain arguments to be ignored. \\
+\hline
+{\em v} & -\/ Optional Vistor. You should leave this blank unless you have a very good reason.\\
+\hline
+\end{DoxyParams}
+Constructor implemenation. 
+
+Definition at line 213 of file Unlabeled\+Value\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}}
+\index{Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{Unlabeled\+Value\+Arg(const std\+::string \&name, const std\+::string \&desc, bool req, T value, const std\+::string \&type\+Desc, Cmd\+Line\+Interface \&parser, bool ignoreable=false, Visitor $\ast$v=\+N\+U\+L\+L)}{UnlabeledValueArg(const std::string &name, const std::string &desc, bool req, T value, const std::string &typeDesc, CmdLineInterface &parser, bool ignoreable=false, Visitor *v=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::{\bf Unlabeled\+Value\+Arg} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{const std\+::string \&}]{desc, }
+\item[{bool}]{req, }
+\item[{T}]{value, }
+\item[{const std\+::string \&}]{type\+Desc, }
+\item[{{\bf Cmd\+Line\+Interface} \&}]{parser, }
+\item[{bool}]{ignoreable = {\ttfamily false}, }
+\item[{{\bf Visitor} $\ast$}]{v = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classTCLAP_1_1UnlabeledValueArg_a9eafea8158d27a5af48e92f62debcf65}{}\label{classTCLAP_1_1UnlabeledValueArg_a9eafea8158d27a5af48e92f62debcf65}
+\hyperlink{classTCLAP_1_1UnlabeledValueArg}{Unlabeled\+Value\+Arg} constructor. 
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ A one word name for the argument. Note that this is used for identification, not as a long flag. \\
+\hline
+{\em desc} & -\/ A description of what the argument is for or does. \\
+\hline
+{\em req} & -\/ Whether the argument is required on the command line. \\
+\hline
+{\em value} & -\/ The default value assigned to this argument if it is not present on the command line. \\
+\hline
+{\em type\+Desc} & -\/ A short, human readable description of the type that this object expects. This is used in the generation of the U\+S\+A\+GE statement. The goal is to be helpful to the end user of the program. \\
+\hline
+{\em parser} & -\/ A \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} parser object to add this \hyperlink{classTCLAP_1_1Arg}{Arg} to \\
+\hline
+{\em ignoreable} & -\/ Allows you to specify that this argument can be ignored if the \textquotesingle{}--\textquotesingle{} flag is set. This defaults to false (cannot be ignored) and should generally stay that way unless you have some special need for certain arguments to be ignored. \\
+\hline
+{\em v} & -\/ Optional Vistor. You should leave this blank unless you have a very good reason. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 229 of file Unlabeled\+Value\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}}
+\index{Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{Unlabeled\+Value\+Arg(const std\+::string \&name, const std\+::string \&desc, bool req, T value, Constraint$<$ T $>$ $\ast$constraint, bool ignoreable=false, Visitor $\ast$v=\+N\+U\+L\+L)}{UnlabeledValueArg(const std::string &name, const std::string &desc, bool req, T value, Constraint< T > *constraint, bool ignoreable=false, Visitor *v=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::{\bf Unlabeled\+Value\+Arg} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{const std\+::string \&}]{desc, }
+\item[{bool}]{req, }
+\item[{T}]{val, }
+\item[{{\bf Constraint}$<$ T $>$ $\ast$}]{constraint, }
+\item[{bool}]{ignoreable = {\ttfamily false}, }
+\item[{{\bf Visitor} $\ast$}]{v = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classTCLAP_1_1UnlabeledValueArg_a2aa148ef6a2016bb3f32a33a7c644404}{}\label{classTCLAP_1_1UnlabeledValueArg_a2aa148ef6a2016bb3f32a33a7c644404}
+\hyperlink{classTCLAP_1_1UnlabeledValueArg}{Unlabeled\+Value\+Arg} constructor. 
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ A one word name for the argument. Note that this is used for identification, not as a long flag. \\
+\hline
+{\em desc} & -\/ A description of what the argument is for or does. \\
+\hline
+{\em req} & -\/ Whether the argument is required on the command line. \\
+\hline
+{\em value} & -\/ The default value assigned to this argument if it is not present on the command line. \\
+\hline
+{\em constraint} & -\/ A pointer to a \hyperlink{classTCLAP_1_1Constraint}{Constraint} object used to constrain this \hyperlink{classTCLAP_1_1Arg}{Arg}. \\
+\hline
+{\em ignoreable} & -\/ Allows you to specify that this argument can be ignored if the \textquotesingle{}--\textquotesingle{} flag is set. This defaults to false (cannot be ignored) and should generally stay that way unless you have some special need for certain arguments to be ignored. \\
+\hline
+{\em v} & -\/ Optional Vistor. You should leave this blank unless you have a very good reason.\\
+\hline
+\end{DoxyParams}
+Constructor implemenation. 
+
+Definition at line 248 of file Unlabeled\+Value\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}}
+\index{Unlabeled\+Value\+Arg@{Unlabeled\+Value\+Arg}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{Unlabeled\+Value\+Arg(const std\+::string \&name, const std\+::string \&desc, bool req, T value, Constraint$<$ T $>$ $\ast$constraint, Cmd\+Line\+Interface \&parser, bool ignoreable=false, Visitor $\ast$v=\+N\+U\+L\+L)}{UnlabeledValueArg(const std::string &name, const std::string &desc, bool req, T value, Constraint< T > *constraint, CmdLineInterface &parser, bool ignoreable=false, Visitor *v=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::{\bf Unlabeled\+Value\+Arg} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{const std\+::string \&}]{desc, }
+\item[{bool}]{req, }
+\item[{T}]{value, }
+\item[{{\bf Constraint}$<$ T $>$ $\ast$}]{constraint, }
+\item[{{\bf Cmd\+Line\+Interface} \&}]{parser, }
+\item[{bool}]{ignoreable = {\ttfamily false}, }
+\item[{{\bf Visitor} $\ast$}]{v = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classTCLAP_1_1UnlabeledValueArg_afd3af78fccd14f2654e9b2f981ead12f}{}\label{classTCLAP_1_1UnlabeledValueArg_afd3af78fccd14f2654e9b2f981ead12f}
+\hyperlink{classTCLAP_1_1UnlabeledValueArg}{Unlabeled\+Value\+Arg} constructor. 
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ A one word name for the argument. Note that this is used for identification, not as a long flag. \\
+\hline
+{\em desc} & -\/ A description of what the argument is for or does. \\
+\hline
+{\em req} & -\/ Whether the argument is required on the command line. \\
+\hline
+{\em value} & -\/ The default value assigned to this argument if it is not present on the command line. \\
+\hline
+{\em constraint} & -\/ A pointer to a \hyperlink{classTCLAP_1_1Constraint}{Constraint} object used to constrain this \hyperlink{classTCLAP_1_1Arg}{Arg}. \\
+\hline
+{\em parser} & -\/ A \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} parser object to add this \hyperlink{classTCLAP_1_1Arg}{Arg} to \\
+\hline
+{\em ignoreable} & -\/ Allows you to specify that this argument can be ignored if the \textquotesingle{}--\textquotesingle{} flag is set. This defaults to false (cannot be ignored) and should generally stay that way unless you have some special need for certain arguments to be ignored. \\
+\hline
+{\em v} & -\/ Optional Vistor. You should leave this blank unless you have a very good reason. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 262 of file Unlabeled\+Value\+Arg.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!add\+To\+List@{add\+To\+List}}
+\index{add\+To\+List@{add\+To\+List}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{add\+To\+List(std\+::list$<$ Arg $\ast$ $>$ \&arg\+List) const }{addToList(std::list< Arg * > &argList) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::add\+To\+List (
+\begin{DoxyParamCaption}
+\item[{std\+::list$<$ {\bf Arg} $\ast$ $>$ \&}]{arg\+List}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1UnlabeledValueArg_a8670fc7797254e602d302318063f3515}{}\label{classTCLAP_1_1UnlabeledValueArg_a8670fc7797254e602d302318063f3515}
+Instead of pushing to the front of list, push to the back. 
+\begin{DoxyParams}{Parameters}
+{\em arg\+List} & -\/ The list to add this to. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classTCLAP_1_1Arg_a9ff1564beeea2ef855f7fa483c37d0e2}{T\+C\+L\+A\+P\+::\+Arg}.
+
+
+
+Definition at line 334 of file Unlabeled\+Value\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!long\+ID@{long\+ID}}
+\index{long\+ID@{long\+ID}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{long\+I\+D(const std\+::string \&val=""val"") const }{longID(const std::string &val="val") const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std\+::string {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::long\+ID (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{val = {\ttfamily \char`\"{}val\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1UnlabeledValueArg_ade738f42a7867324ce780b0c240b0460}{}\label{classTCLAP_1_1UnlabeledValueArg_ade738f42a7867324ce780b0c240b0460}
+Overrides long\+ID for specific behavior.
+
+Overriding long\+ID for specific output. 
+
+Reimplemented from \hyperlink{classTCLAP_1_1ValueArg_a586d25c04c39ddf0e589605d79f72f8a}{T\+C\+L\+A\+P\+::\+Value\+Arg$<$ T $>$}.
+
+
+
+Definition at line 311 of file Unlabeled\+Value\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!operator==@{operator==}}
+\index{operator==@{operator==}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{operator==(const Arg \&a) const }{operator==(const Arg &a) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arg} \&}]{a}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1UnlabeledValueArg_a74632cd4d169481518cb1a871f97b412}{}\label{classTCLAP_1_1UnlabeledValueArg_a74632cd4d169481518cb1a871f97b412}
+Overrides operator== for specific behavior.
+
+Overriding operator== for specific behavior. 
+
+Reimplemented from \hyperlink{classTCLAP_1_1Arg_a657a8d2842b7de9ced5a5a55db01d367}{T\+C\+L\+A\+P\+::\+Arg}.
+
+
+
+Definition at line 325 of file Unlabeled\+Value\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!process\+Arg@{process\+Arg}}
+\index{process\+Arg@{process\+Arg}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{process\+Arg(int $\ast$i, std\+::vector$<$ std\+::string $>$ \&args)}{processArg(int *i, std::vector< std::string > &args)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::process\+Arg (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{i, }
+\item[{std\+::vector$<$ std\+::string $>$ \&}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1UnlabeledValueArg_ad853d7950a659b0d4ee2cda3f61261fd}{}\label{classTCLAP_1_1UnlabeledValueArg_ad853d7950a659b0d4ee2cda3f61261fd}
+Handles the processing of the argument. This re-\/implements the \hyperlink{classTCLAP_1_1Arg}{Arg} version of this method to set the \+\_\+value of the argument appropriately. Handling specific to unlabled arguments. 
+\begin{DoxyParams}{Parameters}
+{\em i} & -\/ Pointer the the current argument in the list. \\
+\hline
+{\em args} & -\/ Mutable list of strings.\\
+\hline
+\end{DoxyParams}
+Implementation of \hyperlink{classTCLAP_1_1UnlabeledValueArg_ad853d7950a659b0d4ee2cda3f61261fd}{process\+Arg()}. 
+
+Reimplemented from \hyperlink{classTCLAP_1_1ValueArg_a71e6ee7c7324724b6fc067c5ffe31160}{T\+C\+L\+A\+P\+::\+Value\+Arg$<$ T $>$}.
+
+
+
+Definition at line 281 of file Unlabeled\+Value\+Arg.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}!short\+ID@{short\+ID}}
+\index{short\+ID@{short\+ID}!T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg@{T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}}
+\paragraph[{\texorpdfstring{short\+I\+D(const std\+::string \&val=""val"") const }{shortID(const std::string &val="val") const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std\+::string {\bf T\+C\+L\+A\+P\+::\+Unlabeled\+Value\+Arg}$<$ T $>$\+::short\+ID (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{val = {\ttfamily \char`\"{}val\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1UnlabeledValueArg_abda4d1d695003ba165b6797e03007a99}{}\label{classTCLAP_1_1UnlabeledValueArg_abda4d1d695003ba165b6797e03007a99}
+Overrides short\+ID for specific behavior.
+
+Overriding short\+ID for specific output. 
+
+Reimplemented from \hyperlink{classTCLAP_1_1ValueArg_abb1eb22814d0a0da49c5f8bb57362d09}{T\+C\+L\+A\+P\+::\+Value\+Arg$<$ T $>$}.
+
+
+
+Definition at line 301 of file Unlabeled\+Value\+Arg.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/outside1/tclap/Unlabeled\+Value\+Arg.\+h\end{DoxyCompactItemize}

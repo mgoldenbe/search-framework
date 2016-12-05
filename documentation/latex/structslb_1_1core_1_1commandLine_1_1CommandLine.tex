@@ -1,0 +1,406 @@
+\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine}{}\subsection{slb\+:\+:core\+:\+:command\+Line\+:\+:Command\+Line$<$ Additions $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1commandLine_1_1CommandLine}\index{slb\+::core\+::command\+Line\+::\+Command\+Line$<$ Additions $>$@{slb\+::core\+::command\+Line\+::\+Command\+Line$<$ Additions $>$}}
+
+
+Class handling the command line. It is singleton. The command line would usually be accessed from the other code using the \hyperlink{command__line_8h_a0a5ceb9ceb914e08d345410b561cb37a}{C\+MD} macro.  
+
+
+
+
+{\ttfamily \#include $<$command\+\_\+line.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:command\+Line\+:\+:Command\+Line$<$ Additions $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{structslb_1_1core_1_1commandLine_1_1CommandLine__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:command\+Line\+:\+:Command\+Line$<$ Additions $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{structslb_1_1core_1_1commandLine_1_1CommandLine__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a409b982608d4f5b33db36dd951be94aa}{instances\+File\+Name} ()
+\begin{DoxyCompactList}\small\item\em Returns the name of file from which problem instances are to be read. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a722e8598fd3bacf7b7c043570761f505}{space\+Init\+File\+Name\+\_\+is\+Set} ()
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if an explicit domain is to be read from a file and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a516622ca0df35c3cebc2f58d9cf8f6cc}{space\+Init\+File\+Name} ()
+\begin{DoxyCompactList}\small\item\em Returns the name of the file from which the explicit domain is to be read. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a6158f28b2570a978155cc404f6f7d053}{n\+Instances} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of problem instances. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a898532baa7038c47f17de8390d50459f}{visualize\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Returns the instance number for which the visualizer is to be run. If visualization is not to be performed, the function returns -\/1. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a2ae1702ab278a15945e753b3097fcad4}{n\+Starts} (char mode)
+\begin{DoxyCompactList}\small\item\em Returns the number of start states in a problem instance. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a062e26ee110941ffbe598f13313b758c}{n\+Goals} (char mode)
+\begin{DoxyCompactList}\small\item\em Returns the number of goal states in a problem instance. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a8f2cd242e85739a4aef2733755811fa7}{default\+Goal} ()
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the first goal in the instance being created should be the default state of the domain and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_aba20650577b010f9699c127e258821c3}{per\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if per-\/problem-\/instance statistics are to appear on the output and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a49a9a1dc9794bbabde1247dfdf056823}{hide\+Title} ()
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the title row should not appear on the output and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_aea4d54aee80abe312965b0508751b925}{prefix\+Title} ()
+\begin{DoxyCompactList}\small\item\em Returns the string with which the title row is to be prefixed. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a0fde6d0c2ba0719bb6dacaab612c872b}{prefix\+Data} ()
+\begin{DoxyCompactList}\small\item\em Returns the string with which each data row is to be prefixed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine}{Command\+Line} \& \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a297df54d1f330d491717b487968b0fc5}{instance} (int argc=0, char $\ast$$\ast$argv=nullptr)
+\begin{DoxyCompactList}\small\item\em Access to the command line object. When this method is called for the first time, it should be called with proper (i.\+e. not default) {\ttfamily argc} and {\ttfamily argv}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a483a8ee633d26d4e6423387d5f81daf7}{Command\+Line} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Initializes the command line given {\ttfamily argc} and {\ttfamily argv}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_aae80eb58b58985870f186e80d7b16f0c}{instances\+File\+Name\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_aae80eb58b58985870f186e80d7b16f0c}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_aae80eb58b58985870f186e80d7b16f0c}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the name of file from which problem instances are to be read. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a2d5e9932ad4c70e62f1a8f5760665880}{space\+Init\+File\+Name\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a2d5e9932ad4c70e62f1a8f5760665880}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a2d5e9932ad4c70e62f1a8f5760665880}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the name of the file from which the explicit domain is to be read. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a45634f339b37747bcc19ce6c9e35d321}{n\+Instances\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a45634f339b37747bcc19ce6c9e35d321}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a45634f339b37747bcc19ce6c9e35d321}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the number of problem instances. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a4ada16371a5e3052b75b91658613f283}{visualize\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a4ada16371a5e3052b75b91658613f283}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a4ada16371a5e3052b75b91658613f283}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the instance number for which the visualizer is to be run. It would hold -\/1 if visualization is not to be performed. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_af848807b96ecf4560989abb9b78bfdf5}{n\+Starts\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_af848807b96ecf4560989abb9b78bfdf5}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_af848807b96ecf4560989abb9b78bfdf5}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the number of start states in a problem instance. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a68720f2ac1005479c84cc6cd681696e3}{n\+Goals\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a68720f2ac1005479c84cc6cd681696e3}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a68720f2ac1005479c84cc6cd681696e3}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the number of goal states in a problem instance. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Switch\+Arg \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a7157af3d110066e82e11493e93e37050}{default\+Goal\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a7157af3d110066e82e11493e93e37050}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a7157af3d110066e82e11493e93e37050}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the switch showing whether the first goal in the instance being created should be the default state of the domain. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Switch\+Arg \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a7f35a809f1c1b6ccbf080d2cb6109a22}{per\+Instance\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a7f35a809f1c1b6ccbf080d2cb6109a22}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a7f35a809f1c1b6ccbf080d2cb6109a22}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the switch showing whether per-\/problem-\/instance statistics are to appear on the output. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Switch\+Arg \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_aafd86c8565922240a0e7adf3040b8fa1}{hide\+Title\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_aafd86c8565922240a0e7adf3040b8fa1}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_aafd86c8565922240a0e7adf3040b8fa1}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the switch showing whether the title row is to appear on the output. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a2fd89f93aa659f5f0ddfafc9711f15a0}{prefix\+Title\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a2fd89f93aa659f5f0ddfafc9711f15a0}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a2fd89f93aa659f5f0ddfafc9711f15a0}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the string with which the title row is to be prefixed. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_af251cbd553a5150c57dcfb25c1bc3a8c}{prefix\+Data\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_af251cbd553a5150c57dcfb25c1bc3a8c}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_af251cbd553a5150c57dcfb25c1bc3a8c}
+
+\begin{DoxyCompactList}\small\item\em Command line option for the string with which each data row is to be prefixed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Additions = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$\\*
+struct slb\+::core\+::command\+Line\+::\+Command\+Line$<$ Additions $>$}
+
+Class handling the command line. It is singleton. The command line would usually be accessed from the other code using the \hyperlink{command__line_8h_a0a5ceb9ceb914e08d345410b561cb37a}{C\+MD} macro. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Additions} & Command line additions. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 51 of file command\+\_\+line.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!Command\+Line@{Command\+Line}}
+\index{Command\+Line@{Command\+Line}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{Command\+Line(int argc, char $\ast$$\ast$argv)}{CommandLine(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::{\bf Command\+Line} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a483a8ee633d26d4e6423387d5f81daf7}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a483a8ee633d26d4e6423387d5f81daf7}
+
+
+Initializes the command line given {\ttfamily argc} and {\ttfamily argv}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command line arguments. \\
+\hline
+{\em argv} & The command line arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 181 of file command\+\_\+line.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!default\+Goal@{default\+Goal}}
+\index{default\+Goal@{default\+Goal}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{default\+Goal()}{defaultGoal()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ bool {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::default\+Goal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a8f2cd242e85739a4aef2733755811fa7}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a8f2cd242e85739a4aef2733755811fa7}
+
+
+Returns {\ttfamily true} if the first goal in the instance being created should be the default state of the domain and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} the first goal in the instance being created should be the default state of the domain and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!hide\+Title@{hide\+Title}}
+\index{hide\+Title@{hide\+Title}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{hide\+Title()}{hideTitle()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ bool {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::hide\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a49a9a1dc9794bbabde1247dfdf056823}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a49a9a1dc9794bbabde1247dfdf056823}
+
+
+Returns {\ttfamily true} if the title row should not appear on the output and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the title row should not appear on the output and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!instance@{instance}}
+\index{instance@{instance}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{instance(int argc=0, char $\ast$$\ast$argv=nullptr)}{instance(int argc=0, char **argv=nullptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ static {\bf Command\+Line}\& {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::instance (
+\begin{DoxyParamCaption}
+\item[{int}]{argc = {\ttfamily 0}, }
+\item[{char $\ast$$\ast$}]{argv = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a297df54d1f330d491717b487968b0fc5}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a297df54d1f330d491717b487968b0fc5}
+
+
+Access to the command line object. When this method is called for the first time, it should be called with proper (i.\+e. not default) {\ttfamily argc} and {\ttfamily argv}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command line arguments. \\
+\hline
+{\em argv} & The command line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The command line object. 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!instances\+File\+Name@{instances\+File\+Name}}
+\index{instances\+File\+Name@{instances\+File\+Name}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{instances\+File\+Name()}{instancesFileName()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ std\+::string {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::instances\+File\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a409b982608d4f5b33db36dd951be94aa}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a409b982608d4f5b33db36dd951be94aa}
+
+
+Returns the name of file from which problem instances are to be read. 
+
+\begin{DoxyReturn}{Returns}
+The name of file from which problem instances are to be read. 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!n\+Goals@{n\+Goals}}
+\index{n\+Goals@{n\+Goals}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{n\+Goals(char mode)}{nGoals(char mode)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::n\+Goals (
+\begin{DoxyParamCaption}
+\item[{char}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a062e26ee110941ffbe598f13313b758c}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a062e26ee110941ffbe598f13313b758c}
+
+
+Returns the number of goal states in a problem instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & {\ttfamily \textquotesingle{}r\textquotesingle{}} or \textquotesingle{}w\textquotesingle{} depending on whether the problem instances file is being read or written, respectively. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of goal states in a problem instance. 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!n\+Instances@{n\+Instances}}
+\index{n\+Instances@{n\+Instances}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{n\+Instances()}{nInstances()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::n\+Instances (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a6158f28b2570a978155cc404f6f7d053}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a6158f28b2570a978155cc404f6f7d053}
+
+
+Returns the number of problem instances. 
+
+\begin{DoxyReturn}{Returns}
+The number of problem instances. 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!n\+Starts@{n\+Starts}}
+\index{n\+Starts@{n\+Starts}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{n\+Starts(char mode)}{nStarts(char mode)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::n\+Starts (
+\begin{DoxyParamCaption}
+\item[{char}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a2ae1702ab278a15945e753b3097fcad4}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a2ae1702ab278a15945e753b3097fcad4}
+
+
+Returns the number of start states in a problem instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & {\ttfamily \textquotesingle{}r\textquotesingle{}} or \textquotesingle{}w\textquotesingle{} depending on whether the problem instances file is being read or written, respectively. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of start states in a problem instance. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!per\+Instance@{per\+Instance}}
+\index{per\+Instance@{per\+Instance}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{per\+Instance()}{perInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ bool {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::per\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_aba20650577b010f9699c127e258821c3}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_aba20650577b010f9699c127e258821c3}
+
+
+Returns {\ttfamily true} if per-\/problem-\/instance statistics are to appear on the output and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if per-\/problem-\/instance statistics are to appear on the output and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!prefix\+Data@{prefix\+Data}}
+\index{prefix\+Data@{prefix\+Data}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{prefix\+Data()}{prefixData()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ std\+::string {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::prefix\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a0fde6d0c2ba0719bb6dacaab612c872b}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a0fde6d0c2ba0719bb6dacaab612c872b}
+
+
+Returns the string with which each data row is to be prefixed. 
+
+\begin{DoxyReturn}{Returns}
+The string with which each data row is to be prefixed. 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!prefix\+Title@{prefix\+Title}}
+\index{prefix\+Title@{prefix\+Title}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{prefix\+Title()}{prefixTitle()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ std\+::string {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::prefix\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_aea4d54aee80abe312965b0508751b925}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_aea4d54aee80abe312965b0508751b925}
+
+
+Returns the string with which the title row is to be prefixed. 
+
+\begin{DoxyReturn}{Returns}
+The string with which the title row is to be prefixed. 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!space\+Init\+File\+Name@{space\+Init\+File\+Name}}
+\index{space\+Init\+File\+Name@{space\+Init\+File\+Name}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{space\+Init\+File\+Name()}{spaceInitFileName()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ std\+::string {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::space\+Init\+File\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a516622ca0df35c3cebc2f58d9cf8f6cc}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a516622ca0df35c3cebc2f58d9cf8f6cc}
+
+
+Returns the name of the file from which the explicit domain is to be read. 
+
+\begin{DoxyReturn}{Returns}
+The name of the file from which the explicit domain is to be read. 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!space\+Init\+File\+Name\+\_\+is\+Set@{space\+Init\+File\+Name\+\_\+is\+Set}}
+\index{space\+Init\+File\+Name\+\_\+is\+Set@{space\+Init\+File\+Name\+\_\+is\+Set}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{space\+Init\+File\+Name\+\_\+is\+Set()}{spaceInitFileName_isSet()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ bool {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::space\+Init\+File\+Name\+\_\+is\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a722e8598fd3bacf7b7c043570761f505}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a722e8598fd3bacf7b7c043570761f505}
+
+
+Returns {\ttfamily true} if an explicit domain is to be read from a file and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if an explicit domain is to be read from a file and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!visualize\+Instance@{visualize\+Instance}}
+\index{visualize\+Instance@{visualize\+Instance}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{visualize\+Instance()}{visualizeInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::visualize\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a898532baa7038c47f17de8390d50459f}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a898532baa7038c47f17de8390d50459f}
+
+
+Returns the instance number for which the visualizer is to be run. If visualization is not to be performed, the function returns -\/1. 
+
+\begin{DoxyReturn}{Returns}
+The instance number for which the visualizer is to be run or -\/1 if visualization is not to be performed. 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file command\+\_\+line.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\hyperlink{command__line_8h}{command\+\_\+line.\+h}\end{DoxyCompactItemize}

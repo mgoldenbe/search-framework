@@ -1,0 +1,50 @@
+\hypertarget{structPatternLock}{}\subsection{Pattern\+Lock Struct Reference}
+\label{structPatternLock}\index{Pattern\+Lock@{Pattern\+Lock}}
+
+
+Implements a R\+A\+II technique to save and restore the current drawing. This can be used, for example, to shift the whole drawing (all one needs to do is to translate the drawing after acquiring a \hyperlink{structPatternLock}{Pattern\+Lock}).  
+
+
+
+
+{\ttfamily \#include $<$graphics\+\_\+object.\+h$>$}
+
+
+
+Collaboration diagram for Pattern\+Lock\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{structPatternLock__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structPatternLock_ac48b35a4338b39983872c43255cb2623}{Pattern\+Lock} (\hyperlink{structGraphics}{Graphics} \&g)\hypertarget{structPatternLock_ac48b35a4338b39983872c43255cb2623}{}\label{structPatternLock_ac48b35a4338b39983872c43255cb2623}
+
+\begin{DoxyCompactList}\small\item\em Saves the current source as a pattern. \end{DoxyCompactList}\item 
+\hyperlink{structPatternLock_aa209152c8442d89c1f53e90ae886c161}{$\sim$\+Pattern\+Lock} ()\hypertarget{structPatternLock_aa209152c8442d89c1f53e90ae886c161}{}\label{structPatternLock_aa209152c8442d89c1f53e90ae886c161}
+
+\begin{DoxyCompactList}\small\item\em Restores the source from the pattern saved in the constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structGraphics}{Graphics} \& \hyperlink{structPatternLock_a3f833f348dce4cb1df861f05a17d670e}{g\+\_\+}\hypertarget{structPatternLock_a3f833f348dce4cb1df861f05a17d670e}{}\label{structPatternLock_a3f833f348dce4cb1df861f05a17d670e}
+
+\begin{DoxyCompactList}\small\item\em The graphics object. \end{DoxyCompactList}\item 
+cairo\+\_\+pattern\+\_\+t $\ast$ \hyperlink{structPatternLock_a9ea26c3aeaebbba9ca9bc7a1f4e7e68c}{p\+\_\+}\hypertarget{structPatternLock_a9ea26c3aeaebbba9ca9bc7a1f4e7e68c}{}\label{structPatternLock_a9ea26c3aeaebbba9ca9bc7a1f4e7e68c}
+
+\begin{DoxyCompactList}\small\item\em The saved pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implements a R\+A\+II technique to save and restore the current drawing. This can be used, for example, to shift the whole drawing (all one needs to do is to translate the drawing after acquiring a \hyperlink{structPatternLock}{Pattern\+Lock}). 
+
+Definition at line 125 of file graphics\+\_\+object.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{graphics__object_8h}{graphics\+\_\+object.\+h}\end{DoxyCompactItemize}

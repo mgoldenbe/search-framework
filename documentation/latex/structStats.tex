@@ -1,0 +1,256 @@
+\hypertarget{structStats}{}\subsection{Stats Struct Reference}
+\label{structStats}\index{Stats@{Stats}}
+
+
+Performance statistics of a search algorithm for a set of problem instances.  
+
+
+
+
+{\ttfamily \#include $<$stats.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structStats_a7dc79881716411ea357945252059a3b7}{const\+\_\+iterator} = std\+::vector$<$ \hyperlink{structMeasureSet}{Measure\+Set} $>$\+::\hyperlink{structStats_a7dc79881716411ea357945252059a3b7}{const\+\_\+iterator}\hypertarget{structStats_a7dc79881716411ea357945252059a3b7}{}\label{structStats_a7dc79881716411ea357945252059a3b7}
+
+\begin{DoxyCompactList}\small\item\em Const iterator for \hyperlink{structStats}{Stats}. \end{DoxyCompactList}\item 
+using \hyperlink{structStats_aeff5619cb24d60247ad30f95ee4580f6}{const\+\_\+reference} = std\+::vector$<$ \hyperlink{structMeasureSet}{Measure\+Set} $>$\+::\hyperlink{structStats_aeff5619cb24d60247ad30f95ee4580f6}{const\+\_\+reference}\hypertarget{structStats_aeff5619cb24d60247ad30f95ee4580f6}{}\label{structStats_aeff5619cb24d60247ad30f95ee4580f6}
+
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based for-\/loop with a const-\/reference loop variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structStats_a88e22fc26e9c8af13b6e0b4ce72e2f98}{Stats} ()=default\hypertarget{structStats_a88e22fc26e9c8af13b6e0b4ce72e2f98}{}\label{structStats_a88e22fc26e9c8af13b6e0b4ce72e2f98}
+
+\begin{DoxyCompactList}\small\item\em Default constructor; initializes empty stats. \end{DoxyCompactList}\item 
+\hyperlink{structStats_a9227cef4f5d25dfb17520bd040b493f3}{Stats} (const \hyperlink{structMeasureSet}{Measure\+Set} \&m)\hypertarget{structStats_a9227cef4f5d25dfb17520bd040b493f3}{}\label{structStats_a9227cef4f5d25dfb17520bd040b493f3}
+
+\begin{DoxyCompactList}\small\item\em Initializes stats with a measure set for a single instance. \end{DoxyCompactList}\item 
+const \hyperlink{structStats_a7dc79881716411ea357945252059a3b7}{const\+\_\+iterator} \hyperlink{structStats_a4d280c5b9a246167ac2ae71e5717de1c}{begin} () const 
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based for-\/loop with a const loop variable. \end{DoxyCompactList}\item 
+const \hyperlink{structStats_a7dc79881716411ea357945252059a3b7}{const\+\_\+iterator} \hyperlink{structStats_ae30f3ae5364351c098b94c4b072f853d}{end} () const 
+\begin{DoxyCompactList}\small\item\em Needed to enable range-\/based loop. \end{DoxyCompactList}\item 
+int \hyperlink{structStats_aac70b19c1d464cd651c773514a3d40fb}{size} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of instances for which measure sets are stored. \end{DoxyCompactList}\item 
+\hyperlink{structMeasureSet}{Measure\+Set} \& \hyperlink{structStats_a34b455d9640972edd89c26828b43b4c9}{operator\mbox{[}$\,$\mbox{]}} (std\+::size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Returns measure set for the problem instance with the given index. \end{DoxyCompactList}\item 
+const \hyperlink{structMeasureSet}{Measure\+Set} \& \hyperlink{structStats_a6306080e07fe3290e5c58d72ec378b13}{operator\mbox{[}$\,$\mbox{]}} (std\+::size\+\_\+t n) const 
+\begin{DoxyCompactList}\small\item\em Returns measure set for the problem instance with the given index. \end{DoxyCompactList}\item 
+void \hyperlink{structStats_acaa28848b9dc1d13050c7f3dc29722ee}{append} (const \hyperlink{structMeasureSet}{Measure\+Set} \&m, bool number\+Flag=false)
+\begin{DoxyCompactList}\small\item\em Appends the given measure set to the stats. \end{DoxyCompactList}\item 
+\hyperlink{structStats}{Stats} \hyperlink{structStats_ae1470ecb280adcdc660cb71b1fb441ef}{sum} (bool average\+Cost\+Flag=false) const 
+\begin{DoxyCompactList}\small\item\em Computes the aggregated measure set which summarizes all the stats for all the instances. Sum is used as the aggregate function. \end{DoxyCompactList}\item 
+\hyperlink{structStats}{Stats} \hyperlink{structStats_a02657a88278a048272d58674a047ed07}{average} () const 
+\begin{DoxyCompactList}\small\item\em Computes the aggregated measure set which summarizes all the stats for all the instances. Average is used as the aggregate function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structStats_ae5c4ea6cb68f76f83c55df5bd8b665b9}{dump} (Stream \&os, const std\+::string \&prefix\+Title=\char`\"{}\char`\"{}, const std\+::string \&prefix\+Data=\char`\"{}\char`\"{}) const 
+\begin{DoxyCompactList}\small\item\em Dumps the stats to the given stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structMeasureSet}{Measure\+Set} $>$ \hyperlink{structStats_ad9f07efc47327d48caf720bc8940fc45}{s\+\_\+}\hypertarget{structStats_ad9f07efc47327d48caf720bc8940fc45}{}\label{structStats_ad9f07efc47327d48caf720bc8940fc45}
+
+\begin{DoxyCompactList}\small\item\em The measure sets for the solved problem instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Performance statistics of a search algorithm for a set of problem instances. 
+
+Definition at line 209 of file stats.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Stats@{Stats}!append@{append}}
+\index{append@{append}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{append(const Measure\+Set \&m, bool number\+Flag=false)}{append(const MeasureSet &m, bool numberFlag=false)}}]{\setlength{\rightskip}{0pt plus 5cm}void Stats\+::append (
+\begin{DoxyParamCaption}
+\item[{const {\bf Measure\+Set} \&}]{m, }
+\item[{bool}]{number\+Flag = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_acaa28848b9dc1d13050c7f3dc29722ee}{}\label{structStats_acaa28848b9dc1d13050c7f3dc29722ee}
+
+
+Appends the given measure set to the stats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The measure set to append. \\
+\hline
+{\em number\+Flag} & If {\ttfamily true}, the measure expressing the index of the problem instance will be inserted to the beginning of {\ttfamily m} before appending {\ttfamily m} to stats. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 250 of file stats.\+h.
+
+\index{Stats@{Stats}!average@{average}}
+\index{average@{average}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{average() const }{average() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stats} Stats\+::average (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_a02657a88278a048272d58674a047ed07}{}\label{structStats_a02657a88278a048272d58674a047ed07}
+
+
+Computes the aggregated measure set which summarizes all the stats for all the instances. Average is used as the aggregate function. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{structStats}{Stats} consisting of a single measure set that summarizes all the stats for all the instances. 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file stats.\+h.
+
+\index{Stats@{Stats}!begin@{begin}}
+\index{begin@{begin}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf const\+\_\+iterator} Stats\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_a4d280c5b9a246167ac2ae71e5717de1c}{}\label{structStats_a4d280c5b9a246167ac2ae71e5717de1c}
+
+
+Needed to enable range-\/based for-\/loop with a const loop variable. 
+
+\begin{DoxyReturn}{Returns}
+The {\ttfamily begin} const iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 225 of file stats.\+h.
+
+\index{Stats@{Stats}!dump@{dump}}
+\index{dump@{dump}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&os, const std\+::string \&prefix\+Title="""", const std\+::string \&prefix\+Data="""") const }{dump(Stream &os, const std::string &prefixTitle="", const std::string &prefixData="") const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Stream $>$ Stream\& Stats\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{os, }
+\item[{const std\+::string \&}]{prefix\+Title = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{const std\+::string \&}]{prefix\+Data = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_ae5c4ea6cb68f76f83c55df5bd8b665b9}{}\label{structStats_ae5c4ea6cb68f76f83c55df5bd8b665b9}
+
+
+Dumps the stats to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The stream. \\
+\hline
+{\em prefix\+Title} & The string to prefix the title row with. \\
+\hline
+{\em prefix\+Data} & The string to prefix each data row with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 293 of file stats.\+h.
+
+\index{Stats@{Stats}!end@{end}}
+\index{end@{end}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf const\+\_\+iterator} Stats\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_ae30f3ae5364351c098b94c4b072f853d}{}\label{structStats_ae30f3ae5364351c098b94c4b072f853d}
+
+
+Needed to enable range-\/based loop. 
+
+\begin{DoxyReturn}{Returns}
+The {\ttfamily end} iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 229 of file stats.\+h.
+
+\index{Stats@{Stats}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{operator[](std\+::size\+\_\+t n)}{operator[](std::size_t n)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Measure\+Set}\& Stats\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_a34b455d9640972edd89c26828b43b4c9}{}\label{structStats_a34b455d9640972edd89c26828b43b4c9}
+
+
+Returns measure set for the problem instance with the given index. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the measure set for the problem instance with the index {\ttfamily n}. 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file stats.\+h.
+
+\index{Stats@{Stats}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{operator[](std\+::size\+\_\+t n) const }{operator[](std::size_t n) const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Measure\+Set}\& Stats\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_a6306080e07fe3290e5c58d72ec378b13}{}\label{structStats_a6306080e07fe3290e5c58d72ec378b13}
+
+
+Returns measure set for the problem instance with the given index. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the measure set for the problem instance with the index {\ttfamily n}. 
+\end{DoxyReturn}
+
+
+Definition at line 243 of file stats.\+h.
+
+\index{Stats@{Stats}!size@{size}}
+\index{size@{size}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Stats\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_aac70b19c1d464cd651c773514a3d40fb}{}\label{structStats_aac70b19c1d464cd651c773514a3d40fb}
+
+
+Returns the number of instances for which measure sets are stored. 
+
+\begin{DoxyReturn}{Returns}
+The number of instances for which measure sets are stored. 
+\end{DoxyReturn}
+
+
+Definition at line 233 of file stats.\+h.
+
+\index{Stats@{Stats}!sum@{sum}}
+\index{sum@{sum}!Stats@{Stats}}
+\paragraph[{\texorpdfstring{sum(bool average\+Cost\+Flag=false) const }{sum(bool averageCostFlag=false) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stats} Stats\+::sum (
+\begin{DoxyParamCaption}
+\item[{bool}]{average\+Cost\+Flag = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structStats_ae1470ecb280adcdc660cb71b1fb441ef}{}\label{structStats_ae1470ecb280adcdc660cb71b1fb441ef}
+
+
+Computes the aggregated measure set which summarizes all the stats for all the instances. Sum is used as the aggregate function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em average\+Cost\+Flag} & If {\ttfamily true}, the measures with the name \char`\"{}\+Cost\char`\"{} are treated specially in that their values are averaged. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{structStats}{Stats} consisting of a single measure set that summarizes all the stats for all the instances. 
+\end{DoxyReturn}
+
+
+Definition at line 266 of file stats.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{stats_8h}{stats.\+h}\end{DoxyCompactItemize}

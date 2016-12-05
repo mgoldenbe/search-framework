@@ -1,0 +1,53 @@
+\hypertarget{drawer_8h}{}\subsection{core/user\+\_\+interface/drawer.h File Reference}
+\label{drawer_8h}\index{core/user\+\_\+interface/drawer.\+h@{core/user\+\_\+interface/drawer.\+h}}
+
+
+The \hyperlink{structslb_1_1core_1_1ui_1_1Drawer}{slb\+::core\+::ui\+::\+Drawer} class and the types used for tag dispatch to compute the layout of the (partial) domain graph.  
+
+
+{\ttfamily \#include \char`\"{}visual\+\_\+log.\+h\char`\"{}}\\*
+Include dependency graph for drawer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{drawer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{drawer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1has__layout}{slb\+::core\+::ui\+::has\+\_\+layout$<$ State, typename $>$}
+\begin{DoxyCompactList}\small\item\em Declared only if {\ttfamily State} does not have a function for computing layout. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1Drawer}{slb\+::core\+::ui\+::\+Drawer$<$ Node $>$}
+\begin{DoxyCompactList}\small\item\em Draws the (partial) domain graph with given styles for visual representation of vertices and edges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1ui}{slb\+::core\+::ui}
+\begin{DoxyCompactList}\small\item\em The user interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class State $>$ }\\using \hyperlink{group__LayoutTraits_ga9bf16cc2a70201a2d10994dbffbe094f}{slb\+::core\+::ui\+::\+Has\+Layout} = typename std\+::enable\+\_\+if$<$ has\+\_\+layout$<$ State $>$\+::value $>$\+::type
+\begin{DoxyCompactList}\small\item\em Evaluates to {\ttfamily void} only if {\ttfamily State} has a function for computing layout. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State $>$ }\\using \hyperlink{group__LayoutTraits_gaf200efa9fbb401dd541fa80e687e0264}{slb\+::core\+::ui\+::\+Has\+No\+Layout} = typename std\+::enable\+\_\+if$<$!has\+\_\+layout$<$ State $>$\+::value $>$\+::type
+\begin{DoxyCompactList}\small\item\em Evaluates to {\ttfamily void} only if {\ttfamily State} does not have a function for computing layout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The \hyperlink{structslb_1_1core_1_1ui_1_1Drawer}{slb\+::core\+::ui\+::\+Drawer} class and the types used for tag dispatch to compute the layout of the (partial) domain graph. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

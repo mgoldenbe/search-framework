@@ -1,0 +1,314 @@
+\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:open\+List\+:\+:Bucketed\+Std\+Map\+\_\+T$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T}\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+\+T$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+\+T$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$}}
+
+
+A flexible open list base on {\ttfamily std\+::map} whose values are buckets of nodes with same priority.  
+
+
+
+
+{\ttfamily \#include $<$open\+\_\+list.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abe8c12b881c4c3440e5b5e3aaa72c061}{My\+Algorithm} = My\+Algorithm\+\_\+\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abe8c12b881c4c3440e5b5e3aaa72c061}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abe8c12b881c4c3440e5b5e3aaa72c061}
+
+\begin{DoxyCompactList}\small\item\em The search algorithm type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_aa301ab635e2de1a7c0a67776e4239ec6}{Bucket\+Position} = int\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_aa301ab635e2de1a7c0a67776e4239ec6}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_aa301ab635e2de1a7c0a67776e4239ec6}
+
+\begin{DoxyCompactList}\small\item\em Type for storing node position in the open list. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} = Node\+\_\+\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}
+
+\begin{DoxyCompactList}\small\item\em The node type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{Key\+Type} = Key\+Type\+\_\+$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} $>$\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}
+
+\begin{DoxyCompactList}\small\item\em The key type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ab6c3ac3948a16366d3e06312a3381e3d}{Greater\+Priority} = Greater\+Priority\+\_\+$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{Key\+Type} $>$\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ab6c3ac3948a16366d3e06312a3381e3d}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ab6c3ac3948a16366d3e06312a3381e3d}
+
+\begin{DoxyCompactList}\small\item\em The functor type used to compare the keys. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a8736536dcf03af08b9df4b540c333535}{Cost\+Type} = typename Node\+::\+Cost\+Type\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a8736536dcf03af08b9df4b540c333535}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a8736536dcf03af08b9df4b540c333535}
+
+\begin{DoxyCompactList}\small\item\em Type for action cost in the search domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ac3244479641693cce8338fa235e988d5}{Buckets\+Container} = Container$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{Key\+Type}, std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} $\ast$ $>$, \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ab6c3ac3948a16366d3e06312a3381e3d}{Greater\+Priority} $>$\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ac3244479641693cce8338fa235e988d5}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ac3244479641693cce8338fa235e988d5}
+
+\begin{DoxyCompactList}\small\item\em Type of the container for storing buckets of nodes with same priority. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a833535b9d82b91e30110758b6bd919ce}{Bucketed\+Std\+Map\+\_\+T} (\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abe8c12b881c4c3440e5b5e3aaa72c061}{My\+Algorithm} \&alg)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_aa6260761891f8b1db92a3462acb49477}{add} (\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} $\ast$n)
+\begin{DoxyCompactList}\small\item\em Adds the given node to the list. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2ec989f91f4d84552d4c100bb79a007d}{size} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of nodes in the list. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a091538972fdbdcb9ab0e833b62f7115f}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the list is empty and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a05bb2fdd5ed53f34ee9f44209147028a}{update} (\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} $\ast$n, const \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{Key\+Type} \&old\+Priority)
+\begin{DoxyCompactList}\small\item\em Updates the priority of the given node. If the node is not in the open list, it is added whether or not it\textquotesingle{}s key has changed. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} $\ast$ \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2e1f3b541a78adc315f5d5b7972270c7}{delete\+Min} ()
+\begin{DoxyCompactList}\small\item\em Removes the highest priority node from the list and returns the former. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{Key\+Type} \& \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a17ebc907dda46e3bf1644ef741b3a898}{cur\+Priority} ()
+\begin{DoxyCompactList}\small\item\em Returns the highest priority without removing the corresponding node. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a4b2b0f37366941cf0424f39c597d7f6f}{dump} () const \hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a4b2b0f37366941cf0424f39c597d7f6f}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a4b2b0f37366941cf0424f39c597d7f6f}
+
+\begin{DoxyCompactList}\small\item\em Dumps the list to {\ttfamily stderr} for debugging. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2bb00c5ed704472eea8da59ec2fd8bc1}{recompute} ()
+\begin{DoxyCompactList}\small\item\em Re-\/compute the whole open list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} $\ast$ \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a98b3e08d0729abddbdc6a2934e21310d}{erase} (const \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{Key\+Type} \&priority)
+\begin{DoxyCompactList}\small\item\em Removes from the list the last node in the bucket corresponding to the given priority and returns the former. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a20be12bd955d752d2ef9e78f7577c738}{Node} $\ast$ \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a48f1ff1b1897994d42dc438822ad761f}{erase} (const \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a1236fe314465155339798c0f9c4c5ca8}{Key\+Type} \&priority, const \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_aa301ab635e2de1a7c0a67776e4239ec6}{Bucket\+Position} \&pos)
+\begin{DoxyCompactList}\small\item\em Removes from the list the node with the given position in the bucket corresponding to the given priority and returns the former. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abe8c12b881c4c3440e5b5e3aaa72c061}{My\+Algorithm} \& \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a68eeb55145bfb5c6b3c92856ce68b9ab}{alg\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a68eeb55145bfb5c6b3c92856ce68b9ab}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a68eeb55145bfb5c6b3c92856ce68b9ab}
+
+\begin{DoxyCompactList}\small\item\em Reference to the search algorithm. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_ac3244479641693cce8338fa235e988d5}{Buckets\+Container} \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abdb4311743043511f1eb9531dd4c99c3}{buckets\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abdb4311743043511f1eb9531dd4c99c3}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_abdb4311743043511f1eb9531dd4c99c3}
+
+\begin{DoxyCompactList}\small\item\em The underlying map. Nodes with same priority are kept in buckets. These buckets are the values in the map. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a070245594f62cd873b7b34feac9b98f8}{size\+\_\+} = 0\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a070245594f62cd873b7b34feac9b98f8}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a070245594f62cd873b7b34feac9b98f8}
+
+\begin{DoxyCompactList}\small\item\em Number of nodes in the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm\+\_\+, class Node\+\_\+ = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$\\*
+struct slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+\+T$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$}
+
+A flexible open list base on {\ttfamily std\+::map} whose values are buckets of nodes with same priority. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm\+\_\+} & The search algorithm type. \\
+\hline
+{\em Node\+\_\+} & The node type. \\
+\hline
+{\em Key\+Type\+\_\+} & The key type. \\
+\hline
+{\em Greater\+Priority\+\_\+} & The functor type used to compare the keys. \\
+\hline
+{\em The} & underlying container. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 119 of file open\+\_\+list.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!Bucketed\+Std\+Map\+\_\+T@{Bucketed\+Std\+Map\+\_\+T}}
+\index{Bucketed\+Std\+Map\+\_\+T@{Bucketed\+Std\+Map\+\_\+T}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{Bucketed\+Std\+Map\+\_\+\+T(\+My\+Algorithm \&alg)}{BucketedStdMap_T(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::{\bf Bucketed\+Std\+Map\+\_\+T} (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+Algorithm} \&}]{alg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a833535b9d82b91e30110758b6bd919ce}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a833535b9d82b91e30110758b6bd919ce}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & Reference to the search algorithm. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 144 of file open\+\_\+list.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!add@{add}}
+\index{add@{add}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{add(\+Node $\ast$n)}{add(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ void {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_aa6260761891f8b1db92a3462acb49477}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_aa6260761891f8b1db92a3462acb49477}
+
+
+Adds the given node to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Pointer to the node to be added. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!cur\+Priority@{cur\+Priority}}
+\index{cur\+Priority@{cur\+Priority}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{cur\+Priority()}{curPriority()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ const {\bf Key\+Type}\& {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::cur\+Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a17ebc907dda46e3bf1644ef741b3a898}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a17ebc907dda46e3bf1644ef741b3a898}
+
+
+Returns the highest priority without removing the corresponding node. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the highest priority in the list. 
+\end{DoxyReturn}
+
+
+Definition at line 193 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!delete\+Min@{delete\+Min}}
+\index{delete\+Min@{delete\+Min}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{delete\+Min()}{deleteMin()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ {\bf Node}$\ast$ {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::delete\+Min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2e1f3b541a78adc315f5d5b7972270c7}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2e1f3b541a78adc315f5d5b7972270c7}
+
+
+Removes the highest priority node from the list and returns the former. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the highest priority node. 
+\end{DoxyReturn}
+
+
+Definition at line 187 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!empty@{empty}}
+\index{empty@{empty}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ bool {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a091538972fdbdcb9ab0e833b62f7115f}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a091538972fdbdcb9ab0e833b62f7115f}
+
+
+Returns {\ttfamily true} if the list is empty and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the list is empty and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 167 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!erase@{erase}}
+\index{erase@{erase}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{erase(const Key\+Type \&priority)}{erase(const KeyType &priority)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ {\bf Node}$\ast$ {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::erase (
+\begin{DoxyParamCaption}
+\item[{const {\bf Key\+Type} \&}]{priority}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a98b3e08d0729abddbdc6a2934e21310d}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a98b3e08d0729abddbdc6a2934e21310d}
+
+
+Removes from the list the last node in the bucket corresponding to the given priority and returns the former. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & The bucket from which the last node needs to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the node being removed. 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!erase@{erase}}
+\index{erase@{erase}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{erase(const Key\+Type \&priority, const Bucket\+Position \&pos)}{erase(const KeyType &priority, const BucketPosition &pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ {\bf Node}$\ast$ {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::erase (
+\begin{DoxyParamCaption}
+\item[{const {\bf Key\+Type} \&}]{priority, }
+\item[{const {\bf Bucket\+Position} \&}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a48f1ff1b1897994d42dc438822ad761f}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a48f1ff1b1897994d42dc438822ad761f}
+
+
+Removes from the list the node with the given position in the bucket corresponding to the given priority and returns the former. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & The bucket from which the last node that needs to be removed. \\
+\hline
+{\em pos} & The position in the bucket of the node that needs to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the node being removed. 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!recompute@{recompute}}
+\index{recompute@{recompute}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{recompute()}{recompute()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ void {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::recompute (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2bb00c5ed704472eea8da59ec2fd8bc1}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2bb00c5ed704472eea8da59ec2fd8bc1}
+
+
+Re-\/compute the whole open list. 
+
+\begin{DoxyNote}{Note}
+It is faster to put all map elements into a vector and sort them there first, but it is not clear how to map keys to buckets\+\_\+.\+size() vector indices. We could insert into un-\/ordered map first, but then we lose the performance benefits (checked with a simple prototype). 
+\end{DoxyNote}
+
+
+Definition at line 212 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!size@{size}}
+\index{size@{size}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ std\+::size\+\_\+t {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2ec989f91f4d84552d4c100bb79a007d}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2ec989f91f4d84552d4c100bb79a007d}
+
+
+Returns the number of nodes in the list. 
+
+\begin{DoxyReturn}{Returns}
+The number of nodes in the list. 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!update@{update}}
+\index{update@{update}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{update(\+Node $\ast$n, const Key\+Type \&old\+Priority)}{update(Node *n, const KeyType &oldPriority)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ void {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::update (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{n, }
+\item[{const {\bf Key\+Type} \&}]{old\+Priority}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a05bb2fdd5ed53f34ee9f44209147028a}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a05bb2fdd5ed53f34ee9f44209147028a}
+
+
+Updates the priority of the given node. If the node is not in the open list, it is added whether or not it\textquotesingle{}s key has changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Pointer to the node whose priority has changed. \\
+\hline
+{\em old\+Priority} & The priority that {\ttfamily n} used to have. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 174 of file open\+\_\+list.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{open__list_8h}{open\+\_\+list.\+h}\end{DoxyCompactItemize}

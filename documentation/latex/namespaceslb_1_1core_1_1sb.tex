@@ -1,0 +1,212 @@
+\hypertarget{namespaceslb_1_1core_1_1sb}{}\subsection{slb\+:\+:core\+:\+:sb Namespace Reference}
+\label{namespaceslb_1_1core_1_1sb}\index{slb\+::core\+::sb@{slb\+::core\+::sb}}
+
+
+The search base. These are facilities that support implementation of various heuristic search algorithms.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ActionNeighbor}{Action\+Neighbor}
+\begin{DoxyCompactList}\small\item\em The type for an action neighbor of a given state. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1Backtrack}{Backtrack}
+\begin{DoxyCompactList}\small\item\em Handles backtracking in linear-\/space algorithms such as I\+D\+A$\ast$. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1Cost}{Cost}
+\begin{DoxyCompactList}\small\item\em The type for storing the cost of a neighbor. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1Cost_3_01State___00_01true_01_4}{Cost$<$ State\+\_\+, true $>$}
+\begin{DoxyCompactList}\small\item\em Specialization of the type for storing the cost of a neighbor for uniform domains. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1DomainBase}{Domain\+Base}
+\begin{DoxyCompactList}\small\item\em A type for common features of domains. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State}
+\begin{DoxyCompactList}\small\item\em The base class for a state in an explicit domain. It can be viewed as a wrapper for the location type defined by the explicit domain. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{Instance}
+\begin{DoxyCompactList}\small\item\em The type for an instance with an arbitrary (but fixed) number of start and goal states. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ManagedNode}{Managed\+Node}
+\begin{DoxyCompactList}\small\item\em A node endowed with \href{http://stackoverflow.com/a/11744832/2725810}{\tt reflection capabilities}. In particular universal output operators are defined for such a node. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ManagedNode_3_01Base1___00_01Base2___00_01Base3___00_01Base4___01_4}{Managed\+Node$<$ Base1\+\_\+, Base2\+\_\+, Base3\+\_\+, Base4\+\_\+ $>$}
+\begin{DoxyCompactList}\small\item\em Note that inherits data from four base classes. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ManagedNode_3_01Base1___00_01Base2___00_01Base3___00_01void_01_4}{Managed\+Node$<$ Base1\+\_\+, Base2\+\_\+, Base3\+\_\+, void $>$}
+\begin{DoxyCompactList}\small\item\em Note that inherits data from three base classes. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ManagedNode_3_01Base1___00_01Base2___00_01void_00_01void_01_4}{Managed\+Node$<$ Base1\+\_\+, Base2\+\_\+, void, void $>$}
+\begin{DoxyCompactList}\small\item\em Note that inherits data from two base classes. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ManagedNode_3_01Base1___00_01void_00_01void_00_01void_01_4}{Managed\+Node$<$ Base1\+\_\+, void, void, void $>$}
+\begin{DoxyCompactList}\small\item\em Note that inherits data from a single base class. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1ManagedNode_3_01void_00_01void_00_01void_00_01void_01_4}{Managed\+Node$<$ void, void, void, void $>$}
+\begin{DoxyCompactList}\small\item\em Node that does not inherit data. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1MeasureSet}{Measure\+Set}
+\begin{DoxyCompactList}\small\item\em All the measures for a single problem instance. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList}{Open\+Closed\+List}
+\begin{DoxyCompactList}\small\item\em The type for storing open and closed lists of {\ttfamily A$\ast$} family of algorithms. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode}{Search\+Node}
+\begin{DoxyCompactList}\small\item\em The search node type. Inherits the data structure to make data (e.\+g. g-\/ and f-\/value) easy to access. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1StateNeighbor}{State\+Neighbor}
+\begin{DoxyCompactList}\small\item\em The type for a state neighbor of a given state. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1sb_1_1Stats}{Stats}
+\begin{DoxyCompactList}\small\item\em Performance statistics of a search algorithm for a set of problem instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1MeasureSet}{Measure\+Set} \hyperlink{namespaceslb_1_1core_1_1sb_a1866330cbea23527482f996faad8b3c4}{parse\+Instances\+Title} (std\+::string \&s, int \&n\+Starts, int \&n\+Goals)
+\begin{DoxyCompactList}\small\item\em Parses the given title line of the instances file to determine how many start and goal states each instance would contain. Returns a measure set with the titles already set. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State $>$ }\\State \hyperlink{namespaceslb_1_1core_1_1sb_a68dfc95bb83fc37be7bbaf9d8ea14557}{unique\+Random\+State} (const std\+::vector$<$ State $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Computes a random state that is not in the given vector of states. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{Instance}$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_a7f194d59f1e10da41faa6d30644e1e06}{make\+Instances} (int n)
+\begin{DoxyCompactList}\small\item\em Makes the required number of random instances. The numbers of start and goal states are determined by the command line. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{Instance}$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_af8a099333bcb967b7c5fdbe18e004631}{make\+Instances\+File} (const std\+::string \&fname)
+\begin{DoxyCompactList}\small\item\em Makes a file with the number of random instances determined by the command line. The numbers of start and goal states are determined by the command line as well. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{Instance}$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_a317da634fc4e48ee329cc29851b64745}{read\+Instances\+File} (const std\+::string \&fname)
+\begin{DoxyCompactList}\small\item\em Reads the instances file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The search base. These are facilities that support implementation of various heuristic search algorithms. 
+
+\subsubsection{Function Documentation}
+\index{slb\+::core\+::sb@{slb\+::core\+::sb}!make\+Instances@{make\+Instances}}
+\index{make\+Instances@{make\+Instances}!slb\+::core\+::sb@{slb\+::core\+::sb}}
+\paragraph[{\texorpdfstring{make\+Instances(int n)}{makeInstances(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ std\+::vector$<${\bf Instance}$<$State$>$ $>$ slb\+::core\+::sb\+::make\+Instances (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1sb_a7f194d59f1e10da41faa6d30644e1e06}{}\label{namespaceslb_1_1core_1_1sb_a7f194d59f1e10da41faa6d30644e1e06}
+
+
+Makes the required number of random instances. The numbers of start and goal states are determined by the command line. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The required number of instances. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of {\ttfamily n} random instances. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+If the number of different states in the domain is smaller than the number of start or goal states in an instance), an infinite loop will result. 
+\end{DoxyWarning}
+
+
+Definition at line 154 of file instance.\+h.
+
+\index{slb\+::core\+::sb@{slb\+::core\+::sb}!make\+Instances\+File@{make\+Instances\+File}}
+\index{make\+Instances\+File@{make\+Instances\+File}!slb\+::core\+::sb@{slb\+::core\+::sb}}
+\paragraph[{\texorpdfstring{make\+Instances\+File(const std\+::string \&fname)}{makeInstancesFile(const std::string &fname)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ std\+::vector$<${\bf Instance}$<$State$>$ $>$ slb\+::core\+::sb\+::make\+Instances\+File (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{fname}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1sb_af8a099333bcb967b7c5fdbe18e004631}{}\label{namespaceslb_1_1core_1_1sb_af8a099333bcb967b7c5fdbe18e004631}
+
+
+Makes a file with the number of random instances determined by the command line. The numbers of start and goal states are determined by the command line as well. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The name of the file to contain the instances. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of the instances stored in the file. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+If the number of different states in the domain is smaller than the number of start or goal states in an instance), an infinite loop will result. 
+\end{DoxyWarning}
+
+
+Definition at line 189 of file instance.\+h.
+
+\index{slb\+::core\+::sb@{slb\+::core\+::sb}!parse\+Instances\+Title@{parse\+Instances\+Title}}
+\index{parse\+Instances\+Title@{parse\+Instances\+Title}!slb\+::core\+::sb@{slb\+::core\+::sb}}
+\paragraph[{\texorpdfstring{parse\+Instances\+Title(std\+::string \&s, int \&n\+Starts, int \&n\+Goals)}{parseInstancesTitle(std::string &s, int &nStarts, int &nGoals)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Measure\+Set} slb\+::core\+::sb\+::parse\+Instances\+Title (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{s, }
+\item[{int \&}]{n\+Starts, }
+\item[{int \&}]{n\+Goals}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1sb_a1866330cbea23527482f996faad8b3c4}{}\label{namespaceslb_1_1core_1_1sb_a1866330cbea23527482f996faad8b3c4}
+
+
+Parses the given title line of the instances file to determine how many start and goal states each instance would contain. Returns a measure set with the titles already set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The title line. \\
+\hline
+{\em n\+Starts} & The number of start states in each instance to be set. \\
+\hline
+{\em n\+Goals} & The number of goal states in each instance to be set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file instance.\+h.
+
+\index{slb\+::core\+::sb@{slb\+::core\+::sb}!read\+Instances\+File@{read\+Instances\+File}}
+\index{read\+Instances\+File@{read\+Instances\+File}!slb\+::core\+::sb@{slb\+::core\+::sb}}
+\paragraph[{\texorpdfstring{read\+Instances\+File(const std\+::string \&fname)}{readInstancesFile(const std::string &fname)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ std\+::vector$<${\bf Instance}$<$State$>$ $>$ slb\+::core\+::sb\+::read\+Instances\+File (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{fname}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1sb_a317da634fc4e48ee329cc29851b64745}{}\label{namespaceslb_1_1core_1_1sb_a317da634fc4e48ee329cc29851b64745}
+
+
+Reads the instances file. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The name of the file containing the instances. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of the read instances. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The numbers of start and goal states in the instances are extracted from the file. The number of instances is determined automatically as well. 
+\end{DoxyNote}
+
+
+Definition at line 218 of file instance.\+h.
+
+\index{slb\+::core\+::sb@{slb\+::core\+::sb}!unique\+Random\+State@{unique\+Random\+State}}
+\index{unique\+Random\+State@{unique\+Random\+State}!slb\+::core\+::sb@{slb\+::core\+::sb}}
+\paragraph[{\texorpdfstring{unique\+Random\+State(const std\+::vector$<$ State $>$ \&v)}{uniqueRandomState(const std::vector< State > &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ State slb\+::core\+::sb\+::unique\+Random\+State (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ State $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1sb_a68dfc95bb83fc37be7bbaf9d8ea14557}{}\label{namespaceslb_1_1core_1_1sb_a68dfc95bb83fc37be7bbaf9d8ea14557}
+
+
+Computes a random state that is not in the given vector of states. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The given vector of states. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random state that is not in {\ttfamily v}. 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file instance.\+h.
+

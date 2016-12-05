@@ -1,0 +1,305 @@
+\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList}{}\subsection{slb\+:\+:core\+:\+:sb\+:\+:Open\+Closed\+List$<$ Open\+List $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1sb_1_1OpenClosedList}\index{slb\+::core\+::sb\+::\+Open\+Closed\+List$<$ Open\+List $>$@{slb\+::core\+::sb\+::\+Open\+Closed\+List$<$ Open\+List $>$}}
+
+
+The type for storing open and closed lists of {\ttfamily A$\ast$} family of algorithms.  
+
+
+
+
+{\ttfamily \#include $<$open\+\_\+closed\+\_\+list.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a784b852bae8bcee53dedc40675ab429f}{My\+Algorithm} = typename Open\+List\+::\+My\+Algorithm\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a784b852bae8bcee53dedc40675ab429f}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a784b852bae8bcee53dedc40675ab429f}
+
+\begin{DoxyCompactList}\small\item\em The search algorithm. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} = typename Open\+List\+::\+Node\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}
+
+\begin{DoxyCompactList}\small\item\em The node type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a9ffd5756297080af110c9d55b588a34e}{Key\+Type} = typename Open\+List\+::\+Key\+Type\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a9ffd5756297080af110c9d55b588a34e}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a9ffd5756297080af110c9d55b588a34e}
+
+\begin{DoxyCompactList}\small\item\em The key type of the open list. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab79d63d962deef4b9a0e7d9eaa600ed5}{Cost\+Type} = typename Node\+::\+Cost\+Type\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_ab79d63d962deef4b9a0e7d9eaa600ed5}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_ab79d63d962deef4b9a0e7d9eaa600ed5}
+
+\begin{DoxyCompactList}\small\item\em Type for action cost in the search domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a2e2e18ca368c353ff032fa3f3dd8f1e9}{Node\+Unique\+Ptr} = typename Node\+::\+Node\+Unique\+Ptr\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a2e2e18ca368c353ff032fa3f3dd8f1e9}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a2e2e18ca368c353ff032fa3f3dd8f1e9}
+
+\begin{DoxyCompactList}\small\item\em The type for unique pointer to search node. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_abf97b928a4672403ae4cbc256992d629}{State} = typename Node\+::\+State\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_abf97b928a4672403ae4cbc256992d629}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_abf97b928a4672403ae4cbc256992d629}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a32a2b03f9f64969e70977f9b5f858b3f}{Hash\+Type} = std\+::unordered\+\_\+map$<$ \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_abf97b928a4672403ae4cbc256992d629}{State}, \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a2e2e18ca368c353ff032fa3f3dd8f1e9}{Node\+Unique\+Ptr}, \hyperlink{structslb_1_1core_1_1util_1_1StateHash}{util\+::\+State\+Hash}$<$ \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_abf97b928a4672403ae4cbc256992d629}{State} $>$$>$\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a32a2b03f9f64969e70977f9b5f858b3f}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a32a2b03f9f64969e70977f9b5f858b3f}
+
+\begin{DoxyCompactList}\small\item\em The type of the underlying hash table for the closed list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a3dfcee1b7aa7121476af5b57d92682ba}{Open\+Closed\+List} (\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a784b852bae8bcee53dedc40675ab429f}{My\+Algorithm} \&alg)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a236ab21918429734c4f4bc8d33d31767}{dump} () const \hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a236ab21918429734c4f4bc8d33d31767}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a236ab21918429734c4f4bc8d33d31767}
+
+\begin{DoxyCompactList}\small\item\em Dumps the list to {\ttfamily stderr} for debugging. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a58044b6938e07f27f8b8d3391a784228}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the list is empty and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} $\ast$ \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a4a30ec461bceda48242b332da06495d7}{get\+Node} (const \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_abf97b928a4672403ae4cbc256992d629}{State} \&s)
+\begin{DoxyCompactList}\small\item\em Finds a node corresponding to the given state in the list. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a43e0120be79b7ff0393bfab3549a2752}{update} (\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} $\ast$n, const \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a9ffd5756297080af110c9d55b588a34e}{Key\+Type} \&old\+Priority)
+\begin{DoxyCompactList}\small\item\em Updates the priority of the given node. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ad4959bb4917944d66491c61de441b18c}{add} (\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a2e2e18ca368c353ff032fa3f3dd8f1e9}{Node\+Unique\+Ptr} \&n)
+\begin{DoxyCompactList}\small\item\em Adds the given node to the list. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a98b4bcf5533ed974d71b281101363056}{re\+Insert} (\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} $\ast$n)
+\begin{DoxyCompactList}\small\item\em Re-\/inserts the given node to the list. Since the node is already owned by the list, the algorithm passes the pointer in this case, unlike for \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ad4959bb4917944d66491c61de441b18c}{add}. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} $\ast$ \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a543ef6587ac63c5113fede3932160246}{min\+Node} ()
+\begin{DoxyCompactList}\small\item\em Removes the highest priority node from the list and returns the former. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a08a0a94c44a15c6f9de337b3103bc9b8}{close} (\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} $\ast$n)
+\begin{DoxyCompactList}\small\item\em Closes the given node. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a32a2b03f9f64969e70977f9b5f858b3f}{Hash\+Type} \& \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a02b31f1b0ce5feea1dc45c00e37d1ebd}{hash} () const 
+\begin{DoxyCompactList}\small\item\em Returns the underlying hash table of the closed list. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a4893b96926c3ef275852f532871d19ec}{recompute\+Open} ()\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a4893b96926c3ef275852f532871d19ec}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a4893b96926c3ef275852f532871d19ec}
+
+\begin{DoxyCompactList}\small\item\em Re-\/compute the whole open list. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a9ffd5756297080af110c9d55b588a34e}{Key\+Type} \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_aa56f6d93b10b1acd3ee9e3a25e73f581}{priority} (\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} $\ast$n)
+\begin{DoxyCompactList}\small\item\em Returns the priority in the open list of the given node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Open\+List \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_af0b03321ca539d207335869c317a35d0}{ol\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_af0b03321ca539d207335869c317a35d0}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_af0b03321ca539d207335869c317a35d0}
+
+\begin{DoxyCompactList}\small\item\em The open list. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a32a2b03f9f64969e70977f9b5f858b3f}{Hash\+Type} \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_aa33f9bad7bafcad43a38e15581842cf4}{hash\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_aa33f9bad7bafcad43a38e15581842cf4}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_aa33f9bad7bafcad43a38e15581842cf4}
+
+\begin{DoxyCompactList}\small\item\em The closed list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Open\+List$>$\\*
+struct slb\+::core\+::sb\+::\+Open\+Closed\+List$<$ Open\+List $>$}
+
+The type for storing open and closed lists of {\ttfamily A$\ast$} family of algorithms. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Open\+List} & The underlying open list\textquotesingle{}s type. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+The state type needs to implement moving copy constructor for insertions into the list to be efficient. 
+\end{DoxyNote}
+
+
+Definition at line 26 of file open\+\_\+closed\+\_\+list.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!Open\+Closed\+List@{Open\+Closed\+List}}
+\index{Open\+Closed\+List@{Open\+Closed\+List}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{Open\+Closed\+List(\+My\+Algorithm \&alg)}{OpenClosedList(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::{\bf Open\+Closed\+List} (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+Algorithm} \&}]{alg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a3dfcee1b7aa7121476af5b57d92682ba}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a3dfcee1b7aa7121476af5b57d92682ba}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & Reference to the search algorithm. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file open\+\_\+closed\+\_\+list.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!add@{add}}
+\index{add@{add}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{add(\+Node\+Unique\+Ptr \&n)}{add(NodeUniquePtr &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ void {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{{\bf Node\+Unique\+Ptr} \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_ad4959bb4917944d66491c61de441b18c}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_ad4959bb4917944d66491c61de441b18c}
+
+
+Adds the given node to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Unique pointer to the node to be added. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!close@{close}}
+\index{close@{close}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{close(\+Node $\ast$n)}{close(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ void {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::close (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a08a0a94c44a15c6f9de337b3103bc9b8}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a08a0a94c44a15c6f9de337b3103bc9b8}
+
+
+Closes the given node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Pointer to the node to be closed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 113 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!empty@{empty}}
+\index{empty@{empty}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ bool {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a58044b6938e07f27f8b8d3391a784228}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a58044b6938e07f27f8b8d3391a784228}
+
+
+Returns {\ttfamily true} if the list is empty and {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the list is empty and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{get\+Node(const State \&s)}{getNode(const State &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ {\bf Node}$\ast$ {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::get\+Node (
+\begin{DoxyParamCaption}
+\item[{const {\bf State} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a4a30ec461bceda48242b332da06495d7}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a4a30ec461bceda48242b332da06495d7}
+
+
+Finds a node corresponding to the given state in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/const pointer to the node corresponding to {\ttfamily s}. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Returning a non-\/const pointer is unsafe, but I do not have a better solution for now. The user needs to be able to update g and f, to call \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a43e0120be79b7ff0393bfab3549a2752}{update()} and to call \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a08a0a94c44a15c6f9de337b3103bc9b8}{close()}. The danger is that he can forget to call \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a43e0120be79b7ff0393bfab3549a2752}{update()}. 
+\end{DoxyNote}
+
+
+Definition at line 78 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!hash@{hash}}
+\index{hash@{hash}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{hash() const }{hash() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ const {\bf Hash\+Type}\& {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::hash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a02b31f1b0ce5feea1dc45c00e37d1ebd}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a02b31f1b0ce5feea1dc45c00e37d1ebd}
+
+
+Returns the underlying hash table of the closed list. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the underlying hash table of the closed list. 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!min\+Node@{min\+Node}}
+\index{min\+Node@{min\+Node}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{min\+Node()}{minNode()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ {\bf Node}$\ast$ {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::min\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a543ef6587ac63c5113fede3932160246}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a543ef6587ac63c5113fede3932160246}
+
+
+Removes the highest priority node from the list and returns the former. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the highest priority node. 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!priority@{priority}}
+\index{priority@{priority}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{priority(\+Node $\ast$n)}{priority(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ {\bf Key\+Type} {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::priority (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_aa56f6d93b10b1acd3ee9e3a25e73f581}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_aa56f6d93b10b1acd3ee9e3a25e73f581}
+
+
+Returns the priority in the open list of the given node. 
+
+\begin{DoxyReturn}{Returns}
+The priority in the open list of the given node. 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!re\+Insert@{re\+Insert}}
+\index{re\+Insert@{re\+Insert}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{re\+Insert(\+Node $\ast$n)}{reInsert(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ void {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::re\+Insert (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a98b4bcf5533ed974d71b281101363056}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a98b4bcf5533ed974d71b281101363056}
+
+
+Re-\/inserts the given node to the list. Since the node is already owned by the list, the algorithm passes the pointer in this case, unlike for \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ad4959bb4917944d66491c61de441b18c}{add}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Pointer to the node to be re-\/inserted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 103 of file open\+\_\+closed\+\_\+list.\+h.
+
+\index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!update@{update}}
+\index{update@{update}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}
+\paragraph[{\texorpdfstring{update(\+Node $\ast$n, const Key\+Type \&old\+Priority)}{update(Node *n, const KeyType &oldPriority)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Open\+List $>$ void {\bf slb\+::core\+::sb\+::\+Open\+Closed\+List}$<$ Open\+List $>$\+::update (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{n, }
+\item[{const {\bf Key\+Type} \&}]{old\+Priority}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a43e0120be79b7ff0393bfab3549a2752}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a43e0120be79b7ff0393bfab3549a2752}
+
+
+Updates the priority of the given node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Pointer to the node whose priority has changed. \\
+\hline
+{\em old\+Priority} & The priority that {\ttfamily n} used to have. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 87 of file open\+\_\+closed\+\_\+list.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{open__closed__list_8h}{open\+\_\+closed\+\_\+list.\+h}\end{DoxyCompactItemize}

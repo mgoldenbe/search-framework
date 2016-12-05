@@ -1,0 +1,44 @@
+\hypertarget{container_8h}{}\subsection{core/util/container.h File Reference}
+\label{container_8h}\index{core/util/container.\+h@{core/util/container.\+h}}
+
+
+Container utilities.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{container_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1util}{slb\+::core\+::util}
+\begin{DoxyCompactList}\small\item\em Utility facilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class V , typename T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a5aeaa9f908f1b6df7bb9eb67a78de2f8}{slb\+::core\+::util\+::in} (const V \&v, const T \&el)
+\begin{DoxyCompactList}\small\item\em Checks whether an element is contained in the container. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class V , typename T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_aea02104c8916b2d55097b3a824d68023}{slb\+::core\+::util\+::in\+Erase} (V \&v, const T \&el)
+\begin{DoxyCompactList}\small\item\em Checks whether an element is contained in the container. If the element is contained, it is erased. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class V , typename T $>$ }\\bool \hyperlink{namespaceslb_1_1core_1_1util_a1a96151123c3caa16e91369aa68ed5da}{slb\+::core\+::util\+::push\+\_\+back\+\_\+unique} (V \&v, const T \&el)
+\begin{DoxyCompactList}\small\item\em Push back a unique element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Random\+It $>$ }\\void \hyperlink{namespaceslb_1_1core_1_1util_a66d6fd147a0764a6c1c1873e68f336d4}{slb\+::core\+::util\+::shuffle\+Refs} (Random\+It first, Random\+It last)
+\begin{DoxyCompactList}\small\item\em Shuffle a vector of std\+::reference\+\_\+wrapper. The algorithm is version 1 from \href{http://en.cppreference.com/w/cpp/algorithm/random_shuffle}{\tt http\+://en.\+cppreference.\+com/w/cpp/algorithm/random\+\_\+shuffle}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Map\+Type $>$ }\\void \hyperlink{namespaceslb_1_1core_1_1util_aca5f759e4a73804fcd828af403904190}{slb\+::core\+::util\+::shuffle\+Map} (Map\+Type \&map)
+\begin{DoxyCompactList}\small\item\em Shuffle a map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Container utilities. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

@@ -1,0 +1,5 @@
+<map id="slb::ext::algorithm::PerGoal&lt; logFlag, Node_, BaseAlgorithm &gt;" name="slb::ext::algorithm::PerGoal&lt; logFlag, Node_, BaseAlgorithm &gt;">
+<area shape="rect" id="node2" href="$structslb_1_1core_1_1sb_1_1Stats.html" title="Performance statistics of a search algorithm for a set of problem instances. " alt="" coords="5,102,139,129"/>
+<area shape="rect" id="node3" href="$structslb_1_1core_1_1sb_1_1Instance.html" title="slb::core::sb::Instance\l\&lt; State \&gt;" alt="" coords="163,95,315,136"/>
+<area shape="rect" id="node4" href="$structslb_1_1core_1_1sb_1_1MeasureSet.html" title="All the measures for a single problem instance. " alt="" coords="153,5,325,32"/>
+</map>

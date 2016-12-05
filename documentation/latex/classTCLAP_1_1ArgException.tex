@@ -1,0 +1,169 @@
+\hypertarget{classTCLAP_1_1ArgException}{}\subsection{T\+C\+L\+AP\+:\+:Arg\+Exception Class Reference}
+\label{classTCLAP_1_1ArgException}\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+
+
+{\ttfamily \#include $<$Arg\+Exception.\+h$>$}
+
+
+
+Inheritance diagram for T\+C\+L\+AP\+:\+:Arg\+Exception\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTCLAP_1_1ArgException__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for T\+C\+L\+AP\+:\+:Arg\+Exception\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classTCLAP_1_1ArgException__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTCLAP_1_1ArgException_a67389912b628e95d530f8bb8de97b309}{Arg\+Exception} (const std\+::string \&text=\char`\"{}undefined exception\char`\"{}, const std\+::string \&id=\char`\"{}undefined\char`\"{}, const std\+::string \&td=\char`\"{}Generic \hyperlink{classTCLAP_1_1ArgException}{Arg\+Exception}\char`\"{})
+\item 
+virtual \hyperlink{classTCLAP_1_1ArgException_a5c5df6a814b05c623a01607fb82980f4}{$\sim$\+Arg\+Exception} ()  throw ()
+\item 
+std\+::string \hyperlink{classTCLAP_1_1ArgException_a0656dab88a7129bc288821bacd653d08}{error} () const 
+\item 
+std\+::string \hyperlink{classTCLAP_1_1ArgException_a18ffd1ad34c1799865f8e03df4ebdff1}{arg\+Id} () const 
+\item 
+const char $\ast$ \hyperlink{classTCLAP_1_1ArgException_af51c89da2e4ae54fc9d05038ea484c83}{what} () const   throw ()
+\item 
+std\+::string \hyperlink{classTCLAP_1_1ArgException_abd271955e1b808bb92f8db7a16ea7c95}{type\+Description} () const 
+\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classTCLAP_1_1ArgException_ad94d68e5948f6b74aacb8b2023e96c50}{\+\_\+error\+Text}
+\item 
+std\+::string \hyperlink{classTCLAP_1_1ArgException_a6bfa7ed4e5cc1404d6b4cc5d28cb1f28}{\+\_\+arg\+Id}
+\item 
+std\+::string \hyperlink{classTCLAP_1_1ArgException_a7c69e599ae4a5b874a3e19cd4cf7c910}{\+\_\+type\+Description}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+A simple class that defines and argument exception. Should be caught whenever a \hyperlink{classTCLAP_1_1CmdLine}{Cmd\+Line} is created and parsed. 
+
+Definition at line 36 of file Arg\+Exception.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!Arg\+Exception@{Arg\+Exception}}
+\index{Arg\+Exception@{Arg\+Exception}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{Arg\+Exception(const std\+::string \&text=""undefined exception"", const std\+::string \&id=""undefined"", const std\+::string \&td=""Generic Arg\+Exception"")}{ArgException(const std::string &text="undefined exception", const std::string &id="undefined", const std::string &td="Generic ArgException")}}]{\setlength{\rightskip}{0pt plus 5cm}T\+C\+L\+A\+P\+::\+Arg\+Exception\+::\+Arg\+Exception (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{text = {\ttfamily \char`\"{}undefined~exception\char`\"{}}, }
+\item[{const std\+::string \&}]{id = {\ttfamily \char`\"{}undefined\char`\"{}}, }
+\item[{const std\+::string \&}]{td = {\ttfamily \char`\"{}Generic~{\bf Arg\+Exception}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1ArgException_a67389912b628e95d530f8bb8de97b309}{}\label{classTCLAP_1_1ArgException_a67389912b628e95d530f8bb8de97b309}
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em text} & -\/ The text of the exception. \\
+\hline
+{\em id} & -\/ The text identifying the argument source. \\
+\hline
+{\em td} & -\/ Text describing the type of \hyperlink{classTCLAP_1_1ArgException}{Arg\+Exception} it is. of the exception. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 47 of file Arg\+Exception.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!````~Arg\+Exception@{$\sim$\+Arg\+Exception}}
+\index{````~Arg\+Exception@{$\sim$\+Arg\+Exception}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{$\sim$\+Arg\+Exception()}{~ArgException()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual T\+C\+L\+A\+P\+::\+Arg\+Exception\+::$\sim$\+Arg\+Exception (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classTCLAP_1_1ArgException_a5c5df6a814b05c623a01607fb82980f4}{}\label{classTCLAP_1_1ArgException_a5c5df6a814b05c623a01607fb82980f4}
+Destructor. 
+
+Definition at line 59 of file Arg\+Exception.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!arg\+Id@{arg\+Id}}
+\index{arg\+Id@{arg\+Id}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{arg\+Id() const }{argId() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Arg\+Exception\+::arg\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1ArgException_a18ffd1ad34c1799865f8e03df4ebdff1}{}\label{classTCLAP_1_1ArgException_a18ffd1ad34c1799865f8e03df4ebdff1}
+Returns the argument id. 
+
+Definition at line 69 of file Arg\+Exception.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!error@{error}}
+\index{error@{error}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{error() const }{error() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Arg\+Exception\+::error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1ArgException_a0656dab88a7129bc288821bacd653d08}{}\label{classTCLAP_1_1ArgException_a0656dab88a7129bc288821bacd653d08}
+Returns the error text. 
+
+Definition at line 64 of file Arg\+Exception.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!type\+Description@{type\+Description}}
+\index{type\+Description@{type\+Description}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{type\+Description() const }{typeDescription() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Arg\+Exception\+::type\+Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1ArgException_abd271955e1b808bb92f8db7a16ea7c95}{}\label{classTCLAP_1_1ArgException_abd271955e1b808bb92f8db7a16ea7c95}
+Returns the type of the exception. Used to explain and distinguish between different child exceptions. 
+
+Definition at line 91 of file Arg\+Exception.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!what@{what}}
+\index{what@{what}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{what() const }{what() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ T\+C\+L\+A\+P\+::\+Arg\+Exception\+::what (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTCLAP_1_1ArgException_af51c89da2e4ae54fc9d05038ea484c83}{}\label{classTCLAP_1_1ArgException_af51c89da2e4ae54fc9d05038ea484c83}
+Returns the arg id and error text. 
+
+Definition at line 80 of file Arg\+Exception.\+h.
+
+
+
+\subsubsection{Member Data Documentation}
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!\+\_\+arg\+Id@{\+\_\+arg\+Id}}
+\index{\+\_\+arg\+Id@{\+\_\+arg\+Id}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{\+\_\+arg\+Id}{_argId}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Arg\+Exception\+::\+\_\+arg\+Id\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTCLAP_1_1ArgException_a6bfa7ed4e5cc1404d6b4cc5d28cb1f28}{}\label{classTCLAP_1_1ArgException_a6bfa7ed4e5cc1404d6b4cc5d28cb1f28}
+The argument related to this exception. 
+
+Definition at line 107 of file Arg\+Exception.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!\+\_\+error\+Text@{\+\_\+error\+Text}}
+\index{\+\_\+error\+Text@{\+\_\+error\+Text}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{\+\_\+error\+Text}{_errorText}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Arg\+Exception\+::\+\_\+error\+Text\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTCLAP_1_1ArgException_ad94d68e5948f6b74aacb8b2023e96c50}{}\label{classTCLAP_1_1ArgException_ad94d68e5948f6b74aacb8b2023e96c50}
+The text of the exception message. 
+
+Definition at line 102 of file Arg\+Exception.\+h.
+
+\index{T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}!\+\_\+type\+Description@{\+\_\+type\+Description}}
+\index{\+\_\+type\+Description@{\+\_\+type\+Description}!T\+C\+L\+A\+P\+::\+Arg\+Exception@{T\+C\+L\+A\+P\+::\+Arg\+Exception}}
+\paragraph[{\texorpdfstring{\+\_\+type\+Description}{_typeDescription}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string T\+C\+L\+A\+P\+::\+Arg\+Exception\+::\+\_\+type\+Description\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTCLAP_1_1ArgException_a7c69e599ae4a5b874a3e19cd4cf7c910}{}\label{classTCLAP_1_1ArgException_a7c69e599ae4a5b874a3e19cd4cf7c910}
+Describes the type of the exception. Used to distinguish between different child exceptions. 
+
+Definition at line 113 of file Arg\+Exception.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/outside1/tclap/Arg\+Exception.\+h\end{DoxyCompactItemize}

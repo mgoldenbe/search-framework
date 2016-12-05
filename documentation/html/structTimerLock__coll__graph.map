@@ -1,0 +1,4 @@
+<map id="TimerLock" name="TimerLock">
+<area shape="rect" id="node2" href="$structTimer.html" title="A special measure for timing. " alt="" coords="19,81,74,108"/>
+<area shape="rect" id="node3" href="$structMeasure.html" title="The type for a single named performance measure. " alt="" coords="11,5,83,32"/>
+</map>

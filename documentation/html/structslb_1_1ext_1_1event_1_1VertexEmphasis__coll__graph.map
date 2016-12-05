@@ -1,0 +1,4 @@
+<map id="slb::ext::event::VertexEmphasis&lt; Node &gt;" name="slb::ext::event::VertexEmphasis&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1event_1_1VertexChange.html" title="An event that applies visual changes to the vertex of the state graph corresponding to the state asso..." alt="" coords="12,184,208,225"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1event_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="31,95,189,136"/>
+</map>

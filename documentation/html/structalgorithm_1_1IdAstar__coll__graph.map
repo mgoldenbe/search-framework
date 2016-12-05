@@ -1,0 +1,10 @@
+<map id="algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;" name="algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;">
+<area shape="rect" id="node2" href="$structalgorithm_1_1Algorithm.html" title="algorithm::Algorithm\l\&lt; IdAstar\&lt; ALG_TARGS,\l BacktrackLock \&gt;, ALG\l_TARGS \&gt;" alt="" coords="445,11,616,82"/>
+<area shape="rect" id="node3" href="$structMeasure.html" title="The type for a single named performance measure. " alt="" coords="45,40,117,67"/>
+<area shape="rect" id="node4" href="$structTimer.html" title="A special measure for timing. " alt="" coords="247,77,301,104"/>
+<area shape="rect" id="node5" href="$structslb_1_1core_1_1sb_1_1Backtrack.html" title="slb::core::sb::Backtrack\l\&lt; MyType, BacktrackLock \&gt;" alt="" coords="437,106,625,147"/>
+<area shape="rect" id="node6" href="$structslb_1_1ext_1_1algorithm_1_1IdAstar.html" title="The IDA* search algorithm. " alt="" coords="778,144,965,200"/>
+<area shape="rect" id="node7" href="$structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; IdAstar\l\&lt; ALG_TARGS, BacktrackLock\l \&gt;, ALG_TARGS \&gt;" alt="" coords="427,181,635,251"/>
+<area shape="rect" id="node8" href="$structslb_1_1core_1_1sb_1_1Timer.html" title="A special measure for timing. " alt="" coords="207,241,341,268"/>
+<area shape="rect" id="node9" href="$structslb_1_1core_1_1sb_1_1Measure.html" title="The type for a single named performance measure. " alt="" coords="5,203,157,229"/>
+</map>

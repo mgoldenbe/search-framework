@@ -1,0 +1,54 @@
+\hypertarget{namespaceslb_1_1ext_1_1policy_1_1goalHandler}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler Namespace Reference}
+\label{namespaceslb_1_1ext_1_1policy_1_1goalHandler}\index{slb\+::ext\+::policy\+::goal\+Handler@{slb\+::ext\+::policy\+::goal\+Handler}}
+
+
+Policies for handling conditions related to goal states.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic}{Max\+Heuristic}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-\/computed whenever a goal is solved with the required quality. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic}{Min\+Heuristic}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal}{Multiple\+Goal}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal}{No\+Goal}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when the set of the goal states is empty. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal}{Single\+Goal}
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there is a single goal state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Handler $>$ }\\constexpr bool \hyperlink{namespaceslb_1_1ext_1_1policy_1_1goalHandler_aeab06a49da40c2c3c1a7c1dd2ac71b4e}{on\+Select\+Returns} ()
+\begin{DoxyCompactList}\small\item\em Checks at compile-\/time whether the given goal handler\textquotesingle{}s {\ttfamily on\+Select} member function has a return value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Policies for handling conditions related to goal states. 
+
+\subsubsection{Function Documentation}
+\index{slb\+::ext\+::policy\+::goal\+Handler@{slb\+::ext\+::policy\+::goal\+Handler}!on\+Select\+Returns@{on\+Select\+Returns}}
+\index{on\+Select\+Returns@{on\+Select\+Returns}!slb\+::ext\+::policy\+::goal\+Handler@{slb\+::ext\+::policy\+::goal\+Handler}}
+\paragraph[{\texorpdfstring{on\+Select\+Returns()}{onSelectReturns()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Handler $>$ constexpr bool slb\+::ext\+::policy\+::goal\+Handler\+::on\+Select\+Returns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1ext_1_1policy_1_1goalHandler_aeab06a49da40c2c3c1a7c1dd2ac71b4e}{}\label{namespaceslb_1_1ext_1_1policy_1_1goalHandler_aeab06a49da40c2c3c1a7c1dd2ac71b4e}
+
+
+Checks at compile-\/time whether the given goal handler\textquotesingle{}s {\ttfamily on\+Select} member function has a return value. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Handler} & The goal handler policy. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if given goal handler\textquotesingle{}s {\ttfamily on\+Select} member function has a return value and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file goal\+\_\+handlers.\+h.
+

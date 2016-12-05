@@ -1,0 +1,26 @@
+\hypertarget{group__LayoutTraits}{}\subsection{Layout Traits}
+\label{group__LayoutTraits}\index{Layout Traits@{Layout Traits}}
+
+
+Checking whether the State has a function for computing layout. Used for tag dispatch in \hyperlink{structslb_1_1core_1_1ui_1_1Drawer}{Drawer}.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1has__layout}{slb\+::core\+::ui\+::has\+\_\+layout$<$ State, typename $>$}
+\begin{DoxyCompactList}\small\item\em Declared only if {\ttfamily State} does not have a function for computing layout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class State $>$ }\\using \hyperlink{group__LayoutTraits_ga9bf16cc2a70201a2d10994dbffbe094f}{slb\+::core\+::ui\+::\+Has\+Layout} = typename std\+::enable\+\_\+if$<$ has\+\_\+layout$<$ State $>$\+::value $>$\+::type\hypertarget{group__LayoutTraits_ga9bf16cc2a70201a2d10994dbffbe094f}{}\label{group__LayoutTraits_ga9bf16cc2a70201a2d10994dbffbe094f}
+
+\begin{DoxyCompactList}\small\item\em Evaluates to {\ttfamily void} only if {\ttfamily State} has a function for computing layout. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State $>$ }\\using \hyperlink{group__LayoutTraits_gaf200efa9fbb401dd541fa80e687e0264}{slb\+::core\+::ui\+::\+Has\+No\+Layout} = typename std\+::enable\+\_\+if$<$!has\+\_\+layout$<$ State $>$\+::value $>$\+::type\hypertarget{group__LayoutTraits_gaf200efa9fbb401dd541fa80e687e0264}{}\label{group__LayoutTraits_gaf200efa9fbb401dd541fa80e687e0264}
+
+\begin{DoxyCompactList}\small\item\em Evaluates to {\ttfamily void} only if {\ttfamily State} does not have a function for computing layout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Checking whether the State has a function for computing layout. Used for tag dispatch in \hyperlink{structslb_1_1core_1_1ui_1_1Drawer}{Drawer}. 
+

@@ -1,0 +1,6 @@
+<map id="event::VertexEmphasis&lt; Node &gt;" name="event::VertexEmphasis&lt; Node &gt;">
+<area shape="rect" id="node5" href="$structevent_1_1MarkedGoal.html" title="Event that marks the goal state. " alt="" coords="5,363,145,404"/>
+<area shape="rect" id="node6" href="$structevent_1_1MarkedStart.html" title="Event that marks the start state. " alt="" coords="170,363,303,404"/>
+<area shape="rect" id="node2" href="$structevent_1_1VertexChange.html" title="An event that applies visual changes to the vertex of the state graph corresponding to the state asso..." alt="" coords="83,184,228,225"/>
+<area shape="rect" id="node3" href="$structevent_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="79,95,232,136"/>
+</map>

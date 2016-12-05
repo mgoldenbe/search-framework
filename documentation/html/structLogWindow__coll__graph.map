@@ -1,0 +1,6 @@
+<map id="LogWindow&lt; Node &gt;" name="LogWindow&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structForm.html" title="A simple form for ncurses. Forms that come with ncurses cannot be put in pad windows. " alt="" coords="116,109,168,136"/>
+<area shape="rect" id="node3" href="$structVisualLog.html" title="The log of events suited for visualization purposes. This log is based on the AlgorithmLog generated ..." alt="" coords="192,109,327,136"/>
+<area shape="rect" id="node6" href="$structTable.html" title="The class for handling tabular output, where the columns need to be aligned. The user does not need t..." alt="" coords="355,109,409,136"/>
+<area shape="rect" id="node7" href="$structRow.html" title="The row of the Table. " alt="" coords="360,13,409,39"/>
+</map>

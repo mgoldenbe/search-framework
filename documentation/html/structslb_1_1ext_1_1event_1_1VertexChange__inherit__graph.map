@@ -1,0 +1,11 @@
+<map id="slb::ext::event::VertexChange&lt; Node &gt;" name="slb::ext::event::VertexChange&lt; Node &gt;">
+<area shape="rect" id="node4" href="$structslb_1_1ext_1_1event_1_1VertexColor.html" title="An event that changes the color of the vertex corresponding to the state associated with the event..." alt="" coords="655,136,837,177"/>
+<area shape="rect" id="node9" href="$structslb_1_1ext_1_1event_1_1VertexEmphasis.html" title="An event that marks the vertex corresponding to the state associated with the event. " alt="" coords="641,267,851,308"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1event_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="191,201,349,243"/>
+<area shape="rect" id="node5" href="$structslb_1_1ext_1_1event_1_1DeniedExpansion.html" title="Event that visualizes a node&#39;s expansion being denied following suspension (see SuspendedExpansion). " alt="" coords="899,5,1113,47"/>
+<area shape="rect" id="node6" href="$structslb_1_1ext_1_1event_1_1ResumedExpansion.html" title="Event that visualizes a node&#39;s expansion being resumed following suspension (see SuspendedExpansion)..." alt="" coords="921,71,1091,112"/>
+<area shape="rect" id="node7" href="$structslb_1_1ext_1_1event_1_1Selected.html" title="Event that visualizes having selected a node. " alt="" coords="924,136,1088,177"/>
+<area shape="rect" id="node8" href="$structslb_1_1ext_1_1event_1_1SuspendedExpansion.html" title="Event that visualizes a node&#39;s expansion being suspended. The expansion may be refused or resumed pen..." alt="" coords="917,201,1095,243"/>
+<area shape="rect" id="node10" href="$structslb_1_1ext_1_1event_1_1MarkedGoal.html" title="Event that marks the goal state. " alt="" coords="915,267,1097,308"/>
+<area shape="rect" id="node11" href="$structslb_1_1ext_1_1event_1_1MarkedStart.html" title="Event that marks the start state. " alt="" coords="914,332,1098,373"/>
+</map>

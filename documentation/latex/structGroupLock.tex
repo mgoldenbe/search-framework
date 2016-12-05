@@ -1,0 +1,123 @@
+\hypertarget{structGroupLock}{}\subsection{Group\+Lock Struct Reference}
+\label{structGroupLock}\index{Group\+Lock@{Group\+Lock}}
+
+
+A \hyperlink{structGroupLock}{Group\+Lock} object is created in order that the following drawing is done in a group, possibly on top of the current drawing. ~\newline
+It cares for a lot of nitty-\/gritty details without which strange things happen. ~\newline
+Uses \hyperlink{structPatternLock}{Pattern\+Lock} to implement its functionality.  
+
+
+
+
+{\ttfamily \#include $<$graphics\+\_\+object.\+h$>$}
+
+
+
+Collaboration diagram for Group\+Lock\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{structGroupLock__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structGroupLock_a1cdc544eedd368d0c847eb7aabd91978}{Group\+Lock} (bool flag, \hyperlink{structGraphics}{Graphics} \&g, bool clear\+Flag=false)
+\begin{DoxyCompactList}\small\item\em Saves the current drawing and starts a group for the drawing commands following the lock acquisition (i.\+e. creation of the \hyperlink{structGroupLock}{Group\+Lock} object). Clears the drawing if needed. \end{DoxyCompactList}\item 
+\hyperlink{structGroupLock_a5d68d32a9ec1ee73156dabdcf9337fba}{$\sim$\+Group\+Lock} ()\hypertarget{structGroupLock_a5d68d32a9ec1ee73156dabdcf9337fba}{}\label{structGroupLock_a5d68d32a9ec1ee73156dabdcf9337fba}
+
+\begin{DoxyCompactList}\small\item\em Appends the group the the current drawing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structGroupLock_af67e2076743f8f9847b080c0f0a1cd52}{virtual\+Translate} ()
+\begin{DoxyCompactList}\small\item\em Translate the surface, so its top-\/left corner corresponds to the top-\/left corner of the window. This enables the margins. \end{DoxyCompactList}\item 
+void \hyperlink{structGroupLock_a123b479eab7e23435bf650e8783f585b}{real\+Translate} ()\hypertarget{structGroupLock_a123b479eab7e23435bf650e8783f585b}{}\label{structGroupLock_a123b479eab7e23435bf650e8783f585b}
+
+\begin{DoxyCompactList}\small\item\em Restore the translation matrix that was modified by \hyperlink{structGroupLock_af67e2076743f8f9847b080c0f0a1cd52}{virtual\+Translate}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structGraphics}{Graphics} \& \hyperlink{structGroupLock_a8d8f9471928cbed6c036f03fd7976286}{g\+\_\+}\hypertarget{structGroupLock_a8d8f9471928cbed6c036f03fd7976286}{}\label{structGroupLock_a8d8f9471928cbed6c036f03fd7976286}
+
+\begin{DoxyCompactList}\small\item\em The graphics object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Translation at the time of lock acquisition.}\par
+{\em Indicates whether the lock should be acquired. }\begin{DoxyCompactItemize}
+\item 
+double {\bfseries orig\+Delta\+X\+\_\+}\hypertarget{structGroupLock_af6178b0f36f6d6a9b53a78eb3d8956c7}{}\label{structGroupLock_af6178b0f36f6d6a9b53a78eb3d8956c7}
+
+\item 
+double {\bfseries orig\+Delta\+Y\+\_\+}\hypertarget{structGroupLock_a07f0e15ce88490877a25f1c2c96c35a9}{}\label{structGroupLock_a07f0e15ce88490877a25f1c2c96c35a9}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsubsection{Detailed Description}
+A \hyperlink{structGroupLock}{Group\+Lock} object is created in order that the following drawing is done in a group, possibly on top of the current drawing. ~\newline
+It cares for a lot of nitty-\/gritty details without which strange things happen. ~\newline
+Uses \hyperlink{structPatternLock}{Pattern\+Lock} to implement its functionality. 
+
+\begin{DoxyWarning}{Warning}
+I got this right after a lot of trial and error. Do not try to modify this unless you are a graphics person who knows what he is doing. 
+\end{DoxyWarning}
+
+
+Definition at line 218 of file graphics\+\_\+object.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Group\+Lock@{Group\+Lock}!Group\+Lock@{Group\+Lock}}
+\index{Group\+Lock@{Group\+Lock}!Group\+Lock@{Group\+Lock}}
+\paragraph[{\texorpdfstring{Group\+Lock(bool flag, Graphics \&g, bool clear\+Flag=false)}{GroupLock(bool flag, Graphics &g, bool clearFlag=false)}}]{\setlength{\rightskip}{0pt plus 5cm}Group\+Lock\+::\+Group\+Lock (
+\begin{DoxyParamCaption}
+\item[{bool}]{flag, }
+\item[{{\bf Graphics} \&}]{g, }
+\item[{bool}]{clear\+Flag = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structGroupLock_a1cdc544eedd368d0c847eb7aabd91978}{}\label{structGroupLock_a1cdc544eedd368d0c847eb7aabd91978}
+
+
+Saves the current drawing and starts a group for the drawing commands following the lock acquisition (i.\+e. creation of the \hyperlink{structGroupLock}{Group\+Lock} object). Clears the drawing if needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & If {\ttfamily false}, no lock is acquired. This enables a function where whether \hyperlink{structGroupLock}{Group\+Lock} should be acquired or not is a parameter. \\
+\hline
+{\em g} & The graphics object. \\
+\hline
+{\em clear\+Flag} & If {\ttfamily true}, the previous drawing needs is cleared. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file graphics\+\_\+object.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Group\+Lock@{Group\+Lock}!virtual\+Translate@{virtual\+Translate}}
+\index{virtual\+Translate@{virtual\+Translate}!Group\+Lock@{Group\+Lock}}
+\paragraph[{\texorpdfstring{virtual\+Translate()}{virtualTranslate()}}]{\setlength{\rightskip}{0pt plus 5cm}void Group\+Lock\+::virtual\+Translate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structGroupLock_af67e2076743f8f9847b080c0f0a1cd52}{}\label{structGroupLock_af67e2076743f8f9847b080c0f0a1cd52}
+
+
+Translate the surface, so its top-\/left corner corresponds to the top-\/left corner of the window. This enables the margins. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structGraphics_acbb032725cc5455962da4f08eda54dbf}{Graphics\+::margin} 
+\end{DoxySeeAlso}
+
+
+Definition at line 274 of file graphics\+\_\+object.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{graphics__object_8h}{graphics\+\_\+object.\+h}\end{DoxyCompactItemize}

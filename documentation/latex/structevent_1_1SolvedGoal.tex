@@ -1,0 +1,93 @@
+\hypertarget{structevent_1_1SolvedGoal}{}\subsection{event\+:\+:Solved\+Goal$<$ Node $>$ Struct Template Reference}
+\label{structevent_1_1SolvedGoal}\index{event\+::\+Solved\+Goal$<$ Node $>$@{event\+::\+Solved\+Goal$<$ Node $>$}}
+
+
+Event that visualizes having found a path with required qualities to a goal.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+
+
+Inheritance diagram for event\+:\+:Solved\+Goal$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structevent_1_1SolvedGoal__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for event\+:\+:Solved\+Goal$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structevent_1_1SolvedGoal__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structevent_1_1SolvedGoal_a297e1b13b6545c6ef6120b228d1e1fd4}{State\+Shared\+Ptr} = typename \hyperlink{structevent_1_1UniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structevent_1_1UniformChange_a8f41f1a24c711875b55419d9f0eb6bd2}{State\+Shared\+Ptr}\hypertarget{structevent_1_1SolvedGoal_a297e1b13b6545c6ef6120b228d1e1fd4}{}\label{structevent_1_1SolvedGoal_a297e1b13b6545c6ef6120b228d1e1fd4}
+
+\begin{DoxyCompactList}\small\item\em Shared pointer to constant state. \end{DoxyCompactList}\item 
+using \hyperlink{structevent_1_1SolvedGoal_ad6798cc9b06975d874f663b16375b229}{Edge} = typename \hyperlink{structevent_1_1UniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structevent_1_1UniformChange_a74eab4759202393dcf9438a25bd9261e}{Edge}\hypertarget{structevent_1_1SolvedGoal_ad6798cc9b06975d874f663b16375b229}{}\label{structevent_1_1SolvedGoal_ad6798cc9b06975d874f663b16375b229}
+
+\begin{DoxyCompactList}\small\item\em The type representing an edge in the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structevent_1_1SolvedGoal_a9472c47dd4f79228b463a48c15b42796}{change} (\hyperlink{structEdgeStyle}{Edge\+Style} \&style, const \hyperlink{structevent_1_1UniformChange_a74eab4759202393dcf9438a25bd9261e}{Edge} \&) const override\hypertarget{structevent_1_1SolvedGoal_a9472c47dd4f79228b463a48c15b42796}{}\label{structevent_1_1SolvedGoal_a9472c47dd4f79228b463a48c15b42796}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating edge of the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{structevent_1_1SolvedGoal_a58d5e8b3d9b34f9a1813dd4cc1f32691}{event\+Str} () const override
+\begin{DoxyCompactList}\small\item\em Returns the string describing the event. This string is displayed in the log window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct event\+::\+Solved\+Goal$<$ Node $>$}
+
+Event that visualizes having found a path with required qualities to a goal. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 257 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{event\+::\+Solved\+Goal@{event\+::\+Solved\+Goal}!event\+Str@{event\+Str}}
+\index{event\+Str@{event\+Str}!event\+::\+Solved\+Goal@{event\+::\+Solved\+Goal}}
+\paragraph[{\texorpdfstring{event\+Str() const override}{eventStr() const override}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ std\+::string {\bf event\+::\+Solved\+Goal}$<$ Node $>$\+::event\+Str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}}\hypertarget{structevent_1_1SolvedGoal_a58d5e8b3d9b34f9a1813dd4cc1f32691}{}\label{structevent_1_1SolvedGoal_a58d5e8b3d9b34f9a1813dd4cc1f32691}
+
+
+Returns the string describing the event. This string is displayed in the log window. 
+
+\begin{DoxyReturn}{Returns}
+The string describing the event. 
+\end{DoxyReturn}
+
+
+Definition at line 282 of file headers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{extensions_2events_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

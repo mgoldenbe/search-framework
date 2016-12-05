@@ -1,0 +1,141 @@
+\hypertarget{structslb_1_1core_1_1ui_1_1Graphics}{}\subsection{slb\+:\+:core\+:\+:ui\+:\+:Graphics Struct Reference}
+\label{structslb_1_1core_1_1ui_1_1Graphics}\index{slb\+::core\+::ui\+::\+Graphics@{slb\+::core\+::ui\+::\+Graphics}}
+
+
+Objects of this class hold all the information needed for drawing.  
+
+
+
+
+{\ttfamily \#include $<$graphics\+\_\+object.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1Graphics_affbe27c97d1598cda401b993b22cf214}{Graphics} ()\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_affbe27c97d1598cda401b993b22cf214}{}\label{structslb_1_1core_1_1ui_1_1Graphics_affbe27c97d1598cda401b993b22cf214}
+
+\begin{DoxyCompactList}\small\item\em Creates the window, initializes the surface and the drawing context. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1Graphics_aa571f74e8c3f74506db24e4f6eb04135}{$\sim$\+Graphics} ()\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_aa571f74e8c3f74506db24e4f6eb04135}{}\label{structslb_1_1core_1_1ui_1_1Graphics_aa571f74e8c3f74506db24e4f6eb04135}
+
+\begin{DoxyCompactList}\small\item\em Frees the resources. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_ac04ff16245079a00c7832a77e7332e82}{scale} ()\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_ac04ff16245079a00c7832a77e7332e82}{}\label{structslb_1_1core_1_1ui_1_1Graphics_ac04ff16245079a00c7832a77e7332e82}
+
+\begin{DoxyCompactList}\small\item\em Restores the scale to 1.\+0. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_a71571b540232fcec048f4636e2743f05}{translate} ()\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a71571b540232fcec048f4636e2743f05}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a71571b540232fcec048f4636e2743f05}
+
+\begin{DoxyCompactList}\small\item\em Restores the user coordinates (0,0) to device coordinate (0,0) \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_aa45a87f7bfd22656864992c5f8f7b63d}{restore} ()\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_aa45a87f7bfd22656864992c5f8f7b63d}{}\label{structslb_1_1core_1_1ui_1_1Graphics_aa45a87f7bfd22656864992c5f8f7b63d}
+
+\begin{DoxyCompactList}\small\item\em Restores both the scale to 1.\+0 and translation to make the origin same in both user and device coordinates. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_a6f285650256346fdd36fe7cb3b562cbb}{scale} (double factor)
+\begin{DoxyCompactList}\small\item\em Scales the graphical representation of the (partial) domain graph. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_afdba5da7dc3fd6e716bd3a464212404a}{update\+Window\+Size} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Update the size of the window and the drawing surface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_a7be3cfcd2b96c069f314f77ca413a012}{window\+X\+Size} = 500\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a7be3cfcd2b96c069f314f77ca413a012}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a7be3cfcd2b96c069f314f77ca413a012}
+
+\begin{DoxyCompactList}\small\item\em the x-\/dimension of the window \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_ad361367c824b2d9cccd9d8ee76320ab6}{window\+Y\+Size} = 500\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_ad361367c824b2d9cccd9d8ee76320ab6}{}\label{structslb_1_1core_1_1ui_1_1Graphics_ad361367c824b2d9cccd9d8ee76320ab6}
+
+\begin{DoxyCompactList}\small\item\em the y-\/dimension of the window \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_ae02ff446ffd8215e15aaf79c96c99ad3}{sizeX} = 500\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_ae02ff446ffd8215e15aaf79c96c99ad3}{}\label{structslb_1_1core_1_1ui_1_1Graphics_ae02ff446ffd8215e15aaf79c96c99ad3}
+
+\begin{DoxyCompactList}\small\item\em the x-\/dimension of the drawing with the current scaling factor. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_a5fb9d2d27de9c4f99bdd46e80b580d72}{sizeY} = 500\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a5fb9d2d27de9c4f99bdd46e80b580d72}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a5fb9d2d27de9c4f99bdd46e80b580d72}
+
+\begin{DoxyCompactList}\small\item\em the y-\/dimension of the drawing with the current scaling factor. \end{DoxyCompactList}\item 
+double \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_a9fd508fc1907290c21608fdcd03918b4}{margin} = 1.\+0\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a9fd508fc1907290c21608fdcd03918b4}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a9fd508fc1907290c21608fdcd03918b4}
+
+\begin{DoxyCompactList}\small\item\em The factor of window width/height added to the drawing surface compared to the window size on each side. For example, margin==1.\+0 means that the dimensions of the drawing surface are three times larger than the corresponding dimensions of the window. \end{DoxyCompactList}\item 
+double \hyperlink{structslb_1_1core_1_1ui_1_1Graphics_a5992d0a3c4f220c962a900e43e5abd8e}{scale\+Factor} = 1.\+0\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a5992d0a3c4f220c962a900e43e5abd8e}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a5992d0a3c4f220c962a900e43e5abd8e}
+
+\begin{DoxyCompactList}\small\item\em Current scaling factor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf The information needed for drawing.}\par
+{\em Please refer to \href{https://www.cairographics.org/Xlib/}{\tt https\+://www.\+cairographics.\+org/\+Xlib/} for more information. }\begin{DoxyCompactItemize}
+\item 
+Display $\ast$ {\bfseries display} \{\}\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_aaee15e1382e9b404705f0b3095f01f25}{}\label{structslb_1_1core_1_1ui_1_1Graphics_aaee15e1382e9b404705f0b3095f01f25}
+
+\item 
+Window {\bfseries w}\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a0144f51c16d4fc2870602739c59a71da}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a0144f51c16d4fc2870602739c59a71da}
+
+\item 
+Window {\bfseries root}\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a22def7a1a7f4f53c6899614d9673675f}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a22def7a1a7f4f53c6899614d9673675f}
+
+\item 
+cairo\+\_\+surface\+\_\+t $\ast$ {\bfseries surface} \{\}\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a4ba46f3015dcfe2ecb869f8d297e69e2}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a4ba46f3015dcfe2ecb869f8d297e69e2}
+
+\item 
+cairo\+\_\+t $\ast$ {\bfseries cr} \{\}\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_adb908af9559c1c941aa26bba80786dcf}{}\label{structslb_1_1core_1_1ui_1_1Graphics_adb908af9559c1c941aa26bba80786dcf}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Top-\/left corner of the drawing.}\par
+{\em Device coordinates of the top-\/left corner of the drawing surface at the time of the last re-\/drawing. }\begin{DoxyCompactItemize}
+\item 
+double {\bfseries zeroX} = 0.\+0\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a24963adcd37c5cd0e8bfc5f0ba7f16f4}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a24963adcd37c5cd0e8bfc5f0ba7f16f4}
+
+\item 
+double {\bfseries zeroY} = 0.\+0\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_ab3f726f711f87251530feba2e0b99dff}{}\label{structslb_1_1core_1_1ui_1_1Graphics_ab3f726f711f87251530feba2e0b99dff}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsubsection{Detailed Description}
+Objects of this class hold all the information needed for drawing. 
+
+Definition at line 13 of file graphics\+\_\+object.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::ui\+::\+Graphics@{slb\+::core\+::ui\+::\+Graphics}!scale@{scale}}
+\index{scale@{scale}!slb\+::core\+::ui\+::\+Graphics@{slb\+::core\+::ui\+::\+Graphics}}
+\paragraph[{\texorpdfstring{scale(double factor)}{scale(double factor)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::ui\+::\+Graphics\+::scale (
+\begin{DoxyParamCaption}
+\item[{double}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_a6f285650256346fdd36fe7cb3b562cbb}{}\label{structslb_1_1core_1_1ui_1_1Graphics_a6f285650256346fdd36fe7cb3b562cbb}
+
+
+Scales the graphical representation of the (partial) domain graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em factor} & The scaling factor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file graphics\+\_\+object.\+h.
+
+\index{slb\+::core\+::ui\+::\+Graphics@{slb\+::core\+::ui\+::\+Graphics}!update\+Window\+Size@{update\+Window\+Size}}
+\index{update\+Window\+Size@{update\+Window\+Size}!slb\+::core\+::ui\+::\+Graphics@{slb\+::core\+::ui\+::\+Graphics}}
+\paragraph[{\texorpdfstring{update\+Window\+Size(int x, int y)}{updateWindowSize(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::ui\+::\+Graphics\+::update\+Window\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1Graphics_afdba5da7dc3fd6e716bd3a464212404a}{}\label{structslb_1_1core_1_1ui_1_1Graphics_afdba5da7dc3fd6e716bd3a464212404a}
+
+
+Update the size of the window and the drawing surface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & New x-\/dimension of the window. \\
+\hline
+{\em y} & New y-\/dimension of the window. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file graphics\+\_\+object.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{graphics__object_8h}{graphics\+\_\+object.\+h}\end{DoxyCompactItemize}

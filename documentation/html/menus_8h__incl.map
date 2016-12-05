@@ -1,0 +1,5 @@
+<map id="core/user_interface/menus.h" name="core/user_interface/menus.h">
+<area shape="rect" id="node2" href="$visualizer__data_8h.html" title="The slb::core::ui::VisualizerData class. " alt="" coords="12,95,132,121"/>
+<area shape="rect" id="node3" href="$log__window_8h.html" title="The slb::core::ui::LogWindow class. " alt="" coords="21,169,123,196"/>
+<area shape="rect" id="node4" href="$form_8h.html" title="Implementation of a simple form for ncurses. Forms that come with ncurses cannot be put in pad window..." alt="" coords="43,244,101,271"/>
+</map>

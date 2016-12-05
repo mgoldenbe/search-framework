@@ -1,0 +1,70 @@
+\hypertarget{menus_8h}{}\subsection{core/user\+\_\+interface/menus.h File Reference}
+\label{menus_8h}\index{core/user\+\_\+interface/menus.\+h@{core/user\+\_\+interface/menus.\+h}}
+
+
+Implementation of the menus appearing at the bottom of the log window.  
+
+
+{\ttfamily \#include \char`\"{}visualizer\+\_\+data.\+h\char`\"{}}\\*
+Include dependency graph for menus.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{menus_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{menus_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuBase}{slb\+::core\+::ui\+::\+Menu\+Base$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The base class for all the menus. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuMain}{slb\+::core\+::ui\+::\+Menu\+Main$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuRun}{slb\+::core\+::ui\+::\+Menu\+Run$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing the Run option from the root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuStep}{slb\+::core\+::ui\+::\+Menu\+Step$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Step. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuJump}{slb\+::core\+::ui\+::\+Menu\+Jump$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Jump. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuJumpStep}{slb\+::core\+::ui\+::\+Menu\+Jump\+Step$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Jump-\/$>$Step. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuEnterState}{slb\+::core\+::ui\+::\+Menu\+Enter\+State$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing the Search option from the root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuFilter}{slb\+::core\+::ui\+::\+Menu\+Filter$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing the \hyperlink{structslb_1_1core_1_1ui_1_1Filter}{Filter} option from the root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuGo}{slb\+::core\+::ui\+::\+Menu\+Go$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Go from the root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuSpeed}{slb\+::core\+::ui\+::\+Menu\+Speed$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Run-\/$>$Speed from the root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuSearchDirection}{slb\+::core\+::ui\+::\+Menu\+Search\+Direction$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu for choosing the search direction after specifying the search in the search menu (reached when choosing the Search option from the root menu). \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuEditFilter}{slb\+::core\+::ui\+::\+Menu\+Edit\+Filter$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em The menu reached when choosing Filter-\/$>$Edit from the root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1MenuLayout}{slb\+::core\+::ui\+::\+Menu\+Layout$<$ All\+Menus, Node $>$}
+\begin{DoxyCompactList}\small\item\em /// The menu reached when choosing Layout from the root menu. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1AllMenus}{slb\+::core\+::ui\+::\+All\+Menus$<$ Node $>$}
+\begin{DoxyCompactList}\small\item\em A holder for all the menus with an indicator of which menu and form are currently active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1ui}{slb\+::core\+::ui}
+\begin{DoxyCompactList}\small\item\em The user interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implementation of the menus appearing at the bottom of the log window. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

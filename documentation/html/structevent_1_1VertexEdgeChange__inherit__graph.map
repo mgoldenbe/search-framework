@@ -1,0 +1,9 @@
+<map id="event::VertexEdgeChange&lt; Node &gt;" name="event::VertexEdgeChange&lt; Node &gt;">
+<area shape="rect" id="node4" href="$structevent_1_1VertexEdgeColor.html" title="An event that applies a color change to both the vertex of the state graph corresponding to the state..." alt="" coords="615,115,776,157"/>
+<area shape="rect" id="node2" href="$structevent_1_1UniformChange.html" title="An event that applies the same visual changes to all participating states and edges. " alt="" coords="191,115,344,157"/>
+<area shape="rect" id="node5" href="$structevent_1_1Closed.html" title="Event that visualizes having closed a node. " alt="" coords="833,5,992,32"/>
+<area shape="rect" id="node6" href="$structevent_1_1EnteredOpen.html" title="Event that visualizes a node entering the Open List. " alt="" coords="843,57,982,98"/>
+<area shape="rect" id="node7" href="$structevent_1_1Generated.html" title="Event that visualizes node generation. " alt="" coords="824,123,1001,149"/>
+<area shape="rect" id="node8" href="$structevent_1_1NothingToDo.html" title="Event that visualizes the fact that a node was generated, but nothing needed to be done for it..." alt="" coords="843,174,982,215"/>
+<area shape="rect" id="node9" href="$structevent_1_1NotParent.html" title="Event that visualizes change of parent node. " alt="" coords="825,240,1001,267"/>
+</map>

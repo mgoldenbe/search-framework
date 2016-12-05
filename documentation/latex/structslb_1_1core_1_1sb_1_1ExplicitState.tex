@@ -1,0 +1,316 @@
+\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState}{}\subsection{slb\+:\+:core\+:\+:sb\+:\+:Explicit\+State$<$ Explicit\+Space $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1sb_1_1ExplicitState}\index{slb\+::core\+::sb\+::\+Explicit\+State$<$ Explicit\+Space $>$@{slb\+::core\+::sb\+::\+Explicit\+State$<$ Explicit\+Space $>$}}
+
+
+The base class for a state in an explicit domain. It can be viewed as a wrapper for the location type defined by the explicit domain.  
+
+
+
+
+{\ttfamily \#include $<$explicit\+\_\+state.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:sb\+:\+:Explicit\+State$<$ Explicit\+Space $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{structslb_1_1core_1_1sb_1_1ExplicitState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:sb\+:\+:Explicit\+State$<$ Explicit\+Space $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{structslb_1_1core_1_1sb_1_1ExplicitState__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ae36e0763ad9b7ee7407aa316d4c64f14}{Cost\+Type} = typename Explicit\+Space\+::\+Cost\+Type\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_ae36e0763ad9b7ee7407aa316d4c64f14}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_ae36e0763ad9b7ee7407aa316d4c64f14}
+
+\begin{DoxyCompactList}\small\item\em The type representing the cost of actions in the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ac92f2c174f45d0fd4276916906b4e8b7}{My\+Type} = \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_ac92f2c174f45d0fd4276916906b4e8b7}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_ac92f2c174f45d0fd4276916906b4e8b7}
+
+\begin{DoxyCompactList}\small\item\em The type of a state in an explicit domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a0db984d44f46c477a6df3c9b062925f9}{Location} = typename Explicit\+Space\+::\+Location\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a0db984d44f46c477a6df3c9b062925f9}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a0db984d44f46c477a6df3c9b062925f9}
+
+\begin{DoxyCompactList}\small\item\em The type used internally by {\ttfamily Explicit\+Space} to represent a state. To distinguish such a state from the state type used by search algorithms, we call the former {\ttfamily location}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a8d4e4a73d0760f49b275e2661f759fcf}{Explicit\+State} ()\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a8d4e4a73d0760f49b275e2661f759fcf}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a8d4e4a73d0760f49b275e2661f759fcf}
+
+\begin{DoxyCompactList}\small\item\em Initialize the location with the space\textquotesingle{}s default. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_abb5dc932345986e03ba3afae41408086}{Explicit\+State} (const \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a0db984d44f46c477a6df3c9b062925f9}{Location} \&loc)
+\begin{DoxyCompactList}\small\item\em Initialize to the given location. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a9ba10a1c18e845a63ac6aa5b5669adde}{Explicit\+State} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Initialize based on the string describing the state. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a269a858c6fcf90f39f363326c5a977de}{Explicit\+State} (const \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ac92f2c174f45d0fd4276916906b4e8b7}{My\+Type} \&)=default\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a269a858c6fcf90f39f363326c5a977de}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a269a858c6fcf90f39f363326c5a977de}
+
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State} \& \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a6193bf706a682ba07f80aef31c419875}{operator=} (const \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ac92f2c174f45d0fd4276916906b4e8b7}{My\+Type} \&)=default\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a6193bf706a682ba07f80aef31c419875}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a6193bf706a682ba07f80aef31c419875}
+
+\begin{DoxyCompactList}\small\item\em Default assignment operator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor $>$ }\\std\+::vector$<$ Neighbor $>$ \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ae4fddaedd8936221f4c92dd5607e5d2b}{location\+Successors} () const 
+\begin{DoxyCompactList}\small\item\em Computes the neighbors of the state. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a982d9c77e71b3d0e64c0b41d422fa32f}{hash} () const 
+\begin{DoxyCompactList}\small\item\em Computes the hash code of the state. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a0db984d44f46c477a6df3c9b062925f9}{Location} \& \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ac75620076983d8d35de370bdb0ce1f96}{raw} () const 
+\begin{DoxyCompactList}\small\item\em Returns the location. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Stream $>$ }\\Stream \& \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ac9f4d6972a1437dd41b74a4608438310}{dump} (Stream \&o) const 
+\begin{DoxyCompactList}\small\item\em Dumps the node the state to the given stream. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ac7e19ab8c118d1c28e45a2848bdb1cf5}{operator==} (const \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ac92f2c174f45d0fd4276916906b4e8b7}{My\+Type} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em The equality operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_af02f7ca680be7105f85fd17d7fea87e7}{init\+Space} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Sets the space (i.\+e. an instance of Explicit\+Space) for this state class by reading it from the given file. \end{DoxyCompactList}\item 
+static \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a0db984d44f46c477a6df3c9b062925f9}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a48457e70133ab1b4d6357b221917cc11}{random} ()
+\begin{DoxyCompactList}\small\item\em Returns a random location. \end{DoxyCompactList}\item 
+static const std\+::unique\+\_\+ptr$<$ Explicit\+Space $>$ \& \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a18c5da0e54b1562f2a224f414694a80f}{space} ()
+\begin{DoxyCompactList}\small\item\em Returns the space (i.\+e. an instance of Explicit\+Space) of this state class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_a0db984d44f46c477a6df3c9b062925f9}{Location} \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_ae5a70068fa1e66171e4bd1a4c33bd02d}{loc\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_ae5a70068fa1e66171e4bd1a4c33bd02d}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_ae5a70068fa1e66171e4bd1a4c33bd02d}
+
+\begin{DoxyCompactList}\small\item\em The location, which is the raw state as used by {\ttfamily Explicit\+Space}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ Explicit\+Space $>$ \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState_aec671efc84838fa7d339cb7316758e59}{space\+\_\+} = nullptr\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_aec671efc84838fa7d339cb7316758e59}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_aec671efc84838fa7d339cb7316758e59}
+
+\begin{DoxyCompactList}\small\item\em The explicit space. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Explicit\+Space$>$\\*
+struct slb\+::core\+::sb\+::\+Explicit\+State$<$ Explicit\+Space $>$}
+
+The base class for a state in an explicit domain. It can be viewed as a wrapper for the location type defined by the explicit domain. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Explicit\+Space} & The type for storing the explicit space (e.\+g. a map). \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 16 of file explicit\+\_\+state.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!Explicit\+State@{Explicit\+State}}
+\index{Explicit\+State@{Explicit\+State}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{Explicit\+State(const Location \&loc)}{ExplicitState(const Location &loc)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::{\bf Explicit\+State} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Location} \&}]{loc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_abb5dc932345986e03ba3afae41408086}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_abb5dc932345986e03ba3afae41408086}
+
+
+Initialize to the given location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & The given location. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!Explicit\+State@{Explicit\+State}}
+\index{Explicit\+State@{Explicit\+State}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{Explicit\+State(const std\+::string \&s)}{ExplicitState(const std::string &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::{\bf Explicit\+State} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a9ba10a1c18e845a63ac6aa5b5669adde}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a9ba10a1c18e845a63ac6aa5b5669adde}
+
+
+Initialize based on the string describing the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The string describing the state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file explicit\+\_\+state.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!dump@{dump}}
+\index{dump@{dump}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&o) const }{dump(Stream &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ template$<$typename Stream $>$ Stream\& {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_ac9f4d6972a1437dd41b74a4608438310}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_ac9f4d6972a1437dd41b74a4608438310}
+
+
+Dumps the node the state to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The output stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!hash@{hash}}
+\index{hash@{hash}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{hash() const }{hash() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ std\+::size\+\_\+t {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::hash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a982d9c77e71b3d0e64c0b41d422fa32f}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a982d9c77e71b3d0e64c0b41d422fa32f}
+
+
+Computes the hash code of the state. 
+
+\begin{DoxyReturn}{Returns}
+The hash code of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!init\+Space@{init\+Space}}
+\index{init\+Space@{init\+Space}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{init\+Space(const std\+::string \&file\+Name)}{initSpace(const std::string &fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ static void {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::init\+Space (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{file\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_af02f7ca680be7105f85fd17d7fea87e7}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_af02f7ca680be7105f85fd17d7fea87e7}
+
+
+Sets the space (i.\+e. an instance of Explicit\+Space) for this state class by reading it from the given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to read the space from. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!location\+Successors@{location\+Successors}}
+\index{location\+Successors@{location\+Successors}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{location\+Successors() const }{locationSuccessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ template$<$class Neighbor $>$ std\+::vector$<$Neighbor$>$ {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::location\+Successors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_ae4fddaedd8936221f4c92dd5607e5d2b}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_ae4fddaedd8936221f4c92dd5607e5d2b}
+
+
+Computes the neighbors of the state. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The type for representing a single neighbor state. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Vector of neighbors of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!operator==@{operator==}}
+\index{operator==@{operator==}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{operator==(const My\+Type \&rhs) const }{operator==(const MyType &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ bool {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf My\+Type} \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_ac7e19ab8c118d1c28e45a2848bdb1cf5}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_ac7e19ab8c118d1c28e45a2848bdb1cf5}
+
+
+The equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the operator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!random@{random}}
+\index{random@{random}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{random()}{random()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ static {\bf Location} {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a48457e70133ab1b4d6357b221917cc11}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a48457e70133ab1b4d6357b221917cc11}
+
+
+Returns a random location. 
+
+\begin{DoxyReturn}{Returns}
+A random location. 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!raw@{raw}}
+\index{raw@{raw}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{raw() const }{raw() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ const {\bf Location}\& {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::raw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_ac75620076983d8d35de370bdb0ce1f96}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_ac75620076983d8d35de370bdb0ce1f96}
+
+
+Returns the location. 
+
+\begin{DoxyReturn}{Returns}
+The location. 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file explicit\+\_\+state.\+h.
+
+\index{slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}!space@{space}}
+\index{space@{space}!slb\+::core\+::sb\+::\+Explicit\+State@{slb\+::core\+::sb\+::\+Explicit\+State}}
+\paragraph[{\texorpdfstring{space()}{space()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+Space$>$ static const std\+::unique\+\_\+ptr$<$Explicit\+Space$>$\& {\bf slb\+::core\+::sb\+::\+Explicit\+State}$<$ Explicit\+Space $>$\+::space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1core_1_1sb_1_1ExplicitState_a18c5da0e54b1562f2a224f414694a80f}{}\label{structslb_1_1core_1_1sb_1_1ExplicitState_a18c5da0e54b1562f2a224f414694a80f}
+
+
+Returns the space (i.\+e. an instance of Explicit\+Space) of this state class. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to unique pointer to the the space (i.\+e. an instance of Explicit\+Space) of this state class. 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file explicit\+\_\+state.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{explicit__state_8h}{explicit\+\_\+state.\+h}\end{DoxyCompactItemize}

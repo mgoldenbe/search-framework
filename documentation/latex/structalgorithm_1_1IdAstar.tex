@@ -1,0 +1,181 @@
+\hypertarget{structalgorithm_1_1IdAstar}{}\subsection{algorithm\+:\+:Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, Backtrack\+Lock $>$ Struct Template Reference}
+\label{structalgorithm_1_1IdAstar}\index{algorithm\+::\+Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Backtrack\+Lock $>$@{algorithm\+::\+Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Backtrack\+Lock $>$}}
+
+
+The {\ttfamily I\+D\+A$\ast$} search algorithm.  
+
+
+
+
+{\ttfamily \#include $<$headers.\+h$>$}
+
+
+
+Inheritance diagram for algorithm\+:\+:Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, Backtrack\+Lock $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{structalgorithm_1_1IdAstar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for algorithm\+:\+:Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, Backtrack\+Lock $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structalgorithm_1_1IdAstar__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structalgorithm_1_1IdAstar_a85d370f6b37785422c1a2206fc030bd8}{Direct\+Base} = \hyperlink{structalgorithm_1_1Algorithm}{Algorithm}$<$ \hyperlink{structalgorithm_1_1IdAstar}{Id\+Astar}$<$ \hyperlink{algorithm_8h_a425b5a86fe8dae889a8343e14267c3c0}{A\+L\+G\+\_\+\+T\+A\+R\+GS}, Backtrack\+Lock $>$, \hyperlink{algorithm_8h_a425b5a86fe8dae889a8343e14267c3c0}{A\+L\+G\+\_\+\+T\+A\+R\+GS} $>$\hypertarget{structalgorithm_1_1IdAstar_a85d370f6b37785422c1a2206fc030bd8}{}\label{structalgorithm_1_1IdAstar_a85d370f6b37785422c1a2206fc030bd8}
+
+\begin{DoxyCompactList}\small\item\em The direct base. \end{DoxyCompactList}\item 
+using \hyperlink{structalgorithm_1_1IdAstar_a3c7ea06cc276080cae8c0d0542efd20f}{Goal\+Handler} = typename \hyperlink{structalgorithm_1_1Algorithm_af9111b0a505a193a2c4878b710b8ea65}{Direct\+Base\+::\+Goal\+Handler}\hypertarget{structalgorithm_1_1IdAstar_a3c7ea06cc276080cae8c0d0542efd20f}{}\label{structalgorithm_1_1IdAstar_a3c7ea06cc276080cae8c0d0542efd20f}
+
+\begin{DoxyCompactList}\small\item\em The goal handler policy. \end{DoxyCompactList}\item 
+using \hyperlink{structalgorithm_1_1IdAstar_a8381fc688421ed82177c26c5ff8f527e}{Initial\+Heuristic} = typename \hyperlink{structalgorithm_1_1Algorithm_aa0c111908e844c0ff5cfe78f778bba52}{Direct\+Base\+::\+Initial\+Heuristic}\hypertarget{structalgorithm_1_1IdAstar_a8381fc688421ed82177c26c5ff8f527e}{}\label{structalgorithm_1_1IdAstar_a8381fc688421ed82177c26c5ff8f527e}
+
+\begin{DoxyCompactList}\small\item\em The initial heuristic policy. \end{DoxyCompactList}\item 
+using \hyperlink{structalgorithm_1_1IdAstar_a4e82363ec4f0533f3c593d2a098bfe8d}{Generator} = typename \hyperlink{structalgorithm_1_1Algorithm_a4b5d0c94b49b586bd31af92ed6ec94ad}{Direct\+Base\+::\+Generator}\hypertarget{structalgorithm_1_1IdAstar_a4e82363ec4f0533f3c593d2a098bfe8d}{}\label{structalgorithm_1_1IdAstar_a4e82363ec4f0533f3c593d2a098bfe8d}
+
+\begin{DoxyCompactList}\small\item\em The generator policy. \end{DoxyCompactList}\item 
+using \hyperlink{structalgorithm_1_1IdAstar_a5f3027b15ff1fc51f6d59d06d4f89950}{Neighbor} = typename Generator\+::\+Neighbor\hypertarget{structalgorithm_1_1IdAstar_a5f3027b15ff1fc51f6d59d06d4f89950}{}\label{structalgorithm_1_1IdAstar_a5f3027b15ff1fc51f6d59d06d4f89950}
+
+\begin{DoxyCompactList}\small\item\em Search neighbor type. \end{DoxyCompactList}\item 
+using \hyperlink{structalgorithm_1_1IdAstar_a7a3b14446ddc25aac151cc005ddae550}{My\+Type} = \hyperlink{structalgorithm_1_1IdAstar}{Id\+Astar}\hypertarget{structalgorithm_1_1IdAstar_a7a3b14446ddc25aac151cc005ddae550}{}\label{structalgorithm_1_1IdAstar_a7a3b14446ddc25aac151cc005ddae550}
+
+\begin{DoxyCompactList}\small\item\em Required for \hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA} symbol. \end{DoxyCompactList}\item 
+using \hyperlink{structalgorithm_1_1IdAstar_a8724da3d32be023a172e10e2ff3ba78c}{My\+Backtrack} = \hyperlink{structBacktrack}{Backtrack}$<$ \hyperlink{structalgorithm_1_1IdAstar_a7a3b14446ddc25aac151cc005ddae550}{My\+Type}, Backtrack\+Lock $>$\hypertarget{structalgorithm_1_1IdAstar_a8724da3d32be023a172e10e2ff3ba78c}{}\label{structalgorithm_1_1IdAstar_a8724da3d32be023a172e10e2ff3ba78c}
+
+\begin{DoxyCompactList}\small\item\em The instantiated class template for handling backtracking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA} \hyperlink{structalgorithm_1_1IdAstar_a3a45dba3049694b4911255e6cfaf3b32}{Id\+Astar} (const My\+Instance \&instance)
+\begin{DoxyCompactList}\small\item\em Initializes the algorithm based on the problem instance. \end{DoxyCompactList}\item 
+Return\+Type \hyperlink{structalgorithm_1_1IdAstar_ac66163509ea19ea3758d67b7c777b523}{run} ()
+\begin{DoxyCompactList}\small\item\em Runs the algorithm. \end{DoxyCompactList}\item 
+bool \hyperlink{structalgorithm_1_1IdAstar_a7ac07b4cdee8ebf09a8641d42d74057e}{iteration} ()
+\begin{DoxyCompactList}\small\item\em Performs a single iteration of I\+D\+A$\ast$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Services for policies.}\par
+\begin{DoxyCompactItemize}
+\item 
+Node $\ast$ {\bfseries cur} ()\hypertarget{structalgorithm_1_1IdAstar_a72e201fa70ea9058e22f5c3980c8b30c}{}\label{structalgorithm_1_1IdAstar_a72e201fa70ea9058e22f5c3980c8b30c}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ Node $>$ \hyperlink{structalgorithm_1_1IdAstar_aa7b894fbafdf9521251cd6cbb9062220}{cur\+\_\+}\hypertarget{structalgorithm_1_1IdAstar_aa7b894fbafdf9521251cd6cbb9062220}{}\label{structalgorithm_1_1IdAstar_aa7b894fbafdf9521251cd6cbb9062220}
+
+\begin{DoxyCompactList}\small\item\em The currently selected node. \end{DoxyCompactList}\item 
+\hyperlink{structalgorithm_1_1IdAstar_a8724da3d32be023a172e10e2ff3ba78c}{My\+Backtrack} \hyperlink{structalgorithm_1_1IdAstar_aab65961efe11621246fe115cf2976ce2}{backtrack\+\_\+}\hypertarget{structalgorithm_1_1IdAstar_aab65961efe11621246fe115cf2976ce2}{}\label{structalgorithm_1_1IdAstar_aab65961efe11621246fe115cf2976ce2}
+
+\begin{DoxyCompactList}\small\item\em The backtracking policy. \end{DoxyCompactList}\item 
+Cost\+Type \hyperlink{structalgorithm_1_1IdAstar_a006894c6fa0b5cd83c957675decf2441}{threshold\+\_\+}\hypertarget{structalgorithm_1_1IdAstar_a006894c6fa0b5cd83c957675decf2441}{}\label{structalgorithm_1_1IdAstar_a006894c6fa0b5cd83c957675decf2441}
+
+\begin{DoxyCompactList}\small\item\em The current iteration\textquotesingle{}s cost threshold. \end{DoxyCompactList}\item 
+Cost\+Type \hyperlink{structalgorithm_1_1IdAstar_a5ea713f9d8a6115f59a8f6b8d4f55f9b}{next\+\_\+threshold\+\_\+}\hypertarget{structalgorithm_1_1IdAstar_a5ea713f9d8a6115f59a8f6b8d4f55f9b}{}\label{structalgorithm_1_1IdAstar_a5ea713f9d8a6115f59a8f6b8d4f55f9b}
+
+\begin{DoxyCompactList}\small\item\em The cost threshold for the next iteration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS, template$<$ class, bool $>$ class Backtrack\+Lock = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+B\+A\+C\+K\+T\+R\+A\+C\+K\+\_\+\+L\+O\+CK$>$\\*
+struct algorithm\+::\+Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Backtrack\+Lock $>$}
+
+The {\ttfamily I\+D\+A$\ast$} search algorithm. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em log\+Flag} & If {\ttfamily true}, the events generated by the search algorithm are logged. Otherwise, they are not. \\
+\hline
+{\em Node\+\_\+} & The search node type. \\
+\hline
+{\em Goal\+Handler} & The policy for handling goal conditions. \\
+\hline
+{\em Initial\+Heuristic} & The initial heuristic used by the search algorithm. \\
+\hline
+{\em Backtrack\+Lock} & The locking policy for backtracking. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+See the documentation for \hyperlink{algorithm_8h_a521ad67aee0e10fb76ee132a9d5c0768}{A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS} and \hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA}. 
+\end{DoxyNote}
+
+
+Definition at line 20 of file headers.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{algorithm\+::\+Id\+Astar@{algorithm\+::\+Id\+Astar}!Id\+Astar@{Id\+Astar}}
+\index{Id\+Astar@{Id\+Astar}!algorithm\+::\+Id\+Astar@{algorithm\+::\+Id\+Astar}}
+\paragraph[{\texorpdfstring{Id\+Astar(const My\+Instance \&instance)}{IdAstar(const MyInstance &instance)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class, bool $>$ class Backtrack\+Lock = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+B\+A\+C\+K\+T\+R\+A\+C\+K\+\_\+\+L\+O\+CK$>$ {\bf A\+L\+G\+\_\+\+D\+A\+TA} {\bf algorithm\+::\+Id\+Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Backtrack\+Lock $>$\+::{\bf Id\+Astar} (
+\begin{DoxyParamCaption}
+\item[{const My\+Instance \&}]{instance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structalgorithm_1_1IdAstar_a3a45dba3049694b4911255e6cfaf3b32}{}\label{structalgorithm_1_1IdAstar_a3a45dba3049694b4911255e6cfaf3b32}
+
+
+Initializes the algorithm based on the problem instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & The problem instance. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file headers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{algorithm\+::\+Id\+Astar@{algorithm\+::\+Id\+Astar}!iteration@{iteration}}
+\index{iteration@{iteration}!algorithm\+::\+Id\+Astar@{algorithm\+::\+Id\+Astar}}
+\paragraph[{\texorpdfstring{iteration()}{iteration()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class, bool $>$ class Backtrack\+Lock = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+B\+A\+C\+K\+T\+R\+A\+C\+K\+\_\+\+L\+O\+CK$>$ bool {\bf algorithm\+::\+Id\+Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Backtrack\+Lock $>$\+::iteration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structalgorithm_1_1IdAstar_a7ac07b4cdee8ebf09a8641d42d74057e}{}\label{structalgorithm_1_1IdAstar_a7ac07b4cdee8ebf09a8641d42d74057e}
+
+
+Performs a single iteration of I\+D\+A$\ast$. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the solution has been found and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file headers.\+h.
+
+\index{algorithm\+::\+Id\+Astar@{algorithm\+::\+Id\+Astar}!run@{run}}
+\index{run@{run}!algorithm\+::\+Id\+Astar@{algorithm\+::\+Id\+Astar}}
+\paragraph[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class, bool $>$ class Backtrack\+Lock = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+B\+A\+C\+K\+T\+R\+A\+C\+K\+\_\+\+L\+O\+CK$>$ Return\+Type {\bf algorithm\+::\+Id\+Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Backtrack\+Lock $>$\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structalgorithm_1_1IdAstar_ac66163509ea19ea3758d67b7c777b523}{}\label{structalgorithm_1_1IdAstar_ac66163509ea19ea3758d67b7c777b523}
+
+
+Runs the algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The solution cost. If there is no solution, then {\ttfamily Cost\+Type\{-\/1\}} is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file headers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/algorithms/\hyperlink{extensions_2algorithms_2headers_8h}{headers.\+h}\end{DoxyCompactItemize}

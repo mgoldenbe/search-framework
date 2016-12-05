@@ -1,0 +1,93 @@
+\hypertarget{structVertexEdgeColor}{}\subsection{Vertex\+Edge\+Color$<$ Node $>$ Struct Template Reference}
+\label{structVertexEdgeColor}\index{Vertex\+Edge\+Color$<$ Node $>$@{Vertex\+Edge\+Color$<$ Node $>$}}
+
+
+An event that applies a color change to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+types.\+h$>$}
+
+
+
+Inheritance diagram for Vertex\+Edge\+Color$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structVertexEdgeColor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Vertex\+Edge\+Color$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structVertexEdgeColor__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structVertexEdgeColor_ac6b6aa1dcad3b391e12241f472cd76db}{State\+Shared\+Ptr} = typename \hyperlink{structUniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structEventBase_a2c0edb5cda08ce1965f3440a97b3fc87}{State\+Shared\+Ptr}\hypertarget{structVertexEdgeColor_ac6b6aa1dcad3b391e12241f472cd76db}{}\label{structVertexEdgeColor_ac6b6aa1dcad3b391e12241f472cd76db}
+
+\begin{DoxyCompactList}\small\item\em Shared pointer to constant state. \end{DoxyCompactList}\item 
+using \hyperlink{structVertexEdgeColor_a262df57eec2e9fd9880ece41b574fa4e}{Edge} = typename \hyperlink{structUniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structUniformChange_a34b7655a38ac1deb98a5978cb1ad5cf6}{Edge}\hypertarget{structVertexEdgeColor_a262df57eec2e9fd9880ece41b574fa4e}{}\label{structVertexEdgeColor_a262df57eec2e9fd9880ece41b574fa4e}
+
+\begin{DoxyCompactList}\small\item\em The type representing an edge in the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structVertexEdgeColor_af4433966ab478e070092eaa3af83f19e}{change} (\hyperlink{structVertexStyle}{Vertex\+Style} \&style, const \hyperlink{structEventBase_a2c0edb5cda08ce1965f3440a97b3fc87}{State\+Shared\+Ptr} \&) const override\hypertarget{structVertexEdgeColor_af4433966ab478e070092eaa3af83f19e}{}\label{structVertexEdgeColor_af4433966ab478e070092eaa3af83f19e}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating state. In this case, the change is the change of color to be the color returned by \hyperlink{structVertexEdgeColor_a99176519d2fbdb86b77dfd80b9ed47cb}{color} method. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structVertexEdgeColor_a7323b371c4a5c3ae774b45bc2ec554e9}{change} (\hyperlink{structEdgeStyle}{Edge\+Style} \&style, const \hyperlink{structUniformChange_a34b7655a38ac1deb98a5978cb1ad5cf6}{Edge} \&) const override\hypertarget{structVertexEdgeColor_a7323b371c4a5c3ae774b45bc2ec554e9}{}\label{structVertexEdgeColor_a7323b371c4a5c3ae774b45bc2ec554e9}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating edge. In this case, the change is the change of color to be the color returned by \hyperlink{structVertexEdgeColor_a99176519d2fbdb86b77dfd80b9ed47cb}{color} method. \end{DoxyCompactList}\item 
+virtual \hyperlink{colors_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} \hyperlink{structVertexEdgeColor_a99176519d2fbdb86b77dfd80b9ed47cb}{color} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the new color of both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct Vertex\+Edge\+Color$<$ Node $>$}
+
+An event that applies a color change to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 278 of file event\+\_\+types.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Vertex\+Edge\+Color@{Vertex\+Edge\+Color}!color@{color}}
+\index{color@{color}!Vertex\+Edge\+Color@{Vertex\+Edge\+Color}}
+\paragraph[{\texorpdfstring{color() const =0}{color() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual {\bf Color} {\bf Vertex\+Edge\+Color}$<$ Node $>$\+::color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{structVertexEdgeColor_a99176519d2fbdb86b77dfd80b9ed47cb}{}\label{structVertexEdgeColor_a99176519d2fbdb86b77dfd80b9ed47cb}
+
+
+Returns the new color of both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+
+\begin{DoxyReturn}{Returns}
+The new color of both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{structClosed_a0cd2a0aa22be8c28e792d88b832952b7}{Closed$<$ Node $>$}, \hyperlink{structEnteredOpen_a3a0c0690450e47d69c8125a147918ab3}{Entered\+Open$<$ Node $>$}, \hyperlink{structNothingToDo_aedd48ed286603dac6b05f251532eeb62}{Nothing\+To\+Do$<$ Node $>$}, \hyperlink{structNotParent_a7d049b71da86e8f14a8ec644cd29dcd5}{Not\+Parent$<$ Node $>$}, and \hyperlink{structGenerated_a33e09cd8c34ffdf6e3f94717d02335fc}{Generated$<$ Node $>$}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{event__types_8h}{event\+\_\+types.\+h}\end{DoxyCompactItemize}

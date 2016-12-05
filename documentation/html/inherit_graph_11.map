@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$structslb_1_1core_1_1sb_1_1ManagedNode.html" title="slb::core::sb::ManagedNode\l\&lt; BaseT\&lt; State \&gt; \&gt;" alt="" coords="5,39,192,80"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1node_1_1NoDataT.html" title="Node storing nothing. " alt="" coords="249,5,412,47"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1node_1_1ResponsibleGoalT.html" title="Node for multi&#45;goal search. Stores the goal responsible for heuristic value in addition to storing g ..." alt="" coords="240,71,421,112"/>
+</map>

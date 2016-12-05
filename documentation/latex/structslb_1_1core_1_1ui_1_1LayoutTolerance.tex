@@ -1,0 +1,78 @@
+\hypertarget{structslb_1_1core_1_1ui_1_1LayoutTolerance}{}\subsection{slb\+:\+:core\+:\+:ui\+:\+:Layout\+Tolerance Struct Reference}
+\label{structslb_1_1core_1_1ui_1_1LayoutTolerance}\index{slb\+::core\+::ui\+::\+Layout\+Tolerance@{slb\+::core\+::ui\+::\+Layout\+Tolerance}}
+
+
+Like boost\textquotesingle{}s {\ttfamily layout\+\_\+tolerance$<$double$>$}, but accepting a time limit as well.  
+
+
+
+
+{\ttfamily \#include $<$graph\+\_\+layouts.\+h$>$}
+
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:ui\+:\+:Layout\+Tolerance\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{structslb_1_1core_1_1ui_1_1LayoutTolerance__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1LayoutTolerance_ae16668637c1a3bd4662179a57e03d841}{Layout\+Tolerance} (double tolerance, double time\+Limit=1000)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Graph $>$ }\\bool \hyperlink{structslb_1_1core_1_1ui_1_1LayoutTolerance_aeeeee3994dae517b3a0be5a9b4934827}{operator()} (double delta\+\_\+p, typename boost\+::graph\+\_\+traits$<$ Graph $>$\+::vertex\+\_\+descriptor p, const Graph \&g, bool global)\hypertarget{structslb_1_1core_1_1ui_1_1LayoutTolerance_aeeeee3994dae517b3a0be5a9b4934827}{}\label{structslb_1_1core_1_1ui_1_1LayoutTolerance_aeeeee3994dae517b3a0be5a9b4934827}
+
+\begin{DoxyCompactList}\small\item\em Just like boost\textquotesingle{}s {\ttfamily layout\+\_\+tolerance$<$double$>$}, but taking the time limit into account. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+layout\+\_\+tolerance$<$ double $>$ \hyperlink{structslb_1_1core_1_1ui_1_1LayoutTolerance_ac0a9a65b131dc2c8b0e624781b56e452}{boost\+Tolerance\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1LayoutTolerance_ac0a9a65b131dc2c8b0e624781b56e452}{}\label{structslb_1_1core_1_1ui_1_1LayoutTolerance_ac0a9a65b131dc2c8b0e624781b56e452}
+
+\begin{DoxyCompactList}\small\item\em The boost\textquotesingle{}s {\ttfamily layout\+\_\+tolerance$<$double$>$} object. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1Timer}{util\+::\+Timer} \hyperlink{structslb_1_1core_1_1ui_1_1LayoutTolerance_ade0d246c0b06a4036de7355e65a0a67c}{timer\+\_\+} \{\char`\"{}Timer\char`\"{}\}\hypertarget{structslb_1_1core_1_1ui_1_1LayoutTolerance_ade0d246c0b06a4036de7355e65a0a67c}{}\label{structslb_1_1core_1_1ui_1_1LayoutTolerance_ade0d246c0b06a4036de7355e65a0a67c}
+
+\begin{DoxyCompactList}\small\item\em The timer. \end{DoxyCompactList}\item 
+double \hyperlink{structslb_1_1core_1_1ui_1_1LayoutTolerance_a8f3497521ba38cb0663755c5d3a34f03}{time\+Limit\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1LayoutTolerance_a8f3497521ba38cb0663755c5d3a34f03}{}\label{structslb_1_1core_1_1ui_1_1LayoutTolerance_a8f3497521ba38cb0663755c5d3a34f03}
+
+\begin{DoxyCompactList}\small\item\em The time limit in milliseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Like boost\textquotesingle{}s {\ttfamily layout\+\_\+tolerance$<$double$>$}, but accepting a time limit as well. 
+
+Definition at line 87 of file graph\+\_\+layouts.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::ui\+::\+Layout\+Tolerance@{slb\+::core\+::ui\+::\+Layout\+Tolerance}!Layout\+Tolerance@{Layout\+Tolerance}}
+\index{Layout\+Tolerance@{Layout\+Tolerance}!slb\+::core\+::ui\+::\+Layout\+Tolerance@{slb\+::core\+::ui\+::\+Layout\+Tolerance}}
+\paragraph[{\texorpdfstring{Layout\+Tolerance(double tolerance, double time\+Limit=1000)}{LayoutTolerance(double tolerance, double timeLimit=1000)}}]{\setlength{\rightskip}{0pt plus 5cm}slb\+::core\+::ui\+::\+Layout\+Tolerance\+::\+Layout\+Tolerance (
+\begin{DoxyParamCaption}
+\item[{double}]{tolerance, }
+\item[{double}]{time\+Limit = {\ttfamily 1000}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1LayoutTolerance_ae16668637c1a3bd4662179a57e03d841}{}\label{structslb_1_1core_1_1ui_1_1LayoutTolerance_ae16668637c1a3bd4662179a57e03d841}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & The tolerance parameter of boost\textquotesingle{}s {\ttfamily layout\+\_\+tolerance$<$double$>$}. \\
+\hline
+{\em time\+Limit} & The time limit in milliseconds. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 94 of file graph\+\_\+layouts.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{graph__layouts_8h}{graph\+\_\+layouts.\+h}\end{DoxyCompactItemize}

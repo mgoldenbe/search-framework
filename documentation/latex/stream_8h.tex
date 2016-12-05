@@ -1,0 +1,44 @@
+\hypertarget{stream_8h}{}\subsection{core/util/stream.h File Reference}
+\label{stream_8h}\index{core/util/stream.\+h@{core/util/stream.\+h}}
+
+
+Stream output-\/related utilities.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{stream_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1util}{slb\+::core\+::util}
+\begin{DoxyCompactList}\small\item\em Utility facilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a2e7207fe123391c539ef9924d347f7e1}{slb\+::core\+::util\+::str} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Get an arbitrary object\textquotesingle{}s string representation. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a390411b2bdd9cdf930071614c6712579}{slb\+::core\+::util\+::sure\+Read} (std\+::ifstream \&fin)
+\begin{DoxyCompactList}\small\item\em Read from a file and assert that no errors occurred during the read. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_ae3ed6a8de55ec15aa85f72911546e20d}{slb\+::core\+::util\+::sure\+Read} (std\+::ifstream \&fin, const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Read from a file and assert that the read string is equal to the given one. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceslb_1_1core_1_1util_a06aba127ff89c79f893cf9e1cb10ff79}{slb\+::core\+::util\+::dumpT} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Dump an object to {\ttfamily stderr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename charT , typename T $>$ }\\auto \hyperlink{namespaceslb_1_1core_1_1util_a719c889c611ba3d22441ad3d29243e1a}{slb\+::core\+::util\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ charT $>$ \&o, const T \&t) -\/$>$ decltype(t.\+dump(o))
+\begin{DoxyCompactList}\small\item\em Output operator for all classes that define the dump member function accepting {\ttfamily std\+::basic\+\_\+ostream}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Stream output-\/related utilities. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

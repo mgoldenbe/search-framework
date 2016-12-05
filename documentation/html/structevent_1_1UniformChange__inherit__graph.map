@@ -1,0 +1,21 @@
+<map id="event::UniformChange&lt; Node &gt;" name="event::UniformChange&lt; Node &gt;">
+<area shape="rect" id="node3" href="$structevent_1_1PathChange.html" title="An event that applies visual changes to states and edges of the state graph along a path..." alt="" coords="408,161,551,203"/>
+<area shape="rect" id="node6" href="$structevent_1_1VertexChange.html" title="An event that applies visual changes to the vertex of the state graph corresponding to the state asso..." alt="" coords="407,288,552,329"/>
+<area shape="rect" id="node15" href="$structevent_1_1VertexEdgeChange.html" title="An event that applies visual changes to both the vertex of the state graph corresponding to the state..." alt="" coords="392,441,567,483"/>
+<area shape="rect" id="node4" href="$structevent_1_1SolutionPathChange.html" title="An event that applies visual changes to states and edges of the state graph along the path leading to..." alt="" coords="615,68,796,109"/>
+<area shape="rect" id="node5" href="$structevent_1_1SolvedGoal.html" title="Event that visualizes having found a path with required qualities to a goal. " alt="" coords="869,5,1007,47"/>
+<area shape="rect" id="node7" href="$structevent_1_1VertexColor.html" title="An event that changes the color of the vertex corresponding to the state associated with the event..." alt="" coords="640,195,771,236"/>
+<area shape="rect" id="node12" href="$structevent_1_1VertexEmphasis.html" title="An event that marks the vertex corresponding to the state associated with the event. " alt="" coords="626,319,785,360"/>
+<area shape="rect" id="node8" href="$structevent_1_1DeniedExpansion.html" title="Event that visualizes a node&#39;s expansion being denied following suspension (see SuspendedExpansion). " alt="" coords="856,71,1020,112"/>
+<area shape="rect" id="node9" href="$structevent_1_1ResumedExpansion.html" title="Event that visualizes a node&#39;s expansion being resumed following suspension (see SuspendedExpansion)..." alt="" coords="849,136,1027,177"/>
+<area shape="rect" id="node10" href="$structevent_1_1Selected.html" title="Event that visualizes having selected a node. " alt="" coords="854,202,1022,229"/>
+<area shape="rect" id="node11" href="$structevent_1_1SuspendedExpansion.html" title="Event that visualizes a node&#39;s expansion being suspended. The expansion may be refused or resumed pen..." alt="" coords="844,253,1032,295"/>
+<area shape="rect" id="node13" href="$structevent_1_1MarkedGoal.html" title="Event that marks the goal state. " alt="" coords="868,319,1008,360"/>
+<area shape="rect" id="node14" href="$structevent_1_1MarkedStart.html" title="Event that marks the start state. " alt="" coords="871,384,1005,425"/>
+<area shape="rect" id="node16" href="$structevent_1_1VertexEdgeColor.html" title="An event that applies a color change to both the vertex of the state graph corresponding to the state..." alt="" coords="625,531,786,572"/>
+<area shape="rect" id="node17" href="$structevent_1_1Closed.html" title="Event that visualizes having closed a node. " alt="" coords="859,450,1017,477"/>
+<area shape="rect" id="node18" href="$structevent_1_1EnteredOpen.html" title="Event that visualizes a node entering the Open List. " alt="" coords="869,501,1007,543"/>
+<area shape="rect" id="node19" href="$structevent_1_1Generated.html" title="Event that visualizes node generation. " alt="" coords="849,567,1027,594"/>
+<area shape="rect" id="node20" href="$structevent_1_1NothingToDo.html" title="Event that visualizes the fact that a node was generated, but nothing needed to be done for it..." alt="" coords="869,619,1007,660"/>
+<area shape="rect" id="node21" href="$structevent_1_1NotParent.html" title="Event that visualizes change of parent node. " alt="" coords="850,685,1026,711"/>
+</map>

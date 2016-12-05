@@ -1,0 +1,8 @@
+<map id="slb::core::ui::LogWindow&lt; Node &gt;" name="slb::core::ui::LogWindow&lt; Node &gt;">
+<area shape="rect" id="node2" href="$structslb_1_1core_1_1util_1_1Table.html" title="The class for handling tabular output, where the columns need to be aligned. The user does not need t..." alt="" coords="5,221,143,247"/>
+<area shape="rect" id="node3" href="$structslb_1_1core_1_1util_1_1Row.html" title="The row of the Table. " alt="" coords="8,117,140,143"/>
+<area shape="rect" id="node4" href="$structslb_1_1core_1_1ui_1_1Form.html" title="A simple form for ncurses. Forms that come with ncurses cannot be put in pad windows. " alt="" coords="167,221,295,247"/>
+<area shape="rect" id="node5" href="$structslb_1_1core_1_1ui_1_1VisualLog.html" title="The log of events suited for visualization purposes. This log is based on the AlgorithmLog generated ..." alt="" coords="319,213,474,255"/>
+<area shape="rect" id="node6" href="$structslb_1_1core_1_1ui_1_1CurrentStyles.html" title="slb::core::ui::CurrentStyles\l\&lt; Node::State \&gt;" alt="" coords="307,109,486,151"/>
+<area shape="rect" id="node7" href="$structslb_1_1core_1_1ui_1_1StateGraph.html" title="The state space graph used for visualization. " alt="" coords="315,5,479,47"/>
+</map>

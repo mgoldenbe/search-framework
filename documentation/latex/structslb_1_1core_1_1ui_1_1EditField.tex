@@ -1,0 +1,181 @@
+\hypertarget{structslb_1_1core_1_1ui_1_1EditField}{}\subsection{slb\+:\+:core\+:\+:ui\+:\+:Edit\+Field Struct Reference}
+\label{structslb_1_1core_1_1ui_1_1EditField}\index{slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}}
+
+
+Implements a simple text edit field.  
+
+
+
+
+{\ttfamily \#include $<$form.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1EditField_a607291bf49b0dca5cbff3bac7767f869}{Edit\+Field} (Display $\ast$\hyperlink{structslb_1_1core_1_1ui_1_1EditField_ab8483df66ec0bca8e5d59ea547113a04}{display}, W\+I\+N\+D\+OW $\ast$host, int begin\+Row, int begin\+Col, int nrows, int ncols, std\+::string label)
+\begin{DoxyCompactList}\small\item\em Initializes the text field. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{structslb_1_1core_1_1ui_1_1EditField_adc15bb0294ab839703a01da5bd8c6106}{get} () const 
+\begin{DoxyCompactList}\small\item\em Returns the contents of the field. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1EditField_ada16e8ea3582fd61e02291b52713e383}{set} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Sets the contents of the field. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1core_1_1ui_1_1EditField_ab8483df66ec0bca8e5d59ea547113a04}{display} () const \hypertarget{structslb_1_1core_1_1ui_1_1EditField_ab8483df66ec0bca8e5d59ea547113a04}{}\label{structslb_1_1core_1_1ui_1_1EditField_ab8483df66ec0bca8e5d59ea547113a04}
+
+\begin{DoxyCompactList}\small\item\em Displays the field with the contents and the cursor. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1ui_1_1EditField_af2c80046ff30430c2befb2dda3603abe}{handle} (int keystate, int keycode)
+\begin{DoxyCompactList}\small\item\em Changes the contents and the cursor position based on the given key that was pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Display $\ast$ \hyperlink{structslb_1_1core_1_1ui_1_1EditField_ae5f1a7a67b01a99b82810b2a9bb51bd5}{display\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_ae5f1a7a67b01a99b82810b2a9bb51bd5}{}\label{structslb_1_1core_1_1ui_1_1EditField_ae5f1a7a67b01a99b82810b2a9bb51bd5}
+
+\begin{DoxyCompactList}\small\item\em Connection to X server. \end{DoxyCompactList}\item 
+W\+I\+N\+D\+OW $\ast$ \hyperlink{structslb_1_1core_1_1ui_1_1EditField_a7b1a0f15e7c53581d51d6b0c4f515133}{host\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_a7b1a0f15e7c53581d51d6b0c4f515133}{}\label{structslb_1_1core_1_1ui_1_1EditField_a7b1a0f15e7c53581d51d6b0c4f515133}
+
+\begin{DoxyCompactList}\small\item\em Window identifier. In our case, the menu pad will be passed. \end{DoxyCompactList}\item 
+W\+I\+N\+D\+OW $\ast$ \hyperlink{structslb_1_1core_1_1ui_1_1EditField_af4560765e88c0823dc8ba88d1d5521be}{me\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_af4560765e88c0823dc8ba88d1d5521be}{}\label{structslb_1_1core_1_1ui_1_1EditField_af4560765e88c0823dc8ba88d1d5521be}
+
+\begin{DoxyCompactList}\small\item\em The window identifier of the field. {\ttfamily me\+\_\+} is a sub-\/window of {\ttfamily host\+\_\+}. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1EditField_ae0acc159579a5d32d6a205b4c7453553}{begin\+Row\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_ae0acc159579a5d32d6a205b4c7453553}{}\label{structslb_1_1core_1_1ui_1_1EditField_ae0acc159579a5d32d6a205b4c7453553}
+
+\begin{DoxyCompactList}\small\item\em Row position of the top-\/left corner of the form in {\ttfamily host}. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1EditField_ad7d66f086f521d4dbc5265534adb5f3e}{begin\+Col\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_ad7d66f086f521d4dbc5265534adb5f3e}{}\label{structslb_1_1core_1_1ui_1_1EditField_ad7d66f086f521d4dbc5265534adb5f3e}
+
+\begin{DoxyCompactList}\small\item\em Column position of the top-\/left corner of the form in {\ttfamily host}. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1EditField_a0cf8d62cd3699e057656f71c3e95ffda}{nrows\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_a0cf8d62cd3699e057656f71c3e95ffda}{}\label{structslb_1_1core_1_1ui_1_1EditField_a0cf8d62cd3699e057656f71c3e95ffda}
+
+\begin{DoxyCompactList}\small\item\em Number of rows in the edit field. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1EditField_a31f8b02f9fe179c3d738cc653ebf101f}{ncols\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_a31f8b02f9fe179c3d738cc653ebf101f}{}\label{structslb_1_1core_1_1ui_1_1EditField_a31f8b02f9fe179c3d738cc653ebf101f}
+
+\begin{DoxyCompactList}\small\item\em Number of columns in the edit field. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1ui_1_1EditField_a640267ccc2fd8491717bf0628a635cf1}{label\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_a640267ccc2fd8491717bf0628a635cf1}{}\label{structslb_1_1core_1_1ui_1_1EditField_a640267ccc2fd8491717bf0628a635cf1}
+
+\begin{DoxyCompactList}\small\item\em Text to be displayed next to the field. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1EditField_a5468afc21f6ee5cbda5cbab07b364719}{maxpos\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_a5468afc21f6ee5cbda5cbab07b364719}{}\label{structslb_1_1core_1_1ui_1_1EditField_a5468afc21f6ee5cbda5cbab07b364719}
+
+\begin{DoxyCompactList}\small\item\em Maximal number of characters which the field can contain. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1ui_1_1EditField_ad32540b88b76c20cc0292992d46ef369}{s\+\_\+} \{\}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_ad32540b88b76c20cc0292992d46ef369}{}\label{structslb_1_1core_1_1ui_1_1EditField_ad32540b88b76c20cc0292992d46ef369}
+
+\begin{DoxyCompactList}\small\item\em The contents of the field. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1ui_1_1EditField_a84c0297bd927aa773ffbc5076b532ae7}{cursor\+\_\+} \{\}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_a84c0297bd927aa773ffbc5076b532ae7}{}\label{structslb_1_1core_1_1ui_1_1EditField_a84c0297bd927aa773ffbc5076b532ae7}
+
+\begin{DoxyCompactList}\small\item\em The cursor position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implements a simple text edit field. 
+
+Definition at line 29 of file form.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}!Edit\+Field@{Edit\+Field}}
+\index{Edit\+Field@{Edit\+Field}!slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}}
+\paragraph[{\texorpdfstring{Edit\+Field(\+Display $\ast$display, W\+I\+N\+D\+O\+W $\ast$host, int begin\+Row, int begin\+Col, int nrows, int ncols, std\+::string label)}{EditField(Display *display, WINDOW *host, int beginRow, int beginCol, int nrows, int ncols, std::string label)}}]{\setlength{\rightskip}{0pt plus 5cm}slb\+::core\+::ui\+::\+Edit\+Field\+::\+Edit\+Field (
+\begin{DoxyParamCaption}
+\item[{Display $\ast$}]{display, }
+\item[{W\+I\+N\+D\+OW $\ast$}]{host, }
+\item[{int}]{begin\+Row, }
+\item[{int}]{begin\+Col, }
+\item[{int}]{nrows, }
+\item[{int}]{ncols, }
+\item[{std\+::string}]{label}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_a607291bf49b0dca5cbff3bac7767f869}{}\label{structslb_1_1core_1_1ui_1_1EditField_a607291bf49b0dca5cbff3bac7767f869}
+
+
+Initializes the text field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em display} & Connection to X server. \\
+\hline
+{\em host} & Window identifier. In our case, the menu pad will be passed. \\
+\hline
+{\em begin\+Row} & Row position of the top-\/left corner of the form in {\ttfamily host}. \\
+\hline
+{\em begin\+Col} & Column position of the top-\/left corner of the form in {\ttfamily host}. \\
+\hline
+{\em nrows} & Number of rows in the edit field. \\
+\hline
+{\em ncols} & Number of columns in the edit field. \\
+\hline
+{\em label} & Text to be displayed next to the field. host. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file form.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}!get@{get}}
+\index{get@{get}!slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}}
+\paragraph[{\texorpdfstring{get() const }{get() const }}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string\& slb\+::core\+::ui\+::\+Edit\+Field\+::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_adc15bb0294ab839703a01da5bd8c6106}{}\label{structslb_1_1core_1_1ui_1_1EditField_adc15bb0294ab839703a01da5bd8c6106}
+
+
+Returns the contents of the field. 
+
+\begin{DoxyReturn}{Returns}
+The contents of the field. 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file form.\+h.
+
+\index{slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}!handle@{handle}}
+\index{handle@{handle}!slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}}
+\paragraph[{\texorpdfstring{handle(int keystate, int keycode)}{handle(int keystate, int keycode)}}]{\setlength{\rightskip}{0pt plus 5cm}bool slb\+::core\+::ui\+::\+Edit\+Field\+::handle (
+\begin{DoxyParamCaption}
+\item[{int}]{keystate, }
+\item[{int}]{keycode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_af2c80046ff30430c2befb2dda3603abe}{}\label{structslb_1_1core_1_1ui_1_1EditField_af2c80046ff30430c2befb2dda3603abe}
+
+
+Changes the contents and the cursor position based on the given key that was pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keystate} & The key group. \\
+\hline
+{\em keycode} & The key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the key was handled by the edit field and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file form.\+h.
+
+\index{slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}!set@{set}}
+\index{set@{set}!slb\+::core\+::ui\+::\+Edit\+Field@{slb\+::core\+::ui\+::\+Edit\+Field}}
+\paragraph[{\texorpdfstring{set(const std\+::string \&s)}{set(const std::string &s)}}]{\setlength{\rightskip}{0pt plus 5cm}void slb\+::core\+::ui\+::\+Edit\+Field\+::set (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1EditField_ada16e8ea3582fd61e02291b52713e383}{}\label{structslb_1_1core_1_1ui_1_1EditField_ada16e8ea3582fd61e02291b52713e383}
+
+
+Sets the contents of the field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & New contents. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 57 of file form.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{form_8h}{form.\+h}\end{DoxyCompactItemize}

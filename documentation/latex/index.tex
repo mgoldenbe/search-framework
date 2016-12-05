@@ -1,0 +1,225 @@
+\hypertarget{index_s-motivation}{}\subsection{Motivation}\label{index_s-motivation}
+The motivation of this project is to produce a framework to\+:
+
+
+\begin{DoxyItemize}
+\item Facilitate flexible and efficient implementations of search algorithms (See \hyperlink{index_s-flexibility-efficiency}{Flexibility vs. efficiency}).
+\item Facilitate gaining of insights into properties of search algorithms through a variety of means\+:
+\begin{DoxyItemize}
+\item Watching the progress of the algorithm in motion (See the \href{https://youtu.be/cElxLWve1Zw}{\tt video demo}).
+\item Analyzing the log of events produced by the algorithm (See the \href{https://youtu.be/cElxLWve1Zw}{\tt video demo}).
+\item Using policy-\/based design (See \hyperlink{index_s-policy}{Gaining understanding through policy-\/based design}).
+\end{DoxyItemize}
+\item Enable easy production of examples that can be used for conference and classroom presentations.
+\end{DoxyItemize}
+
+The framework is written in {\ttfamily C++} (the {\ttfamily C++11} standard) to take advantage of both the expression power and the performance-\/related characteristics of this language.\hypertarget{index_s-principles}{}\subsection{Foundation principles}\label{index_s-principles}
+\hypertarget{index_s-flexibility-efficiency}{}\subsubsection{Flexibility vs. efficiency}\label{index_s-flexibility-efficiency}
+When we talk about a search algorithm such as {\itshape A$\ast$}, we usually talk about a whole large family of algorithms. These algorithms differ in many aspects\+: from storing different information with search nodes to handling various search conditions (e.\+g. inconsistency) in different ways. The programming techniques that address the need for flexibility involve a trade-\/off between flexibility and efficiency. Efficiency may be an important factor for the following reasons\+:
+
+
+\begin{DoxyItemize}
+\item It allows performing experiments that involve solving large problem instances, a large number of problem instances and exploring large parameter spaces.
+\item It allows achieving the most fair comparison of algorithms by running each algorithm at its best.
+\item It allows to avoid comments from reviewers about non-\/state-\/of-\/the-\/art performance.
+\end{DoxyItemize}
+
+In the remainder of this section, I provide a brief description of the mentioned trade-\/off and describe the way chosen by the framework.\hypertarget{index_s-tradeoff}{}\paragraph{The trade-\/off}\label{index_s-tradeoff}
+The programming language mechanisms that address the need for flexibility most directly are conditional statements and {\itshape polymorphism}. Two types of polymorphism are distinguished\+: {\itshape dynamic} and {\itshape static}.
+
+Conditional statements and dynamic polymorphism allow us to choose execution path based on conditions that are checked at run-\/time. This is convenient, since the resulting executable can be used for many different experimental scenarios. However, these techniques incur performance cost. Only a small portion of this cost is due to the time taken to evaluate the conditions. A much greater performance cost may be incurred due to the fact that the need to check conditions at run-\/time precludes important compiler optimizations.
+
+Static polymorphism (e.\+g. {\itshape templates} and compile-\/time techniques such as {\itshape tag dispatch}) provide maximal performance at the cost of the need to re-\/compile the program for each new configuration.\hypertarget{index_s-configuration}{}\paragraph{The best of the two worlds}\label{index_s-configuration}
+The framework chooses the middle path in the above trade-\/off. Namely, in the parts of the framework not directly related to producing experimental results (e.\+g. the tools for analysis), flexibility is achieved by run-\/time techniques. Where the time quality of experimental results is at stake, the performance is considered critical and compile-\/time techniques are used.
+
+In the latter case of using compile-\/time techniques, flexibility is achieved by enabling configuration files consisting of preprocessor symbol definitions (see \hyperlink{index_s-why-symbols}{Why preprocessor symbols?} for the justification of this design decision). With rare exceptions, each symbol determines a behavior of the framework and is used as a default template argument somewhere in the framework. The mechanism is complemented with several convenience features\+:
+
+
+\begin{DoxyItemize}
+\item The configuration file does not have to define all the symbols that appear in the framework, but only those that are actually used (i.\+e. those that appear in the templates that get {\itshape instantiated}). This is enabled by a special tool that takes over from the preprocessor and eliminates the unused symbols from the source before the actual compilation begins.
+\item Two features are aimed at making it easy and efficient to write scripts that explore a parameter space and perform an experiment for each parameter setting\+:
+\begin{DoxyItemize}
+\item One can compile the framework and run an experiment by a single command, in which one can specify the configuration file, additional symbols for the {\itshape compile-\/time} configuration and command line arguments for the {\itshape run-\/time} configuration.
+\item The executables are cached. That is, if the current version of the framework\textquotesingle{}s source code with the given compile-\/time configuration had ever been compiled, the executable from that previous compilation will be quickly retrieved and run. If not, the framework will be compiled and the executable will be saved for future use. The cached executables are stored in the {\ttfamily .execs/} directory.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+The \href{https://youtu.be/cElxLWve1Zw}{\tt video demo} explains this mechanism using several sample scenarios.\hypertarget{index_s-policy}{}\subsubsection{Gaining understanding through policy-\/based design}\label{index_s-policy}
+\href{https://en.wikipedia.org/wiki/Policy-based_design}{\tt Policy-\/based design} is a notion popularized by Andrei Alexandrescu in his seminal work \href{https://en.wikipedia.org/wiki/Modern_C%2B%2B_Design}{\tt Modern C++ Design}. The following paragraph from the \href{https://en.wikipedia.org/wiki/Policy-based_design}{\tt Wikipedia article} provides a brief description of policy-\/based design (the italics are mine)\+: \begin{quote}
+The central idiom in {\itshape policy-\/based design} is a class template (called the {\itshape host class}), taking several type parameters as input, which are instantiated with types selected by the user (called {\itshape policy classes}), each implementing a particular implicit interface (called a {\itshape policy}), and encapsulating some {\itshape orthogonal} (or mostly orthogonal) aspect of the behavior of the instantiated host class. By supplying a host class combined with a set of different, canned implementations for each policy, a library or module can support an {\itshape exponential number of different behavior combinations}, resolved at {\itshape compile time}, and selected by mixing and matching the different supplied policy classes in the instantiation of the host class template. Additionally, by writing a custom implementation of a given policy, a policy-\/based library can be used in situations requiring behaviors {\itshape unforeseen by the library implementor}. Even in cases where no more than one implementation of each policy will ever be used, decomposing a class into policies can aid the design process, by increasing modularity and {\itshape highlighting exactly where orthogonal design decisions have been made}. \end{quote}
+For example, suppose that we use policy-\/based design to implement the {\itshape A$\ast$} search algorithm. The class implementing the algorithm becomes the {\itshape host class}. Now, we need to identify orthogonal behaviors that distinguish the various variants of the algorithm. Each such behavior becomes a {\itshape policy}. Each way to implement a policy becomes a {\itshape policy class}. For one example, we might have a policy for dealing with inconsistency and implement two policy classes\+: the {\ttfamily do\+\_\+nothing} policy and the {\ttfamily bidirectional\+\_\+pathmax (B\+P\+MX)} policy.
+
+The {\itshape proposition} I would like to make is that, by gradually identifying a set of orthogonal policies (actually, a hierarchy of policies, since each policy may in turn be a host class with its own policies), we, as a research community, can arrive at a natural taxonomy of the variants of {\itshape A$\ast$} and other search algorithms. I believe that such a taxonomy would contribute greatly to our understanding of both the state of the art and the research possibilities ahead.
+
+Building a taxonomy as described above is a long-\/term (and, hopefully, communal) effort. Therefore, I did not attempt to arrive at a perfect set of policies for any algorithm. Rather, the policies will be added and refined as the different algorithms and variants are added to the framework.\hypertarget{index_s-examples}{}\subsection{Usage examples}\label{index_s-examples}
+The \href{https://youtu.be/cElxLWve1Zw}{\tt video demo} shows examples of the framework\textquotesingle{}s usage. When you download the framework, it will have all the files relevant to this demo in the {\ttfamily projects/demo directory}.\hypertarget{index_s-concepts}{}\subsection{Conventions}\label{index_s-concepts}
+This section describes the conventions knowing which will help the reader to get started on working with the framework.\hypertarget{index_s-physical}{}\subsubsection{The physical structure}\label{index_s-physical}
+Let us explore the files comprising the framework.\hypertarget{index_s-source}{}\paragraph{The source code}\label{index_s-source}
+The source code of the framework is organized into two directories\+:
+\begin{DoxyItemize}
+\item The {\ttfamily core/} directory contains the core facilities of the framework. In particular\+:
+\begin{DoxyItemize}
+\item The files with the implementation of the user interface are stored in {\ttfamily core/user\+\_\+interface/}.
+\item The facilities that directly support the implementation of heuristic search algorithms are located in {\ttfamily core/search\+\_\+base/}.
+\item The lower-\/lever facilities are located in {\ttfamily core/util/}.
+\end{DoxyItemize}
+\item The {\ttfamily extensions/} directory contains the facilities contributed by the users of the framework, i.\+e. the researchers. Usually, these facilities are directly supported by the facilities found in {\ttfamily core/search\+\_\+base/}.
+\item The {\ttfamily projects/} directory is designated for the files related to specific experiments. The files may be of many kinds\+: configuration files, files storing the explicit domains, problem sets etc. At this point, each project gets its own directory in {\ttfamily projects/}, such as the {\ttfamily projects/demo/} directory used in the \href{https://youtu.be/cElxLWve1Zw}{\tt video demo}. As the number of users grow, each user might get a directory in {\ttfamily projects/} named after him.
+\end{DoxyItemize}
+
+Lastly, the root directory contains\+:
+\begin{DoxyItemize}
+\item The file \hyperlink{test_8cpp}{test.\+cpp}, which is the default main module, which implements running an experiment with a single configuration (in either production or analysis mode) and building a file with problem instances.
+\item The {\ttfamily align} utility, which is useful for aligning columns of the tables produced by several different invocations of the framework (see \hyperlink{index_s-single}{Producing a table of results from several invocations}).
+\item The {\ttfamily symbols} utility, which is invoked automatically during the compilation to get rid of the unused preprocessor symbols as explained in \hyperlink{index_s-configuration}{The best of the two worlds}.
+\end{DoxyItemize}\hypertarget{index_s-namespace}{}\paragraph{The namespaces}\label{index_s-namespace}
+All of the framework\textquotesingle{}s facilities live in the {\ttfamily slb} namespace. In addition, the framework is organized in namespaces that mimic the folder structure. Thus, for example, the search base facilities are found in the \hyperlink{namespaceslb_1_1core_1_1sb}{slb\+::core\+::sb} namespace.\hypertarget{index_s-forward}{}\paragraph{Header files for forward declarations}\label{index_s-forward}
+As explained in \hyperlink{index_s-configuration}{The best of the two worlds}, most of the framework\textquotesingle{}s facilities are implemented as template classes, whose default template arguments are determined by the compile-\/time configuration. Thus, it is possible for a template that implements a core facility to have a default template argument, which is a user-\/provided extension. If that extension in turn uses the core facility in question, a circular dependency emerges.
+
+To avoid such circular dependencies, we need to forward-\/declare the names corresponding to the default template arguments. For this reason, the convention is that user-\/provided facilities should provide a header with forward declarations. This header\textquotesingle{}s name should have the suffix {\ttfamily \+\_\+fwd.\+h}. For example, the Pancake Puzzle domain comes in two headers\+: {\ttfamily \hyperlink{pancake_8h}{extensions/domains/pancake.\+h}} and {\ttfamily \hyperlink{pancake__fwd_8h}{extensions/domains/pancake\+\_\+fwd.\+h}}.
+
+The {\itshape forward-\/declaration headers} must be {\ttfamily \#include}-\/d in the final source before the core facilities as described in the next subsection.\hypertarget{index_s-single-unit}{}\paragraph{The single-\/unit compilation model}\label{index_s-single-unit}
+Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of {\ttfamily \#include}-\/directives makes this unit easy to manage\+:
+\begin{DoxyItemize}
+\item The main {\ttfamily .cpp} includes the configuration file (its name is given by the {\ttfamily C\+O\+N\+F\+IG} symbol) and {\ttfamily \hyperlink{slb_8h_source}{slb.\+h}}.
+\item {\ttfamily \hyperlink{slb_8h_source}{slb.\+h}} includes\+:
+\begin{DoxyItemize}
+\item {\ttfamily \hyperlink{outside__headers_8h}{outside\+\_\+headers.\+h}}, which in turn includes all the third-\/party facilities (i.\+e. the facilities coming from the standard library, the {\ttfamily Boost} library etc.). This header is suitable for pre-\/compilation, which is currently not employed.
+\item {\ttfamily \hyperlink{headers__fwd_8h}{extensions/headers\+\_\+fwd.\+h}}
+\item {\ttfamily \hyperlink{core_2headers_8h}{core/headers.\+h}}
+\item {\ttfamily \hyperlink{extensions_2headers_8h}{extensions/headers.\+h}}.
+\end{DoxyItemize}
+\item For a directory {\ttfamily X/}\+:
+\begin{DoxyItemize}
+\item {\ttfamily X/headers\+\_\+fwd.\+h} includes {\ttfamily headers\+\_\+fwd.\+h} from each of the sub-\/direcories of {\ttfamily X}.
+\item {\ttfamily X/headers.\+h} includes\+:
+\begin{DoxyItemize}
+\item all headers from {\ttfamily X/} (besides {\ttfamily X/headers\+\_\+fwd.\+h} and {\ttfamily X/headers.\+h}) and
+\item {\ttfamily headers.\+h} from each of the sub-\/direcories of {\ttfamily X/}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+On my computer, the framework compiles in under ten seconds.\hypertarget{index_s-symbols}{}\subsubsection{Compile-\/time configuration}\label{index_s-symbols}
+The framework employs preprocessor symbols to enable compile-\/time configuration. Please refer to the \href{https://youtu.be/cElxLWve1Zw}{\tt video demo} for an initial explanation with some examples. This section provides some additional explanations.\hypertarget{index_s-why-symbols}{}\paragraph{Why preprocessor symbols?}\label{index_s-why-symbols}
+{\ttfamily C++11} contains a number of features whose aim (among other things) is to make most previously needed uses of the preprocessor directives unnecessary. There are many strong reasons for that effort and listing those reasons is beyond the scope of this page. It will suffice to quote Scott Meyers, who states in {\ttfamily Item 2} of \href{http://amzn.com/0321334876}{\tt Effective C++ (3rd edition)}\+: \begin{quote}
+It\textquotesingle{}s not yet time to retire the preprocessor, but you should definitely give it long and frequent vacations. \end{quote}
+
+
+Unfortunately, Scott Meyers is right not only in the second part of the quote, but also in the first part. I did not find any better way to define compile-\/time configuration than preprocessor symbols. One obvious candidate for an alternative is to use aliases (i.\+e. the {\ttfamily using} keyword). One particular problem with aliases did not allow me to pursue that direction. Namely, there is no easy way to determine which aliases are unused. Therefore, each compile-\/time configuration would have to define all the aliases, even the ones not used in the current experiment. This also means that introducing a new alias would necessitate updating all the existing experiments\textquotesingle{} configurations. In contrast, once the preprocessor is done, the unused symbols remain in the code and can be recognized by an automatic tool. This is precisely what the framework\textquotesingle{}s {\ttfamily symbols} tool does.\hypertarget{index_s-symbols-conventions}{}\paragraph{Names of the preprocessor symbols}\label{index_s-symbols-conventions}
+The framework employs the following conventions regarding the names of the preprocessor symbols\+:
+\begin{DoxyItemize}
+\item The names are prefixed with {\ttfamily S\+L\+B\+\_\+} and contain only capital letters and underscores.
+\item The names should be composed in a way that minimizes the probability of clashes with the names defined by other users. See the names of the existing user-\/defined symbols for examples of good names.
+\end{DoxyItemize}\hypertarget{index_s-run-config}{}\subsubsection{Run-\/time configuration}\label{index_s-run-config}
+The framework employs the \href{http://tclap.sourceforge.net/}{\tt Templatized C++ Command Line Parser Library} to parse the command line. The following subsections present the framework\textquotesingle{}s features related to using the command line.\hypertarget{index_s-user-cmd}{}\paragraph{Command line options for user-\/provided facilities}\label{index_s-user-cmd}
+In addition to the standard command options (see below), the framework makes it possible to define command line options specific to user-\/provided facilities. For this reason, the class \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine}{slb\+::core\+::command\+Line\+::\+Command\+Line} is a template that accepts a class implementing additional command line options as the template argument. See \hyperlink{structslb_1_1ext_1_1domain_1_1pancake_1_1CommandLine}{slb\+::ext\+::domain\+::pancake\+::\+Command\+Line} for an example of such a class. Also, see the \href{https://youtu.be/cElxLWve1Zw}{\tt video demo} for an example of configuring the framework to use additional command line options.
+
+One can view the standard command line options by running the following command from the root directory. \begin{DoxyVerb}(make run MODE=debug CPP=test.cpp CONFIG="projects/demo/grid.astar.h" OPT="--help")
+\end{DoxyVerb}
+ This particular configuration file (i.\+e. {\ttfamily projects/demo/grid.\+astar.\+h}) was chosen because it does not define any additional command line options.\hypertarget{index_s-singleton}{}\paragraph{Using the command line object}\label{index_s-singleton}
+The class \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine}{slb\+::core\+::command\+Line\+::\+Command\+Line} is a singleton. To initialize the command line object, one must call the \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a297df54d1f330d491717b487968b0fc5}{slb\+::core\+::command\+Line\+::\+Command\+Line$<$$>$\+::instance} function, forwarding to it the {\ttfamily argc} and {\ttfamily argv} arguments of {\ttfamily main}. Following the initialization, the command line object can be accessed by the user-\/provided facilities by calling the \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a297df54d1f330d491717b487968b0fc5}{slb\+::core\+::command\+Line\+::\+Command\+Line$<$$>$\+::instance} function without arguments. The \hyperlink{command__line_8h_a0a5ceb9ceb914e08d345410b561cb37a}{C\+MD} macro is defined as a short-\/hand for calling this function.
+
+There are two cases in which the command line object cannot be accessed by using the \hyperlink{command__line_8h_a0a5ceb9ceb914e08d345410b561cb37a}{C\+MD} macro\+:
+\begin{DoxyItemize}
+\item from the {\itshape core facilities} . This is because the classes implementing the user-\/provided additional command line options are only forward-\/declared (but not defined) by the time the compiler parses the core facilities.
+\item in order to access command line arguments defined by a user-\/provided facility. This is because, when the user-\/provided facility is not used by the particular experiment, the associated command line addition is not defined.
+\end{DoxyItemize}
+
+In these cases, the command line object needs to be made available through a template argument. The framework provides the macros \hyperlink{command__line_8h_afba6f100063f1d8dec752ed393ff4e92}{C\+M\+D\+\_\+\+T\+P\+A\+R\+AM} and \hyperlink{command__line_8h_ad2bdd5f5511ceff17570c461fe447a56}{C\+M\+D\+\_\+T} are provided for this purpose. For example, here is how the constructor of the Pancake\textquotesingle{}s state accesses the number of pancakes supplied on the command line\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{template} <CMD\_TPARAM>
+Pancake() : pancakes\_(\hyperlink{command__line_8h_ad2bdd5f5511ceff17570c461fe447a56}{CMD\_T}.nPancakes()) \{...\}
+\end{DoxyCode}
+\hypertarget{index_s-single}{}\subsubsection{Producing a table of results from several invocations}\label{index_s-single}
+When exploring a parameter space by means of a script, it may be convenient to present the results of several invocations of the framework in a single table. The framework supports this by providing several standard command line options and a tool\+:
+\begin{DoxyItemize}
+\item The {\ttfamily -\/-\/prefix\+Title} option can be used to prepend the {\itshape title row} with a given string. The {\ttfamily -\/-\/prefix\+Data} option can be used to prepend all the {\itshape data rows} with a given string. The script can use these options to insert extra columns into the table output by the framework. The purpose of these columns is to identify the parameter settings specific to a particular invocation of the framework.
+\item The script can use the {\ttfamily -\/-\/hide\+Title} switch to append the table of results from the first invocation of the framework by only the data rows from the consequent invocations. Namely, when the {\ttfamily -\/-\/hide\+Title} switch is specified, the title row is not shown in the output.
+\item The {\ttfamily align} tool can be used to align the columns of the resulting table. This makes it easy to import the table correctly into a spreadsheet. The tool takes a file name containing a table of results as a command line argument and aligns the table in place.
+\end{DoxyItemize}\hypertarget{index_s-crtp}{}\subsubsection{Algorithms, policies and communication between them}\label{index_s-crtp}
+The currently implemented algorithms employ a design solution that advocates for keeping algorithms as simple as possible without compromising generality. In particular\+:
+\begin{DoxyItemize}
+\item An algorithm should implement only the core flow of the search. The specific behaviors are to be factored out into policies.
+\item Communications between algorithms and policies should follow a similar pattern.
+\item Common characteristics of algorithms should be factored out into abstract base algorithms, from which specific algorithms can inherit.
+\end{DoxyItemize}
+
+In addition, there are cases when different policies of an algorithm need to communicate with each other. The proposed design supports this communication as well.
+
+The following subsections describe a design solution that supports the above requirements. For the sake of uniformness, the users are strongly advised to employ this solution for their implementations.\hypertarget{index_s-services}{}\paragraph{Policy services}\label{index_s-services}
+Each search algorithm provides {\itshape services} for its policies. These {\itshape policy services} are public member functions of the class implementing the algorithm. Implementations of policy services can be shared between several algorithms by factoring these services out into the abstract base algorithm from which the algorithms in question inherit.\hypertarget{index_s-communication}{}\paragraph{Communication through reference to algorithm}\label{index_s-communication}
+Each class implementing a policy of a search algorithm has a constructor that accepts an algorithm reference argument and stores this reference for future use. This way, function members of the policies have an empty parameter list, but can call the services provided by the algorithm. Consequently, policy classes are templates, where the template parameter is the class implementing the search algorithm.
+
+This design provides an easy way of communication between policies as well. The algorithm can support this communication by providing policy services that return references to policy classes.\hypertarget{index_s-base-crtp}{}\paragraph{C\+R\+T\+P to enable initialization of policy classes in the abstract base algorithms}\label{index_s-base-crtp}
+Using policy-\/based design in conjunction with abstract base algorithms as described above presents the following problem. Some policies are present in many algorithms. For example, many algorithms might have a policy for evaluating the stopping condition and maintaining the relevant data. When we factor out abstract base algorithms, these common policies become policies of the base algorithm. However, we would like these policies to have access to all the policy services provided by the actual (non-\/abstract) algorithms. Hence, the template classes implementing these policies need to be instantiated with the concrete algorithm\textquotesingle{}s type, not the base algorithm\textquotesingle{}s one.
+
+To solve this problem, we use the {\itshape Curiously Recurring Template Pattern} (C\+R\+TP), whereby the abstract base algorithm has a template parameter specifying the concrete algorithm. Describing this technique is beyond the scope of this short document. The reader is referred to the \href{https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern}{\tt Wikipedia article} for details.\hypertarget{index_s-branching}{}\paragraph{Compile-\/time checks to avoid unneeded branching}\label{index_s-branching}
+It is known that branching precludes significant compiler optimizations, so that avoiding unnecessary branching in implementations of search algorithms is an important efficiency concern.
+
+Let us consider a particular example of such branching. Suppose that, in some variant of A$\ast$ (and there are such variants), the selected node is not necessarily expanded. Furthermore, suppose that the search algorithm has a policy whose member function is called upon node selection. The regular implementation of this function does not return a value. However, the implementation for the mentioned variant returns a boolean value that indicates whether the selected node should be expanded or not. Depending on the particular policy implementation chosen by the compile-\/time configuration, the call to the policy\textquotesingle{}s member function does or does not need to be followed by branching in the algorithm.
+
+We would like to make sure that no branching occurs in the latter case. Hence, we require that policy implementations provide information to enable compile-\/time checks to avoid such unnecessary branching.\hypertarget{index_s-events}{}\subsubsection{Events}\label{index_s-events}
+Each algorithm implementation can define event classes. An event object describes something that happened during the algorithm\textquotesingle{}s execution, such as node selection, node generation etc. The event classes must inherit (possibly indirectly) from \hyperlink{structslb_1_1core_1_1ui_1_1EventBase}{slb\+::core\+::ui\+::\+Event\+Base}. This enables storing the events in the log, analyzing the log in the textual mode and visualizing algorithm\textquotesingle{}s execution. See the \href{https://youtu.be/cElxLWve1Zw}{\tt video demo} for some examples of these capabilities.
+
+To make sure that no logging-\/related run-\/time overhead is incurred in production runs, we provide the \hyperlink{namespaceslb_1_1core_1_1ui_acdeb0db1847459cac6f4eeb22bbb5998}{slb\+::core\+::ui\+::log} function. This function employs {\itshape tag dispatch} to choose one of two behaviors {\itshape at compile time} based on the compile-\/time configuration\+:
+\begin{DoxyItemize}
+\item Do nothing. (In this case, the call is totally eliminated by inlining and no run-\/time overhead at all is incurred.)
+\item Construct an event based on the function arguments and add that event into the log. The function \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_af46d0fe401539d7ae297dc4d059f5b5f}{slb\+::ext\+::algorithm\+::\+Astar\+::run} provides an example of how events are logged in the existing code.
+\end{DoxyItemize}\hypertarget{index_s-nodes}{}\subsubsection{Managed search nodes}\label{index_s-nodes}
+{\itshape Managed search nodes} are yet another convenience that was achieved through the use of macros. A managed search node inherits from \hyperlink{structslb_1_1core_1_1sb_1_1ManagedNode}{slb\+::core\+::sb\+::\+Managed\+Node} and is endowed with \href{http://stackoverflow.com/a/11744832/2725810}{\tt reflection capabilities}, which the framework uses to define universal output operators. Please refer to \hyperlink{node__kinds_8h}{node\+\_\+kinds.\+h} for examples of defining managed search nodes.\hypertarget{index_s-install}{}\subsection{Installation}\label{index_s-install}
+The framework is intended to be used with {\ttfamily Linux}. The instructions in this section have been tested on a fresh standard installation of {\ttfamily Ubuntu 16.\+04}.
+
+The following actions need to be taken to prepare and run the framework\+:
+\begin{DoxyEnumerate}
+\item Download and extract the framework. Enter the framework\textquotesingle{}s folder.
+\item Make sure that the {\ttfamily C\+O\+M\+P\+I\+L\+ER} variable in {\ttfamily Makefile} contains the correct path to version 4.\+9 or newer of {\ttfamily g++} (that\textquotesingle{}s when {\ttfamily g++} began to fully support regular expressions).
+\item Install {\ttfamily xlib}\+: \begin{DoxyVerb}sudo apt-get install libx11-dev
+\end{DoxyVerb}
+
+\item Install {\ttfamily cairo}\+: \begin{DoxyVerb}sudo apt-get install libcairo2-dev
+\end{DoxyVerb}
+
+\item Make sure that the {\ttfamily C\+A\+I\+R\+O\+\_\+\+P\+A\+TH} variable in {\ttfamily Makefile} contains the correct path to {\ttfamily cairo.\+h}.
+\item Download and extract the \href{http://www.boost.org/users/download/}{\tt Boost} library. The framework has been tested with version 1.\+61.\+0 of Boost.
+\item Set the {\ttfamily B\+O\+O\+S\+T\+\_\+\+P\+A\+TH} variable in {\ttfamily Makefile} to point to the {\ttfamily Boost} directory.
+\item Install {\ttfamily ncurses}\+: \begin{DoxyVerb}sudo apt-get install libncurses5-dev
+\end{DoxyVerb}
+
+\end{DoxyEnumerate}
+
+That\textquotesingle{}s it! Now it\textquotesingle{}s time to check the framework out by running the examples from the \href{https://youtu.be/cElxLWve1Zw}{\tt video demo}! \begin{DoxyNote}{Note}
+Currently keyboard events are caught only when the graphical window is active.
+\end{DoxyNote}
+\hypertarget{index_s-related}{}\subsection{Other related software}\label{index_s-related}
+The software frameworks written in {\ttfamily C++} most similar in purpose to this framework are \href{https://github.com/nathansttt/hog2}{\tt H\+O\+G2} by Nathan Sturtevant and the \href{https://github.com/eaburns/search}{\tt Research Code for Heuristic Search} by Ethan Burns. There is also the \href{https://github.com/matthatem/cs4j}{\tt Combinatorial Search for Java} written by Matthew Hatem in {\ttfamily Java}. All these frameworks aim for both performance and flexibility. In addition, {\ttfamily H\+O\+G2} and the {\ttfamily Research Code for Heuristic Search} are capable of producing visualizations, at least for some domains. However, all three frameworks lack proper documentation, so that one has to understand them from the source code. In addition, my framework provides the following features that are, to the best of my knowledge, not part of any existing framework\+:
+\begin{DoxyItemize}
+\item Support for analysis of user-\/provided implementation of search algorithms.
+\item Support for visualization of non-\/grid domains with either user-\/supplied or automatic layout.
+\item Support for compile-\/time configuration and scripting.
+\item The idea of gaining understanding through policy-\/based design is, to the best of my knowledge, also new in this framework.
+\end{DoxyItemize}
+
+Several other projects that are less related to this framework are\+:
+\begin{DoxyItemize}
+\item \href{https://github.com/jordanthayer/ocaml-search}{\tt O\+Caml Search Code} by Jordan Thayer. This framework is written in {\ttfamily O\+Caml} and has not been updated since 2012, when the group switched to {\ttfamily C++} for performance reasons.
+\item \href{http://www.boost.org/doc/libs/1_61_0/libs/graph/doc/}{\tt The Boost Graph Library}. {\ttfamily B\+GL} provides several algorithms for searching in graphs.
+\item \href{https://era.library.ualberta.ca/downloads/7m01bn08g}{\tt P\+S\+VN} by Robert Holte.
+\item \href{http://www.fast-downward.org/}{\tt Fast Downward} by Malte Helmert.
+\end{DoxyItemize}\hypertarget{index_s-version}{}\subsection{Version and license information}\label{index_s-version}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg (\href{mailto:mgoldenbe@gmail.com}{\tt mgoldenbe@gmail.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+M\+IT License 
+\end{DoxyCopyright}
+\begin{DoxyWarning}{Warning}
+Boost, Cairo and the Templatized C++ Command Line Parser Library come with their respective licenses.
+\end{DoxyWarning}
+\hypertarget{index_s-future}{}\subsection{Bug reports and future work}\label{index_s-future}
+Please send bug reports and feature requests to the author. The current list of requested features and bug reports can be found in the files {\ttfamily future.\+org} and {\ttfamily bugs.\+org} in the framework\textquotesingle{}s root folder. 

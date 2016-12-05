@@ -1,0 +1,110 @@
+\hypertarget{structslb_1_1core_1_1sb_1_1Cost}{}\subsection{slb\+:\+:core\+:\+:sb\+:\+:Cost$<$ State\+\_\+, uniform\+Flag $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1sb_1_1Cost}\index{slb\+::core\+::sb\+::\+Cost$<$ State\+\_\+, uniform\+Flag $>$@{slb\+::core\+::sb\+::\+Cost$<$ State\+\_\+, uniform\+Flag $>$}}
+
+
+The type for storing the cost of a neighbor.  
+
+
+
+
+{\ttfamily \#include $<$neighbor.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:sb\+:\+:Cost$<$ State\+\_\+, uniform\+Flag $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1core_1_1sb_1_1Cost__inherit__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1Cost_af5d4c57aa664e5ae63eb365e1cecaf92}{State} = State\+\_\+\hypertarget{structslb_1_1core_1_1sb_1_1Cost_af5d4c57aa664e5ae63eb365e1cecaf92}{}\label{structslb_1_1core_1_1sb_1_1Cost_af5d4c57aa664e5ae63eb365e1cecaf92}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1Cost_a383726dcecbf69f396aa3a6d34b60278}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structslb_1_1core_1_1sb_1_1Cost_a383726dcecbf69f396aa3a6d34b60278}{}\label{structslb_1_1core_1_1sb_1_1Cost_a383726dcecbf69f396aa3a6d34b60278}
+
+\begin{DoxyCompactList}\small\item\em Action cost type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1Cost_afee978039270c56faa54b1f9380058ee}{Cost} (\hyperlink{structslb_1_1core_1_1sb_1_1Cost_a383726dcecbf69f396aa3a6d34b60278}{Cost\+Type} c)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1Cost_a383726dcecbf69f396aa3a6d34b60278}{Cost\+Type} \hyperlink{structslb_1_1core_1_1sb_1_1Cost_a5733d9b60a0bffaa1b69b351618fc6ae}{cost} () const 
+\begin{DoxyCompactList}\small\item\em Returns cost of the action that leads to the neighbor state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1Cost_a383726dcecbf69f396aa3a6d34b60278}{Cost\+Type} \hyperlink{structslb_1_1core_1_1sb_1_1Cost_ab337a97a0c3954e33229de4f0e1c6b29}{cost\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1Cost_ab337a97a0c3954e33229de4f0e1c6b29}{}\label{structslb_1_1core_1_1sb_1_1Cost_ab337a97a0c3954e33229de4f0e1c6b29}
+
+\begin{DoxyCompactList}\small\item\em Action cost. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename State\+\_\+, bool uniform\+Flag = true$>$\\*
+struct slb\+::core\+::sb\+::\+Cost$<$ State\+\_\+, uniform\+Flag $>$}
+
+The type for storing the cost of a neighbor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+{\em uniform\+Flag} & Determines whether the domain is a uniform cost one or not. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 16 of file neighbor.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::sb\+::\+Cost@{slb\+::core\+::sb\+::\+Cost}!Cost@{Cost}}
+\index{Cost@{Cost}!slb\+::core\+::sb\+::\+Cost@{slb\+::core\+::sb\+::\+Cost}}
+\paragraph[{\texorpdfstring{Cost(\+Cost\+Type c)}{Cost(CostType c)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename State\+\_\+ , bool uniform\+Flag = true$>$ {\bf slb\+::core\+::sb\+::\+Cost}$<$ State\+\_\+, uniform\+Flag $>$\+::{\bf Cost} (
+\begin{DoxyParamCaption}
+\item[{{\bf Cost\+Type}}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Cost_afee978039270c56faa54b1f9380058ee}{}\label{structslb_1_1core_1_1sb_1_1Cost_afee978039270c56faa54b1f9380058ee}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The cost. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file neighbor.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::sb\+::\+Cost@{slb\+::core\+::sb\+::\+Cost}!cost@{cost}}
+\index{cost@{cost}!slb\+::core\+::sb\+::\+Cost@{slb\+::core\+::sb\+::\+Cost}}
+\paragraph[{\texorpdfstring{cost() const }{cost() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename State\+\_\+ , bool uniform\+Flag = true$>$ {\bf Cost\+Type} {\bf slb\+::core\+::sb\+::\+Cost}$<$ State\+\_\+, uniform\+Flag $>$\+::cost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Cost_a5733d9b60a0bffaa1b69b351618fc6ae}{}\label{structslb_1_1core_1_1sb_1_1Cost_a5733d9b60a0bffaa1b69b351618fc6ae}
+
+
+Returns cost of the action that leads to the neighbor state. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{structslb_1_1core_1_1sb_1_1Cost}{Cost} of the action that leads to the neighbor state. 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file neighbor.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{neighbor_8h}{neighbor.\+h}\end{DoxyCompactItemize}

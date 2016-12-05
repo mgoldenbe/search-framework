@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$structslb_1_1core_1_1sb_1_1Cost.html" title="The type for storing the cost of a neighbor. " alt="" coords="5,39,165,80"/>
+<area shape="rect" id="node2" href="$structslb_1_1core_1_1sb_1_1ActionNeighbor.html" title="The type for an action neighbor of a given state. " alt="" coords="213,5,404,47"/>
+<area shape="rect" id="node3" href="$structslb_1_1core_1_1sb_1_1StateNeighbor.html" title="The type for a state neighbor of a given state. " alt="" coords="216,71,401,112"/>
+</map>

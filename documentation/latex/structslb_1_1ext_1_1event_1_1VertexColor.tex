@@ -1,0 +1,87 @@
+\hypertarget{structslb_1_1ext_1_1event_1_1VertexColor}{}\subsection{slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Color$<$ Node $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1event_1_1VertexColor}\index{slb\+::ext\+::event\+::\+Vertex\+Color$<$ Node $>$@{slb\+::ext\+::event\+::\+Vertex\+Color$<$ Node $>$}}
+
+
+An event that changes the color of the vertex corresponding to the state associated with the event.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+types.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Color$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1ext_1_1event_1_1VertexColor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Color$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{structslb_1_1ext_1_1event_1_1VertexColor__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1VertexColor_a34b0eb3328aa86d20ac1af061cc41e7d}{State\+Shared\+Ptr} = typename Event\+Base$<$ Node $>$\+::\hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2e6e9605dcd4df428c03c7637fd0d20d}{State\+Shared\+Ptr}\hypertarget{structslb_1_1ext_1_1event_1_1VertexColor_a34b0eb3328aa86d20ac1af061cc41e7d}{}\label{structslb_1_1ext_1_1event_1_1VertexColor_a34b0eb3328aa86d20ac1af061cc41e7d}
+
+\begin{DoxyCompactList}\small\item\em Shared pointer to constant state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structslb_1_1ext_1_1event_1_1VertexColor_adf28be21a6cec4918687f04c59349667}{change} (Vertex\+Style \&style, const \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2e6e9605dcd4df428c03c7637fd0d20d}{State\+Shared\+Ptr} \&) const override\hypertarget{structslb_1_1ext_1_1event_1_1VertexColor_adf28be21a6cec4918687f04c59349667}{}\label{structslb_1_1ext_1_1event_1_1VertexColor_adf28be21a6cec4918687f04c59349667}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating state. In this case, the change is the change of color to be the color returned by \hyperlink{structslb_1_1ext_1_1event_1_1VertexColor_a651aab95a9f39de56a70273c9d40a76f}{color} method. \end{DoxyCompactList}\item 
+virtual Color \hyperlink{structslb_1_1ext_1_1event_1_1VertexColor_a651aab95a9f39de56a70273c9d40a76f}{color} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the new color of the vertex corresponding to the state associated with the event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct slb\+::ext\+::event\+::\+Vertex\+Color$<$ Node $>$}
+
+An event that changes the color of the vertex corresponding to the state associated with the event. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 254 of file event\+\_\+types.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::event\+::\+Vertex\+Color@{slb\+::ext\+::event\+::\+Vertex\+Color}!color@{color}}
+\index{color@{color}!slb\+::ext\+::event\+::\+Vertex\+Color@{slb\+::ext\+::event\+::\+Vertex\+Color}}
+\paragraph[{\texorpdfstring{color() const =0}{color() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual Color {\bf slb\+::ext\+::event\+::\+Vertex\+Color}$<$ Node $>$\+::color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{structslb_1_1ext_1_1event_1_1VertexColor_a651aab95a9f39de56a70273c9d40a76f}{}\label{structslb_1_1ext_1_1event_1_1VertexColor_a651aab95a9f39de56a70273c9d40a76f}
+
+
+Returns the new color of the vertex corresponding to the state associated with the event. 
+
+\begin{DoxyReturn}{Returns}
+The new color of the vertex corresponding to the state associated with the event. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{structslb_1_1ext_1_1event_1_1DeniedExpansion_a6f2aa3f5f67e00c2c30aebd472872eda}{slb\+::ext\+::event\+::\+Denied\+Expansion$<$ Node $>$}, \hyperlink{structslb_1_1ext_1_1event_1_1ResumedExpansion_afb9e4dc6fbff2578c6ea9fb2bf15203c}{slb\+::ext\+::event\+::\+Resumed\+Expansion$<$ Node $>$}, \hyperlink{structslb_1_1ext_1_1event_1_1SuspendedExpansion_a02b68e81e35985526168aab04b775478}{slb\+::ext\+::event\+::\+Suspended\+Expansion$<$ Node $>$}, and \hyperlink{structslb_1_1ext_1_1event_1_1Selected_aa00ff31fafc8dc707c316d46fbdd3b39}{slb\+::ext\+::event\+::\+Selected$<$ Node $>$}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{event__types_8h}{event\+\_\+types.\+h}\end{DoxyCompactItemize}

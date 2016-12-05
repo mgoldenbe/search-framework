@@ -1,0 +1,93 @@
+\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeColor}{}\subsection{slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Edge\+Color$<$ Node $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1event_1_1VertexEdgeColor}\index{slb\+::ext\+::event\+::\+Vertex\+Edge\+Color$<$ Node $>$@{slb\+::ext\+::event\+::\+Vertex\+Edge\+Color$<$ Node $>$}}
+
+
+An event that applies a color change to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+types.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Edge\+Color$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1ext_1_1event_1_1VertexEdgeColor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:event\+:\+:Vertex\+Edge\+Color$<$ Node $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structslb_1_1ext_1_1event_1_1VertexEdgeColor__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeColor_a9e3c90f64128db39f50d758f4cf85f7b}{State\+Shared\+Ptr} = typename \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2e6e9605dcd4df428c03c7637fd0d20d}{State\+Shared\+Ptr}\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeColor_a9e3c90f64128db39f50d758f4cf85f7b}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeColor_a9e3c90f64128db39f50d758f4cf85f7b}
+
+\begin{DoxyCompactList}\small\item\em Shared pointer to constant state. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeColor_aa8452904bab2d5e4da325706e127379f}{Edge} = typename \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange}{Uniform\+Change}$<$ Node $>$\+::\hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a7ea26ff1c10c84d9bd6002bf5f175f22}{Edge}\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeColor_aa8452904bab2d5e4da325706e127379f}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeColor_aa8452904bab2d5e4da325706e127379f}
+
+\begin{DoxyCompactList}\small\item\em The type representing an edge in the state graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeColor_aa84210e4f0a337424366dab5b4cd99d2}{change} (Vertex\+Style \&style, const \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a2e6e9605dcd4df428c03c7637fd0d20d}{State\+Shared\+Ptr} \&) const override\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeColor_aa84210e4f0a337424366dab5b4cd99d2}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeColor_aa84210e4f0a337424366dab5b4cd99d2}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating state. In this case, the change is the change of color to be the color returned by \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeColor_ac5d0c212a4e807eccbc7082b8834ef77}{color} method. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeColor_a81f7ebea1421bed4cc44cce65e7bc873}{change} (Edge\+Style \&style, const \hyperlink{structslb_1_1ext_1_1event_1_1UniformChange_a7ea26ff1c10c84d9bd6002bf5f175f22}{Edge} \&) const override\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeColor_a81f7ebea1421bed4cc44cce65e7bc873}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeColor_a81f7ebea1421bed4cc44cce65e7bc873}
+
+\begin{DoxyCompactList}\small\item\em Modifies the visual representation style of the given participating edge. In this case, the change is the change of color to be the color returned by \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeColor_ac5d0c212a4e807eccbc7082b8834ef77}{color} method. \end{DoxyCompactList}\item 
+virtual Color \hyperlink{structslb_1_1ext_1_1event_1_1VertexEdgeColor_ac5d0c212a4e807eccbc7082b8834ef77}{color} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the new color of both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Node = S\+L\+B\+\_\+\+N\+O\+DE$>$\\*
+struct slb\+::ext\+::event\+::\+Vertex\+Edge\+Color$<$ Node $>$}
+
+An event that applies a color change to both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node} & The search node type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 282 of file event\+\_\+types.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::event\+::\+Vertex\+Edge\+Color@{slb\+::ext\+::event\+::\+Vertex\+Edge\+Color}!color@{color}}
+\index{color@{color}!slb\+::ext\+::event\+::\+Vertex\+Edge\+Color@{slb\+::ext\+::event\+::\+Vertex\+Edge\+Color}}
+\paragraph[{\texorpdfstring{color() const =0}{color() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Node  = S\+L\+B\+\_\+\+N\+O\+DE$>$ virtual Color {\bf slb\+::ext\+::event\+::\+Vertex\+Edge\+Color}$<$ Node $>$\+::color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{structslb_1_1ext_1_1event_1_1VertexEdgeColor_ac5d0c212a4e807eccbc7082b8834ef77}{}\label{structslb_1_1ext_1_1event_1_1VertexEdgeColor_ac5d0c212a4e807eccbc7082b8834ef77}
+
+
+Returns the new color of both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+
+\begin{DoxyReturn}{Returns}
+The new color of both the vertex of the state graph corresponding to the state associated with the event and the edge by which the search algorithm arrived to this state. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{structslb_1_1ext_1_1event_1_1Closed_a481066c0af982217bc6de618cfe48ee5}{slb\+::ext\+::event\+::\+Closed$<$ Node $>$}, \hyperlink{structslb_1_1ext_1_1event_1_1EnteredOpen_ae9d3efea90ef2050c58f5744ade0d645}{slb\+::ext\+::event\+::\+Entered\+Open$<$ Node $>$}, \hyperlink{structslb_1_1ext_1_1event_1_1NothingToDo_af5ce8c541cfb24f4d7619d09e32290fd}{slb\+::ext\+::event\+::\+Nothing\+To\+Do$<$ Node $>$}, \hyperlink{structslb_1_1ext_1_1event_1_1NotParent_a7ff4fd7c62c5a56ee366565c0354f06b}{slb\+::ext\+::event\+::\+Not\+Parent$<$ Node $>$}, and \hyperlink{structslb_1_1ext_1_1event_1_1Generated_ae7d0033ee8badedc3057c363ecd00650}{slb\+::ext\+::event\+::\+Generated$<$ Node $>$}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/events/\hyperlink{event__types_8h}{event\+\_\+types.\+h}\end{DoxyCompactItemize}

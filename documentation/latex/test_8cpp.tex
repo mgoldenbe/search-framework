@@ -1,0 +1,126 @@
+\hypertarget{test_8cpp}{}\subsection{test.\+cpp File Reference}
+\label{test_8cpp}\index{test.\+cpp@{test.\+cpp}}
+
+
+The standard main file, which uses the framework for the most common experimentation scenarios -- running a search algorithm for a set of problem instances, running a search algorithm for a single problem instance with visualization and creating a new set of problem instances.  
+
+
+{\ttfamily \#include \char`\"{}projects/\+K\+Goal/\+Config/min.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}slb.\+h\char`\"{}}\\*
+Include dependency graph for test.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test_8cpp__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{test_8cpp_a207f87385a216cce3ac10b04a53bc330}{Build\+Graph\+OL} = Bucketed\+Std\+Map\+\_\+T$<$ My\+Algorithm, S\+L\+B\+\_\+\+N\+O\+DE, Default\+O\+L\+Key\+Type, Greater\+Priority\+\_\+\+SmallG, \hyperlink{namespaceslb_1_1ext_1_1policy_1_1openList_ae328455bada2886ad728a9f54bfa1f6a}{ext\+::policy\+::open\+List\+::\+O\+L\+Map} $>$
+\begin{DoxyCompactList}\small\item\em The open list policy of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{slb\+::ext\+::algorithm\+::\+Astar} for building the state graph of the domain. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{test_8cpp_a15bdcd95aa4e143ad278124b57d4692f}{Build\+Generator} = StatesT$<$ My\+Algorithm, heuristic\+::\+Zero $>$
+\begin{DoxyCompactList}\small\item\em The generator policy of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{slb\+::ext\+::algorithm\+::\+Astar} for building the state graph of the domain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1StateGraph}{State\+Graph}$<$ S\+L\+B\+\_\+\+S\+T\+A\+TE $>$ \hyperlink{test_8cpp_aa38663aaf170cfc04f0a96d79d5c0632}{build\+Graph} ()
+\begin{DoxyCompactList}\small\item\em Builds the state graph of the domain. \end{DoxyCompactList}\item 
+void \hyperlink{test_8cpp_a13a43e6d814de94978c515cb084873b1}{run} ()\hypertarget{test_8cpp_a13a43e6d814de94978c515cb084873b1}{}\label{test_8cpp_a13a43e6d814de94978c515cb084873b1}
+
+\begin{DoxyCompactList}\small\item\em Runs a search algorithm for a set of problem instances. \end{DoxyCompactList}\item 
+void \hyperlink{test_8cpp_a7190a6a1ae1089d81bd05cd8fb3003c6}{make\+Instances} ()\hypertarget{test_8cpp_a7190a6a1ae1089d81bd05cd8fb3003c6}{}\label{test_8cpp_a7190a6a1ae1089d81bd05cd8fb3003c6}
+
+\begin{DoxyCompactList}\small\item\em Creates a new set of problem instances and saves it in a file. \end{DoxyCompactList}\item 
+int \hyperlink{test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Reads the command line and dispatches to run one of the scenarios. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The standard main file, which uses the framework for the most common experimentation scenarios -- running a search algorithm for a set of problem instances, running a search algorithm for a single problem instance with visualization and creating a new set of problem instances. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}
+
+
+\subsubsection{Typedef Documentation}
+\index{test.\+cpp@{test.\+cpp}!Build\+Generator@{Build\+Generator}}
+\index{Build\+Generator@{Build\+Generator}!test.\+cpp@{test.\+cpp}}
+\paragraph[{\texorpdfstring{Build\+Generator}{BuildGenerator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ using {\bf Build\+Generator} =  StatesT$<$My\+Algorithm, heuristic\+::\+Zero$>$}\hypertarget{test_8cpp_a15bdcd95aa4e143ad278124b57d4692f}{}\label{test_8cpp_a15bdcd95aa4e143ad278124b57d4692f}
+
+
+The generator policy of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{slb\+::ext\+::algorithm\+::\+Astar} for building the state graph of the domain. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em As} & every policy, this one needs to have the search algorithm type template parameter. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 45 of file test.\+cpp.
+
+\index{test.\+cpp@{test.\+cpp}!Build\+Graph\+OL@{Build\+Graph\+OL}}
+\index{Build\+Graph\+OL@{Build\+Graph\+OL}!test.\+cpp@{test.\+cpp}}
+\paragraph[{\texorpdfstring{Build\+Graph\+OL}{BuildGraphOL}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ using {\bf Build\+Graph\+OL} =  Bucketed\+Std\+Map\+\_\+T$<$My\+Algorithm, S\+L\+B\+\_\+\+N\+O\+DE, Default\+O\+L\+Key\+Type, Greater\+Priority\+\_\+\+SmallG, {\bf ext\+::policy\+::open\+List\+::\+O\+L\+Map}$>$}\hypertarget{test_8cpp_a207f87385a216cce3ac10b04a53bc330}{}\label{test_8cpp_a207f87385a216cce3ac10b04a53bc330}
+
+
+The open list policy of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{slb\+::ext\+::algorithm\+::\+Astar} for building the state graph of the domain. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em As} & every policy, this one needs to have the search algorithm type template parameter. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 38 of file test.\+cpp.
+
+
+
+\subsubsection{Function Documentation}
+\index{test.\+cpp@{test.\+cpp}!build\+Graph@{build\+Graph}}
+\index{build\+Graph@{build\+Graph}!test.\+cpp@{test.\+cpp}}
+\paragraph[{\texorpdfstring{build\+Graph()}{buildGraph()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\+Graph}$<$S\+L\+B\+\_\+\+S\+T\+A\+TE$>$ build\+Graph (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{test_8cpp_aa38663aaf170cfc04f0a96d79d5c0632}{}\label{test_8cpp_aa38663aaf170cfc04f0a96d79d5c0632}
+
+
+Builds the state graph of the domain. 
+
+\begin{DoxyReturn}{Returns}
+The state graph of the domain. 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file test.\+cpp.
+
+\index{test.\+cpp@{test.\+cpp}!main@{main}}
+\index{main@{main}!test.\+cpp@{test.\+cpp}}
+\paragraph[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Reads the command line and dispatches to run one of the scenarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command line arguments. \\
+\hline
+{\em argv} & The command line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The exit code. 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file test.\+cpp.
+

@@ -1,0 +1,79 @@
+\hypertarget{structTimer}{}\subsection{Timer Struct Reference}
+\label{structTimer}\index{Timer@{Timer}}
+
+
+A special measure for timing.  
+
+
+
+
+{\ttfamily \#include $<$stats.\+h$>$}
+
+
+
+Inheritance diagram for Timer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{structTimer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Timer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{structTimer__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structTimer_a3a8b5272198d029779dc9302a54305a8}{start} ()
+\begin{DoxyCompactList}\small\item\em Inherit constructors. \end{DoxyCompactList}\item 
+void \hyperlink{structTimer_a63f0eb44b27402196590a03781515dba}{stop} ()\hypertarget{structTimer_a63f0eb44b27402196590a03781515dba}{}\label{structTimer_a63f0eb44b27402196590a03781515dba}
+
+\begin{DoxyCompactList}\small\item\em Stops timing and sets the value of the measure with the time elapsed since the timing started. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \hyperlink{structTimer_a7969f096945054e1105b498665898320}{begin\+\_\+}\hypertarget{structTimer_a7969f096945054e1105b498665898320}{}\label{structTimer_a7969f096945054e1105b498665898320}
+
+\begin{DoxyCompactList}\small\item\em The point in time when \hyperlink{structTimer_a3a8b5272198d029779dc9302a54305a8}{start} was called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+A special measure for timing. 
+
+\begin{DoxyNote}{Note}
+Since \hyperlink{structTimer}{Timer} is a \hyperlink{structMeasure}{Measure}, it can be handled uniformly 
+\end{DoxyNote}
+
+
+Definition at line 60 of file stats.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Timer@{Timer}!start@{start}}
+\index{start@{start}!Timer@{Timer}}
+\paragraph[{\texorpdfstring{start()}{start()}}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structTimer_a3a8b5272198d029779dc9302a54305a8}{}\label{structTimer_a3a8b5272198d029779dc9302a54305a8}
+
+
+Inherit constructors. 
+
+Starts timing. 
+
+Definition at line 64 of file stats.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{stats_8h}{stats.\+h}\end{DoxyCompactItemize}

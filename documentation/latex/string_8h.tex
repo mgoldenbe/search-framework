@@ -1,0 +1,42 @@
+\hypertarget{string_8h}{}\subsection{core/util/string.h File Reference}
+\label{string_8h}\index{core/util/string.\+h@{core/util/string.\+h}}
+
+
+String-\/related utilities.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{string_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1util}{slb\+::core\+::util}
+\begin{DoxyCompactList}\small\item\em Utility facilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a47a5d48f761811dede67fba654950c34}{slb\+::core\+::util\+::trim} (const std\+::string \&str, const std\+::string \&whitespace=\char`\"{} \textbackslash{}t\char`\"{})
+\begin{DoxyCompactList}\small\item\em Trim white-\/space characters from the end of string. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{namespaceslb_1_1core_1_1util_a0b17f4ccc4a084619d95187d7dad6f65}{slb\+::core\+::util\+::split} (const std\+::string \&s, const std\+::vector$<$ char $>$ \&delims)
+\begin{DoxyCompactList}\small\item\em Split the string using the giving characters. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_a903619e2dfde6392a7384dbfeaa6eafc}{slb\+::core\+::util\+::double2str} (double f)
+\begin{DoxyCompactList}\small\item\em Converts double to string, while getting rid of exponent notation and trailing zeros. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{namespaceslb_1_1core_1_1util_ad3241e5d4d570f8547a7ce25cf830ed9}{slb\+::core\+::util\+::stuff} (std\+::string \&s, bool throw\+On\+Empty=false, int n\+Spaces=2)
+\begin{DoxyCompactList}\small\item\em Looks for the first substring that begins with a non-\/space character and ends either at the end of string or with the given number of spaces. The original string is modified to contain the non-\/parsed part of the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+String-\/related utilities. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

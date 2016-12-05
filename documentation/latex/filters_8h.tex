@@ -1,0 +1,42 @@
+\hypertarget{filters_8h}{}\subsection{core/user\+\_\+interface/filters.h File Reference}
+\label{filters_8h}\index{core/user\+\_\+interface/filters.\+h@{core/user\+\_\+interface/filters.\+h}}
+
+
+Event filters for log analysis and visualization.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{filters_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1FilterBase}{slb\+::core\+::ui\+::\+Filter\+Base$<$ Node $>$}
+\begin{DoxyCompactList}\small\item\em The abstract base for all filters. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1FilterEventStr}{slb\+::core\+::ui\+::\+Filter\+Event\+Str$<$ Node $>$}
+\begin{DoxyCompactList}\small\item\em Filters based on description strings of events. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1FilterState}{slb\+::core\+::ui\+::\+Filter\+State$<$ Node $>$}
+\begin{DoxyCompactList}\small\item\em Filters by leaving only events related to chosen states. When the list of states is empty, no events are filtered out. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1ui_1_1Filter}{slb\+::core\+::ui\+::\+Filter$<$ Node $>$}
+\begin{DoxyCompactList}\small\item\em Composite filter. Does not filter out only the events not filtered out by any of the constituent filters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core}{slb\+::core}
+\begin{DoxyCompactList}\small\item\em The core facilities of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1core_1_1ui}{slb\+::core\+::ui}
+\begin{DoxyCompactList}\small\item\em The user interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Event filters for log analysis and visualization. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

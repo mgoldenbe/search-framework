@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase.html" title="Base for a class handling RAII for backtracking in IDA* when the state is updated in place (i..." alt="" coords="5,53,232,94"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace.html" title="Handles RAII for backtracking in IDA* when the state is updated in place. " alt="" coords="280,5,469,61"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4.html" title="Handles RAII for backtracking in IDA* when the state is updated in place and log is kept..." alt="" coords="280,85,469,141"/>
+</map>

@@ -1,0 +1,373 @@
+\hypertarget{structSearchNode}{}\subsection{Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$ Struct Template Reference}
+\label{structSearchNode}\index{Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$@{Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$}}
+
+
+The search node type. Inherits the data structure to make data (e.\+g. g-\/ and f-\/value) easy to access.  
+
+
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+
+
+Inheritance diagram for Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{structSearchNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{structSearchNode__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} = State\+\_\+\hypertarget{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{}\label{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structSearchNode_aa1ec7ef9bbe78e97fa020919485e0f26}{Node\+Data} = Node\+Data\+\_\+\hypertarget{structSearchNode_aa1ec7ef9bbe78e97fa020919485e0f26}{}\label{structSearchNode_aa1ec7ef9bbe78e97fa020919485e0f26}
+
+\begin{DoxyCompactList}\small\item\em The structure storing the data kept by the node. \end{DoxyCompactList}\item 
+using \hyperlink{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{My\+Type} = \hyperlink{structSearchNode}{Search\+Node}\hypertarget{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{}\label{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}
+
+\begin{DoxyCompactList}\small\item\em Type of the node. \end{DoxyCompactList}\item 
+using \hyperlink{structSearchNode_ad819acc2f49b1bae1c5ced474b9af01f}{Node\+Unique\+Ptr} = std\+::unique\+\_\+ptr$<$ \hyperlink{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{My\+Type} $>$\hypertarget{structSearchNode_ad819acc2f49b1bae1c5ced474b9af01f}{}\label{structSearchNode_ad819acc2f49b1bae1c5ced474b9af01f}
+
+\begin{DoxyCompactList}\small\item\em Unique pointer to the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structSearchNode_acc929174122b0da00c0107b458d50515}{Search\+Node} (const \hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} \&s)
+\begin{DoxyCompactList}\small\item\em Initializes the node based on state. \end{DoxyCompactList}\item 
+\hyperlink{structSearchNode_a67e7efa1f1d425338e7bce6b5022f5c8}{Search\+Node} (\hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} \&\&s)
+\begin{DoxyCompactList}\small\item\em Initializes the node based on state that is a right-\/value. \end{DoxyCompactList}\item 
+\hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} \& \hyperlink{structSearchNode_a898ee5326ec12b60c03754d2a419ce38}{state} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to the state to which the node corresponds. \end{DoxyCompactList}\item 
+const \hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} \& \hyperlink{structSearchNode_a4aa40778c79f4108f743da6523e7c8c6}{state} () const 
+\begin{DoxyCompactList}\small\item\em Returns const reference to the state to which the node corresponds. \end{DoxyCompactList}\item 
+void \hyperlink{structSearchNode_ad267fb26699ee6e7855b319b68018b7e}{set\+State} (\hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} \&\&s)
+\begin{DoxyCompactList}\small\item\em Assigns a different state to the node. \end{DoxyCompactList}\item 
+\hyperlink{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{My\+Type} $\ast$ \hyperlink{structSearchNode_a483e49311935b2a9897715c5bd3f89d7}{parent} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to the parent node. \end{DoxyCompactList}\item 
+const \hyperlink{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{My\+Type} $\ast$ \hyperlink{structSearchNode_a604a7f7114ed29911ef93b6768bff1c3}{parent} () const 
+\begin{DoxyCompactList}\small\item\em Returns pointer to const parent node. \end{DoxyCompactList}\item 
+bool \hyperlink{structSearchNode_a3b923aa84992ff46e821c4a440f65edf}{operator==} (const \hyperlink{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{My\+Type} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Nodes comparison. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} $>$ \hyperlink{structSearchNode_abf680b5d7116d82100cd4b47208756a4}{path} () const 
+\begin{DoxyCompactList}\small\item\em Computes the path by which the state to which the node corresponds was reached by the search. \end{DoxyCompactList}\item 
+Bucket\+Position \hyperlink{structSearchNode_a01515f2f078e543f47134d65a55f004d}{bucket\+Position} () const 
+\begin{DoxyCompactList}\small\item\em Returns the position of the node in the open list (when applicable). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Stream $>$ }\\Stream \& \hyperlink{structSearchNode_a5d939786077bedd5076886309fdeeeb9}{dump} (Stream \&o) const 
+\begin{DoxyCompactList}\small\item\em Dumps the node (i.\+e. the state, the parent and the data) to the given stream. \end{DoxyCompactList}\item 
+void \hyperlink{structSearchNode_accefe7d41f17feef2d39aa5ccdf8cb9b}{set\+Parent} (\hyperlink{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{My\+Type} $\ast$\hyperlink{structSearchNode_a483e49311935b2a9897715c5bd3f89d7}{parent})
+\begin{DoxyCompactList}\small\item\em Sets the parent node to the given node. \end{DoxyCompactList}\item 
+void \hyperlink{structSearchNode_a5552fc833c7a3e97f854762ddcd1b948}{set\+Bucket\+Position} (Bucket\+Position l)
+\begin{DoxyCompactList}\small\item\em Sets the position of the node in the open list (when applicable). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structSearchNode_a2dcd6df22e4aa33cb18ef2fb6bd626c4}{State} \hyperlink{structSearchNode_ac3beec312b8aea5a96c71b0deac367b5}{state\+\_\+}\hypertarget{structSearchNode_ac3beec312b8aea5a96c71b0deac367b5}{}\label{structSearchNode_ac3beec312b8aea5a96c71b0deac367b5}
+
+\begin{DoxyCompactList}\small\item\em The state corresponding to the node. \end{DoxyCompactList}\item 
+\hyperlink{structSearchNode_ad78b2656f529b6dd04b58957267cfed8}{My\+Type} $\ast$ \hyperlink{structSearchNode_a7eafd7fce90b8a94b96c0e3332d4eb20}{parent\+\_\+} = nullptr\hypertarget{structSearchNode_a7eafd7fce90b8a94b96c0e3332d4eb20}{}\label{structSearchNode_a7eafd7fce90b8a94b96c0e3332d4eb20}
+
+\begin{DoxyCompactList}\small\item\em The parent node. \end{DoxyCompactList}\item 
+Bucket\+Position \hyperlink{structSearchNode_af4a65644f9b3aa30b67e15dd8f988b6d}{bucket\+Position\+\_\+}\hypertarget{structSearchNode_af4a65644f9b3aa30b67e15dd8f988b6d}{}\label{structSearchNode_af4a65644f9b3aa30b67e15dd8f988b6d}
+
+\begin{DoxyCompactList}\small\item\em The position of the node in the open list (when applicable). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State\+\_\+ = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+ = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$\\*
+struct Search\+Node$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$}
+
+The search node type. Inherits the data structure to make data (e.\+g. g-\/ and f-\/value) easy to access. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State\+\_\+} & The state type, represents the domain. \\
+\hline
+{\em Node\+Data\+\_\+} & The structure storing the data kept by the node. \\
+\hline
+{\em Bucket\+Position} & Type used for storing the node\textquotesingle{}s position in the open list (when applicable). \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 19 of file node.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{Search\+Node@{Search\+Node}!Search\+Node@{Search\+Node}}
+\index{Search\+Node@{Search\+Node}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{Search\+Node(const State \&s)}{SearchNode(const State &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::{\bf Search\+Node} (
+\begin{DoxyParamCaption}
+\item[{const {\bf State} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_acc929174122b0da00c0107b458d50515}{}\label{structSearchNode_acc929174122b0da00c0107b458d50515}
+
+
+Initializes the node based on state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!Search\+Node@{Search\+Node}}
+\index{Search\+Node@{Search\+Node}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{Search\+Node(\+State \&\&s)}{SearchNode(State &&s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::{\bf Search\+Node} (
+\begin{DoxyParamCaption}
+\item[{{\bf State} \&\&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a67e7efa1f1d425338e7bce6b5022f5c8}{}\label{structSearchNode_a67e7efa1f1d425338e7bce6b5022f5c8}
+
+
+Initializes the node based on state that is a right-\/value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file node.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{Search\+Node@{Search\+Node}!bucket\+Position@{bucket\+Position}}
+\index{bucket\+Position@{bucket\+Position}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{bucket\+Position() const }{bucketPosition() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ Bucket\+Position {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::bucket\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a01515f2f078e543f47134d65a55f004d}{}\label{structSearchNode_a01515f2f078e543f47134d65a55f004d}
+
+
+Returns the position of the node in the open list (when applicable). 
+
+\begin{DoxyReturn}{Returns}
+The position of the node in the open list (when applicable). 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!dump@{dump}}
+\index{dump@{dump}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&o) const }{dump(Stream &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ template$<$typename Stream $>$ Stream\& {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a5d939786077bedd5076886309fdeeeb9}{}\label{structSearchNode_a5d939786077bedd5076886309fdeeeb9}
+
+
+Dumps the node (i.\+e. the state, the parent and the data) to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Stream} & The output stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 92 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!operator==@{operator==}}
+\index{operator==@{operator==}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{operator==(const My\+Type \&rhs) const }{operator==(const MyType &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ bool {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf My\+Type} \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a3b923aa84992ff46e821c4a440f65edf}{}\label{structSearchNode_a3b923aa84992ff46e821c4a440f65edf}
+
+
+Nodes comparison. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The node being compared to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the states corresponding to the nodes compare equal. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!parent@{parent}}
+\index{parent@{parent}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{parent()}{parent()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf My\+Type}$\ast$ {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a483e49311935b2a9897715c5bd3f89d7}{}\label{structSearchNode_a483e49311935b2a9897715c5bd3f89d7}
+
+
+Returns pointer to the parent node. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the parent node. 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!parent@{parent}}
+\index{parent@{parent}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{parent() const }{parent() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ const {\bf My\+Type}$\ast$ {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a604a7f7114ed29911ef93b6768bff1c3}{}\label{structSearchNode_a604a7f7114ed29911ef93b6768bff1c3}
+
+
+Returns pointer to const parent node. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to const parent node. 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!path@{path}}
+\index{path@{path}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{path() const }{path() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ const std\+::vector$<${\bf State}$>$ {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_abf680b5d7116d82100cd4b47208756a4}{}\label{structSearchNode_abf680b5d7116d82100cd4b47208756a4}
+
+
+Computes the path by which the state to which the node corresponds was reached by the search. 
+
+\begin{DoxyReturn}{Returns}
+The path (as a vector of states) by which the state to which the node corresponds was reached by the search. 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!set\+Bucket\+Position@{set\+Bucket\+Position}}
+\index{set\+Bucket\+Position@{set\+Bucket\+Position}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{set\+Bucket\+Position(\+Bucket\+Position l)}{setBucketPosition(BucketPosition l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ void {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::set\+Bucket\+Position (
+\begin{DoxyParamCaption}
+\item[{Bucket\+Position}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a5552fc833c7a3e97f854762ddcd1b948}{}\label{structSearchNode_a5552fc833c7a3e97f854762ddcd1b948}
+
+
+Sets the position of the node in the open list (when applicable). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The new position of the node in the open list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!set\+Parent@{set\+Parent}}
+\index{set\+Parent@{set\+Parent}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{set\+Parent(\+My\+Type $\ast$parent)}{setParent(MyType *parent)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ void {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::set\+Parent (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+Type} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_accefe7d41f17feef2d39aa5ccdf8cb9b}{}\label{structSearchNode_accefe7d41f17feef2d39aa5ccdf8cb9b}
+
+
+Sets the parent node to the given node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The new parent node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 101 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!set\+State@{set\+State}}
+\index{set\+State@{set\+State}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{set\+State(\+State \&\&s)}{setState(State &&s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ void {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::set\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf State} \&\&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_ad267fb26699ee6e7855b319b68018b7e}{}\label{structSearchNode_ad267fb26699ee6e7855b319b68018b7e}
+
+
+Assigns a different state to the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state to assign. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!state@{state}}
+\index{state@{state}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{state()}{state()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ {\bf State}\& {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::state (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a898ee5326ec12b60c03754d2a419ce38}{}\label{structSearchNode_a898ee5326ec12b60c03754d2a419ce38}
+
+
+Returns reference to the state to which the node corresponds. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the state to which the node corresponds. 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file node.\+h.
+
+\index{Search\+Node@{Search\+Node}!state@{state}}
+\index{state@{state}!Search\+Node@{Search\+Node}}
+\paragraph[{\texorpdfstring{state() const }{state() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State\+\_\+  = S\+L\+B\+\_\+\+S\+T\+A\+TE, class Node\+Data\+\_\+  = S\+L\+B\+\_\+\+N\+O\+D\+E\+\_\+\+D\+A\+TA, typename Bucket\+Position  = S\+L\+B\+\_\+\+B\+U\+C\+K\+E\+T\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+T\+Y\+PE$>$ const {\bf State}\& {\bf Search\+Node}$<$ State\+\_\+, Node\+Data\+\_\+, Bucket\+Position $>$\+::state (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structSearchNode_a4aa40778c79f4108f743da6523e7c8c6}{}\label{structSearchNode_a4aa40778c79f4108f743da6523e7c8c6}
+
+
+Returns const reference to the state to which the node corresponds. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the state to which the node corresponds. 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file node.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{node_8h}{node.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,95 @@
+\hypertarget{structslb_1_1core_1_1sb_1_1Backtrack}{}\subsection{slb\+:\+:core\+:\+:sb\+:\+:Backtrack$<$ My\+Algorithm, Lock\+\_\+ $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1sb_1_1Backtrack}\index{slb\+::core\+::sb\+::\+Backtrack$<$ My\+Algorithm, Lock\+\_\+ $>$@{slb\+::core\+::sb\+::\+Backtrack$<$ My\+Algorithm, Lock\+\_\+ $>$}}
+
+
+Handles backtracking in linear-\/space algorithms such as I\+D\+A$\ast$.  
+
+
+
+
+{\ttfamily \#include $<$backtrack.\+h$>$}
+
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:sb\+:\+:Backtrack$<$ My\+Algorithm, Lock\+\_\+ $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{structslb_1_1core_1_1sb_1_1Backtrack__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1sb_1_1Backtrack_abdf145f8f0475d4f557024f6981b0668}{Lock} = Lock\+\_\+$<$ My\+Algorithm, My\+Algorithm\+::log\+Flag $>$\hypertarget{structslb_1_1core_1_1sb_1_1Backtrack_abdf145f8f0475d4f557024f6981b0668}{}\label{structslb_1_1core_1_1sb_1_1Backtrack_abdf145f8f0475d4f557024f6981b0668}
+
+\begin{DoxyCompactList}\small\item\em The R\+A\+II class for handling backtracking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1sb_1_1Backtrack_af524ba379b3f7a121d8a4e1bda44a171}{Backtrack} (My\+Algorithm \&alg)\hypertarget{structslb_1_1core_1_1sb_1_1Backtrack_af524ba379b3f7a121d8a4e1bda44a171}{}\label{structslb_1_1core_1_1sb_1_1Backtrack_af524ba379b3f7a121d8a4e1bda44a171}
+
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{structslb_1_1core_1_1sb_1_1Backtrack_abdf145f8f0475d4f557024f6981b0668}{Lock} \hyperlink{structslb_1_1core_1_1sb_1_1Backtrack_a6de9dc24d4e8749ea422fd0442d47199}{lock} (Neighbor \&n)
+\begin{DoxyCompactList}\small\item\em Makes the backtrack R\+A\+II object for a neighbor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+My\+Algorithm \& \hyperlink{structslb_1_1core_1_1sb_1_1Backtrack_ab5ca08806d5c1f82202d2e74871cc99a}{alg\+\_\+}\hypertarget{structslb_1_1core_1_1sb_1_1Backtrack_ab5ca08806d5c1f82202d2e74871cc99a}{}\label{structslb_1_1core_1_1sb_1_1Backtrack_ab5ca08806d5c1f82202d2e74871cc99a}
+
+\begin{DoxyCompactList}\small\item\em Reference to the search algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm, template$<$ class, bool $>$ class Lock\+\_\+$>$\\*
+struct slb\+::core\+::sb\+::\+Backtrack$<$ My\+Algorithm, Lock\+\_\+ $>$}
+
+Handles backtracking in linear-\/space algorithms such as I\+D\+A$\ast$. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Algorithm} & The search algorithm. \\
+\hline
+{\em Lock\+\_\+} & The R\+A\+II class for handling backtracking. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 16 of file backtrack.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::sb\+::\+Backtrack@{slb\+::core\+::sb\+::\+Backtrack}!lock@{lock}}
+\index{lock@{lock}!slb\+::core\+::sb\+::\+Backtrack@{slb\+::core\+::sb\+::\+Backtrack}}
+\paragraph[{\texorpdfstring{lock(\+Neighbor \&n)}{lock(Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm, template$<$ class, bool $>$ class Lock\+\_\+$>$ template$<$class Neighbor $>$ {\bf Lock} {\bf slb\+::core\+::sb\+::\+Backtrack}$<$ My\+Algorithm, Lock\+\_\+ $>$\+::lock (
+\begin{DoxyParamCaption}
+\item[{Neighbor \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1sb_1_1Backtrack_a6de9dc24d4e8749ea422fd0442d47199}{}\label{structslb_1_1core_1_1sb_1_1Backtrack_a6de9dc24d4e8749ea422fd0442d47199}
+
+
+Makes the backtrack R\+A\+II object for a neighbor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neighbor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The backtrack R\+A\+II object. 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file backtrack.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/search\+\_\+base/\hyperlink{backtrack_8h}{backtrack.\+h}\end{DoxyCompactItemize}

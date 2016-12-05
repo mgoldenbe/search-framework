@@ -1,0 +1,171 @@
+\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:heuristic\+:\+:Min\+Multiple\+GoalsT$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT}\index{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+Goals\+T$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+Goals\+T$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$}}
+
+
+Computes minimum among heuristics to goals that have not been found (with the required quality) yet.  
+
+
+
+
+{\ttfamily \#include $<$heuristic\+\_\+policies.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5234686dc140005dd9c6f6d5524b0ee8}{Min\+Multiple\+GoalsT} (My\+Algorithm \&alg)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor $>$ }\\Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a3651719ae7081b0aa624c41ea3a89976}{operator()} (const Neighbor \&n, Node $\ast$node) const 
+\begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\item 
+Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a7ebd8a9bc6ff1bf7a3ab695635892d7e}{operator()} (Node $\ast$node) const 
+\begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class L $>$ }\\Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a332214555e25cbaf6f72f04800eed69c}{compute} (L singleH, Node $\ast$node) const 
+\begin{DoxyCompactList}\small\item\em Actual computation of the heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+My\+Algorithm \& \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5e7e51228c90899b97f816983538965c}{alg\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5e7e51228c90899b97f816983538965c}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5e7e51228c90899b97f816983538965c}
+
+\begin{DoxyCompactList}\small\item\em Reference to the search algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ Single\+Goal\+Heuristic $>$ \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5ae99c7cb638986ec06278197b76891e}{single\+Goal\+Heuristics\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5ae99c7cb638986ec06278197b76891e}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5ae99c7cb638986ec06278197b76891e}
+
+\begin{DoxyCompactList}\small\item\em The single goal heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm, class Single\+Goal\+Heuristic = S\+L\+B\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+G\+O\+A\+L\+\_\+\+H\+E\+U\+R\+I\+S\+T\+IC, class Compare = S\+L\+B\+\_\+\+M\+I\+N\+\_\+\+H\+E\+U\+R\+I\+S\+T\+I\+C\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+T$>$\\*
+struct slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+Goals\+T$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$}
+
+Computes minimum among heuristics to goals that have not been found (with the required quality) yet. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+{\em Single\+Goal\+Heuristic} & The heuristic for a single goal. \\
+\hline
+{\em Compare} & The comparer of heuristic values, e.\+g. std\+::less or std\+::greater. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 125 of file heuristic\+\_\+policies.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}!Min\+Multiple\+GoalsT@{Min\+Multiple\+GoalsT}}
+\index{Min\+Multiple\+GoalsT@{Min\+Multiple\+GoalsT}!slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}}
+\paragraph[{\texorpdfstring{Min\+Multiple\+Goals\+T(\+My\+Algorithm \&alg)}{MinMultipleGoalsT(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Single\+Goal\+Heuristic  = S\+L\+B\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+G\+O\+A\+L\+\_\+\+H\+E\+U\+R\+I\+S\+T\+IC, class Compare  = S\+L\+B\+\_\+\+M\+I\+N\+\_\+\+H\+E\+U\+R\+I\+S\+T\+I\+C\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+T$>$ {\bf P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} {\bf slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$\+::{\bf Min\+Multiple\+GoalsT} (
+\begin{DoxyParamCaption}
+\item[{My\+Algorithm \&}]{alg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5234686dc140005dd9c6f6d5524b0ee8}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a5234686dc140005dd9c6f6d5524b0ee8}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & Reference to the search algorithm. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 130 of file heuristic\+\_\+policies.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}!compute@{compute}}
+\index{compute@{compute}!slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}}
+\paragraph[{\texorpdfstring{compute(\+L single\+H, Node $\ast$node) const }{compute(L singleH, Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Single\+Goal\+Heuristic  = S\+L\+B\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+G\+O\+A\+L\+\_\+\+H\+E\+U\+R\+I\+S\+T\+IC, class Compare  = S\+L\+B\+\_\+\+M\+I\+N\+\_\+\+H\+E\+U\+R\+I\+S\+T\+I\+C\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+T$>$ template$<$class L $>$ Cost\+Type {\bf slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$\+::compute (
+\begin{DoxyParamCaption}
+\item[{L}]{singleH, }
+\item[{Node $\ast$}]{node}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a332214555e25cbaf6f72f04800eed69c}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a332214555e25cbaf6f72f04800eed69c}
+
+
+Actual computation of the heuristic. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em L} & The lambda type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em singleH} & A lambda for calling the single-\/goal heuristic with correct arguments. \\
+\hline
+{\em node} & The search node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic value. 
+\end{DoxyReturn}
+
+
+Definition at line 167 of file heuristic\+\_\+policies.\+h.
+
+\index{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}!operator()@{operator()}}
+\index{operator()@{operator()}!slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}}
+\paragraph[{\texorpdfstring{operator()(const Neighbor \&n, Node $\ast$node) const }{operator()(const Neighbor &n, Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Single\+Goal\+Heuristic  = S\+L\+B\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+G\+O\+A\+L\+\_\+\+H\+E\+U\+R\+I\+S\+T\+IC, class Compare  = S\+L\+B\+\_\+\+M\+I\+N\+\_\+\+H\+E\+U\+R\+I\+S\+T\+I\+C\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+T$>$ template$<$class Neighbor $>$ Cost\+Type {\bf slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const Neighbor \&}]{n, }
+\item[{Node $\ast$}]{node}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a3651719ae7081b0aa624c41ea3a89976}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a3651719ae7081b0aa624c41ea3a89976}
+
+
+Computes the heuristic. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The state for which the heuristic is to be computed. \\
+\hline
+{\em node} & The node for which the heuristic is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic value. 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file heuristic\+\_\+policies.\+h.
+
+\index{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}!operator()@{operator()}}
+\index{operator()@{operator()}!slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT@{slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}}
+\paragraph[{\texorpdfstring{operator()(\+Node $\ast$node) const }{operator()(Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Single\+Goal\+Heuristic  = S\+L\+B\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+G\+O\+A\+L\+\_\+\+H\+E\+U\+R\+I\+S\+T\+IC, class Compare  = S\+L\+B\+\_\+\+M\+I\+N\+\_\+\+H\+E\+U\+R\+I\+S\+T\+I\+C\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+T$>$ Cost\+Type {\bf slb\+::ext\+::policy\+::heuristic\+::\+Min\+Multiple\+GoalsT}$<$ My\+Algorithm, Single\+Goal\+Heuristic, Compare $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{Node $\ast$}]{node}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a7ebd8a9bc6ff1bf7a3ab695635892d7e}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT_a7ebd8a9bc6ff1bf7a3ab695635892d7e}
+
+
+Computes the heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The node for which the heuristic is to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic value. 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file heuristic\+\_\+policies.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{heuristic__policies_8h}{heuristic\+\_\+policies.\+h}\end{DoxyCompactItemize}

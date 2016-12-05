@@ -1,0 +1,193 @@
+\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles}{}\subsection{slb\+:\+:core\+:\+:ui\+:\+:Current\+Styles$<$ State $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1ui_1_1CurrentStyles}\index{slb\+::core\+::ui\+::\+Current\+Styles$<$ State $>$@{slb\+::core\+::ui\+::\+Current\+Styles$<$ State $>$}}
+
+
+A class for storing the current styles of vertices and edges in the visual representation.  
+
+
+
+
+{\ttfamily \#include $<$current\+\_\+styles.\+h$>$}
+
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:ui\+:\+:Current\+Styles$<$ State $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{structslb_1_1core_1_1ui_1_1CurrentStyles__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a2e3a5865892f484dcf9c94ac70bc19c2}{State\+Shared\+Ptr} = \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ const State $>$\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_a2e3a5865892f484dcf9c94ac70bc19c2}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_a2e3a5865892f484dcf9c94ac70bc19c2}
+
+\begin{DoxyCompactList}\small\item\em Smart pointer to state. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ac27c6fba620b638233a5c620f68c89bc}{Graph} = \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph}{State\+Graph}$<$ State $>$\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_ac27c6fba620b638233a5c620f68c89bc}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_ac27c6fba620b638233a5c620f68c89bc}
+
+\begin{DoxyCompactList}\small\item\em The graph type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a5da5348d833acc6d19d20556f00765b9}{Vertex\+Descriptor} = typename \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_ab2d88fce7d30dc6346910900212a7e6d}{Graph\+::\+Vertex\+Descriptor}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_a5da5348d833acc6d19d20556f00765b9}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_a5da5348d833acc6d19d20556f00765b9}
+
+\begin{DoxyCompactList}\small\item\em Vertex identifier. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_aa63947c6380258a6f5147c75d3168e2a}{Edge\+Descriptor} = typename \hyperlink{structslb_1_1core_1_1ui_1_1StateGraph_a7e894f002383b1687652a91549c3656d}{Graph\+::\+Edge\+Descriptor}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_aa63947c6380258a6f5147c75d3168e2a}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_aa63947c6380258a6f5147c75d3168e2a}
+
+\begin{DoxyCompactList}\small\item\em Edge identifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ab74d558873a0fab90d5ceace8aa2079d}{Current\+Styles} (const \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ac27c6fba620b638233a5c620f68c89bc}{Graph} \&g)\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_ab74d558873a0fab90d5ceace8aa2079d}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_ab74d558873a0fab90d5ceace8aa2079d}
+
+\begin{DoxyCompactList}\small\item\em Initializes graph. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1VertexStyle}{Vertex\+Style} \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a201c59d8806f1a6eace1df2dff8143c6}{get} (\hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a5da5348d833acc6d19d20556f00765b9}{Vertex\+Descriptor} vd) const 
+\begin{DoxyCompactList}\small\item\em Returns the current style of the given vertex. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1EdgeStyle}{Edge\+Style} \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ac251d1fbd39198cb34642e7138727495}{get} (\hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_aa63947c6380258a6f5147c75d3168e2a}{Edge\+Descriptor} ed) const 
+\begin{DoxyCompactList}\small\item\em Returns the current style of the given edge. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1VertexStyle}{Vertex\+Style} \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ae2f28e0dcb6e8d38a6710a7b0f21e568}{get} (\hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a2e3a5865892f484dcf9c94ac70bc19c2}{State\+Shared\+Ptr} s) const 
+\begin{DoxyCompactList}\small\item\em Returns the current style of the vertex representing a given state. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1ui_1_1EdgeStyle}{Edge\+Style} \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a7a75762ed7d0343867b5bf29c08b7b81}{get} (\hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a2e3a5865892f484dcf9c94ac70bc19c2}{State\+Shared\+Ptr} from, \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a2e3a5865892f484dcf9c94ac70bc19c2}{State\+Shared\+Ptr} to) const 
+\begin{DoxyCompactList}\small\item\em Returns the current style of the edge between the given state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ac27c6fba620b638233a5c620f68c89bc}{Graph} \& \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a4f67551367b7b4dc17f93df96d51c864}{g\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_a4f67551367b7b4dc17f93df96d51c864}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_a4f67551367b7b4dc17f93df96d51c864}
+
+\begin{DoxyCompactList}\small\item\em The graph. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_a5da5348d833acc6d19d20556f00765b9}{Vertex\+Descriptor}, \hyperlink{structslb_1_1core_1_1ui_1_1VertexStyle}{Vertex\+Style} $>$ \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ab6f530b659136f839b7f51dbe15a8b8c}{vertex\+Styles\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_ab6f530b659136f839b7f51dbe15a8b8c}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_ab6f530b659136f839b7f51dbe15a8b8c}
+
+\begin{DoxyCompactList}\small\item\em Mapping from each vertex to its style. \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_aa63947c6380258a6f5147c75d3168e2a}{Edge\+Descriptor}, \hyperlink{structslb_1_1core_1_1ui_1_1EdgeStyle}{Edge\+Style} $>$ \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_ac4c13a371872935d47ecebeded6620c9}{edge\+Styles\+\_\+}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_ac4c13a371872935d47ecebeded6620c9}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_ac4c13a371872935d47ecebeded6620c9}
+
+\begin{DoxyCompactList}\small\item\em Mapping from each edge to its style. There is no hash function for \hyperlink{structslb_1_1core_1_1ui_1_1CurrentStyles_aa63947c6380258a6f5147c75d3168e2a}{Edge\+Descriptor}, hence a sorted map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State$>$\\*
+struct slb\+::core\+::ui\+::\+Current\+Styles$<$ State $>$}
+
+A class for storing the current styles of vertices and edges in the visual representation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 18 of file current\+\_\+styles.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}!get@{get}}
+\index{get@{get}!slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}}
+\paragraph[{\texorpdfstring{get(\+Vertex\+Descriptor vd) const }{get(VertexDescriptor vd) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Vertex\+Style} {\bf slb\+::core\+::ui\+::\+Current\+Styles}$<$ State $>$\+::get (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Descriptor}}]{vd}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_a201c59d8806f1a6eace1df2dff8143c6}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_a201c59d8806f1a6eace1df2dff8143c6}
+
+
+Returns the current style of the given vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vd} & Vertex identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vertex style. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The vertex must be present in the graph. 
+\end{DoxyPrecond}
+
+
+Definition at line 38 of file current\+\_\+styles.\+h.
+
+\index{slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}!get@{get}}
+\index{get@{get}!slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}}
+\paragraph[{\texorpdfstring{get(\+Edge\+Descriptor ed) const }{get(EdgeDescriptor ed) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Edge\+Style} {\bf slb\+::core\+::ui\+::\+Current\+Styles}$<$ State $>$\+::get (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge\+Descriptor}}]{ed}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_ac251d1fbd39198cb34642e7138727495}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_ac251d1fbd39198cb34642e7138727495}
+
+
+Returns the current style of the given edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ed} & Edge identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge style. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The edge must be present in the graph. 
+\end{DoxyPrecond}
+
+
+Definition at line 52 of file current\+\_\+styles.\+h.
+
+\index{slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}!get@{get}}
+\index{get@{get}!slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}}
+\paragraph[{\texorpdfstring{get(\+State\+Shared\+Ptr s) const }{get(StateSharedPtr s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Vertex\+Style} {\bf slb\+::core\+::ui\+::\+Current\+Styles}$<$ State $>$\+::get (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+Shared\+Ptr}}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_ae2f28e0dcb6e8d38a6710a7b0f21e568}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_ae2f28e0dcb6e8d38a6710a7b0f21e568}
+
+
+Returns the current style of the vertex representing a given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Shared pointer to state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vertex style. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The vertex corresponding to {\ttfamily s} must be present in the graph. 
+\end{DoxyPrecond}
+
+
+Definition at line 60 of file current\+\_\+styles.\+h.
+
+\index{slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}!get@{get}}
+\index{get@{get}!slb\+::core\+::ui\+::\+Current\+Styles@{slb\+::core\+::ui\+::\+Current\+Styles}}
+\paragraph[{\texorpdfstring{get(\+State\+Shared\+Ptr from, State\+Shared\+Ptr to) const }{get(StateSharedPtr from, StateSharedPtr to) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State$>$ {\bf Edge\+Style} {\bf slb\+::core\+::ui\+::\+Current\+Styles}$<$ State $>$\+::get (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+Shared\+Ptr}}]{from, }
+\item[{{\bf State\+Shared\+Ptr}}]{to}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1ui_1_1CurrentStyles_a7a75762ed7d0343867b5bf29c08b7b81}{}\label{structslb_1_1core_1_1ui_1_1CurrentStyles_a7a75762ed7d0343867b5bf29c08b7b81}
+
+
+Returns the current style of the edge between the given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Shared pointer to the source state. \\
+\hline
+{\em to} & Shared pointer to the target state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The edge style. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The edge must be present in the graph. 
+\end{DoxyPrecond}
+
+
+Definition at line 69 of file current\+\_\+styles.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/user\+\_\+interface/\hyperlink{current__styles_8h}{current\+\_\+styles.\+h}\end{DoxyCompactItemize}

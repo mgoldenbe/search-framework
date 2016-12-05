@@ -1,0 +1,227 @@
+\hypertarget{classderef__shared__ptr}{}\subsection{deref\+\_\+shared\+\_\+ptr$<$ T $>$ Class Template Reference}
+\label{classderef__shared__ptr}\index{deref\+\_\+shared\+\_\+ptr$<$ T $>$@{deref\+\_\+shared\+\_\+ptr$<$ T $>$}}
+
+
+Shared pointer whose {\ttfamily operator==} compares the pointed to values.  
+
+
+
+
+{\ttfamily \#include $<$memory.\+h$>$}
+
+
+
+Inheritance diagram for deref\+\_\+shared\+\_\+ptr$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classderef__shared__ptr__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for deref\+\_\+shared\+\_\+ptr$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classderef__shared__ptr__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classderef__shared__ptr_a805d2a5f7dc7ecab217dba0077efee8c}{Base} = std\+::shared\+\_\+ptr$<$ T $>$\hypertarget{classderef__shared__ptr_a805d2a5f7dc7ecab217dba0077efee8c}{}\label{classderef__shared__ptr_a805d2a5f7dc7ecab217dba0077efee8c}
+
+\begin{DoxyCompactList}\small\item\em The standard shared pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \hyperlink{classderef__shared__ptr_a1471a2c04d725614d591c588732d8330}{deref\+\_\+shared\+\_\+ptr} ()\hypertarget{classderef__shared__ptr_a1471a2c04d725614d591c588732d8330}{}\label{classderef__shared__ptr_a1471a2c04d725614d591c588732d8330}
+
+\begin{DoxyCompactList}\small\item\em The default constructor. \end{DoxyCompactList}\item 
+constexpr \hyperlink{classderef__shared__ptr_a7945ccf752b1e3e22db5e5ad4639cf3d}{deref\+\_\+shared\+\_\+ptr} (std\+::nullptr\+\_\+t)\hypertarget{classderef__shared__ptr_a7945ccf752b1e3e22db5e5ad4639cf3d}{}\label{classderef__shared__ptr_a7945ccf752b1e3e22db5e5ad4639cf3d}
+
+\begin{DoxyCompactList}\small\item\em The constructor based on {\ttfamily nullptr}. \end{DoxyCompactList}\item 
+\hyperlink{classderef__shared__ptr_a02a1bcbdbc08de499e0ca1de870fbcb6}{deref\+\_\+shared\+\_\+ptr} (const \hyperlink{classderef__shared__ptr}{deref\+\_\+shared\+\_\+ptr} \&rhs)
+\begin{DoxyCompactList}\small\item\em The copy constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Y $>$ }\\\hyperlink{classderef__shared__ptr_adee426d872a99caee93b35f6dd524a8f}{deref\+\_\+shared\+\_\+ptr} (Y $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em The constructor based on a pointer to a type that can be converted to {\ttfamily T}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Y , class Deleter $>$ }\\\hyperlink{classderef__shared__ptr_aaa21d20e9c166a076568b239c4a1820e}{deref\+\_\+shared\+\_\+ptr} (std\+::unique\+\_\+ptr$<$ Y, Deleter $>$ \&\&r)
+\begin{DoxyCompactList}\small\item\em The moving constructor based on a unique pointer to a type that can be converted to {\ttfamily T}. \end{DoxyCompactList}\item 
+\hyperlink{classderef__shared__ptr}{deref\+\_\+shared\+\_\+ptr} \& \hyperlink{classderef__shared__ptr_a06934be61483fb8d2aa731cfa665bde6}{operator=} (const \hyperlink{classderef__shared__ptr}{deref\+\_\+shared\+\_\+ptr} \&rhs)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classderef__shared__ptr_a3e67061c67365784b4dac43e53e8d1a4}{deref\+\_\+shared\+\_\+ptr} (const \hyperlink{classderef__shared__ptr_a805d2a5f7dc7ecab217dba0077efee8c}{Base} \&p)
+\begin{DoxyCompactList}\small\item\em Conversion from a standard shared pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class TT , class... Args$>$ }\\\hyperlink{classderef__shared__ptr}{deref\+\_\+shared\+\_\+ptr}$<$ TT $>$ \hyperlink{classderef__shared__ptr_a3731f6226e49a2c28f06c420c984b898}{make\+\_\+deref\+\_\+shared} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{classderef__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class deref\+\_\+shared\+\_\+ptr$<$ T $>$}
+
+Shared pointer whose {\ttfamily operator==} compares the pointed to values. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type being pointed to. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 20 of file memory.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(const deref\+\_\+shared\+\_\+ptr \&rhs)}{deref_shared_ptr(const deref_shared_ptr &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classderef__shared__ptr_a02a1bcbdbc08de499e0ca1de870fbcb6}{}\label{classderef__shared__ptr_a02a1bcbdbc08de499e0ca1de870fbcb6}
+
+
+The copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The object being copied. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file memory.\+h.
+
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(\+Y $\ast$ptr)}{deref_shared_ptr(Y *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$class Y $>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{Y $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classderef__shared__ptr_adee426d872a99caee93b35f6dd524a8f}{}\label{classderef__shared__ptr_adee426d872a99caee93b35f6dd524a8f}
+
+
+The constructor based on a pointer to a type that can be converted to {\ttfamily T}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Y} & A type that can be converted to T. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to be used for construction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file memory.\+h.
+
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(std\+::unique\+\_\+ptr$<$ Y, Deleter $>$ \&\&r)}{deref_shared_ptr(std::unique_ptr< Y, Deleter > &&r)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$class Y , class Deleter $>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{std\+::unique\+\_\+ptr$<$ Y, Deleter $>$ \&\&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classderef__shared__ptr_aaa21d20e9c166a076568b239c4a1820e}{}\label{classderef__shared__ptr_aaa21d20e9c166a076568b239c4a1820e}
+
+
+The moving constructor based on a unique pointer to a type that can be converted to {\ttfamily T}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Y} & A type that can be converted to T. \\
+\hline
+{\em Deleter} & The deleter of the unique pointer type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The unique pointer to be used for construction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file memory.\+h.
+
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{deref\+\_\+shared\+\_\+ptr(const Base \&p)}{deref_shared_ptr(const Base &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::{\bf deref\+\_\+shared\+\_\+ptr} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Base} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classderef__shared__ptr_a3e67061c67365784b4dac43e53e8d1a4}{}\label{classderef__shared__ptr_a3e67061c67365784b4dac43e53e8d1a4}
+
+
+Conversion from a standard shared pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The standard shared pointer to be converted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file memory.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!operator=@{operator=}}
+\index{operator=@{operator=}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{operator=(const deref\+\_\+shared\+\_\+ptr \&rhs)}{operator=(const deref_shared_ptr &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf deref\+\_\+shared\+\_\+ptr}\& {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf deref\+\_\+shared\+\_\+ptr}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classderef__shared__ptr_a06934be61483fb8d2aa731cfa665bde6}{}\label{classderef__shared__ptr_a06934be61483fb8d2aa731cfa665bde6}
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the assignment. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file memory.\+h.
+
+
+
+\subsubsection{Friends And Related Function Documentation}
+\index{deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}!make\+\_\+deref\+\_\+shared@{make\+\_\+deref\+\_\+shared}}
+\index{make\+\_\+deref\+\_\+shared@{make\+\_\+deref\+\_\+shared}!deref\+\_\+shared\+\_\+ptr@{deref\+\_\+shared\+\_\+ptr}}
+\paragraph[{\texorpdfstring{make\+\_\+deref\+\_\+shared}{make_deref_shared}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$class TT , class... Args$>$ {\bf deref\+\_\+shared\+\_\+ptr}$<$TT$>$ make\+\_\+deref\+\_\+shared (
+\begin{DoxyParamCaption}
+\item[{Args \&\&...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classderef__shared__ptr_a3731f6226e49a2c28f06c420c984b898}{}\label{classderef__shared__ptr_a3731f6226e49a2c28f06c420c984b898}
+
+
+The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{classderef__shared__ptr}{deref\+\_\+shared\+\_\+ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TT} & The pointed to type. \\
+\hline
+{\em Args} & The template argument list for the constructor. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 140 of file headers.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{memory_8h}{memory.\+h}\end{DoxyCompactItemize}
