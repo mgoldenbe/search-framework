@@ -5,9 +5,6 @@
 /// visualization and creating a new set of problem instances.
 /// \author Meir Goldenberg
 
-// Can be pre-compiled (~25% compile-time reduction)
-#include "outside_headers.h"
-
 #ifdef CONFIG
 #include CONFIG
 #else

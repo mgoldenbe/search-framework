@@ -104,7 +104,7 @@ CLOSED: [2016-09-27 Tue 16:04]
   - Make sure to not put in a lot of implementation details — I have the right to submit a regular paper as well!
   - Make sure to not exceed 5 pages.c
   - Make sure to comply with all the instructions: https://www.elsevier.com/books-and-journals/content-innovation/original-software-publications#instructions-how-to-submit-your-software-work
-* Remains on 27.09: [22/25]
+* Remains on 27.09: [25/28]
 Each thing on this list is not long. They should take one day on average. The days remaining until Sukkot are: 28.09–30.09, 5.10–7.10, 9.10–10.10, 13–14.10. So, 10 days, which are also very busy. There are 13 items on the list, so I should expect to submit the paper in the first two weeks after Sukkot, e.g. by 4.11. I will then update k-goal config files to work with Roni. 
 ** DONE Organize folders. 
 CLOSED: [2016-09-28 Wed 12:43]
@@ -226,11 +226,20 @@ CLOSED: [2016-11-27 Sun 12:26]
 CLOSED: [2016-11-28 Mon 12:59]
 ** DONE Fix warnings in doxygen output. Note how TCLAP began to produce warnings.
 CLOSED: [2016-11-30 Wed 17:48]
-** TODO Make changes in the documentation: 
+** DONE Proofread the paper.
+CLOSED: [2016-12-01 Thu 17:53]
+** DONE Make changes in the documentation: 
+CLOSED: [2016-12-05 Mon 12:46]
 - A note about the namespaces matching the physical structure.
+  + Done.
 - A note about the need to make functions that read specific command line arguments templates. As an example of that, constructors of the domains that read domain-specific command line arguments are templates. The functions that invoke those are templates as well.
+  + Done.
 - The symbols tool automatically produces the types for the default template arguments.
-** TODO Proofread the paper.
+  + Decided to not provide this detail.
+** DONE Proofread the main page of the online documentation.
+CLOSED: [2016-12-05 Mon 12:47]
+** TODO Put software and documentation on github.
+** TODO Update the paper’s metadata.
 ** TODO Submit
 * After submission
 - Update k-goal config files and make sure the scripts produce results comparable with what we have. 

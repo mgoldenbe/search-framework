@@ -5,12 +5,12 @@ The motivation of this project is to produce a framework to:
 
 - Facilitate flexible and efficient implementations of search algorithms (See \ref s-flexibility-efficiency).
 - Facilitate gaining of insights into properties of search algorithms through a variety of means:
-    + Watching the progress of the algorithm in motion (See the [video demo](https://youtu.be/QUBkkErdnFM)).
-    + Analyzing the log of events produced by the algorithm (See the [video demo](https://youtu.be/QUBkkErdnFM)).
+    + Watching the progress of the algorithm in motion (See the [video demo](https://youtu.be/cElxLWve1Zw)).
+    + Analyzing the log of events produced by the algorithm (See the [video demo](https://youtu.be/cElxLWve1Zw)).
     + Using policy-based design (See \ref s-policy).
-- Enable easy production of examples that can be used to teach heuristic search to students.
+- Enable easy production of examples that can be used for conference and classroom presentations.
 
-The framework is written in the `C++11` standard of `C++` to take advantage of both the expression power and the performance-related characteristics of this language.
+The framework is written in `C++` (the `C++11` standard) to take advantage of both the expression power and the performance-related characteristics of this language.
 
 # Foundation principles {#s-principles}
 ## Flexibility vs. efficiency {#s-flexibility-efficiency}
@@ -23,7 +23,7 @@ When we talk about a search algorithm such as *A\**, we usually talk about a who
 In the remainder of this section, I provide a brief description of the mentioned trade-off and describe the way chosen by the framework.
 
 ### The trade-off {#s-tradeoff}
-The programming techniques that address the need for flexibility most directly are conditional statements and *polymorphism*. Two types of polymorphism are distinguished: *dynamic* and *static*. 
+The programming language mechanisms that address the need for flexibility most directly are conditional statements and *polymorphism*. Two types of polymorphism are distinguished: *dynamic* and *static*. 
 
 Conditional statements and dynamic polymorphism allow us to choose execution path based on conditions that are checked at run-time. This is convenient, since the resulting executable can be used for many different experimental scenarios. However, these techniques incur performance cost. Only a small portion of this cost is due to the time taken to evaluate the conditions. A much greater performance cost may be incurred due to the fact that the need to check conditions at run-time precludes important compiler optimizations.
 
@@ -32,9 +32,9 @@ Static polymorphism (e.g. *templates* and compile-time techniques such as *tag d
 ### The best of the two worlds {#s-configuration}
 The framework chooses the middle path in the above trade-off. Namely, in the parts of the framework not directly related to producing experimental results (e.g. the tools for analysis), flexibility is achieved by run-time techniques. Where the time quality of experimental results is at stake, the performance is considered critical and compile-time techniques are used. 
 
-In the latter case of using compile-time techniques, flexibility is achieved by writing configuration files consisting of pre-processor symbol definitions. With rare exceptions, each symbol determines a behavior of the framework and will be used as a default template argument somewhere in the framework. The [video demo](https://youtu.be/QUBkkErdnFM) explains this mechanism using several sample scenarios. As mentioned in that video, the mechanism is complemented with several convenience features:
+In the latter case of using compile-time techniques, flexibility is achieved by enabling configuration files consisting of preprocessor symbol definitions (see \ref s-why-symbols for the justification of this design decision). With rare exceptions, each symbol determines a behavior of the framework and is used as a default template argument somewhere in the framework. The mechanism is complemented with several convenience features:
 
-- The configuration file does not have to define all the symbols used in the code, but only those that are used (i.e. those that appear in the templates that get instantiated). This is enabled by a special tool that takes over from the pre-processor and eliminates the unused symbols from the source before the actual compilation begins.
+- The configuration file does not have to define all the symbols that appear in the framework, but only those that are actually used (i.e. those that appear in the templates that get *instantiated*). This is enabled by a special tool that takes over from the preprocessor and eliminates the unused symbols from the source before the actual compilation begins.
 
 - Two features are aimed at making it easy and efficient to write scripts that explore a parameter space and perform an experiment for each parameter setting:
   - One can compile the framework and run an experiment by a single command, in which one can specify the configuration file, additional symbols for the *compile-time* configuration and command line arguments for the *run-time* configuration. 
@@ -44,7 +44,9 @@ In the latter case of using compile-time techniques, flexibility is achieved by 
 
   <!-- 	Here, an experiment is being run (the `run` target is being invoked) after being compiled with debugging symbols and without optimizations (the `debug` mode; the alternative is the `production` mode). The `.cpp` file is specified next. Then we specify the configuration file and additional symbols for compile-time configuration. Lastly, command line arguments for run-time configuration appear. The output of `make` is sent to `standard error`, while the output of the framework will appear on `standard output`. -->
 
-  - The executables are cached. That is, if the current version of the framework's source code with the given compile-time configuration had ever been compiled, the executable from that previous compilation will be quickly retrieved and run. If not, the framework will be compiled and the executable will be saved for future use. The cached executables (named after the `md5` sum of the source code with the unused symbols removed and the compile-time configuration) are stored in the `.execs/` directory.
+  - The executables are cached. That is, if the current version of the framework's source code with the given compile-time configuration had ever been compiled, the executable from that previous compilation will be quickly retrieved and run. If not, the framework will be compiled and the executable will be saved for future use. The cached executables <!--(named after the `md5` sum of the source code with the unused symbols removed and the compile-time configuration)--> are stored in the `.execs/` directory.
+
+The [video demo](https://youtu.be/cElxLWve1Zw) explains this mechanism using several sample scenarios.
 
 ## Gaining understanding through policy-based design {#s-policy}
 [Policy-based design](https://en.wikipedia.org/wiki/Policy-based_design) is a notion popularized by Andrei Alexandrescu in his seminal work [Modern C++ Design](https://en.wikipedia.org/wiki/Modern_C%2B%2B_Design). The following paragraph from the [Wikipedia article](https://en.wikipedia.org/wiki/Policy-based_design) provides a brief description of policy-based design (the italics are mine):
@@ -56,7 +58,7 @@ The *proposition* I would like to make is that, by gradually identifying a set o
 Building a taxonomy as described above is a long-term (and, hopefully, communal) effort. Therefore, I did not attempt to arrive at a perfect set of policies for any algorithm. Rather, the policies will be added and refined as the different algorithms and variants are added to the framework.
 
 # Usage examples {#s-examples}
-The [video demo](https://youtu.be/QUBkkErdnFM) shows examples of the framework's usage. When you download the framework, it will have all the files relevant to this demo in the `projects/demo directory`.
+The [video demo](https://youtu.be/cElxLWve1Zw) shows examples of the framework's usage. When you download the framework, it will have all the files relevant to this demo in the `projects/demo directory`.
 
 # Conventions {#s-concepts}
 This section describes the conventions knowing which will help the reader to get started on working with the framework. 
@@ -71,75 +73,90 @@ The source code of the framework is organized into two directories:
   - The facilities that directly support the implementation of heuristic search algorithms are located in `core/search_base/`.
   - The lower-lever facilities are located in `core/util/`.
 - The `extensions/` directory contains the facilities contributed by the users of the framework, i.e. the researchers. Usually, these facilities are directly supported by the facilities found in `core/search_base/`.
-- The `projects/` directory is designated for the files related to specific experiments. The files may be of many kinds: configuration files, files storing the explicit domains, problem sets etc. At this point, each project gets its own directory in `projects/`, such as the `projects/demo/` directory used in the [video demo](https://youtu.be/QUBkkErdnFM). As the number of users grow, each user might get a directory in `projects/` named after him.
+- The `projects/` directory is designated for the files related to specific experiments. The files may be of many kinds: configuration files, files storing the explicit domains, problem sets etc. At this point, each project gets its own directory in `projects/`, such as the `projects/demo/` directory used in the [video demo](https://youtu.be/cElxLWve1Zw). As the number of users grow, each user might get a directory in `projects/` named after him.
   
 Lastly, the root directory contains: 
-- The file \ref test.cpp, which is the default main module, which implements running an experiment with a single configuration and building a file with problem instances. 
+- The file \ref test.cpp, which is the default main module, which implements running an experiment with a single configuration (in either production or analysis mode) and building a file with problem instances. 
 - The `align` utility, which is useful for aligning columns of the tables produced by several different invocations of the framework (see \ref s-single).
-- The `symbols` utility, which is invoked automatically during the compilation to get rid of the unused pre-processor symbols as explained in \ref s-configuration.
+- The `symbols` utility, which is invoked automatically during the compilation to get rid of the unused preprocessor symbols as explained in \ref s-configuration.
+
+### The namespaces {#s-namespace}
+All of the framework's facilities live in the `slb` namespace. In addition, the framework is organized in namespaces that mimic the folder structure. Thus, for example, the search base facilities are found in the \ref slb::core::sb namespace.
 
 ### Header files for forward declarations {#s-forward}
 As explained in \ref s-configuration, most of the framework's facilities are implemented as template classes, whose default template arguments are determined by the compile-time configuration. Thus, it is possible for a template that implements a core facility to have a default template argument, which is a user-provided extension. If that extension in turn uses the core facility in question, a circular dependency emerges. 
 
-To avoid such circular dependencies, we need to forward-declare the names corresponding to the default template arguments. For this reason, the convention is that user-provided facilities should provide a header with forward declarations. This header's name should have the suffix `_fwd.h`. For example, the Pancake Puzzle domain is shipped in two headers: `extensions/domains/pancake.h` and `extensions/domains/pancake_fwd.h`. 
+To avoid such circular dependencies, we need to forward-declare the names corresponding to the default template arguments. For this reason, the convention is that user-provided facilities should provide a header with forward declarations. This header's name should have the suffix `_fwd.h`. For example, the Pancake Puzzle domain comes in two headers: `extensions/domains/pancake.h` and `extensions/domains/pancake_fwd.h`. 
 <!-- In particular, if additional command line options are defined, the class defining them should be forward-declared.  -->
 
 The *forward-declaration headers* must be <code>\#include</code>-d in the final source before the core facilities as described in the next subsection.
 
 ### The single-unit compilation model {#s-single-unit}
 Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of <code>\#include</code>-directives makes this unit easy to manage:
-- First, all the third-party facilities (i.e. the facilities coming from the standard library, the `Boost` library etc.) are <code>\#include</code>-d as a single header called `outside_headers.h`. This header is suitable for pre-compilation, which is currently not employed. On my computer, the framework compiles in under ten seconds. <!-- I got only 25% speed-up from using pre-compilation. -->
-- The main `.cpp` file includes:
-  - the configuration file 
+- The main `.cpp` includes the configuration file (its name is given by the `CONFIG` symbol) and `slb.h`.
+- `slb.h` includes:
+  - `outside_headers.h`, which in turn includes all the third-party facilities (i.e. the facilities coming from the standard library, the `Boost` library etc.). This header is suitable for pre-compilation, which is currently not employed. <!-- I got only 25% speed-up from using pre-compilation. --> 
   - `extensions/headers_fwd.h`
-  - `core/headers.h` and `extensions/headers.h`.
+  - `core/headers.h`
+  - `extensions/headers.h`.
 - For a directory `X/`: 
   - `X/headers_fwd.h` includes `headers_fwd.h` from each of the sub-direcories of `X`. 
   - `X/headers.h` includes: 
 	- all headers from `X/` (besides `X/headers_fwd.h` and `X/headers.h`) and 
 	- `headers.h` from each of the sub-direcories of `X/`. 
 
-## Compile-time configuration {#s-symbols}
-The framework employs pre-processor symbols to enable compile-time configuration. Please refer to the [video demo](https://youtu.be/QUBkkErdnFM) for an initial explanation with some examples. This section provides some additional explanations.
+On my computer, the framework compiles in under ten seconds.
 
-### Why pre-processor symbols? {#s-why-symbols}
-`C++11` contains a number of features whose aim (among other things) is to make most previously needed uses of the pre-processor directives unnecessary. There are many strong reasons for that effort and listing those reasons is beyond the scope of this page. It will suffice to quote Scott Meyers, who states in `Item 2` of [Effective C++ (3rd edition)](http://amzn.com/0321334876):
+## Compile-time configuration {#s-symbols}
+The framework employs preprocessor symbols to enable compile-time configuration. Please refer to the [video demo](https://youtu.be/cElxLWve1Zw) for an initial explanation with some examples. This section provides some additional explanations.
+
+### Why preprocessor symbols? {#s-why-symbols}
+`C++11` contains a number of features whose aim (among other things) is to make most previously needed uses of the preprocessor directives unnecessary. There are many strong reasons for that effort and listing those reasons is beyond the scope of this page. It will suffice to quote Scott Meyers, who states in `Item 2` of [Effective C++ (3rd edition)](http://amzn.com/0321334876):
 > It's not yet time to retire the preprocessor, but you should definitely give it long and frequent vacations.
 
-Unfortunately, Scott Meyers is right not only in the second part of the quote, but also in the first part. I did not find any better way to define compile-time configuration than pre-processor symbols. One obvious candidate for an alternative is to use aliases (i.e. the `using` keyword). One particular problem with aliases did not allow me to pursue that direction. Namely, there is no easy way to determine which aliases are unused. Therefore, each compile-time configuration would have to define all the aliases, even the ones not used in the current experiment. This also means that introducing a new alias would necessitate updating all the existing experiments' configurations. In contrast, once the pre-processor is done, the unused symbols remain in the code and can be recognized by an automatic tool. This is precisely what the framework's `symbols` tool does.
+Unfortunately, Scott Meyers is right not only in the second part of the quote, but also in the first part. I did not find any better way to define compile-time configuration than preprocessor symbols. One obvious candidate for an alternative is to use aliases (i.e. the `using` keyword). One particular problem with aliases did not allow me to pursue that direction. Namely, there is no easy way to determine which aliases are unused. Therefore, each compile-time configuration would have to define all the aliases, even the ones not used in the current experiment. This also means that introducing a new alias would necessitate updating all the existing experiments' configurations. In contrast, once the preprocessor is done, the unused symbols remain in the code and can be recognized by an automatic tool. This is precisely what the framework's `symbols` tool does.
 
 
-### Names of the pre-processor symbols {#s-symbols-conventions}
-The framework employs the following conventions regarding the names of the pre-processor symbols:
+### Names of the preprocessor symbols {#s-symbols-conventions}
+The framework employs the following conventions regarding the names of the preprocessor symbols:
 - The names are prefixed with `SLB_` and contain only capital letters and underscores.
-- The names should be built in a way that minimizes the probability of clashes with the names defined by other users. See the names of the existing user-defined symbols for examples of good names. <!-- The pre-processor symbols specific to an algorithm (i.e. that are not likely to be shared between several algorithms) should have the name of that algorithm in the name. This is meant as a (poor, but necessary) substitution for name scopes. -->
+- The names should be composed in a way that minimizes the probability of clashes with the names defined by other users. See the names of the existing user-defined symbols for examples of good names. <!-- The preprocessor symbols specific to an algorithm (i.e. that are not likely to be shared between several algorithms) should have the name of that algorithm in the name. This is meant as a (poor, but necessary) substitution for name scopes. -->
 
 ## Run-time configuration {#s-run-config}
 The framework employs the [Templatized C++ Command Line Parser Library](http://tclap.sourceforge.net/) to parse the command line. The following subsections present the framework's features related to using the command line.
 
 ### Command line options for user-provided facilities {#s-user-cmd}
-In addition to the standard command options (see below), the framework makes it possible to define command line options specific to user-provided facilities. For this reason, the class \ref slb::core::commandLine::CommandLine is a template that accepts a class implementing additional command line options as the template argument. See \ref slb::ext::domain::pancake::CommandLine for an example of such a class. Also, see the [video demo](https://youtu.be/QUBkkErdnFM) for an example of configuring the framework to use additional command line options.
+In addition to the standard command options (see below), the framework makes it possible to define command line options specific to user-provided facilities. For this reason, the class \ref slb::core::commandLine::CommandLine is a template that accepts a class implementing additional command line options as the template argument. See \ref slb::ext::domain::pancake::CommandLine for an example of such a class. Also, see the [video demo](https://youtu.be/cElxLWve1Zw) for an example of configuring the framework to use additional command line options.
 
 One can view the standard command line options by running the following command from the root directory.
 
-	(make run MODE=debug CPP=test.cpp CONFIG="projects/demo/grid.h" OPT="--help")
-This particular configuration file (i.e. `projects/demo/grid.h`) was chosen because it does not define any additional command line options.
+	(make run MODE=debug CPP=test.cpp CONFIG="projects/demo/grid.astar.h" OPT="--help")
+This particular configuration file (i.e. `projects/demo/grid.astar.h`) was chosen because it does not define any additional command line options.
 
 ### Using the command line object {#s-singleton}
-The class \ref slb::core::commandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref slb::core::commandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by the user-provided facilities by calling the \ref slb::core::commandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for this function. 
+The class \ref slb::core::commandLine::CommandLine is a singleton. To initialize the command line object, one must call the \ref slb::core::commandLine::CommandLine<>::instance function, forwarding to it the `argc` and `argv` arguments of `main`. Following the initialization, the command line object can be accessed by the user-provided facilities by calling the \ref slb::core::commandLine::CommandLine<>::instance function without arguments. The \ref CMD macro is defined as a short-hand for calling this function. 
 
-The command line object cannot be accessed from the *core facilities* by using the \ref CMD macro. This is because the classes implementing the user-provided additional command line options are only forward-declared, but not defined, by the time the compiler parses the core facilities. Hence, the core facilities that need access to the command-line object need to make this object available through template parameters. The file \ref instance.h provides a few examples of accessing the command line object from core facilities (look for the functions with the \ref CMD_TPARAM macro in the template parameters list).
+There are two cases in which the command line object cannot be accessed by using the \ref CMD macro: 
+- from the *core facilities* . This is because the classes implementing the user-provided additional command line options are only forward-declared (but not defined) by the time the compiler parses the core facilities. 
+- in order to access command line arguments defined by a user-provided facility. This is because, when the user-provided facility is not used by the particular experiment, the associated command line addition is not defined.
+
+In these cases, the command line object needs to be made available through a template argument. The framework provides the macros \ref CMD_TPARAM and \ref CMD_T are provided for this purpose. For example, here is how the constructor of the Pancake's state accesses the number of pancakes supplied on the command line:
+
+~~~~~~~~~~~~~~~{.c}
+template <CMD_TPARAM>
+Pancake() : pancakes_(CMD_T.nPancakes()) {...}
+~~~~~~~~~~~~~~~
 
 ## Producing a table of results from several invocations {#s-single}
 When exploring a parameter space by means of a script, it may be convenient to present the results of several invocations of the framework in a single table. The framework supports this by providing several standard command line options and a tool:
-- The `--prefixTitle` option can be used to prepend the title row with a given string. The `--prefixData ` option can be used to prepend all the data rows with a given string. The script can use these options to insert extra columns into the table output by the framework. The purpose of these columns is to identify the parameter settings specific to a particular invocation of the framework. 
-- The script can use the `--hideTitle` switch to append the table of results from the first invocation of the framework by only the data rows from the consequent invocations. Namely, when the `--hideTitle` switch is specified, the title row is not output. 
-- The `align` tool can be used to align the columns of the resulting table. This makes it easy to import the table correctly into a spreadsheet tool. The tool takes a file name containing a table of results as a command line argument and aligns the table in place.
+- The `--prefixTitle` option can be used to prepend the *title row* with a given string. The `--prefixData ` option can be used to prepend all the *data rows* with a given string. The script can use these options to insert extra columns into the table output by the framework. The purpose of these columns is to identify the parameter settings specific to a particular invocation of the framework. 
+- The script can use the `--hideTitle` switch to append the table of results from the first invocation of the framework by only the data rows from the consequent invocations. Namely, when the `--hideTitle` switch is specified, the title row is not shown in the output. 
+- The `align` tool can be used to align the columns of the resulting table. This makes it easy to import the table correctly into a spreadsheet. The tool takes a file name containing a table of results as a command line argument and aligns the table in place.
 
 
 ## Algorithms, policies and communication between them {#s-crtp}
-The framework advocates for keeping algorithms as simple as possible without compromising generality. In particular:
-- An algorithm should implement only the core flow of the search. The specific behaviors should factored out into policies.
+The currently implemented algorithms employ a design solution that advocates for keeping algorithms as simple as possible without compromising generality. In particular:
+- An algorithm should implement only the core flow of the search. The specific behaviors are to be factored out into policies.
 - Communications between algorithms and policies should follow a similar pattern. 
 - Common characteristics of algorithms should be factored out into abstract base algorithms, from which specific algorithms can inherit.
 
@@ -153,12 +170,12 @@ Each search algorithm provides *services* for its policies. These *policy servic
 ### Communication through reference to algorithm {#s-communication}
 Each class implementing a policy of a search algorithm has a constructor that accepts an algorithm reference argument and stores this reference for future use. This way, function members of the policies have an empty parameter list, but can call the services provided by the algorithm. Consequently, policy classes are templates, where the template parameter is the class implementing the search algorithm.
 
-This design provides an easy way of communication between policies as well. The algorithm can support this communication by providing policy services that return references to a policy classes.
+This design provides an easy way of communication between policies as well. The algorithm can support this communication by providing policy services that return references to policy classes.
 
 ### CRTP to enable initialization of policy classes in the abstract base algorithms {#s-base-crtp}
-Using policy-based design in conjunction with abstract base algorithms as described above presents the following problem. Some policies are present in many algorithms. For example, many algorithms might have a policy for evaluating the stopping condition and maintaining the relevant data. When we factor out abstract base algorithms, these common policies become policies of the base algorithm. However, we would like these policies to have access to all the policy services provided by the actual algorithms. Hence, the template classes implementing these policies need to be instantiated with the concrete algorithm's type, not the base algorithm's one.
+Using policy-based design in conjunction with abstract base algorithms as described above presents the following problem. Some policies are present in many algorithms. For example, many algorithms might have a policy for evaluating the stopping condition and maintaining the relevant data. When we factor out abstract base algorithms, these common policies become policies of the base algorithm. However, we would like these policies to have access to all the policy services provided by the actual (non-abstract) algorithms. Hence, the template classes implementing these policies need to be instantiated with the concrete algorithm's type, not the base algorithm's one.
 
-To solve this problem, we use the *Curiously Recurring Template Pattern* (CRTP), whereby the abstract base algorithm has a template parameter specifying the concrete algorithm. Describing this technique is beyond this short document. The reader is referred to the [Wikipedia article](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern) for details. I also used [this](http://stackoverflow.com/a/35436437/2725810) and [this](http://stackoverflow.com/a/5534818/2725810) posts for further clarifications.
+To solve this problem, we use the *Curiously Recurring Template Pattern* (CRTP), whereby the abstract base algorithm has a template parameter specifying the concrete algorithm. Describing this technique is beyond the scope of this short document. The reader is referred to the [Wikipedia article](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern) for details. <!--I also used [this](http://stackoverflow.com/a/35436437/2725810) and [this](http://stackoverflow.com/a/5534818/2725810) posts for further clarifications.-->
 
 ### Compile-time checks to avoid unneeded branching {#s-branching}
 It is known that branching precludes significant compiler optimizations, so that avoiding unnecessary branching in implementations of search algorithms is an important efficiency concern.
@@ -169,24 +186,24 @@ We would like to make sure that no branching occurs in the latter case. Hence, w
 
 
 ## Events {#s-events}
-Each algorithm implementation can define event classes. An event object describes something that happened during the algorithm's execution, such as node selection, node generation etc. The event classes must inherit (possibly indirectly) from \ref slb::core::ui::EventBase. This enables storing the events in the log, analyzing the log in the textual mode and visualizing algorithm's execution. See the [video demo](https://youtu.be/QUBkkErdnFM) for some examples of these capabilities. 
+Each algorithm implementation can define event classes. An event object describes something that happened during the algorithm's execution, such as node selection, node generation etc. The event classes must inherit (possibly indirectly) from \ref slb::core::ui::EventBase. This enables storing the events in the log, analyzing the log in the textual mode and visualizing algorithm's execution. See the [video demo](https://youtu.be/cElxLWve1Zw) for some examples of these capabilities. 
 
 To make sure that no logging-related run-time overhead is incurred in production runs, we provide the \ref slb::core::ui::log function. This function employs *tag dispatch* to choose one of two behaviors *at compile time* based on the compile-time configuration: 
-- Do nothing. 
+- Do nothing. (In this case, the call is totally eliminated by inlining and no run-time overhead at all is incurred.)
 - Construct an event based on the function arguments and add that event into the log. 
-Please refer to \ref slb::ext::algorithm::Astar::run to see how events are logged in the existing code.
+The function \ref slb::ext::algorithm::Astar::run provides an example of how events are logged in the existing code.
 
 <!-- Each event defines a visualization effect. It is convenient to derive the events from pre-made bases, which correspond to different kinds of visualization effects. The existing bases are defined in \ref event_types.h and the existing events are defined in \ref events.h. -->
 
 ## Managed search nodes {#s-nodes}
-*Managed search nodes* are yet another convenience that was achieved through the use of macros. A managed search node inherits from \ref slb::core::sb::ManagedNode and declares its data members using the \c REFLECTABLE macro. Such managed nodes are endowed with [reflection capabilities](http://stackoverflow.com/a/11744832/2725810), which the framework uses to define universal output operators. Please refer to \ref node_kinds.h for examples of defining managed search nodes. 
+*Managed search nodes* are yet another convenience that was achieved through the use of macros. A managed search node inherits from \ref slb::core::sb::ManagedNode and is endowed with [reflection capabilities](http://stackoverflow.com/a/11744832/2725810), which the framework uses to define universal output operators. Please refer to \ref node_kinds.h for examples of defining managed search nodes. 
 
 <!-- In particular, this alleviates the need to define an output operator for that node. In addition, the framework is capable to compare the contents of two managed node and produce a string that summarizes the differences. These reflection capabilities come very handy for the textual log analysis tool. -->
 
 # Installation {#s-install}
-The framework is intended to be used with `Linux`. The installation instructions in this section have been tested on a fresh standard installation of `Ubuntu 16.04`.
+The framework is intended to be used with `Linux`. The instructions in this section have been tested on a fresh standard installation of `Ubuntu 16.04`.
 
-The following actions are needed to be able to prepare and run the framework: 
+The following actions need to be taken to prepare and run the framework: 
 1. Download and extract the framework. Enter the framework's folder.
 2. Make sure that the `COMPILER` variable in `Makefile` contains the correct path to version 4.9 or newer of `g++` (that's when `g++` began to fully support regular expressions). 
 3. Install `xlib`:
@@ -196,13 +213,13 @@ The following actions are needed to be able to prepare and run the framework:
 
 	   sudo apt-get install libcairo2-dev
 5. Make sure that the `CAIRO_PATH` variable in `Makefile` contains the correct path to `cairo.h`.
-6. Download and extract the [Boost](http://www.boost.org/users/download/) library. 
+6. Download and extract the [Boost](http://www.boost.org/users/download/) library. The framework has been tested with version 1.61.0 of Boost.
 7. Set the `BOOST_PATH` variable in `Makefile` to point to the `Boost` directory.
 8. Install `ncurses`:
 
 	   sudo apt-get install libncurses5-dev
 
-That's it! Now it's time to check the framework out by running the examples from the [video demo](https://youtu.be/QUBkkErdnFM)!
+That's it! Now it's time to check the framework out by running the examples from the [video demo](https://youtu.be/cElxLWve1Zw)!
 \note Currently keyboard events are caught only when the graphical window is active.
 
 # Other related software {#s-related}
@@ -225,4 +242,4 @@ Several other projects that are less related to this framework are:
 \warning Boost, Cairo and the Templatized C++ Command Line Parser Library come with their respective licenses. 
 
 # Bug reports and future work {#s-future}
-Please send bug reports and feature requests to the author. The updated list of requested features and bug reports can be found in the files `future.org` and `bugs.org` in the framework's root folder.
+Please send bug reports and feature requests to the author. The current list of requested features and bug reports can be found in the files `future.org` and `bugs.org` in the framework's root folder.

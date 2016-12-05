@@ -1,0 +1,24 @@
+The framework is intended to be used with Linux. The instructions in this section have been tested on a fresh standard installation of Ubuntu 16.04.
+
+The following actions need to be taken to prepare and run the framework:
+
+1. Download and extract the framework. Enter the framework's folder.
+
+2. Make sure that the COMPILER variable in Makefile contains the correct path to version 4.9 or newer of g++ (that's when g++ began to fully support regular expressions).
+
+3. Install xlib:
+sudo apt-get install libx11-dev
+
+4. Install cairo:
+sudo apt-get install libcairo2-dev
+
+5. Make sure that the CAIRO_PATH variable in Makefile contains the correct path to cairo.h.
+
+6. Download and extract the Boost library. The framework has been tested with version 1.61.0 of Boost.
+
+7. Set the BOOST_PATH variable in Makefile to point to the Boost directory.
+
+8. Install ncurses:
+sudo apt-get install libncurses5-dev
+
+That's it! Now it's time to check the framework out by running the examples from the video demo!

@@ -9,13 +9,16 @@ namespace slb {
 namespace core {
 namespace sb {
 
-/// Generic declaration to be specified. Currently supporting nodes that inherit
-/// data from up to four base classes.
+/// A node endowed with [reflection
+/// capabilities](http://stackoverflow.com/a/11744832/2725810).
+/// In particular universal output operators are defined for such a node.
 /// \tparam Base1_ First base
 /// \tparam Base2_ Second base
 /// \tparam Base3_ Third base
 /// \tparam Base4_ Fourth base
 /// \tparam Base5_ Fifth base
+/// \note Currently supporting nodes that inherit data from up to four base
+/// classes.
 template <class Base1_ = void, class Base2_ = void, class Base3_ = void,
           class Base4_ = void, class Base5_ = void>
 struct ManagedNode;
