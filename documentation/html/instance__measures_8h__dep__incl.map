@@ -1,6 +1,6 @@
 <map id="extensions/instance_measures/instance_measures.h" name="extensions/instance_measures/instance_measures.h">
 <area shape="rect" id="node2" href="$extensions_2instance__measures_2headers_8h.html" title="Implementation of instance measures. " alt="" coords="39,95,186,136"/>
 <area shape="rect" id="node3" href="$extensions_2headers_8h.html" title="Search algorithms, algorithmic variants and facilities that directly support them. " alt="" coords="39,184,186,211"/>
-<area shape="rect" id="node4" href="$slb_8h_source.html" title="slb.h" alt="" coords="87,259,138,285"/>
+<area shape="rect" id="node4" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="87,259,138,285"/>
 <area shape="rect" id="node5" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="78,333,147,360"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="extensions/domains/grid.h" name="extensions/domains/grid.h">
 <area shape="rect" id="node2" href="$extensions_2domains_2headers_8h.html" title="Implementation of the domains. " alt="" coords="9,95,148,136"/>
 <area shape="rect" id="node3" href="$extensions_2headers_8h.html" title="Search algorithms, algorithmic variants and facilities that directly support them. " alt="" coords="5,184,152,211"/>
-<area shape="rect" id="node4" href="$slb_8h_source.html" title="slb.h" alt="" coords="53,259,104,285"/>
+<area shape="rect" id="node4" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="53,259,104,285"/>
 <area shape="rect" id="node5" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="44,333,113,360"/>
 </map>

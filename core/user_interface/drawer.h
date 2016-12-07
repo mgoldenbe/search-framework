@@ -12,11 +12,6 @@ namespace slb {
 namespace core {
 namespace ui {
 
-/// \defgroup LayoutTraits Layout Traits
-/// Checking whether the State has a function for computing layout.
-/// Used for tag dispatch in \ref Drawer.
-/// @{
-
 /// Declared only if \c State does not have a function for computing layout.
 template <class State, typename = void_t<>>
 struct has_layout : std::false_type {};
@@ -38,8 +33,6 @@ using HasLayout = typename std::enable_if<has_layout<State>::value>::type;
 /// layout.
 template <class State>
 using HasNoLayout = typename std::enable_if<!has_layout<State>::value>::type;
-
-/// @}
 
 // http://stackoverflow.com/a/33421942/2725810
 // http://tronche.com/gui/x/xlib/events/keyboard-pointer/keyboard-pointer.html#XButtonEvent

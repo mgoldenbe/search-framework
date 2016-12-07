@@ -3,6 +3,6 @@
 <area shape="rect" id="node3" href="$drawer_8h.html" title="The slb::core::ui::Drawer class and the types used for tag dispatch to compute the layout of the (par..." alt="" coords="5,184,139,225"/>
 <area shape="rect" id="node4" href="$visualizer_8h.html" title="The slb::core::ui::Visualizer class, which handles the user interface. " alt="" coords="5,273,139,315"/>
 <area shape="rect" id="node5" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="18,363,126,389"/>
-<area shape="rect" id="node6" href="$slb_8h_source.html" title="slb.h" alt="" coords="47,437,97,464"/>
+<area shape="rect" id="node6" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="47,437,97,464"/>
 <area shape="rect" id="node7" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="37,512,107,539"/>
 </map>

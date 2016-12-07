@@ -36,6 +36,7 @@ var searchData=
   ['algorithmtraits_3c_20astar_20_3e',['AlgorithmTraits&lt; Astar &gt;',['../classslb_1_1ext_1_1algorithm_1_1AlgorithmTraits.html',1,'slb::ext::algorithm']]],
   ['algorithmtraits_3c_20ext_3a_3aalgorithm_3a_3aastar_3c_20alg_5ftargs_2c_20open_20_3e_20_3e',['AlgorithmTraits&lt; ext::algorithm::Astar&lt; ALG_TARGS, Open &gt; &gt;',['../structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01ext_1_1algorithm_1_1Astar_3_01ALG__TARGS_00_01Open_01_4_01_4.html',1,'slb::ext::algorithm']]],
   ['algorithmtraits_3c_20idastar_3c_20alg_5ftargs_2c_20backtracklock_20_3e_20_3e',['AlgorithmTraits&lt; IdAstar&lt; ALG_TARGS, BacktrackLock &gt; &gt;',['../structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_01_4_01_4.html',1,'slb::ext::algorithm']]],
+  ['align_2ecpp',['align.cpp',['../align_8cpp.html',1,'']]],
   ['allmenus',['AllMenus',['../structslb_1_1core_1_1ui_1_1AllMenus.html#a0f13032d8c5a062c2dbb87b34d489ada',1,'slb::core::ui::AllMenus']]],
   ['allmenus',['AllMenus',['../structslb_1_1core_1_1ui_1_1AllMenus.html',1,'slb::core::ui']]],
   ['aneighbor',['ANeighbor',['../structslb_1_1ext_1_1domain_1_1pancake_1_1Pancake.html#ac0096c15d7fe3415ecba0d6240510468',1,'slb::ext::domain::pancake::Pancake']]],

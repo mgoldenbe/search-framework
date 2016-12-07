@@ -1,5 +1,5 @@
 <map id="extensions/nodes/headers_fwd.h" name="extensions/nodes/headers_fwd.h">
 <area shape="rect" id="node2" href="$headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="25,95,160,136"/>
-<area shape="rect" id="node3" href="$slb_8h_source.html" title="slb.h" alt="" coords="67,184,118,211"/>
+<area shape="rect" id="node3" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="67,184,118,211"/>
 <area shape="rect" id="node4" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="58,259,127,285"/>
 </map>

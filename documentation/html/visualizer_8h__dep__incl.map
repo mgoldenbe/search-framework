@@ -1,5 +1,5 @@
 <map id="core/user_interface/visualizer.h" name="core/user_interface/visualizer.h">
 <area shape="rect" id="node2" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="18,95,126,121"/>
-<area shape="rect" id="node3" href="$slb_8h_source.html" title="slb.h" alt="" coords="47,169,97,196"/>
+<area shape="rect" id="node3" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="47,169,97,196"/>
 <area shape="rect" id="node4" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="37,244,107,271"/>
 </map>

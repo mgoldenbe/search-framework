@@ -1,7 +1,7 @@
 <map id="core/util/table.h" name="core/util/table.h">
-<area shape="rect" id="node2" href="$align_8cpp_source.html" title="align.cpp" alt="" coords="5,80,80,107"/>
+<area shape="rect" id="node2" href="$align_8cpp.html" title="The tool for aligning output of several invocations of the framework. " alt="" coords="5,80,80,107"/>
 <area shape="rect" id="node3" href="$core_2util_2headers_8h.html" title="INTERFACES CHECKED. " alt="" coords="103,80,233,107"/>
 <area shape="rect" id="node4" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="114,155,222,181"/>
-<area shape="rect" id="node5" href="$slb_8h_source.html" title="slb.h" alt="" coords="143,229,193,256"/>
+<area shape="rect" id="node5" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="143,229,193,256"/>
 <area shape="rect" id="node6" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="133,304,203,331"/>
 </map>

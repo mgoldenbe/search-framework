@@ -1,8 +1,8 @@
 <map id="core/util/time.h" name="core/util/time.h">
 <area shape="rect" id="node2" href="$outside__headers_8h.html" title="Inclusion of standard and third&#45;party libraries. This header is well&#45;suited for pre&#45;compilation. " alt="" coords="5,80,133,107"/>
 <area shape="rect" id="node6" href="$core_2util_2headers_8h.html" title="INTERFACES CHECKED. " alt="" coords="158,80,287,107"/>
-<area shape="rect" id="node3" href="$align_8cpp_source.html" title="align.cpp" alt="" coords="19,155,93,181"/>
-<area shape="rect" id="node4" href="$slb_8h_source.html" title="slb.h" alt="" coords="151,229,201,256"/>
+<area shape="rect" id="node3" href="$align_8cpp.html" title="The tool for aligning output of several invocations of the framework. " alt="" coords="19,155,93,181"/>
+<area shape="rect" id="node4" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="151,229,201,256"/>
 <area shape="rect" id="node5" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="141,304,211,331"/>
 <area shape="rect" id="node7" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="169,155,277,181"/>
 </map>

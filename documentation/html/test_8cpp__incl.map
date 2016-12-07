@@ -1,5 +1,5 @@
 <map id="test.cpp" name="test.cpp">
-<area shape="rect" id="node3" href="$slb_8h_source.html" title="slb.h" alt="" coords="4933,87,4983,114"/>
+<area shape="rect" id="node3" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="4933,87,4983,114"/>
 <area shape="rect" id="node4" href="$outside__headers_8h.html" title="Inclusion of standard and third&#45;party libraries. This header is well&#45;suited for pre&#45;compilation. " alt="" coords="1778,177,1906,203"/>
 <area shape="rect" id="node44" href="$headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4819,169,4953,211"/>
 <area shape="rect" id="node48" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="4977,177,5085,203"/>

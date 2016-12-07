@@ -1,7 +1,7 @@
 var searchData=
 [
   ['m_5f',['m_',['../structslb_1_1core_1_1ui_1_1MenuBase.html#a5b2b8876459e3a82c2736bd2637181ab',1,'slb::core::ui::MenuBase::m_()'],['../structslb_1_1core_1_1ui_1_1AllMenus.html#afa812ad21990179b69a1a74639fcebb6',1,'slb::core::ui::AllMenus::m_()'],['../structslb_1_1core_1_1ui_1_1Visualizer.html#ae9519808c0c17ec6f2944e744d832ddc',1,'slb::core::ui::Visualizer::m_()']]],
-  ['main',['main',['../test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'test.cpp']]],
+  ['main',['main',['../align_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;align.cpp'],['../test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;test.cpp']]],
   ['make_5fderef_5fshared',['make_deref_shared',['../classslb_1_1core_1_1util_1_1deref__shared__ptr.html#a3731f6226e49a2c28f06c420c984b898',1,'slb::core::util::deref_shared_ptr::make_deref_shared()'],['../namespaceslb_1_1core_1_1util.html#a1d307411caad59a01d41cbb34ea71d8c',1,'slb::core::util::make_deref_shared()']]],
   ['makeinstances',['makeInstances',['../namespaceslb_1_1core_1_1sb.html#a7f194d59f1e10da41faa6d30644e1e06',1,'slb::core::sb::makeInstances()'],['../test_8cpp.html#a7190a6a1ae1089d81bd05cd8fb3003c6',1,'makeInstances():&#160;test.cpp']]],
   ['makeinstancesfile',['makeInstancesFile',['../namespaceslb_1_1core_1_1sb.html#af8a099333bcb967b7c5fdbe18e004631',1,'slb::core::sb']]],

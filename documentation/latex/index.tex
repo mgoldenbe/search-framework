@@ -81,8 +81,8 @@ To avoid such circular dependencies, we need to forward-\/declare the names corr
 The {\itshape forward-\/declaration headers} must be {\ttfamily \#include}-\/d in the final source before the core facilities as described in the next subsection.\hypertarget{index_s-single-unit}{}\paragraph{The single-\/unit compilation model}\label{index_s-single-unit}
 Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of {\ttfamily \#include}-\/directives makes this unit easy to manage\+:
 \begin{DoxyItemize}
-\item The main {\ttfamily .cpp} includes the configuration file (its name is given by the {\ttfamily C\+O\+N\+F\+IG} symbol) and {\ttfamily \hyperlink{slb_8h_source}{slb.\+h}}.
-\item {\ttfamily \hyperlink{slb_8h_source}{slb.\+h}} includes\+:
+\item The main {\ttfamily .cpp} includes the configuration file (its name is given by the {\ttfamily C\+O\+N\+F\+IG} symbol) and {\ttfamily \hyperlink{slb_8h}{slb.\+h}}.
+\item {\ttfamily \hyperlink{slb_8h}{slb.\+h}} includes\+:
 \begin{DoxyItemize}
 \item {\ttfamily \hyperlink{outside__headers_8h}{outside\+\_\+headers.\+h}}, which in turn includes all the third-\/party facilities (i.\+e. the facilities coming from the standard library, the {\ttfamily Boost} library etc.). This header is suitable for pre-\/compilation, which is currently not employed.
 \item {\ttfamily \hyperlink{headers__fwd_8h}{extensions/headers\+\_\+fwd.\+h}}

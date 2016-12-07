@@ -1,6 +1,6 @@
 <map id="extensions/nodes/node_kinds.h" name="extensions/nodes/node_kinds.h">
 <area shape="rect" id="node2" href="$extensions_2nodes_2headers_8h.html" title="Structures containing the node data for the implemented search algorithms and algorithmic variants..." alt="" coords="5,95,191,121"/>
 <area shape="rect" id="node3" href="$extensions_2headers_8h.html" title="Search algorithms, algorithmic variants and facilities that directly support them. " alt="" coords="25,169,171,196"/>
-<area shape="rect" id="node4" href="$slb_8h_source.html" title="slb.h" alt="" coords="73,244,123,271"/>
+<area shape="rect" id="node4" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="73,244,123,271"/>
 <area shape="rect" id="node5" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="63,319,133,345"/>
 </map>

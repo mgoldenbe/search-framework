@@ -1,6 +1,10 @@
 #ifndef SLB_SLB_H
 #define SLB_SLB_H
 
+/// \file
+/// \brief This header file includes the whole framework.
+/// \author Meir Goldenberg
+
 /// \namespace slb
 /// The main namespace of the framework.
 namespace slb {}

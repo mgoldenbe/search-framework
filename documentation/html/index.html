@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -209,8 +208,8 @@ Header files for forward declarations</h3>
 <h3><a class="anchor" id="s-single-unit"></a>
 The single-unit compilation model</h3>
 <p>Since most of the facilities of the framework are template classes that have the search domain as one of their template parameters, separate compilation is difficult to achieve. Instead, the framework is compiled as a single translation unit. The following organization of <code>#include</code>-directives makes this unit easy to manage:</p><ul>
-<li>The main <code>.cpp</code> includes the configuration file (its name is given by the <code>CONFIG</code> symbol) and <code><a class="el" href="slb_8h_source.html">slb.h</a></code>.</li>
-<li><code><a class="el" href="slb_8h_source.html">slb.h</a></code> includes:<ul>
+<li>The main <code>.cpp</code> includes the configuration file (its name is given by the <code>CONFIG</code> symbol) and <code><a class="el" href="slb_8h.html" title="This header file includes the whole framework. ">slb.h</a></code>.</li>
+<li><code><a class="el" href="slb_8h.html" title="This header file includes the whole framework. ">slb.h</a></code> includes:<ul>
 <li><code><a class="el" href="outside__headers_8h.html" title="Inclusion of standard and third-party libraries. This header is well-suited for pre-compilation. ">outside_headers.h</a></code>, which in turn includes all the third-party facilities (i.e. the facilities coming from the standard library, the <code>Boost</code> library etc.). This header is suitable for pre-compilation, which is currently not employed.</li>
 <li><code><a class="el" href="headers__fwd_8h.html" title="Forward declaration headers. ">extensions/headers_fwd.h</a></code></li>
 <li><code><a class="el" href="core_2headers_8h.html" title="The core functionality of the framework. ">core/headers.h</a></code></li>
@@ -344,7 +343,7 @@ Bug reports and future work</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 5 2016 12:45:31 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 7 2016 12:06:15 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -1,6 +1,6 @@
 <map id="core/search_base/node.h" name="core/search_base/node.h">
 <area shape="rect" id="node2" href="$core_2search__base_2headers_8h.html" title="Facilities that support implementation of various heuristic search algorithms. " alt="" coords="5,80,192,107"/>
 <area shape="rect" id="node3" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="45,155,153,181"/>
-<area shape="rect" id="node4" href="$slb_8h_source.html" title="slb.h" alt="" coords="73,229,124,256"/>
+<area shape="rect" id="node4" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="73,229,124,256"/>
 <area shape="rect" id="node5" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="64,304,133,331"/>
 </map>
