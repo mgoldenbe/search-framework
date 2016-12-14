@@ -36,6 +36,7 @@ default: debug
 # Does not use OPT, which controls the run-time parameters.
 # Begins by computing the name of executable containing the hash key. Defers the actual build to another instance of make in order to share the EXEC variable.
 compute-hash:
+	@mkdir -p .execs
 	@$(COMMON_PREFIX) -E -fdirectives-only $(MAIN_CPP) -o $(HASH_SOURCE)
 	@echo $(MODE) >> $(HASH_SOURCE)
 	@cat symbols.cpp >> $(HASH_SOURCE)
