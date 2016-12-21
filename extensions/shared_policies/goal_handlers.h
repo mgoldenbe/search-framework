@@ -195,7 +195,7 @@ protected:
 /// for the heuristic value is used.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-struct MinHeuristic: MultipleGoal<MyAlgorithm> {
+struct LazyUpdate: MultipleGoal<MyAlgorithm> {
     POLICY_TYPES
     /// The direct base.
     using DirectBase = MultipleGoal<MyAlgorithm>;
@@ -260,7 +260,7 @@ protected:
     /// \c false otherwise.
     bool isDenied(Node *n) {
         auto oldCost = n->f;
-        n->f = n->g + alg_.heuristic()(n);
+        n->f = n->g + alg_.generator().heuristic(n);
         if (n->f > oldCost) {
             ++alg_.denied();
             log<ext::event::DeniedExpansion>(log_, n);
@@ -274,7 +274,7 @@ protected:
     /// Update the information associated with the given search node.
     /// \param n The search node.
     void update(Node *n) {
-        n->updateH(alg_.heuristic()(n));
+        n->updateH(alg_.generator().heuristic(n));
         alg_.oc().reInsert(n);
     }
 };
@@ -284,7 +284,7 @@ protected:
 /// a goal is solved with the required quality.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-struct MaxHeuristic: MultipleGoal<MyAlgorithm> {
+struct TotalUpdate: MultipleGoal<MyAlgorithm> {
     POLICY_TYPES
     /// The direct base.
     using DirectBase = MultipleGoal<MyAlgorithm>;

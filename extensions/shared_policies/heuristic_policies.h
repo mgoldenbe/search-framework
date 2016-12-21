@@ -13,10 +13,6 @@ namespace policy {
 /// Wrappers around heuristics to be used by the search algorithms.
 namespace heuristic {
 
-/// Used by the MinHeuristicToGoals handler.
-#define SLB_MIN_HEURISTIC_COMPARE_T                                            \
-    SLB_MIN_HEURISTIC_COMPARE<typename AlgorithmTraits<MyAlgorithm>::CostType>
-
 /// Heuristic that always returns zero.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
@@ -119,22 +115,25 @@ using DynamicSingleGoal = DynamicSingleGoalT<MyAlgorithm>;
 /// \tparam SingleGoalHeuristic The heuristic for a single goal.
 /// \tparam Compare The comparer of heuristic values, e.g. std::less or
 /// std::greater.
-template <class MyAlgorithm,
-          class SingleGoalHeuristic = SLB_SINGLE_GOAL_HEURISTIC,
-          class Compare = SLB_MIN_HEURISTIC_COMPARE_T>
+template <class MyAlgorithm, template <class> class SingleGoalHeuristicT =
+                                 SLB_SINGLE_GOAL_HEURISTIC,
+          template <class> class CompareT = SLB_MIN_HEURISTIC_COMPARE>
 struct MinMultipleGoalsT {
     POLICY_TYPES
+
+    using SingleGoalHeuristic = SingleGoalHeuristicT<MyAlgorithm>;
+    using Compare = CompareT<CostType>;
 
     /// The constructor.
     /// \param alg Reference to the search algorithm.
     MinMultipleGoalsT(MyAlgorithm &alg) : alg_(alg) {
         for (const auto &el: alg_.instance().goals())
-            singleGoalHeuristics_.push_back(alg, SingleGoalHeuristic{el});
+            singleGoalHeuristics_.push_back(SingleGoalHeuristic(alg, el));
     }
 
     /// Computes the heuristic.
     /// \tparam Neighbor The neighbor type.
-    /// \param n The state for which the heuristic is to be computed.
+    /// \param n The neighbor for which the heuristic is to be computed.
     /// \param node The node for which the heuristic is to be computed.
     /// \return The heuristic value.
     template <class Neighbor>

@@ -213,7 +213,7 @@ struct BucketedStdMap_T {
         BucketedStdMap_T newOL(alg_);
         for (const auto &b: buckets_) {
             for (auto n: b.second) {
-                n->updateH(alg_.heuristic()(n));
+                n->updateH(alg_.generator().heuristic(n));
                 newOL.add(n);
             }
         }

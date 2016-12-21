@@ -42,6 +42,13 @@ struct StatesT {
         return heuristic_(n, node);
     }
 
+    /// Computes the heuristic.
+    /// \param node The search node for which the heuristic is to be computed.
+    /// \return The heuristic value.
+    CostType heuristic(Node *node) const {
+        return heuristic_(node);
+    }
+
     /// Computes the successors of the given state.
     /// \param s The state.
     /// \return The vector of successors.
