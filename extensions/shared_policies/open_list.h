@@ -222,6 +222,26 @@ struct BucketedStdMap_T {
         std::swap(newOL.buckets_, buckets_);
         assert(newOL.size() == size_);
     }
+
+    /// Re-compute the open list partially
+    /// \tparam P The type of predicate for determining whether the node needs
+    /// to be updated.
+    /// \param p The predicate for determining whether the node needs
+    /// to be updated.
+    template <typename P>
+    void partialRecompute(const P &p) {
+        std::vector<Node *> updateList;
+        int origSize = size();
+        for (const auto &b : buckets_)
+            for (auto n: b.second)
+                if (p(n)) updateList.push_back(n);
+        for (auto n: updateList) {
+            auto oldPriority = KeyType(n);
+            n->updateH(alg_.generator().heuristic(n));
+            update(n, oldPriority);
+        }
+        assert(size() == origSize);
+    }
 private:
     /// Reference to the search algorithm.
     MyAlgorithm &alg_;

@@ -116,6 +116,12 @@ template <class OpenList> struct OpenClosedList {
     /// \return Const reference to the underlying hash table of the closed list.
     const HashType &hash() const { return hash_; }
 
+    template <typename P>
+    /// Update the nodes of the open list for which the predicate holds.
+    void partialRecomputeOpen(const P &p) {
+        ol_.partialRecompute(p);
+    }
+
     /// Re-compute the whole open list
     void recomputeOpen() {
         ol_.recompute();

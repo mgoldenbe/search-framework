@@ -126,6 +126,8 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     Node *cur() { return cur_; }
     Measure &denied() { return denied_; }
     void recomputeOpen() { oc_.recomputeOpen(); }
+    template <typename P>
+    void partialRecomputeOpen(const P &p) { oc_.partialRecomputeOpen(p); }
 
     /// @}
 private:
