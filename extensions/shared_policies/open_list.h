@@ -210,6 +210,8 @@ struct BucketedStdMap_T {
     /// vector indices. We could insert into un-ordered map first, but then we
     /// lose the performance benefits (checked with a simple prototype).
     void recompute() {
+        //static std::ofstream debug{"debug/ol_debug.txt"};
+        //debug << size() << std::endl;
         BucketedStdMap_T newOL(alg_);
         for (const auto &b: buckets_) {
             for (auto n: b.second) {

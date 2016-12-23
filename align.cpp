@@ -9,6 +9,8 @@
 #include "core/util/string.h"
 #include "core/util/table.h"
 
+using namespace slb::core::util;
+
 /// The main function.
 int main(int argc, char **argv) {
     if (argc < 2)
