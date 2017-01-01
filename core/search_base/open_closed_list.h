@@ -133,6 +133,7 @@ template <class OpenList> struct OpenClosedList {
         return KeyType(n);
     }
 
+    OpenList &ol() { return ol_; }
 private:
     OpenList ol_; ///< The open list.
     HashType hash_; ///< The closed list.

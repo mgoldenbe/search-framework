@@ -19,6 +19,7 @@ using core::ui::AlgorithmLog;
 
 
 #include "astar.h"
+#include "uniform_cost.h"
 #include "per_goal.h"
 #include "id_astar.h"
 

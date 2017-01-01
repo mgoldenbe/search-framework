@@ -237,8 +237,9 @@ struct LazyUpdate: MultipleGoal<MyAlgorithm> {
             return !isDenied(n);
         }
 
-        if (this->isActive<true>(n->state())) {
-            this->doneGoal(n);
+        auto it = this->findActive(n->state());
+        if (it != activeGoals_.end()) {
+            this->doneGoal(n, it);
             if (!done_) update(n);
             return false;
         }
@@ -328,6 +329,19 @@ protected:
     /// stamp.
     /// \param n The goal node.
     virtual void doneGoal(Node *n, ActiveGoalsIt it) {
+        if (false) { // Output the average number of nodes in open for debugging
+            static std::ofstream debug{"debug/ol_debug.txt"};
+            static int nInstances = 100;
+            static int nGoals = activeGoals_.size();
+            static int curGoal = 0;
+            static int curInstance = 0;
+            static std::vector<int> sums(nGoals);
+            sums[curGoal] += alg_.oc().ol().size();
+            if (curInstance == nInstances - 1)
+                debug << (double)sums[curGoal] / nInstances << std::endl;
+            curGoal = (curGoal + 1) % nGoals;
+            if (curGoal == 0) ++curInstance;
+        }
         auto goalID = it->second; // must be before the call to doneGoal.
         DirectBase::doneGoal(n, it);
         if (!activeGoals_.empty()) {
