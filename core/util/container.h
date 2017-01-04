@@ -77,6 +77,32 @@ void shuffleMap(MapType &map) {
     shuffleRefs(v.begin(), v.end());
 }
 
+/// Get an element with maximal value in a map.
+/// \tparam KeyType The key type.
+/// \tparam ValueType The value type.
+/// \param x The map.
+/// \return The element with maximal value in \c x.
+template <typename KeyType, typename ValueType>
+std::pair<KeyType, ValueType> mapMax(const std::map<KeyType, ValueType> &x) {
+    using pairtype = std::pair<KeyType, ValueType>;
+    return *std::max_element(x.begin(), x.end(),
+                             [](const pairtype &p1, const pairtype &p2) {
+                                 return p1.second < p2.second;
+                             });
+}
+
+/// Get the vector of map's keys.
+/// \tparam KeyType The key type.
+/// \tparam ValueType The value type.
+/// \param x The map.
+/// \return The vector of the keys in \c x.
+template <typename KeyType, typename ValueType>
+std::vector<KeyType> mapKeys(const std::map<KeyType, ValueType> &x) {
+    std::vector<KeyType> res;
+    for (const auto &el: x) res.push_back(el.first);
+    return res;
+}
+
 } // namespace
 } // namespace
 } // namespace

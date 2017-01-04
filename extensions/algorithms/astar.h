@@ -119,6 +119,24 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
         return res;
     }
 
+    /// Computes the distance to the given state.
+    /// Returns CostType{-1} if that distance has not been computed.
+    /// \param s The state.
+    /// \return The distance to \c s.
+    CostType distance(const State &s) {
+        auto n = oc_.getNode(s);
+        if (!n) return CostType{-1};
+        return n->g;
+    }
+
+    /// Computes the distance map based on the current state of the closed list.
+    /// \return The distance map based on the current state of the closed list.
+    std::unordered_map<State, CostType, util::StateHash<State>> distanceMap() {
+        std::unordered_map<State, CostType, util::StateHash<State>> res;
+        for (auto el : oc_.hash()) res[el.first] = el.second->g;
+        return res;
+    }
+
     /// \name Services for policies.
     /// @{
 
