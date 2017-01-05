@@ -78,13 +78,12 @@ void shuffleMap(MapType &map) {
 }
 
 /// Get an element with maximal value in a map.
-/// \tparam KeyType The key type.
-/// \tparam ValueType The value type.
+/// \tparam MapType The map type.
 /// \param x The map.
 /// \return The element with maximal value in \c x.
-template <typename KeyType, typename ValueType>
-std::pair<KeyType, ValueType> mapMax(const std::map<KeyType, ValueType> &x) {
-    using pairtype = std::pair<KeyType, ValueType>;
+template <class MapType>
+typename MapType::value_type mapMax(const MapType &x) {
+    using pairtype = typename MapType::value_type;
     return *std::max_element(x.begin(), x.end(),
                              [](const pairtype &p1, const pairtype &p2) {
                                  return p1.second < p2.second;
@@ -92,13 +91,12 @@ std::pair<KeyType, ValueType> mapMax(const std::map<KeyType, ValueType> &x) {
 }
 
 /// Get the vector of map's keys.
-/// \tparam KeyType The key type.
-/// \tparam ValueType The value type.
+/// \tparam MapType The map type.
 /// \param x The map.
 /// \return The vector of the keys in \c x.
-template <typename KeyType, typename ValueType>
-std::vector<KeyType> mapKeys(const std::map<KeyType, ValueType> &x) {
-    std::vector<KeyType> res;
+template <class MapType>
+std::vector<typename MapType::key_type> mapKeys(const MapType &x) {
+    std::vector<typename MapType::key_type> res;
     for (const auto &el: x) res.push_back(el.first);
     return res;
 }

@@ -42,7 +42,7 @@ using BuildGraphOL =
 /// \tparam As every policy, this one needs to have the search algorithm type
 /// template parameter.
 template <class MyAlgorithm>
-using BuildGenerator = StatesT<MyAlgorithm, heuristic::Zero>;
+using BuildGenerator = StatesT<MyAlgorithm, policy::heuristic::Zero>;
 
 /// Builds the state graph of the domain.
 /// \return The state graph of the domain.
@@ -52,7 +52,7 @@ StateGraph<SLB_STATE> buildGraph() {
 
     auto instance = MyInstance(std::vector<State>(1),
                                std::vector<State>(1), MeasureSet{});
-    Astar<false, SLB_NODE, NoGoal, heuristic::Zero, BuildGenerator,
+    Astar<false, SLB_NODE, NoGoal, policy::heuristic::Zero, BuildGenerator,
           BuildGraphOL>
         myAstar{instance};
     myAstar.run();

@@ -19,15 +19,30 @@ using UniformOL = ext::policy::openList::BucketedStdMap_T<
     ext::policy::openList::GreaterPriority_SmallG,
     ext::policy::openList::OLMap>;
 
-template <bool logFlag, template <class> class GoalHandler = SLB_GOAL_HANDLER>
-using UniformCost =
-    Astar<logFlag, UniformNode, GoalHandler, ext::policy::heuristic::Zero,
-          ext::policy::generator::States, UniformOL>;
+template <class MyAlgorithm>
+using UniformHeuristic = ext::policy::heuristic::Zero<MyAlgorithm>;
 
-using SimpleUniformCost =
-    Astar<false, UniformNode, ext::policy::goalHandler::NoGoal,
-          ext::policy::heuristic::Zero, ext::policy::generator::States,
-          UniformOL>;
+template <class MyAlgorithm>
+using UniformGenerator =
+    ext::policy::generator::StatesT<MyAlgorithm, UniformHeuristic>;
+
+/// \note It is defined as a struct rather than as an alias to allow forward
+/// declarations.
+template <bool logFlag, template <class> class GoalHandler = SLB_GOAL_HANDLER>
+struct UniformCost : Astar<logFlag, UniformNode, GoalHandler, UniformHeuristic,
+                           UniformGenerator, UniformOL> {
+    using MyBase = Astar<logFlag, UniformNode, GoalHandler, UniformHeuristic,
+                         UniformGenerator, UniformOL>;
+    using MyBase::Astar;
+};
+
+/// \note It is defined as a struct rather than as an alias to allow forward
+/// declarations.
+struct SimpleUniformCost
+    : UniformCost<false, ext::policy::goalHandler::NoGoal> {
+    using MyBase = UniformCost<false, ext::policy::goalHandler::NoGoal>;
+    using MyBase::UniformCost;
+};
 
 } // namespace
 } // namespace

@@ -131,9 +131,10 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
 
     /// Computes the distance map based on the current state of the closed list.
     /// \return The distance map based on the current state of the closed list.
-    std::unordered_map<State, CostType, util::StateHash<State>> distanceMap() {
-        std::unordered_map<State, CostType, util::StateHash<State>> res;
-        for (auto el : oc_.hash()) res[el.first] = el.second->g;
+    std::unordered_map<State, CostType, core::util::StateHash<State>>
+    distanceMap() const {
+        std::unordered_map<State, CostType, core::util::StateHash<State>> res;
+        for (const auto &el : oc_.hash()) res[el.first] = el.second->g;
         return res;
     }
 

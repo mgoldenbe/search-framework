@@ -19,6 +19,7 @@ using core::ui::log;
 
 #include "explicit_spaces/headers.h"
 #include "domains/headers.h"
+#include "heuristics/headers.h"
 #include "nodes/headers.h"
 #include "events/headers.h"
 #include "shared_policies/headers.h"

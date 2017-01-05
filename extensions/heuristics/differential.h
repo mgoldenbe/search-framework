@@ -7,15 +7,38 @@
 
 namespace slb {
 namespace ext {
+
+namespace algorithm {
+struct SimpleUniformCost;
+}
+
 namespace heuristic {
 
 /// \namespace slb::ext::heuristic::differential
 /// The differential heuristic
 namespace differential {
 
+/// Additions to the command line related to the differential heuristic.
+struct CommandLine {
+    /// Returns the number of pivots.
+    /// \return The number of pivots.
+    int nPivots() { return nPivots_.getValue(); }
+
+private:
+    /// Command line option for the number of pancakes.
+    TCLAP::ValueArg<int> nPivots_;
+
+protected:
+    /// Injects this addition to the command line object.
+    /// \param cmd The command-line object.
+    CommandLine(TCLAP::CmdLine &cmd)
+        : nPivots_("", "nPivots", "Number of pivots", false, -1, "int",
+                     cmd) {}
+};
+
 template <class State>
 using DefaultDistanceMap =
-    std::unordered_map<State, typename State::CostType, util::StateHash<State>>;
+    std::unordered_map<State, typename State::CostType, core::util::StateHash<State>>;
 
 /// Pivot with distances to all the states.
 /// \tparam State The state type representing the search domain.
@@ -28,96 +51,104 @@ struct Pivot {
     using CostType = typename State::CostType;
     using DistanceMap = DistanceMapT<State>;
 
+    /// \tparam MyAlg Always \ref algorithm::SimpleUniformCost. It is a template
+    /// parameter to avoid dependencies.
+    template <class MyAlg = algorithm::SimpleUniformCost>
     Pivot (const State &s) : pivot_(s) {
-        using MyInstance = Instance<State>;
-        auto instance = MyInstance(std::vector<State>(1){pivot_},
+        using MyInstance = core::sb::Instance<State>;
+        auto instance = MyInstance(std::vector<State>{pivot_},
                                    std::vector<State>(1), MeasureSet{});
-        algorithm::SimpleUniformSearch search;
+        MyAlg search(instance);
         search.run();
-        distances = search.distanceMap();
+        distances_ = search.distanceMap();
     }
 
-    CostType distance(const State &s) const { return distances[s]; }
+    CostType distance(const State &s) const { return distances_.at(s); }
 
-    const DistanceMap &distanceMap() const { return distanceMap; }
+    const DistanceMap &distanceMap() const { return distances_; }
 
 private:
     State pivot_;
-    DistanceMap distances;
+    DistanceMap distances_;
 };
 
 struct Furthest {};
 
 /// The differential heuristic.
 /// \tparam State The state type representing the search domain.
-template <class State, template BaseHeuristic = SLB_DIFFERENTIAL_BASE_HEURISTIC,
-          template <class> class DistanceMapT>
+template <class State, class BaseHeuristic, template <class> class DistanceMapT>
 struct HBase {
+    using CostType = typename State::CostType;
+
     template <CMD_TPARAM>
     HBase(const State &goal)
-        : nPivots{CMD_T.nPivots()}, goal_{goal}, heuristic_(goal) {
-        // This can be made more efficient with the dynamic approach,
-        // but that requires optionally keeping closest distance to pivots.
-        if (nPivots != pivots.size()) {
-            pivots.clear();
-            makePivots();
-        }
-    }
+        : nPivots_{CMD_T.nPivots()}, goal_{goal}, heuristic_(goal) {}
 
-    CostType operator(const State &s) {
-        CostType res = heuristic_{goal};
-        for (const auto &p: pivots) {
-            auto myH = pivot.distance[s] - pivot.distance[goal_];
+    CostType operator()(const State &s) const {
+        CostType res = heuristic_(s);
+        for (const auto &p: pivots_) {
+            auto myH = p.distance(s) - p.distance(goal_);
             if (myH < CostType{0}) myH = -myH;
-            res = std::min(res, myH);
+            res = std::max(res, myH);
         }
         return res;
     }
 
-    private:
-        int nPivots;
-        static std::vector < Pivot<State, DistanceMapT> pivots;
+    protected:
+        int nPivots_;
+        static std::vector<Pivot<State, DistanceMapT>> pivots_;
         const State &goal_;
         BaseHeuristic heuristic_;
 
-        virtual void makePivots();
+        virtual void myMakePivots() = 0;
+        void makePivots() {
+            if (nPivots_ != pivots_.size()) {
+                pivots_.clear();
+                this->myMakePivots();
+            }
+        }
 };
+template <class State, class BaseHeuristic, template <class> class DistanceMapT>
+std::vector<Pivot<State, DistanceMapT>>
+    HBase<State, BaseHeuristic, DistanceMapT>::pivots_;
 
-template <class State, template BaseHeuristic = SLB_DIFFERENTIAL_BASE_HEURISTIC,
+/// The differential heuristic. Specializations are for particular placements.
+template <class State = SLB_STATE,
+          class BaseHeuristic = SLB_DIFFERENTIAL_BASE_HEURISTIC,
           class Placement = SLB_DIFFERENTIAL_PLACEMENT,
           template <class> class DistanceMapT = DefaultDistanceMap>
 struct H;
 
 /// The differential heuristic with the furthest placement.
 /// \tparam State The state type representing the search domain.
-template <class State, template BaseHeuristic,
-          template <class> class DistanceMapT>
+template <class State, class BaseHeuristic, template <class> class DistanceMapT>
 struct H<State, BaseHeuristic, Furthest, DistanceMapT>
     : HBase<State, BaseHeuristic, DistanceMapT> {
-    using HBase;
-    using nPivots;
-    using pivots;
+    using MyBase = HBase<State, BaseHeuristic, DistanceMapT>;
+    using MyBase::nPivots_;
+    using MyBase::pivots_;
     using DistanceMap = DistanceMapT<State>;
 
-    virtual void makePivots() {
+    H(const State &goal) : MyBase(goal) { this->makePivots(); }
+    virtual void myMakePivots() {
         Pivot<State> first{State{}}; // random auxiliary pivot, using default
                                      // distance map to get the vector
                                      // of states.
         std::vector<State> states = core::util::mapKeys(first.distanceMap());
 
         // The real first pivot.
-        pivots.emplace_back(core::util::get_max(first.distanceMap()).first);
+        pivots_.emplace_back(core::util::mapMax(first.distanceMap()).first);
 
-        DefaultDistanceMap toClosestPivot;
-        for (auto &el : states) toClosestPivot[el] = pivots[0].distance[el];
+        DefaultDistanceMap<State> toClosestPivot;
+        for (auto &el : states) toClosestPivot[el] = pivots_[0].distance(el);
 
-        for (int i = 1; i != nPivots; ++i) {
-            pivots.emplace_back(core::util::get_max(toClosestPivot()).first);
+        for (int i = 1; i != nPivots_; ++i) {
+            pivots_.emplace_back(core::util::mapMax(toClosestPivot).first);
             // update toClosestPivot
-            if (i == nPivots - 1) break;
+            if (i == nPivots_ - 1) break;
             for (auto &el : toClosestPivot)
                 el.second =
-                    std::min(el.second, pivots.back().distanceMap()[el.first]);
+                    std::min(el.second, pivots_.back().distance(el.first));
         }
     }
 };
