@@ -101,6 +101,57 @@ std::vector<typename MapType::key_type> mapKeys(const MapType &x) {
     return res;
 }
 
+// The following iterators are based on:
+// http://stackoverflow.com/a/35262398/2725810
+
+/// Iterator over keys of a map.
+template<class MyMap>
+struct MapKeyIterator : MyMap::iterator {
+    using Base = typename MyMap::iterator;
+    using Key = typename MyMap::key_type;
+    MapKeyIterator() : Base(){};
+    MapKeyIterator(Base it_) : Base(it_){};
+
+    Key *operator->() const { return &(Base::operator->()->first); }
+    Key operator*() const { return Base::operator*().first; }
+};
+
+/// Const iterator over keys of a map.
+template<class MyMap>
+struct MapKeyConstIterator : MyMap::const_iterator {
+    using Base = typename MyMap::const_iterator;
+    using Key = typename MyMap::key_type;
+    MapKeyConstIterator() : Base(){};
+    MapKeyConstIterator(Base it_) : Base(it_){};
+
+    Key *operator->() const { return &(Base::operator->()->first); }
+    Key operator*() const { return Base::operator*().first; }
+};
+
+/// Iterator over values of a map.
+template<class MyMap>
+struct MapValIterator : MyMap::iterator {
+    using Base = typename MyMap::iterator;
+    using Val = typename MyMap::mapped_type;
+    MapValIterator() : Base(){};
+    MapValIterator(Base it_) : Base(it_){};
+
+    Val *operator->() const { return &(Base::operator->()->second); }
+    Val operator*() const { return Base::operator*().second; }
+};
+
+/// Const iterator over values of a map.
+template<class MyMap>
+struct MapValConstIterator : MyMap::const_iterator {
+    using Base = typename MyMap::const_iterator;
+    using Val = typename MyMap::mapped_type;
+    MapValConstIterator() : Base(){};
+    MapValConstIterator(Base it_) : Base(it_){};
+
+    const Val *operator->() const { return &(Base::operator->()->second); }
+    Val operator*() const { return Base::operator*().second; }
+};
+
 } // namespace
 } // namespace
 } // namespace
