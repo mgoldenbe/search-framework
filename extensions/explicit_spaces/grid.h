@@ -30,6 +30,20 @@ struct Grid {
     /// algorithms, we call this state type \c location.
     using Location = int;
 
+    /// The type of iterator over passable locations.
+    using LocationIterator = core::util::IndexIterator<
+        std::vector<bool>,
+        core::util::VectorSkipConstIterator<std::vector<bool>>>;
+
+    /// The state iterator type.
+    template <class ExplicitState>
+    struct StateIterator : LocationIterator {
+        using LocationIterator::LocationIterator;
+        ExplicitState operator*() const {
+            return ExplicitState{LocationIterator::operator*()};
+        }
+    };
+
     /// Initializes the grid based on the contents of the given file.
     /// \param fileName The name of the file that stores the grid.
     Grid(std::string fileName) {
@@ -197,6 +211,11 @@ struct Grid {
     std::string locationStr(Location location) const {
         return locationShortStr(location) + " (" + str(location) + ")";
     }
+
+    /// Return the size of \ref v_.
+    /// \return The size of \ref v_.
+    int rawSize() const { return v_.size(); }
+
 private:
     /// The encoding of the map. \c true stands for passable, \c false stands
     /// for impassable.
@@ -223,6 +242,20 @@ private:
         CostType cost = diagonalFlag ? static_cast<CostType>(SLB_COST_DIAGONAL)
             : static_cast<CostType>(1.0);
         res.push_back(Neighbor((typename Neighbor::State{n}), cost));
+    }
+
+    LocationIterator locationIterator() {
+        return LocationIterator(v_, v_.begin(), 0);
+    }
+
+    template <class ExplicitState>
+    StateIterator<ExplicitState> beginStateIterator() {
+        return StateIterator<ExplicitState>(v_, v_.begin(), 0);
+    }
+
+    template <class ExplicitState>
+    StateIterator<ExplicitState> endStateIterator() {
+        return StateIterator<ExplicitState>(v_, v_.end(), 0);
     }
 };
 

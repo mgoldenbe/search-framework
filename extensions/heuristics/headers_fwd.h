@@ -5,6 +5,6 @@
 /// \brief Forward declaration headers.
 /// \author Meir Goldenberg
 
-#include "differential_fwd.h"
+#include "differential/headers_fwd.h"
 
 #endif

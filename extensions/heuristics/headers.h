@@ -17,6 +17,6 @@ namespace heuristic {}
 } // namespace
 } // namespace
 
-#include "differential.h"
+#include "differential/headers.h"
 
 #endif

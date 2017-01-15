@@ -41,7 +41,21 @@ struct UniformCost : Astar<logFlag, UniformNode, GoalHandler, UniformHeuristic,
 struct SimpleUniformCost
     : UniformCost<false, ext::policy::goalHandler::NoGoal> {
     using MyBase = UniformCost<false, ext::policy::goalHandler::NoGoal>;
+    using Astar = MyBase::MyBase;
     using MyBase::UniformCost;
+    using MyBase::distanceMap;
+
+    using State = Astar::State;
+    using MyInstance = Astar::MyInstance;
+    using DistanceMap = Astar::DistanceMap;
+
+    static DistanceMap distanceMap(const State &s) {
+        auto instance = MyInstance(std::vector<State>{s}, std::vector<State>(1),
+                                   MeasureSet{});
+        SimpleUniformCost search(instance);
+        search.run();
+        return search.distanceMap();
+    }
 };
 
 } // namespace

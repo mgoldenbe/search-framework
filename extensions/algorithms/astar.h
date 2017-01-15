@@ -68,6 +68,9 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     using MyType = Astar; ///< The type of \ref Astar; required for \ref ALG_DATA symbol.
     ALG_DATA
 
+    using DistanceMap =
+        std::unordered_map<State, CostType, core::util::StateHash<State>>;
+
     /// Initializes the algorithm based on the problem instance.
     /// \param instance The problem instance.
     Astar(const MyInstance &instance)
@@ -77,6 +80,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     /// \return The solution cost. If there is no solution, then \c CostType{-1}
     /// is returned.
     ReturnType run() {
+        //std::cerr << "Starting the timing!" << std::endl;
         TimerLock lock{time_}; (void)lock;
         NodeUniquePtr startNode(new Node(start_));
         startNode->set(0, initialHeuristic_(startNode.get()), this->stamp());
@@ -131,9 +135,8 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
 
     /// Computes the distance map based on the current state of the closed list.
     /// \return The distance map based on the current state of the closed list.
-    std::unordered_map<State, CostType, core::util::StateHash<State>>
-    distanceMap() const {
-        std::unordered_map<State, CostType, core::util::StateHash<State>> res;
+    DistanceMap distanceMap() const {
+        DistanceMap res;
         for (const auto &el : oc_.hash()) res[el.first] = el.second->g;
         return res;
     }

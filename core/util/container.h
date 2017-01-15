@@ -101,6 +101,119 @@ std::vector<typename MapType::key_type> mapKeys(const MapType &x) {
     return res;
 }
 
+/// Adapter for iterator that knows whether it is at the end.
+/// \tparam Base The base iterator, can be Constainer::iterator or
+/// Container::const_iterator.
+template <class Container, class Base>
+struct BasicInformedIterator: Base {
+    BasicInformedIterator(Container &c): Base(), c_(c) {}
+    BasicInformedIterator(Container &c, Base b): Base(b), c_(c) {}
+    BasicInformedIterator(const BasicInformedIterator &b) : Base(b), c_(b.c_) {}
+    bool isBegin() const {return *this == c_.begin();}
+    bool isEnd() const {return *this == c_.end();}
+    Container &container() const { return c_; }
+
+    BasicInformedIterator &operator=(const BasicInformedIterator &rhs) {
+        Base::operator=(rhs);
+        assert(&c_ == &rhs.c_);
+        return *this;
+    }
+
+    int index() const { return *this - c_.begin(); }
+
+private:
+    Container &c_;
+};
+
+/// Skipping iterators for a vector. Use the aliases defined below.
+template <class MyVector, class BaseIterator>
+struct BasicVectorSkipIterator : BasicInformedIterator<MyVector, BaseIterator> {
+    using Base = BasicInformedIterator<MyVector, BaseIterator>;
+    using ValueType = typename MyVector::value_type;
+
+    BasicVectorSkipIterator(MyVector &v, BaseIterator it, const ValueType &skip)
+        : Base(v, it), skip_(skip) {
+        adjust();
+    }
+
+    BasicVectorSkipIterator(const BasicVectorSkipIterator &b)
+        : Base(b), skip_(b.skip_) {}
+
+    BasicVectorSkipIterator &operator++() {
+        Base::operator++();
+        adjust();
+        return *this;
+    }
+
+    BasicVectorSkipIterator &operator=(const BasicVectorSkipIterator &rhs) {
+        Base::operator=(rhs);
+        skip_ = rhs.skip_;
+        return *this;
+    }
+
+private:
+    ValueType skip_;
+
+    void adjust() {
+        while (!this->isEnd() && Base::operator*() == skip_) Base::operator++();
+    }
+};
+
+template <class MyVector>
+using VectorSkipIterator =
+    BasicVectorSkipIterator<MyVector, typename MyVector::iterator>;
+
+template <class MyVector>
+using VectorSkipConstIterator =
+    BasicVectorSkipIterator<typename std::add_const<MyVector>::type,
+                            typename MyVector::const_iterator>;
+
+// Vector iterator whose operator* returns index instead of value.
+template <class MyVector, class Base>
+struct IndexIterator : Base {
+    template <class... Args>
+    IndexIterator(Args &&... args) : Base(args...) {}
+
+    IndexIterator(const IndexIterator &b) : Base(b) {}
+
+    int operator*() const {
+        return *this - this->container().begin();
+    }
+
+    IndexIterator &operator=(const IndexIterator &rhs) {
+        Base::operator=(rhs);
+        return *this;
+    }
+};
+
+/* Need to re-design this if ever have a need for it.
+/// Iterate on a vector based on the order provided by values returned by
+/// de-referencing the Base iterator (which may refer to another container).
+template <class MyVector, class Base, class Translator>
+struct IndirectIterator: Base {
+    using ValueType = typename MyVector::value_type;
+
+    template <class... Args>
+    IndirectIterator(MyVector &v, const Translator &t, Args &&... args)
+        : Base(args...), v_(v), t_(t) {}
+
+    IndirectIterator(MyVector &v, const Translator &t, const Base &b)
+        : Base(b), v_(v), t_(t) {}
+
+    ValueType operator*() { return v_[t_(Base::operator*())]; }
+
+    IndirectIterator &operator=(const IndirectIterator &rhs) {
+        Base::operator=(rhs);
+        v_ = rhs.v_;
+        t_ = rhs.t_;
+        return *this;
+    };
+private:
+    MyVector &v_;
+    Translator t_;
+};
+*/
+
 // The following iterators are based on:
 // http://stackoverflow.com/a/35262398/2725810
 
