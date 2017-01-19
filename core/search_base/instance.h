@@ -82,11 +82,12 @@ struct Instance {
     /// \return Const reference to the goal state.
     const State &goal() const { return goal_[0]; }
 
+    /// Returns the start states.
+    /// \return Reference to the vector of start states.
+    const std::vector<State> &starts() const { return start_; }
+
     /// Returns the goal states.
-    /// \return Non-const reference to the vector of goal states.
-    /// \note The reference in the return value is non-const, since some search
-    /// algorithms need to modify the set of goals as the algorithm progresses.
-    /// See \ref ext::policy::goalHandler::MinHeuristic for an example.
+    /// \return Reference to the vector of goal states.
     const std::vector<State> &goals() const { return goal_; }
 
     /// Returns a vector of single-goal instances, one instance for each goal
@@ -142,6 +143,27 @@ State uniqueRandomState(const std::vector<State> &v) {
     return res;
 }
 
+/// Perform a random walk of specified length from the specified state and return
+/// the resulting state. Checks that the state is not in the given vector of
+/// states.
+/// \tparam State The state type, represents the domain.
+/// \param s The state from which the random walk is to be initiated.
+/// \param length The length of the random walk.
+/// \param v The vector of forbidden states.
+/// \return The state resulting from a random walk of length \c length initiated
+/// at \c s.
+template <class State>
+State randomWalkState(const State &s, int length, const std::vector<State> &v) {
+    State res = s;
+    do {
+        for (int i = 0; i != length; ++i) {
+            auto nn = res.stateSuccessors();
+            res = nn[rand() % nn.size()].state();
+        }
+    } while (core::util::in(v, res));
+    return res;
+}
+
 /// Makes the required number of random instances. The numbers of start and goal
 /// states are determined by the command line.
 /// \tparam State The state type, represents the domain.
@@ -156,16 +178,42 @@ std::vector<Instance<State>> makeInstances(int n) {
     std::vector<MyInstance> res;
     int nStarts = CMD_T.nStarts('w');
     int nGoals = CMD_T.nGoals('w');
+    std::string strategy = CMD_T.instanceStrategy();
+
+    // For the random walk strategy.
+    // The next length of random walk is computed by adding walkStep and multiplying by walkMultiplier
+    int walkFirst = CMD_T.walkFirst();
+    int walkRepeat = CMD_T.walkRepeat();
+    int walkIncrement = CMD_T.walkIncrement();
+    int walkMultiplier = CMD_T.walkMultiplier();
+    int curWalkLength = walkFirst;
+    int curRepeated = 0;
+
     for (int i = 0; i < n; i++) {
         std::vector<State> start;
         std::vector<State> goal;
-        for (int i = 0; i != nStarts; i++)
-            start.push_back(uniqueRandomState(start));
+        if (i > 0 && strategy == "random_walk")
+            start = res.back().starts();
+        else {
+            for (int i = 0; i != nStarts; i++)
+                start.push_back(uniqueRandomState(start));
+        }
         for (int i = 0; i != nGoals; i++)
             if (i == 0 && CMD_T.defaultGoal())
                 goal.push_back(State{});
-            else
-                goal.push_back(uniqueRandomState(goal));
+            else {
+                if (i > 0 && strategy == "random_walk") {
+                    goal.push_back(
+                        randomWalkState(goal[0], curWalkLength, goal));
+                    if (++curRepeated == walkRepeat) {
+                        curWalkLength =
+                            (curWalkLength + walkIncrement) * walkMultiplier;
+                        curRepeated = 0;
+                    }
+                }
+                else
+                    goal.push_back(uniqueRandomState(goal));
+            }
         res.push_back(MyInstance(start, goal));
     }
     if (res[0].measures().size()) // otherwise, no measure to sort on

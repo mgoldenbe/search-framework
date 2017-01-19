@@ -42,14 +42,14 @@ struct CostGoal0Goal1 : Base {
     /// \return The measures of \c instance.
     template <class Instance> MeasureSet operator()(const Instance &instance) {
         using State = typename Instance::State;
-
-        auto res = static_cast<Base *>(this)->operator()(instance);
+        MeasureSet res{};
         auto goals = instance.goals();
         assert(goals.size() >= 2);
         Instance myInstance(std::vector<State>{goals[0]},
                             std::vector<State>{goals[1]}, MeasureSet{});
         SLB_ALGORITHM<false> alg(myInstance);
         res.append(Measure("G0-G1", alg.run()));
+        res.append(static_cast<Base *>(this)->operator()(instance));
         return res;
     }
 };

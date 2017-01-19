@@ -111,6 +111,34 @@ struct CommandLine: Base, Additions {
     /// the default state of the domain and \c false otherwise.
     bool defaultGoal() { return defaultGoal_.getValue(); }
 
+    /// Returns the strategy for forming instances.
+    /// \return The strategy for forming instances.
+    std::string instanceStrategy() { return instanceStrategy_.getValue(); }
+
+    /// Returns the length of the first walk for the random_walk instance
+    /// strategy.
+    /// \return The length of the first walk for the random_walk instance
+    /// strategy.
+    int walkFirst() { return walkFirst_.getValue(); }
+
+    /// Returns the number of times the same walk length will be used for the
+    /// random_walk instance strategy.
+    /// \return The number of times the same walk length will be used for the
+    /// random_walk instance strategy.
+    int walkRepeat() { return walkRepeat_.getValue(); }
+
+    /// Returns the increment for the length of the walk for the random_walk
+    /// instance strategy.
+    /// \return The increment for the length of the walk for the random_walk
+    /// instance strategy.
+    int walkIncrement() { return walkIncrement_.getValue(); }
+
+    /// Returns the multiplier for the length of the walk for the random_walk
+    /// instance strategy.
+    /// \return The multiplier for the length of the walk for the random_walk
+    /// instance strategy.
+    int walkMultiplier() { return walkMultiplier_.getValue(); }
+
     /// Returns \c true if per-problem-instance statistics are to appear on the
     /// output and \c false otherwise.
     /// \return \c true if per-problem-instance statistics are to appear on the
@@ -159,6 +187,24 @@ private:
     /// instance being created should be the default state of the domain.
     TCLAP::SwitchArg defaultGoal_;
 
+    /// Strategy for forming instances.
+    TCLAP::ValueArg<std::string> instanceStrategy_;
+
+    /// The length of the first walk for the random_walk instance strategy.
+    TCLAP::ValueArg<int> walkFirst_;
+
+    /// The number of times the same walk length will be used for the
+    /// random_walk instance strategy.
+    TCLAP::ValueArg<int> walkRepeat_;
+
+    /// The increment for the length of the walk for the random_walk instance
+    /// strategy.
+    TCLAP::ValueArg<int> walkIncrement_;
+
+    /// The multiplier for the length of the walk for the random_walk instance
+    /// strategy.
+    TCLAP::ValueArg<int> walkMultiplier_;
+
     /// Command line option for the switch showing whether per-problem-instance
     /// statistics are to appear on the output.
     TCLAP::SwitchArg perInstance_;
@@ -197,6 +243,25 @@ private:
                                           "domain the first goal in the "
                                           "instance being created",
                        cmd_, false),
+          instanceStrategy_("", "instanceStrategy",
+                            "The strategy for forming instances.", false,
+                            "random", "string", cmd_),
+          walkFirst_("", "walkFirst", "The length of the first walk for the "
+                                      "random_walk instance strategy.",
+                     false, 1, "int", cmd_),
+          walkRepeat_("", "walkRepeat", "The number of times the same walk "
+                                       "length will be used for the "
+                                       "random_walk instance strategy.",
+                      false, 1, "int", cmd_),
+          walkIncrement_("", "walkIncrement", "The increment for the length of "
+                                              "the walk for the random_walk "
+                                              "instance strategy.",
+                         false, 1, "int", cmd_),
+          walkMultiplier_("", "walkMultiplier",
+                          "The multiplier for the length of "
+                          "the walk for the random_walk "
+                          "instance strategy.",
+                          false, 1, "int", cmd_),
           perInstance_("p", "perInstance", "Output per-instance stats", cmd_,
                        false),
           hideTitle_("", "hideTitle", "Do not show the title line", cmd_,

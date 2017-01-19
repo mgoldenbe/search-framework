@@ -102,7 +102,9 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     /// \return The statistics about the search algorithm's
     /// performance for solving the particular instance.
     MeasureSet measures() const {
-        return Base::measures().append(MeasureSet{denied_});
+        return Base::measures().append(MeasureSet{
+            Measure{"Unique", static_cast<double>(oc_.hash().size())},
+            denied_});
     }
 
     /// Computes the state graph based on the closed list.
