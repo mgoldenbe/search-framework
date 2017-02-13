@@ -18,20 +18,26 @@ namespace sliding_tile {
 /// \tparam nRows Number of columns on the board.
 template <int nRows = SLB_SLIDING_TILE_NROWS,
           int nColumns = SLB_SLIDING_TILE_NCOLUMNS>
-struct SlidingTile : DomainBase {
+struct SlidingTile : core::sb::DomainBase {
     /// The type representing the cost of actions in the domain. Every
-    /// domain
-    /// must provide this name.
+    /// domain must provide this name.
     using CostType = int;
 
-    using SNeighbor = StateNeighbor<SlidingTile>;  ///< State neighbor type.
-    using ANeighbor = ActionNeighbor<SlidingTile>; ///< Action neighbor type.
+    using SNeighbor =
+        core::sb::StateNeighbor<SlidingTile>; ///< State neighbor type.
+    using ANeighbor =
+        core::sb::ActionNeighbor<SlidingTile>; ///< Action neighbor type.
 
-    /// The type for representing an action. An action is represented by the
-    /// direction of the blank's movement.
-    /// \note The none action is needed temporarily while we keep the last
-    /// action in the state.
-    enum class Action {up, down, left, right, none};
+    /// The type for representing an action.
+    /// \note We cannot get away with only \c to, since we need to be able to
+    /// compute the reverse action.
+    struct Action {
+        int from; /// old position of tile.
+        int to;   /// new position of tile.
+    };
+
+    /// Number of positions.
+    static constexpr int size_ = nRows * nColumns;
 
     /// The type for the vector of actions for a given position of the blank.
     using BlankActions = std::vector<Action>;
@@ -39,7 +45,13 @@ struct SlidingTile : DomainBase {
     /// The type for all the actions in the domain.
     using AllActions = std::array<BlankActions, size_>;
 
-    static constexpr size_ = nRows * nColumns;
+    /// The type for two-dimension array of Manhattan distance heuristic deltas
+    /// for a given tile. The indexes are from and to of an action.
+    using TileMDDeltas = std::array<std::array<int, size_>, size_>;
+
+    /// The type for all Manhattan distance heuristic deltas.
+    using AllMDDeltas = std::array<TileMDDeltas, size_>;
+
     using Board = std::array<int, size_>;
 
     /// Initializes the ordered state.
@@ -74,24 +86,23 @@ struct SlidingTile : DomainBase {
     /// on the board.
     /// \return The state after the action.
     SlidingTile &apply(Action a) {
-        newBlank = newBlanks_[blank_][a];
-        tiles_[blank_] = tiles[newBlank];
-        blank_ = newBlank;
-        lastAction_ = a;
+        tiles_[blank_] = tiles_[a.from];
+        blank_ = a.from;
+        toParent_ = reverseAction(a);
         return *this;
     }
 
     /// Computes the actions available from the state.
     /// \return Vector of actions available from the state.
     const std::vector<Action> &actions() const {
-        return allActions_[blank_];
+        return allActions_()[blank_];
     }
 
     /// Returns the reverse of the given action.
     /// \param a The action whose reverse is to be returned.
     /// \return The reverse of the given action.
     static Action reverseAction(Action a) {
-        return reverseActions_[static_cast<int>(a)];
+        return {a.to, a.from};
     }
 
     /// Computes the state neighbors of the state.
@@ -109,63 +120,38 @@ struct SlidingTile : DomainBase {
     /// \return Vector of action neighbors of the state.
     std::vector<ANeighbor> actionSuccessors() const {
         std::vector<ANeighbor> res;
-        for (auto a : actions())
+        for (auto a : actions()) {
+            if (a == toParent_) continue;
             res.push_back(std::move(a));
-        return res;
-    }
-
-    /// Computes the change in gap heuristic from the state obtained by
-    /// applying
-    /// the given action to the goal state with ordered pancakes.
-    /// \return The gap heuristic from the state obtained by applying
-    /// the given action to the goal state with ordered pancakes.
-    int gapDelta(Action a) const {
-        if (a < pancakes_.size() - 1) {
-            if (gap(a, a + 1) && !gap(0, a + 1)) return -1;
-            if (gap(0, a + 1) && !gap(a, a + 1)) return 1;
-            return 0;
         }
-
-        // All pancakes are being reversed
-        if (largestInPlace()) return 1;
-        if (pancakes_[0] == pancakes_.size() - 1) return -1;
-        return 0;
-    }
-
-    // UP TO HERE
-
-    /// Computes the gap heuristic from the state to the goal state with
-    /// ordered
-    /// pancakes.
-    /// \return The gap heuristic from the state to the goal state with
-    /// ordered
-    /// pancakes.
-    int gapHeuristic() const {
-        int res = 0;
-        for (unsigned i = 0U; i < pancakes_.size() - 1; i++)
-            if (gap(i, i + 1)) res++;
-        if (!largestInPlace()) res++;
         return res;
     }
 
-    /// Computes the gap heuristic from the state to the given goal state.
-    /// \param goal The goal state.
-    /// \return The gap heuristic from the state to \c goal.
-    int gapHeuristic(const Pancake &goal) const {
-        Pancake temp = *this;
-        std::vector<int> transform(goal.pancakes_.size());
-        for (auto i = 0U; i < goal.pancakes_.size(); ++i)
-            transform[goal.pancakes_[i]] = i;
-        for (auto i = 0U; i < temp.pancakes_.size(); ++i)
-            temp.pancakes_[i] = transform[temp.pancakes_[i]];
-        return temp.gapHeuristic();
+    /// The change in the Manhattan distance heuristic to the goal state with
+    /// ordered tiles and the blank at position 0 due to applying the given action.
+    /// \param a The given action.
+    /// \return The change in the Manhattan distance heuristic to the goal state
+    /// with ordered pancake due to applying the given action.
+    int mdDelta(Action a) const {
+        return mdDeltas_()[tiles_[a.from]][a.from][a.to];
+    }
+
+    /// Computes the Manhattan distance heuristic to the goal state with
+    /// ordered tiles and the blank at position 0.
+    /// \return The Manhattan distance heuristic to the goal state with
+    /// ordered tiles and the blank at position 0.
+    int mdHeuristic() const {
+        int res = 0;
+        for (int pos = 0; pos < size_; ++pos)
+            res += rowDist(pos, tiles_[pos]) + colDist(pos, tiles_[pos]);
+        return res;
     }
 
     /// Computes the hash-code of the state.
     /// \return The hash-code of the state.
     std::size_t hash() const {
         boost::hash<std::vector<int>> v_hash;
-        return v_hash(pancakes_);
+        return v_hash(tiles_);
     }
 
     /// Dumps the state to the given stream.
@@ -173,32 +159,28 @@ struct SlidingTile : DomainBase {
     /// \param o The stream.
     /// \return The modified stream.
     template <class Stream> Stream &dump(Stream &o) const {
-        return o << pancakes_;
+        return o << tiles_;
     }
 
-    /// Randomly shuffles the pancakes.
+    /// Randomly shuffles the tiles.
     void shuffle() {
-        auto old = pancakes_;
-        while (old == pancakes_)
-            std::random_shuffle(pancakes_.begin(), pancakes_.end());
+        auto old = tiles_;
+        while (old == tiles_)
+            std::random_shuffle(tiles_.begin(), tiles_.end());
     }
 
     /// The equality operator.
     /// \param rhs The right-hand side of the operator.
     /// \return \c true if the two states compare equal and \c false
     /// otherwise.
-    bool operator==(const Pancake &rhs) const {
-        return pancakes_ == rhs.pancakes_;
+    bool operator==(const SlidingTile &rhs) const {
+        return tiles_ == rhs.tiles_;
     }
 
     /// Returns a random state.
     /// \return A random state.
-    /// \note The function is a template to avoid instantiation when the domain
-    /// is not used. Such an instantiation would result in trying to use
-    /// non-existing command line arguments.
-    template <CMD_TPARAM>
-    static Pancake random() {
-        Pancake res{};
+    static SlidingTile random() {
+        SlidingTile res{};
         res.shuffle();
         return res;
     }
@@ -209,109 +191,104 @@ private:
     std::array<int, size_> tiles_;
 
     /// Blank position.
-    int blank_ = 0;
+    int blank_{};
 
     /// Last action.
     /// \note This is to be removed once a suitable policy in IDA* is implemented.
-    Action lastAction_ = Action::none;
+    Action toParent_{};
 
-    const static AllActions allActions_ = computeAllActions();
-    const static std::array<Action, 4> reverseActions_{
-        Action::down, Action::up, Action::right, Action::left};
-
-    /// Computes the position of the blank after the given action.
-    /// \param a The given action.
-    /// \return The position of the blank after \c a.
-    int blankAfterAction(Action a) {
-        switch (a) {
-        case Action::up: return blank_ - nColumns;
-        case Action::down: return blank_ + nColumns;
-        case Action::left: return blank_ - 1;
-        case Action::right: return blank_ - 1;
-        default: assert(0);
-        }
+    static int row(int pos) { return pos / nColumns; }
+    static int rowDiff(int pos1, int pos2) { return row(pos1) - row(pos2); }
+    static int rowDist(int pos1, int pos2) {
+        return std::abs(rowDiff(pos1, pos2));
+    }
+    static int col(int pos) { return pos % nColumns; }
+    static int colDiff(int pos1, int pos2) { return col(pos1) - col(pos2); }
+    static int colDist(int pos1, int pos2) {
+        return std::abs(colDiff(pos1, pos2));
     }
 
     /// Computes the actions available for each position of the blank.
     static AllActions computeAllActions() {
         AllActions res;
         for (int blank = 0; blank < size_; ++blank) {
-            if (blank > nColumns - 1) res[blank].push_back(Action::up);
-            if (blank < size_ - nColumns) res[blank].push_back(Action::down);
-            if (blank % nColumns > 0) res[blank].push_back(Action::left);
+            if (blank > nColumns - 1)
+                res[blank].push_back({blank - nColumns, blank});
+            if (blank < size_ - nColumns)
+                res[blank].push_back({blank + nColumns, blank});
+            if (blank % nColumns > 0)
+                res[blank].push_back({blank - 1, blank});
             if (blank % nColumns < nColumns - 1)
-                res[blank].push_back(Action::right);
+                res[blank].push_back({blank + 1, blank});
         }
         return res;
     }
 
-    /// Is there a gap between positions i and i+1?
-    /// \return \c true if there is a gap and \c false otherwise
-    bool gap(int i) const { return gap(i, i + 1); }
-
-    /// Is there a gap between positions i and j?
-    /// \return \c true if there is a gap and \c false otherwise
-    bool gap(int i, int j) const {
-        return (abs(pancakes_[i] - pancakes_[j]) > 1);
+    static AllMDDeltas computeAllMDDeltas() {
+        AllMDDeltas res;
+        for (int tile = 1; tile < size_; ++tile) {
+            for (int blank = 0; blank < size_; ++blank) {
+                for (const Action &a: allActions_()[blank]) {
+                    int from = a.from, to = a.to;
+                    res[tile][from][to] =
+                        (rowDist(tile, to) - rowDist(tile, from)) +
+                        (colDist(tile, to) - colDist(tile, from));
+                }
+            }
+        }
+        return res;
     }
 
-    /// Is the largest pancake in place?
-    /// \return \c true if the largest pancake is in place and \c false
-    /// otherwise
-    bool largestInPlace() const {
-        return (pancakes_.back() == (int)pancakes_.size() - 1);
+    /// Returns all the actions.
+    /// \note See http://stackoverflow.com/a/42208278/2725810
+    static const AllActions& allActions_() {
+        static const AllActions instance = computeAllActions();
+        return instance;
+    }
+
+    /// Returns all the updates of the MD heuristic.
+    static const AllMDDeltas& mdDeltas_() {
+        static const AllMDDeltas instance = computeAllMDDeltas();
+        return instance;
     }
 };
 
 //------------------------- HEURISTICS ------------------//
 
-/// Functor for computing the gap heuristic to the goal state with ordered
-/// pancakes.
-struct GapHeuristic {
+/// Functor for computing the Manhattan distance heuristic to the goal state
+/// with ordered tiles and blank at position 0.
+struct MDHeuristic {
     /// The constructor
-    GapHeuristic(const Pancake &) {}
+    template <int nRows, int nColumns>
+    MDHeuristic(const SlidingTile<nRows, nColumns> &) {}
 
-    /// The call operator. Computes the gap heuristic from the given state to
-    /// the goal state with ordered pancakes.
+    /// The call operator. Computes the MD heuristic from the given state to
+    /// the goal state with ordered tiles and blank at position 0.
     /// \param s The state from which the heuristic value is needed.
-    /// \return The gap heuristic from \c s to the goal state with ordered
-    /// pancakes.
-    /// \note The last parameter is for reasons of uniformity, so the caller can
-    /// pass the goal state.
-    int operator()(const Pancake &s) const { return s.gapHeuristic(); }
-};
-
-/// Functor for computing the dynamic gap heuristic to the goal state with
-/// ordered pancakes.
-struct DynamicGapHeuristic {
-    /// The constructor
-    DynamicGapHeuristic(const Pancake &) {}
-
-    /// The call operator. Dynamically computes the gap heuristic that results
-    /// from applying a given action.
-    /// \param parent The parent state.
-    /// \param n The neighbor.
-    template <class Neighbor>
-    int operator()(const Pancake &parent, Pancake::CostType,
-                   const Neighbor &n) const {
-        return parent.gapDelta(n.action());
+    /// \return The MD heuristic from \c s to the goal state with ordered
+    /// pancakes and blank at position 0.
+    template <int nRows, int nColumns>
+    int operator()(const SlidingTile<nRows, nColumns> &s) const {
+        return s.mdHeuristic();
     }
 };
 
-/// Functor for computing the gap heuristic to the given goal state.
-struct GapHeuristicToGoal {
+/// Functor for computing the dynamic Manhattan distance heuristic to the goal state with ordered pancakes and blank at position 0.
+struct DynamicMDHeuristic {
     /// The constructor
-    /// \param goal The goal state.
-    GapHeuristicToGoal(const Pancake &goal) : goal_(goal) {}
+    template <int nRows, int nColumns>
+    DynamicMDHeuristic(const SlidingTile<nRows, nColumns> &) {}
 
-    /// The call operator. Computes the gap heuristic from the given state to
-    /// the given goal state.
-    /// \param s The state from which the heuristic value is needed.
-    /// \return The gap heuristic from \c s to \c goal_.
-    int operator()(const Pancake &s) const { return s.gapHeuristic(goal_); }
-
-private:
-    const Pancake &goal_; ///< The goal state.
+    /// The call operator. Dynamically computes the MD heuristic that results
+    /// from applying a given action.
+    /// \param parent The parent state.
+    /// \param n The neighbor.
+    template <class Neighbor, int nRows, int nColumns>
+    int operator()(const SlidingTile<nRows, nColumns> &parent,
+                   typename SlidingTile<nRows, nColumns>::CostType,
+                   const Neighbor &n) const {
+        return parent.mdDelta(n.action());
+    }
 };
 
 } // namespace
