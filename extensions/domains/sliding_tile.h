@@ -29,7 +29,9 @@ struct SlidingTile : DomainBase {
 
     /// The type for representing an action. An action is represented by the
     /// direction of the blank's movement.
-    enum class Action {up, down, left, right};
+    /// \note The none action is needed temporarily while we keep the last
+    /// action in the state.
+    enum class Action {up, down, left, right, none};
 
     /// The type for the vector of actions for a given position of the blank.
     using BlankActions = std::vector<Action>;
@@ -72,8 +74,10 @@ struct SlidingTile : DomainBase {
     /// on the board.
     /// \return The state after the action.
     SlidingTile &apply(Action a) {
-        tiles_[blank_] = tiles[a];
-        blank_ = a;
+        newBlank = newBlanks_[blank_][a];
+        tiles_[blank_] = tiles[newBlank];
+        blank_ = newBlank;
+        lastAction_ = a;
         return *this;
     }
 
@@ -105,7 +109,8 @@ struct SlidingTile : DomainBase {
     /// \return Vector of action neighbors of the state.
     std::vector<ANeighbor> actionSuccessors() const {
         std::vector<ANeighbor> res;
-        for (auto a : actions()) res.push_back(std::move(a));
+        for (auto a : actions())
+            res.push_back(std::move(a));
         return res;
     }
 
@@ -204,7 +209,11 @@ private:
     std::array<int, size_> tiles_;
 
     /// Blank position.
-    int blank_;
+    int blank_ = 0;
+
+    /// Last action.
+    /// \note This is to be removed once a suitable policy in IDA* is implemented.
+    Action lastAction_ = Action::none;
 
     const static AllActions allActions_ = computeAllActions();
     const static std::array<Action, 4> reverseActions_{
