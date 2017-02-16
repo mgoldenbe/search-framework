@@ -6,5 +6,6 @@
 #define SLB_STATE ext::domain::pancake::Pancake
 #define SLB_CMD_LINE_ADD ext::domain::pancake::CommandLine
 #define SLB_BASE_HEURISTIC ext::domain::pancake::GapHeuristic
+#define SLB_BASE_DYNAMIC_HEURISTIC ext::domain::pancake::DynamicGapHeuristic
 
 #endif

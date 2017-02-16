@@ -16,8 +16,7 @@ namespace sliding_tile {
 /// The sliding-tile puzzle domain.
 /// \tparam nRows Number of rows on the board.
 /// \tparam nRows Number of columns on the board.
-template <int nRows = SLB_SLIDING_TILE_NROWS,
-          int nColumns = SLB_SLIDING_TILE_NCOLUMNS>
+template <int nRows, int nColumns>
 struct SlidingTile : core::sb::DomainBase {
     /// The type representing the cost of actions in the domain. Every
     /// domain must provide this name.
@@ -34,6 +33,10 @@ struct SlidingTile : core::sb::DomainBase {
     struct Action {
         int from; /// old position of tile.
         int to;   /// new position of tile.
+        bool reverseFlag; // temporary needed to keep correct toParent_.
+        bool operator==(const Action &rhs) const {
+            return from == rhs.from && to == rhs.to;
+        }
     };
 
     /// Number of positions.
@@ -65,8 +68,10 @@ struct SlidingTile : core::sb::DomainBase {
     /// \param s The string.
     SlidingTile(const std::string &s) {
         int i = -1;
-        for (auto el : core::util::split(s, {' ', ',', '[', ']'}))
+        for (auto el : core::util::split(s, {' ', ',', '[', ']'})) {
             tiles_[++i] = std::stoi(el);
+            if (tiles_[i] == 0) blank_ = i;
+        }
     }
 
     /// The default copy constructor.
@@ -88,7 +93,10 @@ struct SlidingTile : core::sb::DomainBase {
     SlidingTile &apply(Action a) {
         tiles_[blank_] = tiles_[a.from];
         blank_ = a.from;
-        toParent_ = reverseAction(a);
+        if (a.reverseFlag)
+            toParent_ = {0, 0, true};
+        else
+            toParent_ = reverseAction(a);
         return *this;
     }
 
@@ -102,7 +110,7 @@ struct SlidingTile : core::sb::DomainBase {
     /// \param a The action whose reverse is to be returned.
     /// \return The reverse of the given action.
     static Action reverseAction(Action a) {
-        return {a.to, a.from};
+        return {a.to, a.from, true};
     }
 
     /// Computes the state neighbors of the state.
@@ -143,14 +151,15 @@ struct SlidingTile : core::sb::DomainBase {
     int mdHeuristic() const {
         int res = 0;
         for (int pos = 0; pos < size_; ++pos)
-            res += rowDist(pos, tiles_[pos]) + colDist(pos, tiles_[pos]);
+            if (pos != blank_)
+                res += rowDist(pos, tiles_[pos]) + colDist(pos, tiles_[pos]);
         return res;
     }
 
     /// Computes the hash-code of the state.
     /// \return The hash-code of the state.
     std::size_t hash() const {
-        boost::hash<std::vector<int>> v_hash;
+        boost::hash<Board> v_hash;
         return v_hash(tiles_);
     }
 
@@ -174,7 +183,10 @@ struct SlidingTile : core::sb::DomainBase {
     /// \return \c true if the two states compare equal and \c false
     /// otherwise.
     bool operator==(const SlidingTile &rhs) const {
-        return tiles_ == rhs.tiles_;
+        if (blank_ != rhs.blank_) return false;
+        for (int i = 0; i < size_; ++i)
+            if (i != blank_ && tiles_[i] != rhs.tiles_[i]) return false;
+        return true;
     }
 
     /// Returns a random state.
@@ -212,14 +224,15 @@ private:
     static AllActions computeAllActions() {
         AllActions res;
         for (int blank = 0; blank < size_; ++blank) {
+            // the order is compatible with the code of Richard Korf.
             if (blank > nColumns - 1)
-                res[blank].push_back({blank - nColumns, blank});
-            if (blank < size_ - nColumns)
-                res[blank].push_back({blank + nColumns, blank});
+                res[blank].push_back({blank - nColumns, blank, false});
             if (blank % nColumns > 0)
-                res[blank].push_back({blank - 1, blank});
+                res[blank].push_back({blank - 1, blank, false});
             if (blank % nColumns < nColumns - 1)
-                res[blank].push_back({blank + 1, blank});
+                res[blank].push_back({blank + 1, blank, false});
+            if (blank < size_ - nColumns)
+                res[blank].push_back({blank + nColumns, blank, false});
         }
         return res;
     }
@@ -230,6 +243,7 @@ private:
             for (int blank = 0; blank < size_; ++blank) {
                 for (const Action &a: allActions_()[blank]) {
                     int from = a.from, to = a.to;
+                    assert(to == blank);
                     res[tile][from][to] =
                         (rowDist(tile, to) - rowDist(tile, from)) +
                         (colDist(tile, to) - colDist(tile, from));

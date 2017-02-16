@@ -51,7 +51,7 @@ struct NoGoal {
 };
 
 /// Handling conditions related to goal states for the case when there is a
-/// single goal state.
+/// single goal state. Assumes that, at goal, f=g holds.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
 struct SingleGoal {
@@ -65,7 +65,9 @@ struct SingleGoal {
     /// Handles selection of a node by the search algorithm.
     void onSelect() {
         Node *n = alg_.cur();
-        if (n->state() == goal_) doneGoal(n);
+        if (n->f == n->g)
+            // the above check might be much faster than comparing the states
+            if (n->state() == goal_) doneGoal(n);
     }
 
     /// Returns \c true if all the goals were found with the required quality

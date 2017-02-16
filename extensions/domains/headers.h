@@ -18,5 +18,6 @@ namespace domain {}
 #include "inc_worst.h"
 #include "grid.h"
 #include "pancake.h"
+#include "sliding_tile.h"
 
 #endif

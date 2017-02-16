@@ -87,7 +87,11 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
 
         while (true) {
             next_threshold_ = std::numeric_limits<CostType>::max();
-            if (iteration()) break;
+            int gen_before = generated_.value(); (void)gen_before;
+            bool iterationResult = iteration();
+            // std::cout << threshold_ << " " << std::fixed
+            //           << generated_.value() - gen_before << std::endl;
+            if (iterationResult) break;
             threshold_ = next_threshold_;
         }
 
@@ -104,7 +108,8 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
         }
         log<ext::event::Selected>(log_, cur_);
         goalHandler_.onSelect();
-        if (goalHandler_.done()) return true;
+        if (goalHandler_.done())
+            return true;
 
         ++expanded_;
         auto neighbors_ = generator_.successors(cur_->state());
