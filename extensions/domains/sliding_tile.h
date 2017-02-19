@@ -43,7 +43,7 @@ struct SlidingTile : core::sb::DomainBase {
     static constexpr int size_ = nRows * nColumns;
 
     /// The type for the vector of actions for a given position of the blank.
-    using BlankActions = std::vector<Action>;
+    using BlankActions = std::vector<ANeighbor>;
 
     /// The type for all the actions in the domain.
     using AllActions = std::array<BlankActions, size_>;
@@ -100,12 +100,6 @@ struct SlidingTile : core::sb::DomainBase {
         return *this;
     }
 
-    /// Computes the actions available from the state.
-    /// \return Vector of actions available from the state.
-    const std::vector<Action> &actions() const {
-        return allActions_()[blank_];
-    }
-
     /// Returns the reverse of the given action.
     /// \param a The action whose reverse is to be returned.
     /// \return The reverse of the given action.
@@ -117,8 +111,8 @@ struct SlidingTile : core::sb::DomainBase {
     /// \return Vector of state neighbors of the state.
     std::vector<SNeighbor> stateSuccessors() const {
         std::vector<SNeighbor> res;
-        for (auto a : actions()) {
-            auto n = SlidingTile{*this}.apply(a);
+        for (auto a : actionSuccessors()) {
+            auto n = SlidingTile{*this}.apply(a.action());
             res.push_back(std::move(n));
         }
         return res;
@@ -126,13 +120,8 @@ struct SlidingTile : core::sb::DomainBase {
 
     /// Computes the action neighbors of the state.
     /// \return Vector of action neighbors of the state.
-    std::vector<ANeighbor> actionSuccessors() const {
-        std::vector<ANeighbor> res;
-        for (auto a : actions()) {
-            //if (a == toParent_) continue;
-            res.push_back(std::move(a));
-        }
-        return res;
+    const std::vector<ANeighbor> &actionSuccessors() const {
+        return allActions_()[blank_];
     }
 
     /// The change in the Manhattan distance heuristic to the goal state with
@@ -226,13 +215,13 @@ private:
         for (int blank = 0; blank < size_; ++blank) {
             // the order is compatible with the code of Richard Korf.
             if (blank > nColumns - 1)
-                res[blank].push_back({blank - nColumns, blank, false});
+                res[blank].push_back(Action{blank - nColumns, blank, false});
             if (blank % nColumns > 0)
-                res[blank].push_back({blank - 1, blank, false});
+                res[blank].push_back(Action{blank - 1, blank, false});
             if (blank % nColumns < nColumns - 1)
-                res[blank].push_back({blank + 1, blank, false});
+                res[blank].push_back(Action{blank + 1, blank, false});
             if (blank < size_ - nColumns)
-                res[blank].push_back({blank + nColumns, blank, false});
+                res[blank].push_back(Action{blank + nColumns, blank, false});
         }
         return res;
     }
@@ -241,8 +230,8 @@ private:
         AllMDDeltas res;
         for (int tile = 1; tile < size_; ++tile) {
             for (int blank = 0; blank < size_; ++blank) {
-                for (const Action &a: allActions_()[blank]) {
-                    int from = a.from, to = a.to;
+                for (const ANeighbor &a: allActions_()[blank]) {
+                    int from = a.action().from, to = a.action().to;
                     assert(to == blank);
                     res[tile][from][to] =
                         (rowDist(tile, to) - rowDist(tile, from)) +
