@@ -115,10 +115,6 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
     /// Performs a single iteration of IDA*.
     /// \return \c true if the solution has been found and \c false otherwise.
     bool iteration() {
-        if (cur_->f > threshold_) {
-            next_threshold_ = std::min(next_threshold_, cur_->f);
-            return false;
-        }
         log<ext::event::Selected>(log_, cur_);
         goalHandler_.onSelect();
         if (goalHandler_.done())
@@ -130,7 +126,10 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
             if (pruner_(n)) continue;
             ++generated_;
             auto btLock = backtrack_.lock(n); (void)btLock;
-            if (iteration()) return true;
+            if (cur_->f > threshold_)
+                next_threshold_ = std::min(next_threshold_, cur_->f);
+            else if (iteration())
+                return true;
         }
         log<ext::event::Closed>(log_, cur_);
         return false;
