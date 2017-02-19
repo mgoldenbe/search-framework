@@ -28,12 +28,19 @@ struct InplaceBase {
     InplaceBase(MyAlgorithm &alg, Node *cur, Neighbor &)
         : alg_(alg), cur_(cur) {}
 
+    const typename State::Action &reverseAction() const {
+        return reverseAction_;
+    }
+
 private:
     MyAlgorithm &alg_; ///< Reference to the search algorithm.
     NodeData data_; ///< The data stored with the parent node.
 
     /// The action that takes back to the parent.
     typename State::Action reverseAction_;
+
+    /// The previously stored by the algorithm lastLock.
+    typename MyAlgorithm::BtLockType *prevLock;
 
 protected:
     /// The node being expanded by IDA*.
@@ -44,6 +51,8 @@ protected:
     /// \param n The neighbor.
     template <class Neighbor>
     void set(Neighbor &n) {
+        prevLock = alg_.lastLock();
+        alg_.lastLock() = static_cast<typename MyAlgorithm::BtLockType *>(this);
         data_ = *cur_;
         reverseAction_ = State::reverseAction(n.action());
         auto h = alg_.generator().heuristic(n, cur_);
@@ -53,6 +62,7 @@ protected:
 
     /// Does the necessary bookkeeping before backtracking to the parent.
     void unset() {
+        alg_.lastLock() = prevLock;
         cur_->NodeData::operator=(data_);
         cur_->state().apply(reverseAction_);
     }

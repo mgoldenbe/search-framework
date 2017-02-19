@@ -40,6 +40,7 @@ namespace policy {}
 } // namespace
 
 #include "backtrack_lock.h"
+#include "pruning.h"
 #include "goal_handlers.h"
 #include "heuristic_policies.h"
 #include "generators.h"

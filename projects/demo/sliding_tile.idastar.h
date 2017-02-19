@@ -7,5 +7,6 @@
 #include "sliding_tile.h"
 
 #define SLB_ID_ASTAR_BACKTRACK_LOCK ext::policy::backtrackLock::Inplace
+#define SLB_ID_ASTAR_PRUNING ext::policy::pruning::ToParent
 
 #endif

@@ -129,7 +129,7 @@ struct SlidingTile : core::sb::DomainBase {
     std::vector<ANeighbor> actionSuccessors() const {
         std::vector<ANeighbor> res;
         for (auto a : actions()) {
-            if (a == toParent_) continue;
+            //if (a == toParent_) continue;
             res.push_back(std::move(a));
         }
         return res;
