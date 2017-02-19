@@ -182,10 +182,6 @@ private:
     /// Blank position.
     int blank_{};
 
-    /// Last action.
-    /// \note This is to be removed once a suitable policy in IDA* is implemented.
-    Action toParent_{};
-
     static int row(int pos) { return pos / nColumns; }
     static int rowDiff(int pos1, int pos2) { return row(pos1) - row(pos2); }
     static int rowDist(int pos1, int pos2) {

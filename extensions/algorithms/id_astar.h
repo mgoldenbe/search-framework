@@ -121,7 +121,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
             return true;
 
         ++expanded_;
-        auto neighbors_ = generator_.successors(cur_->state());
+        const auto &neighbors_ = generator_.successors(cur_->state());
         for (auto &n : neighbors_) {
             if (pruner_(n)) continue;
             ++generated_;

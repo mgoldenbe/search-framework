@@ -25,7 +25,7 @@ COMMON_PREFIX=$(COMPILER) -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedan
 PREPROCESSOR=$(COMMON_PREFIX) -o $(MAIN_I) $(MAIN_CPP) -E
 MAKE_EXEC=$(COMMON_PREFIX) -fpreprocessed -o $(EXEC) $(MAIN_I) $(GRAPHICS_LIB)
 MAKE_DEBUG_EXEC=$(MAKE_EXEC) -g -O0
-MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -DNDEBUG -O2
+MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -DNDEBUG -O2 #-g -fno-inline
 
 HASH_SOURCE=.execs/last_hash_source
 HASH_CODE=.execs/last_hash_code

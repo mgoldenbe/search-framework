@@ -54,7 +54,7 @@ struct StatesT {
     /// \return The vector of successors.
     /// \note This member could be static; made it non-static for reasons of
     /// uniformity.
-    std::vector<Neighbor> successors(const State &s) const {
+    auto successors(const State &s) const -> decltype(s.stateSuccessors()) {
         return s.stateSuccessors();
     }
 private:
@@ -101,7 +101,7 @@ struct ActionsT {
     /// \return The vector of successors.
     /// \note This member could be static; made it non-static for reasons of
     /// uniformity.
-    std::vector<Neighbor> successors(const State &s) const {
+    auto successors(const State &s) const -> decltype(s.actionSuccessors()) {
         return s.actionSuccessors();
     }
 private:
