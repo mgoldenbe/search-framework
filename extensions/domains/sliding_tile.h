@@ -27,17 +27,8 @@ struct SlidingTile : core::sb::DomainBase {
     using ANeighbor =
         core::sb::ActionNeighbor<SlidingTile>; ///< Action neighbor type.
 
-    /// The type for representing an action.
-    /// \note We cannot get away with only \c to, since we need to be able to
-    /// compute the reverse action.
-    struct Action {
-        int from; /// old position of tile.
-        int to;   /// new position of tile.
-        bool reverseFlag; // temporary needed to keep correct toParent_.
-        bool operator==(const Action &rhs) const {
-            return from == rhs.from && to == rhs.to;
-        }
-    };
+    /// The type for representing an action. The position of the tile being moved.
+    using Action = int;
 
     /// Number of positions.
     static constexpr int size_ = nRows * nColumns;
@@ -91,20 +82,17 @@ struct SlidingTile : core::sb::DomainBase {
     /// on the board.
     /// \return The state after the action.
     SlidingTile &apply(Action a) {
-        tiles_[blank_] = tiles_[a.from];
-        blank_ = a.from;
-        if (a.reverseFlag)
-            toParent_ = {0, 0, true};
-        else
-            toParent_ = reverseAction(a);
+        tiles_[blank_] = tiles_[a];
+        blank_ = a;
         return *this;
     }
 
-    /// Returns the reverse of the given action.
+    /// Returns the reverse of the given action in this state.
     /// \param a The action whose reverse is to be returned.
     /// \return The reverse of the given action.
-    static Action reverseAction(Action a) {
-        return {a.to, a.from, true};
+    Action reverseAction(Action a) const {
+        (void)a;
+        return blank_;
     }
 
     /// Computes the state neighbors of the state.
@@ -130,7 +118,7 @@ struct SlidingTile : core::sb::DomainBase {
     /// \return The change in the Manhattan distance heuristic to the goal state
     /// with ordered pancake due to applying the given action.
     int mdDelta(Action a) const {
-        return mdDeltas_()[tiles_[a.from]][a.from][a.to];
+        return mdDeltas_()[tiles_[a]][a][blank_];
     }
 
     /// Computes the Manhattan distance heuristic to the goal state with
@@ -215,13 +203,13 @@ private:
         for (int blank = 0; blank < size_; ++blank) {
             // the order is compatible with the code of Richard Korf.
             if (blank > nColumns - 1)
-                res[blank].push_back(Action{blank - nColumns, blank, false});
+                res[blank].push_back(Action{blank - nColumns});
             if (blank % nColumns > 0)
-                res[blank].push_back(Action{blank - 1, blank, false});
+                res[blank].push_back(Action{blank - 1});
             if (blank % nColumns < nColumns - 1)
-                res[blank].push_back(Action{blank + 1, blank, false});
+                res[blank].push_back(Action{blank + 1});
             if (blank < size_ - nColumns)
-                res[blank].push_back(Action{blank + nColumns, blank, false});
+                res[blank].push_back(Action{blank + nColumns});
         }
         return res;
     }
@@ -231,8 +219,7 @@ private:
         for (int tile = 1; tile < size_; ++tile) {
             for (int blank = 0; blank < size_; ++blank) {
                 for (const ANeighbor &a: allActions_()[blank]) {
-                    int from = a.action().from, to = a.action().to;
-                    assert(to == blank);
+                    int from = a.action(), to = blank;
                     res[tile][from][to] =
                         (rowDist(tile, to) - rowDist(tile, from)) +
                         (colDist(tile, to) - colDist(tile, from));

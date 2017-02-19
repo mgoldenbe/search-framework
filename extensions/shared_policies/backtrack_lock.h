@@ -54,7 +54,7 @@ protected:
         prevLock = alg_.lastLock();
         alg_.lastLock() = static_cast<typename MyAlgorithm::BtLockType *>(this);
         data_ = *cur_;
-        reverseAction_ = State::reverseAction(n.action());
+        reverseAction_ = cur_->state().reverseAction(n.action());
         auto h = alg_.generator().heuristic(n, cur_);
         cur_->state().apply(n.action());
         cur_->set(cur_->g + n.cost(), h, alg_.stamp());
