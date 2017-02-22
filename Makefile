@@ -22,10 +22,11 @@ endif
 # Look at -flto=n in case several translation units are identified
 COMMON_PREFIX=$(COMPILER) -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedantic -Wno-sign-compare $(INCLUDE) $(MYCONF) $(ADD)
 
-PREPROCESSOR=$(COMMON_PREFIX) -o $(MAIN_I) $(MAIN_CPP) -E
+PREPROCESSOR_DEBUG=$(COMMON_PREFIX) -o $(MAIN_I) $(MAIN_CPP) -E
+PREPROCESSOR_PRODUCTION=$(PREPROCESSOR_DEBUG) -DNDEBUG 
 MAKE_EXEC=$(COMMON_PREFIX) -fpreprocessed -o $(EXEC) $(MAIN_I) $(GRAPHICS_LIB)
 MAKE_DEBUG_EXEC=$(MAKE_EXEC) -g -O0
-MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -DNDEBUG -O2 #-g -fno-inline
+MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -O2 #-g -fno-inline
 
 HASH_SOURCE=.execs/last_hash_source
 HASH_CODE=.execs/last_hash_code
@@ -52,14 +53,18 @@ build-exec:
 	@ln -sf $(EXEC) last_exec
 	@touch $(EXEC)
 
-preprocessor: symbols
-	$(PREPROCESSOR)
+preprocessor-debug: symbols
+	$(PREPROCESSOR_DEBUG)
 	./symbols $(MAIN_I)
 
-debug: preprocessor
+preprocessor-production: symbols
+	$(PREPROCESSOR_PRODUCTION)
+	./symbols $(MAIN_I)
+
+debug: preprocessor-debug
 	$(MAKE_DEBUG_EXEC)
 
-production: preprocessor
+production: preprocessor-production
 	$(MAKE_PRODUCTION_EXEC)
 
 symbols: symbols.cpp Makefile

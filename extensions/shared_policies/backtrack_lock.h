@@ -16,17 +16,14 @@ namespace backtrackLock {
 /// Base for a class handling RAII for backtracking in IDA* when the state is
 /// updated in place (i.e. \ref core::sb::ActionNeighbor is used).
 /// \tparam MyAlgorithm The search algorithm.
-template <class MyAlgorithm>
-struct InplaceBase {
+template <class MyAlgorithm> struct InplaceBase {
     POLICY_TYPES
 
     /// The constructor.
     /// \tparam Neighbor The neighbor type.
     /// \param alg The search algorithm.
-    /// \param cur The node being expanded by IDA*.
     template <class Neighbor>
-    InplaceBase(MyAlgorithm &alg, Node *cur, Neighbor &)
-        : alg_(alg), cur_(cur) {}
+    InplaceBase(MyAlgorithm &alg, Neighbor &) : alg_(alg), cur_(alg.cur()) {}
 
     const typename State::Action &reverseAction() const {
         return reverseAction_;
@@ -34,7 +31,7 @@ struct InplaceBase {
 
 private:
     MyAlgorithm &alg_; ///< Reference to the search algorithm.
-    NodeData data_; ///< The data stored with the parent node.
+    NodeData data_;    ///< The data stored with the parent node.
 
     /// The action that takes back to the parent.
     typename State::Action reverseAction_;
@@ -49,8 +46,7 @@ protected:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
-    template <class Neighbor>
-    void set(Neighbor &n) {
+    template <class Neighbor> void set(Neighbor &n) {
         prevLock = alg_.lastLock();
         alg_.lastLock() = static_cast<typename MyAlgorithm::BtLockType *>(this);
         data_ = *cur_;
@@ -84,11 +80,9 @@ struct Inplace : InplaceBase<MyAlgorithm> {
     /// The constructor.
     /// \tparam Neighbor The neighbor type.
     /// \param alg The search algorithm.
-    /// \param cur The node being expanded by IDA*.
     /// \param n The neighbor.
     template <class Neighbor>
-    Inplace(MyAlgorithm &alg, Node *cur, Neighbor &n)
-        : Base(alg, cur, n) {
+    Inplace(MyAlgorithm &alg, Neighbor &n) : Base(alg, n) {
         Base::set(n);
     }
 
@@ -96,16 +90,14 @@ struct Inplace : InplaceBase<MyAlgorithm> {
     Inplace(Inplace &&) = default;
 
     /// The destructor.
-    ~Inplace() {
-        Base::unset();
-    }
+    ~Inplace() { Base::unset(); }
 };
 
 /// Handles RAII for backtracking in IDA* when the state is updated in place and
 /// log is kept, so that a copy of the parent state needs to be kept.
 /// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm>
-struct Inplace<MyAlgorithm, true>: InplaceBase<MyAlgorithm> {
+struct Inplace<MyAlgorithm, true> : InplaceBase<MyAlgorithm> {
     POLICY_TYPES
 
     using Base = InplaceBase<MyAlgorithm>; ///< The base class.
@@ -117,11 +109,9 @@ struct Inplace<MyAlgorithm, true>: InplaceBase<MyAlgorithm> {
     /// The constructor.
     /// \tparam Neighbor The neighbor type.
     /// \param alg The search algorithm.
-    /// \param cur The node being expanded by IDA*.
     /// \param n The neighbor.
     template <class Neighbor>
-    Inplace(MyAlgorithm &alg, Node *cur, Neighbor &n)
-        : Base(alg, cur, n) {
+    Inplace(MyAlgorithm &alg, Neighbor &n) : Base(alg, n) {
         set(n);
     }
 
@@ -129,17 +119,15 @@ struct Inplace<MyAlgorithm, true>: InplaceBase<MyAlgorithm> {
     Inplace(Inplace &&) = default;
 
     /// The destructor.
-    ~Inplace() {
-        unset();
-    }
+    ~Inplace() { unset(); }
+
 private:
     std::unique_ptr<Node> parent_ = nullptr; ///< The parent node.
 
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
-    template <class Neighbor>
-    void set(Neighbor &n) {
+    template <class Neighbor> void set(Neighbor &n) {
         parent_.reset(new Node(*cur_));
         cur_->setParent(&*parent_);
         Base::set(n);
@@ -156,8 +144,7 @@ private:
 /// kept, i.e. \ref core::sb::StateNeighbor (i.e. not \ref
 /// core::sb::ActionNeighbor) is used.
 /// The second template parameter is not used, just for uniformity.
-template <class MyAlgorithm, bool>
-struct Copy {
+template <class MyAlgorithm, bool> struct Copy {
     POLICY_TYPES
 
     /// Whether the parent state is to be stored.
@@ -166,11 +153,9 @@ struct Copy {
     /// The constructor.
     /// \tparam Neighbor The neighbor type.
     /// \param alg The search algorithm.
-    /// \param cur The node being expanded by IDA*.
     /// \param n The neighbor.
     template <class Neighbor>
-    Copy(MyAlgorithm &alg, Node *cur, Neighbor &n)
-        : alg_(alg), cur_(cur) {
+    Copy(MyAlgorithm &alg, Neighbor &n) : alg_(alg), cur_(alg.cur()) {
         set(n);
     }
 
@@ -178,9 +163,7 @@ struct Copy {
     Copy(Copy &&) = default;
 
     /// The destructor.
-    ~Copy() {
-        unset();
-    }
+    ~Copy() { unset(); }
 
 private:
     MyAlgorithm &alg_; ///< Reference to the search algorithm.
@@ -192,8 +175,7 @@ private:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
-    template <class Neighbor>
-    void set(Neighbor &n) {
+    template <class Neighbor> void set(Neighbor &n) {
         parent_.reset(new Node(*cur_));
         cur_->setState(std::move(alg_.generator().state(n)));
         auto h = alg_.generator().heuristic(n, cur_);
@@ -202,9 +184,7 @@ private:
     }
 
     /// Does the necessary bookkeeping before backtracking to the parent.
-    void unset() {
-        std::swap(*cur_, *parent_);
-    }
+    void unset() { std::swap(*cur_, *parent_); }
 };
 
 } // namespace
