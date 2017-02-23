@@ -51,14 +51,14 @@ struct AlgorithmTraits<IdAstar<ALG_TARGS, BacktrackLock, Pruning>> {
 /// \tparam BacktrackLock The locking policy for backtracking.
 /// \tparam Pruning The policy for pruning.
 /// \note See the documentation for \ref ALG_TPARAMS and \ref ALG_DATA.
-template <ALG_TPARAMS, template <class, bool> class BacktrackLock =
+template <ALG_TPARAMS, template <class, bool> class BacktrackLock_ =
                            SLB_ID_ASTAR_BACKTRACK_LOCK,
           template <class> class Pruning = SLB_ID_ASTAR_PRUNING>
-struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
+struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
     BASE_TRAITS_TYPES
 
     /// The direct base.
-    using DirectBase = Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS>;
+    using DirectBase = Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS>;
 
     /// The goal handler policy.
     using GoalHandler = typename DirectBase::GoalHandler;
@@ -74,19 +74,17 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
 
     using MyType = IdAstar; ///< Required for \ref ALG_DATA symbol.
 
-    /// The instantiated class template for handling backtracking.
-    using MyBacktrack = Backtrack<MyType, BacktrackLock>;
-
     /// The locking policy for backtracking.
-    using BtLockType = typename MyBacktrack::Lock;
+    using BacktrackLock = BacktrackLock_<MyType, logFlag_>;
 
     ALG_DATA
 
     /// Initializes the algorithm based on the problem instance.
     /// \param instance The problem instance.
     IdAstar(const MyInstance &instance)
-        : Base(instance), cur_{new Node(start_)}, backtrack_(*this),
-          pruner_(*this) {}
+        : Base(instance), cur_{new Node(start_)}, pruner_(*this) {
+        if (!BacktrackLock::keepsParent) cur_->setParent(cur_.get());
+    }
 
     /// Runs the algorithm.
     /// \return The solution cost. If there is no solution, then \c CostType{-1}
@@ -125,7 +123,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
         for (auto &n : neighbors_) {
             if (pruner_(n)) continue;
             ++generated_;
-            auto btLock = backtrack_.lock(n); (void)btLock;
+            BacktrackLock btLock{*this, n}; (void)btLock;
             if (cur_->f > threshold_)
                 next_threshold_ = std::min(next_threshold_, cur_->f);
             else if (iteration())
@@ -138,13 +136,12 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock>, ALG_TARGS> {
     /// \name Services for policies.
     /// @{
     Node *cur() { return &*cur_; }
-    const BtLockType *const &lastLock() const { return lastLock_; }
-    BtLockType *&lastLock() { return lastLock_; }
+    const BacktrackLock *const &lastLock() const { return lastLock_; }
+    BacktrackLock *&lastLock() { return lastLock_; }
     /// @}
 private:
     std::unique_ptr<Node> cur_; ///< The currently selected node.
-    MyBacktrack backtrack_; ///< The backtracking policy.
-    BtLockType *lastLock_ = nullptr; ///< The last btLock. Set by the lock;
+    BacktrackLock *lastLock_ = nullptr; ///< The last btLock. Set by the lock;
     Pruning<MyType> pruner_;
     CostType threshold_; ///< The current iteration's cost threshold.
     CostType next_threshold_; ///< The cost threshold for the next iteration.

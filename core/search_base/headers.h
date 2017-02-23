@@ -18,7 +18,6 @@ using util::operator<<; // Printing states.
 } // namespace
 } // namespace
 
-#include "backtrack.h"
 #include "instance.h"
 #include "open_closed_list.h"
 #include "domain_base.h"

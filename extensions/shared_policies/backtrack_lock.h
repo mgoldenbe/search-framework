@@ -37,7 +37,7 @@ private:
     typename State::Action reverseAction_;
 
     /// The previously stored by the algorithm lastLock.
-    typename MyAlgorithm::BtLockType *prevLock;
+    typename MyAlgorithm::BacktrackLock *prevLock;
 
 protected:
     /// The node being expanded by IDA*.
@@ -48,7 +48,8 @@ protected:
     /// \param n The neighbor.
     template <class Neighbor> void set(Neighbor &n) {
         prevLock = alg_.lastLock();
-        alg_.lastLock() = static_cast<typename MyAlgorithm::BtLockType *>(this);
+        alg_.lastLock() =
+            static_cast<typename MyAlgorithm::BacktrackLock *>(this);
         data_ = *cur_;
         reverseAction_ = cur_->state().reverseAction(n.action());
         auto h = alg_.generator().heuristic(n, cur_);
