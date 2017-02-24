@@ -10,6 +10,7 @@ GRAPHICS_LIB=-lcairo -lX11 -lmenu -lncurses
 CPP=test.cpp
 MAIN:=$(CPP:.cpp=)
 EXEC=$(MAIN)
+ASSEMBLY=$(MAIN).asm
 MODE=debug
 
 MAIN_CPP=$(CPP)
@@ -25,8 +26,10 @@ COMMON_PREFIX=$(COMPILER) -Wall -Wextra -Werror -fmax-errors=3 -std=c++11 -pedan
 PREPROCESSOR_DEBUG=$(COMMON_PREFIX) -o $(MAIN_I) $(MAIN_CPP) -E
 PREPROCESSOR_PRODUCTION=$(PREPROCESSOR_DEBUG) -DNDEBUG 
 MAKE_EXEC=$(COMMON_PREFIX) -fpreprocessed -o $(EXEC) $(MAIN_I) $(GRAPHICS_LIB)
+# http://www.systutorials.com/240/generate-a-mixed-source-and-assembly-listing-using-gcc/
+MAKE_ASSEMBLY=$(COMMON_PREFIX) -fpreprocessed $(MAIN_I) $(GRAPHICS_LIB) -g -Wa,-adhln -fverbose-asm -O2 > $(ASSEMBLY)
 MAKE_DEBUG_EXEC=$(MAKE_EXEC) -g -O0
-MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -O2 #-g -fno-inline
+MAKE_PRODUCTION_EXEC=$(MAKE_EXEC) -O3 #-g -fno-inline
 
 HASH_SOURCE=.execs/last_hash_source
 HASH_CODE=.execs/last_hash_code
@@ -66,6 +69,9 @@ debug: preprocessor-debug
 
 production: preprocessor-production
 	$(MAKE_PRODUCTION_EXEC)
+
+assembly: preprocessor-production
+	$(MAKE_ASSEMBLY)
 
 symbols: symbols.cpp Makefile
 	$(COMMON_PREFIX) -O2 symbols.cpp -o symbols
