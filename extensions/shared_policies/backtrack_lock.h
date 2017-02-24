@@ -46,13 +46,12 @@ protected:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
-    template <class Neighbor> void set(Neighbor &n) {
+    template <class Neighbor> void set(Neighbor &n, CostType h) {
         prevLock = alg_.lastLock();
         alg_.lastLock() =
             static_cast<typename MyAlgorithm::BacktrackLock *>(this);
         data_ = *cur_;
         reverseAction_ = cur_->state().reverseAction(n.action());
-        auto h = alg_.generator().heuristic(n, cur_);
         cur_->state().apply(n.action());
         cur_->set(cur_->g + n.cost(), h, alg_.stamp());
     }
@@ -83,8 +82,8 @@ struct Inplace : InplaceBase<MyAlgorithm> {
     /// \param alg The search algorithm.
     /// \param n The neighbor.
     template <class Neighbor>
-    Inplace(MyAlgorithm &alg, Neighbor &n) : Base(alg, n) {
-        Base::set(n);
+    Inplace(MyAlgorithm &alg, Neighbor &n, CostType h) : Base(alg, n) {
+        Base::set(n, h);
     }
 
     /// The moving constructor.
@@ -112,8 +111,8 @@ struct Inplace<MyAlgorithm, true> : InplaceBase<MyAlgorithm> {
     /// \param alg The search algorithm.
     /// \param n The neighbor.
     template <class Neighbor>
-    Inplace(MyAlgorithm &alg, Neighbor &n) : Base(alg, n) {
-        set(n);
+    Inplace(MyAlgorithm &alg, Neighbor &n, CostType h) : Base(alg, n) {
+        set(n, h);
     }
 
     /// The moving constructor.
@@ -128,10 +127,10 @@ private:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
-    template <class Neighbor> void set(Neighbor &n) {
+    template <class Neighbor> void set(Neighbor &n, CostType h) {
         parent_.reset(new Node(*cur_));
         cur_->setParent(&*parent_);
-        Base::set(n);
+        Base::set(n, h);
     }
 
     /// Does the necessary bookkeeping before backtracking to the parent.
@@ -156,8 +155,9 @@ template <class MyAlgorithm, bool> struct Copy {
     /// \param alg The search algorithm.
     /// \param n The neighbor.
     template <class Neighbor>
-    Copy(MyAlgorithm &alg, Neighbor &n) : alg_(alg), cur_(alg.cur()) {
-        set(n);
+    Copy(MyAlgorithm &alg, Neighbor &n, CostType h)
+        : alg_(alg), cur_(alg.cur()) {
+        set(n, h);
     }
 
     /// The moving constructor.
@@ -176,10 +176,9 @@ private:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
-    template <class Neighbor> void set(Neighbor &n) {
+    template <class Neighbor> void set(Neighbor &n, CostType h) {
         parent_.reset(new Node(*cur_));
         cur_->setState(std::move(alg_.generator().state(n)));
-        auto h = alg_.generator().heuristic(n, cur_);
         cur_->set(cur_->g + n.cost(), h, alg_.stamp());
         cur_->setParent(&*parent_);
     }

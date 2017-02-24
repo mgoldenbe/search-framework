@@ -122,12 +122,15 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
         const auto &neighbors_ = generator_.successors(cur_->state());
         for (auto &n : neighbors_) {
             if (pruner_(n)) continue;
+            CostType newH = this->generator_.heuristic(n, cur_.get());
+            CostType newF = cur_->g + n.cost() + newH;
             ++generated_;
-            BacktrackLock btLock{*this, n}; (void)btLock;
-            if (cur_->f > threshold_)
-                next_threshold_ = std::min(next_threshold_, cur_->f);
-            else if (iteration())
-                return true;
+            if (newF > threshold_)
+                next_threshold_ = std::min(next_threshold_, newF);
+            else {
+                BacktrackLock btLock{*this, n, newH}; (void)btLock;
+                if (iteration()) return true;
+            }
         }
         log<ext::event::Closed>(log_, cur_);
         return false;
