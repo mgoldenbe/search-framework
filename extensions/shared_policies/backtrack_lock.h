@@ -36,9 +36,6 @@ private:
     /// The action that takes back to the parent.
     typename State::Action reverseAction_;
 
-    /// The previously stored by the algorithm lastLock.
-    typename MyAlgorithm::BacktrackLock *prevLock;
-
 protected:
     /// The node being expanded by IDA*.
     Node *cur_;
@@ -47,9 +44,6 @@ protected:
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
     template <class Neighbor> void set(Neighbor &n, CostType h) {
-        prevLock = alg_.lastLock();
-        alg_.lastLock() =
-            static_cast<typename MyAlgorithm::BacktrackLock *>(this);
         data_ = *cur_;
         reverseAction_ = cur_->state().reverseAction(n.action());
         cur_->state().apply(n.action());
@@ -58,7 +52,6 @@ protected:
 
     /// Does the necessary bookkeeping before backtracking to the parent.
     void unset() {
-        alg_.lastLock() = prevLock;
         cur_->NodeData::operator=(data_);
         cur_->state().apply(reverseAction_);
     }

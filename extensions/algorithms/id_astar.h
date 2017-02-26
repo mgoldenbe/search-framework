@@ -101,7 +101,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
             int gen_before = generated_.value(); (void)gen_before;
             bool iterationResult = iteration();
             // std::cout << threshold_ << " " << std::fixed
-            //           << generated_.value() - gen_before << std::endl;
+            //            << generated_.value() - gen_before << std::endl;
             if (iterationResult) break;
             threshold_ = next_threshold_;
         }
@@ -128,8 +128,12 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
             if (newF > threshold_)
                 next_threshold_ = std::min(next_threshold_, newF);
             else {
-                BacktrackLock btLock{*this, n, newH}; (void)btLock;
-                if (iteration()) return true;
+                BacktrackLock btLock{*this, n, newH};
+                BacktrackLock *prevLock_ = lastLock_;
+                lastLock_ = &btLock;
+                auto itRes = iteration();
+                lastLock_ = prevLock_;
+                if (itRes) return true;
             }
         }
         log<ext::event::Closed>(log_, cur_);
