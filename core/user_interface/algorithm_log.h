@@ -148,7 +148,7 @@ void rawLog(Log &log, const Node *n, const Node *parentSubstitution,
 /// \param mylog The log.
 /// \param n The current node in the search.
 /// \param parentSubstitution The node whose state should be used as a parent
-/// state instead of the parent stored in \n. See How the
+/// state instead of the parent stored in \c n. See how the
 /// \ref ext::event::NothingToDo event is generated in \ref
 /// ext::algorithm::Astar for an example of when this is useful.
 template <template <class> class Event, class Log, class Node>
@@ -170,7 +170,7 @@ void log(Log &mylog, const Node *n,
 /// \param mylog The log.
 /// \param n The current node in the search.
 /// \param parentSubstitution The node whose state should be used as a parent
-/// state instead of the parent stored in \n. See How the \ref
+/// state instead of the parent stored in \c n. See How the \ref
 /// ext::event::NothingToDo event is generated in \ref ext::algorithm::Astar for
 /// an example of when this is useful.
 template <template <class> class Event, class Log, class Node>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>HSRF: Heuristic Search Research Framework: slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt; Struct Template Reference</title>
+<title>HSRF: Heuristic Search Research Framework: slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structslb_1_1ext_1_1algorithm_1_1IdAstar-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt; Struct Template Reference</div>  </div>
+<div class="title">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -102,87 +102,92 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="id__astar_8h_source.html">id_astar.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="structslb_1_1ext_1_1algorithm_1_1IdAstar__inherit__graph.png" border="0" usemap="#slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock_01_4_inherit__map" id="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock_01_4_inherit__map">
-<area shape="rect" id="node2" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; IdAstar\l\&lt; ALG_TARGS, BacktrackLock\l \&gt;, ALG_TARGS \&gt;" alt="" coords="5,5,213,76"/>
+<div class="center"><img src="structslb_1_1ext_1_1algorithm_1_1IdAstar__inherit__graph.png" border="0" usemap="#slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock___00_01Pruning_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock___00_01Pruning_01_4_inherit__map" id="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock___00_01Pruning_01_4_inherit__map">
+<area shape="rect" id="node2" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; IdAstar\l\&lt; ALG_TARGS, BacktrackLock\l_ \&gt;, ALG_TARGS \&gt;" alt="" coords="5,5,213,76"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="structslb_1_1ext_1_1algorithm_1_1IdAstar__coll__graph.png" border="0" usemap="#slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock_01_4_coll__map" id="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock_01_4_coll__map">
-<area shape="rect" id="node5" href="structslb_1_1core_1_1sb_1_1Backtrack.html" title="slb::core::sb::Backtrack\l\&lt; MyType, BacktrackLock \&gt;" alt="" coords="756,47,944,89"/>
-<area shape="rect" id="node2" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; IdAstar\l\&lt; ALG_TARGS, BacktrackLock\l \&gt;, ALG_TARGS \&gt;" alt="" coords="195,33,403,103"/>
+<div class="center"><img src="structslb_1_1ext_1_1algorithm_1_1IdAstar__coll__graph.png" border="0" usemap="#slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock___00_01Pruning_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock___00_01Pruning_01_4_coll__map" id="slb_1_1ext_1_1algorithm_1_1IdAstar_3_01ALG__TPARAMS_00_01BacktrackLock___00_01Pruning_01_4_coll__map">
+<area shape="rect" id="node2" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; IdAstar\l\&lt; ALG_TARGS, BacktrackLock\l_ \&gt;, ALG_TARGS \&gt;" alt="" coords="195,33,403,103"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a61b056676509f74dd72fa4766dbf31fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61b056676509f74dd72fa4766dbf31fb"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a61b056676509f74dd72fa4766dbf31fb">DirectBase</a> = <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">Algorithm</a>&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock &gt;, <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a> &gt;</td></tr>
-<tr class="memdesc:a61b056676509f74dd72fa4766dbf31fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The direct base. <br /></td></tr>
-<tr class="separator:a61b056676509f74dd72fa4766dbf31fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdf49dbcd1093c1fc61713b53ba2eddc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdf49dbcd1093c1fc61713b53ba2eddc"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#afdf49dbcd1093c1fc61713b53ba2eddc">GoalHandler</a> = typename <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ae0c6a75028107e4642e43798f21f4bfc">DirectBase::GoalHandler</a></td></tr>
-<tr class="memdesc:afdf49dbcd1093c1fc61713b53ba2eddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal handler policy. <br /></td></tr>
-<tr class="separator:afdf49dbcd1093c1fc61713b53ba2eddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a111e9e8f2beda52805048d1cb69ef7c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a111e9e8f2beda52805048d1cb69ef7c2"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a111e9e8f2beda52805048d1cb69ef7c2">InitialHeuristic</a> = typename <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ad1f8f28e7b07f747ef7b7b5bf0643c2d">DirectBase::InitialHeuristic</a></td></tr>
-<tr class="memdesc:a111e9e8f2beda52805048d1cb69ef7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initial heuristic policy. <br /></td></tr>
-<tr class="separator:a111e9e8f2beda52805048d1cb69ef7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef5ce49ef17d9f94e7df1eb4b6c1e8b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef5ce49ef17d9f94e7df1eb4b6c1e8b8"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#aef5ce49ef17d9f94e7df1eb4b6c1e8b8">Generator</a> = typename <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#afa5a78c048b4fe4f5848aeaf5c1f8d65">DirectBase::Generator</a></td></tr>
-<tr class="memdesc:aef5ce49ef17d9f94e7df1eb4b6c1e8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generator policy. <br /></td></tr>
-<tr class="separator:aef5ce49ef17d9f94e7df1eb4b6c1e8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79a12e1a7d77978a1b5e5e17fb10e2ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79a12e1a7d77978a1b5e5e17fb10e2ac"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a79a12e1a7d77978a1b5e5e17fb10e2ac">Neighbor</a> = typename Generator::Neighbor</td></tr>
-<tr class="memdesc:a79a12e1a7d77978a1b5e5e17fb10e2ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search neighbor type. <br /></td></tr>
-<tr class="separator:a79a12e1a7d77978a1b5e5e17fb10e2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca4d933e987330068bdf8feac4f78795"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca4d933e987330068bdf8feac4f78795"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#aca4d933e987330068bdf8feac4f78795">MyType</a> = <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a></td></tr>
-<tr class="memdesc:aca4d933e987330068bdf8feac4f78795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required for <a class="el" href="algorithm_8h.html#a64c012078deee9a30405e18ec11e6360">ALG_DATA</a> symbol. <br /></td></tr>
-<tr class="separator:aca4d933e987330068bdf8feac4f78795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3e0b847c12085c8e3eb0c7b7854de65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3e0b847c12085c8e3eb0c7b7854de65"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#ae3e0b847c12085c8e3eb0c7b7854de65">MyBacktrack</a> = <a class="el" href="structslb_1_1core_1_1sb_1_1Backtrack.html">Backtrack</a>&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#aca4d933e987330068bdf8feac4f78795">MyType</a>, BacktrackLock &gt;</td></tr>
-<tr class="memdesc:ae3e0b847c12085c8e3eb0c7b7854de65"><td class="mdescLeft">&#160;</td><td class="mdescRight">The instantiated class template for handling backtracking. <br /></td></tr>
-<tr class="separator:ae3e0b847c12085c8e3eb0c7b7854de65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock &gt;, ALG_TARGS &gt;</a></td></tr>
+<tr class="memitem:a3b1c66ba098103b55a32545be40256e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b1c66ba098103b55a32545be40256e8"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a3b1c66ba098103b55a32545be40256e8">DirectBase</a> = <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">Algorithm</a>&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock_ &gt;, <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a> &gt;</td></tr>
+<tr class="memdesc:a3b1c66ba098103b55a32545be40256e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The direct base. <br /></td></tr>
+<tr class="separator:a3b1c66ba098103b55a32545be40256e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a4300b273ca541f97e1ae86a1d09967"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a4300b273ca541f97e1ae86a1d09967"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a5a4300b273ca541f97e1ae86a1d09967">GoalHandler</a> = typename <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ae0c6a75028107e4642e43798f21f4bfc">DirectBase::GoalHandler</a></td></tr>
+<tr class="memdesc:a5a4300b273ca541f97e1ae86a1d09967"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal handler policy. <br /></td></tr>
+<tr class="separator:a5a4300b273ca541f97e1ae86a1d09967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fbd0ea83656e8d8d3bd56efccd57a43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fbd0ea83656e8d8d3bd56efccd57a43"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a8fbd0ea83656e8d8d3bd56efccd57a43">InitialHeuristic</a> = typename <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ad1f8f28e7b07f747ef7b7b5bf0643c2d">DirectBase::InitialHeuristic</a></td></tr>
+<tr class="memdesc:a8fbd0ea83656e8d8d3bd56efccd57a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initial heuristic policy. <br /></td></tr>
+<tr class="separator:a8fbd0ea83656e8d8d3bd56efccd57a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617d9f62e80522edaf3c25d2bf1af9ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a617d9f62e80522edaf3c25d2bf1af9ec"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a617d9f62e80522edaf3c25d2bf1af9ec">Generator</a> = typename <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#afa5a78c048b4fe4f5848aeaf5c1f8d65">DirectBase::Generator</a></td></tr>
+<tr class="memdesc:a617d9f62e80522edaf3c25d2bf1af9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generator policy. <br /></td></tr>
+<tr class="separator:a617d9f62e80522edaf3c25d2bf1af9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c382f5126c7c1038ecd676e75e174db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c382f5126c7c1038ecd676e75e174db"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a8c382f5126c7c1038ecd676e75e174db">Neighbor</a> = typename Generator::Neighbor</td></tr>
+<tr class="memdesc:a8c382f5126c7c1038ecd676e75e174db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search neighbor type. <br /></td></tr>
+<tr class="separator:a8c382f5126c7c1038ecd676e75e174db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e2a7d07a9256a0973ed8ee0b6b6136"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4e2a7d07a9256a0973ed8ee0b6b6136"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#ad4e2a7d07a9256a0973ed8ee0b6b6136">MyType</a> = <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a></td></tr>
+<tr class="memdesc:ad4e2a7d07a9256a0973ed8ee0b6b6136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required for <a class="el" href="algorithm_8h.html#a64c012078deee9a30405e18ec11e6360">ALG_DATA</a> symbol. <br /></td></tr>
+<tr class="separator:ad4e2a7d07a9256a0973ed8ee0b6b6136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0337b9a42a8431c19a948905c996ee6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0337b9a42a8431c19a948905c996ee6c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a0337b9a42a8431c19a948905c996ee6c">BacktrackLock</a> = BacktrackLock_&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#ad4e2a7d07a9256a0973ed8ee0b6b6136">MyType</a>, logFlag_ &gt;</td></tr>
+<tr class="memdesc:a0337b9a42a8431c19a948905c996ee6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The locking policy for backtracking. <br /></td></tr>
+<tr class="separator:a0337b9a42a8431c19a948905c996ee6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock_ &gt;, ALG_TARGS &gt;</a></td></tr>
 <tr class="memitem:ae0c6a75028107e4642e43798f21f4bfc inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0c6a75028107e4642e43798f21f4bfc"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ae0c6a75028107e4642e43798f21f4bfc">GoalHandler</a> = GoalHandler_&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock &gt; &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ae0c6a75028107e4642e43798f21f4bfc">GoalHandler</a> = GoalHandler_&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock_ &gt; &gt;</td></tr>
 <tr class="memdesc:ae0c6a75028107e4642e43798f21f4bfc inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal handler policy type. <br /></td></tr>
 <tr class="separator:ae0c6a75028107e4642e43798f21f4bfc inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f8f28e7b07f747ef7b7b5bf0643c2d inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1f8f28e7b07f747ef7b7b5bf0643c2d"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ad1f8f28e7b07f747ef7b7b5bf0643c2d">InitialHeuristic</a> = InitialHeuristic_&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock &gt; &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ad1f8f28e7b07f747ef7b7b5bf0643c2d">InitialHeuristic</a> = InitialHeuristic_&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock_ &gt; &gt;</td></tr>
 <tr class="memdesc:ad1f8f28e7b07f747ef7b7b5bf0643c2d inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initial heuristic policy type. <br /></td></tr>
 <tr class="separator:ad1f8f28e7b07f747ef7b7b5bf0643c2d inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa5a78c048b4fe4f5848aeaf5c1f8d65 inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa5a78c048b4fe4f5848aeaf5c1f8d65"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#afa5a78c048b4fe4f5848aeaf5c1f8d65">Generator</a> = Generator_&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock &gt; &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#afa5a78c048b4fe4f5848aeaf5c1f8d65">Generator</a> = Generator_&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a425b5a86fe8dae889a8343e14267c3c0">ALG_TARGS</a>, BacktrackLock_ &gt; &gt;</td></tr>
 <tr class="memdesc:afa5a78c048b4fe4f5848aeaf5c1f8d65 inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generator policy type. <br /></td></tr>
 <tr class="separator:afa5a78c048b4fe4f5848aeaf5c1f8d65 inherit pub_types_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a71b2183882a119303363eb495947ad7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="algorithm_8h.html#a64c012078deee9a30405e18ec11e6360">ALG_DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a71b2183882a119303363eb495947ad7a">IdAstar</a> (const MyInstance &amp;instance)</td></tr>
-<tr class="memdesc:a71b2183882a119303363eb495947ad7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the algorithm based on the problem instance.  <a href="#a71b2183882a119303363eb495947ad7a">More...</a><br /></td></tr>
-<tr class="separator:a71b2183882a119303363eb495947ad7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0c7022ee1c4284ca594a49aa3759ec6"><td class="memItemLeft" align="right" valign="top">ReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#af0c7022ee1c4284ca594a49aa3759ec6">run</a> ()</td></tr>
-<tr class="memdesc:af0c7022ee1c4284ca594a49aa3759ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the algorithm.  <a href="#af0c7022ee1c4284ca594a49aa3759ec6">More...</a><br /></td></tr>
-<tr class="separator:af0c7022ee1c4284ca594a49aa3759ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7064e6f1932792d7ad74433559ba0d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#af7064e6f1932792d7ad74433559ba0d6">iteration</a> ()</td></tr>
-<tr class="memdesc:af7064e6f1932792d7ad74433559ba0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a single iteration of IDA*.  <a href="#af7064e6f1932792d7ad74433559ba0d6">More...</a><br /></td></tr>
-<tr class="separator:af7064e6f1932792d7ad74433559ba0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5859833358b03f49daed0c79dd50d5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="algorithm_8h.html#a64c012078deee9a30405e18ec11e6360">ALG_DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#aa5859833358b03f49daed0c79dd50d5b">IdAstar</a> (const MyInstance &amp;instance)</td></tr>
+<tr class="memdesc:aa5859833358b03f49daed0c79dd50d5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the algorithm based on the problem instance.  <a href="#aa5859833358b03f49daed0c79dd50d5b">More...</a><br /></td></tr>
+<tr class="separator:aa5859833358b03f49daed0c79dd50d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78f79f726453f63d509f05781d505874"><td class="memItemLeft" align="right" valign="top">ReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a78f79f726453f63d509f05781d505874">run</a> ()</td></tr>
+<tr class="memdesc:a78f79f726453f63d509f05781d505874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the algorithm.  <a href="#a78f79f726453f63d509f05781d505874">More...</a><br /></td></tr>
+<tr class="separator:a78f79f726453f63d509f05781d505874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f217097ffc1358b69381ff9d7064367"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a6f217097ffc1358b69381ff9d7064367">iteration</a> ()</td></tr>
+<tr class="memdesc:a6f217097ffc1358b69381ff9d7064367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a single iteration of IDA*.  <a href="#a6f217097ffc1358b69381ff9d7064367">More...</a><br /></td></tr>
+<tr class="separator:a6f217097ffc1358b69381ff9d7064367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Services for policies.</div></td></tr>
-<tr class="memitem:aeda3393b418850422ace24976c935c45"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeda3393b418850422ace24976c935c45"></a>
+<tr class="memitem:ae8df24ec87b195293efee6bb04547b00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8df24ec87b195293efee6bb04547b00"></a>
 Node *&#160;</td><td class="memItemRight" valign="bottom"><b>cur</b> ()</td></tr>
-<tr class="separator:aeda3393b418850422ace24976c935c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock &gt;, ALG_TARGS &gt;</a></td></tr>
+<tr class="separator:ae8df24ec87b195293efee6bb04547b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef009e88e01b2fe9ed2f29dfd22a3e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acef009e88e01b2fe9ed2f29dfd22a3e5"></a>
+const <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a0337b9a42a8431c19a948905c996ee6c">BacktrackLock</a> *const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>lastLock</b> () const </td></tr>
+<tr class="separator:acef009e88e01b2fe9ed2f29dfd22a3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0a5c5cda6b63d8f740c401646eac29b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0a5c5cda6b63d8f740c401646eac29b"></a>
+<a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a0337b9a42a8431c19a948905c996ee6c">BacktrackLock</a> *&amp;&#160;</td><td class="memItemRight" valign="bottom"><b>lastLock</b> ()</td></tr>
+<tr class="separator:ad0a5c5cda6b63d8f740c401646eac29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock_ &gt;, ALG_TARGS &gt;</a></td></tr>
 <tr class="memitem:a539d8d4e7d92ed9a80c778b530754c13 inherit pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structslb_1_1core_1_1sb_1_1MeasureSet.html">MeasureSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a539d8d4e7d92ed9a80c778b530754c13">measures</a> () const</td></tr>
 <tr class="memdesc:a539d8d4e7d92ed9a80c778b530754c13 inherit pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the statistics about the search algorithm's performance for solving the particular instance.  <a href="#a539d8d4e7d92ed9a80c778b530754c13">More...</a><br /></td></tr>
 <tr class="separator:a539d8d4e7d92ed9a80c778b530754c13 inherit pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,35 +215,38 @@ MyInstance &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>instance<
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ab0585a362317abfc32ad96f81c3dc157"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0585a362317abfc32ad96f81c3dc157"></a>
-std::unique_ptr&lt; Node &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#ab0585a362317abfc32ad96f81c3dc157">cur_</a></td></tr>
-<tr class="memdesc:ab0585a362317abfc32ad96f81c3dc157"><td class="mdescLeft">&#160;</td><td class="mdescRight">The currently selected node. <br /></td></tr>
-<tr class="separator:ab0585a362317abfc32ad96f81c3dc157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fdbda1a35fc15d3a2a72e6638390f22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fdbda1a35fc15d3a2a72e6638390f22"></a>
-<a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#ae3e0b847c12085c8e3eb0c7b7854de65">MyBacktrack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a3fdbda1a35fc15d3a2a72e6638390f22">backtrack_</a></td></tr>
-<tr class="memdesc:a3fdbda1a35fc15d3a2a72e6638390f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">The backtracking policy. <br /></td></tr>
-<tr class="separator:a3fdbda1a35fc15d3a2a72e6638390f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a049d1e28aa5a19a5ddc86ffde9cde98a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a049d1e28aa5a19a5ddc86ffde9cde98a"></a>
-CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a049d1e28aa5a19a5ddc86ffde9cde98a">threshold_</a></td></tr>
-<tr class="memdesc:a049d1e28aa5a19a5ddc86ffde9cde98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current iteration's cost threshold. <br /></td></tr>
-<tr class="separator:a049d1e28aa5a19a5ddc86ffde9cde98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf9900aea8a8239701823d6e96b3968c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf9900aea8a8239701823d6e96b3968c"></a>
-CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#acf9900aea8a8239701823d6e96b3968c">next_threshold_</a></td></tr>
-<tr class="memdesc:acf9900aea8a8239701823d6e96b3968c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The cost threshold for the next iteration. <br /></td></tr>
-<tr class="separator:acf9900aea8a8239701823d6e96b3968c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06120ee32156967c7916e766a9eee34e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06120ee32156967c7916e766a9eee34e"></a>
+std::unique_ptr&lt; Node &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a06120ee32156967c7916e766a9eee34e">cur_</a></td></tr>
+<tr class="memdesc:a06120ee32156967c7916e766a9eee34e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The currently selected node. <br /></td></tr>
+<tr class="separator:a06120ee32156967c7916e766a9eee34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d8ad74c2838c8364b4ef57baa85d734"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d8ad74c2838c8364b4ef57baa85d734"></a>
+<a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a0337b9a42a8431c19a948905c996ee6c">BacktrackLock</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a7d8ad74c2838c8364b4ef57baa85d734">lastLock_</a> = nullptr</td></tr>
+<tr class="memdesc:a7d8ad74c2838c8364b4ef57baa85d734"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last btLock. Set by the lock;. <br /></td></tr>
+<tr class="separator:a7d8ad74c2838c8364b4ef57baa85d734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67903f3f88335ce68e310c43b901bd20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67903f3f88335ce68e310c43b901bd20"></a>
+Pruning&lt; <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#ad4e2a7d07a9256a0973ed8ee0b6b6136">MyType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pruner_</b></td></tr>
+<tr class="separator:a67903f3f88335ce68e310c43b901bd20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9220b05233265fa1fb3948c97cdd28d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9220b05233265fa1fb3948c97cdd28d"></a>
+CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#aa9220b05233265fa1fb3948c97cdd28d">threshold_</a></td></tr>
+<tr class="memdesc:aa9220b05233265fa1fb3948c97cdd28d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current iteration's cost threshold. <br /></td></tr>
+<tr class="separator:aa9220b05233265fa1fb3948c97cdd28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ed16a300231a6df5505436f47c844a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97ed16a300231a6df5505436f47c844a"></a>
+CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a97ed16a300231a6df5505436f47c844a">next_threshold_</a></td></tr>
+<tr class="memdesc:a97ed16a300231a6df5505436f47c844a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The cost threshold for the next iteration. <br /></td></tr>
+<tr class="separator:a97ed16a300231a6df5505436f47c844a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock &gt;, ALG_TARGS &gt;</a></td></tr>
+<tr class="inherit_header pub_static_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock_ &gt;, ALG_TARGS &gt;</a></td></tr>
 <tr class="memitem:a614bd0faf9d0eba04f45bb204afac021 inherit pub_static_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a614bd0faf9d0eba04f45bb204afac021"></a>
 static <a class="el" href="algorithm_8h.html#af9ce42dc0033d5c93cea8af7002ab583">BASE_TRAITS_TYPES</a> constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a614bd0faf9d0eba04f45bb204afac021">logFlag</a></td></tr>
 <tr class="memdesc:a614bd0faf9d0eba04f45bb204afac021 inherit pub_static_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>true</code> if the events generated by the search algorithm are logged and <code>false</code> otherwise. <br /></td></tr>
 <tr class="separator:a614bd0faf9d0eba04f45bb204afac021 inherit pub_static_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock &gt;, ALG_TARGS &gt;</a></td></tr>
+<tr class="inherit_header pro_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock_ &gt;, ALG_TARGS &gt;</a></td></tr>
 <tr class="memitem:a1569912641a50ba140907372462177cf inherit pro_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a1569912641a50ba140907372462177cf">Algorithm</a> (const MyInstance &amp;instance)</td></tr>
 <tr class="memdesc:a1569912641a50ba140907372462177cf inherit pro_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the algorithm based on the problem instance.  <a href="#a1569912641a50ba140907372462177cf">More...</a><br /></td></tr>
 <tr class="separator:a1569912641a50ba140907372462177cf inherit pro_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock &gt;, ALG_TARGS &gt;</a></td></tr>
+<tr class="inherit_header pro_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html">slb::ext::algorithm::Algorithm&lt; IdAstar&lt; ALG_TARGS, BacktrackLock_ &gt;, ALG_TARGS &gt;</a></td></tr>
 <tr class="memitem:a2924c26498dd2658fa0cc20a47f78d0d inherit pro_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2924c26498dd2658fa0cc20a47f78d0d"></a>
 MyInstance&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a2924c26498dd2658fa0cc20a47f78d0d">instance_</a></td></tr>
 <tr class="memdesc:a2924c26498dd2658fa0cc20a47f78d0d inherit pro_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">The problem instance. <br /></td></tr>
@@ -285,8 +293,8 @@ ReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <tr class="separator:ac01ce5a7230cbc835507bfc00d37fe5d inherit pro_attribs_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;ALG_TPARAMS, template&lt; class, bool &gt; class BacktrackLock = SLB_ID_ASTAR_BACKTRACK_LOCK&gt;<br />
-struct slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</h3>
+<div class="textblock"><h3>template&lt;ALG_TPARAMS, template&lt; class, bool &gt; class BacktrackLock_ = SLB_ID_ASTAR_BACKTRACK_LOCK, template&lt; class &gt; class Pruning = SLB_ID_ASTAR_PRUNING&gt;<br />
+struct slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</h3>
 
 <p>The <code>IDA*</code> search algorithm. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -296,24 +304,25 @@ struct slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</h3>
     <tr><td class="paramname">GoalHandler</td><td>The policy for handling goal conditions. </td></tr>
     <tr><td class="paramname">InitialHeuristic</td><td>The initial heuristic used by the search algorithm. </td></tr>
     <tr><td class="paramname">BacktrackLock</td><td>The locking policy for backtracking. </td></tr>
+    <tr><td class="paramname">Pruning</td><td>The policy for pruning. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>See the documentation for <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a> and <a class="el" href="algorithm_8h.html#a64c012078deee9a30405e18ec11e6360">ALG_DATA</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00023">23</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
+<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00024">24</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a71b2183882a119303363eb495947ad7a"></a>
+<a class="anchor" id="aa5859833358b03f49daed0c79dd50d5b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock = SLB_ID_ASTAR_BACKTRACK_LOCK&gt; </div>
+template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock_ = SLB_ID_ASTAR_BACKTRACK_LOCK, template&lt; class &gt; class Pruning = SLB_ID_ASTAR_PRUNING&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="algorithm_8h.html#a64c012078deee9a30405e18ec11e6360">ALG_DATA</a> <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock &gt;::<a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a> </td>
+          <td class="memname"><a class="el" href="algorithm_8h.html#a64c012078deee9a30405e18ec11e6360">ALG_DATA</a> <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock_, Pruning &gt;::<a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a> </td>
           <td>(</td>
           <td class="paramtype">const MyInstance &amp;&#160;</td>
           <td class="paramname"><em>instance</em></td><td>)</td>
@@ -335,22 +344,22 @@ template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock = SL
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00075">75</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
+<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00084">84</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af7064e6f1932792d7ad74433559ba0d6"></a>
+<a class="anchor" id="a6f217097ffc1358b69381ff9d7064367"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock = SLB_ID_ASTAR_BACKTRACK_LOCK&gt; </div>
+template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock_ = SLB_ID_ASTAR_BACKTRACK_LOCK, template&lt; class &gt; class Pruning = SLB_ID_ASTAR_PRUNING&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock &gt;::iteration </td>
+          <td class="memname">bool <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock_, Pruning &gt;::iteration </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -366,21 +375,21 @@ template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock = SL
 <p>Performs a single iteration of IDA*. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the solution has been found and <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00100">100</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
+<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00115">115</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af0c7022ee1c4284ca594a49aa3759ec6"></a>
+<a class="anchor" id="a78f79f726453f63d509f05781d505874"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock = SLB_ID_ASTAR_BACKTRACK_LOCK&gt; </div>
+template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock_ = SLB_ID_ASTAR_BACKTRACK_LOCK, template&lt; class &gt; class Pruning = SLB_ID_ASTAR_PRUNING&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ReturnType <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock &gt;::run </td>
+          <td class="memname">ReturnType <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock_, Pruning &gt;::run </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -396,7 +405,7 @@ template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock = SL
 <p>Runs the algorithm. </p>
 <dl class="section return"><dt>Returns</dt><dd>The solution cost. If there is no solution, then <code>CostType{-1}</code> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00081">81</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
+<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00092">92</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +415,7 @@ template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock = SL
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

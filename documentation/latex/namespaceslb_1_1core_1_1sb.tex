@@ -10,8 +10,6 @@ The search base. These are facilities that support implementation of various heu
 \item 
 struct \hyperlink{structslb_1_1core_1_1sb_1_1ActionNeighbor}{Action\+Neighbor}
 \begin{DoxyCompactList}\small\item\em The type for an action neighbor of a given state. \end{DoxyCompactList}\item 
-struct \hyperlink{structslb_1_1core_1_1sb_1_1Backtrack}{Backtrack}
-\begin{DoxyCompactList}\small\item\em Handles backtracking in linear-\/space algorithms such as I\+D\+A$\ast$. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1sb_1_1Cost}{Cost}
 \begin{DoxyCompactList}\small\item\em The type for storing the cost of a neighbor. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1sb_1_1Cost_3_01State___00_01true_01_4}{Cost$<$ State\+\_\+, true $>$}
@@ -51,6 +49,8 @@ struct \hyperlink{structslb_1_1core_1_1sb_1_1Stats}{Stats}
 \begin{DoxyCompactList}\small\item\em Parses the given title line of the instances file to determine how many start and goal states each instance would contain. Returns a measure set with the titles already set. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class State $>$ }\\State \hyperlink{namespaceslb_1_1core_1_1sb_a68dfc95bb83fc37be7bbaf9d8ea14557}{unique\+Random\+State} (const std\+::vector$<$ State $>$ \&v)
 \begin{DoxyCompactList}\small\item\em Computes a random state that is not in the given vector of states. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class State $>$ }\\State \hyperlink{namespaceslb_1_1core_1_1sb_a8e97884bbdba52e74db4baf3fd5cd561}{random\+Walk\+State} (const State \&s, int length, const std\+::vector$<$ State $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Perform a random walk of specified length from the specified state and return the resulting state. Checks that the state is not in the given vector of states. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{Instance}$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_a7f194d59f1e10da41faa6d30644e1e06}{make\+Instances} (int n)
 \begin{DoxyCompactList}\small\item\em Makes the required number of random instances. The numbers of start and goal states are determined by the command line. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class State , C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\std\+::vector$<$ \hyperlink{structslb_1_1core_1_1sb_1_1Instance}{Instance}$<$ State $>$ $>$ \hyperlink{namespaceslb_1_1core_1_1sb_af8a099333bcb967b7c5fdbe18e004631}{make\+Instances\+File} (const std\+::string \&fname)
@@ -92,7 +92,7 @@ If the number of different states in the domain is smaller than the number of st
 \end{DoxyWarning}
 
 
-Definition at line 154 of file instance.\+h.
+Definition at line 176 of file instance.\+h.
 
 \index{slb\+::core\+::sb@{slb\+::core\+::sb}!make\+Instances\+File@{make\+Instances\+File}}
 \index{make\+Instances\+File@{make\+Instances\+File}!slb\+::core\+::sb@{slb\+::core\+::sb}}
@@ -123,7 +123,7 @@ If the number of different states in the domain is smaller than the number of st
 \end{DoxyWarning}
 
 
-Definition at line 189 of file instance.\+h.
+Definition at line 237 of file instance.\+h.
 
 \index{slb\+::core\+::sb@{slb\+::core\+::sb}!parse\+Instances\+Title@{parse\+Instances\+Title}}
 \index{parse\+Instances\+Title@{parse\+Instances\+Title}!slb\+::core\+::sb@{slb\+::core\+::sb}}
@@ -150,6 +150,40 @@ Parses the given title line of the instances file to determine how many start an
 
 
 Definition at line 24 of file instance.\+h.
+
+\index{slb\+::core\+::sb@{slb\+::core\+::sb}!random\+Walk\+State@{random\+Walk\+State}}
+\index{random\+Walk\+State@{random\+Walk\+State}!slb\+::core\+::sb@{slb\+::core\+::sb}}
+\paragraph[{\texorpdfstring{random\+Walk\+State(const State \&s, int length, const std\+::vector$<$ State $>$ \&v)}{randomWalkState(const State &s, int length, const std::vector< State > &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State $>$ State slb\+::core\+::sb\+::random\+Walk\+State (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s, }
+\item[{int}]{length, }
+\item[{const std\+::vector$<$ State $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1sb_a8e97884bbdba52e74db4baf3fd5cd561}{}\label{namespaceslb_1_1core_1_1sb_a8e97884bbdba52e74db4baf3fd5cd561}
+
+
+Perform a random walk of specified length from the specified state and return the resulting state. Checks that the state is not in the given vector of states. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type, represents the domain. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state from which the random walk is to be initiated. \\
+\hline
+{\em length} & The length of the random walk. \\
+\hline
+{\em v} & The vector of forbidden states. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state resulting from a random walk of length {\ttfamily length} initiated at {\ttfamily s}. 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file instance.\+h.
 
 \index{slb\+::core\+::sb@{slb\+::core\+::sb}!read\+Instances\+File@{read\+Instances\+File}}
 \index{read\+Instances\+File@{read\+Instances\+File}!slb\+::core\+::sb@{slb\+::core\+::sb}}
@@ -180,7 +214,7 @@ The numbers of start and goal states in the instances are extracted from the fil
 \end{DoxyNote}
 
 
-Definition at line 218 of file instance.\+h.
+Definition at line 266 of file instance.\+h.
 
 \index{slb\+::core\+::sb@{slb\+::core\+::sb}!unique\+Random\+State@{unique\+Random\+State}}
 \index{unique\+Random\+State@{unique\+Random\+State}!slb\+::core\+::sb@{slb\+::core\+::sb}}
@@ -208,5 +242,5 @@ A random state that is not in {\ttfamily v}.
 \end{DoxyReturn}
 
 
-Definition at line 136 of file instance.\+h.
+Definition at line 137 of file instance.\+h.
 

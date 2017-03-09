@@ -1,6 +1,7 @@
 <map id="extensions/algorithms/astar.h" name="extensions/algorithms/astar.h">
-<area shape="rect" id="node2" href="$extensions_2algorithms_2headers_8h.html" title="Implementation of the search algorithms. " alt="" coords="5,95,155,136"/>
-<area shape="rect" id="node3" href="$extensions_2headers_8h.html" title="Search algorithms, algorithmic variants and facilities that directly support them. " alt="" coords="7,184,153,211"/>
-<area shape="rect" id="node4" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="55,259,105,285"/>
-<area shape="rect" id="node5" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="45,333,115,360"/>
+<area shape="rect" id="node2" href="$extensions_2algorithms_2headers_8h.html" title="Implementation of the search algorithms. " alt="" coords="5,184,155,225"/>
+<area shape="rect" id="node6" href="$uniform__cost_8h.html" title="The slb::ext::algorithm::UniformCost class. " alt="" coords="61,95,211,136"/>
+<area shape="rect" id="node3" href="$extensions_2headers_8h.html" title="Search algorithms, algorithmic variants and facilities that directly support them. " alt="" coords="7,273,153,300"/>
+<area shape="rect" id="node4" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="55,348,105,375"/>
+<area shape="rect" id="node5" href="$test_8cpp.html" title="The standard main file, which uses the framework for the most common experimentation scenarios – run..." alt="" coords="45,423,115,449"/>
 </map>

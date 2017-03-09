@@ -36,7 +36,7 @@ using \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAl
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ae13e86e5932f686d7b306dc286be833d}{Inplace} (My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)
+{\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a6f70a5ab71cccf4d4442f43fd660a68b}{Inplace} (My\+Algorithm \&alg, Neighbor \&n, Cost\+Type h)
 \begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
 \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_acf1e0f412c740f8c5d5936361d2f0e6f}{Inplace} (\hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace}{Inplace} \&\&)=default\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_acf1e0f412c740f8c5d5936361d2f0e6f}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_acf1e0f412c740f8c5d5936361d2f0e6f}
 
@@ -53,7 +53,7 @@ static const bool \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inpl
 \subsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class Neighbor $>$ }\\void \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_aa9a86059dcafdec3f8498eb12a06153f}{set} (Neighbor \&n)
+{\footnotesize template$<$class Neighbor $>$ }\\void \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a20f19ca5602c8c47bc4d2cc9e4e5fac1}{set} (Neighbor \&n, Cost\+Type h)
 \begin{DoxyCompactList}\small\item\em Does the necessary bookkeeping for searching the given neighbor. \end{DoxyCompactList}\item 
 void \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a20c434c629d4e15d7688493da6bb79ef}{unset} ()\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a20c434c629d4e15d7688493da6bb79ef}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a20c434c629d4e15d7688493da6bb79ef}
 
@@ -80,20 +80,20 @@ Handles R\+A\+II for backtracking in I\+D\+A$\ast$ when the state is updated in 
 \end{DoxyTemplParams}
 
 
-Definition at line 98 of file backtrack\+\_\+lock.\+h.
+Definition at line 93 of file backtrack\+\_\+lock.\+h.
 
 
 
 \subsubsection{Constructor \& Destructor Documentation}
 \index{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}!Inplace@{Inplace}}
 \index{Inplace@{Inplace}!slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}}
-\paragraph[{\texorpdfstring{Inplace(\+My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)}{Inplace(MyAlgorithm &alg, Node *cur, Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, true $>$\+::{\bf Inplace} (
+\paragraph[{\texorpdfstring{Inplace(\+My\+Algorithm \&alg, Neighbor \&n, Cost\+Type h)}{Inplace(MyAlgorithm &alg, Neighbor &n, CostType h)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, true $>$\+::{\bf Inplace} (
 \begin{DoxyParamCaption}
 \item[{My\+Algorithm \&}]{alg, }
-\item[{Node $\ast$}]{cur, }
-\item[{Neighbor \&}]{n}
+\item[{Neighbor \&}]{n, }
+\item[{Cost\+Type}]{h}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ae13e86e5932f686d7b306dc286be833d}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_ae13e86e5932f686d7b306dc286be833d}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a6f70a5ab71cccf4d4442f43fd660a68b}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a6f70a5ab71cccf4d4442f43fd660a68b}
 
 
 The constructor. 
@@ -107,25 +107,24 @@ The constructor.
 \begin{DoxyParams}{Parameters}
 {\em alg} & The search algorithm. \\
 \hline
-{\em cur} & The node being expanded by I\+D\+A$\ast$. \\
-\hline
 {\em n} & The neighbor. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 113 of file backtrack\+\_\+lock.\+h.
+Definition at line 107 of file backtrack\+\_\+lock.\+h.
 
 
 
 \subsubsection{Member Function Documentation}
 \index{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}!set@{set}}
 \index{set@{set}!slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace$<$ My\+Algorithm, true $>$}}
-\paragraph[{\texorpdfstring{set(\+Neighbor \&n)}{set(Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ void {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, true $>$\+::set (
+\paragraph[{\texorpdfstring{set(\+Neighbor \&n, Cost\+Type h)}{set(Neighbor &n, CostType h)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ void {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, true $>$\+::set (
 \begin{DoxyParamCaption}
-\item[{Neighbor \&}]{n}
+\item[{Neighbor \&}]{n, }
+\item[{Cost\+Type}]{h}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_aa9a86059dcafdec3f8498eb12a06153f}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_aa9a86059dcafdec3f8498eb12a06153f}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a20f19ca5602c8c47bc4d2cc9e4e5fac1}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4_a20f19ca5602c8c47bc4d2cc9e4e5fac1}
 
 
 Does the necessary bookkeeping for searching the given neighbor. 
@@ -142,7 +141,7 @@ Does the necessary bookkeeping for searching the given neighbor.
 \end{DoxyParams}
 
 
-Definition at line 132 of file backtrack\+\_\+lock.\+h.
+Definition at line 123 of file backtrack\+\_\+lock.\+h.
 
 
 

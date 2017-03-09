@@ -54,7 +54,9 @@ void \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a4b2
 
 \begin{DoxyCompactList}\small\item\em Dumps the list to {\ttfamily stderr} for debugging. \end{DoxyCompactList}\item 
 void \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a2bb00c5ed704472eea8da59ec2fd8bc1}{recompute} ()
-\begin{DoxyCompactList}\small\item\em Re-\/compute the whole open list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Re-\/compute the whole open list. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename P $>$ }\\void \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a6c49ce7f49fb94bc6d2ecf3be26554d4}{partial\+Recompute} (const P \&p)
+\begin{DoxyCompactList}\small\item\em Re-\/compute the open list partially. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -220,7 +222,7 @@ Pointer to the node being removed.
 \end{DoxyReturn}
 
 
-Definition at line 238 of file open\+\_\+list.\+h.
+Definition at line 258 of file open\+\_\+list.\+h.
 
 \index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!erase@{erase}}
 \index{erase@{erase}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
@@ -246,7 +248,32 @@ Pointer to the node being removed.
 \end{DoxyReturn}
 
 
-Definition at line 249 of file open\+\_\+list.\+h.
+Definition at line 269 of file open\+\_\+list.\+h.
+
+\index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!partial\+Recompute@{partial\+Recompute}}
+\index{partial\+Recompute@{partial\+Recompute}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}
+\paragraph[{\texorpdfstring{partial\+Recompute(const P \&p)}{partialRecompute(const P &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm\+\_\+ , class Node\+\_\+  = S\+L\+B\+\_\+\+N\+O\+DE, template$<$ class Node $>$ class Key\+Type\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE, template$<$ class Key\+Type $>$ class Greater\+Priority\+\_\+ = S\+L\+B\+\_\+\+O\+L\+\_\+\+P\+R\+I\+O\+R\+I\+TY, template$<$ typename, typename, typename $>$ class Container = S\+L\+B\+\_\+\+O\+L\+\_\+\+C\+O\+N\+T\+A\+I\+N\+ER$>$ template$<$typename P $>$ void {\bf slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm\+\_\+, Node\+\_\+, Key\+Type\+\_\+, Greater\+Priority\+\_\+, Container $>$\+::partial\+Recompute (
+\begin{DoxyParamCaption}
+\item[{const P \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a6c49ce7f49fb94bc6d2ecf3be26554d4}{}\label{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T_a6c49ce7f49fb94bc6d2ecf3be26554d4}
+
+
+Re-\/compute the open list partially. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em P} & The type of predicate for determining whether the node needs to be updated. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The predicate for determining whether the node needs to be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 230 of file open\+\_\+list.\+h.
 
 \index{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}!recompute@{recompute}}
 \index{recompute@{recompute}!slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T@{slb\+::ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}}

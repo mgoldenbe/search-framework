@@ -1,12 +1,12 @@
 <map id="test.cpp" name="test.cpp">
-<area shape="rect" id="node3" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="4933,87,4983,114"/>
-<area shape="rect" id="node4" href="$outside__headers_8h.html" title="Inclusion of standard and third&#45;party libraries. This header is well&#45;suited for pre&#45;compilation. " alt="" coords="1778,177,1906,203"/>
-<area shape="rect" id="node44" href="$headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4819,169,4953,211"/>
-<area shape="rect" id="node48" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="4977,177,5085,203"/>
-<area shape="rect" id="node50" href="$extensions_2headers_8h.html" title="Search algorithms, algorithmic variants and facilities that directly support them. " alt="" coords="5110,177,5257,203"/>
-<area shape="rect" id="node19" href="$time_8h.html" title="Time&#45;related utilities. " alt="" coords="3239,363,3298,389"/>
-<area shape="rect" id="node45" href="$domains_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4635,266,4774,307"/>
-<area shape="rect" id="node46" href="$instance__measures_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4799,266,4973,307"/>
-<area shape="rect" id="node47" href="$nodes_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4997,266,5172,307"/>
-<area shape="rect" id="node49" href="$core_2util_2headers_8h.html" title="INTERFACES CHECKED. " alt="" coords="5196,273,5296,300"/>
+<area shape="rect" id="node3" href="$slb_8h.html" title="This header file includes the whole framework. " alt="" coords="4950,87,5001,114"/>
+<area shape="rect" id="node4" href="$outside__headers_8h.html" title="Inclusion of standard and third&#45;party libraries. This header is well&#45;suited for pre&#45;compilation. " alt="" coords="1810,177,1938,203"/>
+<area shape="rect" id="node44" href="$headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4836,169,4971,211"/>
+<area shape="rect" id="node49" href="$core_2headers_8h.html" title="The core functionality of the framework. " alt="" coords="4995,177,5103,203"/>
+<area shape="rect" id="node50" href="$extensions_2headers_8h.html" title="Search algorithms, algorithmic variants and facilities that directly support them. " alt="" coords="5127,177,5274,203"/>
+<area shape="rect" id="node19" href="$time_8h.html" title="Time&#45;related utilities. " alt="" coords="1278,273,1337,300"/>
+<area shape="rect" id="node45" href="$domains_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4667,266,4806,307"/>
+<area shape="rect" id="node46" href="$heuristics_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="4831,266,4976,307"/>
+<area shape="rect" id="node47" href="$instance__measures_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="5000,266,5175,307"/>
+<area shape="rect" id="node48" href="$nodes_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="5199,266,5373,307"/>
 </map>

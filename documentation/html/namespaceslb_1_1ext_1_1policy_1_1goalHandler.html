@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">slb::ext::policy::goalHandler Namespace Reference</div>  </div>
@@ -98,11 +99,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html">MaxHeuristic</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-computed whenever a goal is solved with the required quality.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html">MinHeuristic</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html">LazyUpdate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html">MultipleGoal</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#details">More...</a><br /></td></tr>
@@ -111,8 +109,18 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when the set of the goal states is empty.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html">SingleGoal</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there is a single goal state.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there is a single goal state. Assumes that, at goal, f=g holds.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html">TotalUpdateT</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-computed whenever a goal is solved with the required quality.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a75edd9c8ad913d3ccb32e7cbafe5cdc5"><td class="memTemplParams" colspan="2"><a class="anchor" id="a75edd9c8ad913d3ccb32e7cbafe5cdc5"></a>
+template&lt;class MyAlgorithm &gt; </td></tr>
+<tr class="memitem:a75edd9c8ad913d3ccb32e7cbafe5cdc5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>TotalUpdate</b> = <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html">TotalUpdateT</a>&lt; MyAlgorithm &gt;</td></tr>
+<tr class="separator:a75edd9c8ad913d3ccb32e7cbafe5cdc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -155,7 +163,7 @@ template&lt;class Handler &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

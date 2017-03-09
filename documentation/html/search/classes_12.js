@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['vertexchange',['VertexChange',['../structslb_1_1core_1_1ui_1_1VisualEvent_1_1VertexChange.html',1,'slb::core::ui::VisualEvent']]],
   ['vertexchange',['VertexChange',['../structslb_1_1core_1_1ui_1_1EventBase_1_1VertexChange.html',1,'slb::core::ui::EventBase']]],
   ['vertexchange',['VertexChange',['../structslb_1_1ext_1_1event_1_1VertexChange.html',1,'slb::ext::event']]],
+  ['vertexchange',['VertexChange',['../structslb_1_1core_1_1ui_1_1VisualEvent_1_1VertexChange.html',1,'slb::core::ui::VisualEvent']]],
   ['vertexcolor',['VertexColor',['../structslb_1_1ext_1_1event_1_1VertexColor.html',1,'slb::ext::event']]],
   ['vertexedgechange',['VertexEdgeChange',['../structslb_1_1ext_1_1event_1_1VertexEdgeChange.html',1,'slb::ext::event']]],
   ['vertexedgecolor',['VertexEdgeColor',['../structslb_1_1ext_1_1event_1_1VertexEdgeColor.html',1,'slb::ext::event']]],

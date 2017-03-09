@@ -134,6 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8bb2fb56eff2e609fd7929449b141f8d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html#a631205b5ee8d1a61a05c0d30f766ef2e">State</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html#a8bb2fb56eff2e609fd7929449b141f8d">goal</a> () const </td></tr>
 <tr class="memdesc:a8bb2fb56eff2e609fd7929449b141f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first goal state. Intended for use when the instance contains a single goal state.  <a href="#a8bb2fb56eff2e609fd7929449b141f8d">More...</a><br /></td></tr>
 <tr class="separator:a8bb2fb56eff2e609fd7929449b141f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781f5edc3e5686550d8ac5737fcdc020"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html#a631205b5ee8d1a61a05c0d30f766ef2e">State</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html#a781f5edc3e5686550d8ac5737fcdc020">starts</a> () const </td></tr>
+<tr class="memdesc:a781f5edc3e5686550d8ac5737fcdc020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the start states.  <a href="#a781f5edc3e5686550d8ac5737fcdc020">More...</a><br /></td></tr>
+<tr class="separator:a781f5edc3e5686550d8ac5737fcdc020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5aed2f037cbdb04b8a41a13105388f1e"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html#a631205b5ee8d1a61a05c0d30f766ef2e">State</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html#a5aed2f037cbdb04b8a41a13105388f1e">goals</a> () const </td></tr>
 <tr class="memdesc:a5aed2f037cbdb04b8a41a13105388f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the goal states.  <a href="#a5aed2f037cbdb04b8a41a13105388f1e">More...</a><br /></td></tr>
 <tr class="separator:a5aed2f037cbdb04b8a41a13105388f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -332,7 +335,7 @@ template&lt;class Stream &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00106">106</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00107">107</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -376,7 +379,7 @@ template&lt;class Stream &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00115">115</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00116">116</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -436,7 +439,7 @@ template&lt;class State_&gt; </div>
 <p>Returns a vector of single-goal instances, one instance for each goal state. </p>
 <dl class="section return"><dt>Returns</dt><dd>Vector of single-goal instances, one instance for each goal state. </dd></dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00096">96</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00097">97</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -464,10 +467,9 @@ template&lt;class State_&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the goal states. </p>
-<dl class="section return"><dt>Returns</dt><dd>Non-const reference to the vector of goal states. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The reference in the return value is non-const, since some search algorithms need to modify the set of goals as the algorithm progresses. See <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html">ext::policy::goalHandler::MinHeuristic</a> for an example. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the vector of goal states. </dd></dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00090">90</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00091">91</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -497,7 +499,7 @@ template&lt;class State_&gt; </div>
 <p>Returns the measure set of the instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>The measure set of the instance. </dd></dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00123">123</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00124">124</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -531,13 +533,43 @@ template&lt;class State_&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a781f5edc3e5686550d8ac5737fcdc020"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class State_&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html#a631205b5ee8d1a61a05c0d30f766ef2e">State</a>&gt;&amp; <a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html">slb::core::sb::Instance</a>&lt; State_ &gt;::starts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the start states. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the vector of start states. </dd></dl>
+
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00087">87</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>core/search_base/<a class="el" href="instance_8h_source.html">instance.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

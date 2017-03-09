@@ -10,8 +10,9 @@ var searchData=
   ['nodedata',['nodeData',['../structslb_1_1core_1_1ui_1_1EventBase.html#a6ea3aa8fc149f08ff986076852d7802b',1,'slb::core::ui::EventBase']]],
   ['nogoal',['NoGoal',['../structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal.html#af3ec578f42a0433dddff506cf89d9bf9',1,'slb::ext::policy::goalHandler::NoGoal']]],
   ['nonselectable',['nonSelectable',['../structslb_1_1core_1_1ui_1_1MenuBase.html#ad8625e43a539491f1b8adeedcfaa5c9f',1,'slb::core::ui::MenuBase']]],
-  ['nothing',['Nothing',['../structslb_1_1core_1_1commandLine_1_1Nothing.html#aa236acfd9db82b41acfd0b5a1052eca8',1,'slb::core::commandLine::Nothing']]],
+  ['nothing',['Nothing',['../structslb_1_1core_1_1commandLine_1_1Nothing.html#aa236acfd9db82b41acfd0b5a1052eca8',1,'slb::core::commandLine::Nothing::Nothing()'],['../structslb_1_1ext_1_1policy_1_1pruning_1_1Nothing.html#a5adf3cff649cbc7db2a43544fa49f247',1,'slb::ext::policy::pruning::Nothing::Nothing()']]],
   ['npancakes',['nPancakes',['../structslb_1_1ext_1_1domain_1_1pancake_1_1CommandLine.html#a693fc7f35c65bd739aa1788533117df0',1,'slb::ext::domain::pancake::CommandLine']]],
+  ['npivots',['nPivots',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1CommandLine.html#a17659f8348093e663b2eb1c3fcb986a2',1,'slb::ext::heuristic::differential::CommandLine']]],
   ['nstages',['nStages',['../structslb_1_1ext_1_1domain_1_1incWorst_1_1CommandLine.html#a7df05c621218d114c39c582cf6c1f183',1,'slb::ext::domain::incWorst::CommandLine']]],
   ['nstarts',['nStarts',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#a2ae1702ab278a15945e753b3097fcad4',1,'slb::core::commandLine::CommandLine']]]
 ];

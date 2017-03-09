@@ -88,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
@@ -103,6 +104,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator.html">StateIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The state iterator type.  <a href="structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a800819a8f2c96bf76dd9d36c18760815"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a800819a8f2c96bf76dd9d36c18760815"></a>
@@ -113,6 +120,10 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="str
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a2b2125f1774b299ea7f0f9f21d967fde">Location</a> = int</td></tr>
 <tr class="memdesc:a2b2125f1774b299ea7f0f9f21d967fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type used internally by this explicit space to represent a state. To distinguish this state type from the state type used by search algorithms, we call this state type <code>location</code>. <br /></td></tr>
 <tr class="separator:a2b2125f1774b299ea7f0f9f21d967fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c71647e997ddb8f8f442d4e173d962"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75c71647e997ddb8f8f442d4e173d962"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a75c71647e997ddb8f8f442d4e173d962">LocationIterator</a> = <a class="el" href="structslb_1_1core_1_1util_1_1IndexIterator.html">core::util::IndexIterator</a>&lt; std::vector&lt; bool &gt;, <a class="el" href="structslb_1_1core_1_1util_1_1BasicVectorSkipIterator.html">core::util::VectorSkipConstIterator</a>&lt; std::vector&lt; bool &gt;&gt;&gt;</td></tr>
+<tr class="memdesc:a75c71647e997ddb8f8f442d4e173d962"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of iterator over passable locations. <br /></td></tr>
+<tr class="separator:a75c71647e997ddb8f8f442d4e173d962"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -162,6 +173,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6a4048decbe8d61178986f4ae09884f9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a6a4048decbe8d61178986f4ae09884f9">locationStr</a> (<a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a2b2125f1774b299ea7f0f9f21d967fde">Location</a> <a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a55b2b168ae56fb372304763478c4ca4b">location</a>) const </td></tr>
 <tr class="memdesc:a6a4048decbe8d61178986f4ae09884f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the given location.  <a href="#a6a4048decbe8d61178986f4ae09884f9">More...</a><br /></td></tr>
 <tr class="separator:a6a4048decbe8d61178986f4ae09884f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1dfa66a8c9f25eb20fa2baf8552876a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#ae1dfa66a8c9f25eb20fa2baf8552876a">rawSize</a> () const </td></tr>
+<tr class="memdesc:ae1dfa66a8c9f25eb20fa2baf8552876a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of <a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#aecb404c6bc75e985ee31a4fef89433d2">v_</a>.  <a href="#ae1dfa66a8c9f25eb20fa2baf8552876a">More...</a><br /></td></tr>
+<tr class="separator:ae1dfa66a8c9f25eb20fa2baf8552876a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -169,6 +183,17 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a804425c4377ce2933be9f3ea655dd940"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a804425c4377ce2933be9f3ea655dd940">addNeighbor</a> (std::vector&lt; Neighbor &gt; &amp;res, <a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a2b2125f1774b299ea7f0f9f21d967fde">Location</a> n, bool diagonalFlag=false) const </td></tr>
 <tr class="memdesc:a804425c4377ce2933be9f3ea655dd940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a neighbor corresponding to the given location to the given set of neighbors.  <a href="#a804425c4377ce2933be9f3ea655dd940">More...</a><br /></td></tr>
 <tr class="separator:a804425c4377ce2933be9f3ea655dd940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0136e082c52c7d3c7334b64fd69f4985"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0136e082c52c7d3c7334b64fd69f4985"></a>
+<a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a75c71647e997ddb8f8f442d4e173d962">LocationIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>locationIterator</b> ()</td></tr>
+<tr class="separator:a0136e082c52c7d3c7334b64fd69f4985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac672b9b4974011f4c10243a9c42e5e5e"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac672b9b4974011f4c10243a9c42e5e5e"></a>
+template&lt;class ExplicitState &gt; </td></tr>
+<tr class="memitem:ac672b9b4974011f4c10243a9c42e5e5e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator.html">StateIterator</a>&lt; <a class="el" href="structslb_1_1core_1_1sb_1_1ExplicitState.html">ExplicitState</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>beginStateIterator</b> ()</td></tr>
+<tr class="separator:ac672b9b4974011f4c10243a9c42e5e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6652bd758225247b7bbc741461d4bf67"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6652bd758225247b7bbc741461d4bf67"></a>
+template&lt;class ExplicitState &gt; </td></tr>
+<tr class="memitem:a6652bd758225247b7bbc741461d4bf67"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator.html">StateIterator</a>&lt; <a class="el" href="structslb_1_1core_1_1sb_1_1ExplicitState.html">ExplicitState</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>endStateIterator</b> ()</td></tr>
+<tr class="separator:a6652bd758225247b7bbc741461d4bf67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -235,7 +260,7 @@ template&lt;typename CostType_&gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00035">35</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00049">49</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -299,7 +324,7 @@ template&lt;class Neighbor &gt; </div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The <code>Neighbor</code> type holds the states as used by the search algorithms, not locations. This is done to avoid extra copying. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00221">221</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00240">240</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -336,7 +361,7 @@ template&lt;typename CostType_&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The column corresponding to <code>loc</code>. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00070">70</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00084">84</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -367,7 +392,7 @@ template&lt;typename CostType_&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The default location. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Right now this function simply calls <a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#a1d5777e338c0f81783994f11a594f4a9">random</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00154">154</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00168">168</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -415,7 +440,7 @@ template&lt;typename CostType_&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The location corresponding to the position <code></code>(r,c) in the grid. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00060">60</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00074">74</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -452,7 +477,7 @@ template&lt;typename CostType_&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The location based on the given string. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00131">131</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00145">145</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -489,7 +514,7 @@ template&lt;typename CostType_&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The string representation of <code>location</code>. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00190">190</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00204">204</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -526,7 +551,7 @@ template&lt;typename CostType_&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The string representation of <code>location</code>. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00197">197</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00211">211</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -574,7 +599,7 @@ template&lt;typename CostType_&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The Manhattan distance heuristic from <code>location</code> to <code>goal</code>. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00171">171</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00185">185</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -620,7 +645,7 @@ template&lt;class Neighbor &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The set of neighbors of the given location. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The <code>Neighbor</code> type holds the states as used by the search algorithms, not locations. This is done to avoid extra copying. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00097">97</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00111">111</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -668,7 +693,7 @@ template&lt;typename CostType_&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The octile distance heuristic from <code>location</code> to <code>goal</code>. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00180">180</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00194">194</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -709,7 +734,7 @@ template&lt;typename CostType_&gt; </div>
 <p>Returns <code>true</code> if the location <code></code>(r,c) is passable and <code>false</code> otherwise. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the location <code></code>(r,c) is passable and <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00076">76</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00090">90</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -740,7 +765,7 @@ template&lt;typename CostType_&gt; </div>
 <p>Returns <code>true</code> if the location <code>loc</code> is passable and <code>false</code> otherwise. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the location <code>loc</code> is passable and <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00086">86</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00100">100</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -770,7 +795,37 @@ template&lt;typename CostType_&gt; </div>
 <p>Returns a random location. </p>
 <dl class="section return"><dt>Returns</dt><dd>A random location. </dd></dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00139">139</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00153">153</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1dfa66a8c9f25eb20fa2baf8552876a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CostType_&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html">slb::ext::explicit_space::Grid</a>&lt; CostType_ &gt;::rawSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the size of <a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#aecb404c6bc75e985ee31a4fef89433d2">v_</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of <a class="el" href="structslb_1_1ext_1_1explicit__space_1_1Grid.html#aecb404c6bc75e985ee31a4fef89433d2">v_</a>. </dd></dl>
+
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00217">217</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -806,7 +861,7 @@ template&lt;typename CostType_&gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00065">65</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00079">79</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -860,7 +915,7 @@ template&lt;typename CostType_&gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00162">162</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
+<p>Definition at line <a class="el" href="explicit__spaces_2grid_8h_source.html#l00176">176</a> of file <a class="el" href="explicit__spaces_2grid_8h_source.html">grid.h</a>.</p>
 
 </div>
 </div>
@@ -870,7 +925,7 @@ template&lt;typename CostType_&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

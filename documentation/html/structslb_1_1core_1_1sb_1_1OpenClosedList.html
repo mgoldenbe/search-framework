@@ -166,6 +166,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <tr class="memitem:a02b31f1b0ce5feea1dc45c00e37d1ebd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structslb_1_1core_1_1sb_1_1OpenClosedList.html#a32a2b03f9f64969e70977f9b5f858b3f">HashType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1OpenClosedList.html#a02b31f1b0ce5feea1dc45c00e37d1ebd">hash</a> () const </td></tr>
 <tr class="memdesc:a02b31f1b0ce5feea1dc45c00e37d1ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying hash table of the closed list.  <a href="#a02b31f1b0ce5feea1dc45c00e37d1ebd">More...</a><br /></td></tr>
 <tr class="separator:a02b31f1b0ce5feea1dc45c00e37d1ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab519aad906ab1335207b3638852a1304"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab519aad906ab1335207b3638852a1304"></a>
+template&lt;typename P &gt; </td></tr>
+<tr class="memitem:ab519aad906ab1335207b3638852a1304"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1OpenClosedList.html#ab519aad906ab1335207b3638852a1304">partialRecomputeOpen</a> (const P &amp;p)</td></tr>
+<tr class="memdesc:ab519aad906ab1335207b3638852a1304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the nodes of the open list for which the predicate holds. <br /></td></tr>
+<tr class="separator:ab519aad906ab1335207b3638852a1304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4893b96926c3ef275852f532871d19ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4893b96926c3ef275852f532871d19ec"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1OpenClosedList.html#a4893b96926c3ef275852f532871d19ec">recomputeOpen</a> ()</td></tr>
 <tr class="memdesc:a4893b96926c3ef275852f532871d19ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-compute the whole open list. <br /></td></tr>
@@ -173,6 +178,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <tr class="memitem:aa56f6d93b10b1acd3ee9e3a25e73f581"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structslb_1_1core_1_1sb_1_1OpenClosedList.html#a9ffd5756297080af110c9d55b588a34e">KeyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1OpenClosedList.html#aa56f6d93b10b1acd3ee9e3a25e73f581">priority</a> (<a class="el" href="structslb_1_1core_1_1sb_1_1OpenClosedList.html#ab4cf0f882c69f162e0eccf4abe5ad27e">Node</a> *n)</td></tr>
 <tr class="memdesc:aa56f6d93b10b1acd3ee9e3a25e73f581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the priority in the open list of the given node.  <a href="#aa56f6d93b10b1acd3ee9e3a25e73f581">More...</a><br /></td></tr>
 <tr class="separator:aa56f6d93b10b1acd3ee9e3a25e73f581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be4837f70f9fbdbedc6b583cdd6d852"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8be4837f70f9fbdbedc6b583cdd6d852"></a>
+OpenList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ol</b> ()</td></tr>
+<tr class="separator:a8be4837f70f9fbdbedc6b583cdd6d852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -464,7 +472,7 @@ template&lt;class OpenList &gt; </div>
 <p>Returns the priority in the open list of the given node. </p>
 <dl class="section return"><dt>Returns</dt><dd>The priority in the open list of the given node. </dd></dl>
 
-<p>Definition at line <a class="el" href="open__closed__list_8h_source.html#l00126">126</a> of file <a class="el" href="open__closed__list_8h_source.html">open_closed_list.h</a>.</p>
+<p>Definition at line <a class="el" href="open__closed__list_8h_source.html#l00132">132</a> of file <a class="el" href="open__closed__list_8h_source.html">open_closed_list.h</a>.</p>
 
 </div>
 </div>
@@ -557,7 +565,7 @@ template&lt;class OpenList &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

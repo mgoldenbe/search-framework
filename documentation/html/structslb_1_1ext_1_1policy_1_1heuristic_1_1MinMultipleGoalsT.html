@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>HSRF: Heuristic Search Research Framework: slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt; Struct Template Reference</title>
+<title>HSRF: Heuristic Search Research Framework: slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,12 +88,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt; Struct Template Reference</div>  </div>
+<div class="title">slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -102,40 +103,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae0deabd1bd117ed3fdbb2f0859d0efb6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0deabd1bd117ed3fdbb2f0859d0efb6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>SingleGoalHeuristic</b> = SingleGoalHeuristicT&lt; MyAlgorithm &gt;</td></tr>
+<tr class="separator:ae0deabd1bd117ed3fdbb2f0859d0efb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3927fe6fcb6244f22c75357df3fd4e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3927fe6fcb6244f22c75357df3fd4e6"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Compare</b> = CompareT&lt; CostType &gt;</td></tr>
+<tr class="separator:ab3927fe6fcb6244f22c75357df3fd4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5234686dc140005dd9c6f6d5524b0ee8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="extensions_2shared__policies_2headers_8h.html#ae70a06fa4631780beea14971eb36a562">POLICY_TYPES</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a5234686dc140005dd9c6f6d5524b0ee8">MinMultipleGoalsT</a> (MyAlgorithm &amp;alg)</td></tr>
-<tr class="memdesc:a5234686dc140005dd9c6f6d5524b0ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#a5234686dc140005dd9c6f6d5524b0ee8">More...</a><br /></td></tr>
-<tr class="separator:a5234686dc140005dd9c6f6d5524b0ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3651719ae7081b0aa624c41ea3a89976"><td class="memTemplParams" colspan="2">template&lt;class Neighbor &gt; </td></tr>
-<tr class="memitem:a3651719ae7081b0aa624c41ea3a89976"><td class="memTemplItemLeft" align="right" valign="top">CostType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a3651719ae7081b0aa624c41ea3a89976">operator()</a> (const Neighbor &amp;n, Node *node) const </td></tr>
-<tr class="memdesc:a3651719ae7081b0aa624c41ea3a89976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#a3651719ae7081b0aa624c41ea3a89976">More...</a><br /></td></tr>
-<tr class="separator:a3651719ae7081b0aa624c41ea3a89976"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ebd8a9bc6ff1bf7a3ab695635892d7e"><td class="memItemLeft" align="right" valign="top">CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a7ebd8a9bc6ff1bf7a3ab695635892d7e">operator()</a> (Node *node) const </td></tr>
-<tr class="memdesc:a7ebd8a9bc6ff1bf7a3ab695635892d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#a7ebd8a9bc6ff1bf7a3ab695635892d7e">More...</a><br /></td></tr>
-<tr class="separator:a7ebd8a9bc6ff1bf7a3ab695635892d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f2259e9e9a4c393f294abca3810e05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#ae1f2259e9e9a4c393f294abca3810e05">MinMultipleGoalsT</a> (MyAlgorithm &amp;alg)</td></tr>
+<tr class="memdesc:ae1f2259e9e9a4c393f294abca3810e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#ae1f2259e9e9a4c393f294abca3810e05">More...</a><br /></td></tr>
+<tr class="separator:ae1f2259e9e9a4c393f294abca3810e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c2095cbab2f64cf53c653d994fd4d05"><td class="memTemplParams" colspan="2">template&lt;class Neighbor &gt; </td></tr>
+<tr class="memitem:a5c2095cbab2f64cf53c653d994fd4d05"><td class="memTemplItemLeft" align="right" valign="top">CostType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a5c2095cbab2f64cf53c653d994fd4d05">operator()</a> (const Neighbor &amp;n, Node *node) const </td></tr>
+<tr class="memdesc:a5c2095cbab2f64cf53c653d994fd4d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#a5c2095cbab2f64cf53c653d994fd4d05">More...</a><br /></td></tr>
+<tr class="separator:a5c2095cbab2f64cf53c653d994fd4d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2850cb27c323600fe586acef9b2f3c76"><td class="memItemLeft" align="right" valign="top">CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a2850cb27c323600fe586acef9b2f3c76">operator()</a> (Node *node) const </td></tr>
+<tr class="memdesc:a2850cb27c323600fe586acef9b2f3c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#a2850cb27c323600fe586acef9b2f3c76">More...</a><br /></td></tr>
+<tr class="separator:a2850cb27c323600fe586acef9b2f3c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a332214555e25cbaf6f72f04800eed69c"><td class="memTemplParams" colspan="2">template&lt;class L &gt; </td></tr>
-<tr class="memitem:a332214555e25cbaf6f72f04800eed69c"><td class="memTemplItemLeft" align="right" valign="top">CostType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a332214555e25cbaf6f72f04800eed69c">compute</a> (L singleH, Node *node) const </td></tr>
-<tr class="memdesc:a332214555e25cbaf6f72f04800eed69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual computation of the heuristic.  <a href="#a332214555e25cbaf6f72f04800eed69c">More...</a><br /></td></tr>
-<tr class="separator:a332214555e25cbaf6f72f04800eed69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07aaa575e2b7713dc67ab67dc84a54b"><td class="memTemplParams" colspan="2">template&lt;class L &gt; </td></tr>
+<tr class="memitem:ac07aaa575e2b7713dc67ab67dc84a54b"><td class="memTemplItemLeft" align="right" valign="top">CostType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#ac07aaa575e2b7713dc67ab67dc84a54b">compute</a> (L singleH, Node *node) const </td></tr>
+<tr class="memdesc:ac07aaa575e2b7713dc67ab67dc84a54b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual computation of the heuristic.  <a href="#ac07aaa575e2b7713dc67ab67dc84a54b">More...</a><br /></td></tr>
+<tr class="separator:ac07aaa575e2b7713dc67ab67dc84a54b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a5e7e51228c90899b97f816983538965c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e7e51228c90899b97f816983538965c"></a>
-MyAlgorithm &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a5e7e51228c90899b97f816983538965c">alg_</a></td></tr>
-<tr class="memdesc:a5e7e51228c90899b97f816983538965c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the search algorithm. <br /></td></tr>
-<tr class="separator:a5e7e51228c90899b97f816983538965c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ae99c7cb638986ec06278197b76891e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ae99c7cb638986ec06278197b76891e"></a>
-std::vector&lt; SingleGoalHeuristic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#a5ae99c7cb638986ec06278197b76891e">singleGoalHeuristics_</a></td></tr>
-<tr class="memdesc:a5ae99c7cb638986ec06278197b76891e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The single goal heuristic. <br /></td></tr>
-<tr class="separator:a5ae99c7cb638986ec06278197b76891e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9bfa56b1be12d3a091c186b6197536"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc9bfa56b1be12d3a091c186b6197536"></a>
+MyAlgorithm &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#abc9bfa56b1be12d3a091c186b6197536">alg_</a></td></tr>
+<tr class="memdesc:abc9bfa56b1be12d3a091c186b6197536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the search algorithm. <br /></td></tr>
+<tr class="separator:abc9bfa56b1be12d3a091c186b6197536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f9e20c15cf714620bc7f25dbbfa202"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0f9e20c15cf714620bc7f25dbbfa202"></a>
+std::vector&lt; SingleGoalHeuristic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#ac0f9e20c15cf714620bc7f25dbbfa202">singleGoalHeuristics_</a></td></tr>
+<tr class="memdesc:ac0f9e20c15cf714620bc7f25dbbfa202"><td class="mdescLeft">&#160;</td><td class="mdescRight">The single goal heuristic. <br /></td></tr>
+<tr class="separator:ac0f9e20c15cf714620bc7f25dbbfa202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class MyAlgorithm, class SingleGoalHeuristic = SLB_SINGLE_GOAL_HEURISTIC, class Compare = SLB_MIN_HEURISTIC_COMPARE_T&gt;<br />
-struct slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt;</h3>
+<div class="textblock"><h3>template&lt;class MyAlgorithm, template&lt; class &gt; class SingleGoalHeuristicT = SLB_SINGLE_GOAL_HEURISTIC, template&lt; class &gt; class CompareT = SLB_MIN_HEURISTIC_COMPARE&gt;<br />
+struct slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt;</h3>
 
 <p>Computes minimum among heuristics to goals that have not been found (with the required quality) yet. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -147,19 +157,19 @@ struct slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoa
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00125">125</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
+<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00121">121</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5234686dc140005dd9c6f6d5524b0ee8"></a>
+<a class="anchor" id="ae1f2259e9e9a4c393f294abca3810e05"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , class SingleGoalHeuristic  = SLB_SINGLE_GOAL_HEURISTIC, class Compare  = SLB_MIN_HEURISTIC_COMPARE_T&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class SingleGoalHeuristicT = SLB_SINGLE_GOAL_HEURISTIC, template&lt; class &gt; class CompareT = SLB_MIN_HEURISTIC_COMPARE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="extensions_2shared__policies_2headers_8h.html#ae70a06fa4631780beea14971eb36a562">POLICY_TYPES</a> <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt;::<a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">MinMultipleGoalsT</a> </td>
+          <td class="memname"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt;::<a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">MinMultipleGoalsT</a> </td>
           <td>(</td>
           <td class="paramtype">MyAlgorithm &amp;&#160;</td>
           <td class="paramname"><em>alg</em></td><td>)</td>
@@ -181,16 +191,16 @@ template&lt;class MyAlgorithm , class SingleGoalHeuristic  = SLB_SINGLE_GOAL_HEU
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00130">130</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
+<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00129">129</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a332214555e25cbaf6f72f04800eed69c"></a>
+<a class="anchor" id="ac07aaa575e2b7713dc67ab67dc84a54b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , class SingleGoalHeuristic  = SLB_SINGLE_GOAL_HEURISTIC, class Compare  = SLB_MIN_HEURISTIC_COMPARE_T&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class SingleGoalHeuristicT = SLB_SINGLE_GOAL_HEURISTIC, template&lt; class &gt; class CompareT = SLB_MIN_HEURISTIC_COMPARE&gt; </div>
 <div class="memtemplate">
 template&lt;class L &gt; </div>
 <table class="mlabels">
@@ -198,7 +208,7 @@ template&lt;class L &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt;::compute </td>
+          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt;::compute </td>
           <td>(</td>
           <td class="paramtype">L&#160;</td>
           <td class="paramname"><em>singleH</em>, </td>
@@ -238,15 +248,15 @@ template&lt;class L &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The heuristic value. </dd></dl>
 
-<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00167">167</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
+<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00166">166</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3651719ae7081b0aa624c41ea3a89976"></a>
+<a class="anchor" id="a5c2095cbab2f64cf53c653d994fd4d05"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , class SingleGoalHeuristic  = SLB_SINGLE_GOAL_HEURISTIC, class Compare  = SLB_MIN_HEURISTIC_COMPARE_T&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class SingleGoalHeuristicT = SLB_SINGLE_GOAL_HEURISTIC, template&lt; class &gt; class CompareT = SLB_MIN_HEURISTIC_COMPARE&gt; </div>
 <div class="memtemplate">
 template&lt;class Neighbor &gt; </div>
 <table class="mlabels">
@@ -254,7 +264,7 @@ template&lt;class Neighbor &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt;::operator() </td>
+          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt;::operator() </td>
           <td>(</td>
           <td class="paramtype">const Neighbor &amp;&#160;</td>
           <td class="paramname"><em>n</em>, </td>
@@ -287,28 +297,28 @@ template&lt;class Neighbor &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>The state for which the heuristic is to be computed. </td></tr>
+    <tr><td class="paramname">n</td><td>The neighbor for which the heuristic is to be computed. </td></tr>
     <tr><td class="paramname">node</td><td>The node for which the heuristic is to be computed. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The heuristic value. </dd></dl>
 
-<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00141">141</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
+<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00140">140</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7ebd8a9bc6ff1bf7a3ab695635892d7e"></a>
+<a class="anchor" id="a2850cb27c323600fe586acef9b2f3c76"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , class SingleGoalHeuristic  = SLB_SINGLE_GOAL_HEURISTIC, class Compare  = SLB_MIN_HEURISTIC_COMPARE_T&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class SingleGoalHeuristicT = SLB_SINGLE_GOAL_HEURISTIC, template&lt; class &gt; class CompareT = SLB_MIN_HEURISTIC_COMPARE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt;::operator() </td>
+          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT</a>&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt;::operator() </td>
           <td>(</td>
           <td class="paramtype">Node *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
@@ -331,7 +341,7 @@ template&lt;class MyAlgorithm , class SingleGoalHeuristic  = SLB_SINGLE_GOAL_HEU
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The heuristic value. </dd></dl>
 
-<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00150">150</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
+<p>Definition at line <a class="el" href="heuristic__policies_8h_source.html#l00149">149</a> of file <a class="el" href="heuristic__policies_8h_source.html">heuristic_policies.h</a>.</p>
 
 </div>
 </div>
@@ -341,7 +351,7 @@ template&lt;class MyAlgorithm , class SingleGoalHeuristic  = SLB_SINGLE_GOAL_HEU
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -87,7 +87,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">heuristic_policies.h File Reference</div>  </div>
@@ -123,7 +122,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1DynamicSingleGoalT.html">slb::ext::policy::heuristic::DynamicSingleGoalT&lt; MyAlgorithm, BaseHeuristic &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic heuristic to single goal.  <a href="structslb_1_1ext_1_1policy_1_1heuristic_1_1DynamicSingleGoalT.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristic, Compare &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html">slb::ext::policy::heuristic::MinMultipleGoalsT&lt; MyAlgorithm, SingleGoalHeuristicT, CompareT &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes minimum among heuristics to goals that have not been found (with the required quality) yet.  <a href="structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -141,13 +140,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceslb_1_1ext_1_1policy_1_1heuristic"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1ext_1_1policy_1_1heuristic.html">slb::ext::policy::heuristic</a></td></tr>
 <tr class="memdesc:namespaceslb_1_1ext_1_1policy_1_1heuristic"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrappers around heuristics to be used by the search algorithms. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a531a882f29e3cd5cdbfbc7902c2b150b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a531a882f29e3cd5cdbfbc7902c2b150b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heuristic__policies_8h.html#a531a882f29e3cd5cdbfbc7902c2b150b">SLB_MIN_HEURISTIC_COMPARE_T</a>&#160;&#160;&#160;SLB_MIN_HEURISTIC_COMPARE&lt;typename AlgorithmTraits&lt;MyAlgorithm&gt;::CostType&gt;</td></tr>
-<tr class="memdesc:a531a882f29e3cd5cdbfbc7902c2b150b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used by the MinHeuristicToGoals handler. <br /></td></tr>
-<tr class="separator:a531a882f29e3cd5cdbfbc7902c2b150b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -172,7 +164,7 @@ Typedefs</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

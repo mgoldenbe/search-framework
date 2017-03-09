@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal.html" title="Handling conditions related to goal states for the case when the set of the goal states is empty..." alt="" coords="5,5,189,47"/>
+<area shape="rect" id="node1" href="$structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap.html" title="slb::ext::heuristic\l::differential::DistanceMap\l\&lt; State, Index \&gt;" alt="" coords="5,5,180,61"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot.html" title="Pivot with distances to all the states. " alt="" coords="228,5,356,61"/>
 </map>

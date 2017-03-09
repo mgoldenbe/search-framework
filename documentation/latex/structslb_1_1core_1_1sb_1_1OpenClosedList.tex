@@ -57,11 +57,17 @@ void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a08a0a94c44a15c6f9de33
 \begin{DoxyCompactList}\small\item\em Closes the given node. \end{DoxyCompactList}\item 
 const \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a32a2b03f9f64969e70977f9b5f858b3f}{Hash\+Type} \& \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a02b31f1b0ce5feea1dc45c00e37d1ebd}{hash} () const 
 \begin{DoxyCompactList}\small\item\em Returns the underlying hash table of the closed list. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename P $>$ }\\void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab519aad906ab1335207b3638852a1304}{partial\+Recompute\+Open} (const P \&p)\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_ab519aad906ab1335207b3638852a1304}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_ab519aad906ab1335207b3638852a1304}
+
+\begin{DoxyCompactList}\small\item\em Update the nodes of the open list for which the predicate holds. \end{DoxyCompactList}\item 
 void \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a4893b96926c3ef275852f532871d19ec}{recompute\+Open} ()\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a4893b96926c3ef275852f532871d19ec}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a4893b96926c3ef275852f532871d19ec}
 
 \begin{DoxyCompactList}\small\item\em Re-\/compute the whole open list. \end{DoxyCompactList}\item 
 \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_a9ffd5756297080af110c9d55b588a34e}{Key\+Type} \hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_aa56f6d93b10b1acd3ee9e3a25e73f581}{priority} (\hyperlink{structslb_1_1core_1_1sb_1_1OpenClosedList_ab4cf0f882c69f162e0eccf4abe5ad27e}{Node} $\ast$n)
-\begin{DoxyCompactList}\small\item\em Returns the priority in the open list of the given node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the priority in the open list of the given node. \end{DoxyCompactList}\item 
+Open\+List \& {\bfseries ol} ()\hypertarget{structslb_1_1core_1_1sb_1_1OpenClosedList_a8be4837f70f9fbdbedc6b583cdd6d852}{}\label{structslb_1_1core_1_1sb_1_1OpenClosedList_a8be4837f70f9fbdbedc6b583cdd6d852}
+
+\end{DoxyCompactItemize}
 \subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -253,7 +259,7 @@ The priority in the open list of the given node.
 \end{DoxyReturn}
 
 
-Definition at line 126 of file open\+\_\+closed\+\_\+list.\+h.
+Definition at line 132 of file open\+\_\+closed\+\_\+list.\+h.
 
 \index{slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}!re\+Insert@{re\+Insert}}
 \index{re\+Insert@{re\+Insert}!slb\+::core\+::sb\+::\+Open\+Closed\+List@{slb\+::core\+::sb\+::\+Open\+Closed\+List}}

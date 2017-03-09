@@ -1,5 +1,6 @@
 <map id="extensions/domains/headers_fwd.h" name="extensions/domains/headers_fwd.h">
 <area shape="rect" id="node2" href="$pancake__fwd_8h.html" title="Forward declarations for pancake.h. " alt="" coords="5,95,144,136"/>
-<area shape="rect" id="node3" href="$grid__fwd_8h.html" title="Forward declarations for extensions/domains/grid.h. " alt="" coords="168,95,307,136"/>
-<area shape="rect" id="node4" href="$inc__worst__fwd_8h.html" title="Forward declarations for pancake.h. " alt="" coords="331,95,469,136"/>
+<area shape="rect" id="node3" href="$sliding__tile__fwd_8h.html" title="Forward declarations for sliding_tile.h. " alt="" coords="168,95,307,136"/>
+<area shape="rect" id="node4" href="$grid__fwd_8h.html" title="Forward declarations for extensions/domains/grid.h. " alt="" coords="331,95,469,136"/>
+<area shape="rect" id="node5" href="$inc__worst__fwd_8h.html" title="Forward declarations for pancake.h. " alt="" coords="493,95,632,136"/>
 </map>

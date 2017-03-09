@@ -87,6 +87,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">goal_handlers.h File Reference</div>  </div>
@@ -117,16 +119,16 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when the set of the goal states is empty.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html">slb::ext::policy::goalHandler::SingleGoal&lt; MyAlgorithm &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there is a single goal state.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there is a single goal state. Assumes that, at goal, f=g holds.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html">slb::ext::policy::goalHandler::MultipleGoal&lt; MyAlgorithm &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html">slb::ext::policy::goalHandler::MinHeuristic&lt; MyAlgorithm &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html">slb::ext::policy::goalHandler::LazyUpdate&lt; MyAlgorithm &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html">slb::ext::policy::goalHandler::MaxHeuristic&lt; MyAlgorithm &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-computed whenever a goal is solved with the required quality.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html">slb::ext::policy::goalHandler::TotalUpdateT&lt; MyAlgorithm, partialUpdateFlag &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-computed whenever a goal is solved with the required quality.  <a href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -144,6 +146,19 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespaceslb_1_1ext_1_1policy_1_1goalHandler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Policies for handling conditions related to goal states. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a32c3ea9116b340c5603778392135a6b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32c3ea9116b340c5603778392135a6b0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLB_PARTIAL_UPDATE_FLAG</b>&#160;&#160;&#160;false</td></tr>
+<tr class="separator:a32c3ea9116b340c5603778392135a6b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a75edd9c8ad913d3ccb32e7cbafe5cdc5"><td class="memTemplParams" colspan="2"><a class="anchor" id="a75edd9c8ad913d3ccb32e7cbafe5cdc5"></a>
+template&lt;class MyAlgorithm &gt; </td></tr>
+<tr class="memitem:a75edd9c8ad913d3ccb32e7cbafe5cdc5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>slb::ext::policy::goalHandler::TotalUpdate</b> = TotalUpdateT&lt; MyAlgorithm &gt;</td></tr>
+<tr class="separator:a75edd9c8ad913d3ccb32e7cbafe5cdc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aeab06a49da40c2c3c1a7c1dd2ac71b4e"><td class="memTemplParams" colspan="2">template&lt;class Handler &gt; </td></tr>
@@ -159,7 +174,7 @@ Functions</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

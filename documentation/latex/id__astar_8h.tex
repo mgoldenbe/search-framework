@@ -25,11 +25,11 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \item 
 struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1slb__tcb__nothing}{slb\+::ext\+::algorithm\+::slb\+\_\+tcb\+\_\+nothing$<$ class, bool $>$}
 \item 
-struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{slb\+::ext\+::algorithm\+::\+Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Backtrack\+Lock $>$}
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{slb\+::ext\+::algorithm\+::\+Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Backtrack\+Lock\+\_\+, Pruning $>$}
 \begin{DoxyCompactList}\small\item\em The {\ttfamily I\+D\+A$\ast$} search algorithm. \end{DoxyCompactList}\item 
-struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_01_4_01_4}{slb\+::ext\+::algorithm\+::\+Algorithm\+Traits$<$ Id\+Astar$<$ A\+L\+G\+\_\+\+T\+A\+R\+G\+S, Backtrack\+Lock $>$ $>$}
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_00_01Pruning_01_4_01_4}{slb\+::ext\+::algorithm\+::\+Algorithm\+Traits$<$ Id\+Astar$<$ A\+L\+G\+\_\+\+T\+A\+R\+G\+S, Backtrack\+Lock, Pruning $>$ $>$}
 \begin{DoxyCompactList}\small\item\em The traits of \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{Id\+Astar}. \end{DoxyCompactList}\item 
-struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{slb\+::ext\+::algorithm\+::\+Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Backtrack\+Lock $>$}
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{slb\+::ext\+::algorithm\+::\+Id\+Astar$<$ A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+M\+S, Backtrack\+Lock\+\_\+, Pruning $>$}
 \begin{DoxyCompactList}\small\item\em The {\ttfamily I\+D\+A$\ast$} search algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
@@ -45,7 +45,10 @@ struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{slb\+::ext\+::algori
 \item 
 \#define \hyperlink{id__astar_8h_abc75ccf1c929196edfd05ac83974398a}{S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+B\+A\+C\+K\+T\+R\+A\+C\+K\+\_\+\+L\+O\+CK}~slb\+\_\+tcb\+\_\+nothing\hypertarget{id__astar_8h_abc75ccf1c929196edfd05ac83974398a}{}\label{id__astar_8h_abc75ccf1c929196edfd05ac83974398a}
 
-\begin{DoxyCompactList}\small\item\em Default backtracking policy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Default backtracking policy. \end{DoxyCompactList}\item 
+\#define {\bfseries S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+P\+R\+U\+N\+I\+NG}~policy\+::pruning\+::\+Nothing\hypertarget{id__astar_8h_aa9b0cd515ce2514549193f4b26c29979}{}\label{id__astar_8h_aa9b0cd515ce2514549193f4b26c29979}
+
+\end{DoxyCompactItemize}
 
 
 \subsubsection{Detailed Description}

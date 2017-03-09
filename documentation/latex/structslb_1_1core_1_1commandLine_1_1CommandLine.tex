@@ -46,6 +46,16 @@ int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a062e26ee110941ff
 \begin{DoxyCompactList}\small\item\em Returns the number of goal states in a problem instance. \end{DoxyCompactList}\item 
 bool \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a8f2cd242e85739a4aef2733755811fa7}{default\+Goal} ()
 \begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the first goal in the instance being created should be the default state of the domain and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a4bbd10e591ae2335ac175b21e00f321d}{instance\+Strategy} ()
+\begin{DoxyCompactList}\small\item\em Returns the strategy for forming instances. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a4fad701ebf3b50c128e9c354b3f85989}{walk\+First} ()
+\begin{DoxyCompactList}\small\item\em Returns the length of the first walk for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a3b9c1d60c8675502ae70dd9d912f7450}{walk\+Repeat} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of times the same walk length will be used for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a57761e4fb47868c5d325d72c23286ad6}{walk\+Increment} ()
+\begin{DoxyCompactList}\small\item\em Returns the increment for the length of the walk for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_abbc65189047fe4766289668731291a5d}{walk\+Multiplier} ()
+\begin{DoxyCompactList}\small\item\em Returns the multiplier for the length of the walk for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
 bool \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_aba20650577b010f9699c127e258821c3}{per\+Instance} ()
 \begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if per-\/problem-\/instance statistics are to appear on the output and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
 bool \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a49a9a1dc9794bbabde1247dfdf056823}{hide\+Title} ()
@@ -88,6 +98,21 @@ T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1command
 T\+C\+L\+A\+P\+::\+Switch\+Arg \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a7157af3d110066e82e11493e93e37050}{default\+Goal\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a7157af3d110066e82e11493e93e37050}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a7157af3d110066e82e11493e93e37050}
 
 \begin{DoxyCompactList}\small\item\em Command line option for the switch showing whether the first goal in the instance being created should be the default state of the domain. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ std\+::string $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_afb86ebfa1c56ebd011324d7526f8dd55}{instance\+Strategy\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_afb86ebfa1c56ebd011324d7526f8dd55}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_afb86ebfa1c56ebd011324d7526f8dd55}
+
+\begin{DoxyCompactList}\small\item\em Strategy for forming instances. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_ac2fb1ee8b388aaca840a77b78bbf801c}{walk\+First\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_ac2fb1ee8b388aaca840a77b78bbf801c}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_ac2fb1ee8b388aaca840a77b78bbf801c}
+
+\begin{DoxyCompactList}\small\item\em The length of the first walk for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a9142c260196e2ca04c224f2f2d573520}{walk\+Repeat\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a9142c260196e2ca04c224f2f2d573520}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a9142c260196e2ca04c224f2f2d573520}
+
+\begin{DoxyCompactList}\small\item\em The number of times the same walk length will be used for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a2d36d8bff4166018f7235960d02e58e4}{walk\+Increment\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a2d36d8bff4166018f7235960d02e58e4}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a2d36d8bff4166018f7235960d02e58e4}
+
+\begin{DoxyCompactList}\small\item\em The increment for the length of the walk for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
+T\+C\+L\+A\+P\+::\+Value\+Arg$<$ int $>$ \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a2afcb83006b9f428e6cd8bab05697bc2}{walk\+Multiplier\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a2afcb83006b9f428e6cd8bab05697bc2}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a2afcb83006b9f428e6cd8bab05697bc2}
+
+\begin{DoxyCompactList}\small\item\em The multiplier for the length of the walk for the random\+\_\+walk instance strategy. \end{DoxyCompactList}\item 
 T\+C\+L\+A\+P\+::\+Switch\+Arg \hyperlink{structslb_1_1core_1_1commandLine_1_1CommandLine_a7f35a809f1c1b6ccbf080d2cb6109a22}{per\+Instance\+\_\+}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a7f35a809f1c1b6ccbf080d2cb6109a22}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a7f35a809f1c1b6ccbf080d2cb6109a22}
 
 \begin{DoxyCompactList}\small\item\em Command line option for the switch showing whether per-\/problem-\/instance statistics are to appear on the output. \end{DoxyCompactList}\item 
@@ -142,7 +167,7 @@ Initializes the command line given {\ttfamily argc} and {\ttfamily argv}.
 \end{DoxyParams}
 
 
-Definition at line 181 of file command\+\_\+line.\+h.
+Definition at line 227 of file command\+\_\+line.\+h.
 
 
 
@@ -181,7 +206,7 @@ Returns {\ttfamily true} if the title row should not appear on the output and {\
 \end{DoxyReturn}
 
 
-Definition at line 124 of file command\+\_\+line.\+h.
+Definition at line 152 of file command\+\_\+line.\+h.
 
 \index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!instance@{instance}}
 \index{instance@{instance}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
@@ -226,6 +251,24 @@ The name of file from which problem instances are to be read.
 
 
 Definition at line 65 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!instance\+Strategy@{instance\+Strategy}}
+\index{instance\+Strategy@{instance\+Strategy}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{instance\+Strategy()}{instanceStrategy()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ std\+::string {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::instance\+Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a4bbd10e591ae2335ac175b21e00f321d}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a4bbd10e591ae2335ac175b21e00f321d}
+
+
+Returns the strategy for forming instances. 
+
+\begin{DoxyReturn}{Returns}
+The strategy for forming instances. 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file command\+\_\+line.\+h.
 
 \index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!n\+Goals@{n\+Goals}}
 \index{n\+Goals@{n\+Goals}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
@@ -307,7 +350,7 @@ Returns {\ttfamily true} if per-\/problem-\/instance statistics are to appear on
 \end{DoxyReturn}
 
 
-Definition at line 118 of file command\+\_\+line.\+h.
+Definition at line 146 of file command\+\_\+line.\+h.
 
 \index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!prefix\+Data@{prefix\+Data}}
 \index{prefix\+Data@{prefix\+Data}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
@@ -325,7 +368,7 @@ The string with which each data row is to be prefixed.
 \end{DoxyReturn}
 
 
-Definition at line 132 of file command\+\_\+line.\+h.
+Definition at line 160 of file command\+\_\+line.\+h.
 
 \index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!prefix\+Title@{prefix\+Title}}
 \index{prefix\+Title@{prefix\+Title}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
@@ -343,7 +386,7 @@ The string with which the title row is to be prefixed.
 \end{DoxyReturn}
 
 
-Definition at line 128 of file command\+\_\+line.\+h.
+Definition at line 156 of file command\+\_\+line.\+h.
 
 \index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!space\+Init\+File\+Name@{space\+Init\+File\+Name}}
 \index{space\+Init\+File\+Name@{space\+Init\+File\+Name}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
@@ -398,6 +441,78 @@ The instance number for which the visualizer is to be run or -\/1 if visualizati
 
 
 Definition at line 88 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!walk\+First@{walk\+First}}
+\index{walk\+First@{walk\+First}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{walk\+First()}{walkFirst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::walk\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a4fad701ebf3b50c128e9c354b3f85989}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a4fad701ebf3b50c128e9c354b3f85989}
+
+
+Returns the length of the first walk for the random\+\_\+walk instance strategy. 
+
+\begin{DoxyReturn}{Returns}
+The length of the first walk for the random\+\_\+walk instance strategy. 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!walk\+Increment@{walk\+Increment}}
+\index{walk\+Increment@{walk\+Increment}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{walk\+Increment()}{walkIncrement()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::walk\+Increment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a57761e4fb47868c5d325d72c23286ad6}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a57761e4fb47868c5d325d72c23286ad6}
+
+
+Returns the increment for the length of the walk for the random\+\_\+walk instance strategy. 
+
+\begin{DoxyReturn}{Returns}
+The increment for the length of the walk for the random\+\_\+walk instance strategy. 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!walk\+Multiplier@{walk\+Multiplier}}
+\index{walk\+Multiplier@{walk\+Multiplier}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{walk\+Multiplier()}{walkMultiplier()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::walk\+Multiplier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_abbc65189047fe4766289668731291a5d}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_abbc65189047fe4766289668731291a5d}
+
+
+Returns the multiplier for the length of the walk for the random\+\_\+walk instance strategy. 
+
+\begin{DoxyReturn}{Returns}
+The multiplier for the length of the walk for the random\+\_\+walk instance strategy. 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file command\+\_\+line.\+h.
+
+\index{slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}!walk\+Repeat@{walk\+Repeat}}
+\index{walk\+Repeat@{walk\+Repeat}!slb\+::core\+::command\+Line\+::\+Command\+Line@{slb\+::core\+::command\+Line\+::\+Command\+Line}}
+\paragraph[{\texorpdfstring{walk\+Repeat()}{walkRepeat()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Additions  = S\+L\+B\+\_\+\+C\+M\+D\+\_\+\+L\+I\+N\+E\+\_\+\+A\+DD$>$ int {\bf slb\+::core\+::command\+Line\+::\+Command\+Line}$<$ Additions $>$\+::walk\+Repeat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1commandLine_1_1CommandLine_a3b9c1d60c8675502ae70dd9d912f7450}{}\label{structslb_1_1core_1_1commandLine_1_1CommandLine_a3b9c1d60c8675502ae70dd9d912f7450}
+
+
+Returns the number of times the same walk length will be used for the random\+\_\+walk instance strategy. 
+
+\begin{DoxyReturn}{Returns}
+The number of times the same walk length will be used for the random\+\_\+walk instance strategy. 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file command\+\_\+line.\+h.
 
 
 

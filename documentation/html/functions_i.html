@@ -126,7 +126,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>IdAstar()
-: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a71b2183882a119303363eb495947ad7a">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#aa5859833358b03f49daed0c79dd50d5b">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a>
 </li>
 <li>in()
 : <a class="el" href="structslb_1_1core_1_1ui_1_1Filter.html#a847ebebdfe826a3d0c26a52b13e1ba26">slb::core::ui::Filter&lt; Node &gt;</a>
@@ -146,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>InitialHeuristic
 : <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#ad1f8f28e7b07f747ef7b7b5bf0643c2d">slb::ext::algorithm::Algorithm&lt; Concrete, ALG_TPARAMS &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Astar.html#a0d23cb786a79d57e4319e62bc6427d16">slb::ext::algorithm::Astar&lt; ALG_TPARAMS, Open_ &gt;</a>
-, <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a111e9e8f2beda52805048d1cb69ef7c2">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a>
+, <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a8fbd0ea83656e8d8d3bd56efccd57a43">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a>
 </li>
 <li>initialHeuristic_
 : <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a21c643fd7b13c678ee91ad70203148bb">slb::ext::algorithm::Algorithm&lt; Concrete, ALG_TPARAMS &gt;</a>
@@ -159,11 +159,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="structslb_1_1core_1_1sb_1_1ExplicitState.html#af02f7ca680be7105f85fd17d7fea87e7">slb::core::sb::ExplicitState&lt; ExplicitSpace &gt;</a>
 </li>
 <li>Inplace()
-: <a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace.html#a8c1fe551c26c01d711a34df6f09d68b9">slb::ext::policy::backtrackLock::Inplace&lt; MyAlgorithm, bool &gt;</a>
-, <a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4.html#ae13e86e5932f686d7b306dc286be833d">slb::ext::policy::backtrackLock::Inplace&lt; MyAlgorithm, true &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace.html#afde8d0b3b15952436e678b8ab265cbc1">slb::ext::policy::backtrackLock::Inplace&lt; MyAlgorithm, bool &gt;</a>
+, <a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_3_01MyAlgorithm_00_01true_01_4.html#a6f70a5ab71cccf4d4442f43fd660a68b">slb::ext::policy::backtrackLock::Inplace&lt; MyAlgorithm, true &gt;</a>
 </li>
 <li>InplaceBase()
-: <a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase.html#a2c4eebd972539d487b44ffe23ebc4aff">slb::ext::policy::backtrackLock::InplaceBase&lt; MyAlgorithm &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase.html#a7094400b487ebbfbb4f1fe7c1f3df142">slb::ext::policy::backtrackLock::InplaceBase&lt; MyAlgorithm &gt;</a>
 </li>
 <li>instance()
 : <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a297df54d1f330d491717b487968b0fc5">slb::core::commandLine::CommandLine&lt; Additions &gt;</a>
@@ -181,18 +181,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>instancesFileName_
 : <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#aae80eb58b58985870f186e80d7b16f0c">slb::core::commandLine::CommandLine&lt; Additions &gt;</a>
 </li>
+<li>instanceStrategy()
+: <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a4bbd10e591ae2335ac175b21e00f321d">slb::core::commandLine::CommandLine&lt; Additions &gt;</a>
+</li>
+<li>instanceStrategy_
+: <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#afb86ebfa1c56ebd011324d7526f8dd55">slb::core::commandLine::CommandLine&lt; Additions &gt;</a>
+</li>
 <li>inverse()
 : <a class="el" href="structslb_1_1core_1_1ui_1_1StateGraph.html#a08f262bf14c187ffbfc20751776dd4f9">slb::core::ui::StateGraph&lt; State &gt;</a>
 </li>
 <li>isActive()
-: <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html#a19b3a6aea0c0081e4f89b462aa1eb798">slb::ext::policy::goalHandler::MinHeuristic&lt; MyAlgorithm &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html#a4b519c3c97577af690a8d46907b2e54e">slb::ext::policy::goalHandler::LazyUpdate&lt; MyAlgorithm &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#acdb94b8e9f035fbdb3ea45188964abfa">slb::ext::policy::goalHandler::MultipleGoal&lt; MyAlgorithm &gt;</a>
 </li>
 <li>isDenied()
-: <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html#a2d834f5a6adf6f78f3e71d034da8ce00">slb::ext::policy::goalHandler::MinHeuristic&lt; MyAlgorithm &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html#a15b041cb372826b96a0fc3aa7b60bf41">slb::ext::policy::goalHandler::LazyUpdate&lt; MyAlgorithm &gt;</a>
 </li>
 <li>iteration()
-: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#af7064e6f1932792d7ad74433559ba0d6">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a6f217097ffc1358b69381ff9d7064367">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a>
 </li>
 <li>iterator
 : <a class="el" href="structslb_1_1core_1_1sb_1_1MeasureSet.html#a7e1ad3e450df31415c6282ae4ccc325f">slb::core::sb::MeasureSet</a>
@@ -201,7 +207,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:02 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -1,4 +1,4 @@
 <map id="slb::ext::policy::goalHandler::MultipleGoal&lt; MyAlgorithm &gt;" name="slb::ext::policy::goalHandler::MultipleGoal&lt; MyAlgorithm &gt;">
-<area shape="rect" id="node2" href="$structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html" title="Handling conditions related to goal states for the case when there are multiple goal states and the w..." alt="" coords="252,5,456,47"/>
-<area shape="rect" id="node3" href="$structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html" title="Handling conditions related to goal states for the case when there are multiple goal states and a heu..." alt="" coords="254,71,454,112"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html" title="Handling conditions related to goal states for the case when there are multiple goal states and a heu..." alt="" coords="257,5,454,47"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html" title="Handling conditions related to goal states for the case when there are multiple goal states and the w..." alt="" coords="252,71,459,112"/>
 </map>

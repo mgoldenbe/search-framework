@@ -101,9 +101,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1ActionNeighbor.html">ActionNeighbor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type for an action neighbor of a given state.  <a href="structslb_1_1core_1_1sb_1_1ActionNeighbor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1Backtrack.html">Backtrack</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles backtracking in linear-space algorithms such as IDA*.  <a href="structslb_1_1core_1_1sb_1_1Backtrack.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1sb_1_1Cost.html">Cost</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type for storing the cost of a neighbor.  <a href="structslb_1_1core_1_1sb_1_1Cost.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,6 +159,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a68dfc95bb83fc37be7bbaf9d8ea14557"><td class="memTemplItemLeft" align="right" valign="top">State&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1core_1_1sb.html#a68dfc95bb83fc37be7bbaf9d8ea14557">uniqueRandomState</a> (const std::vector&lt; State &gt; &amp;v)</td></tr>
 <tr class="memdesc:a68dfc95bb83fc37be7bbaf9d8ea14557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a random state that is not in the given vector of states.  <a href="#a68dfc95bb83fc37be7bbaf9d8ea14557">More...</a><br /></td></tr>
 <tr class="separator:a68dfc95bb83fc37be7bbaf9d8ea14557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e97884bbdba52e74db4baf3fd5cd561"><td class="memTemplParams" colspan="2">template&lt;class State &gt; </td></tr>
+<tr class="memitem:a8e97884bbdba52e74db4baf3fd5cd561"><td class="memTemplItemLeft" align="right" valign="top">State&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1core_1_1sb.html#a8e97884bbdba52e74db4baf3fd5cd561">randomWalkState</a> (const State &amp;s, int length, const std::vector&lt; State &gt; &amp;v)</td></tr>
+<tr class="memdesc:a8e97884bbdba52e74db4baf3fd5cd561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a random walk of specified length from the specified state and return the resulting state. Checks that the state is not in the given vector of states.  <a href="#a8e97884bbdba52e74db4baf3fd5cd561">More...</a><br /></td></tr>
+<tr class="separator:a8e97884bbdba52e74db4baf3fd5cd561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f194d59f1e10da41faa6d30644e1e06"><td class="memTemplParams" colspan="2">template&lt;class State , CMD_TPARAM &gt; </td></tr>
 <tr class="memitem:a7f194d59f1e10da41faa6d30644e1e06"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structslb_1_1core_1_1sb_1_1Instance.html">Instance</a>&lt; State &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1core_1_1sb.html#a7f194d59f1e10da41faa6d30644e1e06">makeInstances</a> (int n)</td></tr>
 <tr class="memdesc:a7f194d59f1e10da41faa6d30644e1e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the required number of random instances. The numbers of start and goal states are determined by the command line.  <a href="#a7f194d59f1e10da41faa6d30644e1e06">More...</a><br /></td></tr>
@@ -210,7 +211,7 @@ template&lt;class State , CMD_TPARAM &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Vector of <code>n</code> random instances. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>If the number of different states in the domain is smaller than the number of start or goal states in an instance), an infinite loop will result. </dd></dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00154">154</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00176">176</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -246,7 +247,7 @@ template&lt;class State , CMD_TPARAM &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Vector of the instances stored in the file. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>If the number of different states in the domain is smaller than the number of start or goal states in an instance), an infinite loop will result. </dd></dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00189">189</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00237">237</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -294,6 +295,59 @@ template&lt;class State , CMD_TPARAM &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a8e97884bbdba52e74db4baf3fd5cd561"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class State &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">State slb::core::sb::randomWalkState </td>
+          <td>(</td>
+          <td class="paramtype">const State &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; State &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a random walk of specified length from the specified state and return the resulting state. Checks that the state is not in the given vector of states. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">State</td><td>The state type, represents the domain. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The state from which the random walk is to be initiated. </td></tr>
+    <tr><td class="paramname">length</td><td>The length of the random walk. </td></tr>
+    <tr><td class="paramname">v</td><td>The vector of forbidden states. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The state resulting from a random walk of length <code>length</code> initiated at <code>s</code>. </dd></dl>
+
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00156">156</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a317da634fc4e48ee329cc29851b64745"></a>
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +380,7 @@ template&lt;class State , CMD_TPARAM &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Vector of the read instances. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The numbers of start and goal states in the instances are extracted from the file. The number of instances is determined automatically as well. </dd></dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00218">218</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00266">266</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -361,14 +415,14 @@ template&lt;class State &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A random state that is not in <code>v</code>. </dd></dl>
 
-<p>Definition at line <a class="el" href="instance_8h_source.html#l00136">136</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p>Definition at line <a class="el" href="instance_8h_source.html#l00137">137</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

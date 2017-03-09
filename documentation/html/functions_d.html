@@ -179,13 +179,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>DirectBase
 : <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Astar.html#ae3dc41bb8fd97c3669db3704b24f2a1f">slb::ext::algorithm::Astar&lt; ALG_TPARAMS, Open_ &gt;</a>
-, <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a61b056676509f74dd72fa4766dbf31fb">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a>
+, <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a3b1c66ba098103b55a32545be40256e8">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1event_1_1PathChange.html#afe1553802c064ac71c5a3a0dd8c3b8b5">slb::ext::event::PathChange&lt; Node &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1event_1_1SolutionPathChange.html#a92dae17928b41c4ad1c8ba9e01a6e52c">slb::ext::event::SolutionPathChange&lt; Node &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1event_1_1VertexChange.html#acdf099043944f3b9533e3c5d42e211e7">slb::ext::event::VertexChange&lt; Node &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1event_1_1VertexEdgeChange.html#a6aada3da35cac73cd57cd6278bedd6ff">slb::ext::event::VertexEdgeChange&lt; Node &gt;</a>
-, <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html#ad4d04afe71170bb799d38e7d35ecb66f">slb::ext::policy::goalHandler::MaxHeuristic&lt; MyAlgorithm &gt;</a>
-, <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html#ad7cb2f43451ba91104e7668169ad78e1">slb::ext::policy::goalHandler::MinHeuristic&lt; MyAlgorithm &gt;</a>
+, <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate.html#a5f75fd3cdaea181c69cec725f532f126">slb::ext::policy::goalHandler::LazyUpdate&lt; MyAlgorithm &gt;</a>
+, <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html#a1e2cb7cd8f2f5206c53aece408069b3b">slb::ext::policy::goalHandler::TotalUpdateT&lt; MyAlgorithm, partialUpdateFlag &gt;</a>
 </li>
 <li>display()
 : <a class="el" href="structslb_1_1core_1_1ui_1_1EditField.html#ab8483df66ec0bca8e5d59ea547113a04">slb::core::ui::EditField</a>
@@ -193,6 +193,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>display_
 : <a class="el" href="structslb_1_1core_1_1ui_1_1EditField.html#ae5f1a7a67b01a99b82810b2a9bb51bd5">slb::core::ui::EditField</a>
+</li>
+<li>distance()
+: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Astar.html#a67abf0fa88aebf52c644731701a0dd70">slb::ext::algorithm::Astar&lt; ALG_TPARAMS, Open_ &gt;</a>
+</li>
+<li>distanceMap()
+: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Astar.html#a2c129f68cc11d10fefa4fa40d58ba6a2">slb::ext::algorithm::Astar&lt; ALG_TPARAMS, Open_ &gt;</a>
 </li>
 <li>distancePercentile()
 : <a class="el" href="structslb_1_1core_1_1ui_1_1Drawer.html#a0c85b4e405d6caaaa660b361517c9196">slb::core::ui::Drawer&lt; Node &gt;</a>
@@ -207,9 +213,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html#a02f6848a620bbfa49376d6f93fc6e106">slb::ext::policy::goalHandler::SingleGoal&lt; MyAlgorithm &gt;</a>
 </li>
 <li>doneGoal()
-: <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html#aec76c8c57f24948fe158869d9f715418">slb::ext::policy::goalHandler::MaxHeuristic&lt; MyAlgorithm &gt;</a>
-, <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#ab142add8215deea2aa12efb093f2b240">slb::ext::policy::goalHandler::MultipleGoal&lt; MyAlgorithm &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a49b937b31fcf0ecb22d71f75d12e0a7c">slb::ext::policy::goalHandler::MultipleGoal&lt; MyAlgorithm &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html#ad6a96ee6aa23de81c67f7714c51effae">slb::ext::policy::goalHandler::SingleGoal&lt; MyAlgorithm &gt;</a>
+, <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html#aba339d5e3a3e51d7dd0dcdfd8944da96">slb::ext::policy::goalHandler::TotalUpdateT&lt; MyAlgorithm, partialUpdateFlag &gt;</a>
 </li>
 <li>drag_start_x
 : <a class="el" href="structslb_1_1core_1_1ui_1_1Visualizer.html#aed879051d6889b0de1f25528e998967b">slb::core::ui::Visualizer&lt; Node &gt;</a>
@@ -222,7 +228,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="structslb_1_1core_1_1ui_1_1VisualEvent.html#a0cad78b6d8c3b94965b1a3912b679a78">slb::core::ui::VisualEvent&lt; State &gt;</a>
 </li>
 <li>drawEdge()
-: <a class="el" href="structslb_1_1core_1_1ui_1_1Drawer.html#a703eb519af73b313173016941e21b985">slb::core::ui::Drawer&lt; Node &gt;</a>
+: <a class="el" href="structslb_1_1core_1_1ui_1_1Drawer.html#aa30bec2103851daf685160efa904b447">slb::core::ui::Drawer&lt; Node &gt;</a>
 </li>
 <li>Drawer()
 : <a class="el" href="structslb_1_1core_1_1ui_1_1Drawer.html#a2b36937d5401aa35c7f72aadeaa84af8">slb::core::ui::Drawer&lt; Node &gt;</a>
@@ -240,7 +246,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="structslb_1_1core_1_1ui_1_1Visualizer.html#ac248b6d8fb7805ca9d73f2e0ec5982cf">slb::core::ui::Visualizer&lt; Node &gt;</a>
 </li>
 <li>drawVertex()
-: <a class="el" href="structslb_1_1core_1_1ui_1_1Drawer.html#a685a55fbe52a5985fb3daf5379b2a702">slb::core::ui::Drawer&lt; Node &gt;</a>
+: <a class="el" href="structslb_1_1core_1_1ui_1_1Drawer.html#ac6d8f7dde39ede250e0fbc3b04cc8eea">slb::core::ui::Drawer&lt; Node &gt;</a>
 </li>
 <li>dump()
 : <a class="el" href="structslb_1_1core_1_1sb_1_1ExplicitState.html#ac9f4d6972a1437dd41b74a4608438310">slb::core::sb::ExplicitState&lt; ExplicitSpace &gt;</a>
@@ -255,6 +261,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="structslb_1_1core_1_1util_1_1Measure.html#a4e8d969f285d05d330707109db7dcde4">slb::core::util::Measure</a>
 , <a class="el" href="structslb_1_1ext_1_1domain_1_1incWorst_1_1IncWorst.html#a40e408e18a47c4a31fa902121833fe06">slb::ext::domain::incWorst::IncWorst</a>
 , <a class="el" href="structslb_1_1ext_1_1domain_1_1pancake_1_1Pancake.html#a051efa91aeccf905538b2efb44363cce">slb::ext::domain::pancake::Pancake</a>
+, <a class="el" href="structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile.html#aa65c672fdd8d540dd1858ba29ee69049">slb::ext::domain::sliding_tile::SlidingTile&lt; nRows, nColumns &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T.html#a4b2b0f37366941cf0424f39c597d7f6f">slb::ext::policy::openList::BucketedStdMap_T&lt; MyAlgorithm_, Node_, KeyType_, GreaterPriority_, Container &gt;</a>
 </li>
 <li>dumpLayout()
@@ -271,14 +278,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>DynamicGapHeuristic()
 : <a class="el" href="structslb_1_1ext_1_1domain_1_1pancake_1_1DynamicGapHeuristic.html#a319fbfce78634255bb6b73a20a162fa7">slb::ext::domain::pancake::DynamicGapHeuristic</a>
 </li>
+<li>DynamicMDHeuristic()
+: <a class="el" href="structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic.html#a5404b91da8e8562fbabe43e0a57d1ab6">slb::ext::domain::sliding_tile::DynamicMDHeuristic</a>
+</li>
 <li>DynamicSingleGoalT()
-: <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1DynamicSingleGoalT.html#a97461ead765eae5d7f184641a832c9b1">slb::ext::policy::heuristic::DynamicSingleGoalT&lt; MyAlgorithm, BaseHeuristic &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1DynamicSingleGoalT.html#ab491e6a9a177935e45f3c0b93389a286">slb::ext::policy::heuristic::DynamicSingleGoalT&lt; MyAlgorithm, BaseHeuristic &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:02 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

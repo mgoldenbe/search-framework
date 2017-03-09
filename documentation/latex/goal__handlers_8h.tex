@@ -18,12 +18,12 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal}{slb\+::ext\+::policy\+::goal\+Handler\+::\+No\+Goal$<$ My\+Algorithm $>$}
 \begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when the set of the goal states is empty. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Single\+Goal$<$ My\+Algorithm $>$}
-\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there is a single goal state. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there is a single goal state. Assumes that, at goal, f=g holds. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal$<$ My\+Algorithm $>$}
 \begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states. \end{DoxyCompactList}\item 
-struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Min\+Heuristic$<$ My\+Algorithm $>$}
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1LazyUpdate}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Lazy\+Update$<$ My\+Algorithm $>$}
 \begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states and a heuristic that stores the goal state responsible for the heuristic value is used. \end{DoxyCompactList}\item 
-struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Max\+Heuristic$<$ My\+Algorithm $>$}
+struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+Update\+T$<$ My\+Algorithm, partial\+Update\+Flag $>$}
 \begin{DoxyCompactList}\small\item\em Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-\/computed whenever a goal is solved with the required quality. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
@@ -36,6 +36,18 @@ struct \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic}{slb
 \begin{DoxyCompactList}\small\item\em Policy classes for search algorithms and algorithmic variants. \end{DoxyCompactList}\item 
  \hyperlink{namespaceslb_1_1ext_1_1policy_1_1goalHandler}{slb\+::ext\+::policy\+::goal\+Handler}
 \begin{DoxyCompactList}\small\item\em Policies for handling conditions related to goal states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries S\+L\+B\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+L\+AG}~false\hypertarget{goal__handlers_8h_a32c3ea9116b340c5603778392135a6b0}{}\label{goal__handlers_8h_a32c3ea9116b340c5603778392135a6b0}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using {\bfseries slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+Update} = Total\+UpdateT$<$ My\+Algorithm $>$\hypertarget{namespaceslb_1_1ext_1_1policy_1_1goalHandler_a75edd9c8ad913d3ccb32e7cbafe5cdc5}{}\label{namespaceslb_1_1ext_1_1policy_1_1goalHandler_a75edd9c8ad913d3ccb32e7cbafe5cdc5}
+
+\end{DoxyCompactItemize}
 \subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 

@@ -1,4 +1,3 @@
-<map id="slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;" name="slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;">
-<area shape="rect" id="node5" href="$structslb_1_1core_1_1sb_1_1Backtrack.html" title="slb::core::sb::Backtrack\l\&lt; MyType, BacktrackLock \&gt;" alt="" coords="756,47,944,89"/>
-<area shape="rect" id="node2" href="$structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; IdAstar\l\&lt; ALG_TARGS, BacktrackLock\l \&gt;, ALG_TARGS \&gt;" alt="" coords="195,33,403,103"/>
+<map id="slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;" name="slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;">
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; IdAstar\l\&lt; ALG_TARGS, BacktrackLock\l_ \&gt;, ALG_TARGS \&gt;" alt="" coords="195,33,403,103"/>
 </map>

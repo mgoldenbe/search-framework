@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>Neighbor
 : <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Astar.html#a1c38f30602110360ceb99e12b055432f">slb::ext::algorithm::Astar&lt; ALG_TPARAMS, Open_ &gt;</a>
-, <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a79a12e1a7d77978a1b5e5e17fb10e2ac">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a>
+, <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a8c382f5126c7c1038ecd676e75e174db">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT.html#a579c1e623b0e091ad02ab78edb271810">slb::ext::policy::generator::ActionsT&lt; MyAlgorithm, Heuristic &gt;</a>
 , <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aabbc05d367ac5da87108f453240e6a32">slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic &gt;</a>
 </li>
@@ -153,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="structslb_1_1core_1_1ui_1_1VisualLog.html#ace600c20edb1a2fad66467118c011c0d">slb::core::ui::VisualLog&lt; Node &gt;</a>
 </li>
 <li>next_threshold_
-: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#acf9900aea8a8239701823d6e96b3968c">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a>
+: <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a97ed16a300231a6df5505436f47c844a">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a>
 </li>
 <li>nFilteredEvents()
 : <a class="el" href="structslb_1_1core_1_1ui_1_1VisualLog.html#a817b103fe9fc05de04d7ddf4b26d8076">slb::core::ui::VisualLog&lt; Node &gt;</a>
@@ -214,6 +214,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>Nothing()
 : <a class="el" href="structslb_1_1core_1_1commandLine_1_1Nothing.html#aa236acfd9db82b41acfd0b5a1052eca8">slb::core::commandLine::Nothing</a>
+, <a class="el" href="structslb_1_1ext_1_1policy_1_1pruning_1_1Nothing.html#a5adf3cff649cbc7db2a43544fa49f247">slb::ext::policy::pruning::Nothing&lt; MyAlgorithm &gt;</a>
 </li>
 <li>now
 : <a class="el" href="structslb_1_1core_1_1ui_1_1EventBase_1_1EdgeChange.html#ab976192c4b6c3d561fc1165b7bdc9f6c">slb::core::ui::EventBase&lt; Node &gt;::EdgeChange</a>
@@ -226,6 +227,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>nPancakes_
 : <a class="el" href="structslb_1_1ext_1_1domain_1_1pancake_1_1CommandLine.html#a7a73482a8683eddcd2fe7481853e7f21">slb::ext::domain::pancake::CommandLine</a>
+</li>
+<li>nPivots()
+: <a class="el" href="structslb_1_1ext_1_1heuristic_1_1differential_1_1CommandLine.html#a17659f8348093e663b2eb1c3fcb986a2">slb::ext::heuristic::differential::CommandLine</a>
+</li>
+<li>nPivots_
+: <a class="el" href="structslb_1_1ext_1_1heuristic_1_1differential_1_1CommandLine.html#ad4bbe83d50e6ec452141b01100e4de48">slb::ext::heuristic::differential::CommandLine</a>
 </li>
 <li>nrows_
 : <a class="el" href="structslb_1_1core_1_1ui_1_1EditField.html#a0cf8d62cd3699e057656f71c3e95ffda">slb::core::ui::EditField</a>
@@ -252,7 +259,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:02 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

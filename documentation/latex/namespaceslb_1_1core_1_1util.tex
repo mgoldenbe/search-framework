@@ -15,8 +15,22 @@ Utility facilities.
 \subsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator}{Basic\+Informed\+Iterator}
+\begin{DoxyCompactList}\small\item\em Adapter for iterator that knows whether it is at the end. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}
+\begin{DoxyCompactList}\small\item\em Skipping iterators for a vector. Use the aliases defined below. \end{DoxyCompactList}\item 
 class \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}
 \begin{DoxyCompactList}\small\item\em Shared pointer whose {\ttfamily operator==} compares the pointed to values. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1IndexIterator}{Index\+Iterator}
+\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1MapKeyConstIterator}{Map\+Key\+Const\+Iterator}
+\begin{DoxyCompactList}\small\item\em Const iterator over keys of a map. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1MapKeyIterator}{Map\+Key\+Iterator}
+\begin{DoxyCompactList}\small\item\em Iterator over keys of a map. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1MapValConstIterator}{Map\+Val\+Const\+Iterator}
+\begin{DoxyCompactList}\small\item\em Const iterator over values of a map. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1core_1_1util_1_1MapValIterator}{Map\+Val\+Iterator}
+\begin{DoxyCompactList}\small\item\em Iterator over values of a map. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1Measure}{Measure}
 \begin{DoxyCompactList}\small\item\em The type for a single named performance measure. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1Row}{Row}
@@ -31,6 +45,15 @@ struct \hyperlink{structslb_1_1core_1_1util_1_1Timer}{Timer}
 \begin{DoxyCompactList}\small\item\em A special measure for timing. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1TimerLock}{Timer\+Lock}
 \begin{DoxyCompactList}\small\item\em Provides R\+A\+II mechanism so the authors of search algorithm implementations should not need to worry about remembering to stop the timer for every possible execution path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class My\+Vector $>$ }\\using {\bfseries Vector\+Skip\+Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, typename My\+Vector\+::iterator $>$\hypertarget{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}{}\label{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}
+
+\item 
+{\footnotesize template$<$class My\+Vector $>$ }\\using {\bfseries Vector\+Skip\+Const\+Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}$<$ typename std\+::add\+\_\+const$<$ My\+Vector $>$\+::type, typename My\+Vector\+::const\+\_\+iterator $>$\hypertarget{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}{}\label{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}
+
+\end{DoxyCompactItemize}
 \subsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -1237,6 +1260,10 @@ enum \hyperlink{namespaceslb_1_1core_1_1util_afae144e1a65658559242f5cf4fce426f}{
 \begin{DoxyCompactList}\small\item\em Shuffle a vector of std\+::reference\+\_\+wrapper. The algorithm is version 1 from \href{http://en.cppreference.com/w/cpp/algorithm/random_shuffle}{\tt http\+://en.\+cppreference.\+com/w/cpp/algorithm/random\+\_\+shuffle}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class Map\+Type $>$ }\\void \hyperlink{namespaceslb_1_1core_1_1util_aca5f759e4a73804fcd828af403904190}{shuffle\+Map} (Map\+Type \&map)
 \begin{DoxyCompactList}\small\item\em Shuffle a map. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Map\+Type $>$ }\\Map\+Type\+::value\+\_\+type \hyperlink{namespaceslb_1_1core_1_1util_a8fc83cae8daa126707ac247482d4afd5}{map\+Max} (const Map\+Type \&x)
+\begin{DoxyCompactList}\small\item\em Get an element with maximal value in a map. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Map\+Type $>$ }\\std\+::vector$<$ typename Map\+Type\+::key\+\_\+type $>$ \hyperlink{namespaceslb_1_1core_1_1util_a0975bcf7bb57af83fdd47dd4cbaeec29}{map\+Keys} (const Map\+Type \&x)
+\begin{DoxyCompactList}\small\item\em Get the vector of map\textquotesingle{}s keys. \end{DoxyCompactList}\item 
 M\+E\+NU $\ast$ \hyperlink{namespaceslb_1_1core_1_1util_a9ecb2bc008a69c458151515197ce018c}{create\+Menu} (W\+I\+N\+D\+OW $\ast$w, std\+::vector$<$ I\+T\+EM $\ast$ $>$ \&items, const std\+::vector$<$ std\+::string $>$ \&choices, const std\+::vector$<$ std\+::string $>$ \&non\+Selectable, const std\+::vector$<$ std\+::string $>$ \&selected, int max\+Menu\+Rows, bool multi\+Flag=false)
 \begin{DoxyCompactList}\small\item\em Creates a {\ttfamily curses} menu. \end{DoxyCompactList}\item 
 void \hyperlink{namespaceslb_1_1core_1_1util_a1ba19280252473582d7a52ff677107be}{destroy\+Menu} (M\+E\+NU $\ast$m)
@@ -1507,11 +1534,11 @@ Converts double to string, while getting rid of exponent notation and trailing z
 The string representation of {\ttfamily c} 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-The original code is taken from \href{http://stackoverflow.com/a/14966508/2725810}{\tt http\+://stackoverflow.\+com/a/14966508/2725810}. I modified the code to not print numbers like 3.\+9999999999999999 or 3.\+00000000004. For such numbers, only {\ttfamily n90} 9\textquotesingle{}s none of the 0\textquotesingle{}s are kept, so we get 3.\+99 and 3, respectively. 
+The original code is taken from \href{http://stackoverflow.com/a/14966508/2725810}{\tt http\+://stackoverflow.\+com/a/14966508/2725810}. I modified the code to not print numbers like 3.\+9999999999999999 or 3.\+00000000004. For such numbers, only {\ttfamily n\+Kept\+Nines} 9\textquotesingle{}s none of the 0\textquotesingle{}s are kept, so we get 3.\+99 and 3, respectively. The above numbers are characterized by {\ttfamily repeat\+Limit} zeros or nines. 
 \end{DoxyNote}
 
 
-Definition at line 51 of file string.\+h.
+Definition at line 52 of file string.\+h.
 
 \index{slb\+::core\+::util@{slb\+::core\+::util}!draw\+Text@{draw\+Text}}
 \index{draw\+Text@{draw\+Text}!slb\+::core\+::util@{slb\+::core\+::util}}
@@ -1807,6 +1834,62 @@ The function similar to {\ttfamily std\+::make\+\_\+shared} for \hyperlink{class
 
 
 Definition at line 143 of file memory.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!map\+Keys@{map\+Keys}}
+\index{map\+Keys@{map\+Keys}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{map\+Keys(const Map\+Type \&x)}{mapKeys(const MapType &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Map\+Type $>$ std\+::vector$<$typename Map\+Type\+::key\+\_\+type$>$ slb\+::core\+::util\+::map\+Keys (
+\begin{DoxyParamCaption}
+\item[{const Map\+Type \&}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a0975bcf7bb57af83fdd47dd4cbaeec29}{}\label{namespaceslb_1_1core_1_1util_a0975bcf7bb57af83fdd47dd4cbaeec29}
+
+
+Get the vector of map\textquotesingle{}s keys. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Map\+Type} & The map type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The map. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of the keys in {\ttfamily x}. 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file container.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!map\+Max@{map\+Max}}
+\index{map\+Max@{map\+Max}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{map\+Max(const Map\+Type \&x)}{mapMax(const MapType &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Map\+Type $>$ Map\+Type\+::value\+\_\+type slb\+::core\+::util\+::map\+Max (
+\begin{DoxyParamCaption}
+\item[{const Map\+Type \&}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceslb_1_1core_1_1util_a8fc83cae8daa126707ac247482d4afd5}{}\label{namespaceslb_1_1core_1_1util_a8fc83cae8daa126707ac247482d4afd5}
+
+
+Get an element with maximal value in a map. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Map\+Type} & The map type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The map. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element with maximal value in {\ttfamily x}. 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file container.\+h.
 
 \index{slb\+::core\+::util@{slb\+::core\+::util}!menu\+Choice@{menu\+Choice}}
 \index{menu\+Choice@{menu\+Choice}!slb\+::core\+::util@{slb\+::core\+::util}}
@@ -2338,7 +2421,7 @@ The found token.
 \end{DoxyNote}
 
 
-Definition at line 91 of file string.\+h.
+Definition at line 100 of file string.\+h.
 
 \index{slb\+::core\+::util@{slb\+::core\+::util}!sure\+Read@{sure\+Read}}
 \index{sure\+Read@{sure\+Read}!slb\+::core\+::util@{slb\+::core\+::util}}

@@ -1,10 +1,14 @@
 <map id="extensions/headers_fwd.h" name="extensions/headers_fwd.h">
-<area shape="rect" id="node2" href="$domains_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="243,95,381,136"/>
-<area shape="rect" id="node6" href="$instance__measures_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="482,95,657,136"/>
-<area shape="rect" id="node8" href="$nodes_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="681,95,855,136"/>
+<area shape="rect" id="node2" href="$domains_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="331,95,469,136"/>
+<area shape="rect" id="node7" href="$heuristics_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="646,95,791,136"/>
+<area shape="rect" id="node10" href="$instance__measures_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="815,95,990,136"/>
+<area shape="rect" id="node12" href="$nodes_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="1014,95,1189,136"/>
 <area shape="rect" id="node3" href="$pancake__fwd_8h.html" title="Forward declarations for pancake.h. " alt="" coords="5,184,144,225"/>
-<area shape="rect" id="node4" href="$grid__fwd_8h.html" title="Forward declarations for extensions/domains/grid.h. " alt="" coords="168,184,307,225"/>
-<area shape="rect" id="node5" href="$inc__worst__fwd_8h.html" title="Forward declarations for pancake.h. " alt="" coords="331,184,469,225"/>
-<area shape="rect" id="node7" href="$instance__measures__fwd_8h.html" title="Forward declarations of instance measures. " alt="" coords="494,191,669,218"/>
-<area shape="rect" id="node9" href="$node__kinds__fwd_8h.html" title="Forward declarations of structures containing the node data for search algorithms. " alt="" coords="705,191,831,218"/>
+<area shape="rect" id="node4" href="$sliding__tile__fwd_8h.html" title="Forward declarations for sliding_tile.h. " alt="" coords="168,184,307,225"/>
+<area shape="rect" id="node5" href="$grid__fwd_8h.html" title="Forward declarations for extensions/domains/grid.h. " alt="" coords="331,184,469,225"/>
+<area shape="rect" id="node6" href="$inc__worst__fwd_8h.html" title="Forward declarations for pancake.h. " alt="" coords="493,184,632,225"/>
+<area shape="rect" id="node8" href="$heuristics_2differential_2headers__fwd_8h.html" title="Forward declaration headers. " alt="" coords="657,184,789,225"/>
+<area shape="rect" id="node9" href="$differential__fwd_8h.html" title="Forward declarations for differential.h. " alt="" coords="662,273,783,300"/>
+<area shape="rect" id="node11" href="$instance__measures__fwd_8h.html" title="Forward declarations of instance measures. " alt="" coords="815,191,990,218"/>
+<area shape="rect" id="node13" href="$node__kinds__fwd_8h.html" title="Forward declarations of structures containing the node data for search algorithms. " alt="" coords="1038,191,1165,218"/>
 </map>

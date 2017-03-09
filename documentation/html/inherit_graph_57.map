@@ -1,3 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classslb_1_1ext_1_1algorithm_1_1AlgorithmTraits.html" title="slb::ext::algorithm\l::AlgorithmTraits\&lt; Astar \&gt;" alt="" coords="5,5,179,47"/>
+<area shape="rect" id="node1" href="$structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; Astar\&lt;\l ALG_TARGS, UniformNode\l \&gt;, ALG_TARGS \&gt;" alt="" coords="5,65,196,135"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1algorithm_1_1Astar.html" title="slb::ext::algorithm\l::Astar\&lt; logFlag, UniformNode,\l ext::policy::goalHandler\l::NoGoal, UniformHeuristic,\l UniformGenerator, UniformOL \&gt;" alt="" coords="244,5,456,91"/>
+<area shape="rect" id="node5" href="$structslb_1_1ext_1_1algorithm_1_1Astar.html" title="slb::ext::algorithm\l::Astar\&lt; logFlag, UniformNode,\l GoalHandler, UniformHeuristic,\l UniformGenerator, UniformOL \&gt;" alt="" coords="244,115,456,186"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1algorithm_1_1UniformCost.html" title="slb::ext::algorithm\l::UniformCost\&lt; false,\l ext::policy::goalHandler\l::NoGoal \&gt;" alt="" coords="504,13,667,83"/>
+<area shape="rect" id="node4" href="$structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost.html" title="slb::ext::algorithm\l::SimpleUniformCost" alt="" coords="715,27,859,69"/>
+<area shape="rect" id="node6" href="$structslb_1_1ext_1_1algorithm_1_1UniformCost.html" title="slb::ext::algorithm\l::UniformCost\&lt; logFlag,\l GoalHandler \&gt;" alt="" coords="504,123,667,179"/>
 </map>

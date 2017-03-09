@@ -14,7 +14,7 @@ struct \hyperlink{classslb_1_1ext_1_1algorithm_1_1AlgorithmTraits}{Algorithm\+Tr
 \begin{DoxyCompactList}\small\item\em Types associated with concrete algorithms. See also \href{http://stackoverflow.com/questions/8401827/crtp-and-type-visibility}{\tt http\+://stackoverflow.\+com/questions/8401827/crtp-\/and-\/type-\/visibility}. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01ext_1_1algorithm_1_1Astar_3_01ALG__TARGS_00_01Open_01_4_01_4}{Algorithm\+Traits$<$ ext\+::algorithm\+::\+Astar$<$ A\+L\+G\+\_\+\+T\+A\+R\+G\+S, Open $>$ $>$}
 \begin{DoxyCompactList}\small\item\em The traits of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{Astar}. \end{DoxyCompactList}\item 
-struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_01_4_01_4}{Algorithm\+Traits$<$ Id\+Astar$<$ A\+L\+G\+\_\+\+T\+A\+R\+G\+S, Backtrack\+Lock $>$ $>$}
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_00_01Pruning_01_4_01_4}{Algorithm\+Traits$<$ Id\+Astar$<$ A\+L\+G\+\_\+\+T\+A\+R\+G\+S, Backtrack\+Lock, Pruning $>$ $>$}
 \begin{DoxyCompactList}\small\item\em The traits of \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{Id\+Astar}. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{Astar}
 \begin{DoxyCompactList}\small\item\em The {\ttfamily A$\ast$} search algorithm. \end{DoxyCompactList}\item 
@@ -24,7 +24,26 @@ struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar}{Id\+Astar}
 \begin{DoxyCompactList}\small\item\em The {\ttfamily I\+D\+A$\ast$} search algorithm. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1PerGoal}{Per\+Goal}
 \begin{DoxyCompactList}\small\item\em {\ttfamily \hyperlink{structslb_1_1ext_1_1algorithm_1_1PerGoal}{Per\+Goal}} is a meta search algorithm for solving instances with multiple goals. It runs some other search algorithm for each goal state and combines results. Each goal state is solved independently of all others. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost}{Simple\+Uniform\+Cost}
+\item 
 struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1slb__tcb__nothing}{slb\+\_\+tcb\+\_\+nothing}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1UniformCost}{Uniform\+Cost}
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries Uniform\+Node} = \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode}{slb\+::core\+::sb\+::\+Search\+Node}$<$$>$\hypertarget{namespaceslb_1_1ext_1_1algorithm_a697c5839a166be7cc9cd7fc3c2b15f98}{}\label{namespaceslb_1_1ext_1_1algorithm_a697c5839a166be7cc9cd7fc3c2b15f98}
+
+\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using {\bfseries Uniform\+OL} = \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T}{ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T}$<$ My\+Algorithm, \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode}{Uniform\+Node}, \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType}{ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type}, \hyperlink{structslb_1_1ext_1_1policy_1_1openList_1_1GreaterPriority__SmallG}{ext\+::policy\+::open\+List\+::\+Greater\+Priority\+\_\+\+SmallG}, \hyperlink{namespaceslb_1_1ext_1_1policy_1_1openList_ae328455bada2886ad728a9f54bfa1f6a}{ext\+::policy\+::open\+List\+::\+O\+L\+Map} $>$\hypertarget{namespaceslb_1_1ext_1_1algorithm_aebb91df5b56955857d898d76d9ca5873}{}\label{namespaceslb_1_1ext_1_1algorithm_aebb91df5b56955857d898d76d9ca5873}
+
+\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using {\bfseries Uniform\+Heuristic} = \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1Zero}{ext\+::policy\+::heuristic\+::\+Zero}$<$ My\+Algorithm $>$\hypertarget{namespaceslb_1_1ext_1_1algorithm_a4df6bd68a037486451c16445cb78d21f}{}\label{namespaceslb_1_1ext_1_1algorithm_a4df6bd68a037486451c16445cb78d21f}
+
+\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using {\bfseries Uniform\+Generator} = \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT}{ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1Zero}{Uniform\+Heuristic} $>$\hypertarget{namespaceslb_1_1ext_1_1algorithm_afe2eae9c2d224b1677a1e95c013c13b4}{}\label{namespaceslb_1_1ext_1_1algorithm_afe2eae9c2d224b1677a1e95c013c13b4}
+
 \end{DoxyCompactItemize}
 
 

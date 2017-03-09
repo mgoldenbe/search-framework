@@ -2,4 +2,5 @@
 <area shape="rect" id="node2" href="$inc__worst_8h.html" title="The worst case example for an inconsistent heuristics (as appears on page 75 of &quot;Heuristic Search&quot; by..." alt="" coords="5,95,95,121"/>
 <area shape="rect" id="node3" href="$domains_2grid_8h.html" title="The grid&#45;based path finding domain. " alt="" coords="119,95,173,121"/>
 <area shape="rect" id="node4" href="$pancake_8h.html" title="The Pancake puzzle domain and the related heuristics. " alt="" coords="198,95,281,121"/>
+<area shape="rect" id="node5" href="$sliding__tile_8h.html" title="The sliding&#45;tile puzzle domain and the related heuristics. " alt="" coords="305,95,400,121"/>
 </map>

@@ -9,9 +9,13 @@ var searchData=
   ['managednode_3c_20void_2c_20void_2c_20void_2c_20void_20_3e',['ManagedNode&lt; void, void, void, void &gt;',['../structslb_1_1core_1_1sb_1_1ManagedNode_3_01void_00_01void_00_01void_00_01void_01_4.html',1,'slb::core::sb']]],
   ['managednode_3c_3e',['ManagedNode&lt;&gt;',['../structslb_1_1core_1_1sb_1_1ManagedNode.html',1,'slb::core::sb']]],
   ['manhattanheuristic',['ManhattanHeuristic',['../structslb_1_1ext_1_1domain_1_1grid_1_1ManhattanHeuristic.html',1,'slb::ext::domain::grid']]],
+  ['mapkeyconstiterator',['MapKeyConstIterator',['../structslb_1_1core_1_1util_1_1MapKeyConstIterator.html',1,'slb::core::util']]],
+  ['mapkeyiterator',['MapKeyIterator',['../structslb_1_1core_1_1util_1_1MapKeyIterator.html',1,'slb::core::util']]],
+  ['mapvalconstiterator',['MapValConstIterator',['../structslb_1_1core_1_1util_1_1MapValConstIterator.html',1,'slb::core::util']]],
+  ['mapvaliterator',['MapValIterator',['../structslb_1_1core_1_1util_1_1MapValIterator.html',1,'slb::core::util']]],
   ['markedgoal',['MarkedGoal',['../structslb_1_1ext_1_1event_1_1MarkedGoal.html',1,'slb::ext::event']]],
   ['markedstart',['MarkedStart',['../structslb_1_1ext_1_1event_1_1MarkedStart.html',1,'slb::ext::event']]],
-  ['maxheuristic',['MaxHeuristic',['../structslb_1_1ext_1_1policy_1_1goalHandler_1_1MaxHeuristic.html',1,'slb::ext::policy::goalHandler']]],
+  ['mdheuristic',['MDHeuristic',['../structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic.html',1,'slb::ext::domain::sliding_tile']]],
   ['measure',['Measure',['../structslb_1_1core_1_1util_1_1Measure.html',1,'slb::core::util']]],
   ['measureset',['MeasureSet',['../structslb_1_1core_1_1sb_1_1MeasureSet.html',1,'slb::core::sb']]],
   ['menubase',['MenuBase',['../structslb_1_1core_1_1ui_1_1MenuBase.html',1,'slb::core::ui']]],
@@ -40,7 +44,6 @@ var searchData=
   ['menuspeed_3c_20slb_3a_3acore_3a_3aui_3a_3aallmenus_2c_20node_20_3e',['MenuSpeed&lt; slb::core::ui::AllMenus, Node &gt;',['../structslb_1_1core_1_1ui_1_1MenuSpeed.html',1,'slb::core::ui']]],
   ['menustep',['MenuStep',['../structslb_1_1core_1_1ui_1_1MenuStep.html',1,'slb::core::ui']]],
   ['menustep_3c_20slb_3a_3acore_3a_3aui_3a_3aallmenus_2c_20node_20_3e',['MenuStep&lt; slb::core::ui::AllMenus, Node &gt;',['../structslb_1_1core_1_1ui_1_1MenuStep.html',1,'slb::core::ui']]],
-  ['minheuristic',['MinHeuristic',['../structslb_1_1ext_1_1policy_1_1goalHandler_1_1MinHeuristic.html',1,'slb::ext::policy::goalHandler']]],
   ['minmultiplegoalst',['MinMultipleGoalsT',['../structslb_1_1ext_1_1policy_1_1heuristic_1_1MinMultipleGoalsT.html',1,'slb::ext::policy::heuristic']]],
   ['multiplegoal',['MultipleGoal',['../structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html',1,'slb::ext::policy::goalHandler']]]
 ];

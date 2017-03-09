@@ -126,13 +126,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1slb__tcb__nothing.html">slb::ext::algorithm::slb_tcb_nothing&lt; class, bool &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code>IDA*</code> search algorithm.  <a href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_01_4_01_4.html">slb::ext::algorithm::AlgorithmTraits&lt; IdAstar&lt; ALG_TARGS, BacktrackLock &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The traits of <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>.  <a href="structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_01_4_01_4.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_00_01Pruning_01_4_01_4.html">slb::ext::algorithm::AlgorithmTraits&lt; IdAstar&lt; ALG_TARGS, BacktrackLock, Pruning &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The traits of <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">IdAstar</a>.  <a href="structslb_1_1ext_1_1algorithm_1_1AlgorithmTraits_3_01IdAstar_3_01ALG__TARGS_00_01BacktrackLock_00_01Pruning_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar&lt; ALG_TPARAMS, BacktrackLock_, Pruning &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code>IDA*</code> search algorithm.  <a href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -154,6 +154,9 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="id__astar_8h.html#abc75ccf1c929196edfd05ac83974398a">SLB_ID_ASTAR_BACKTRACK_LOCK</a>&#160;&#160;&#160;slb_tcb_nothing</td></tr>
 <tr class="memdesc:abc75ccf1c929196edfd05ac83974398a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default backtracking policy. <br /></td></tr>
 <tr class="separator:abc75ccf1c929196edfd05ac83974398a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b0cd515ce2514549193f4b26c29979"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9b0cd515ce2514549193f4b26c29979"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLB_ID_ASTAR_PRUNING</b>&#160;&#160;&#160;policy::pruning::Nothing</td></tr>
+<tr class="separator:aa9b0cd515ce2514549193f4b26c29979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a> class. </p>
@@ -163,7 +166,7 @@ Macros</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

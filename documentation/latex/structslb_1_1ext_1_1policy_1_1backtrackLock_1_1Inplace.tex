@@ -36,7 +36,7 @@ using \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_a2668b07
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_a8c1fe551c26c01d711a34df6f09d68b9}{Inplace} (My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)
+{\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_afde8d0b3b15952436e678b8ab265cbc1}{Inplace} (My\+Algorithm \&alg, Neighbor \&n, Cost\+Type h)
 \begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
 \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_aba500581c23a004f268e95a7865b6bf5}{Inplace} (\hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace}{Inplace} \&\&)=default\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_aba500581c23a004f268e95a7865b6bf5}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_aba500581c23a004f268e95a7865b6bf5}
 
@@ -69,20 +69,20 @@ The second template parameter is {\ttfamily true} when the log of algorithmic ev
 \end{DoxyNote}
 
 
-Definition at line 67 of file backtrack\+\_\+lock.\+h.
+Definition at line 66 of file backtrack\+\_\+lock.\+h.
 
 
 
 \subsubsection{Constructor \& Destructor Documentation}
 \index{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}!Inplace@{Inplace}}
 \index{Inplace@{Inplace}!slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}}
-\paragraph[{\texorpdfstring{Inplace(\+My\+Algorithm \&alg, Node $\ast$cur, Neighbor \&n)}{Inplace(MyAlgorithm &alg, Node *cur, Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , bool  = false$>$ template$<$class Neighbor $>$ {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, bool $>$\+::{\bf Inplace} (
+\paragraph[{\texorpdfstring{Inplace(\+My\+Algorithm \&alg, Neighbor \&n, Cost\+Type h)}{Inplace(MyAlgorithm &alg, Neighbor &n, CostType h)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , bool  = false$>$ template$<$class Neighbor $>$ {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace}$<$ My\+Algorithm, bool $>$\+::{\bf Inplace} (
 \begin{DoxyParamCaption}
 \item[{My\+Algorithm \&}]{alg, }
-\item[{Node $\ast$}]{cur, }
-\item[{Neighbor \&}]{n}
+\item[{Neighbor \&}]{n, }
+\item[{Cost\+Type}]{h}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_a8c1fe551c26c01d711a34df6f09d68b9}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_a8c1fe551c26c01d711a34df6f09d68b9}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_afde8d0b3b15952436e678b8ab265cbc1}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1Inplace_afde8d0b3b15952436e678b8ab265cbc1}
 
 
 The constructor. 
@@ -96,14 +96,12 @@ The constructor.
 \begin{DoxyParams}{Parameters}
 {\em alg} & The search algorithm. \\
 \hline
-{\em cur} & The node being expanded by I\+D\+A$\ast$. \\
-\hline
 {\em n} & The neighbor. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 80 of file backtrack\+\_\+lock.\+h.
+Definition at line 78 of file backtrack\+\_\+lock.\+h.
 
 
 

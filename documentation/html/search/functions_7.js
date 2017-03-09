@@ -8,6 +8,7 @@ var searchData=
   ['getlastevent',['getLastEvent',['../structslb_1_1core_1_1ui_1_1AlgorithmLog.html#a6df747934dc34719df23fdb6a46343c5',1,'slb::core::ui::AlgorithmLog::getLastEvent(const StateSharedPtr &amp;s, bool throwFlag=true) const '],['../structslb_1_1core_1_1ui_1_1AlgorithmLog.html#a8ac48eaa1dba54505b6588918c055b82',1,'slb::core::ui::AlgorithmLog::getLastEvent(const StateSharedPtr &amp;s, int step, bool throwFlag=true) const ']]],
   ['getnode',['getNode',['../structslb_1_1core_1_1sb_1_1OpenClosedList.html#a4a30ec461bceda48242b332da06495d7',1,'slb::core::sb::OpenClosedList']]],
   ['getpancakes',['getPancakes',['../structslb_1_1ext_1_1domain_1_1pancake_1_1Pancake.html#a7a941aaeb61e28f180c0f532de09a0a1',1,'slb::ext::domain::pancake::Pancake']]],
+  ['gettiles',['getTiles',['../structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile.html#a6d0822d1fbf4f0b89efb386e358aaab0',1,'slb::ext::domain::sliding_tile::SlidingTile']]],
   ['goal',['goal',['../structslb_1_1core_1_1sb_1_1Instance.html#a8bb2fb56eff2e609fd7929449b141f8d',1,'slb::core::sb::Instance']]],
   ['goalinstances',['goalInstances',['../structslb_1_1core_1_1sb_1_1Instance.html#a049e21f64e6fbec805db3732dd06e7b4',1,'slb::core::sb::Instance']]],
   ['goals',['goals',['../structslb_1_1core_1_1sb_1_1Instance.html#a5aed2f037cbdb04b8a41a13105388f1e',1,'slb::core::sb::Instance']]],

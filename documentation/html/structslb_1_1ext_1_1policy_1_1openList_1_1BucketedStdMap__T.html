@@ -164,6 +164,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <tr class="memitem:a2bb00c5ed704472eea8da59ec2fd8bc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T.html#a2bb00c5ed704472eea8da59ec2fd8bc1">recompute</a> ()</td></tr>
 <tr class="memdesc:a2bb00c5ed704472eea8da59ec2fd8bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-compute the whole open list.  <a href="#a2bb00c5ed704472eea8da59ec2fd8bc1">More...</a><br /></td></tr>
 <tr class="separator:a2bb00c5ed704472eea8da59ec2fd8bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c49ce7f49fb94bc6d2ecf3be26554d4"><td class="memTemplParams" colspan="2">template&lt;typename P &gt; </td></tr>
+<tr class="memitem:a6c49ce7f49fb94bc6d2ecf3be26554d4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T.html#a6c49ce7f49fb94bc6d2ecf3be26554d4">partialRecompute</a> (const P &amp;p)</td></tr>
+<tr class="memdesc:a6c49ce7f49fb94bc6d2ecf3be26554d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-compute the open list partially.  <a href="#a6c49ce7f49fb94bc6d2ecf3be26554d4">More...</a><br /></td></tr>
+<tr class="separator:a6c49ce7f49fb94bc6d2ecf3be26554d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -403,7 +407,7 @@ template&lt;class MyAlgorithm_ , class Node_  = SLB_NODE, template&lt; class Nod
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the node being removed. </dd></dl>
 
-<p>Definition at line <a class="el" href="open__list_8h_source.html#l00238">238</a> of file <a class="el" href="open__list_8h_source.html">open_list.h</a>.</p>
+<p>Definition at line <a class="el" href="open__list_8h_source.html#l00258">258</a> of file <a class="el" href="open__list_8h_source.html">open_list.h</a>.</p>
 
 </div>
 </div>
@@ -451,7 +455,51 @@ template&lt;class MyAlgorithm_ , class Node_  = SLB_NODE, template&lt; class Nod
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the node being removed. </dd></dl>
 
-<p>Definition at line <a class="el" href="open__list_8h_source.html#l00249">249</a> of file <a class="el" href="open__list_8h_source.html">open_list.h</a>.</p>
+<p>Definition at line <a class="el" href="open__list_8h_source.html#l00269">269</a> of file <a class="el" href="open__list_8h_source.html">open_list.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c49ce7f49fb94bc6d2ecf3be26554d4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class MyAlgorithm_ , class Node_  = SLB_NODE, template&lt; class Node &gt; class KeyType_ = SLB_OL_KEY_TYPE, template&lt; class KeyType &gt; class GreaterPriority_ = SLB_OL_PRIORITY, template&lt; typename, typename, typename &gt; class Container = SLB_OL_CONTAINER&gt; </div>
+<div class="memtemplate">
+template&lt;typename P &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T.html">slb::ext::policy::openList::BucketedStdMap_T</a>&lt; MyAlgorithm_, Node_, KeyType_, GreaterPriority_, Container &gt;::partialRecompute </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Re-compute the open list partially. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">P</td><td>The type of predicate for determining whether the node needs to be updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The predicate for determining whether the node needs to be updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="open__list_8h_source.html#l00230">230</a> of file <a class="el" href="open__list_8h_source.html">open_list.h</a>.</p>
 
 </div>
 </div>
@@ -568,7 +616,7 @@ template&lt;class MyAlgorithm_ , class Node_  = SLB_NODE, template&lt; class Nod
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

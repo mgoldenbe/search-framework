@@ -149,6 +149,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f2cd242e85739a4aef2733755811fa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a8f2cd242e85739a4aef2733755811fa7">defaultGoal</a> ()</td></tr>
 <tr class="memdesc:a8f2cd242e85739a4aef2733755811fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the first goal in the instance being created should be the default state of the domain and <code>false</code> otherwise.  <a href="#a8f2cd242e85739a4aef2733755811fa7">More...</a><br /></td></tr>
 <tr class="separator:a8f2cd242e85739a4aef2733755811fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bbd10e591ae2335ac175b21e00f321d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a4bbd10e591ae2335ac175b21e00f321d">instanceStrategy</a> ()</td></tr>
+<tr class="memdesc:a4bbd10e591ae2335ac175b21e00f321d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the strategy for forming instances.  <a href="#a4bbd10e591ae2335ac175b21e00f321d">More...</a><br /></td></tr>
+<tr class="separator:a4bbd10e591ae2335ac175b21e00f321d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fad701ebf3b50c128e9c354b3f85989"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a4fad701ebf3b50c128e9c354b3f85989">walkFirst</a> ()</td></tr>
+<tr class="memdesc:a4fad701ebf3b50c128e9c354b3f85989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of the first walk for the random_walk instance strategy.  <a href="#a4fad701ebf3b50c128e9c354b3f85989">More...</a><br /></td></tr>
+<tr class="separator:a4fad701ebf3b50c128e9c354b3f85989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b9c1d60c8675502ae70dd9d912f7450"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a3b9c1d60c8675502ae70dd9d912f7450">walkRepeat</a> ()</td></tr>
+<tr class="memdesc:a3b9c1d60c8675502ae70dd9d912f7450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of times the same walk length will be used for the random_walk instance strategy.  <a href="#a3b9c1d60c8675502ae70dd9d912f7450">More...</a><br /></td></tr>
+<tr class="separator:a3b9c1d60c8675502ae70dd9d912f7450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57761e4fb47868c5d325d72c23286ad6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a57761e4fb47868c5d325d72c23286ad6">walkIncrement</a> ()</td></tr>
+<tr class="memdesc:a57761e4fb47868c5d325d72c23286ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the increment for the length of the walk for the random_walk instance strategy.  <a href="#a57761e4fb47868c5d325d72c23286ad6">More...</a><br /></td></tr>
+<tr class="separator:a57761e4fb47868c5d325d72c23286ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc65189047fe4766289668731291a5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#abbc65189047fe4766289668731291a5d">walkMultiplier</a> ()</td></tr>
+<tr class="memdesc:abbc65189047fe4766289668731291a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the multiplier for the length of the walk for the random_walk instance strategy.  <a href="#abbc65189047fe4766289668731291a5d">More...</a><br /></td></tr>
+<tr class="separator:abbc65189047fe4766289668731291a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba20650577b010f9699c127e258821c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#aba20650577b010f9699c127e258821c3">perInstance</a> ()</td></tr>
 <tr class="memdesc:aba20650577b010f9699c127e258821c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if per-problem-instance statistics are to appear on the output and <code>false</code> otherwise.  <a href="#aba20650577b010f9699c127e258821c3">More...</a><br /></td></tr>
 <tr class="separator:aba20650577b010f9699c127e258821c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,6 +219,26 @@ TCLAP::ValueArg&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom">
 TCLAP::SwitchArg&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a7157af3d110066e82e11493e93e37050">defaultGoal_</a></td></tr>
 <tr class="memdesc:a7157af3d110066e82e11493e93e37050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command line option for the switch showing whether the first goal in the instance being created should be the default state of the domain. <br /></td></tr>
 <tr class="separator:a7157af3d110066e82e11493e93e37050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb86ebfa1c56ebd011324d7526f8dd55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb86ebfa1c56ebd011324d7526f8dd55"></a>
+TCLAP::ValueArg&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#afb86ebfa1c56ebd011324d7526f8dd55">instanceStrategy_</a></td></tr>
+<tr class="memdesc:afb86ebfa1c56ebd011324d7526f8dd55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strategy for forming instances. <br /></td></tr>
+<tr class="separator:afb86ebfa1c56ebd011324d7526f8dd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2fb1ee8b388aaca840a77b78bbf801c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2fb1ee8b388aaca840a77b78bbf801c"></a>
+TCLAP::ValueArg&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#ac2fb1ee8b388aaca840a77b78bbf801c">walkFirst_</a></td></tr>
+<tr class="memdesc:ac2fb1ee8b388aaca840a77b78bbf801c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of the first walk for the random_walk instance strategy. <br /></td></tr>
+<tr class="separator:ac2fb1ee8b388aaca840a77b78bbf801c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9142c260196e2ca04c224f2f2d573520"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9142c260196e2ca04c224f2f2d573520"></a>
+TCLAP::ValueArg&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a9142c260196e2ca04c224f2f2d573520">walkRepeat_</a></td></tr>
+<tr class="memdesc:a9142c260196e2ca04c224f2f2d573520"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of times the same walk length will be used for the random_walk instance strategy. <br /></td></tr>
+<tr class="separator:a9142c260196e2ca04c224f2f2d573520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d36d8bff4166018f7235960d02e58e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d36d8bff4166018f7235960d02e58e4"></a>
+TCLAP::ValueArg&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a2d36d8bff4166018f7235960d02e58e4">walkIncrement_</a></td></tr>
+<tr class="memdesc:a2d36d8bff4166018f7235960d02e58e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The increment for the length of the walk for the random_walk instance strategy. <br /></td></tr>
+<tr class="separator:a2d36d8bff4166018f7235960d02e58e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2afcb83006b9f428e6cd8bab05697bc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2afcb83006b9f428e6cd8bab05697bc2"></a>
+TCLAP::ValueArg&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a2afcb83006b9f428e6cd8bab05697bc2">walkMultiplier_</a></td></tr>
+<tr class="memdesc:a2afcb83006b9f428e6cd8bab05697bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The multiplier for the length of the walk for the random_walk instance strategy. <br /></td></tr>
+<tr class="separator:a2afcb83006b9f428e6cd8bab05697bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f35a809f1c1b6ccbf080d2cb6109a22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f35a809f1c1b6ccbf080d2cb6109a22"></a>
 TCLAP::SwitchArg&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html#a7f35a809f1c1b6ccbf080d2cb6109a22">perInstance_</a></td></tr>
 <tr class="memdesc:a7f35a809f1c1b6ccbf080d2cb6109a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command line option for the switch showing whether per-problem-instance statistics are to appear on the output. <br /></td></tr>
@@ -286,7 +321,7 @@ template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command__line_8h_source.html#l00181">181</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00227">227</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +382,7 @@ template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
 <p>Returns <code>true</code> if the title row should not appear on the output and <code>false</code> otherwise. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the title row should not appear on the output and <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="command__line_8h_source.html#l00124">124</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00152">152</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
 
 </div>
 </div>
@@ -426,6 +461,36 @@ template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The name of file from which problem instances are to be read. </dd></dl>
 
 <p>Definition at line <a class="el" href="command__line_8h_source.html#l00065">65</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bbd10e591ae2335ac175b21e00f321d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html">slb::core::commandLine::CommandLine</a>&lt; Additions &gt;::instanceStrategy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the strategy for forming instances. </p>
+<dl class="section return"><dt>Returns</dt><dd>The strategy for forming instances. </dd></dl>
+
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00116">116</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
 
 </div>
 </div>
@@ -559,7 +624,7 @@ template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
 <p>Returns <code>true</code> if per-problem-instance statistics are to appear on the output and <code>false</code> otherwise. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if per-problem-instance statistics are to appear on the output and <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="command__line_8h_source.html#l00118">118</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00146">146</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
 
 </div>
 </div>
@@ -589,7 +654,7 @@ template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
 <p>Returns the string with which each data row is to be prefixed. </p>
 <dl class="section return"><dt>Returns</dt><dd>The string with which each data row is to be prefixed. </dd></dl>
 
-<p>Definition at line <a class="el" href="command__line_8h_source.html#l00132">132</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00160">160</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
 
 </div>
 </div>
@@ -619,7 +684,7 @@ template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
 <p>Returns the string with which the title row is to be prefixed. </p>
 <dl class="section return"><dt>Returns</dt><dd>The string with which the title row is to be prefixed. </dd></dl>
 
-<p>Definition at line <a class="el" href="command__line_8h_source.html#l00128">128</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00156">156</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
 
 </div>
 </div>
@@ -713,13 +778,133 @@ template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a4fad701ebf3b50c128e9c354b3f85989"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html">slb::core::commandLine::CommandLine</a>&lt; Additions &gt;::walkFirst </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the length of the first walk for the random_walk instance strategy. </p>
+<dl class="section return"><dt>Returns</dt><dd>The length of the first walk for the random_walk instance strategy. </dd></dl>
+
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00122">122</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57761e4fb47868c5d325d72c23286ad6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html">slb::core::commandLine::CommandLine</a>&lt; Additions &gt;::walkIncrement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the increment for the length of the walk for the random_walk instance strategy. </p>
+<dl class="section return"><dt>Returns</dt><dd>The increment for the length of the walk for the random_walk instance strategy. </dd></dl>
+
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00134">134</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abbc65189047fe4766289668731291a5d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html">slb::core::commandLine::CommandLine</a>&lt; Additions &gt;::walkMultiplier </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the multiplier for the length of the walk for the random_walk instance strategy. </p>
+<dl class="section return"><dt>Returns</dt><dd>The multiplier for the length of the walk for the random_walk instance strategy. </dd></dl>
+
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00140">140</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b9c1d60c8675502ae70dd9d912f7450"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Additions  = SLB_CMD_LINE_ADD&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="structslb_1_1core_1_1commandLine_1_1CommandLine.html">slb::core::commandLine::CommandLine</a>&lt; Additions &gt;::walkRepeat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of times the same walk length will be used for the random_walk instance strategy. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of times the same walk length will be used for the random_walk instance strategy. </dd></dl>
+
+<p>Definition at line <a class="el" href="command__line_8h_source.html#l00128">128</a> of file <a class="el" href="command__line_8h_source.html">command_line.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>core/<a class="el" href="command__line_8h_source.html">command_line.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 7 2016 12:11:00 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

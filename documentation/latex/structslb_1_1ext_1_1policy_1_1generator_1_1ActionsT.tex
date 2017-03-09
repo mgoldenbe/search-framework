@@ -24,7 +24,7 @@ State \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a85db412252
 \begin{DoxyCompactList}\small\item\em Returns the neighbor state. \end{DoxyCompactList}\item 
 Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_af3ce8c0f1dd2b233fc0873a1757c17c9}{heuristic} (const \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a579c1e623b0e091ad02ab78edb271810}{Neighbor} \&n, Node $\ast$node) const 
 \begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\item 
-std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a579c1e623b0e091ad02ab78edb271810}{Neighbor} $>$ \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a3aca825a8f5f7b647b12ed3aa33f6076}{successors} (const State \&s) const 
+auto \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a8166cc83070e2228ee92c74f59de4b4c}{successors} (const State \&s) const -\/$>$ decltype(s.\+action\+Successors())
 \begin{DoxyCompactList}\small\item\em Computes the successors of the given state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -52,7 +52,7 @@ Generator that generates action neighbors.
 \end{DoxyTemplParams}
 
 
-Definition at line 66 of file generators.\+h.
+Definition at line 73 of file generators.\+h.
 
 
 
@@ -75,7 +75,7 @@ The contructor.
 \end{DoxyParams}
 
 
-Definition at line 74 of file generators.\+h.
+Definition at line 81 of file generators.\+h.
 
 
 
@@ -104,7 +104,7 @@ The heuristic value.
 \end{DoxyReturn}
 
 
-Definition at line 88 of file generators.\+h.
+Definition at line 95 of file generators.\+h.
 
 \index{slb\+::ext\+::policy\+::generator\+::\+ActionsT@{slb\+::ext\+::policy\+::generator\+::\+ActionsT}!state@{state}}
 \index{state@{state}!slb\+::ext\+::policy\+::generator\+::\+ActionsT@{slb\+::ext\+::policy\+::generator\+::\+ActionsT}}
@@ -125,15 +125,15 @@ This reference must be non-\/const to allow moving the neighbor
 \end{DoxyNote}
 
 
-Definition at line 79 of file generators.\+h.
+Definition at line 86 of file generators.\+h.
 
 \index{slb\+::ext\+::policy\+::generator\+::\+ActionsT@{slb\+::ext\+::policy\+::generator\+::\+ActionsT}!successors@{successors}}
 \index{successors@{successors}!slb\+::ext\+::policy\+::generator\+::\+ActionsT@{slb\+::ext\+::policy\+::generator\+::\+ActionsT}}
-\paragraph[{\texorpdfstring{successors(const State \&s) const }{successors(const State &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ std\+::vector$<${\bf Neighbor}$>$ {\bf slb\+::ext\+::policy\+::generator\+::\+ActionsT}$<$ My\+Algorithm, Heuristic $>$\+::successors (
+\paragraph[{\texorpdfstring{successors(const State \&s) const -\/$>$ decltype(s.\+action\+Successors())}{successors(const State &s) const -> decltype(s.actionSuccessors())}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ auto {\bf slb\+::ext\+::policy\+::generator\+::\+ActionsT}$<$ My\+Algorithm, Heuristic $>$\+::successors (
 \begin{DoxyParamCaption}
 \item[{const State \&}]{s}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a3aca825a8f5f7b647b12ed3aa33f6076}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a3aca825a8f5f7b647b12ed3aa33f6076}
+) const -\/$>$ decltype(s.\+action\+Successors()) \hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a8166cc83070e2228ee92c74f59de4b4c}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT_a8166cc83070e2228ee92c74f59de4b4c}
 
 
 Computes the successors of the given state. 
@@ -151,7 +151,7 @@ This member could be static; made it non-\/static for reasons of uniformity.
 \end{DoxyNote}
 
 
-Definition at line 97 of file generators.\+h.
+Definition at line 104 of file generators.\+h.
 
 
 

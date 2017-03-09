@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structslb_1_1core_1_1ui_1_1VisualEvent_1_1EdgeChange.html" title="Description of change of visual representation of a single edge. " alt="" coords="5,5,173,47"/>
+<area shape="rect" id="node1" href="$structslb_1_1core_1_1ui_1_1VisualizerData.html" title="The base of Visualizer holding the visualizer&#39;s constituent components. " alt="" coords="5,5,160,47"/>
+<area shape="rect" id="node2" href="$structslb_1_1core_1_1ui_1_1Visualizer.html" title="Handles the user interface. " alt="" coords="208,5,363,47"/>
 </map>

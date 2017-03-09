@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structslb_1_1core_1_1ui_1_1VisualEvent_1_1VertexChange.html" title="Description of change of visual representation of a single vertex. " alt="" coords="5,5,173,47"/>
+<area shape="rect" id="node2" href="$structslb_1_1core_1_1util_1_1BasicInformedIterator.html" title="Adapter for iterator that knows whether it is at the end. " alt="" coords="105,5,295,47"/>
+<area shape="rect" id="node3" href="$structslb_1_1core_1_1util_1_1IndexIterator.html" title="slb::core::util::IndexIterator\l\&lt; MyVector, Base \&gt;" alt="" coords="111,71,289,112"/>
+<area shape="rect" id="node4" href="$structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator.html" title="The state iterator type. " alt="" coords="343,56,519,127"/>
 </map>
