@@ -20,7 +20,7 @@ struct Zero {
     POLICY_TYPES
 
     /// Some algorithms need to know whether the heuristic is dynamic.
-    static constexpr bool dynamicFlag = false;
+    static constexpr bool dynamic = false;
 
     /// The constructor.
     Zero(MyAlgorithm &) {}
@@ -44,7 +44,7 @@ struct SingleGoalT {
     POLICY_TYPES
 
     /// Some algorithms need to know whether the heuristic is dynamic.
-    static constexpr bool dynamicFlag = false;
+    static constexpr bool dynamic = false;
 
     /// The constructor. The goal state is taken from the algorithm by using the policy service.
     /// \param alg Reference to the algorithm
@@ -87,7 +87,7 @@ struct DynamicSingleGoalT {
     POLICY_TYPES
 
     /// Some algorithms need to know whether the heuristic is dynamic.
-    static constexpr bool dynamicFlag = true;
+    static constexpr bool dynamic = true;
 
     /// The constructor. The goal state is taken from the algorithm by using the policy service.
     /// \param alg Reference to the algorithm
@@ -101,12 +101,11 @@ struct DynamicSingleGoalT {
     /// Computes the heuristic.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor for which the heuristic is to be computed.
-    /// \param node The search node.
+    /// \param node The current search node.
     /// \return The heuristic value.
     template <class Neighbor>
     CostType operator()(const Neighbor &n, Node *node) const {
-        assert(node->parent());
-        return node->parent()->h() + heuristic_(node->parent()->state(), n.cost(), n);
+        return node->h() + heuristic_(node->state(), n.cost(), n);
     }
 
 private:
@@ -134,7 +133,7 @@ struct MinMultipleGoalsT {
     using Compare = CompareT<CostType>;
 
     /// Some algorithms need to know whether the heuristic is dynamic.
-    static constexpr bool dynamicFlag = SingleGoalHeuristic::dynamicFlag;
+    static constexpr bool dynamic = SingleGoalHeuristic::dynamic;
 
     /// The constructor.
     /// \param alg Reference to the search algorithm.

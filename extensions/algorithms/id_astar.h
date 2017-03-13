@@ -113,7 +113,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
     /// Performs a single iteration of IDA*.
     /// \return \c true if the solution has been found and \c false otherwise.
     bool iteration() {
-        if (!Generator::Heuristic::dynamicFlag && thresholdCut_())
+        if (!Generator::Heuristic::dynamic && thresholdCut_())
             return false;
 
         log<ext::event::Selected>(log_, cur_);
@@ -130,7 +130,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
             if (pruner_(n)) continue;
             ++generated_;
             CostType newH;
-            if (!Generator::Heuristic::dynamicFlag || !thresholdCut_(n, newH)) {
+            if (!Generator::Heuristic::dynamic || !thresholdCut_(n, newH)) {
                 BacktrackLock btLock{*this, n, newH};
                 BacktrackLock *prevLock_ = lastLock_;
                 lastLock_ = &btLock;

@@ -202,6 +202,7 @@ private:
             if (n.state() == to)
                 return n.cost();
         assert(0);
+        return -1;
     }
 };
 

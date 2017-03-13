@@ -227,8 +227,9 @@ private:
         }
         NodeUniquePtr newNode(new Node(childState));
         newNode->setParent(cur_);
-        newNode->set(myG, generator_.heuristic(n, newNode.get()),
-                     this->stamp());
+        auto h = generator_.heuristic(
+            n, Generator::Heuristic::dynamic ? cur_ : newNode.get());
+        newNode->set(myG, h, this->stamp());
         log<ext::event::Generated>(log_, newNode.get());
         log<ext::event::EnteredOpen>(log_, newNode.get());
         oc_.add(newNode);

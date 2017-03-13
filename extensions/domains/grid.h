@@ -72,7 +72,7 @@ private:
 
 /// The octile heuristic functor.
 /// \tparam State The type representing the domain.
-template <class State>
+template <class State = SLB_STATE>
 struct OctileHeuristic {
     /// The constructor
     /// \param goal The goal state.
