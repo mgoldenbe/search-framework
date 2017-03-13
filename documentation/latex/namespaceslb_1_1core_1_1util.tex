@@ -18,11 +18,11 @@ Utility facilities.
 struct \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator}{Basic\+Informed\+Iterator}
 \begin{DoxyCompactList}\small\item\em Adapter for iterator that knows whether it is at the end. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}
-\begin{DoxyCompactList}\small\item\em Skipping iterators for a vector. Use the aliases defined below. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Iterator for a vector that skips a certain value. \end{DoxyCompactList}\item 
 class \hyperlink{classslb_1_1core_1_1util_1_1deref__shared__ptr}{deref\+\_\+shared\+\_\+ptr}
 \begin{DoxyCompactList}\small\item\em Shared pointer whose {\ttfamily operator==} compares the pointed to values. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1IndexIterator}{Index\+Iterator}
-\item 
+\begin{DoxyCompactList}\small\item\em Vector iterator whose dereference operator returns index instead of value. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapKeyConstIterator}{Map\+Key\+Const\+Iterator}
 \begin{DoxyCompactList}\small\item\em Const iterator over keys of a map. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapKeyIterator}{Map\+Key\+Iterator}
@@ -30,7 +30,7 @@ struct \hyperlink{structslb_1_1core_1_1util_1_1MapKeyIterator}{Map\+Key\+Iterato
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapValConstIterator}{Map\+Val\+Const\+Iterator}
 \begin{DoxyCompactList}\small\item\em Const iterator over values of a map. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapValIterator}{Map\+Val\+Iterator}
-\begin{DoxyCompactList}\small\item\em Iterator over values of a map. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Iterator over values (i.\+e. mapped values) of a map. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1Measure}{Measure}
 \begin{DoxyCompactList}\small\item\em The type for a single named performance measure. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1Row}{Row}
@@ -48,12 +48,10 @@ struct \hyperlink{structslb_1_1core_1_1util_1_1TimerLock}{Timer\+Lock}
 \subsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class My\+Vector $>$ }\\using {\bfseries Vector\+Skip\+Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, typename My\+Vector\+::iterator $>$\hypertarget{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}{}\label{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}
-
-\item 
-{\footnotesize template$<$class My\+Vector $>$ }\\using {\bfseries Vector\+Skip\+Const\+Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}$<$ typename std\+::add\+\_\+const$<$ My\+Vector $>$\+::type, typename My\+Vector\+::const\+\_\+iterator $>$\hypertarget{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}{}\label{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}
-
-\end{DoxyCompactItemize}
+{\footnotesize template$<$class My\+Vector $>$ }\\using \hyperlink{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}{Vector\+Skip\+Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, typename My\+Vector\+::iterator $>$
+\begin{DoxyCompactList}\small\item\em The non-\/constant skipping iterator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Vector $>$ }\\using \hyperlink{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}{Vector\+Skip\+Const\+Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}$<$ typename std\+::add\+\_\+const$<$ My\+Vector $>$\+::type, typename My\+Vector\+::const\+\_\+iterator $>$
+\begin{DoxyCompactList}\small\item\em The constant skipping iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -1347,6 +1345,41 @@ std\+::vector$<$ int $>$ \hyperlink{namespaceslb_1_1core_1_1util_a5f4cfdcebbe811
 
 \subsubsection{Detailed Description}
 Utility facilities. 
+
+\subsubsection{Typedef Documentation}
+\index{slb\+::core\+::util@{slb\+::core\+::util}!Vector\+Skip\+Const\+Iterator@{Vector\+Skip\+Const\+Iterator}}
+\index{Vector\+Skip\+Const\+Iterator@{Vector\+Skip\+Const\+Iterator}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{Vector\+Skip\+Const\+Iterator}{VectorSkipConstIterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector $>$ using {\bf slb\+::core\+::util\+::\+Vector\+Skip\+Const\+Iterator} = typedef {\bf Basic\+Vector\+Skip\+Iterator}$<$typename std\+::add\+\_\+const$<$My\+Vector$>$\+::type, typename My\+Vector\+::const\+\_\+iterator$>$}\hypertarget{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}{}\label{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}
+
+
+The constant skipping iterator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em The} & underlying vector type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 219 of file container.\+h.
+
+\index{slb\+::core\+::util@{slb\+::core\+::util}!Vector\+Skip\+Iterator@{Vector\+Skip\+Iterator}}
+\index{Vector\+Skip\+Iterator@{Vector\+Skip\+Iterator}!slb\+::core\+::util@{slb\+::core\+::util}}
+\paragraph[{\texorpdfstring{Vector\+Skip\+Iterator}{VectorSkipIterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector $>$ using {\bf slb\+::core\+::util\+::\+Vector\+Skip\+Iterator} = typedef {\bf Basic\+Vector\+Skip\+Iterator}$<$My\+Vector, typename My\+Vector\+::iterator$>$}\hypertarget{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}{}\label{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}
+
+
+The non-\/constant skipping iterator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em The} & underlying vector type. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 212 of file container.\+h.
+
+
 
 \subsubsection{Enumeration Type Documentation}
 \index{slb\+::core\+::util@{slb\+::core\+::util}!Color@{Color}}

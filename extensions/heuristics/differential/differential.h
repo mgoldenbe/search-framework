@@ -2,7 +2,7 @@
 #define SLB_EXTENSIONS_HEURISTICS_DIFFERENTIAL_DIFFERENTIAL_H
 
 /// \file
-/// \brief The differential heuristic
+/// \brief The differential heuristic.
 /// \author Meir Goldenberg
 
 #include "distance_map.h"
@@ -34,21 +34,33 @@ protected:
                      cmd) {}
 };
 
+/// Type for the furthest placement policy.
 struct Furthest {};
 
-/// The differential heuristic.
+/// The differential heuristic with unspecified placement strategy.
 /// \tparam State The state type representing the search domain.
+/// \tparam BaseHeuristic The underlying heuristic.
+/// \tparam Index Mapping of states to indices.
 template <class State, class BaseHeuristic, class Index = NoIndex>
 struct HBase {
+    /// The action cost type.
     using CostType = typename State::CostType;
+
+    /// The type for storing distances to pivots.
     using Distances = DistancesToPivots<State, Index>;
 
+    /// The constructor. It is a template to handle the --nPivots command line
+    /// option and not create a problem for configurations without this option.
+    /// \param goal The goal state.
     template <CMD_TPARAM>
     HBase(const State &goal)
         : nPivots_{CMD_T.nPivots()}, goal_{goal}, heuristic_(goal_) {
         distances_.updateExpectedNPivots(nPivots_);
     }
 
+    /// The call operator that computes the heuristic.
+    /// \param s The state for which the heuristic needs to be computed.
+    /// \return The heuristic from \c s.
     CostType operator()(const State &s) const {
         CostType res = heuristic_(s);
         if (nPivots_ == 0) return res;
@@ -61,30 +73,46 @@ struct HBase {
     }
 
     protected:
-        int nPivots_;
-        static Distances distances_;
-        const State &goal_;
-        std::vector<CostType> goalToPivots_;
-        BaseHeuristic heuristic_;
+        int nPivots_; ///< Number of pivots.
+        static Distances distances_; ///< Distances to pivots.
+        const State &goal_;          ///< The goal state.
+        std::vector<CostType> goalToPivots_; ///< Goal-to-pivot distances.
+        BaseHeuristic heuristic_;            ///< The underlying heuristic.
 
+        /// Abstract virtual function for computing pivot placement. To be
+        /// overrided by heuristics with a particular placement strategy.
         virtual void myMakePivots() = 0;
+
+        /// Computes pivot placement. Defers the actual work to myMakePivots.
         void makePivots() {
             if (nPivots_ != distances_.nPivots()) {
                 distances_.clear();
                 this->myMakePivots();
             }
         }
+
+        /// Fills goal-to-pivot distances.
         void fillGoalToPivots() {
             if (nPivots_ == 0) return;
             auto it = distances_.pivotIt(goal_);
             for (int i = 0; i != nPivots_; ++i) goalToPivots_.push_back(it[i]);
         }
 };
+
+
 template <class State, class BaseHeuristic, class Index>
 typename HBase<State, BaseHeuristic, Index>::Distances
     HBase<State, BaseHeuristic, Index>::distances_;
 
-/// The differential heuristic. Specializations are for particular placements.
+/// The differential heuristic. Specializations are for particular placement
+/// strategies.
+/// \tparam State The state type representing the search domain.
+/// \tparam BaseHeuristic The underlying heuristic.
+/// \tparam Placement The pivot placement strategy.
+/// \tparam IndexWithInverse Mapping of states to indices with an inverse
+/// function.
+/// \tparam CompactIndex Mapping of states to indices that tries to use a small
+/// (or even sequential) range of indices.
 template <
     class State = SLB_STATE,
     class BaseHeuristic = SLB_DIFFERENTIAL_BASE_HEURISTIC,
@@ -93,8 +121,14 @@ template <
     class CompactIndex = SLB_DIFFERENTIAL_COMPACT_INDEX> // = IndexWithInverse
 struct H;
 
-/// The differential heuristic with the furthest placement.
+/// The differential heuristic with the furthest placement strategy.
 /// \tparam State The state type representing the search domain.
+/// \tparam BaseHeuristic The underlying heuristic.
+/// \tparam Placement The pivot placement strategy.
+/// \tparam IndexWithInverse Mapping of states to indices with an inverse
+/// function.
+/// \tparam CompactIndex Mapping of states to indices that tries to use a small
+/// (or even sequential) range of indices.
 template <class State, class BaseHeuristic, class IndexWithInverse,
           class CompactIndex>
 struct H<State, BaseHeuristic, Furthest, IndexWithInverse, CompactIndex>
@@ -102,15 +136,19 @@ struct H<State, BaseHeuristic, Furthest, IndexWithInverse, CompactIndex>
     static_assert(IndexWithInverse::kind != IndexKind::noInverse,
                   "Wrong type of index for IndexWithInverse");
 
-    using MyBase = HBase<State, BaseHeuristic, CompactIndex>;
+    using MyBase =
+        HBase<State, BaseHeuristic, CompactIndex>; ///< The direct base type.
     using MyBase::nPivots_;
     using MyBase::distances_;
 
+    /// The constructor.
+    /// \param goal The goal state.
     H(const State &goal) : MyBase(goal) {
         this->makePivots();
         this->fillGoalToPivots();
     }
 
+    /// Computes pivot placement.
     virtual void myMakePivots() {
         // This has to have reverse to have farthest()
         DistanceMap<State, IndexWithInverse> toClosestPivot{firstPivot()};
@@ -125,6 +163,8 @@ struct H<State, BaseHeuristic, Furthest, IndexWithInverse, CompactIndex>
     }
 
 private:
+    /// Computes the location of the first pivot.
+    /// \return The state, which is the first pivot.
     State firstPivot() {
         DistanceMap<State, IndexWithInverse> temp{State{}};
         return temp.farthest();

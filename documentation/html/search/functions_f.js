@@ -12,6 +12,7 @@ var searchData=
   ['patternlock',['PatternLock',['../structslb_1_1core_1_1ui_1_1PatternLock.html#aa685f19004b70de18b39f4aec82f9cb2',1,'slb::core::ui::PatternLock']]],
   ['pergoal',['PerGoal',['../structslb_1_1ext_1_1algorithm_1_1PerGoal.html#a73af8c0fd4ce53827c324b058b6a03fe',1,'slb::ext::algorithm::PerGoal']]],
   ['perinstance',['perInstance',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#aba20650577b010f9699c127e258821c3',1,'slb::core::commandLine::CommandLine']]],
+  ['pivot',['Pivot',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot.html#a22b0f4183d30086f01e0a484bd7e2ba1',1,'slb::ext::heuristic::differential::Pivot']]],
   ['pivotit',['pivotIt',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots.html#ac995c37475f0e2ec6444d0f5d7d56dd9',1,'slb::ext::heuristic::differential::DistancesToPivots::pivotIt()'],['../structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_3_01State_00_01Index_00_01IndexKind_1_1none_01_4.html#ace3b1e082a65142bb9f6f23dea9ed0e1',1,'slb::ext::heuristic::differential::DistancesToPivots&lt; State, Index, IndexKind::none &gt;::pivotIt()']]],
   ['pointonline',['pointOnLine',['../namespaceslb_1_1core_1_1util_1_1gu.html#a955b2a5a7a5d669c4136eb7a744c97d3',1,'slb::core::util::gu']]],
   ['prefixdata',['prefixData',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#a0fde6d0c2ba0719bb6dacaab612c872b',1,'slb::core::commandLine::CommandLine']]],

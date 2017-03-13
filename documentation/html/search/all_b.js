@@ -38,6 +38,6 @@ var searchData=
   ['loginit',['logInit',['../structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal.html#a361912e2dbf8ea3c9214568b98b7335d',1,'slb::ext::policy::goalHandler::NoGoal::logInit()'],['../structslb_1_1ext_1_1policy_1_1goalHandler_1_1SingleGoal.html#ab26c3f59cc2b6ebdde7eb9afdb41a1ee',1,'slb::ext::policy::goalHandler::SingleGoal::logInit()'],['../structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#af4ba551efdf2e82a7dcd42d179a2c5c4',1,'slb::ext::policy::goalHandler::MultipleGoal::logInit()']]],
   ['logtable_5f',['logTable_',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a8eab8f0120ea01b325298ea662d7fec4',1,'slb::core::ui::LogWindow']]],
   ['logwindow',['LogWindow',['../structslb_1_1core_1_1ui_1_1LogWindow.html',1,'slb::core::ui']]],
-  ['logwindow',['LogWindow',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a8ceb8eae6f21dbad28edb2b154341511',1,'slb::core::ui::LogWindow::LogWindow()'],['../structslb_1_1core_1_1ui_1_1VisualizerData.html#a1d5d126af5aaf1c48e1a89de87425253',1,'slb::core::ui::VisualizerData::logWindow()']]],
+  ['logwindow',['logWindow',['../structslb_1_1core_1_1ui_1_1VisualizerData.html#a1d5d126af5aaf1c48e1a89de87425253',1,'slb::core::ui::VisualizerData::logWindow()'],['../structslb_1_1core_1_1ui_1_1LogWindow.html#a8ceb8eae6f21dbad28edb2b154341511',1,'slb::core::ui::LogWindow::LogWindow()']]],
   ['logwindow_5f',['logWindow_',['../structslb_1_1core_1_1ui_1_1VisualizerData.html#a1eee033f63661b066474935c7381f8a6',1,'slb::core::ui::VisualizerData']]]
 ];

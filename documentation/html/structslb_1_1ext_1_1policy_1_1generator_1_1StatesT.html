@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>HSRF: Heuristic Search Research Framework: slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic &gt; Struct Template Reference</title>
+<title>HSRF: Heuristic Search Research Framework: slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic_ &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic &gt; Struct Template Reference</div>  </div>
+<div class="title">slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic_ &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -104,43 +104,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aabbc05d367ac5da87108f453240e6a32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabbc05d367ac5da87108f453240e6a32"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aabbc05d367ac5da87108f453240e6a32">Neighbor</a> = typename State::SNeighbor</td></tr>
-<tr class="memdesc:aabbc05d367ac5da87108f453240e6a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">The search neighbor type. <br /></td></tr>
-<tr class="separator:aabbc05d367ac5da87108f453240e6a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa66abe249317f4cb57225481bb25a1f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa66abe249317f4cb57225481bb25a1f9"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aa66abe249317f4cb57225481bb25a1f9">Neighbor</a> = typename State::SNeighbor</td></tr>
+<tr class="memdesc:aa66abe249317f4cb57225481bb25a1f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The search neighbor type. <br /></td></tr>
+<tr class="separator:aa66abe249317f4cb57225481bb25a1f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4d943f982860608b5bffd4afd20fae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d4d943f982860608b5bffd4afd20fae"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a3d4d943f982860608b5bffd4afd20fae">Heuristic</a> = Heuristic_&lt; MyAlgorithm &gt;</td></tr>
+<tr class="memdesc:a3d4d943f982860608b5bffd4afd20fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">The heuristic type. <br /></td></tr>
+<tr class="separator:a3d4d943f982860608b5bffd4afd20fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a31e1dbd50128ac105774047963a609ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a31e1dbd50128ac105774047963a609ea">StatesT</a> (MyAlgorithm &amp;alg)</td></tr>
-<tr class="memdesc:a31e1dbd50128ac105774047963a609ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">The contructor.  <a href="#a31e1dbd50128ac105774047963a609ea">More...</a><br /></td></tr>
-<tr class="separator:a31e1dbd50128ac105774047963a609ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a27494946b73fcd9735cdc7515cab74"><td class="memItemLeft" align="right" valign="top">State &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a2a27494946b73fcd9735cdc7515cab74">state</a> (<a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aabbc05d367ac5da87108f453240e6a32">Neighbor</a> &amp;n)</td></tr>
-<tr class="memdesc:a2a27494946b73fcd9735cdc7515cab74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the neighbor state.  <a href="#a2a27494946b73fcd9735cdc7515cab74">More...</a><br /></td></tr>
-<tr class="separator:a2a27494946b73fcd9735cdc7515cab74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0e0c092fbdd54178dfd1a4e533bf18a"><td class="memItemLeft" align="right" valign="top">CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#ae0e0c092fbdd54178dfd1a4e533bf18a">heuristic</a> (const <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aabbc05d367ac5da87108f453240e6a32">Neighbor</a> &amp;n, Node *node) const </td></tr>
-<tr class="memdesc:ae0e0c092fbdd54178dfd1a4e533bf18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#ae0e0c092fbdd54178dfd1a4e533bf18a">More...</a><br /></td></tr>
-<tr class="separator:ae0e0c092fbdd54178dfd1a4e533bf18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae04718f6da6b4a0c10ba542f0aad853a"><td class="memItemLeft" align="right" valign="top">CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#ae04718f6da6b4a0c10ba542f0aad853a">heuristic</a> (Node *node) const </td></tr>
-<tr class="memdesc:ae04718f6da6b4a0c10ba542f0aad853a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#ae04718f6da6b4a0c10ba542f0aad853a">More...</a><br /></td></tr>
-<tr class="separator:ae04718f6da6b4a0c10ba542f0aad853a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21106503819e2761f4797cb654e34356"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a21106503819e2761f4797cb654e34356">successors</a> (const State &amp;s) const -&gt; decltype(s.stateSuccessors())</td></tr>
-<tr class="memdesc:a21106503819e2761f4797cb654e34356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the successors of the given state.  <a href="#a21106503819e2761f4797cb654e34356">More...</a><br /></td></tr>
-<tr class="separator:a21106503819e2761f4797cb654e34356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a916419a80c9c874b469b3286077104c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a916419a80c9c874b469b3286077104c0">StatesT</a> (MyAlgorithm &amp;alg)</td></tr>
+<tr class="memdesc:a916419a80c9c874b469b3286077104c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The contructor.  <a href="#a916419a80c9c874b469b3286077104c0">More...</a><br /></td></tr>
+<tr class="separator:a916419a80c9c874b469b3286077104c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9dbb1d35fbdddd48540c89d0874557d"><td class="memItemLeft" align="right" valign="top">State &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aa9dbb1d35fbdddd48540c89d0874557d">state</a> (<a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aa66abe249317f4cb57225481bb25a1f9">Neighbor</a> &amp;n)</td></tr>
+<tr class="memdesc:aa9dbb1d35fbdddd48540c89d0874557d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the neighbor state.  <a href="#aa9dbb1d35fbdddd48540c89d0874557d">More...</a><br /></td></tr>
+<tr class="separator:aa9dbb1d35fbdddd48540c89d0874557d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa000bb3f252fb9f3f7ef97d417f8d931"><td class="memItemLeft" align="right" valign="top">CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aa000bb3f252fb9f3f7ef97d417f8d931">heuristic</a> (const <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aa66abe249317f4cb57225481bb25a1f9">Neighbor</a> &amp;n, Node *node) const </td></tr>
+<tr class="memdesc:aa000bb3f252fb9f3f7ef97d417f8d931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#aa000bb3f252fb9f3f7ef97d417f8d931">More...</a><br /></td></tr>
+<tr class="separator:aa000bb3f252fb9f3f7ef97d417f8d931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eeea9c9de44f7c15f4833121feeb7cb"><td class="memItemLeft" align="right" valign="top">CostType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a9eeea9c9de44f7c15f4833121feeb7cb">heuristic</a> (Node *node) const </td></tr>
+<tr class="memdesc:a9eeea9c9de44f7c15f4833121feeb7cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the heuristic.  <a href="#a9eeea9c9de44f7c15f4833121feeb7cb">More...</a><br /></td></tr>
+<tr class="separator:a9eeea9c9de44f7c15f4833121feeb7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33a50f9a5a385e7285d82232359f0aab"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a33a50f9a5a385e7285d82232359f0aab">successors</a> (const State &amp;s) const -&gt; decltype(s.stateSuccessors())</td></tr>
+<tr class="memdesc:a33a50f9a5a385e7285d82232359f0aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the successors of the given state.  <a href="#a33a50f9a5a385e7285d82232359f0aab">More...</a><br /></td></tr>
+<tr class="separator:a33a50f9a5a385e7285d82232359f0aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:adffaa6961b9ecda8235c00eca1f62ad3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adffaa6961b9ecda8235c00eca1f62ad3"></a>
-MyAlgorithm &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#adffaa6961b9ecda8235c00eca1f62ad3">alg_</a></td></tr>
-<tr class="memdesc:adffaa6961b9ecda8235c00eca1f62ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the search algorithm. <br /></td></tr>
-<tr class="separator:adffaa6961b9ecda8235c00eca1f62ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bd47a947af48d88c30e542df606043e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bd47a947af48d88c30e542df606043e"></a>
-Heuristic&lt; MyAlgorithm &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a5bd47a947af48d88c30e542df606043e">heuristic_</a></td></tr>
-<tr class="memdesc:a5bd47a947af48d88c30e542df606043e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The heuristic. <br /></td></tr>
-<tr class="separator:a5bd47a947af48d88c30e542df606043e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d265fd87949f2495d6bb278d7322d0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d265fd87949f2495d6bb278d7322d0a"></a>
+MyAlgorithm &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a3d265fd87949f2495d6bb278d7322d0a">alg_</a></td></tr>
+<tr class="memdesc:a3d265fd87949f2495d6bb278d7322d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the search algorithm. <br /></td></tr>
+<tr class="separator:a3d265fd87949f2495d6bb278d7322d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade63f5f9bca2aab0e926b11ab4a54e2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade63f5f9bca2aab0e926b11ab4a54e2d"></a>
+<a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#a3d4d943f982860608b5bffd4afd20fae">Heuristic</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#ade63f5f9bca2aab0e926b11ab4a54e2d">heuristic_</a></td></tr>
+<tr class="memdesc:ade63f5f9bca2aab0e926b11ab4a54e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The heuristic. <br /></td></tr>
+<tr class="separator:ade63f5f9bca2aab0e926b11ab4a54e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class MyAlgorithm, template&lt; class &gt; class Heuristic&gt;<br />
-struct slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic &gt;</h3>
+<div class="textblock"><h3>template&lt;class MyAlgorithm, template&lt; class &gt; class Heuristic_&gt;<br />
+struct slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic_ &gt;</h3>
 
 <p>Generator that generates state neighbors. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -153,17 +157,17 @@ struct slb::ext::policy::generator::StatesT&lt; MyAlgorithm, Heuristic &gt;</h3>
 
 <p>Definition at line <a class="el" href="generators_8h_source.html#l00020">20</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a31e1dbd50128ac105774047963a609ea"></a>
+<a class="anchor" id="a916419a80c9c874b469b3286077104c0"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic_&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic &gt;::<a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">StatesT</a> </td>
+          <td class="memname"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic_ &gt;::<a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">StatesT</a> </td>
           <td>(</td>
           <td class="paramtype">MyAlgorithm &amp;&#160;</td>
           <td class="paramname"><em>alg</em></td><td>)</td>
@@ -185,24 +189,24 @@ template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </di
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="generators_8h_source.html#l00028">28</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
+<p>Definition at line <a class="el" href="generators_8h_source.html#l00031">31</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae0e0c092fbdd54178dfd1a4e533bf18a"></a>
+<a class="anchor" id="aa000bb3f252fb9f3f7ef97d417f8d931"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic_&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic &gt;::heuristic </td>
+          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic_ &gt;::heuristic </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aabbc05d367ac5da87108f453240e6a32">Neighbor</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aa66abe249317f4cb57225481bb25a1f9">Neighbor</a> &amp;&#160;</td>
           <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
@@ -234,21 +238,21 @@ template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </di
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The heuristic value. </dd></dl>
 
-<p>Definition at line <a class="el" href="generators_8h_source.html#l00041">41</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
+<p>Definition at line <a class="el" href="generators_8h_source.html#l00044">44</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae04718f6da6b4a0c10ba542f0aad853a"></a>
+<a class="anchor" id="a9eeea9c9de44f7c15f4833121feeb7cb"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic_&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic &gt;::heuristic </td>
+          <td class="memname">CostType <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic_ &gt;::heuristic </td>
           <td>(</td>
           <td class="paramtype">Node *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
@@ -271,23 +275,23 @@ template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </di
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The heuristic value. </dd></dl>
 
-<p>Definition at line <a class="el" href="generators_8h_source.html#l00048">48</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
+<p>Definition at line <a class="el" href="generators_8h_source.html#l00051">51</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2a27494946b73fcd9735cdc7515cab74"></a>
+<a class="anchor" id="aa9dbb1d35fbdddd48540c89d0874557d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic_&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">State&amp; <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic &gt;::state </td>
+          <td class="memname">State&amp; <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic_ &gt;::state </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aabbc05d367ac5da87108f453240e6a32">Neighbor</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html#aa66abe249317f4cb57225481bb25a1f9">Neighbor</a> &amp;&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
         </tr>
@@ -303,21 +307,21 @@ template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </di
 <dl class="section return"><dt>Returns</dt><dd>Reference to the neighbor state. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This reference must be non-const to allow moving the neighbor. In addition, this member could be static; made it non-static for reasons of uniformity. </dd></dl>
 
-<p>Definition at line <a class="el" href="generators_8h_source.html#l00035">35</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
+<p>Definition at line <a class="el" href="generators_8h_source.html#l00038">38</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a21106503819e2761f4797cb654e34356"></a>
+<a class="anchor" id="a33a50f9a5a385e7285d82232359f0aab"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </div>
+template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic_&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic &gt;::successors </td>
+          <td class="memname">auto <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">slb::ext::policy::generator::StatesT</a>&lt; MyAlgorithm, Heuristic_ &gt;::successors </td>
           <td>(</td>
           <td class="paramtype">const State &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -341,7 +345,7 @@ template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </di
 <dl class="section return"><dt>Returns</dt><dd>The vector of successors. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This member could be static; made it non-static for reasons of uniformity. </dd></dl>
 
-<p>Definition at line <a class="el" href="generators_8h_source.html#l00057">57</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
+<p>Definition at line <a class="el" href="generators_8h_source.html#l00060">60</a> of file <a class="el" href="generators_8h_source.html">generators.h</a>.</p>
 
 </div>
 </div>
@@ -351,7 +355,7 @@ template&lt;class MyAlgorithm , template&lt; class &gt; class Heuristic&gt; </di
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 13 2017 19:25:39 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

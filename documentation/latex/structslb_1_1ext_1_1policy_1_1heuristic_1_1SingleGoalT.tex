@@ -21,7 +21,7 @@ Collaboration diagram for slb\+:\+:ext\+:\+:policy\+:\+:heuristic\+:\+:Single\+G
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a5bd9a7d38cec87c422abe9f7e08d3fe6}{Single\+GoalT} (My\+Algorithm \&alg)
+\hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a901de1d8bd04cf1f2bbb0099c4c33b3e}{Single\+GoalT} (My\+Algorithm \&alg)
 \begin{DoxyCompactList}\small\item\em The constructor. The goal state is taken from the algorithm by using the policy service. \end{DoxyCompactList}\item 
 \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a109419aa94dffc9359b338acb06bba8d}{Single\+GoalT} (My\+Algorithm \&alg, const State \&goal)
 \begin{DoxyCompactList}\small\item\em The constructor with the goal state supplied as an argument. \end{DoxyCompactList}\item 
@@ -29,6 +29,12 @@ Collaboration diagram for slb\+:\+:ext\+:\+:policy\+:\+:heuristic\+:\+:Single\+G
 \begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\item 
 Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_aa77977fc0c95f3fc79a9c35c9f2c5179}{operator()} (Node $\ast$node) const 
 \begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} constexpr bool \hyperlink{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a798cb33aef57532d3b1cdc83afa8965a}{dynamic} = false\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a798cb33aef57532d3b1cdc83afa8965a}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a798cb33aef57532d3b1cdc83afa8965a}
+
+\begin{DoxyCompactList}\small\item\em Some algorithms need to know whether the heuristic is dynamic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,18 +61,18 @@ Heuristic to single goal.
 \end{DoxyTemplParams}
 
 
-Definition at line 40 of file heuristic\+\_\+policies.\+h.
+Definition at line 43 of file heuristic\+\_\+policies.\+h.
 
 
 
 \subsubsection{Constructor \& Destructor Documentation}
 \index{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT@{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}!Single\+GoalT@{Single\+GoalT}}
 \index{Single\+GoalT@{Single\+GoalT}!slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT@{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}}
-\paragraph[{\texorpdfstring{Single\+Goal\+T(\+My\+Algorithm \&alg)}{SingleGoalT(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Base\+Heuristic  = S\+L\+B\+\_\+\+B\+A\+S\+E\+\_\+\+H\+E\+U\+R\+I\+S\+T\+IC$>$ {\bf P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} {\bf slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}$<$ My\+Algorithm, Base\+Heuristic $>$\+::{\bf Single\+GoalT} (
+\paragraph[{\texorpdfstring{Single\+Goal\+T(\+My\+Algorithm \&alg)}{SingleGoalT(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , class Base\+Heuristic  = S\+L\+B\+\_\+\+B\+A\+S\+E\+\_\+\+H\+E\+U\+R\+I\+S\+T\+IC$>$ {\bf slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}$<$ My\+Algorithm, Base\+Heuristic $>$\+::{\bf Single\+GoalT} (
 \begin{DoxyParamCaption}
 \item[{My\+Algorithm \&}]{alg}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a5bd9a7d38cec87c422abe9f7e08d3fe6}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a5bd9a7d38cec87c422abe9f7e08d3fe6}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a901de1d8bd04cf1f2bbb0099c4c33b3e}{}\label{structslb_1_1ext_1_1policy_1_1heuristic_1_1SingleGoalT_a901de1d8bd04cf1f2bbb0099c4c33b3e}
 
 
 The constructor. The goal state is taken from the algorithm by using the policy service. 
@@ -78,7 +84,7 @@ The constructor. The goal state is taken from the algorithm by using the policy 
 \end{DoxyParams}
 
 
-Definition at line 45 of file heuristic\+\_\+policies.\+h.
+Definition at line 51 of file heuristic\+\_\+policies.\+h.
 
 \index{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT@{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}!Single\+GoalT@{Single\+GoalT}}
 \index{Single\+GoalT@{Single\+GoalT}!slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT@{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}}
@@ -101,7 +107,7 @@ The constructor with the goal state supplied as an argument.
 \end{DoxyParams}
 
 
-Definition at line 50 of file heuristic\+\_\+policies.\+h.
+Definition at line 56 of file heuristic\+\_\+policies.\+h.
 
 
 
@@ -133,7 +139,7 @@ The heuristic value.
 \end{DoxyReturn}
 
 
-Definition at line 57 of file heuristic\+\_\+policies.\+h.
+Definition at line 63 of file heuristic\+\_\+policies.\+h.
 
 \index{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT@{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}!operator()@{operator()}}
 \index{operator()@{operator()}!slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT@{slb\+::ext\+::policy\+::heuristic\+::\+Single\+GoalT}}
@@ -156,7 +162,7 @@ The heuristic value.
 \end{DoxyReturn}
 
 
-Definition at line 64 of file heuristic\+\_\+policies.\+h.
+Definition at line 70 of file heuristic\+\_\+policies.\+h.
 
 
 

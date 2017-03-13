@@ -90,6 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structslb_1_1ext_1_1algorithm_1_1IdAstar-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -212,6 +213,15 @@ MyInstance &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>instance<
 <tr class="memitem:a263f4d05670e313ee8660e872dae4462 inherit pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memItemLeft" align="right" valign="top">ReturnType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a263f4d05670e313ee8660e872dae4462">res</a> ()</td></tr>
 <tr class="memdesc:a263f4d05670e313ee8660e872dae4462 inherit pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns reference to the result.  <a href="#a263f4d05670e313ee8660e872dae4462">More...</a><br /></td></tr>
 <tr class="separator:a263f4d05670e313ee8660e872dae4462 inherit pub_methods_structslb_1_1ext_1_1algorithm_1_1Algorithm"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a60399d66c51ba26775ea268ada4cc9dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a60399d66c51ba26775ea268ada4cc9dc">thresholdCut_</a> ()</td></tr>
+<tr class="memdesc:a60399d66c51ba26775ea268ada4cc9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the threshold is exceeded for the case of non-dynamic heuristic. If so, updates the next threshold.  <a href="#a60399d66c51ba26775ea268ada4cc9dc">More...</a><br /></td></tr>
+<tr class="separator:a60399d66c51ba26775ea268ada4cc9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cd2bb006b878a3c21df363ef3634c51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a7cd2bb006b878a3c21df363ef3634c51">thresholdCut_</a> (const <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a8c382f5126c7c1038ecd676e75e174db">Neighbor</a> &amp;n, CostType &amp;newH)</td></tr>
+<tr class="memdesc:a7cd2bb006b878a3c21df363ef3634c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the threshold is exceeded for the case of dynamic heuristic. If so, updates the next threshold.  <a href="#a7cd2bb006b878a3c21df363ef3634c51">More...</a><br /></td></tr>
+<tr class="separator:a7cd2bb006b878a3c21df363ef3634c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -409,13 +419,91 @@ template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock_ = S
 
 </div>
 </div>
+<a class="anchor" id="a60399d66c51ba26775ea268ada4cc9dc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock_ = SLB_ID_ASTAR_BACKTRACK_LOCK, template&lt; class &gt; class Pruning = SLB_ID_ASTAR_PRUNING&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock_, Pruning &gt;::thresholdCut_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the threshold is exceeded for the case of non-dynamic heuristic. If so, updates the next threshold. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the threshold is exceeded and <code>false</code> otherwise. </dd></dl>
+
+<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00162">162</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7cd2bb006b878a3c21df363ef3634c51"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ALG_TPARAMS , template&lt; class, bool &gt; class BacktrackLock_ = SLB_ID_ASTAR_BACKTRACK_LOCK, template&lt; class &gt; class Pruning = SLB_ID_ASTAR_PRUNING&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html">slb::ext::algorithm::IdAstar</a>&lt; <a class="el" href="algorithm_8h.html#a521ad67aee0e10fb76ee132a9d5c0768">ALG_TPARAMS</a>, BacktrackLock_, Pruning &gt;::thresholdCut_ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a8c382f5126c7c1038ecd676e75e174db">Neighbor</a> &amp;&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CostType &amp;&#160;</td>
+          <td class="paramname"><em>newH</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the threshold is exceeded for the case of dynamic heuristic. If so, updates the next threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The current neighbor. </td></tr>
+    <tr><td class="paramname">newH</td><td>The heuristic value corresponding to <code>n</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the threshold is exceeded and <code>false</code> otherwise. </dd></dl>
+
+<p>Definition at line <a class="el" href="id__astar_8h_source.html#l00175">175</a> of file <a class="el" href="id__astar_8h_source.html">id_astar.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>extensions/algorithms/<a class="el" href="id__astar_8h_source.html">id_astar.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 9 2017 19:16:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 13 2017 19:25:39 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

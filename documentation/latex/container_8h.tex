@@ -18,15 +18,15 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 struct \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator}{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator$<$ Container, Base $>$}
 \begin{DoxyCompactList}\small\item\em Adapter for iterator that knows whether it is at the end. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, Base\+Iterator $>$}
-\begin{DoxyCompactList}\small\item\em Skipping iterators for a vector. Use the aliases defined below. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Iterator for a vector that skips a certain value. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1IndexIterator}{slb\+::core\+::util\+::\+Index\+Iterator$<$ My\+Vector, Base $>$}
-\item 
+\begin{DoxyCompactList}\small\item\em Vector iterator whose dereference operator returns index instead of value. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapKeyIterator}{slb\+::core\+::util\+::\+Map\+Key\+Iterator$<$ My\+Map $>$}
 \begin{DoxyCompactList}\small\item\em Iterator over keys of a map. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapKeyConstIterator}{slb\+::core\+::util\+::\+Map\+Key\+Const\+Iterator$<$ My\+Map $>$}
 \begin{DoxyCompactList}\small\item\em Const iterator over keys of a map. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapValIterator}{slb\+::core\+::util\+::\+Map\+Val\+Iterator$<$ My\+Map $>$}
-\begin{DoxyCompactList}\small\item\em Iterator over values of a map. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Iterator over values (i.\+e. mapped values) of a map. \end{DoxyCompactList}\item 
 struct \hyperlink{structslb_1_1core_1_1util_1_1MapValConstIterator}{slb\+::core\+::util\+::\+Map\+Val\+Const\+Iterator$<$ My\+Map $>$}
 \begin{DoxyCompactList}\small\item\em Const iterator over values of a map. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Namespaces}
@@ -41,12 +41,10 @@ struct \hyperlink{structslb_1_1core_1_1util_1_1MapValConstIterator}{slb\+::core\
 \subsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class My\+Vector $>$ }\\using {\bfseries slb\+::core\+::util\+::\+Vector\+Skip\+Iterator} = Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, typename My\+Vector\+::iterator $>$\hypertarget{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}{}\label{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}
-
-\item 
-{\footnotesize template$<$class My\+Vector $>$ }\\using {\bfseries slb\+::core\+::util\+::\+Vector\+Skip\+Const\+Iterator} = Basic\+Vector\+Skip\+Iterator$<$ typename std\+::add\+\_\+const$<$ My\+Vector $>$\+::type, typename My\+Vector\+::const\+\_\+iterator $>$\hypertarget{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}{}\label{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}
-
-\end{DoxyCompactItemize}
+{\footnotesize template$<$class My\+Vector $>$ }\\using \hyperlink{namespaceslb_1_1core_1_1util_a52016fe00a4fae8791643b870848a79f}{slb\+::core\+::util\+::\+Vector\+Skip\+Iterator} = Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, typename My\+Vector\+::iterator $>$
+\begin{DoxyCompactList}\small\item\em The non-\/constant skipping iterator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Vector $>$ }\\using \hyperlink{namespaceslb_1_1core_1_1util_a5692b540118495a35ebae95fb8b80790}{slb\+::core\+::util\+::\+Vector\+Skip\+Const\+Iterator} = Basic\+Vector\+Skip\+Iterator$<$ typename std\+::add\+\_\+const$<$ My\+Vector $>$\+::type, typename My\+Vector\+::const\+\_\+iterator $>$
+\begin{DoxyCompactList}\small\item\em The constant skipping iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 

@@ -1,5 +1,5 @@
-\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:generator\+:\+:StatesT$<$ My\+Algorithm, Heuristic $>$ Struct Template Reference}
-\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT}\index{slb\+::ext\+::policy\+::generator\+::\+States\+T$<$ My\+Algorithm, Heuristic $>$@{slb\+::ext\+::policy\+::generator\+::\+States\+T$<$ My\+Algorithm, Heuristic $>$}}
+\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:generator\+:\+:StatesT$<$ My\+Algorithm, Heuristic\+\_\+ $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT}\index{slb\+::ext\+::policy\+::generator\+::\+States\+T$<$ My\+Algorithm, Heuristic\+\_\+ $>$@{slb\+::ext\+::policy\+::generator\+::\+States\+T$<$ My\+Algorithm, Heuristic\+\_\+ $>$}}
 
 
 Generator that generates state neighbors.  
@@ -12,36 +12,39 @@ Generator that generates state neighbors.
 \subsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-using \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aabbc05d367ac5da87108f453240e6a32}{Neighbor} = typename State\+::\+S\+Neighbor\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aabbc05d367ac5da87108f453240e6a32}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aabbc05d367ac5da87108f453240e6a32}
+using \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa66abe249317f4cb57225481bb25a1f9}{Neighbor} = typename State\+::\+S\+Neighbor\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa66abe249317f4cb57225481bb25a1f9}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa66abe249317f4cb57225481bb25a1f9}
 
-\begin{DoxyCompactList}\small\item\em The search neighbor type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The search neighbor type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a3d4d943f982860608b5bffd4afd20fae}{Heuristic} = Heuristic\+\_\+$<$ My\+Algorithm $>$\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a3d4d943f982860608b5bffd4afd20fae}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a3d4d943f982860608b5bffd4afd20fae}
+
+\begin{DoxyCompactList}\small\item\em The heuristic type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a31e1dbd50128ac105774047963a609ea}{StatesT} (My\+Algorithm \&alg)
+\hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a916419a80c9c874b469b3286077104c0}{StatesT} (My\+Algorithm \&alg)
 \begin{DoxyCompactList}\small\item\em The contructor. \end{DoxyCompactList}\item 
-State \& \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a2a27494946b73fcd9735cdc7515cab74}{state} (\hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aabbc05d367ac5da87108f453240e6a32}{Neighbor} \&n)
+State \& \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa9dbb1d35fbdddd48540c89d0874557d}{state} (\hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa66abe249317f4cb57225481bb25a1f9}{Neighbor} \&n)
 \begin{DoxyCompactList}\small\item\em Returns the neighbor state. \end{DoxyCompactList}\item 
-Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ae0e0c092fbdd54178dfd1a4e533bf18a}{heuristic} (const \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aabbc05d367ac5da87108f453240e6a32}{Neighbor} \&n, Node $\ast$node) const 
+Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa000bb3f252fb9f3f7ef97d417f8d931}{heuristic} (const \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa66abe249317f4cb57225481bb25a1f9}{Neighbor} \&n, Node $\ast$node) const 
 \begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\item 
-Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ae04718f6da6b4a0c10ba542f0aad853a}{heuristic} (Node $\ast$node) const 
+Cost\+Type \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a9eeea9c9de44f7c15f4833121feeb7cb}{heuristic} (Node $\ast$node) const 
 \begin{DoxyCompactList}\small\item\em Computes the heuristic. \end{DoxyCompactList}\item 
-auto \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a21106503819e2761f4797cb654e34356}{successors} (const State \&s) const -\/$>$ decltype(s.\+state\+Successors())
+auto \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a33a50f9a5a385e7285d82232359f0aab}{successors} (const State \&s) const -\/$>$ decltype(s.\+state\+Successors())
 \begin{DoxyCompactList}\small\item\em Computes the successors of the given state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-My\+Algorithm \& \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_adffaa6961b9ecda8235c00eca1f62ad3}{alg\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_adffaa6961b9ecda8235c00eca1f62ad3}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_adffaa6961b9ecda8235c00eca1f62ad3}
+My\+Algorithm \& \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a3d265fd87949f2495d6bb278d7322d0a}{alg\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a3d265fd87949f2495d6bb278d7322d0a}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a3d265fd87949f2495d6bb278d7322d0a}
 
 \begin{DoxyCompactList}\small\item\em Reference to the search algorithm. \end{DoxyCompactList}\item 
-Heuristic$<$ My\+Algorithm $>$ \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a5bd47a947af48d88c30e542df606043e}{heuristic\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a5bd47a947af48d88c30e542df606043e}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a5bd47a947af48d88c30e542df606043e}
+\hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a3d4d943f982860608b5bffd4afd20fae}{Heuristic} \hyperlink{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ade63f5f9bca2aab0e926b11ab4a54e2d}{heuristic\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ade63f5f9bca2aab0e926b11ab4a54e2d}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ade63f5f9bca2aab0e926b11ab4a54e2d}
 
 \begin{DoxyCompactList}\small\item\em The heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsubsection{Detailed Description}
-\subsubsection*{template$<$class My\+Algorithm, template$<$ class $>$ class Heuristic$>$\\*
-struct slb\+::ext\+::policy\+::generator\+::\+States\+T$<$ My\+Algorithm, Heuristic $>$}
+\subsubsection*{template$<$class My\+Algorithm, template$<$ class $>$ class Heuristic\+\_\+$>$\\*
+struct slb\+::ext\+::policy\+::generator\+::\+States\+T$<$ My\+Algorithm, Heuristic\+\_\+ $>$}
 
 Generator that generates state neighbors. 
 
@@ -61,11 +64,11 @@ Definition at line 20 of file generators.\+h.
 \subsubsection{Constructor \& Destructor Documentation}
 \index{slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}!StatesT@{StatesT}}
 \index{StatesT@{StatesT}!slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}}
-\paragraph[{\texorpdfstring{States\+T(\+My\+Algorithm \&alg)}{StatesT(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic $>$\+::{\bf StatesT} (
+\paragraph[{\texorpdfstring{States\+T(\+My\+Algorithm \&alg)}{StatesT(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic\+\_\+$>$ {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic\+\_\+ $>$\+::{\bf StatesT} (
 \begin{DoxyParamCaption}
 \item[{My\+Algorithm \&}]{alg}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a31e1dbd50128ac105774047963a609ea}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a31e1dbd50128ac105774047963a609ea}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a916419a80c9c874b469b3286077104c0}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a916419a80c9c874b469b3286077104c0}
 
 
 The contructor. 
@@ -77,19 +80,19 @@ The contructor.
 \end{DoxyParams}
 
 
-Definition at line 28 of file generators.\+h.
+Definition at line 31 of file generators.\+h.
 
 
 
 \subsubsection{Member Function Documentation}
 \index{slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}!heuristic@{heuristic}}
 \index{heuristic@{heuristic}!slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}}
-\paragraph[{\texorpdfstring{heuristic(const Neighbor \&n, Node $\ast$node) const }{heuristic(const Neighbor &n, Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ Cost\+Type {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic $>$\+::heuristic (
+\paragraph[{\texorpdfstring{heuristic(const Neighbor \&n, Node $\ast$node) const }{heuristic(const Neighbor &n, Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic\+\_\+$>$ Cost\+Type {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic\+\_\+ $>$\+::heuristic (
 \begin{DoxyParamCaption}
 \item[{const {\bf Neighbor} \&}]{n, }
 \item[{Node $\ast$}]{node}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ae0e0c092fbdd54178dfd1a4e533bf18a}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ae0e0c092fbdd54178dfd1a4e533bf18a}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa000bb3f252fb9f3f7ef97d417f8d931}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa000bb3f252fb9f3f7ef97d417f8d931}
 
 
 Computes the heuristic. 
@@ -106,15 +109,15 @@ The heuristic value.
 \end{DoxyReturn}
 
 
-Definition at line 41 of file generators.\+h.
+Definition at line 44 of file generators.\+h.
 
 \index{slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}!heuristic@{heuristic}}
 \index{heuristic@{heuristic}!slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}}
-\paragraph[{\texorpdfstring{heuristic(\+Node $\ast$node) const }{heuristic(Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ Cost\+Type {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic $>$\+::heuristic (
+\paragraph[{\texorpdfstring{heuristic(\+Node $\ast$node) const }{heuristic(Node *node) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic\+\_\+$>$ Cost\+Type {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic\+\_\+ $>$\+::heuristic (
 \begin{DoxyParamCaption}
 \item[{Node $\ast$}]{node}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ae04718f6da6b4a0c10ba542f0aad853a}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_ae04718f6da6b4a0c10ba542f0aad853a}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a9eeea9c9de44f7c15f4833121feeb7cb}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a9eeea9c9de44f7c15f4833121feeb7cb}
 
 
 Computes the heuristic. 
@@ -129,15 +132,15 @@ The heuristic value.
 \end{DoxyReturn}
 
 
-Definition at line 48 of file generators.\+h.
+Definition at line 51 of file generators.\+h.
 
 \index{slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}!state@{state}}
 \index{state@{state}!slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}}
-\paragraph[{\texorpdfstring{state(\+Neighbor \&n)}{state(Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ State\& {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic $>$\+::state (
+\paragraph[{\texorpdfstring{state(\+Neighbor \&n)}{state(Neighbor &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic\+\_\+$>$ State\& {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic\+\_\+ $>$\+::state (
 \begin{DoxyParamCaption}
 \item[{{\bf Neighbor} \&}]{n}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a2a27494946b73fcd9735cdc7515cab74}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a2a27494946b73fcd9735cdc7515cab74}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa9dbb1d35fbdddd48540c89d0874557d}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_aa9dbb1d35fbdddd48540c89d0874557d}
 
 
 Returns the neighbor state. 
@@ -150,15 +153,15 @@ This reference must be non-\/const to allow moving the neighbor. In addition, th
 \end{DoxyNote}
 
 
-Definition at line 35 of file generators.\+h.
+Definition at line 38 of file generators.\+h.
 
 \index{slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}!successors@{successors}}
 \index{successors@{successors}!slb\+::ext\+::policy\+::generator\+::\+StatesT@{slb\+::ext\+::policy\+::generator\+::\+StatesT}}
-\paragraph[{\texorpdfstring{successors(const State \&s) const -\/$>$ decltype(s.\+state\+Successors())}{successors(const State &s) const -> decltype(s.stateSuccessors())}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic$>$ auto {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic $>$\+::successors (
+\paragraph[{\texorpdfstring{successors(const State \&s) const -\/$>$ decltype(s.\+state\+Successors())}{successors(const State &s) const -> decltype(s.stateSuccessors())}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , template$<$ class $>$ class Heuristic\+\_\+$>$ auto {\bf slb\+::ext\+::policy\+::generator\+::\+StatesT}$<$ My\+Algorithm, Heuristic\+\_\+ $>$\+::successors (
 \begin{DoxyParamCaption}
 \item[{const State \&}]{s}
 \end{DoxyParamCaption}
-) const -\/$>$ decltype(s.\+state\+Successors()) \hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a21106503819e2761f4797cb654e34356}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a21106503819e2761f4797cb654e34356}
+) const -\/$>$ decltype(s.\+state\+Successors()) \hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a33a50f9a5a385e7285d82232359f0aab}{}\label{structslb_1_1ext_1_1policy_1_1generator_1_1StatesT_a33a50f9a5a385e7285d82232359f0aab}
 
 
 Computes the successors of the given state. 
@@ -176,7 +179,7 @@ This member could be static; made it non-\/static for reasons of uniformity.
 \end{DoxyNote}
 
 
-Definition at line 57 of file generators.\+h.
+Definition at line 60 of file generators.\+h.
 
 
 

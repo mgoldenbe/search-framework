@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structslb_1_1ext_1_1policy_1_1generator_1_1ActionsT.html" title="Generator that generates action neighbors. " alt="" coords="5,5,176,61"/>
+<area shape="rect" id="node1" href="$structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1noInverse_01_4.html" title="The type for storing distances to pivots. This specialization is for an index function without an inv..." alt="" coords="5,5,180,76"/>
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1withInverse_01_4.html" title="The type for storing distances to pivots. This specialization is for the case of an index function wi..." alt="" coords="228,5,403,76"/>
 </map>

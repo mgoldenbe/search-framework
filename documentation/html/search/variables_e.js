@@ -6,6 +6,7 @@ var searchData=
   ['parentsubstitution_5f',['parentSubstitution_',['../structslb_1_1core_1_1ui_1_1EventBase.html#a24499f337e544dc299bdc7756d4c365c',1,'slb::core::ui::EventBase']]],
   ['pattern',['pattern',['../structslb_1_1core_1_1ui_1_1VertexStyle.html#a20b4360f57d3b0eb5249e7a59f9b1472',1,'slb::core::ui::VertexStyle']]],
   ['perinstance_5f',['perInstance_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#a7f35a809f1c1b6ccbf080d2cb6109a22',1,'slb::core::commandLine::CommandLine']]],
+  ['pivot_5f',['pivot_',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot.html#a2f57332bf75dfffe318f3c4c2d4fc5a7',1,'slb::ext::heuristic::differential::Pivot']]],
   ['pointmap_5f',['pointMap_',['../structslb_1_1core_1_1ui_1_1Drawer.html#a3744c0f39a867c7a09cc079b775e22a3',1,'slb::core::ui::Drawer']]],
   ['prefix_5f',['prefix_',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a5d5f3397ad832fd6905f94fa03c0475a',1,'slb::core::ui::LogWindow']]],
   ['prefixdata_5f',['prefixData_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#af251cbd553a5150c57dcfb25c1bc3a8c',1,'slb::core::commandLine::CommandLine']]],

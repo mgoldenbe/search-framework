@@ -73,6 +73,13 @@ const \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar_a0337b9a42a8431c19a948
 
 \end{DoxyCompactItemize}
 \end{Indent}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar_a60399d66c51ba26775ea268ada4cc9dc}{threshold\+Cut\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Checks whether the threshold is exceeded for the case of non-\/dynamic heuristic. If so, updates the next threshold. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar_a7cd2bb006b878a3c21df363ef3634c51}{threshold\+Cut\+\_\+} (const \hyperlink{structslb_1_1ext_1_1algorithm_1_1IdAstar_a8c382f5126c7c1038ecd676e75e174db}{Neighbor} \&n, Cost\+Type \&newH)
+\begin{DoxyCompactList}\small\item\em Checks whether the threshold is exceeded for the case of dynamic heuristic. If so, updates the next threshold. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -183,6 +190,50 @@ The solution cost. If there is no solution, then {\ttfamily Cost\+Type\{-\/1\}} 
 
 
 Definition at line 92 of file id\+\_\+astar.\+h.
+
+\index{slb\+::ext\+::algorithm\+::\+Id\+Astar@{slb\+::ext\+::algorithm\+::\+Id\+Astar}!threshold\+Cut\+\_\+@{threshold\+Cut\+\_\+}}
+\index{threshold\+Cut\+\_\+@{threshold\+Cut\+\_\+}!slb\+::ext\+::algorithm\+::\+Id\+Astar@{slb\+::ext\+::algorithm\+::\+Id\+Astar}}
+\paragraph[{\texorpdfstring{threshold\+Cut\+\_\+()}{thresholdCut_()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class, bool $>$ class Backtrack\+Lock\+\_\+ = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+B\+A\+C\+K\+T\+R\+A\+C\+K\+\_\+\+L\+O\+CK, template$<$ class $>$ class Pruning = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+P\+R\+U\+N\+I\+NG$>$ bool {\bf slb\+::ext\+::algorithm\+::\+Id\+Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Backtrack\+Lock\+\_\+, Pruning $>$\+::threshold\+Cut\+\_\+ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1algorithm_1_1IdAstar_a60399d66c51ba26775ea268ada4cc9dc}{}\label{structslb_1_1ext_1_1algorithm_1_1IdAstar_a60399d66c51ba26775ea268ada4cc9dc}
+
+
+Checks whether the threshold is exceeded for the case of non-\/dynamic heuristic. If so, updates the next threshold. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the threshold is exceeded and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 162 of file id\+\_\+astar.\+h.
+
+\index{slb\+::ext\+::algorithm\+::\+Id\+Astar@{slb\+::ext\+::algorithm\+::\+Id\+Astar}!threshold\+Cut\+\_\+@{threshold\+Cut\+\_\+}}
+\index{threshold\+Cut\+\_\+@{threshold\+Cut\+\_\+}!slb\+::ext\+::algorithm\+::\+Id\+Astar@{slb\+::ext\+::algorithm\+::\+Id\+Astar}}
+\paragraph[{\texorpdfstring{threshold\+Cut\+\_\+(const Neighbor \&n, Cost\+Type \&new\+H)}{thresholdCut_(const Neighbor &n, CostType &newH)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class, bool $>$ class Backtrack\+Lock\+\_\+ = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+B\+A\+C\+K\+T\+R\+A\+C\+K\+\_\+\+L\+O\+CK, template$<$ class $>$ class Pruning = S\+L\+B\+\_\+\+I\+D\+\_\+\+A\+S\+T\+A\+R\+\_\+\+P\+R\+U\+N\+I\+NG$>$ bool {\bf slb\+::ext\+::algorithm\+::\+Id\+Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Backtrack\+Lock\+\_\+, Pruning $>$\+::threshold\+Cut\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Neighbor} \&}]{n, }
+\item[{Cost\+Type \&}]{newH}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1algorithm_1_1IdAstar_a7cd2bb006b878a3c21df363ef3634c51}{}\label{structslb_1_1ext_1_1algorithm_1_1IdAstar_a7cd2bb006b878a3c21df363ef3634c51}
+
+
+Checks whether the threshold is exceeded for the case of dynamic heuristic. If so, updates the next threshold. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The current neighbor. \\
+\hline
+{\em newH} & The heuristic value corresponding to {\ttfamily n}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the threshold is exceeded and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file id\+\_\+astar.\+h.
 
 
 

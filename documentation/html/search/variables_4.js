@@ -11,5 +11,6 @@ var searchData=
   ['eventspad_5f',['eventsPad_',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a81443ca407ba85c45913923d801e6981',1,'slb::core::ui::LogWindow']]],
   ['eventstrings_5f',['eventStrings_',['../structslb_1_1core_1_1ui_1_1AlgorithmLog.html#a6c8e95b8dfaa6ba38405a5f22d11e838',1,'slb::core::ui::AlgorithmLog']]],
   ['exitmenu_5f',['exitMenu_',['../structslb_1_1core_1_1ui_1_1MenuBase.html#ac60a1fbe29a6ce4abe7c0a936f470828',1,'slb::core::ui::MenuBase']]],
-  ['expanded_5f',['expanded_',['../structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a5d6d2b982578359c96d1276ac217e2ce',1,'slb::ext::algorithm::Algorithm']]]
+  ['expanded_5f',['expanded_',['../structslb_1_1ext_1_1algorithm_1_1Algorithm.html#a5d6d2b982578359c96d1276ac217e2ce',1,'slb::ext::algorithm::Algorithm']]],
+  ['expectednpivots_5f',['expectedNPivots_',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots.html#a57e0ac0329ae9755dc23d917e14c090a',1,'slb::ext::heuristic::differential::DistancesToPivots']]]
 ];
