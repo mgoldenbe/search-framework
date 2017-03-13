@@ -19,6 +19,9 @@ template <class MyAlgorithm>
 struct Zero {
     POLICY_TYPES
 
+    /// Some algorithms need to know whether the heuristic is dynamic.
+    static constexpr bool dynamicFlag = false;
+
     /// The constructor.
     Zero(MyAlgorithm &) {}
 
@@ -39,6 +42,9 @@ struct Zero {
 template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_HEURISTIC>
 struct SingleGoalT {
     POLICY_TYPES
+
+    /// Some algorithms need to know whether the heuristic is dynamic.
+    static constexpr bool dynamicFlag = false;
 
     /// The constructor. The goal state is taken from the algorithm by using the policy service.
     /// \param alg Reference to the algorithm
@@ -79,6 +85,9 @@ template <class MyAlgorithm> using SingleGoal = SingleGoalT<MyAlgorithm>;
 template <class MyAlgorithm, class BaseHeuristic = SLB_BASE_DYNAMIC_HEURISTIC>
 struct DynamicSingleGoalT {
     POLICY_TYPES
+
+    /// Some algorithms need to know whether the heuristic is dynamic.
+    static constexpr bool dynamicFlag = true;
 
     /// The constructor. The goal state is taken from the algorithm by using the policy service.
     /// \param alg Reference to the algorithm
@@ -123,6 +132,9 @@ struct MinMultipleGoalsT {
 
     using SingleGoalHeuristic = SingleGoalHeuristicT<MyAlgorithm>;
     using Compare = CompareT<CostType>;
+
+    /// Some algorithms need to know whether the heuristic is dynamic.
+    static constexpr bool dynamicFlag = SingleGoalHeuristic::dynamicFlag;
 
     /// The constructor.
     /// \param alg Reference to the search algorithm.

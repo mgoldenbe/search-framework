@@ -113,21 +113,24 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
     /// Performs a single iteration of IDA*.
     /// \return \c true if the solution has been found and \c false otherwise.
     bool iteration() {
+        if (!Generator::Heuristic::dynamicFlag && thresholdCut_())
+            return false;
+
         log<ext::event::Selected>(log_, cur_);
         goalHandler_.onSelect();
         if (goalHandler_.done())
             return true;
 
         ++expanded_;
-        const auto &neighbors_ = generator_.successors(cur_->state());
+        // generator_.successors may return reference to pre-computed vector of
+        // neighbors, hence need decltype.
+        using SuccessorsType = decltype(generator_.successors(cur_->state()));
+        SuccessorsType neighbors_ = generator_.successors(cur_->state());
         for (auto &n : neighbors_) {
             if (pruner_(n)) continue;
-            CostType newH = this->generator_.heuristic(n, cur_.get());
-            CostType newF = cur_->g + n.cost() + newH;
             ++generated_;
-            if (newF > threshold_)
-                next_threshold_ = std::min(next_threshold_, newF);
-            else {
+            CostType newH;
+            if (!Generator::Heuristic::dynamicFlag || !thresholdCut_(n, newH)) {
                 BacktrackLock btLock{*this, n, newH};
                 BacktrackLock *prevLock_ = lastLock_;
                 lastLock_ = &btLock;
@@ -152,6 +155,32 @@ private:
     Pruning<MyType> pruner_;
     CostType threshold_; ///< The current iteration's cost threshold.
     CostType next_threshold_; ///< The cost threshold for the next iteration.
+
+    /// Checks whether the threshold is exceeded for the case of non-dynamic
+    /// heuristic. If so, updates the next threshold.
+    /// \return \c true if the threshold is exceeded and \c false otherwise.
+    bool thresholdCut_() {
+        if (cur_->f > threshold_) {
+            next_threshold_ = std::min(next_threshold_, cur_->f);
+            return true;
+        }
+        return false;
+    }
+
+    /// Checks whether the threshold is exceeded for the case of dynamic
+    /// heuristic. If so, updates the next threshold.
+    /// \param n The current neighbor.
+    /// \param newH The heuristic value corresponding to \c n.
+    /// \return \c true if the threshold is exceeded and \c false otherwise.
+    bool thresholdCut_(const Neighbor &n, CostType &newH) {
+        newH = this->generator_.heuristic(n, cur_.get());
+        CostType newF = cur_->g + n.cost() + newH;
+        if (newF > threshold_) {
+            next_threshold_ = std::min(next_threshold_, newF);
+            return true;
+        }
+        return false;
+    }
 };
 
 } // namespace

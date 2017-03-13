@@ -16,12 +16,15 @@ namespace generator {
 /// Generator that generates state neighbors.
 /// \tparam MyAlgorithm The search algorithm.
 /// \tparam Heuristic The heuristic policy.
-template <class MyAlgorithm, template <class> class Heuristic>
+template <class MyAlgorithm, template <class> class Heuristic_>
 struct StatesT {
     POLICY_TYPES
 
     /// The search neighbor type.
     using Neighbor = typename State::SNeighbor;
+
+    /// The heuristic type.
+    using Heuristic = Heuristic_<MyAlgorithm>;
 
     /// The contructor.
     /// \param alg Reference to the search algorithm.
@@ -59,7 +62,7 @@ struct StatesT {
     }
 private:
     MyAlgorithm &alg_; ///< Reference to the search algorithm.
-    Heuristic<MyAlgorithm> heuristic_; ///< The heuristic.
+    Heuristic heuristic_; ///< The heuristic.
 };
 /// Generator that generates state neighbors.
 /// \tparam MyAlgorithm The search algorithm.
@@ -69,20 +72,22 @@ using States = StatesT<MyAlgorithm, SLB_HEURISTIC>;
 /// Generator that generates action neighbors.
 /// \tparam MyAlgorithm The search algorithm.
 /// \tparam Heuristic The heuristic policy.
-template <class MyAlgorithm, template <class> class Heuristic>
+template <class MyAlgorithm, template <class> class Heuristic_>
 struct ActionsT {
     POLICY_TYPES
 
     /// The search neighbor type.
     using Neighbor = typename State::ANeighbor;
 
+    /// The heuristic type.
+    using Heuristic = Heuristic_<MyAlgorithm>;
+
     /// The contructor.
     /// \param alg Reference to the search algorithm.
     ActionsT(MyAlgorithm &alg) : alg_(alg), heuristic_(alg) {}
 
     /// Returns the neighbor state.
-    /// \return Reference to the neighbor state.
-    /// \note This reference must be non-const to allow moving the neighbor
+    /// \return The neighbor state.
     State state(Neighbor &n) const {
         State res{alg_.cur()->state()};
         return res.apply(n.action());
@@ -106,7 +111,7 @@ struct ActionsT {
     }
 private:
     MyAlgorithm &alg_; ///< Reference to the search algorithm.
-    Heuristic<MyAlgorithm> heuristic_; ///< The heuristic.
+    Heuristic heuristic_; ///< The heuristic.
 };
 /// Generator that generates action neighbors.
 /// \tparam MyAlgorithm The search algorithm.

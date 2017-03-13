@@ -25,9 +25,6 @@ template <class MyAlgorithm> struct Nothing {
     template <class Neighbor> bool operator()(const Neighbor &) const {
         return false;
     }
-
-private:
-    MyAlgorithm &alg_; ///< Reference to the search algorithm.
 };
 
 /// Pruning the action that leads to a parent node.

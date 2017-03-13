@@ -169,9 +169,10 @@ private:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
-    template <class Neighbor> void set(Neighbor &n, CostType h) {
+    template <class Neighbor> void set(Neighbor &n, CostType) {
         parent_.reset(new Node(*cur_));
         cur_->setState(std::move(alg_.generator().state(n)));
+        auto h = alg_.generator().heuristic(n, cur_);
         cur_->set(cur_->g + n.cost(), h, alg_.stamp());
         cur_->setParent(&*parent_);
     }
