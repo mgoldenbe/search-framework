@@ -123,36 +123,112 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code><a class="el" href="structslb_1_1ext_1_1algorithm_1_1PerGoal.html" title="PerGoal is a meta search algorithm for solving instances with multiple goals. It runs some other sear...">PerGoal</a></code> is a meta search algorithm for solving instances with multiple goals. It runs some other search algorithm for each goal state and combines results. Each goal state is solved independently of all others.  <a href="structslb_1_1ext_1_1algorithm_1_1PerGoal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost.html">SimpleUniformCost</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The simple version of uniform-cost search algorithm, where no logging is done and there is no goal state, so that the whole domain is explored.  <a href="structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1slb__tcb__nothing.html">slb_tcb_nothing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1algorithm_1_1UniformCost.html">UniformCost</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The uniform-cost search algorithm.  <a href="structslb_1_1ext_1_1algorithm_1_1UniformCost.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a697c5839a166be7cc9cd7fc3c2b15f98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a697c5839a166be7cc9cd7fc3c2b15f98"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>UniformNode</b> = <a class="el" href="structslb_1_1core_1_1sb_1_1SearchNode.html">slb::core::sb::SearchNode</a>&lt;&gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#a697c5839a166be7cc9cd7fc3c2b15f98">UniformNode</a> = <a class="el" href="structslb_1_1core_1_1sb_1_1SearchNode.html">slb::core::sb::SearchNode</a>&lt;&gt;</td></tr>
+<tr class="memdesc:a697c5839a166be7cc9cd7fc3c2b15f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">The search node type for the uniform-cost search. <br /></td></tr>
 <tr class="separator:a697c5839a166be7cc9cd7fc3c2b15f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebb91df5b56955857d898d76d9ca5873"><td class="memTemplParams" colspan="2"><a class="anchor" id="aebb91df5b56955857d898d76d9ca5873"></a>
-template&lt;class MyAlgorithm &gt; </td></tr>
-<tr class="memitem:aebb91df5b56955857d898d76d9ca5873"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>UniformOL</b> = <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T.html">ext::policy::openList::BucketedStdMap_T</a>&lt; MyAlgorithm, <a class="el" href="structslb_1_1core_1_1sb_1_1SearchNode.html">UniformNode</a>, <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType.html">ext::policy::openList::DefaultOLKeyType</a>, <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1GreaterPriority__SmallG.html">ext::policy::openList::GreaterPriority_SmallG</a>, <a class="el" href="namespaceslb_1_1ext_1_1policy_1_1openList.html#ae328455bada2886ad728a9f54bfa1f6a">ext::policy::openList::OLMap</a> &gt;</td></tr>
+<tr class="memitem:aebb91df5b56955857d898d76d9ca5873"><td class="memTemplParams" colspan="2">template&lt;class MyAlgorithm &gt; </td></tr>
+<tr class="memitem:aebb91df5b56955857d898d76d9ca5873"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#aebb91df5b56955857d898d76d9ca5873">UniformOL</a> = <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T.html">ext::policy::openList::BucketedStdMap_T</a>&lt; MyAlgorithm, <a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#a697c5839a166be7cc9cd7fc3c2b15f98">UniformNode</a>, <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType.html">ext::policy::openList::DefaultOLKeyType</a>, <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1GreaterPriority__SmallG.html">ext::policy::openList::GreaterPriority_SmallG</a>, <a class="el" href="namespaceslb_1_1ext_1_1policy_1_1openList.html#ae328455bada2886ad728a9f54bfa1f6a">ext::policy::openList::OLMap</a> &gt;</td></tr>
+<tr class="memdesc:aebb91df5b56955857d898d76d9ca5873"><td class="mdescLeft">&#160;</td><td class="mdescRight">The open list type for the uniform-cost search.  <a href="#aebb91df5b56955857d898d76d9ca5873">More...</a><br /></td></tr>
 <tr class="separator:aebb91df5b56955857d898d76d9ca5873"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4df6bd68a037486451c16445cb78d21f"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4df6bd68a037486451c16445cb78d21f"></a>
-template&lt;class MyAlgorithm &gt; </td></tr>
-<tr class="memitem:a4df6bd68a037486451c16445cb78d21f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>UniformHeuristic</b> = <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1Zero.html">ext::policy::heuristic::Zero</a>&lt; MyAlgorithm &gt;</td></tr>
+<tr class="memitem:a4df6bd68a037486451c16445cb78d21f"><td class="memTemplParams" colspan="2">template&lt;class MyAlgorithm &gt; </td></tr>
+<tr class="memitem:a4df6bd68a037486451c16445cb78d21f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#a4df6bd68a037486451c16445cb78d21f">UniformHeuristic</a> = <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1Zero.html">ext::policy::heuristic::Zero</a>&lt; MyAlgorithm &gt;</td></tr>
+<tr class="memdesc:a4df6bd68a037486451c16445cb78d21f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The heuristic type for the uniform-cost search.  <a href="#a4df6bd68a037486451c16445cb78d21f">More...</a><br /></td></tr>
 <tr class="separator:a4df6bd68a037486451c16445cb78d21f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe2eae9c2d224b1677a1e95c013c13b4"><td class="memTemplParams" colspan="2"><a class="anchor" id="afe2eae9c2d224b1677a1e95c013c13b4"></a>
-template&lt;class MyAlgorithm &gt; </td></tr>
-<tr class="memitem:afe2eae9c2d224b1677a1e95c013c13b4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>UniformGenerator</b> = <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">ext::policy::generator::StatesT</a>&lt; MyAlgorithm, <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1Zero.html">UniformHeuristic</a> &gt;</td></tr>
+<tr class="memitem:afe2eae9c2d224b1677a1e95c013c13b4"><td class="memTemplParams" colspan="2">template&lt;class MyAlgorithm &gt; </td></tr>
+<tr class="memitem:afe2eae9c2d224b1677a1e95c013c13b4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#afe2eae9c2d224b1677a1e95c013c13b4">UniformGenerator</a> = <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">ext::policy::generator::StatesT</a>&lt; MyAlgorithm, <a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#a4df6bd68a037486451c16445cb78d21f">UniformHeuristic</a> &gt;</td></tr>
+<tr class="memdesc:afe2eae9c2d224b1677a1e95c013c13b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The node generator for the uniform-cost search.  <a href="#afe2eae9c2d224b1677a1e95c013c13b4">More...</a><br /></td></tr>
 <tr class="separator:afe2eae9c2d224b1677a1e95c013c13b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The search algorithms. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="afe2eae9c2d224b1677a1e95c013c13b4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class MyAlgorithm &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#afe2eae9c2d224b1677a1e95c013c13b4">slb::ext::algorithm::UniformGenerator</a> = typedef <a class="el" href="structslb_1_1ext_1_1policy_1_1generator_1_1StatesT.html">ext::policy::generator::StatesT</a>&lt;MyAlgorithm, <a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#a4df6bd68a037486451c16445cb78d21f">UniformHeuristic</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The node generator for the uniform-cost search. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MyAlgorithm</td><td>The search algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="uniform__cost_8h_source.html#l00034">34</a> of file <a class="el" href="uniform__cost_8h_source.html">uniform_cost.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4df6bd68a037486451c16445cb78d21f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class MyAlgorithm &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#a4df6bd68a037486451c16445cb78d21f">slb::ext::algorithm::UniformHeuristic</a> = typedef <a class="el" href="structslb_1_1ext_1_1policy_1_1heuristic_1_1Zero.html">ext::policy::heuristic::Zero</a>&lt;MyAlgorithm&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The heuristic type for the uniform-cost search. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MyAlgorithm</td><td>The search algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="uniform__cost_8h_source.html#l00028">28</a> of file <a class="el" href="uniform__cost_8h_source.html">uniform_cost.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebb91df5b56955857d898d76d9ca5873"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class MyAlgorithm &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#aebb91df5b56955857d898d76d9ca5873">slb::ext::algorithm::UniformOL</a> = typedef <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1BucketedStdMap__T.html">ext::policy::openList::BucketedStdMap_T</a>&lt; MyAlgorithm, <a class="el" href="namespaceslb_1_1ext_1_1algorithm.html#a697c5839a166be7cc9cd7fc3c2b15f98">UniformNode</a>, <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1DefaultOLKeyType.html">ext::policy::openList::DefaultOLKeyType</a>, <a class="el" href="structslb_1_1ext_1_1policy_1_1openList_1_1GreaterPriority__SmallG.html">ext::policy::openList::GreaterPriority_SmallG</a>, <a class="el" href="namespaceslb_1_1ext_1_1policy_1_1openList.html#ae328455bada2886ad728a9f54bfa1f6a">ext::policy::openList::OLMap</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The open list type for the uniform-cost search. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MyAlgorithm</td><td>The search algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="uniform__cost_8h_source.html#l00023">23</a> of file <a class="el" href="uniform__cost_8h_source.html">uniform_cost.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 13 2017 19:25:39 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 14 2017 11:36:50 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

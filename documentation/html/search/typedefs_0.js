@@ -7,5 +7,6 @@ var searchData=
   ['algorithmevent',['AlgorithmEvent',['../structslb_1_1core_1_1ui_1_1VisualLog.html#a699a50e2c261b3dec6cd2fa6bfd4b295',1,'slb::core::ui::VisualLog']]],
   ['allactions',['AllActions',['../structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile.html#a8fff8f76f90786fdf02bbf86037aeea6',1,'slb::ext::domain::sliding_tile::SlidingTile']]],
   ['allmddeltas',['AllMDDeltas',['../structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile.html#a82f77d8b64d6c82de4df1ff94b617df8',1,'slb::ext::domain::sliding_tile::SlidingTile']]],
-  ['aneighbor',['ANeighbor',['../structslb_1_1ext_1_1domain_1_1pancake_1_1Pancake.html#ac0096c15d7fe3415ecba0d6240510468',1,'slb::ext::domain::pancake::Pancake::ANeighbor()'],['../structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile.html#ad70d129acaffb4db0b286870379cd047',1,'slb::ext::domain::sliding_tile::SlidingTile::ANeighbor()']]]
+  ['aneighbor',['ANeighbor',['../structslb_1_1ext_1_1domain_1_1pancake_1_1Pancake.html#ac0096c15d7fe3415ecba0d6240510468',1,'slb::ext::domain::pancake::Pancake::ANeighbor()'],['../structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile.html#ad70d129acaffb4db0b286870379cd047',1,'slb::ext::domain::sliding_tile::SlidingTile::ANeighbor()']]],
+  ['astar',['Astar',['../structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost.html#a8c6d44f70577ae4a76cb3c557379cd8b',1,'slb::ext::algorithm::SimpleUniformCost']]]
 ];

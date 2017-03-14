@@ -39,6 +39,7 @@ struct AlgorithmTraits<IdAstar<ALG_TARGS, BacktrackLock, Pruning>> {
 };
 
 #ifndef SLB_ID_ASTAR_PRUNING
+/// The default pruning policy.
 #define SLB_ID_ASTAR_PRUNING policy::pruning::Nothing
 #endif
 

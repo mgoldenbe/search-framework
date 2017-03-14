@@ -68,6 +68,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     using MyType = Astar; ///< The type of \ref Astar; required for \ref ALG_DATA symbol.
     ALG_DATA
 
+    /// The type for storing distances from other states to the start state.
     using DistanceMap =
         std::unordered_map<State, CostType, core::util::StateHash<State>>;
 

@@ -54,9 +54,9 @@ using \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a8e7c4ac827051423153a315
 using \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a49c5252e4f03e05f60409d22beaf4c8e}{My\+Type} = \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{Astar}\hypertarget{structslb_1_1ext_1_1algorithm_1_1Astar_a49c5252e4f03e05f60409d22beaf4c8e}{}\label{structslb_1_1ext_1_1algorithm_1_1Astar_a49c5252e4f03e05f60409d22beaf4c8e}
 
 \begin{DoxyCompactList}\small\item\em The type of \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{Astar}; required for \hyperlink{algorithm_8h_a64c012078deee9a30405e18ec11e6360}{A\+L\+G\+\_\+\+D\+A\+TA} symbol. \end{DoxyCompactList}\item 
-using {\bfseries Distance\+Map} = std\+::unordered\+\_\+map$<$ State, Cost\+Type, \hyperlink{structslb_1_1core_1_1util_1_1StateHash}{core\+::util\+::\+State\+Hash}$<$ State $>$$>$\hypertarget{structslb_1_1ext_1_1algorithm_1_1Astar_a210d1f8bc1c2e97e626deb1051de2b2b}{}\label{structslb_1_1ext_1_1algorithm_1_1Astar_a210d1f8bc1c2e97e626deb1051de2b2b}
+using \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a210d1f8bc1c2e97e626deb1051de2b2b}{Distance\+Map} = std\+::unordered\+\_\+map$<$ State, Cost\+Type, \hyperlink{structslb_1_1core_1_1util_1_1StateHash}{core\+::util\+::\+State\+Hash}$<$ State $>$$>$\hypertarget{structslb_1_1ext_1_1algorithm_1_1Astar_a210d1f8bc1c2e97e626deb1051de2b2b}{}\label{structslb_1_1ext_1_1algorithm_1_1Astar_a210d1f8bc1c2e97e626deb1051de2b2b}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The type for storing distances from other states to the start state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,7 +70,7 @@ Return\+Type \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_af46d0fe401539d7a
 \begin{DoxyCompactList}\small\item\em Computes the state graph based on the closed list. \end{DoxyCompactList}\item 
 Cost\+Type \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a67abf0fa88aebf52c644731701a0dd70}{distance} (const State \&s)
 \begin{DoxyCompactList}\small\item\em Computes the distance to the given state. Returns Cost\+Type\{-\/1\} if that distance has not been computed. \end{DoxyCompactList}\item 
-Distance\+Map \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a2c129f68cc11d10fefa4fa40d58ba6a2}{distance\+Map} () const 
+\hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a210d1f8bc1c2e97e626deb1051de2b2b}{Distance\+Map} \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a2c129f68cc11d10fefa4fa40d58ba6a2}{distance\+Map} () const 
 \begin{DoxyCompactList}\small\item\em Computes the distance map based on the current state of the closed list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{Indent}{\bf Services for policies.}\par
 \begin{DoxyCompactItemize}
@@ -170,7 +170,7 @@ Initializes the algorithm based on the problem instance.
 \end{DoxyParams}
 
 
-Definition at line 76 of file astar.\+h.
+Definition at line 77 of file astar.\+h.
 
 
 
@@ -196,11 +196,11 @@ The distance to {\ttfamily s}.
 \end{DoxyReturn}
 
 
-Definition at line 132 of file astar.\+h.
+Definition at line 133 of file astar.\+h.
 
 \index{slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}!distance\+Map@{distance\+Map}}
 \index{distance\+Map@{distance\+Map}!slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}}
-\paragraph[{\texorpdfstring{distance\+Map() const }{distanceMap() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$ Distance\+Map {\bf slb\+::ext\+::algorithm\+::\+Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Open\+\_\+ $>$\+::distance\+Map (
+\paragraph[{\texorpdfstring{distance\+Map() const }{distanceMap() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS , template$<$ class $>$ class Open\+\_\+ = S\+L\+B\+\_\+\+OL$>$ {\bf Distance\+Map} {\bf slb\+::ext\+::algorithm\+::\+Astar}$<$ {\bf A\+L\+G\+\_\+\+T\+P\+A\+R\+A\+MS}, Open\+\_\+ $>$\+::distance\+Map (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
@@ -214,7 +214,7 @@ The distance map based on the current state of the closed list.
 \end{DoxyReturn}
 
 
-Definition at line 140 of file astar.\+h.
+Definition at line 141 of file astar.\+h.
 
 \index{slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}!graph@{graph}}
 \index{graph@{graph}!slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}}
@@ -232,7 +232,7 @@ The state graph computed based on the closed list.
 \end{DoxyReturn}
 
 
-Definition at line 112 of file astar.\+h.
+Definition at line 113 of file astar.\+h.
 
 \index{slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}!handle\+Neighbor@{handle\+Neighbor}}
 \index{handle\+Neighbor@{handle\+Neighbor}!slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}}
@@ -252,7 +252,7 @@ Handles the current neighbor.
 \end{DoxyParams}
 
 
-Definition at line 204 of file astar.\+h.
+Definition at line 205 of file astar.\+h.
 
 \index{slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}!measures@{measures}}
 \index{measures@{measures}!slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}}
@@ -270,7 +270,7 @@ The statistics about the search algorithm\textquotesingle{}s performance for sol
 \end{DoxyReturn}
 
 
-Definition at line 104 of file astar.\+h.
+Definition at line 105 of file astar.\+h.
 
 \index{slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}!run@{run}}
 \index{run@{run}!slb\+::ext\+::algorithm\+::\+Astar@{slb\+::ext\+::algorithm\+::\+Astar}}
@@ -288,7 +288,7 @@ The solution cost. If there is no solution, then {\ttfamily Cost\+Type\{-\/1\}} 
 \end{DoxyReturn}
 
 
-Definition at line 82 of file astar.\+h.
+Definition at line 83 of file astar.\+h.
 
 
 

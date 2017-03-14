@@ -50,7 +50,7 @@ var searchData=
   ['apply',['apply',['../structslb_1_1ext_1_1domain_1_1pancake_1_1Pancake.html#ac06a5cc4f552ec3e3393e5f3aadb0b0d',1,'slb::ext::domain::pancake::Pancake::apply()'],['../structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile.html#a343857fed30edf7784306c2e9768f476',1,'slb::ext::domain::sliding_tile::SlidingTile::apply()']]],
   ['applyevent',['applyEvent',['../structslb_1_1core_1_1ui_1_1VisualLog.html#a46d23ffa07d8ecfad8561b8bf1527cd9',1,'slb::core::ui::VisualLog']]],
   ['arrow',['arrow',['../structslb_1_1core_1_1ui_1_1EdgeStyle.html#a16f86f80c24bd2c1941114a352424d55',1,'slb::core::ui::EdgeStyle']]],
-  ['astar',['Astar',['../structslb_1_1ext_1_1algorithm_1_1Astar.html#a2d3050a9cc4dddc9f48b7c42d11d68c9',1,'slb::ext::algorithm::Astar']]],
+  ['astar',['Astar',['../structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost.html#a8c6d44f70577ae4a76cb3c557379cd8b',1,'slb::ext::algorithm::SimpleUniformCost::Astar()'],['../structslb_1_1ext_1_1algorithm_1_1Astar.html#a2d3050a9cc4dddc9f48b7c42d11d68c9',1,'slb::ext::algorithm::Astar::Astar()']]],
   ['astar',['Astar',['../structslb_1_1ext_1_1algorithm_1_1Astar.html',1,'slb::ext::algorithm']]],
   ['astar_2eh',['astar.h',['../astar_8h.html',1,'']]],
   ['astar_3c_20logflag_2c_20uniformnode_2c_20ext_3a_3apolicy_3a_3agoalhandler_3a_3anogoal_2c_20uniformheuristic_2c_20uniformgenerator_2c_20uniformol_20_3e',['Astar&lt; logFlag, UniformNode, ext::policy::goalHandler::NoGoal, UniformHeuristic, UniformGenerator, UniformOL &gt;',['../structslb_1_1ext_1_1algorithm_1_1Astar.html',1,'slb::ext::algorithm']]],
