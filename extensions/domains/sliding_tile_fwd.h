@@ -12,10 +12,12 @@ namespace sliding_tile {
 
 
 #ifndef SLB_SLIDING_TILE_NROWS
+/// The default number of rows for the sliding-tile puzzle.
 #define SLB_SLIDING_TILE_NROWS 4
 #endif
 
 #ifndef SLB_SLIDING_TILE_NCOLUMNS
+/// The default number of columns for the sliding-tile puzzle.
 #define SLB_SLIDING_TILE_NCOLUMNS 4
 #endif
 

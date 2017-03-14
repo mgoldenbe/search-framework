@@ -150,8 +150,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7094400b487ebbfbb4f1fe7c1f3df142 inherit pub_methods_structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="extensions_2shared__policies_2headers_8h.html#ae70a06fa4631780beea14971eb36a562">POLICY_TYPES</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase.html#a7094400b487ebbfbb4f1fe7c1f3df142">InplaceBase</a> (MyAlgorithm &amp;alg, Neighbor &amp;)</td></tr>
 <tr class="memdesc:a7094400b487ebbfbb4f1fe7c1f3df142 inherit pub_methods_structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#a7094400b487ebbfbb4f1fe7c1f3df142">More...</a><br /></td></tr>
 <tr class="separator:a7094400b487ebbfbb4f1fe7c1f3df142 inherit pub_methods_structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3303fe718a64b292c2a9f5e3be312ddc inherit pub_methods_structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3303fe718a64b292c2a9f5e3be312ddc"></a>
-const State::Action &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>reverseAction</b> () const </td></tr>
+<tr class="memitem:a3303fe718a64b292c2a9f5e3be312ddc inherit pub_methods_structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase"><td class="memItemLeft" align="right" valign="top">const State::Action &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase.html#a3303fe718a64b292c2a9f5e3be312ddc">reverseAction</a> () const </td></tr>
+<tr class="memdesc:a3303fe718a64b292c2a9f5e3be312ddc inherit pub_methods_structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns constant reference to the stored reverse action.  <a href="#a3303fe718a64b292c2a9f5e3be312ddc">More...</a><br /></td></tr>
 <tr class="separator:a3303fe718a64b292c2a9f5e3be312ddc inherit pub_methods_structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -208,7 +208,7 @@ struct slb::ext::policy::backtrackLock::Inplace&lt; MyAlgorithm, true &gt;</h3>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00093">93</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
+<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00098">98</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6f70a5ab71cccf4d4442f43fd660a68b"></a>
 <div class="memitem">
@@ -263,11 +263,12 @@ template&lt;class Neighbor &gt; </div>
   <table class="params">
     <tr><td class="paramname">alg</td><td>The search algorithm. </td></tr>
     <tr><td class="paramname">n</td><td>The neighbor. </td></tr>
+    <tr><td class="paramname">h</td><td>The computed heuristic for <code>n</code>. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00107">107</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
+<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00113">113</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
 
 </div>
 </div>
@@ -318,11 +319,12 @@ template&lt;class Neighbor &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>The neighbor. </td></tr>
+    <tr><td class="paramname">h</td><td>The computed heuristic for <code>n</code>. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00123">123</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
+<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00130">130</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
 
 </div>
 </div>
@@ -332,7 +334,7 @@ template&lt;class Neighbor &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 14 2017 11:36:53 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 14 2017 12:18:04 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

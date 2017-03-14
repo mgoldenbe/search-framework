@@ -66,15 +66,12 @@ int \hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_ae1dfa66a8c9f25eb20fa
 \item 
 {\footnotesize template$<$class Neighbor $>$ }\\void \hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_a804425c4377ce2933be9f3ea655dd940}{add\+Neighbor} (std\+::vector$<$ Neighbor $>$ \&res, \hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_a2b2125f1774b299ea7f0f9f21d967fde}{Location} n, bool diagonal\+Flag=false) const 
 \begin{DoxyCompactList}\small\item\em Adds a neighbor corresponding to the given location to the given set of neighbors. \end{DoxyCompactList}\item 
-\hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_a75c71647e997ddb8f8f442d4e173d962}{Location\+Iterator} {\bfseries location\+Iterator} ()\hypertarget{structslb_1_1ext_1_1explicit__space_1_1Grid_a0136e082c52c7d3c7334b64fd69f4985}{}\label{structslb_1_1ext_1_1explicit__space_1_1Grid_a0136e082c52c7d3c7334b64fd69f4985}
-
-\item 
-{\footnotesize template$<$class Explicit\+State $>$ }\\\hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator}{State\+Iterator}$<$ \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State} $>$ {\bfseries begin\+State\+Iterator} ()\hypertarget{structslb_1_1ext_1_1explicit__space_1_1Grid_ac672b9b4974011f4c10243a9c42e5e5e}{}\label{structslb_1_1ext_1_1explicit__space_1_1Grid_ac672b9b4974011f4c10243a9c42e5e5e}
-
-\item 
-{\footnotesize template$<$class Explicit\+State $>$ }\\\hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator}{State\+Iterator}$<$ \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State} $>$ {\bfseries end\+State\+Iterator} ()\hypertarget{structslb_1_1ext_1_1explicit__space_1_1Grid_a6652bd758225247b7bbc741461d4bf67}{}\label{structslb_1_1ext_1_1explicit__space_1_1Grid_a6652bd758225247b7bbc741461d4bf67}
-
-\end{DoxyCompactItemize}
+\hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_a75c71647e997ddb8f8f442d4e173d962}{Location\+Iterator} \hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_a0136e082c52c7d3c7334b64fd69f4985}{location\+Iterator} ()
+\begin{DoxyCompactList}\small\item\em Returns the iterator over the locations of the grid set to the first location. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Explicit\+State $>$ }\\\hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator}{State\+Iterator}$<$ \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State} $>$ \hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_ac672b9b4974011f4c10243a9c42e5e5e}{begin\+State\+Iterator} ()
+\begin{DoxyCompactList}\small\item\em Returns the iterator over the states of the given domain corresponding to the locations of the grid set to the state corresponding to the first location. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Explicit\+State $>$ }\\\hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_1_1StateIterator}{State\+Iterator}$<$ \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State} $>$ \hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_a6652bd758225247b7bbc741461d4bf67}{end\+State\+Iterator} ()
+\begin{DoxyCompactList}\small\item\em Returns the iterator over the states of the given domain corresponding to the locations of the grid set past the state corresponding to the last location. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -128,7 +125,7 @@ Initializes the grid based on the contents of the given file.
 \end{DoxyParams}
 
 
-Definition at line 49 of file grid.\+h.
+Definition at line 51 of file grid.\+h.
 
 
 
@@ -165,7 +162,30 @@ The {\ttfamily Neighbor} type holds the states as used by the search algorithms,
 \end{DoxyNote}
 
 
-Definition at line 240 of file grid.\+h.
+Definition at line 242 of file grid.\+h.
+
+\index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!begin\+State\+Iterator@{begin\+State\+Iterator}}
+\index{begin\+State\+Iterator@{begin\+State\+Iterator}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
+\paragraph[{\texorpdfstring{begin\+State\+Iterator()}{beginStateIterator()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ template$<$class Explicit\+State $>$ {\bf State\+Iterator}$<${\bf Explicit\+State}$>$ {\bf slb\+::ext\+::explicit\+\_\+space\+::\+Grid}$<$ Cost\+Type\+\_\+ $>$\+::begin\+State\+Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1explicit__space_1_1Grid_ac672b9b4974011f4c10243a9c42e5e5e}{}\label{structslb_1_1ext_1_1explicit__space_1_1Grid_ac672b9b4974011f4c10243a9c42e5e5e}
+
+
+Returns the iterator over the states of the given domain corresponding to the locations of the grid set to the state corresponding to the first location. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Explicit\+State} & The type representing the given explicit domain. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The iterator over the states of the given domain corresponding to the locations of the grid set to the state corresponding to the first location. 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!column@{column}}
 \index{column@{column}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -188,7 +208,7 @@ The column corresponding to {\ttfamily loc}.
 \end{DoxyReturn}
 
 
-Definition at line 84 of file grid.\+h.
+Definition at line 86 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!default\+Location@{default\+Location}}
 \index{default\+Location@{default\+Location}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -209,7 +229,30 @@ Right now this function simply calls \hyperlink{structslb_1_1ext_1_1explicit__sp
 \end{DoxyNote}
 
 
-Definition at line 168 of file grid.\+h.
+Definition at line 170 of file grid.\+h.
+
+\index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!end\+State\+Iterator@{end\+State\+Iterator}}
+\index{end\+State\+Iterator@{end\+State\+Iterator}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
+\paragraph[{\texorpdfstring{end\+State\+Iterator()}{endStateIterator()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ template$<$class Explicit\+State $>$ {\bf State\+Iterator}$<${\bf Explicit\+State}$>$ {\bf slb\+::ext\+::explicit\+\_\+space\+::\+Grid}$<$ Cost\+Type\+\_\+ $>$\+::end\+State\+Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1explicit__space_1_1Grid_a6652bd758225247b7bbc741461d4bf67}{}\label{structslb_1_1ext_1_1explicit__space_1_1Grid_a6652bd758225247b7bbc741461d4bf67}
+
+
+Returns the iterator over the states of the given domain corresponding to the locations of the grid set past the state corresponding to the last location. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Explicit\+State} & The type representing the given explicit domain. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The iterator over the states of the given domain corresponding to the locations of the grid set past the state corresponding to the last location. 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!location@{location}}
 \index{location@{location}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -235,7 +278,7 @@ The location corresponding to the position {\ttfamily }(r,c) in the grid.
 \end{DoxyReturn}
 
 
-Definition at line 74 of file grid.\+h.
+Definition at line 76 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!location@{location}}
 \index{location@{location}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -258,7 +301,25 @@ The location based on the given string.
 \end{DoxyReturn}
 
 
-Definition at line 145 of file grid.\+h.
+Definition at line 147 of file grid.\+h.
+
+\index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!location\+Iterator@{location\+Iterator}}
+\index{location\+Iterator@{location\+Iterator}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
+\paragraph[{\texorpdfstring{location\+Iterator()}{locationIterator()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Cost\+Type\+\_\+$>$ {\bf Location\+Iterator} {\bf slb\+::ext\+::explicit\+\_\+space\+::\+Grid}$<$ Cost\+Type\+\_\+ $>$\+::location\+Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1explicit__space_1_1Grid_a0136e082c52c7d3c7334b64fd69f4985}{}\label{structslb_1_1ext_1_1explicit__space_1_1Grid_a0136e082c52c7d3c7334b64fd69f4985}
+
+
+Returns the iterator over the locations of the grid set to the first location. 
+
+\begin{DoxyReturn}{Returns}
+The iterator over the locations of the grid set to the first location. 
+\end{DoxyReturn}
+
+
+Definition at line 253 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!location\+Short\+Str@{location\+Short\+Str}}
 \index{location\+Short\+Str@{location\+Short\+Str}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -281,7 +342,7 @@ The string representation of {\ttfamily location}.
 \end{DoxyReturn}
 
 
-Definition at line 204 of file grid.\+h.
+Definition at line 206 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!location\+Str@{location\+Str}}
 \index{location\+Str@{location\+Str}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -304,7 +365,7 @@ The string representation of {\ttfamily location}.
 \end{DoxyReturn}
 
 
-Definition at line 211 of file grid.\+h.
+Definition at line 213 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!manhattan@{manhattan}}
 \index{manhattan@{manhattan}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -330,7 +391,7 @@ The Manhattan distance heuristic from {\ttfamily location} to {\ttfamily goal}.
 \end{DoxyReturn}
 
 
-Definition at line 185 of file grid.\+h.
+Definition at line 187 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!neighbors@{neighbors}}
 \index{neighbors@{neighbors}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -361,7 +422,7 @@ The {\ttfamily Neighbor} type holds the states as used by the search algorithms,
 \end{DoxyNote}
 
 
-Definition at line 111 of file grid.\+h.
+Definition at line 113 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!octile@{octile}}
 \index{octile@{octile}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -387,7 +448,7 @@ The octile distance heuristic from {\ttfamily location} to {\ttfamily goal}.
 \end{DoxyReturn}
 
 
-Definition at line 194 of file grid.\+h.
+Definition at line 196 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!passable@{passable}}
 \index{passable@{passable}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -406,7 +467,7 @@ Returns {\ttfamily true} if the location {\ttfamily }(r,c) is passable and {\ttf
 \end{DoxyReturn}
 
 
-Definition at line 90 of file grid.\+h.
+Definition at line 92 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!passable@{passable}}
 \index{passable@{passable}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -424,7 +485,7 @@ Returns {\ttfamily true} if the location {\ttfamily loc} is passable and {\ttfam
 \end{DoxyReturn}
 
 
-Definition at line 100 of file grid.\+h.
+Definition at line 102 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!random@{random}}
 \index{random@{random}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -442,7 +503,7 @@ A random location.
 \end{DoxyReturn}
 
 
-Definition at line 153 of file grid.\+h.
+Definition at line 155 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!raw\+Size@{raw\+Size}}
 \index{raw\+Size@{raw\+Size}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -460,7 +521,7 @@ The size of \hyperlink{structslb_1_1ext_1_1explicit__space_1_1Grid_aecb404c6bc75
 \end{DoxyReturn}
 
 
-Definition at line 217 of file grid.\+h.
+Definition at line 219 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!row@{row}}
 \index{row@{row}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -480,7 +541,7 @@ Returns row based on location.
 \end{DoxyParams}
 
 
-Definition at line 79 of file grid.\+h.
+Definition at line 81 of file grid.\+h.
 
 \index{slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}!visual\+Location@{visual\+Location}}
 \index{visual\+Location@{visual\+Location}!slb\+::ext\+::explicit\+\_\+space\+::\+Grid@{slb\+::ext\+::explicit\+\_\+space\+::\+Grid}}
@@ -506,7 +567,7 @@ Fills out the coordinates for the vertex representing the state.
 \end{DoxyParams}
 
 
-Definition at line 176 of file grid.\+h.
+Definition at line 178 of file grid.\+h.
 
 
 

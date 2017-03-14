@@ -157,7 +157,7 @@ struct slb::ext::policy::backtrackLock::Copy&lt; MyAlgorithm, bool &gt;</h3>
 
 <p>A class for handling RAII for backtracking in IDA* when the parent state is kept, i.e. <a class="el" href="structslb_1_1core_1_1sb_1_1StateNeighbor.html">core::sb::StateNeighbor</a> (i.e. not <a class="el" href="structslb_1_1core_1_1sb_1_1ActionNeighbor.html">core::sb::ActionNeighbor</a>) is used. The second template parameter is not used, just for uniformity. </p>
 
-<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00140">140</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
+<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00147">147</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1c7ae651145c47ac6fe8211f7486fcf2"></a>
 <div class="memitem">
@@ -212,11 +212,12 @@ template&lt;class Neighbor &gt; </div>
   <table class="params">
     <tr><td class="paramname">alg</td><td>The search algorithm. </td></tr>
     <tr><td class="paramname">n</td><td>The neighbor. </td></tr>
+    <tr><td class="paramname">h</td><td>The computed heuristic for <code>n</code>. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00151">151</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
+<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00159">159</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
 
 </div>
 </div>
@@ -271,7 +272,7 @@ template&lt;class Neighbor &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00172">172</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
+<p>Definition at line <a class="el" href="backtrack__lock_8h_source.html#l00180">180</a> of file <a class="el" href="backtrack__lock_8h_source.html">backtrack_lock.h</a>.</p>
 
 </div>
 </div>
@@ -281,7 +282,7 @@ template&lt;class Neighbor &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 14 2017 11:36:53 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 14 2017 12:18:04 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

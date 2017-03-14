@@ -25,6 +25,8 @@ template <class MyAlgorithm> struct InplaceBase {
     template <class Neighbor>
     InplaceBase(MyAlgorithm &alg, Neighbor &) : alg_(alg), cur_(alg.cur()) {}
 
+    /// Returns constant reference to the stored reverse action.
+    /// \return constant reference to the stored reverse action.
     const typename State::Action &reverseAction() const {
         return reverseAction_;
     }
@@ -43,6 +45,7 @@ protected:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
+    /// \param h The computed heuristic for \c n.
     template <class Neighbor> void set(Neighbor &n, CostType h) {
         data_ = *cur_;
         reverseAction_ = cur_->state().reverseAction(n.action());
@@ -65,6 +68,7 @@ protected:
 template <class MyAlgorithm, bool = false>
 struct Inplace : InplaceBase<MyAlgorithm> {
     POLICY_TYPES
+
     using Base = InplaceBase<MyAlgorithm>; ///< The base class.
 
     /// Whether the parent state is to be stored.
@@ -74,6 +78,7 @@ struct Inplace : InplaceBase<MyAlgorithm> {
     /// \tparam Neighbor The neighbor type.
     /// \param alg The search algorithm.
     /// \param n The neighbor.
+    /// \param h The computed heuristic for \c n.
     template <class Neighbor>
     Inplace(MyAlgorithm &alg, Neighbor &n, CostType h) : Base(alg, n) {
         Base::set(n, h);
@@ -103,6 +108,7 @@ struct Inplace<MyAlgorithm, true> : InplaceBase<MyAlgorithm> {
     /// \tparam Neighbor The neighbor type.
     /// \param alg The search algorithm.
     /// \param n The neighbor.
+    /// \param h The computed heuristic for \c n.
     template <class Neighbor>
     Inplace(MyAlgorithm &alg, Neighbor &n, CostType h) : Base(alg, n) {
         set(n, h);
@@ -120,6 +126,7 @@ private:
     /// Does the necessary bookkeeping for searching the given neighbor.
     /// \tparam Neighbor The neighbor type.
     /// \param n The neighbor.
+    /// \param h The computed heuristic for \c n.
     template <class Neighbor> void set(Neighbor &n, CostType h) {
         parent_.reset(new Node(*cur_));
         cur_->setParent(&*parent_);
@@ -147,6 +154,7 @@ template <class MyAlgorithm, bool> struct Copy {
     /// \tparam Neighbor The neighbor type.
     /// \param alg The search algorithm.
     /// \param n The neighbor.
+    /// \param h The computed heuristic for \c n.
     template <class Neighbor>
     Copy(MyAlgorithm &alg, Neighbor &n, CostType h)
         : alg_(alg), cur_(alg.cur()) {

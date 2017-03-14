@@ -11,6 +11,7 @@ var searchData=
   ['line',['line',['../namespaceslb_1_1core_1_1util.html#a05a341116f08209b05c9822725be127e',1,'slb::core::util']]],
   ['lineto',['lineTo',['../namespaceslb_1_1core_1_1util.html#a5ceb479b918ab45219b1b509183a57cc',1,'slb::core::util']]],
   ['location',['location',['../structslb_1_1ext_1_1explicit__space_1_1Grid.html#a55b2b168ae56fb372304763478c4ca4b',1,'slb::ext::explicit_space::Grid::location(int r, int c) const '],['../structslb_1_1ext_1_1explicit__space_1_1Grid.html#a6ff6ce8a97bfe218a3fc4625c3c71b34',1,'slb::ext::explicit_space::Grid::location(const std::string str) const ']]],
+  ['locationiterator',['locationIterator',['../structslb_1_1ext_1_1explicit__space_1_1Grid.html#a0136e082c52c7d3c7334b64fd69f4985',1,'slb::ext::explicit_space::Grid']]],
   ['locationshortstr',['locationShortStr',['../structslb_1_1ext_1_1explicit__space_1_1Grid.html#a69148d3f12f7f933bf94af0cdc7f217a',1,'slb::ext::explicit_space::Grid']]],
   ['locationstr',['locationStr',['../structslb_1_1ext_1_1explicit__space_1_1Grid.html#a6a4048decbe8d61178986f4ae09884f9',1,'slb::ext::explicit_space::Grid']]],
   ['locationsuccessors',['locationSuccessors',['../structslb_1_1core_1_1sb_1_1ExplicitState.html#ae4fddaedd8936221f4c92dd5607e5d2b',1,'slb::core::sb::ExplicitState']]],

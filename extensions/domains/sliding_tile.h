@@ -46,6 +46,7 @@ struct SlidingTile : core::sb::DomainBase {
     /// The type for all Manhattan distance heuristic deltas.
     using AllMDDeltas = std::array<TileMDDeltas, size_>;
 
+    /// The type for raw state representation.
     using Board = std::array<int, size_>;
 
     /// Initializes the ordered state.
@@ -182,13 +183,38 @@ private:
     /// Blank position.
     int blank_{};
 
+    /// Computes the row number corresponding to the given position.
+    /// \return The row number corresponding to the given position.
     static int row(int pos) { return pos / nColumns; }
+
+    /// The difference between the row numbers corresponding to the two given
+    /// positions.
+    /// \return The difference between the row numbers corresponding to the two
+    /// given positions.
     static int rowDiff(int pos1, int pos2) { return row(pos1) - row(pos2); }
+
+    /// The distance between the row numbers corresponding to the two given
+    /// positions.
+    /// \return The distance between the row numbers corresponding to the two
+    /// given positions.
     static int rowDist(int pos1, int pos2) {
         return std::abs(rowDiff(pos1, pos2));
     }
+
+    /// Computes the column number corresponding to the given position.
+    /// \return The column number corresponding to the given position.
     static int col(int pos) { return pos % nColumns; }
+
+    /// The difference between the column numbers corresponding to the two given
+    /// positions.
+    /// \return The difference between the column numbers corresponding to the
+    /// two given positions.
     static int colDiff(int pos1, int pos2) { return col(pos1) - col(pos2); }
+
+    /// The distance between the column numbers corresponding to the two given
+    /// positions.
+    /// \return The distance between the column numbers corresponding to the
+    /// two given positions.
     static int colDist(int pos1, int pos2) {
         return std::abs(colDiff(pos1, pos2));
     }
@@ -210,6 +236,8 @@ private:
         return res;
     }
 
+    /// Computes the heuristic updates for all the possible moves.
+    /// \return The heuristic updates for all the possible moves.
     static AllMDDeltas computeAllMDDeltas() {
         AllMDDeltas res;
         for (int tile = 1; tile < size_; ++tile) {

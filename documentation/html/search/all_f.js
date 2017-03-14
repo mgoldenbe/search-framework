@@ -29,8 +29,8 @@ var searchData=
   ['pivot',['Pivot',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot.html#a22b0f4183d30086f01e0a484bd7e2ba1',1,'slb::ext::heuristic::differential::Pivot']]],
   ['pivot_5f',['pivot_',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot.html#a2f57332bf75dfffe318f3c4c2d4fc5a7',1,'slb::ext::heuristic::differential::Pivot']]],
   ['pivotit',['pivotIt',['../structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots.html#ac995c37475f0e2ec6444d0f5d7d56dd9',1,'slb::ext::heuristic::differential::DistancesToPivots::pivotIt()'],['../structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_3_01State_00_01Index_00_01IndexKind_1_1none_01_4.html#ace3b1e082a65142bb9f6f23dea9ed0e1',1,'slb::ext::heuristic::differential::DistancesToPivots&lt; State, Index, IndexKind::none &gt;::pivotIt()']]],
-  ['point',['Point',['../structslb_1_1core_1_1ui_1_1Drawer.html#a77e84b439de5aa745cea48b184f060ec',1,'slb::core::ui::Drawer::Point()'],['../structslb_1_1core_1_1ui_1_1StateGraph.html#a86d2316b03ddf9f3da4d6255d20a39d8',1,'slb::core::ui::StateGraph::Point()']]],
   ['point',['Point',['../structslb_1_1core_1_1util_1_1gu_1_1Point.html',1,'slb::core::util::gu']]],
+  ['point',['Point',['../structslb_1_1core_1_1ui_1_1Drawer.html#a77e84b439de5aa745cea48b184f060ec',1,'slb::core::ui::Drawer::Point()'],['../structslb_1_1core_1_1ui_1_1StateGraph.html#a86d2316b03ddf9f3da4d6255d20a39d8',1,'slb::core::ui::StateGraph::Point()']]],
   ['pointmap',['PointMap',['../structslb_1_1core_1_1ui_1_1Drawer.html#a5d8ae089b9b1f95a780bb1b0ef7d05e6',1,'slb::core::ui::Drawer::PointMap()'],['../structslb_1_1core_1_1ui_1_1StateGraph.html#abc09edc649d6690817cb6219e3feefb0',1,'slb::core::ui::StateGraph::PointMap()']]],
   ['pointmap_5f',['pointMap_',['../structslb_1_1core_1_1ui_1_1Drawer.html#a3744c0f39a867c7a09cc079b775e22a3',1,'slb::core::ui::Drawer']]],
   ['pointonline',['pointOnLine',['../namespaceslb_1_1core_1_1util_1_1gu.html#a955b2a5a7a5d669c4136eb7a744c97d3',1,'slb::core::util::gu']]],
@@ -47,6 +47,7 @@ var searchData=
   ['processevents',['processEvents',['../structslb_1_1core_1_1ui_1_1Visualizer.html#a159e5fd9906e92d7b24f11bfc819f12e',1,'slb::core::ui::Visualizer']]],
   ['projectfirst',['projectFirst',['../namespaceslb_1_1core_1_1util.html#a7c70c706b5364fdd7b14480d1dac38f5',1,'slb::core::util']]],
   ['projectsecond',['projectSecond',['../namespaceslb_1_1core_1_1util.html#aa515b7535bb7f9a49dccfea197855dec',1,'slb::core::util']]],
+  ['pruner_5f',['pruner_',['../structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a67903f3f88335ce68e310c43b901bd20',1,'slb::ext::algorithm::IdAstar']]],
   ['pruning_2eh',['pruning.h',['../pruning_8h.html',1,'']]],
   ['push_5fback_5funique',['push_back_unique',['../namespaceslb_1_1core_1_1util.html#a1a96151123c3caa16e91369aa68ed5da',1,'slb::core::util']]]
 ];

@@ -39,6 +39,8 @@ struct Grid {
     template <class ExplicitState>
     struct StateIterator : LocationIterator {
         using LocationIterator::LocationIterator;
+        /// The dereference operator.
+        /// \return The state corresponding to the iterator.
         ExplicitState operator*() const {
             return ExplicitState{LocationIterator::operator*()};
         }
@@ -244,15 +246,31 @@ private:
         res.push_back(Neighbor((typename Neighbor::State{n}), cost));
     }
 
+    /// Returns the iterator over the locations of the grid set to the first
+    /// location.
+    /// \return The iterator over the locations of the grid set to the first
+    /// location.
     LocationIterator locationIterator() {
         return LocationIterator(v_, v_.begin(), 0);
     }
 
+    /// Returns the iterator over the states of the given domain corresponding
+    /// to the locations of the grid set to the state corresponding to the first location.
+    /// \tparam ExplicitState The type representing the given explicit domain.
+    /// \return The iterator over the states of the given domain corresponding
+    /// to the locations of the grid set to the state corresponding to the first location.
     template <class ExplicitState>
     StateIterator<ExplicitState> beginStateIterator() {
         return StateIterator<ExplicitState>(v_, v_.begin(), 0);
     }
 
+    /// Returns the iterator over the states of the given domain corresponding
+    /// to the locations of the grid set past the state corresponding to the
+    /// last location.
+    /// \tparam ExplicitState The type representing the given explicit domain.
+    /// \return The iterator over the states of the given domain corresponding
+    /// to the locations of the grid set past the state corresponding to the
+    /// last location.
     template <class ExplicitState>
     StateIterator<ExplicitState> endStateIterator() {
         return StateIterator<ExplicitState>(v_, v_.end(), 0);

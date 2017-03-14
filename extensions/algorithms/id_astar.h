@@ -153,7 +153,7 @@ struct IdAstar : Algorithm<IdAstar<ALG_TARGS, BacktrackLock_>, ALG_TARGS> {
 private:
     std::unique_ptr<Node> cur_; ///< The currently selected node.
     BacktrackLock *lastLock_ = nullptr; ///< The last btLock. Set by the lock;
-    Pruning<MyType> pruner_;
+    Pruning<MyType> pruner_; ///< The pruning policy.
     CostType threshold_; ///< The current iteration's cost threshold.
     CostType next_threshold_; ///< The cost threshold for the next iteration.
 

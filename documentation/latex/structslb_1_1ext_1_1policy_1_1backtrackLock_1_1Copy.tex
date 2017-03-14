@@ -54,7 +54,7 @@ struct slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Copy$<$ My\+Algorithm, bool 
 
 A class for handling R\+A\+II for backtracking in I\+D\+A$\ast$ when the parent state is kept, i.\+e. \hyperlink{structslb_1_1core_1_1sb_1_1StateNeighbor}{core\+::sb\+::\+State\+Neighbor} (i.\+e. not \hyperlink{structslb_1_1core_1_1sb_1_1ActionNeighbor}{core\+::sb\+::\+Action\+Neighbor}) is used. The second template parameter is not used, just for uniformity. 
 
-Definition at line 140 of file backtrack\+\_\+lock.\+h.
+Definition at line 147 of file backtrack\+\_\+lock.\+h.
 
 
 
@@ -83,10 +83,12 @@ The constructor.
 \hline
 {\em n} & The neighbor. \\
 \hline
+{\em h} & The computed heuristic for {\ttfamily n}. \\
+\hline
 \end{DoxyParams}
 
 
-Definition at line 151 of file backtrack\+\_\+lock.\+h.
+Definition at line 159 of file backtrack\+\_\+lock.\+h.
 
 
 
@@ -115,7 +117,7 @@ Does the necessary bookkeeping for searching the given neighbor.
 \end{DoxyParams}
 
 
-Definition at line 172 of file backtrack\+\_\+lock.\+h.
+Definition at line 180 of file backtrack\+\_\+lock.\+h.
 
 
 

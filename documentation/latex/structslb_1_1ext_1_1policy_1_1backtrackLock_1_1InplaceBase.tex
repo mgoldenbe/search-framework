@@ -23,9 +23,8 @@ Inheritance diagram for slb\+:\+:ext\+:\+:policy\+:\+:backtrack\+Lock\+:\+:Inpla
 \item 
 {\footnotesize template$<$class Neighbor $>$ }\\\hyperlink{extensions_2shared__policies_2headers_8h_ae70a06fa4631780beea14971eb36a562}{P\+O\+L\+I\+C\+Y\+\_\+\+T\+Y\+P\+ES} \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase_a7094400b487ebbfbb4f1fe7c1f3df142}{Inplace\+Base} (My\+Algorithm \&alg, Neighbor \&)
 \begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
-const State\+::\+Action \& {\bfseries reverse\+Action} () const \hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase_a3303fe718a64b292c2a9f5e3be312ddc}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase_a3303fe718a64b292c2a9f5e3be312ddc}
-
-\end{DoxyCompactItemize}
+const State\+::\+Action \& \hyperlink{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase_a3303fe718a64b292c2a9f5e3be312ddc}{reverse\+Action} () const 
+\begin{DoxyCompactList}\small\item\em Returns constant reference to the stored reverse action. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -101,6 +100,24 @@ Definition at line 26 of file backtrack\+\_\+lock.\+h.
 
 
 \subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base}!reverse\+Action@{reverse\+Action}}
+\index{reverse\+Action@{reverse\+Action}!slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base}}
+\paragraph[{\texorpdfstring{reverse\+Action() const }{reverseAction() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ const State\+::\+Action\& {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base}$<$ My\+Algorithm $>$\+::reverse\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase_a3303fe718a64b292c2a9f5e3be312ddc}{}\label{structslb_1_1ext_1_1policy_1_1backtrackLock_1_1InplaceBase_a3303fe718a64b292c2a9f5e3be312ddc}
+
+
+Returns constant reference to the stored reverse action. 
+
+\begin{DoxyReturn}{Returns}
+constant reference to the stored reverse action. 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file backtrack\+\_\+lock.\+h.
+
 \index{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base}!set@{set}}
 \index{set@{set}!slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base@{slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base}}
 \paragraph[{\texorpdfstring{set(\+Neighbor \&n, Cost\+Type h)}{set(Neighbor &n, CostType h)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ void {\bf slb\+::ext\+::policy\+::backtrack\+Lock\+::\+Inplace\+Base}$<$ My\+Algorithm $>$\+::set (
@@ -122,10 +139,12 @@ Does the necessary bookkeeping for searching the given neighbor.
 \begin{DoxyParams}{Parameters}
 {\em n} & The neighbor. \\
 \hline
+{\em h} & The computed heuristic for {\ttfamily n}. \\
+\hline
 \end{DoxyParams}
 
 
-Definition at line 46 of file backtrack\+\_\+lock.\+h.
+Definition at line 49 of file backtrack\+\_\+lock.\+h.
 
 
 

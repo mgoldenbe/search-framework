@@ -15,17 +15,26 @@ namespace domain {
 /// blocks.
 template <class ExplicitState>
 struct TrivialIndex {
+    /// My index kind.
     static constexpr auto kind = IndexKind::withInverse;
 
+    /// Computes index based on state.
+    /// \param s The state of interest.
+    /// \return The index corresponding to \c s.
     static int to(const ExplicitState &s) {
         return static_cast<int>(s.raw());
     }
 
+    /// Computes state based on index.
+    /// \param index The index of interest.
+    /// \return The state corresponding to \c index.
     static ExplicitState from(int index) {
         return ExplicitState{
             static_cast<typename ExplicitState::Location>(index)};
     }
 
+    /// Returns the largest index plus 1.
+    /// \return The largest index plus 1.
     static int size() {
         return ExplicitState::space()->rawSize();
     }

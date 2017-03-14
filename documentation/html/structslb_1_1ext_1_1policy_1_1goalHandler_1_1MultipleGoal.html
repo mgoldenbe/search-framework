@@ -121,7 +121,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="str
 <tr class="memdesc:ab5c8ba5693e69007544a7e9e4a48f7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type for a goal that has not been solved with the required quality. <br /></td></tr>
 <tr class="separator:ab5c8ba5693e69007544a7e9e4a48f7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cbdf80decb53458becf058bbaae6971"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cbdf80decb53458becf058bbaae6971"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ActiveGoalsIt</b> = typename std::vector&lt; <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#ab5c8ba5693e69007544a7e9e4a48f7fa">ActiveGoal</a> &gt;::iterator</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a6cbdf80decb53458becf058bbaae6971">ActiveGoalsIt</a> = typename std::vector&lt; <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#ab5c8ba5693e69007544a7e9e4a48f7fa">ActiveGoal</a> &gt;::iterator</td></tr>
+<tr class="memdesc:a6cbdf80decb53458becf058bbaae6971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator over active goal states. <br /></td></tr>
 <tr class="separator:a6cbdf80decb53458becf058bbaae6971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -149,14 +150,14 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:acdb94b8e9f035fbdb3ea45188964abfa"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#acdb94b8e9f035fbdb3ea45188964abfa">isActive</a> (const State &amp;goal)</td></tr>
 <tr class="memdesc:acdb94b8e9f035fbdb3ea45188964abfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the given goal is active. Optionally removes the goal from the list of active goals.  <a href="#acdb94b8e9f035fbdb3ea45188964abfa">More...</a><br /></td></tr>
 <tr class="separator:acdb94b8e9f035fbdb3ea45188964abfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6197e621b246d5347155a3f226da9f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6197e621b246d5347155a3f226da9f1"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>activeGoalID</b> (const State &amp;goal)</td></tr>
+<tr class="memitem:ac6197e621b246d5347155a3f226da9f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#ac6197e621b246d5347155a3f226da9f1">activeGoalID</a> (const State &amp;goal)</td></tr>
+<tr class="memdesc:ac6197e621b246d5347155a3f226da9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the ID of the given active goal state.  <a href="#ac6197e621b246d5347155a3f226da9f1">More...</a><br /></td></tr>
 <tr class="separator:ac6197e621b246d5347155a3f226da9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8b2e36fc96d3162476cab3c8c75aa05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8b2e36fc96d3162476cab3c8c75aa05"></a>
-ActiveGoalsIt&#160;</td><td class="memItemRight" valign="bottom"><b>findActive</b> (const State &amp;goal)</td></tr>
+<tr class="memitem:ab8b2e36fc96d3162476cab3c8c75aa05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a6cbdf80decb53458becf058bbaae6971">ActiveGoalsIt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#ab8b2e36fc96d3162476cab3c8c75aa05">findActive</a> (const State &amp;goal)</td></tr>
+<tr class="memdesc:ab8b2e36fc96d3162476cab3c8c75aa05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the iterator to the given active goal state.  <a href="#ab8b2e36fc96d3162476cab3c8c75aa05">More...</a><br /></td></tr>
 <tr class="separator:ab8b2e36fc96d3162476cab3c8c75aa05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49b937b31fcf0ecb22d71f75d12e0a7c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a49b937b31fcf0ecb22d71f75d12e0a7c">doneGoal</a> (Node *n, ActiveGoalsIt it)</td></tr>
-<tr class="memdesc:a49b937b31fcf0ecb22d71f75d12e0a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler the search node that is a goal.  <a href="#a49b937b31fcf0ecb22d71f75d12e0a7c">More...</a><br /></td></tr>
+<tr class="memitem:a49b937b31fcf0ecb22d71f75d12e0a7c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a49b937b31fcf0ecb22d71f75d12e0a7c">doneGoal</a> (Node *n, <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a6cbdf80decb53458becf058bbaae6971">ActiveGoalsIt</a> it)</td></tr>
+<tr class="memdesc:a49b937b31fcf0ecb22d71f75d12e0a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the search node that is a goal.  <a href="#a49b937b31fcf0ecb22d71f75d12e0a7c">More...</a><br /></td></tr>
 <tr class="separator:a49b937b31fcf0ecb22d71f75d12e0a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -224,11 +225,48 @@ template&lt;class MyAlgorithm &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00121">121</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
+<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00123">123</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac6197e621b246d5347155a3f226da9f1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class MyAlgorithm &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html">slb::ext::policy::goalHandler::MultipleGoal</a>&lt; MyAlgorithm &gt;::activeGoalID </td>
+          <td>(</td>
+          <td class="paramtype">const State &amp;&#160;</td>
+          <td class="paramname"><em>goal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the ID of the given active goal state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">goal</td><td>The active goal state of interest. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ID of the active goal state <code>goal</code>. </dd></dl>
+
+<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00186">186</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4682263d39e3de328ad041d138f470da"></a>
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +293,7 @@ template&lt;class MyAlgorithm &gt; </div>
 <p>Returns the active goals. </p>
 <dl class="section return"><dt>Returns</dt><dd>Const reference to the vector of active goals. </dd></dl>
 
-<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00151">151</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
+<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00153">153</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +323,7 @@ template&lt;class MyAlgorithm &gt; </div>
 <p>Returns <code>true</code> if all the goals were found with the required quality and the search algorithm should terminate. Returns <code>false</code> otherwise. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if all the goals were found with the required quality and <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00139">139</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
+<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00141">141</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +345,7 @@ template&lt;class MyAlgorithm &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ActiveGoalsIt&#160;</td>
+          <td class="paramtype"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a6cbdf80decb53458becf058bbaae6971">ActiveGoalsIt</a>&#160;</td>
           <td class="paramname"><em>it</em>&#160;</td>
         </tr>
         <tr>
@@ -323,15 +361,53 @@ template&lt;class MyAlgorithm &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Handler the search node that is a goal. </p>
+<p>Handles the search node that is a goal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>The goal search node. </td></tr>
+    <tr><td class="paramname">it</td><td>The iterator to the goal state. </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Reimplemented in <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT.html#aba339d5e3a3e51d7dd0dcdfd8944da96">slb::ext::policy::goalHandler::TotalUpdateT&lt; MyAlgorithm, partialUpdateFlag &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00204">204</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8b2e36fc96d3162476cab3c8c75aa05"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class MyAlgorithm &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html#a6cbdf80decb53458becf058bbaae6971">ActiveGoalsIt</a> <a class="el" href="structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal.html">slb::ext::policy::goalHandler::MultipleGoal</a>&lt; MyAlgorithm &gt;::findActive </td>
+          <td>(</td>
+          <td class="paramtype">const State &amp;&#160;</td>
+          <td class="paramname"><em>goal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the iterator to the given active goal state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">goal</td><td>The active goal state of interest. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The iterator to the active goal state <code>goal</code>. </dd></dl>
 
 <p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00195">195</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
 
@@ -378,7 +454,7 @@ template&lt;bool eraseFlag = false&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>goal</code> is an active goal and <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00174">174</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
+<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00176">176</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
 
 </div>
 </div>
@@ -413,7 +489,7 @@ template&lt;class MyAlgorithm &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00143">143</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
+<p>Definition at line <a class="el" href="goal__handlers_8h_source.html#l00145">145</a> of file <a class="el" href="goal__handlers_8h_source.html">goal_handlers.h</a>.</p>
 
 </div>
 </div>
@@ -423,7 +499,7 @@ template&lt;class MyAlgorithm &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 14 2017 11:36:53 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 14 2017 12:18:04 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

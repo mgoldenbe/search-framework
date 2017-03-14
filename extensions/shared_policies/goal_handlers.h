@@ -113,6 +113,8 @@ struct MultipleGoal {
 
     /// The type for a goal that has not been solved with the required quality.
     using ActiveGoal = std::pair<State, int>;
+
+    /// Iterator over active goal states.
     using ActiveGoalsIt = typename std::vector<ActiveGoal>::iterator;
 
     /// Initializes the policy based on a problem instance and a log of events
@@ -178,20 +180,27 @@ protected:
         return true;
     }
 
+    /// Computes the ID of the given active goal state.
+    /// \param goal The active goal state of interest.
+    /// \return ID of the active goal state \c goal.
     int activeGoalID(const State &goal) {
         auto it = findActive(goal);
         assert(it != activeGoals_.end());
         return it->second;
     }
 
+    /// Computes the iterator to the given active goal state.
+    /// \param goal The active goal state of interest.
+    /// \return The iterator to the active goal state \c goal.
     ActiveGoalsIt findActive(const State &goal) {
         return std::find_if(
             activeGoals_.begin(), activeGoals_.end(),
             [goal](const ActiveGoal &a) { return a.first == goal; });
     }
 
-    /// Handler the search node that is a goal.
+    /// Handles the search node that is a goal.
     /// \param n The goal search node.
+    /// \param it The iterator to the goal state.
     virtual void doneGoal(Node *n, ActiveGoalsIt it) {
         log<ext::event::SolvedGoal>(log_, n);
         log<ext::event::HideLast>(log_, n);
@@ -295,6 +304,8 @@ protected:
 };
 
 #ifndef SLB_PARTIAL_UPDATE_FLAG
+/// The default value for the partial update flag for k-goal search. By default,
+/// the update of the open list is total.
 #define SLB_PARTIAL_UPDATE_FLAG false
 #endif
 
@@ -317,6 +328,7 @@ struct TotalUpdateT: MultipleGoal<MyAlgorithm> {
     using DirectBase::done_;
     using DirectBase::activeGoals_;
 
+    /// Iterator over active goal states.
     using ActiveGoalsIt = typename DirectBase::ActiveGoalsIt;
 
     /// Returns the time stamp of the last found goal. This is also when the
@@ -330,6 +342,7 @@ protected:
     /// Handles the found goal. Recomputes the open list and saves the time
     /// stamp.
     /// \param n The goal node.
+    /// \param it The iterator to the active goal state.
     virtual void doneGoal(Node *n, ActiveGoalsIt it) {
         if (false) { // Output the average number of nodes in open for debugging
             static std::ofstream debug{"debug/ol_debug.txt"};
@@ -358,6 +371,8 @@ protected:
         stamp_ = alg_.stamp();
     }
 };
+/// The total update policy.
+/// \tparam MyAlgorithm The search algorithm.
 template <class MyAlgorithm> using TotalUpdate = TotalUpdateT<MyAlgorithm>;
 
 } // namespace

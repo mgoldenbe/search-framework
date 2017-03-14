@@ -10,5 +10,6 @@ var searchData=
   ['pointmap_5f',['pointMap_',['../structslb_1_1core_1_1ui_1_1Drawer.html#a3744c0f39a867c7a09cc079b775e22a3',1,'slb::core::ui::Drawer']]],
   ['prefix_5f',['prefix_',['../structslb_1_1core_1_1ui_1_1LogWindow.html#a5d5f3397ad832fd6905f94fa03c0475a',1,'slb::core::ui::LogWindow']]],
   ['prefixdata_5f',['prefixData_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#af251cbd553a5150c57dcfb25c1bc3a8c',1,'slb::core::commandLine::CommandLine']]],
-  ['prefixtitle_5f',['prefixTitle_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#a2fd89f93aa659f5f0ddfafc9711f15a0',1,'slb::core::commandLine::CommandLine']]]
+  ['prefixtitle_5f',['prefixTitle_',['../structslb_1_1core_1_1commandLine_1_1CommandLine.html#a2fd89f93aa659f5f0ddfafc9711f15a0',1,'slb::core::commandLine::CommandLine']]],
+  ['pruner_5f',['pruner_',['../structslb_1_1ext_1_1algorithm_1_1IdAstar.html#a67903f3f88335ce68e310c43b901bd20',1,'slb::ext::algorithm::IdAstar']]]
 ];

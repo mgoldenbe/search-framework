@@ -129,7 +129,11 @@ template <class MyAlgorithm, template <class> class SingleGoalHeuristicT =
 struct MinMultipleGoalsT {
     POLICY_TYPES
 
+    /// The single goal heuristic type.
     using SingleGoalHeuristic = SingleGoalHeuristicT<MyAlgorithm>;
+
+    /// The comparer of heuristic values, instantiated with the particular  cost
+    /// type.
     using Compare = CompareT<CostType>;
 
     /// Some algorithms need to know whether the heuristic is dynamic.

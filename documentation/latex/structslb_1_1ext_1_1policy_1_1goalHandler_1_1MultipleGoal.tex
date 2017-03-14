@@ -24,9 +24,9 @@ Inheritance diagram for slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Multipl
 using \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab5c8ba5693e69007544a7e9e4a48f7fa}{Active\+Goal} = std\+::pair$<$ State, int $>$\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab5c8ba5693e69007544a7e9e4a48f7fa}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab5c8ba5693e69007544a7e9e4a48f7fa}
 
 \begin{DoxyCompactList}\small\item\em The type for a goal that has not been solved with the required quality. \end{DoxyCompactList}\item 
-using {\bfseries Active\+Goals\+It} = typename std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab5c8ba5693e69007544a7e9e4a48f7fa}{Active\+Goal} $>$\+::iterator\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}
+using \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}{Active\+Goals\+It} = typename std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab5c8ba5693e69007544a7e9e4a48f7fa}{Active\+Goal} $>$\+::iterator\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Iterator over active goal states. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,14 +46,12 @@ const std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1M
 \item 
 {\footnotesize template$<$bool erase\+Flag = false$>$ }\\bool \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_acdb94b8e9f035fbdb3ea45188964abfa}{is\+Active} (const State \&goal)
 \begin{DoxyCompactList}\small\item\em Determines whether the given goal is active. Optionally removes the goal from the list of active goals. \end{DoxyCompactList}\item 
-int {\bfseries active\+Goal\+ID} (const State \&goal)\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ac6197e621b246d5347155a3f226da9f1}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ac6197e621b246d5347155a3f226da9f1}
-
-\item 
-Active\+Goals\+It {\bfseries find\+Active} (const State \&goal)\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab8b2e36fc96d3162476cab3c8c75aa05}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab8b2e36fc96d3162476cab3c8c75aa05}
-
-\item 
-virtual void \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a49b937b31fcf0ecb22d71f75d12e0a7c}{done\+Goal} (Node $\ast$n, Active\+Goals\+It it)
-\begin{DoxyCompactList}\small\item\em Handler the search node that is a goal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ac6197e621b246d5347155a3f226da9f1}{active\+Goal\+ID} (const State \&goal)
+\begin{DoxyCompactList}\small\item\em Computes the ID of the given active goal state. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}{Active\+Goals\+It} \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab8b2e36fc96d3162476cab3c8c75aa05}{find\+Active} (const State \&goal)
+\begin{DoxyCompactList}\small\item\em Computes the iterator to the given active goal state. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a49b937b31fcf0ecb22d71f75d12e0a7c}{done\+Goal} (Node $\ast$n, \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}{Active\+Goals\+It} it)
+\begin{DoxyCompactList}\small\item\em Handles the search node that is a goal. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -107,11 +105,34 @@ Initializes the policy based on a problem instance and a log of events generated
 \end{DoxyParams}
 
 
-Definition at line 121 of file goal\+\_\+handlers.\+h.
+Definition at line 123 of file goal\+\_\+handlers.\+h.
 
 
 
 \subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}!active\+Goal\+ID@{active\+Goal\+ID}}
+\index{active\+Goal\+ID@{active\+Goal\+ID}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}}
+\paragraph[{\texorpdfstring{active\+Goal\+I\+D(const State \&goal)}{activeGoalID(const State &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ int {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}$<$ My\+Algorithm $>$\+::active\+Goal\+ID (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ac6197e621b246d5347155a3f226da9f1}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ac6197e621b246d5347155a3f226da9f1}
+
+
+Computes the ID of the given active goal state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The active goal state of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ID of the active goal state {\ttfamily goal}. 
+\end{DoxyReturn}
+
+
+Definition at line 186 of file goal\+\_\+handlers.\+h.
+
 \index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}!active\+Goals@{active\+Goals}}
 \index{active\+Goals@{active\+Goals}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}}
 \paragraph[{\texorpdfstring{active\+Goals()}{activeGoals()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ const std\+::vector$<${\bf Active\+Goal}$>$\& {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}$<$ My\+Algorithm $>$\+::active\+Goals (
@@ -128,7 +149,7 @@ Const reference to the vector of active goals.
 \end{DoxyReturn}
 
 
-Definition at line 151 of file goal\+\_\+handlers.\+h.
+Definition at line 153 of file goal\+\_\+handlers.\+h.
 
 \index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}!done@{done}}
 \index{done@{done}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}}
@@ -146,29 +167,54 @@ Returns {\ttfamily true} if all the goals were found with the required quality a
 \end{DoxyReturn}
 
 
-Definition at line 139 of file goal\+\_\+handlers.\+h.
+Definition at line 141 of file goal\+\_\+handlers.\+h.
 
 \index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}!done\+Goal@{done\+Goal}}
 \index{done\+Goal@{done\+Goal}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}}
 \paragraph[{\texorpdfstring{done\+Goal(\+Node $\ast$n, Active\+Goals\+It it)}{doneGoal(Node *n, ActiveGoalsIt it)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ virtual void {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}$<$ My\+Algorithm $>$\+::done\+Goal (
 \begin{DoxyParamCaption}
 \item[{Node $\ast$}]{n, }
-\item[{Active\+Goals\+It}]{it}
+\item[{{\bf Active\+Goals\+It}}]{it}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a49b937b31fcf0ecb22d71f75d12e0a7c}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a49b937b31fcf0ecb22d71f75d12e0a7c}
 
 
-Handler the search node that is a goal. 
+Handles the search node that is a goal. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em n} & The goal search node. \\
+\hline
+{\em it} & The iterator to the goal state. \\
 \hline
 \end{DoxyParams}
 
 
 Reimplemented in \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_aba339d5e3a3e51d7dd0dcdfd8944da96}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+Update\+T$<$ My\+Algorithm, partial\+Update\+Flag $>$}.
 
+
+
+Definition at line 204 of file goal\+\_\+handlers.\+h.
+
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}!find\+Active@{find\+Active}}
+\index{find\+Active@{find\+Active}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}}
+\paragraph[{\texorpdfstring{find\+Active(const State \&goal)}{findActive(const State &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ {\bf Active\+Goals\+It} {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}$<$ My\+Algorithm $>$\+::find\+Active (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab8b2e36fc96d3162476cab3c8c75aa05}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_ab8b2e36fc96d3162476cab3c8c75aa05}
+
+
+Computes the iterator to the given active goal state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The active goal state of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The iterator to the active goal state {\ttfamily goal}. 
+\end{DoxyReturn}
 
 
 Definition at line 195 of file goal\+\_\+handlers.\+h.
@@ -199,7 +245,7 @@ Determines whether the given goal is active. Optionally removes the goal from th
 \end{DoxyReturn}
 
 
-Definition at line 174 of file goal\+\_\+handlers.\+h.
+Definition at line 176 of file goal\+\_\+handlers.\+h.
 
 \index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}!log\+Init@{log\+Init}}
 \index{log\+Init@{log\+Init}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal}}
@@ -219,7 +265,7 @@ Passes the goals to the log of the search algorithm.
 \end{DoxyTemplParams}
 
 
-Definition at line 143 of file goal\+\_\+handlers.\+h.
+Definition at line 145 of file goal\+\_\+handlers.\+h.
 
 
 

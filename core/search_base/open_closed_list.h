@@ -133,6 +133,8 @@ template <class OpenList> struct OpenClosedList {
         return KeyType(n);
     }
 
+    /// Return the reference to the open list.
+    /// \return The reference to the open list.
     OpenList &ol() { return ol_; }
 private:
     OpenList ol_; ///< The open list.
