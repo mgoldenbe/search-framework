@@ -1,0 +1,582 @@
+\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{}\subsection{slb\+:\+:ext\+:\+:domain\+:\+:sliding\+\_\+tile\+:\+:Sliding\+Tile$<$ n\+Rows, n\+Columns $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile$<$ n\+Rows, n\+Columns $>$@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile$<$ n\+Rows, n\+Columns $>$}}
+
+
+The sliding-\/tile puzzle domain.  
+
+
+
+
+{\ttfamily \#include $<$sliding\+\_\+tile.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:domain\+:\+:sliding\+\_\+tile\+:\+:Sliding\+Tile$<$ n\+Rows, n\+Columns $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:domain\+:\+:sliding\+\_\+tile\+:\+:Sliding\+Tile$<$ n\+Rows, n\+Columns $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aba79ace10810220595709f1f0d50d710}{Cost\+Type} = int\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aba79ace10810220595709f1f0d50d710}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aba79ace10810220595709f1f0d50d710}
+
+\begin{DoxyCompactList}\small\item\em The type representing the cost of actions in the domain. Every domain must provide this name. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8b2f287fea14ab7e8afaf37e63b5257d}{S\+Neighbor} = \hyperlink{structslb_1_1core_1_1sb_1_1StateNeighbor}{core\+::sb\+::\+State\+Neighbor}$<$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} $>$\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8b2f287fea14ab7e8afaf37e63b5257d}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8b2f287fea14ab7e8afaf37e63b5257d}
+
+\begin{DoxyCompactList}\small\item\em State neighbor type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad70d129acaffb4db0b286870379cd047}{A\+Neighbor} = \hyperlink{structslb_1_1core_1_1sb_1_1ActionNeighbor}{core\+::sb\+::\+Action\+Neighbor}$<$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} $>$\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad70d129acaffb4db0b286870379cd047}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad70d129acaffb4db0b286870379cd047}
+
+\begin{DoxyCompactList}\small\item\em Action neighbor type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af40ada89a9d6c41d673e1330f0849ed4}{Action} = int\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af40ada89a9d6c41d673e1330f0849ed4}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af40ada89a9d6c41d673e1330f0849ed4}
+
+\begin{DoxyCompactList}\small\item\em The type for representing an action. The position of the tile being moved. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a61ca54ce983d74ea95d7e9700c337630}{Blank\+Actions} = std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad70d129acaffb4db0b286870379cd047}{A\+Neighbor} $>$\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a61ca54ce983d74ea95d7e9700c337630}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a61ca54ce983d74ea95d7e9700c337630}
+
+\begin{DoxyCompactList}\small\item\em The type for the vector of actions for a given position of the blank. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8fff8f76f90786fdf02bbf86037aeea6}{All\+Actions} = std\+::array$<$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a61ca54ce983d74ea95d7e9700c337630}{Blank\+Actions}, \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{size\+\_\+} $>$\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8fff8f76f90786fdf02bbf86037aeea6}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8fff8f76f90786fdf02bbf86037aeea6}
+
+\begin{DoxyCompactList}\small\item\em The type for all the actions in the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8c5cc54788024fdb2dc215414174a4d0}{Tile\+M\+D\+Deltas} = std\+::array$<$ std\+::array$<$ int, \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{size\+\_\+} $>$, \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{size\+\_\+} $>$\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8c5cc54788024fdb2dc215414174a4d0}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8c5cc54788024fdb2dc215414174a4d0}
+
+\begin{DoxyCompactList}\small\item\em The type for two-\/dimension array of Manhattan distance heuristic deltas for a given tile. The indexes are from and to of an action. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a82f77d8b64d6c82de4df1ff94b617df8}{All\+M\+D\+Deltas} = std\+::array$<$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8c5cc54788024fdb2dc215414174a4d0}{Tile\+M\+D\+Deltas}, \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{size\+\_\+} $>$\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a82f77d8b64d6c82de4df1ff94b617df8}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a82f77d8b64d6c82de4df1ff94b617df8}
+
+\begin{DoxyCompactList}\small\item\em The type for all Manhattan distance heuristic deltas. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aee77712842dd1a7162a343422b84e751}{Board} = std\+::array$<$ int, \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{size\+\_\+} $>$\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aee77712842dd1a7162a343422b84e751}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aee77712842dd1a7162a343422b84e751}
+
+\begin{DoxyCompactList}\small\item\em The type for raw state representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ac85878baa8b325d4ad998844232eb21b}{Sliding\+Tile} ()\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ac85878baa8b325d4ad998844232eb21b}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ac85878baa8b325d4ad998844232eb21b}
+
+\begin{DoxyCompactList}\small\item\em Initializes the ordered state. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a02bdb2b08d65958650aaead1b4802d0a}{Sliding\+Tile} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Initializes the state from a string, e.\+g. \char`\"{}\mbox{[}1, 4, 2, 3, 0, 5\mbox{]}\char`\"{} or \char`\"{}1 4 2
+4 0 5\char`\"{} for 3x2 board. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_afe58bda56736d2f5ea35eb06121bfe32}{Sliding\+Tile} (const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} \&)=default\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_afe58bda56736d2f5ea35eb06121bfe32}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_afe58bda56736d2f5ea35eb06121bfe32}
+
+\begin{DoxyCompactList}\small\item\em The default copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} \& \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a50235b922243e6878d1aa5044aaa48a7}{operator=} (const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} \&)=default
+\begin{DoxyCompactList}\small\item\em The default assignment operator. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aee77712842dd1a7162a343422b84e751}{Board} \& \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a6d0822d1fbf4f0b89efb386e358aaab0}{get\+Tiles} () const 
+\begin{DoxyCompactList}\small\item\em Returns the array of tiles at each position. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} \& \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a343857fed30edf7784306c2e9768f476}{apply} (\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af40ada89a9d6c41d673e1330f0849ed4}{Action} a)
+\begin{DoxyCompactList}\small\item\em Applies an action to the state. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af40ada89a9d6c41d673e1330f0849ed4}{Action} \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af6006ae00ad8074db8a31b7a1d74374f}{reverse\+Action} (\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af40ada89a9d6c41d673e1330f0849ed4}{Action} a) const 
+\begin{DoxyCompactList}\small\item\em Returns the reverse of the given action in this state. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8b2f287fea14ab7e8afaf37e63b5257d}{S\+Neighbor} $>$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a0485b2746a22d07955bc3fa169063a1b}{state\+Successors} () const 
+\begin{DoxyCompactList}\small\item\em Computes the state neighbors of the state. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad70d129acaffb4db0b286870379cd047}{A\+Neighbor} $>$ \& \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a77c7892e08ca211dd2685180422720aa}{action\+Successors} () const 
+\begin{DoxyCompactList}\small\item\em Computes the action neighbors of the state. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a1a215f7010b62fc1b0574f84ac72c090}{md\+Delta} (\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af40ada89a9d6c41d673e1330f0849ed4}{Action} a) const 
+\begin{DoxyCompactList}\small\item\em The change in the Manhattan distance heuristic to the goal state with ordered tiles and the blank at position 0 due to applying the given action. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a5e79fb57ec6ad7a8548e2fd5da247992}{md\+Heuristic} () const 
+\begin{DoxyCompactList}\small\item\em Computes the Manhattan distance heuristic to the goal state with ordered tiles and the blank at position 0. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a0f6270eb674ca8167a06692f6408a799}{hash} () const 
+\begin{DoxyCompactList}\small\item\em Computes the hash-\/code of the state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Stream $>$ }\\Stream \& \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aa65c672fdd8d540dd1858ba29ee69049}{dump} (Stream \&o) const 
+\begin{DoxyCompactList}\small\item\em Dumps the state to the given stream. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a776502ccb13c8304917d186857afa054}{shuffle} ()\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a776502ccb13c8304917d186857afa054}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a776502ccb13c8304917d186857afa054}
+
+\begin{DoxyCompactList}\small\item\em Randomly shuffles the tiles. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a4b292e0e315b5fcba0d5b3575fef9d76}{operator==} (const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em The equality operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile} \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a2116de092de3922770567c9c4b00da90}{random} ()
+\begin{DoxyCompactList}\small\item\em Returns a random state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{size\+\_\+} = n\+Rows $\ast$ n\+Columns\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}
+
+\begin{DoxyCompactList}\small\item\em Number of positions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a2a825815709bc895b3926da165cc8e17}{row} (int pos)
+\begin{DoxyCompactList}\small\item\em Computes the row number corresponding to the given position. \end{DoxyCompactList}\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ac3c046cb012a8c4298e1d287f28caaf3}{row\+Diff} (int pos1, int pos2)
+\begin{DoxyCompactList}\small\item\em The difference between the row numbers corresponding to the two given positions. \end{DoxyCompactList}\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9339389af6d038bb0699248d1e69890b}{row\+Dist} (int pos1, int pos2)
+\begin{DoxyCompactList}\small\item\em The distance between the row numbers corresponding to the two given positions. \end{DoxyCompactList}\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a1cd545116fe1688cdf58415222f167f7}{col} (int pos)
+\begin{DoxyCompactList}\small\item\em Computes the column number corresponding to the given position. \end{DoxyCompactList}\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aeffc0c584f55d1eb31a50a88ed1315d6}{col\+Diff} (int pos1, int pos2)
+\begin{DoxyCompactList}\small\item\em The difference between the column numbers corresponding to the two given positions. \end{DoxyCompactList}\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a4e42075a87a7e34fafc8493803f47638}{col\+Dist} (int pos1, int pos2)
+\begin{DoxyCompactList}\small\item\em The distance between the column numbers corresponding to the two given positions. \end{DoxyCompactList}\item 
+static \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8fff8f76f90786fdf02bbf86037aeea6}{All\+Actions} \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad52481727fb1624f5ada2f57807c4dc9}{compute\+All\+Actions} ()\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad52481727fb1624f5ada2f57807c4dc9}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ad52481727fb1624f5ada2f57807c4dc9}
+
+\begin{DoxyCompactList}\small\item\em Computes the actions available for each position of the blank. \end{DoxyCompactList}\item 
+static \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a82f77d8b64d6c82de4df1ff94b617df8}{All\+M\+D\+Deltas} \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_abf0e81ff790b1812eeb04b1cef260ad6}{compute\+All\+M\+D\+Deltas} ()
+\begin{DoxyCompactList}\small\item\em Computes the heuristic updates for all the possible moves. \end{DoxyCompactList}\item 
+static const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a8fff8f76f90786fdf02bbf86037aeea6}{All\+Actions} \& \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a65ad693b3680bb4b8b78137054f6f35e}{all\+Actions\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Returns all the actions. \end{DoxyCompactList}\item 
+static const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a82f77d8b64d6c82de4df1ff94b617df8}{All\+M\+D\+Deltas} \& \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a28beffc0d55344e06a839d3cd9f309c3}{md\+Deltas\+\_\+} ()\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a28beffc0d55344e06a839d3cd9f309c3}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a28beffc0d55344e06a839d3cd9f309c3}
+
+\begin{DoxyCompactList}\small\item\em Returns all the updates of the MD heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ int, \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9a400ee0feba20908873e59620cff314}{size\+\_\+} $>$ \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aadec60e6620cea297315e416fb11696f}{tiles\+\_\+}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aadec60e6620cea297315e416fb11696f}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aadec60e6620cea297315e416fb11696f}
+
+\begin{DoxyCompactList}\small\item\em Tile at each position. This does not include the position of the blank, which is stored separately. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aba25dac2bdc4e5445e3234508af9bde2}{blank\+\_\+} \{\}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aba25dac2bdc4e5445e3234508af9bde2}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aba25dac2bdc4e5445e3234508af9bde2}
+
+\begin{DoxyCompactList}\small\item\em Blank position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$int n\+Rows, int n\+Columns$>$\\*
+struct slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile$<$ n\+Rows, n\+Columns $>$}
+
+The sliding-\/tile puzzle domain. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n\+Rows} & Number of rows on the board. \\
+\hline
+{\em n\+Rows} & Number of columns on the board. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 20 of file sliding\+\_\+tile.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!Sliding\+Tile@{Sliding\+Tile}}
+\index{Sliding\+Tile@{Sliding\+Tile}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{Sliding\+Tile(const std\+::string \&s)}{SlidingTile(const std::string &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::{\bf Sliding\+Tile} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a02bdb2b08d65958650aaead1b4802d0a}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a02bdb2b08d65958650aaead1b4802d0a}
+
+
+Initializes the state from a string, e.\+g. \char`\"{}\mbox{[}1, 4, 2, 3, 0, 5\mbox{]}\char`\"{} or \char`\"{}1 4 2
+4 0 5\char`\"{} for 3x2 board. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The string. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file sliding\+\_\+tile.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!action\+Successors@{action\+Successors}}
+\index{action\+Successors@{action\+Successors}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{action\+Successors() const }{actionSuccessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ const std\+::vector$<${\bf A\+Neighbor}$>$\& {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::action\+Successors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a77c7892e08ca211dd2685180422720aa}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a77c7892e08ca211dd2685180422720aa}
+
+
+Computes the action neighbors of the state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of action neighbors of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!all\+Actions\+\_\+@{all\+Actions\+\_\+}}
+\index{all\+Actions\+\_\+@{all\+Actions\+\_\+}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{all\+Actions\+\_\+()}{allActions_()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static const {\bf All\+Actions}\& {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::all\+Actions\+\_\+ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a65ad693b3680bb4b8b78137054f6f35e}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a65ad693b3680bb4b8b78137054f6f35e}
+
+
+Returns all the actions. 
+
+\begin{DoxyNote}{Note}
+See \href{http://stackoverflow.com/a/42208278/2725810}{\tt http\+://stackoverflow.\+com/a/42208278/2725810} 
+\end{DoxyNote}
+
+
+Definition at line 258 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!apply@{apply}}
+\index{apply@{apply}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{apply(\+Action a)}{apply(Action a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ {\bf Sliding\+Tile}\& {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Action}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a343857fed30edf7784306c2e9768f476}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a343857fed30edf7784306c2e9768f476}
+
+
+Applies an action to the state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The action to be applied, i.\+e. the next position of the blank on the board. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state after the action. 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!col@{col}}
+\index{col@{col}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{col(int pos)}{col(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::col (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a1cd545116fe1688cdf58415222f167f7}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a1cd545116fe1688cdf58415222f167f7}
+
+
+Computes the column number corresponding to the given position. 
+
+\begin{DoxyReturn}{Returns}
+The column number corresponding to the given position. 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!col\+Diff@{col\+Diff}}
+\index{col\+Diff@{col\+Diff}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{col\+Diff(int pos1, int pos2)}{colDiff(int pos1, int pos2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::col\+Diff (
+\begin{DoxyParamCaption}
+\item[{int}]{pos1, }
+\item[{int}]{pos2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aeffc0c584f55d1eb31a50a88ed1315d6}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aeffc0c584f55d1eb31a50a88ed1315d6}
+
+
+The difference between the column numbers corresponding to the two given positions. 
+
+\begin{DoxyReturn}{Returns}
+The difference between the column numbers corresponding to the two given positions. 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!col\+Dist@{col\+Dist}}
+\index{col\+Dist@{col\+Dist}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{col\+Dist(int pos1, int pos2)}{colDist(int pos1, int pos2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::col\+Dist (
+\begin{DoxyParamCaption}
+\item[{int}]{pos1, }
+\item[{int}]{pos2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a4e42075a87a7e34fafc8493803f47638}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a4e42075a87a7e34fafc8493803f47638}
+
+
+The distance between the column numbers corresponding to the two given positions. 
+
+\begin{DoxyReturn}{Returns}
+The distance between the column numbers corresponding to the two given positions. 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!compute\+All\+M\+D\+Deltas@{compute\+All\+M\+D\+Deltas}}
+\index{compute\+All\+M\+D\+Deltas@{compute\+All\+M\+D\+Deltas}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{compute\+All\+M\+D\+Deltas()}{computeAllMDDeltas()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static {\bf All\+M\+D\+Deltas} {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::compute\+All\+M\+D\+Deltas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_abf0e81ff790b1812eeb04b1cef260ad6}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_abf0e81ff790b1812eeb04b1cef260ad6}
+
+
+Computes the heuristic updates for all the possible moves. 
+
+\begin{DoxyReturn}{Returns}
+The heuristic updates for all the possible moves. 
+\end{DoxyReturn}
+
+
+Definition at line 241 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!dump@{dump}}
+\index{dump@{dump}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{dump(\+Stream \&o) const }{dump(Stream &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ template$<$class Stream $>$ Stream\& {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::dump (
+\begin{DoxyParamCaption}
+\item[{Stream \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aa65c672fdd8d540dd1858ba29ee69049}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_aa65c672fdd8d540dd1858ba29ee69049}
+
+
+Dumps the state to the given stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em The} & stream type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified stream. 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!get\+Tiles@{get\+Tiles}}
+\index{get\+Tiles@{get\+Tiles}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{get\+Tiles() const }{getTiles() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ const {\bf Board}\& {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::get\+Tiles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a6d0822d1fbf4f0b89efb386e358aaab0}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a6d0822d1fbf4f0b89efb386e358aaab0}
+
+
+Returns the array of tiles at each position. 
+
+\begin{DoxyReturn}{Returns}
+The raw representation of the state, which is the array of tiles at each position.. 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!hash@{hash}}
+\index{hash@{hash}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{hash() const }{hash() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ std\+::size\+\_\+t {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::hash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a0f6270eb674ca8167a06692f6408a799}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a0f6270eb674ca8167a06692f6408a799}
+
+
+Computes the hash-\/code of the state. 
+
+\begin{DoxyReturn}{Returns}
+The hash-\/code of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 139 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!md\+Delta@{md\+Delta}}
+\index{md\+Delta@{md\+Delta}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{md\+Delta(\+Action a) const }{mdDelta(Action a) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::md\+Delta (
+\begin{DoxyParamCaption}
+\item[{{\bf Action}}]{a}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a1a215f7010b62fc1b0574f84ac72c090}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a1a215f7010b62fc1b0574f84ac72c090}
+
+
+The change in the Manhattan distance heuristic to the goal state with ordered tiles and the blank at position 0 due to applying the given action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The given action. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The change in the Manhattan distance heuristic to the goal state with ordered pancake due to applying the given action. 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!md\+Heuristic@{md\+Heuristic}}
+\index{md\+Heuristic@{md\+Heuristic}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{md\+Heuristic() const }{mdHeuristic() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::md\+Heuristic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a5e79fb57ec6ad7a8548e2fd5da247992}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a5e79fb57ec6ad7a8548e2fd5da247992}
+
+
+Computes the Manhattan distance heuristic to the goal state with ordered tiles and the blank at position 0. 
+
+\begin{DoxyReturn}{Returns}
+The Manhattan distance heuristic to the goal state with ordered tiles and the blank at position 0. 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!operator=@{operator=}}
+\index{operator=@{operator=}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{operator=(const Sliding\+Tile \&)=default}{operator=(const SlidingTile &)=default}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ {\bf Sliding\+Tile}\& {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a50235b922243e6878d1aa5044aaa48a7}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a50235b922243e6878d1aa5044aaa48a7}
+
+
+The default assignment operator. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the assigned state. 
+\end{DoxyReturn}
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!operator==@{operator==}}
+\index{operator==@{operator==}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{operator==(const Sliding\+Tile \&rhs) const }{operator==(const SlidingTile &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ bool {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a4b292e0e315b5fcba0d5b3575fef9d76}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a4b292e0e315b5fcba0d5b3575fef9d76}
+
+
+The equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side of the operator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the two states compare equal and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!random@{random}}
+\index{random@{random}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{random()}{random()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static {\bf Sliding\+Tile} {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a2116de092de3922770567c9c4b00da90}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a2116de092de3922770567c9c4b00da90}
+
+
+Returns a random state. 
+
+\begin{DoxyReturn}{Returns}
+A random state. 
+\end{DoxyReturn}
+
+
+Definition at line 172 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!reverse\+Action@{reverse\+Action}}
+\index{reverse\+Action@{reverse\+Action}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{reverse\+Action(\+Action a) const }{reverseAction(Action a) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ {\bf Action} {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::reverse\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Action}}]{a}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af6006ae00ad8074db8a31b7a1d74374f}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_af6006ae00ad8074db8a31b7a1d74374f}
+
+
+Returns the reverse of the given action in this state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The action whose reverse is to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reverse of the given action. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!row@{row}}
+\index{row@{row}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{row(int pos)}{row(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::row (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a2a825815709bc895b3926da165cc8e17}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a2a825815709bc895b3926da165cc8e17}
+
+
+Computes the row number corresponding to the given position. 
+
+\begin{DoxyReturn}{Returns}
+The row number corresponding to the given position. 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!row\+Diff@{row\+Diff}}
+\index{row\+Diff@{row\+Diff}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{row\+Diff(int pos1, int pos2)}{rowDiff(int pos1, int pos2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::row\+Diff (
+\begin{DoxyParamCaption}
+\item[{int}]{pos1, }
+\item[{int}]{pos2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ac3c046cb012a8c4298e1d287f28caaf3}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_ac3c046cb012a8c4298e1d287f28caaf3}
+
+
+The difference between the row numbers corresponding to the two given positions. 
+
+\begin{DoxyReturn}{Returns}
+The difference between the row numbers corresponding to the two given positions. 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!row\+Dist@{row\+Dist}}
+\index{row\+Dist@{row\+Dist}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{row\+Dist(int pos1, int pos2)}{rowDist(int pos1, int pos2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ static int {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::row\+Dist (
+\begin{DoxyParamCaption}
+\item[{int}]{pos1, }
+\item[{int}]{pos2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9339389af6d038bb0699248d1e69890b}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a9339389af6d038bb0699248d1e69890b}
+
+
+The distance between the row numbers corresponding to the two given positions. 
+
+\begin{DoxyReturn}{Returns}
+The distance between the row numbers corresponding to the two given positions. 
+\end{DoxyReturn}
+
+
+Definition at line 200 of file sliding\+\_\+tile.\+h.
+
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}!state\+Successors@{state\+Successors}}
+\index{state\+Successors@{state\+Successors}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}}
+\paragraph[{\texorpdfstring{state\+Successors() const }{stateSuccessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ std\+::vector$<${\bf S\+Neighbor}$>$ {\bf slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::state\+Successors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a0485b2746a22d07955bc3fa169063a1b}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile_a0485b2746a22d07955bc3fa169063a1b}
+
+
+Computes the state neighbors of the state. 
+
+\begin{DoxyReturn}{Returns}
+Vector of state neighbors of the state. 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file sliding\+\_\+tile.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{sliding__tile_8h}{sliding\+\_\+tile.\+h}\end{DoxyCompactItemize}

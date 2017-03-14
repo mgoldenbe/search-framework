@@ -1,0 +1,69 @@
+\hypertarget{extensions_2heuristics_2differential_2headers_8h}{}\subsection{extensions/heuristics/differential/headers.h File Reference}
+\label{extensions_2heuristics_2differential_2headers_8h}\index{extensions/heuristics/differential/headers.\+h@{extensions/heuristics/differential/headers.\+h}}
+
+
+The heuristics (not heuristic policies, so they do not accept the algorithm type as a template parameter).  
+
+
+{\ttfamily \#include \char`\"{}explicit\+\_\+domain\+\_\+indices.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}differential.\+h\char`\"{}}\\*
+Include dependency graph for headers.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{extensions_2heuristics_2differential_2headers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{extensions_2heuristics_2differential_2headers_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext}{slb\+::ext}
+\begin{DoxyCompactList}\small\item\em The user extensions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1algorithm}{slb\+::ext\+::algorithm}
+\begin{DoxyCompactList}\small\item\em The search algorithms. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1heuristic}{slb\+::ext\+::heuristic}
+\begin{DoxyCompactList}\small\item\em The heuristics (not heuristic policies, so they do not accept the algorithm type as a template parameter). \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1heuristic_1_1differential}{slb\+::ext\+::heuristic\+::differential}
+\begin{DoxyCompactList}\small\item\em The differential heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{extensions_2heuristics_2differential_2headers_8h_aceefaaf349674d946fa133345ccb6226}{Index\+Kind} \{ {\bfseries none}, 
+{\bfseries no\+Inverse}, 
+{\bfseries with\+Inverse}
+ \}\begin{DoxyCompactList}\small\item\em Kinds of indexing functions. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The heuristics (not heuristic policies, so they do not accept the algorithm type as a template parameter). 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}
+
+
+\subsubsection{Enumeration Type Documentation}
+\index{extensions/heuristics/differential/headers.\+h@{extensions/heuristics/differential/headers.\+h}!Index\+Kind@{Index\+Kind}}
+\index{Index\+Kind@{Index\+Kind}!extensions/heuristics/differential/headers.\+h@{extensions/heuristics/differential/headers.\+h}}
+\paragraph[{\texorpdfstring{Index\+Kind}{IndexKind}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Index\+Kind}\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{extensions_2heuristics_2differential_2headers_8h_aceefaaf349674d946fa133345ccb6226}{}\label{extensions_2heuristics_2differential_2headers_8h_aceefaaf349674d946fa133345ccb6226}
+
+
+Kinds of indexing functions. 
+
+\begin{DoxyNote}{Note}
+All the members of an index are static. An index without an inverse provides only the static constexpr member {\ttfamily kind} of the Index\+Kind type, the {\ttfamily to} function to compute an index based on step and a {\ttfamily size} member showing the size of the range of possible indices. An index with inverse provides in addition the {\ttfamily from} function to compute state based on index. 
+\end{DoxyNote}
+
+
+Definition at line 33 of file headers.\+h.
+

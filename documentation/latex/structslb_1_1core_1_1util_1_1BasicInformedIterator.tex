@@ -1,0 +1,242 @@
+\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator}{}\subsection{slb\+:\+:core\+:\+:util\+:\+:Basic\+Informed\+Iterator$<$ Container, Base $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1util_1_1BasicInformedIterator}\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator$<$ Container, Base $>$@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator$<$ Container, Base $>$}}
+
+
+Adapter for iterator that knows whether it is at the end.  
+
+
+
+
+{\ttfamily \#include $<$container.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:util\+:\+:Basic\+Informed\+Iterator$<$ Container, Base $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{structslb_1_1core_1_1util_1_1BasicInformedIterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:util\+:\+:Basic\+Informed\+Iterator$<$ Container, Base $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{structslb_1_1core_1_1util_1_1BasicInformedIterator__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_a5df42d0174c2107d33c2c797b6510cd9}{Basic\+Informed\+Iterator} (Container \&c)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_a1703216a7bd1c0d0a0dd02ed5a946ad9}{Basic\+Informed\+Iterator} (Container \&c, Base b)
+\begin{DoxyCompactList}\small\item\em Constructor based on the given base iterator. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_ad87320b140e204fb3a1878ec244fbab2}{Basic\+Informed\+Iterator} (const \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator}{Basic\+Informed\+Iterator} \&b)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_ac9c0870a0d2ecea6c987c0c461afb15d}{is\+Begin} () const 
+\begin{DoxyCompactList}\small\item\em Checks whether the iterator is at the beginning of the container. \end{DoxyCompactList}\item 
+bool \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_a4a41e1c9f51ce3d202a0c010cefe5984}{is\+End} () const 
+\begin{DoxyCompactList}\small\item\em Checks whether the iterator is at the end of the container. \end{DoxyCompactList}\item 
+Container \& \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_a110589c99038df127259fb2e17cb2ba3}{container} () const 
+\begin{DoxyCompactList}\small\item\em Returns reference to the underlying container. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator}{Basic\+Informed\+Iterator} \& \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_a9f6c85b4389b4e023fb68c3817a22c4d}{operator=} (const \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator}{Basic\+Informed\+Iterator} \&rhs)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_a50d044b0f6b994f5bdd0e6fed3660f6e}{index} () const 
+\begin{DoxyCompactList}\small\item\em Computes the index corresponding to the iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Container \& \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator_a917c20e6bce46eb0666bd58c5371af53}{c\+\_\+}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_a917c20e6bce46eb0666bd58c5371af53}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_a917c20e6bce46eb0666bd58c5371af53}
+
+\begin{DoxyCompactList}\small\item\em The underlying container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Container, class Base$>$\\*
+struct slb\+::core\+::util\+::\+Basic\+Informed\+Iterator$<$ Container, Base $>$}
+
+Adapter for iterator that knows whether it is at the end. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & The underlying container type. \\
+\hline
+{\em Base} & The base iterator, can be Constainer\+::iterator or Container\+::const\+\_\+iterator. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 109 of file container.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!Basic\+Informed\+Iterator@{Basic\+Informed\+Iterator}}
+\index{Basic\+Informed\+Iterator@{Basic\+Informed\+Iterator}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{Basic\+Informed\+Iterator(\+Container \&c)}{BasicInformedIterator(Container &c)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::{\bf Basic\+Informed\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{Container \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_a5df42d0174c2107d33c2c797b6510cd9}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_a5df42d0174c2107d33c2c797b6510cd9}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Reference to the container. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 112 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!Basic\+Informed\+Iterator@{Basic\+Informed\+Iterator}}
+\index{Basic\+Informed\+Iterator@{Basic\+Informed\+Iterator}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{Basic\+Informed\+Iterator(\+Container \&c, Base b)}{BasicInformedIterator(Container &c, Base b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::{\bf Basic\+Informed\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{Container \&}]{c, }
+\item[{Base}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_a1703216a7bd1c0d0a0dd02ed5a946ad9}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_a1703216a7bd1c0d0a0dd02ed5a946ad9}
+
+
+Constructor based on the given base iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Reference to the container. \\
+\hline
+{\em b} & Base iterator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 117 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!Basic\+Informed\+Iterator@{Basic\+Informed\+Iterator}}
+\index{Basic\+Informed\+Iterator@{Basic\+Informed\+Iterator}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{Basic\+Informed\+Iterator(const Basic\+Informed\+Iterator \&b)}{BasicInformedIterator(const BasicInformedIterator &b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::{\bf Basic\+Informed\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Basic\+Informed\+Iterator}$<$ Container, Base $>$ \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_ad87320b140e204fb3a1878ec244fbab2}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_ad87320b140e204fb3a1878ec244fbab2}
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & The given iterator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file container.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!container@{container}}
+\index{container@{container}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{container() const }{container() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ Container\& {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_a110589c99038df127259fb2e17cb2ba3}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_a110589c99038df127259fb2e17cb2ba3}
+
+
+Returns reference to the underlying container. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the underlying container. 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!index@{index}}
+\index{index@{index}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{index() const }{index() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ int {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_a50d044b0f6b994f5bdd0e6fed3660f6e}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_a50d044b0f6b994f5bdd0e6fed3660f6e}
+
+
+Computes the index corresponding to the iterator. 
+
+\begin{DoxyReturn}{Returns}
+The index corresponding to the iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!is\+Begin@{is\+Begin}}
+\index{is\+Begin@{is\+Begin}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{is\+Begin() const }{isBegin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ bool {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::is\+Begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_ac9c0870a0d2ecea6c987c0c461afb15d}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_ac9c0870a0d2ecea6c987c0c461afb15d}
+
+
+Checks whether the iterator is at the beginning of the container. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the iterator is at the beginning of the container and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!is\+End@{is\+End}}
+\index{is\+End@{is\+End}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{is\+End() const }{isEnd() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ bool {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::is\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_a4a41e1c9f51ce3d202a0c010cefe5984}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_a4a41e1c9f51ce3d202a0c010cefe5984}
+
+
+Checks whether the iterator is at the end of the container. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the iterator is at the end of the container and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 131 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}!operator=@{operator=}}
+\index{operator=@{operator=}!slb\+::core\+::util\+::\+Basic\+Informed\+Iterator@{slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}}
+\paragraph[{\texorpdfstring{operator=(const Basic\+Informed\+Iterator \&rhs)}{operator=(const BasicInformedIterator &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Container, class Base$>$ {\bf Basic\+Informed\+Iterator}\& {\bf slb\+::core\+::util\+::\+Basic\+Informed\+Iterator}$<$ Container, Base $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Basic\+Informed\+Iterator}$<$ Container, Base $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicInformedIterator_a9f6c85b4389b4e023fb68c3817a22c4d}{}\label{structslb_1_1core_1_1util_1_1BasicInformedIterator_a9f6c85b4389b4e023fb68c3817a22c4d}
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side iterator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the resulting iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file container.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{container_8h}{container.\+h}\end{DoxyCompactItemize}

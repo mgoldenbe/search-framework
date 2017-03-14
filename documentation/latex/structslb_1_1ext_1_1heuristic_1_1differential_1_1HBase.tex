@@ -1,0 +1,144 @@
+\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase}{}\subsection{slb\+:\+:ext\+:\+:heuristic\+:\+:differential\+:\+:H\+Base$<$ State, Base\+Heuristic, Index $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase}\index{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base$<$ State, Base\+Heuristic, Index $>$@{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base$<$ State, Base\+Heuristic, Index $>$}}
+
+
+The differential heuristic with unspecified placement strategy.  
+
+
+
+
+{\ttfamily \#include $<$differential.\+h$>$}
+
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:heuristic\+:\+:differential\+:\+:H\+Base$<$ State, Base\+Heuristic, Index $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aef5c049026cfd3aeabd2b15d97fbbd1f}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aef5c049026cfd3aeabd2b15d97fbbd1f}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aef5c049026cfd3aeabd2b15d97fbbd1f}
+
+\begin{DoxyCompactList}\small\item\em The action cost type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a616a127e34765bea6c069fc3faa4aafb}{Distances} = \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots}{Distances\+To\+Pivots}$<$ State, Index $>$\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a616a127e34765bea6c069fc3faa4aafb}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a616a127e34765bea6c069fc3faa4aafb}
+
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ }\\\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ad75b1c656e17ff1446ce5356930ebef8}{H\+Base} (const State \&goal)
+\begin{DoxyCompactList}\small\item\em The constructor. It is a template to handle the --n\+Pivots command line option and not create a problem for configurations without this option. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aef5c049026cfd3aeabd2b15d97fbbd1f}{Cost\+Type} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ae8896ffe8943d1c6882babd7d4e724a3}{operator()} (const State \&s) const 
+\begin{DoxyCompactList}\small\item\em The call operator that computes the heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a1a0ff1f5ff5a750f2428f5241375640f}{my\+Make\+Pivots} ()=0\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a1a0ff1f5ff5a750f2428f5241375640f}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a1a0ff1f5ff5a750f2428f5241375640f}
+
+\begin{DoxyCompactList}\small\item\em Abstract virtual function for computing pivot placement. To be overrided by heuristics with a particular placement strategy. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aa56f8b55c82c5b2dc2e2f5c7a4a4d203}{make\+Pivots} ()\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aa56f8b55c82c5b2dc2e2f5c7a4a4d203}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aa56f8b55c82c5b2dc2e2f5c7a4a4d203}
+
+\begin{DoxyCompactList}\small\item\em Computes pivot placement. Defers the actual work to my\+Make\+Pivots. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aa2ad978bc22d55014671017da92e57f7}{fill\+Goal\+To\+Pivots} ()\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aa2ad978bc22d55014671017da92e57f7}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aa2ad978bc22d55014671017da92e57f7}
+
+\begin{DoxyCompactList}\small\item\em Fills goal-\/to-\/pivot distances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_af16f4d8f32e1dfe0b316ee8ec4648fc7}{n\+Pivots\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_af16f4d8f32e1dfe0b316ee8ec4648fc7}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_af16f4d8f32e1dfe0b316ee8ec4648fc7}
+
+\begin{DoxyCompactList}\small\item\em Number of pivots. \end{DoxyCompactList}\item 
+const State \& \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a45ab1399d03b8710ea0739f31169ec59}{goal\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a45ab1399d03b8710ea0739f31169ec59}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a45ab1399d03b8710ea0739f31169ec59}
+
+\begin{DoxyCompactList}\small\item\em The goal state. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_aef5c049026cfd3aeabd2b15d97fbbd1f}{Cost\+Type} $>$ \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a341a171bb89d85cf0e552a0d5f603ca0}{goal\+To\+Pivots\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a341a171bb89d85cf0e552a0d5f603ca0}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a341a171bb89d85cf0e552a0d5f603ca0}
+
+\begin{DoxyCompactList}\small\item\em Goal-\/to-\/pivot distances. \end{DoxyCompactList}\item 
+Base\+Heuristic \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ab3d68a95e76ea433f8b5e299a7a1242e}{heuristic\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ab3d68a95e76ea433f8b5e299a7a1242e}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ab3d68a95e76ea433f8b5e299a7a1242e}
+
+\begin{DoxyCompactList}\small\item\em The underlying heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a616a127e34765bea6c069fc3faa4aafb}{Distances} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a393a3a4cad2b4c0e4c16d41c97cc27c8}{distances\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a393a3a4cad2b4c0e4c16d41c97cc27c8}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_a393a3a4cad2b4c0e4c16d41c97cc27c8}
+
+\begin{DoxyCompactList}\small\item\em Distances to pivots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State, class Base\+Heuristic, class Index = No\+Index$>$\\*
+struct slb\+::ext\+::heuristic\+::differential\+::\+H\+Base$<$ State, Base\+Heuristic, Index $>$}
+
+The differential heuristic with unspecified placement strategy. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type representing the search domain. \\
+\hline
+{\em Base\+Heuristic} & The underlying heuristic. \\
+\hline
+{\em Index} & Mapping of states to indices. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 45 of file differential.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base@{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base}!H\+Base@{H\+Base}}
+\index{H\+Base@{H\+Base}!slb\+::ext\+::heuristic\+::differential\+::\+H\+Base@{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base}}
+\paragraph[{\texorpdfstring{H\+Base(const State \&goal)}{HBase(const State &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State, class Base\+Heuristic, class Index = No\+Index$>$ template$<$C\+M\+D\+\_\+\+T\+P\+A\+R\+AM $>$ {\bf slb\+::ext\+::heuristic\+::differential\+::\+H\+Base}$<$ State, Base\+Heuristic, Index $>$\+::{\bf H\+Base} (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ad75b1c656e17ff1446ce5356930ebef8}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ad75b1c656e17ff1446ce5356930ebef8}
+
+
+The constructor. It is a template to handle the --n\+Pivots command line option and not create a problem for configurations without this option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The goal state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file differential.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base@{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base}!operator()@{operator()}}
+\index{operator()@{operator()}!slb\+::ext\+::heuristic\+::differential\+::\+H\+Base@{slb\+::ext\+::heuristic\+::differential\+::\+H\+Base}}
+\paragraph[{\texorpdfstring{operator()(const State \&s) const }{operator()(const State &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State, class Base\+Heuristic, class Index = No\+Index$>$ {\bf Cost\+Type} {\bf slb\+::ext\+::heuristic\+::differential\+::\+H\+Base}$<$ State, Base\+Heuristic, Index $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ae8896ffe8943d1c6882babd7d4e724a3}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase_ae8896ffe8943d1c6882babd7d4e724a3}
+
+
+The call operator that computes the heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state for which the heuristic needs to be computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The heuristic from {\ttfamily s}. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file differential.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/heuristics/differential/\hyperlink{differential_8h}{differential.\+h}\end{DoxyCompactItemize}

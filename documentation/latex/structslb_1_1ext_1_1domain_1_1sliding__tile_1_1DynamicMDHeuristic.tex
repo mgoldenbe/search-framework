@@ -1,0 +1,58 @@
+\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic}{}\subsection{slb\+:\+:ext\+:\+:domain\+:\+:sliding\+\_\+tile\+:\+:Dynamic\+M\+D\+Heuristic Struct Reference}
+\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic}\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Dynamic\+M\+D\+Heuristic@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Dynamic\+M\+D\+Heuristic}}
+
+
+Functor for computing the dynamic Manhattan distance heuristic to the goal state with ordered pancakes and blank at position 0.  
+
+
+
+
+{\ttfamily \#include $<$sliding\+\_\+tile.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int n\+Rows, int n\+Columns$>$ }\\\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic_a5404b91da8e8562fbabe43e0a57d1ab6}{Dynamic\+M\+D\+Heuristic} (const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&)\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic_a5404b91da8e8562fbabe43e0a57d1ab6}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic_a5404b91da8e8562fbabe43e0a57d1ab6}
+
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor , int n\+Rows, int n\+Columns$>$ }\\int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic_ae0da625d0d9acb7d69b739d94a2fccab}{operator()} (const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&parent, typename \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::Cost\+Type, const Neighbor \&n) const 
+\begin{DoxyCompactList}\small\item\em The call operator. Dynamically computes the MD heuristic that results from applying a given action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Functor for computing the dynamic Manhattan distance heuristic to the goal state with ordered pancakes and blank at position 0. 
+
+Definition at line 291 of file sliding\+\_\+tile.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Dynamic\+M\+D\+Heuristic@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Dynamic\+M\+D\+Heuristic}!operator()@{operator()}}
+\index{operator()@{operator()}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Dynamic\+M\+D\+Heuristic@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Dynamic\+M\+D\+Heuristic}}
+\paragraph[{\texorpdfstring{operator()(const Sliding\+Tile$<$ n\+Rows, n\+Columns $>$ \&parent, typename Sliding\+Tile$<$ n\+Rows, n\+Columns $>$\+::\+Cost\+Type, const Neighbor \&n) const }{operator()(const SlidingTile< nRows, nColumns > &parent, typename SlidingTile< nRows, nColumns >::CostType, const Neighbor &n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Neighbor , int n\+Rows, int n\+Columns$>$ int slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+Dynamic\+M\+D\+Heuristic\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&}]{parent, }
+\item[{typename {\bf Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$\+::Cost\+Type}]{, }
+\item[{const Neighbor \&}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic_ae0da625d0d9acb7d69b739d94a2fccab}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1DynamicMDHeuristic_ae0da625d0d9acb7d69b739d94a2fccab}
+
+
+The call operator. Dynamically computes the MD heuristic that results from applying a given action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent state. \\
+\hline
+{\em n} & The neighbor. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 301 of file sliding\+\_\+tile.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{sliding__tile_8h}{sliding\+\_\+tile.\+h}\end{DoxyCompactItemize}

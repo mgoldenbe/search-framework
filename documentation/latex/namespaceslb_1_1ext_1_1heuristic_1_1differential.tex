@@ -1,0 +1,40 @@
+\hypertarget{namespaceslb_1_1ext_1_1heuristic_1_1differential}{}\subsection{slb\+:\+:ext\+:\+:heuristic\+:\+:differential Namespace Reference}
+\label{namespaceslb_1_1ext_1_1heuristic_1_1differential}\index{slb\+::ext\+::heuristic\+::differential@{slb\+::ext\+::heuristic\+::differential}}
+
+
+The differential heuristic.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1CommandLine}{Command\+Line}
+\begin{DoxyCompactList}\small\item\em Additions to the command line related to the differential heuristic. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap}{Distance\+Map}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. The different kinds of index functions are handled by specializations. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1noInverse_01_4}{Distance\+Map$<$ State, Index, Index\+Kind\+::no\+Inverse $>$}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. This specialization is for an index function without an inverse. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4}{Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. This specialization is for the situation without an index. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1withInverse_01_4}{Distance\+Map$<$ State, Index, Index\+Kind\+::with\+Inverse $>$}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. This specialization is for the case of an index function with an inverse. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots}{Distances\+To\+Pivots}
+\begin{DoxyCompactList}\small\item\em The type for working with distances to pivots. The general definition is for the situation with an index. The situation without an index is handled by a specialization. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_3_01State_00_01Index_00_01IndexKind_1_1none_01_4}{Distances\+To\+Pivots$<$ State, Index, Index\+Kind\+::none $>$}
+\begin{DoxyCompactList}\small\item\em The type for working with distances to pivots. This specialization is for the situation without an index. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1Furthest}{Furthest}
+\begin{DoxyCompactList}\small\item\em Type for the furthest placement policy. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1H}{H}
+\begin{DoxyCompactList}\small\item\em The differential heuristic. Specializations are for particular placement strategies. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667}{H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$}
+\begin{DoxyCompactList}\small\item\em The differential heuristic with the furthest placement strategy. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase}{H\+Base}
+\begin{DoxyCompactList}\small\item\em The differential heuristic with unspecified placement strategy. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1NoIndex}{No\+Index}
+\begin{DoxyCompactList}\small\item\em The type to denote the situation with no index. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot}{Pivot}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot}{Pivot} with distances to all the states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The differential heuristic. 

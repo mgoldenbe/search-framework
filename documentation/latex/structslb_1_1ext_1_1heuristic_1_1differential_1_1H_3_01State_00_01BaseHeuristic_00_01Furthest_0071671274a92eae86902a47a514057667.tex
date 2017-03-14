@@ -1,0 +1,123 @@
+\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667}{}\subsection{slb\+:\+:ext\+:\+:heuristic\+:\+:differential\+:\+:H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667}\index{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$@{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$}}
+
+
+The differential heuristic with the furthest placement strategy.  
+
+
+
+
+{\ttfamily \#include $<$differential.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:heuristic\+:\+:differential\+:\+:H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_00c620e7ab6ca309a15f26cb410bb0cd3f}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:heuristic\+:\+:differential\+:\+:H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_00e9395ee60bcf979f0e0cccc90c5a7dfe}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a11a59768ca1e8307b7b69daa0b0197ed}{My\+Base} = \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1HBase}{H\+Base}$<$ State, Base\+Heuristic, Compact\+Index $>$\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a11a59768ca1e8307b7b69daa0b0197ed}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a11a59768ca1e8307b7b69daa0b0197ed}
+
+\begin{DoxyCompactList}\small\item\em The direct base type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a719b3510be70cd0c8d6d1f562973db12}{H} (const State \&goal)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_af63742c56f7bc521f323db6881477713}{my\+Make\+Pivots} ()\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_af63742c56f7bc521f323db6881477713}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_af63742c56f7bc521f323db6881477713}
+
+\begin{DoxyCompactList}\small\item\em Computes pivot placement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+State \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a6ad762f8a4b0180df31211adb80747c6}{first\+Pivot} ()
+\begin{DoxyCompactList}\small\item\em Computes the location of the first pivot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State, class Base\+Heuristic, class Index\+With\+Inverse, class Compact\+Index$>$\\*
+struct slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$}
+
+The differential heuristic with the furthest placement strategy. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type representing the search domain. \\
+\hline
+{\em Base\+Heuristic} & The underlying heuristic. \\
+\hline
+{\em Placement} & The pivot placement strategy. \\
+\hline
+{\em Index\+With\+Inverse} & Mapping of states to indices with an inverse function. \\
+\hline
+{\em Compact\+Index} & Mapping of states to indices that tries to use a small (or even sequential) range of indices. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 134 of file differential.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$@{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$}!H@{H}}
+\index{H@{H}!slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$@{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$}}
+\paragraph[{\texorpdfstring{H(const State \&goal)}{H(const State &goal)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Base\+Heuristic , class Index\+With\+Inverse , class Compact\+Index $>$ {\bf slb\+::ext\+::heuristic\+::differential\+::H}$<$ State, Base\+Heuristic, {\bf Furthest}, Index\+With\+Inverse, Compact\+Index $>$\+::{\bf H} (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{goal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a719b3510be70cd0c8d6d1f562973db12}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a719b3510be70cd0c8d6d1f562973db12}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & The goal state. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file differential.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$@{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$}!first\+Pivot@{first\+Pivot}}
+\index{first\+Pivot@{first\+Pivot}!slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$@{slb\+::ext\+::heuristic\+::differential\+::\+H$<$ State, Base\+Heuristic, Furthest, Index\+With\+Inverse, Compact\+Index $>$}}
+\paragraph[{\texorpdfstring{first\+Pivot()}{firstPivot()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Base\+Heuristic , class Index\+With\+Inverse , class Compact\+Index $>$ State {\bf slb\+::ext\+::heuristic\+::differential\+::H}$<$ State, Base\+Heuristic, {\bf Furthest}, Index\+With\+Inverse, Compact\+Index $>$\+::first\+Pivot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a6ad762f8a4b0180df31211adb80747c6}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1H_3_01State_00_01BaseHeuristic_00_01Furthest_0071671274a92eae86902a47a514057667_a6ad762f8a4b0180df31211adb80747c6}
+
+
+Computes the location of the first pivot. 
+
+\begin{DoxyReturn}{Returns}
+The state, which is the first pivot. 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file differential.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/heuristics/differential/\hyperlink{differential_8h}{differential.\+h}\end{DoxyCompactItemize}

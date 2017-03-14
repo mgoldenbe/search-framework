@@ -1,0 +1,5 @@
+<map id="slb::ext::algorithm::SimpleUniformCost" name="slb::ext::algorithm::SimpleUniformCost">
+<area shape="rect" id="node2" href="$structslb_1_1ext_1_1algorithm_1_1UniformCost.html" title="slb::ext::algorithm\l::UniformCost\&lt; false,\l ext::policy::goalHandler\l::NoGoal \&gt;" alt="" coords="504,13,667,83"/>
+<area shape="rect" id="node3" href="$structslb_1_1ext_1_1algorithm_1_1Astar.html" title="slb::ext::algorithm\l::Astar\&lt; logFlag, UniformNode,\l ext::policy::goalHandler\l::NoGoal, UniformHeuristic,\l UniformGenerator, UniformOL \&gt;" alt="" coords="244,5,456,91"/>
+<area shape="rect" id="node4" href="$structslb_1_1ext_1_1algorithm_1_1Algorithm.html" title="slb::ext::algorithm\l::Algorithm\&lt; Astar\&lt;\l ALG_TARGS, UniformNode\l \&gt;, ALG_TARGS \&gt;" alt="" coords="5,13,196,83"/>
+</map>

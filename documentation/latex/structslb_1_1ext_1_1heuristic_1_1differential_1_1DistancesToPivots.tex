@@ -1,0 +1,148 @@
+\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots}{}\subsection{slb\+:\+:ext\+:\+:heuristic\+:\+:differential\+:\+:Distances\+To\+Pivots$<$ State, Index, k $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots}\index{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots$<$ State, Index, k $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots$<$ State, Index, k $>$}}
+
+
+The type for working with distances to pivots. The general definition is for the situation with an index. The situation without an index is handled by a specialization.  
+
+
+
+
+{\ttfamily \#include $<$distances\+\_\+to\+\_\+pivots.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8b02847b92f84e1d3d97b71c91409e62}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8b02847b92f84e1d3d97b71c91409e62}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8b02847b92f84e1d3d97b71c91409e62}
+
+\begin{DoxyCompactList}\small\item\em The action cost type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_af1bead3d0ade455bbe8901d3adfbd62b}{Distances} = std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8b02847b92f84e1d3d97b71c91409e62}{Cost\+Type} $>$\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_af1bead3d0ade455bbe8901d3adfbd62b}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_af1bead3d0ade455bbe8901d3adfbd62b}
+
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_aa307465e8919ae3f3e93f5aa1f6e4b6f}{It} = typename std\+::vector$<$ \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8b02847b92f84e1d3d97b71c91409e62}{Cost\+Type} $>$\+::const\+\_\+iterator\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_aa307465e8919ae3f3e93f5aa1f6e4b6f}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_aa307465e8919ae3f3e93f5aa1f6e4b6f}
+
+\begin{DoxyCompactList}\small\item\em The iterator for the distances to pivots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8cf1541be1ef95ec622c2eb4521b3839}{update\+Expected\+N\+Pivots} (int expected\+N\+Pivots)\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8cf1541be1ef95ec622c2eb4521b3839}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a8cf1541be1ef95ec622c2eb4521b3839}
+
+\begin{DoxyCompactList}\small\item\em Updates the expected number of pivots. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Distance\+Map $>$ }\\void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_af7dfc673a6ee47fde2300816ed97c3f3}{append} (const My\+Distance\+Map \&my\+Map)
+\begin{DoxyCompactList}\small\item\em Appends the given distances to the existing ones. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_aa307465e8919ae3f3e93f5aa1f6e4b6f}{It} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_ac995c37475f0e2ec6444d0f5d7d56dd9}{pivot\+It} (const State \&s) const 
+\begin{DoxyCompactList}\small\item\em Returns the iterator to the first distance to pivot from the given state. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_ae477ef19891e31a53fcf000351f7ad66}{n\+Pivots} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of pivots. \end{DoxyCompactList}\item 
+void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a7eda75981b7771532823eb013d9b240e}{clear} ()\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a7eda75981b7771532823eb013d9b240e}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a7eda75981b7771532823eb013d9b240e}
+
+\begin{DoxyCompactList}\small\item\em Clears all the distances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a57e0ac0329ae9755dc23d917e14c090a}{expected\+N\+Pivots\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a57e0ac0329ae9755dc23d917e14c090a}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a57e0ac0329ae9755dc23d917e14c090a}
+
+\begin{DoxyCompactList}\small\item\em The expected number of pivots. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a7f7561b20fd174fb2436c3ce1744913e}{n\+Pivots\+\_\+} = 0\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a7f7561b20fd174fb2436c3ce1744913e}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_a7f7561b20fd174fb2436c3ce1744913e}
+
+\begin{DoxyCompactList}\small\item\em The number of pivots $<$ to which distances have been added. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_af1bead3d0ade455bbe8901d3adfbd62b}{Distances} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_acd953ab649dda7ede08611cda2e2ce62}{distances\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_acd953ab649dda7ede08611cda2e2ce62}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_acd953ab649dda7ede08611cda2e2ce62}
+
+\begin{DoxyCompactList}\small\item\em Distances to pivots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State, class Index = No\+Index, Index\+Kind k = Index\+::kind$>$\\*
+struct slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots$<$ State, Index, k $>$}
+
+The type for working with distances to pivots. The general definition is for the situation with an index. The situation without an index is handled by a specialization. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type representing the search domain. \\
+\hline
+{\em Index} & Mapping of states to indices. \\
+\hline
+{\em Index\+Kind} & The type denoting the kind of index. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 20 of file distances\+\_\+to\+\_\+pivots.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots@{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}!append@{append}}
+\index{append@{append}!slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots@{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}}
+\paragraph[{\texorpdfstring{append(const My\+Distance\+Map \&my\+Map)}{append(const MyDistanceMap &myMap)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index  = No\+Index, Index\+Kind k = Index\+::kind$>$ template$<$class My\+Distance\+Map $>$ void {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}$<$ State, Index, k $>$\+::append (
+\begin{DoxyParamCaption}
+\item[{const My\+Distance\+Map \&}]{my\+Map}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_af7dfc673a6ee47fde2300816ed97c3f3}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_af7dfc673a6ee47fde2300816ed97c3f3}
+
+
+Appends the given distances to the existing ones. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Distance\+Map} & The type for storing the distances to be appended. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Map} & The distances to be appended. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+My\+Distance\+Map must provide begin() and end() associated with iterator over states, so it cannot be the \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap}{Distance\+Map} with index without an inverse. 
+\end{DoxyNote}
+
+
+Definition at line 42 of file distances\+\_\+to\+\_\+pivots.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots@{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}!n\+Pivots@{n\+Pivots}}
+\index{n\+Pivots@{n\+Pivots}!slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots@{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}}
+\paragraph[{\texorpdfstring{n\+Pivots() const }{nPivots() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index  = No\+Index, Index\+Kind k = Index\+::kind$>$ int {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}$<$ State, Index, k $>$\+::n\+Pivots (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_ae477ef19891e31a53fcf000351f7ad66}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_ae477ef19891e31a53fcf000351f7ad66}
+
+
+Returns the number of pivots. 
+
+\begin{DoxyReturn}{Returns}
+The number of pivots. 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file distances\+\_\+to\+\_\+pivots.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots@{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}!pivot\+It@{pivot\+It}}
+\index{pivot\+It@{pivot\+It}!slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots@{slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}}
+\paragraph[{\texorpdfstring{pivot\+It(const State \&s) const }{pivotIt(const State &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index  = No\+Index, Index\+Kind k = Index\+::kind$>$ {\bf It} {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distances\+To\+Pivots}$<$ State, Index, k $>$\+::pivot\+It (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_ac995c37475f0e2ec6444d0f5d7d56dd9}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistancesToPivots_ac995c37475f0e2ec6444d0f5d7d56dd9}
+
+
+Returns the iterator to the first distance to pivot from the given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The given state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The iterator to the first distance to pivot from {\ttfamily s}. 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file distances\+\_\+to\+\_\+pivots.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/heuristics/differential/\hyperlink{distances__to__pivots_8h}{distances\+\_\+to\+\_\+pivots.\+h}\end{DoxyCompactItemize}

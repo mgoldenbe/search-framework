@@ -1,0 +1,91 @@
+\hypertarget{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost}{}\subsection{slb\+:\+:ext\+:\+:algorithm\+:\+:Simple\+Uniform\+Cost Struct Reference}
+\label{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost}\index{slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost@{slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost}}
+
+
+The simple version of uniform-\/cost search algorithm, where no logging is done and there is no goal state, so that the whole domain is explored.  
+
+
+
+
+{\ttfamily \#include $<$uniform\+\_\+cost.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:algorithm\+:\+:Simple\+Uniform\+Cost\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:algorithm\+:\+:Simple\+Uniform\+Cost\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a63c1dba6a5c187cae9b8c3ade9a29b14}{My\+Base} = \hyperlink{structslb_1_1ext_1_1algorithm_1_1UniformCost}{Uniform\+Cost}$<$ false, \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1NoGoal}{ext\+::policy\+::goal\+Handler\+::\+No\+Goal} $>$\hypertarget{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a63c1dba6a5c187cae9b8c3ade9a29b14}{}\label{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a63c1dba6a5c187cae9b8c3ade9a29b14}
+
+\begin{DoxyCompactList}\small\item\em The direct base, which is \hyperlink{structslb_1_1ext_1_1algorithm_1_1UniformCost}{Uniform\+Cost} in this case. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a8c6d44f70577ae4a76cb3c557379cd8b}{Astar} = \hyperlink{structslb_1_1ext_1_1algorithm_1_1UniformCost_a5c5ed4ddf95cdeb811d15eb47f05bec3}{My\+Base\+::\+My\+Base}\hypertarget{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a8c6d44f70577ae4a76cb3c557379cd8b}{}\label{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a8c6d44f70577ae4a76cb3c557379cd8b}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar}{Astar} algorithm type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ab7ba38c5015e84272df2f291b18a5b6a}{State} = Astar\+::\+State\hypertarget{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ab7ba38c5015e84272df2f291b18a5b6a}{}\label{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ab7ba38c5015e84272df2f291b18a5b6a}
+
+\begin{DoxyCompactList}\small\item\em The state type, represents the domain. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a933ddf8a5250e4edd79707952a011777}{My\+Instance} = Astar\+::\+My\+Instance\hypertarget{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a933ddf8a5250e4edd79707952a011777}{}\label{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a933ddf8a5250e4edd79707952a011777}
+
+\begin{DoxyCompactList}\small\item\em The problem instance type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ad8ab6f10bc2a9200e63072d091fa626d}{Distance\+Map} = \hyperlink{structslb_1_1ext_1_1algorithm_1_1Astar_a210d1f8bc1c2e97e626deb1051de2b2b}{Astar\+::\+Distance\+Map}\hypertarget{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ad8ab6f10bc2a9200e63072d091fa626d}{}\label{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ad8ab6f10bc2a9200e63072d091fa626d}
+
+\begin{DoxyCompactList}\small\item\em The type for storing distances from other states to the start state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ad8ab6f10bc2a9200e63072d091fa626d}{Distance\+Map} \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a4de62ce05e2f99975ee08f7e56dd177c}{distance\+Map} (const \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_ab7ba38c5015e84272df2f291b18a5b6a}{State} \&s)
+\begin{DoxyCompactList}\small\item\em Computes the distances from other states to the given state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+The simple version of uniform-\/cost search algorithm, where no logging is done and there is no goal state, so that the whole domain is explored. 
+
+\begin{DoxyNote}{Note}
+The algorithm is defined as a struct rather than as an alias to allow forward declarations. 
+\end{DoxyNote}
+
+
+Definition at line 55 of file uniform\+\_\+cost.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost@{slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost}!distance\+Map@{distance\+Map}}
+\index{distance\+Map@{distance\+Map}!slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost@{slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost}}
+\paragraph[{\texorpdfstring{distance\+Map(const State \&s)}{distanceMap(const State &s)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Distance\+Map} slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost\+::distance\+Map (
+\begin{DoxyParamCaption}
+\item[{const {\bf State} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a4de62ce05e2f99975ee08f7e56dd177c}{}\label{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost_a4de62ce05e2f99975ee08f7e56dd177c}
+
+
+Computes the distances from other states to the given state. 
+
+\begin{DoxyReturn}{Returns}
+The distances from other states to {\ttfamily s}. 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file uniform\+\_\+cost.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/algorithms/\hyperlink{uniform__cost_8h}{uniform\+\_\+cost.\+h}\end{DoxyCompactItemize}

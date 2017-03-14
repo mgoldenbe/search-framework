@@ -1,0 +1,58 @@
+\hypertarget{uniform__cost_8h}{}\subsection{extensions/algorithms/uniform\+\_\+cost.h File Reference}
+\label{uniform__cost_8h}\index{extensions/algorithms/uniform\+\_\+cost.\+h@{extensions/algorithms/uniform\+\_\+cost.\+h}}
+
+
+The \hyperlink{structslb_1_1ext_1_1algorithm_1_1UniformCost}{slb\+::ext\+::algorithm\+::\+Uniform\+Cost} class.  
+
+
+{\ttfamily \#include \char`\"{}astar.\+h\char`\"{}}\\*
+Include dependency graph for uniform\+\_\+cost.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{uniform__cost_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{uniform__cost_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1UniformCost}{slb\+::ext\+::algorithm\+::\+Uniform\+Cost$<$ log\+Flag, Goal\+Handler $>$}
+\begin{DoxyCompactList}\small\item\em The uniform-\/cost search algorithm. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1algorithm_1_1SimpleUniformCost}{slb\+::ext\+::algorithm\+::\+Simple\+Uniform\+Cost}
+\begin{DoxyCompactList}\small\item\em The simple version of uniform-\/cost search algorithm, where no logging is done and there is no goal state, so that the whole domain is explored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext}{slb\+::ext}
+\begin{DoxyCompactList}\small\item\em The user extensions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1algorithm}{slb\+::ext\+::algorithm}
+\begin{DoxyCompactList}\small\item\em The search algorithms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{namespaceslb_1_1ext_1_1algorithm_a697c5839a166be7cc9cd7fc3c2b15f98}{slb\+::ext\+::algorithm\+::\+Uniform\+Node} = \hyperlink{structslb_1_1core_1_1sb_1_1SearchNode}{slb\+::core\+::sb\+::\+Search\+Node}$<$$>$\hypertarget{namespaceslb_1_1ext_1_1algorithm_a697c5839a166be7cc9cd7fc3c2b15f98}{}\label{namespaceslb_1_1ext_1_1algorithm_a697c5839a166be7cc9cd7fc3c2b15f98}
+
+\begin{DoxyCompactList}\small\item\em The search node type for the uniform-\/cost search. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1algorithm_aebb91df5b56955857d898d76d9ca5873}{slb\+::ext\+::algorithm\+::\+Uniform\+OL} = ext\+::policy\+::open\+List\+::\+Bucketed\+Std\+Map\+\_\+T$<$ My\+Algorithm, Uniform\+Node, ext\+::policy\+::open\+List\+::\+Default\+O\+L\+Key\+Type, ext\+::policy\+::open\+List\+::\+Greater\+Priority\+\_\+\+SmallG, ext\+::policy\+::open\+List\+::\+O\+L\+Map $>$
+\begin{DoxyCompactList}\small\item\em The open list type for the uniform-\/cost search. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1algorithm_a4df6bd68a037486451c16445cb78d21f}{slb\+::ext\+::algorithm\+::\+Uniform\+Heuristic} = ext\+::policy\+::heuristic\+::\+Zero$<$ My\+Algorithm $>$
+\begin{DoxyCompactList}\small\item\em The heuristic type for the uniform-\/cost search. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Algorithm $>$ }\\using \hyperlink{namespaceslb_1_1ext_1_1algorithm_afe2eae9c2d224b1677a1e95c013c13b4}{slb\+::ext\+::algorithm\+::\+Uniform\+Generator} = ext\+::policy\+::generator\+::\+StatesT$<$ My\+Algorithm, Uniform\+Heuristic $>$
+\begin{DoxyCompactList}\small\item\em The node generator for the uniform-\/cost search. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The \hyperlink{structslb_1_1ext_1_1algorithm_1_1UniformCost}{slb\+::ext\+::algorithm\+::\+Uniform\+Cost} class. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}

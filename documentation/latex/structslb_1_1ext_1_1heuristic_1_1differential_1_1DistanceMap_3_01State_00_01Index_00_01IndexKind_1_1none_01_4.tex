@@ -1,0 +1,319 @@
+\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4}{}\subsection{slb\+:\+:ext\+:\+:heuristic\+:\+:differential\+:\+:Distance\+Map$<$ State, Index, Index\+Kind\+:\+:none $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4}\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+
+
+The type for storing distances to pivots. This specialization is for the situation without an index.  
+
+
+
+
+{\ttfamily \#include $<$distance\+\_\+map.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7b581d785190b93a68423219d1e39b35}{Cost\+Type} = typename State\+::\+Cost\+Type\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7b581d785190b93a68423219d1e39b35}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7b581d785190b93a68423219d1e39b35}
+
+\begin{DoxyCompactList}\small\item\em The action cost type. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a41fb62a9e902a7786b604a806317ac47}{Distances} = std\+::unordered\+\_\+map$<$ State, \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7b581d785190b93a68423219d1e39b35}{Cost\+Type}, \hyperlink{structslb_1_1core_1_1util_1_1StateHash}{core\+::util\+::\+State\+Hash}$<$ State $>$$>$\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a41fb62a9e902a7786b604a806317ac47}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a41fb62a9e902a7786b604a806317ac47}
+
+\begin{DoxyCompactList}\small\item\em The underlying type for storing distances to pivots. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_ab5a07fc5da2680acfe08b598844a065d}{Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1MapKeyIterator}{core\+::util\+::\+Map\+Key\+Iterator}$<$ \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a41fb62a9e902a7786b604a806317ac47}{Distances} $>$\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_ab5a07fc5da2680acfe08b598844a065d}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_ab5a07fc5da2680acfe08b598844a065d}
+
+\begin{DoxyCompactList}\small\item\em The iterator for the distances. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a3a019e07ed97eaea1e42ffc7d39e03d7}{Const\+Iterator} = \hyperlink{structslb_1_1core_1_1util_1_1MapKeyConstIterator}{core\+::util\+::\+Map\+Key\+Const\+Iterator}$<$ \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a41fb62a9e902a7786b604a806317ac47}{Distances} $>$\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a3a019e07ed97eaea1e42ffc7d39e03d7}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a3a019e07ed97eaea1e42ffc7d39e03d7}
+
+\begin{DoxyCompactList}\small\item\em The constant iterator for the distances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_ab5a07fc5da2680acfe08b598844a065d}{Iterator} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2eea88fd944da897af2b747930e1e759}{begin} ()
+\begin{DoxyCompactList}\small\item\em Returns iterator to the beginning of the distances. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a3a019e07ed97eaea1e42ffc7d39e03d7}{Const\+Iterator} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a12ff1931fdbb60942309f0e04fdbe462}{begin} () const 
+\begin{DoxyCompactList}\small\item\em Returns constant iterator to the beginning of the distances. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_ab5a07fc5da2680acfe08b598844a065d}{Iterator} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2fe7b4835665ee22009b5afdbc6de266}{end} ()
+\begin{DoxyCompactList}\small\item\em Returns iterator to the end of the distances. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a3a019e07ed97eaea1e42ffc7d39e03d7}{Const\+Iterator} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a50c049933b5b704b413c0dc7f011c30c}{end} () const 
+\begin{DoxyCompactList}\small\item\em Returns constant iterator to the end of the distances. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class It $>$ }\\State \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_aa4a2bfeeb834d60af896ce17e323c13c}{it\+To\+State} (It it) const 
+\begin{DoxyCompactList}\small\item\em Returns the state (from which a distance is stored) corresponding to the given iterator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class My\+Alg  = algorithm\+::\+Simple\+Uniform\+Cost$>$ }\\\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2f24c0038c0063c1efb23558a981bb30}{Distance\+Map} (const State \&s)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7b581d785190b93a68423219d1e39b35}{Cost\+Type} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7512d3c098d50eeb82974c8c4464683e}{distance} (const State \&s) const 
+\begin{DoxyCompactList}\small\item\em Returns the distance from the given state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Distances1 $>$ }\\void \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a6186c3704378a67d22382b0f41f55cb2}{intersect} (const Distances1 \&d)
+\begin{DoxyCompactList}\small\item\em Computes the minimum of each stored distance and the corresponding distance given by the argument. \end{DoxyCompactList}\item 
+State \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a1ef6298a4d0ee2096e4d0b640857a813}{farthest} () const 
+\begin{DoxyCompactList}\small\item\em Returns the state from which the distance is maximal. \end{DoxyCompactList}\item 
+const \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a41fb62a9e902a7786b604a806317ac47}{Distances} \& \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_af26fe94fd1f7774eaccc4f085c04603f}{distance\+Map} () const 
+\begin{DoxyCompactList}\small\item\em Returns the raw distances. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a339a4cd0f26c792b27f4f07c0b9db335}{n\+States} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of states from which distances are stored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a41fb62a9e902a7786b604a806317ac47}{Distances} \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a878e5bbd052dd9c39fcfa60c528cdf24}{distances\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a878e5bbd052dd9c39fcfa60c528cdf24}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a878e5bbd052dd9c39fcfa60c528cdf24}
+
+\begin{DoxyCompactList}\small\item\em The stored distances. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a0ef73098766ead44e477377fefaa648a}{n\+States\+\_\+}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a0ef73098766ead44e477377fefaa648a}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a0ef73098766ead44e477377fefaa648a}
+
+\begin{DoxyCompactList}\small\item\em the number of states from which distances are stored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class State, class Index$>$\\*
+struct slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}
+
+The type for storing distances to pivots. This specialization is for the situation without an index. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State} & The state type representing the search domain. \\
+\hline
+{\em Index} & Mapping of states to indices. \\
+\hline
+{\em Index\+Kind} & The type denoting the kind of index. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 154 of file distance\+\_\+map.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!Distance\+Map@{Distance\+Map}}
+\index{Distance\+Map@{Distance\+Map}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{Distance\+Map(const State \&s)}{DistanceMap(const State &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ template$<$class My\+Alg  = algorithm\+::\+Simple\+Uniform\+Cost$>$ {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::{\bf Distance\+Map} (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2f24c0038c0063c1efb23558a981bb30}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2f24c0038c0063c1efb23558a981bb30}
+
+
+The constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Alg} & The algorithm to be used to find distances to the specified state. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state to which distances are to be stored. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 197 of file distance\+\_\+map.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!begin@{begin}}
+\index{begin@{begin}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{begin()}{begin()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ {\bf Iterator} {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2eea88fd944da897af2b747930e1e759}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2eea88fd944da897af2b747930e1e759}
+
+
+Returns iterator to the beginning of the distances. 
+
+\begin{DoxyReturn}{Returns}
+Iterator to the beginning of the distances. 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!begin@{begin}}
+\index{begin@{begin}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ {\bf Const\+Iterator} {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a12ff1931fdbb60942309f0e04fdbe462}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a12ff1931fdbb60942309f0e04fdbe462}
+
+
+Returns constant iterator to the beginning of the distances. 
+
+\begin{DoxyReturn}{Returns}
+Constant iterator to the beginning of the distances. 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!distance@{distance}}
+\index{distance@{distance}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{distance(const State \&s) const }{distance(const State &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ {\bf Cost\+Type} {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::distance (
+\begin{DoxyParamCaption}
+\item[{const State \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7512d3c098d50eeb82974c8c4464683e}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a7512d3c098d50eeb82974c8c4464683e}
+
+
+Returns the distance from the given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance from {\ttfamily s}. 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!distance\+Map@{distance\+Map}}
+\index{distance\+Map@{distance\+Map}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{distance\+Map() const }{distanceMap() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ const {\bf Distances}\& {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::distance\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_af26fe94fd1f7774eaccc4f085c04603f}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_af26fe94fd1f7774eaccc4f085c04603f}
+
+
+Returns the raw distances. 
+
+\begin{DoxyReturn}{Returns}
+The raw distances. 
+\end{DoxyReturn}
+
+
+Definition at line 227 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!end@{end}}
+\index{end@{end}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{end()}{end()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ {\bf Iterator} {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2fe7b4835665ee22009b5afdbc6de266}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a2fe7b4835665ee22009b5afdbc6de266}
+
+
+Returns iterator to the end of the distances. 
+
+\begin{DoxyReturn}{Returns}
+Iterator to the end of the distances. 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!end@{end}}
+\index{end@{end}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ {\bf Const\+Iterator} {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a50c049933b5b704b413c0dc7f011c30c}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a50c049933b5b704b413c0dc7f011c30c}
+
+
+Returns constant iterator to the end of the distances. 
+
+\begin{DoxyReturn}{Returns}
+Constant iterator to the end of the distances. 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!farthest@{farthest}}
+\index{farthest@{farthest}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{farthest() const }{farthest() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ State {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::farthest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a1ef6298a4d0ee2096e4d0b640857a813}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a1ef6298a4d0ee2096e4d0b640857a813}
+
+
+Returns the state from which the distance is maximal. 
+
+\begin{DoxyReturn}{Returns}
+The state from which the distance is maximal. 
+\end{DoxyReturn}
+
+
+Definition at line 223 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!intersect@{intersect}}
+\index{intersect@{intersect}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{intersect(const Distances1 \&d)}{intersect(const Distances1 &d)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ template$<$class Distances1 $>$ void {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::intersect (
+\begin{DoxyParamCaption}
+\item[{const Distances1 \&}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a6186c3704378a67d22382b0f41f55cb2}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a6186c3704378a67d22382b0f41f55cb2}
+
+
+Computes the minimum of each stored distance and the corresponding distance given by the argument. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Distances1} & The type for the distances given by the argument. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The given distances. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 216 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!it\+To\+State@{it\+To\+State}}
+\index{it\+To\+State@{it\+To\+State}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{it\+To\+State(\+It it) const }{itToState(It it) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ template$<$class It $>$ State {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::it\+To\+State (
+\begin{DoxyParamCaption}
+\item[{It}]{it}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_aa4a2bfeeb834d60af896ce17e323c13c}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_aa4a2bfeeb834d60af896ce17e323c13c}
+
+
+Returns the state (from which a distance is stored) corresponding to the given iterator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em It} & The iterator type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em it} & The given iterator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the state (from which a distance is stored) corresponding to {\ttfamily it} 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file distance\+\_\+map.\+h.
+
+\index{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}!n\+States@{n\+States}}
+\index{n\+States@{n\+States}!slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$@{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}}
+\paragraph[{\texorpdfstring{n\+States() const }{nStates() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class State , class Index $>$ int {\bf slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map}$<$ State, Index, Index\+Kind\+::none $>$\+::n\+States (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a339a4cd0f26c792b27f4f07c0b9db335}{}\label{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4_a339a4cd0f26c792b27f4f07c0b9db335}
+
+
+Returns the number of states from which distances are stored. 
+
+\begin{DoxyReturn}{Returns}
+The number of states from which distances are stored. 
+\end{DoxyReturn}
+
+
+Definition at line 231 of file distance\+\_\+map.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/heuristics/differential/\hyperlink{distance__map_8h}{distance\+\_\+map.\+h}\end{DoxyCompactItemize}

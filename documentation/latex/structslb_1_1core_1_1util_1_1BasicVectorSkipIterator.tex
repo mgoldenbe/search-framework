@@ -1,0 +1,178 @@
+\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{}\subsection{slb\+:\+:core\+:\+:util\+:\+:Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, Base\+Iterator $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}\index{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, Base\+Iterator $>$@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, Base\+Iterator $>$}}
+
+
+Iterator for a vector that skips a certain value.  
+
+
+
+
+{\ttfamily \#include $<$container.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:util\+:\+:Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, Base\+Iterator $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:util\+:\+:Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, Base\+Iterator $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a1f81c5bdd82df852058bc0396ac54514}{Base} = \hyperlink{structslb_1_1core_1_1util_1_1BasicInformedIterator}{Basic\+Informed\+Iterator}$<$ My\+Vector, Base\+Iterator $>$\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a1f81c5bdd82df852058bc0396ac54514}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a1f81c5bdd82df852058bc0396ac54514}
+
+\begin{DoxyCompactList}\small\item\em The informed iterator, on which this skipping iterator is based. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_afa39da0ab694b51d0abd089e7612a763}{Value\+Type} = typename My\+Vector\+::value\+\_\+type\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_afa39da0ab694b51d0abd089e7612a763}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_afa39da0ab694b51d0abd089e7612a763}
+
+\begin{DoxyCompactList}\small\item\em The type of values stored in the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_aa46df09e95807f6b4bc749a84e13e2e5}{Basic\+Vector\+Skip\+Iterator} (My\+Vector \&v, Base\+Iterator it, const \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_afa39da0ab694b51d0abd089e7612a763}{Value\+Type} \&skip)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_ac265c697274c7d7791b1a7d8bf9a7370}{Basic\+Vector\+Skip\+Iterator} (const \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator} \&b)
+\begin{DoxyCompactList}\small\item\em The copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator} \& \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a3e4ab47663d9a7e1ef957162845e7653}{operator++} ()
+\begin{DoxyCompactList}\small\item\em Advance operator. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator} \& \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a7c20091a03321d6e6b26f8bf16e4a037}{operator=} (const \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator} \&rhs)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a62b9c795de2c431982e105887b335f29}{adjust} ()\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a62b9c795de2c431982e105887b335f29}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a62b9c795de2c431982e105887b335f29}
+
+\begin{DoxyCompactList}\small\item\em Adjusts the iterator to point to an element that is not to be skipped or to the end of the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_afa39da0ab694b51d0abd089e7612a763}{Value\+Type} \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_ae135631575e5e7b7275e26163f4a55d0}{skip\+\_\+}\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_ae135631575e5e7b7275e26163f4a55d0}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_ae135631575e5e7b7275e26163f4a55d0}
+
+\begin{DoxyCompactList}\small\item\em The value to be skipped. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Vector, class Base\+Iterator$>$\\*
+struct slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator$<$ My\+Vector, Base\+Iterator $>$}
+
+Iterator for a vector that skips a certain value. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Vector} & The underlying vector type. \\
+\hline
+{\em Base} & The base iterator, can be My\+Vector\+::iterator or My\+Vector\+::const\+\_\+iterator. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 159 of file container.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}!Basic\+Vector\+Skip\+Iterator@{Basic\+Vector\+Skip\+Iterator}}
+\index{Basic\+Vector\+Skip\+Iterator@{Basic\+Vector\+Skip\+Iterator}!slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}}
+\paragraph[{\texorpdfstring{Basic\+Vector\+Skip\+Iterator(\+My\+Vector \&v, Base\+Iterator it, const Value\+Type \&skip)}{BasicVectorSkipIterator(MyVector &v, BaseIterator it, const ValueType &skip)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base\+Iterator $>$ {\bf slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, Base\+Iterator $>$\+::{\bf Basic\+Vector\+Skip\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{My\+Vector \&}]{v, }
+\item[{Base\+Iterator}]{it, }
+\item[{const {\bf Value\+Type} \&}]{skip}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_aa46df09e95807f6b4bc749a84e13e2e5}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_aa46df09e95807f6b4bc749a84e13e2e5}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The underlying vector. \\
+\hline
+{\em it} & The initial iteration position, which is adjusted by the constructor to point to an element that is not to be skipped. \\
+\hline
+{\em skip} & The value to be skipped. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 171 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}!Basic\+Vector\+Skip\+Iterator@{Basic\+Vector\+Skip\+Iterator}}
+\index{Basic\+Vector\+Skip\+Iterator@{Basic\+Vector\+Skip\+Iterator}!slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}}
+\paragraph[{\texorpdfstring{Basic\+Vector\+Skip\+Iterator(const Basic\+Vector\+Skip\+Iterator \&b)}{BasicVectorSkipIterator(const BasicVectorSkipIterator &b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base\+Iterator $>$ {\bf slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, Base\+Iterator $>$\+::{\bf Basic\+Vector\+Skip\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, Base\+Iterator $>$ \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_ac265c697274c7d7791b1a7d8bf9a7370}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_ac265c697274c7d7791b1a7d8bf9a7370}
+
+
+The copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & The given skipping iterator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file container.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}}
+\paragraph[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base\+Iterator $>$ {\bf Basic\+Vector\+Skip\+Iterator}\& {\bf slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, Base\+Iterator $>$\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a3e4ab47663d9a7e1ef957162845e7653}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a3e4ab47663d9a7e1ef957162845e7653}
+
+
+Advance operator. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the resulting iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}!operator=@{operator=}}
+\index{operator=@{operator=}!slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator@{slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}}
+\paragraph[{\texorpdfstring{operator=(const Basic\+Vector\+Skip\+Iterator \&rhs)}{operator=(const BasicVectorSkipIterator &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base\+Iterator $>$ {\bf Basic\+Vector\+Skip\+Iterator}\& {\bf slb\+::core\+::util\+::\+Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, Base\+Iterator $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Basic\+Vector\+Skip\+Iterator}$<$ My\+Vector, Base\+Iterator $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a7c20091a03321d6e6b26f8bf16e4a037}{}\label{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator_a7c20091a03321d6e6b26f8bf16e4a037}
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side iterator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the resulting iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 192 of file container.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{container_8h}{container.\+h}\end{DoxyCompactItemize}

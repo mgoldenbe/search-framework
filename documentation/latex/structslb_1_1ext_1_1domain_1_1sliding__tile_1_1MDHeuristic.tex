@@ -1,0 +1,57 @@
+\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic}{}\subsection{slb\+:\+:ext\+:\+:domain\+:\+:sliding\+\_\+tile\+:\+:M\+D\+Heuristic Struct Reference}
+\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic}\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+M\+D\+Heuristic@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+M\+D\+Heuristic}}
+
+
+Functor for computing the Manhattan distance heuristic to the goal state with ordered tiles and blank at position 0.  
+
+
+
+
+{\ttfamily \#include $<$sliding\+\_\+tile.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int n\+Rows, int n\+Columns$>$ }\\\hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic_aca256bdbe4253562f127bb8dd03b5eb9}{M\+D\+Heuristic} (const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&)\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic_aca256bdbe4253562f127bb8dd03b5eb9}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic_aca256bdbe4253562f127bb8dd03b5eb9}
+
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$int n\+Rows, int n\+Columns$>$ }\\int \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic_ae8ebd0e862f431a350112bc94b98f5f9}{operator()} (const \hyperlink{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1SlidingTile}{Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&s) const 
+\begin{DoxyCompactList}\small\item\em The call operator. Computes the MD heuristic from the given state to the goal state with ordered tiles and blank at position 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Functor for computing the Manhattan distance heuristic to the goal state with ordered tiles and blank at position 0. 
+
+Definition at line 274 of file sliding\+\_\+tile.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+M\+D\+Heuristic@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+M\+D\+Heuristic}!operator()@{operator()}}
+\index{operator()@{operator()}!slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+M\+D\+Heuristic@{slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+M\+D\+Heuristic}}
+\paragraph[{\texorpdfstring{operator()(const Sliding\+Tile$<$ n\+Rows, n\+Columns $>$ \&s) const }{operator()(const SlidingTile< nRows, nColumns > &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int n\+Rows, int n\+Columns$>$ int slb\+::ext\+::domain\+::sliding\+\_\+tile\+::\+M\+D\+Heuristic\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sliding\+Tile}$<$ n\+Rows, n\+Columns $>$ \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic_ae8ebd0e862f431a350112bc94b98f5f9}{}\label{structslb_1_1ext_1_1domain_1_1sliding__tile_1_1MDHeuristic_ae8ebd0e862f431a350112bc94b98f5f9}
+
+
+The call operator. Computes the MD heuristic from the given state to the goal state with ordered tiles and blank at position 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state from which the heuristic value is needed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The MD heuristic from {\ttfamily s} to the goal state with ordered pancakes and blank at position 0. 
+\end{DoxyReturn}
+
+
+Definition at line 285 of file sliding\+\_\+tile.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/domains/\hyperlink{sliding__tile_8h}{sliding\+\_\+tile.\+h}\end{DoxyCompactItemize}

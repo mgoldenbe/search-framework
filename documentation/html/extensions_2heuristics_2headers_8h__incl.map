@@ -1,0 +1,7 @@
+<map id="extensions/heuristics/headers.h" name="extensions/heuristics/headers.h">
+<area shape="rect" id="node2" href="$extensions_2heuristics_2differential_2headers_8h.html" title="The heuristics (not heuristic policies, so they do not accept the algorithm type as a template parame..." alt="" coords="97,95,239,121"/>
+<area shape="rect" id="node3" href="$explicit__domain__indices_8h.html" title="The indices for an explicit domain. " alt="" coords="5,169,176,196"/>
+<area shape="rect" id="node4" href="$differential_8h.html" title="The differential heuristic. " alt="" coords="200,169,293,196"/>
+<area shape="rect" id="node5" href="$distance__map_8h.html" title="The differential heuristic&#39;s distance map. " alt="" coords="111,244,225,271"/>
+<area shape="rect" id="node6" href="$distances__to__pivots_8h.html" title="The differential heuristic&#39;s distances to pivots. " alt="" coords="249,244,399,271"/>
+</map>

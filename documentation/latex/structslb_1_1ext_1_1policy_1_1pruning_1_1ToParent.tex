@@ -1,0 +1,100 @@
+\hypertarget{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:pruning\+:\+:To\+Parent$<$ My\+Algorithm $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent}\index{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent$<$ My\+Algorithm $>$@{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent$<$ My\+Algorithm $>$}}
+
+
+Pruning the action that leads to a parent node.  
+
+
+
+
+{\ttfamily \#include $<$pruning.\+h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a6b6ae8fb154896ad1d5301347277832b}{To\+Parent} (My\+Algorithm \&alg)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Neighbor $>$ }\\bool \hyperlink{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a732ab0e9bc239ad1ca73594f51272961}{operator()} (const Neighbor \&n) const 
+\begin{DoxyCompactList}\small\item\em The call operator. Returns {\ttfamily true} if the given neighbor can be pruned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+My\+Algorithm \& \hyperlink{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a640f3ca8eec5e2dddba3fe023a93c98a}{alg\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a640f3ca8eec5e2dddba3fe023a93c98a}{}\label{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a640f3ca8eec5e2dddba3fe023a93c98a}
+
+\begin{DoxyCompactList}\small\item\em Reference to the search algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm$>$\\*
+struct slb\+::ext\+::policy\+::pruning\+::\+To\+Parent$<$ My\+Algorithm $>$}
+
+Pruning the action that leads to a parent node. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 33 of file pruning.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent@{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent}!To\+Parent@{To\+Parent}}
+\index{To\+Parent@{To\+Parent}!slb\+::ext\+::policy\+::pruning\+::\+To\+Parent@{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent}}
+\paragraph[{\texorpdfstring{To\+Parent(\+My\+Algorithm \&alg)}{ToParent(MyAlgorithm &alg)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ {\bf slb\+::ext\+::policy\+::pruning\+::\+To\+Parent}$<$ My\+Algorithm $>$\+::{\bf To\+Parent} (
+\begin{DoxyParamCaption}
+\item[{My\+Algorithm \&}]{alg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a6b6ae8fb154896ad1d5301347277832b}{}\label{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a6b6ae8fb154896ad1d5301347277832b}
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alg} & The search algorithm. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file pruning.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent@{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent}!operator()@{operator()}}
+\index{operator()@{operator()}!slb\+::ext\+::policy\+::pruning\+::\+To\+Parent@{slb\+::ext\+::policy\+::pruning\+::\+To\+Parent}}
+\paragraph[{\texorpdfstring{operator()(const Neighbor \&n) const }{operator()(const Neighbor &n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm $>$ template$<$class Neighbor $>$ bool {\bf slb\+::ext\+::policy\+::pruning\+::\+To\+Parent}$<$ My\+Algorithm $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const Neighbor \&}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a732ab0e9bc239ad1ca73594f51272961}{}\label{structslb_1_1ext_1_1policy_1_1pruning_1_1ToParent_a732ab0e9bc239ad1ca73594f51272961}
+
+
+The call operator. Returns {\ttfamily true} if the given neighbor can be pruned. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Neighbor} & The neighbor type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The given neighbor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the given neighbor can be pruned and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file pruning.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{pruning_8h}{pruning.\+h}\end{DoxyCompactItemize}

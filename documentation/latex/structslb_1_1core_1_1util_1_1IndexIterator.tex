@@ -1,0 +1,156 @@
+\hypertarget{structslb_1_1core_1_1util_1_1IndexIterator}{}\subsection{slb\+:\+:core\+:\+:util\+:\+:Index\+Iterator$<$ My\+Vector, Base $>$ Struct Template Reference}
+\label{structslb_1_1core_1_1util_1_1IndexIterator}\index{slb\+::core\+::util\+::\+Index\+Iterator$<$ My\+Vector, Base $>$@{slb\+::core\+::util\+::\+Index\+Iterator$<$ My\+Vector, Base $>$}}
+
+
+Vector iterator whose dereference operator returns index instead of value.  
+
+
+
+
+{\ttfamily \#include $<$container.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:core\+:\+:util\+:\+:Index\+Iterator$<$ My\+Vector, Base $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{structslb_1_1core_1_1util_1_1IndexIterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:core\+:\+:util\+:\+:Index\+Iterator$<$ My\+Vector, Base $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{structslb_1_1core_1_1util_1_1IndexIterator__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class... Args$>$ }\\\hyperlink{structslb_1_1core_1_1util_1_1IndexIterator_aa22ada12fb0a5560aabe364f98e6ecbf}{Index\+Iterator} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1IndexIterator_a51756eb68c0db6afb8271a2170ad3f17}{Index\+Iterator} (const \hyperlink{structslb_1_1core_1_1util_1_1IndexIterator}{Index\+Iterator} \&b)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+int \hyperlink{structslb_1_1core_1_1util_1_1IndexIterator_a666a20d111b0cb76f2694332879cc963}{operator$\ast$} () const 
+\begin{DoxyCompactList}\small\item\em The dereference operator. \end{DoxyCompactList}\item 
+\hyperlink{structslb_1_1core_1_1util_1_1IndexIterator}{Index\+Iterator} \& \hyperlink{structslb_1_1core_1_1util_1_1IndexIterator_aeed92994cbb11d9d4e372895dd138ba2}{operator=} (const \hyperlink{structslb_1_1core_1_1util_1_1IndexIterator}{Index\+Iterator} \&rhs)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Vector, class Base$>$\\*
+struct slb\+::core\+::util\+::\+Index\+Iterator$<$ My\+Vector, Base $>$}
+
+Vector iterator whose dereference operator returns index instead of value. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Vector} & The underlying vector type. \\
+\hline
+{\em Base} & The base iterator. Can be anything, including \hyperlink{structslb_1_1core_1_1util_1_1BasicVectorSkipIterator}{Basic\+Vector\+Skip\+Iterator}. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 226 of file container.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}!Index\+Iterator@{Index\+Iterator}}
+\index{Index\+Iterator@{Index\+Iterator}!slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}}
+\paragraph[{\texorpdfstring{Index\+Iterator(\+Args \&\&...\+args)}{IndexIterator(Args &&...args)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base $>$ template$<$class... Args$>$ {\bf slb\+::core\+::util\+::\+Index\+Iterator}$<$ My\+Vector, Base $>$\+::{\bf Index\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{Args \&\&...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1IndexIterator_aa22ada12fb0a5560aabe364f98e6ecbf}{}\label{structslb_1_1core_1_1util_1_1IndexIterator_aa22ada12fb0a5560aabe364f98e6ecbf}
+
+
+Constructor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & The argument types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & The argument list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 231 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}!Index\+Iterator@{Index\+Iterator}}
+\index{Index\+Iterator@{Index\+Iterator}!slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}}
+\paragraph[{\texorpdfstring{Index\+Iterator(const Index\+Iterator \&b)}{IndexIterator(const IndexIterator &b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base $>$ {\bf slb\+::core\+::util\+::\+Index\+Iterator}$<$ My\+Vector, Base $>$\+::{\bf Index\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Index\+Iterator}$<$ My\+Vector, Base $>$ \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1IndexIterator_a51756eb68c0db6afb8271a2170ad3f17}{}\label{structslb_1_1core_1_1util_1_1IndexIterator_a51756eb68c0db6afb8271a2170ad3f17}
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & The given iterator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 235 of file container.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}}
+\paragraph[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base $>$ int {\bf slb\+::core\+::util\+::\+Index\+Iterator}$<$ My\+Vector, Base $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1IndexIterator_a666a20d111b0cb76f2694332879cc963}{}\label{structslb_1_1core_1_1util_1_1IndexIterator_a666a20d111b0cb76f2694332879cc963}
+
+
+The dereference operator. 
+
+\begin{DoxyReturn}{Returns}
+The index of the element pointed to by the iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 239 of file container.\+h.
+
+\index{slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}!operator=@{operator=}}
+\index{operator=@{operator=}!slb\+::core\+::util\+::\+Index\+Iterator@{slb\+::core\+::util\+::\+Index\+Iterator}}
+\paragraph[{\texorpdfstring{operator=(const Index\+Iterator \&rhs)}{operator=(const IndexIterator &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Vector , class Base $>$ {\bf Index\+Iterator}\& {\bf slb\+::core\+::util\+::\+Index\+Iterator}$<$ My\+Vector, Base $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Index\+Iterator}$<$ My\+Vector, Base $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1core_1_1util_1_1IndexIterator_aeed92994cbb11d9d4e372895dd138ba2}{}\label{structslb_1_1core_1_1util_1_1IndexIterator_aeed92994cbb11d9d4e372895dd138ba2}
+
+
+The assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The right-\/hand side iterator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the resulting iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file container.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/util/\hyperlink{container_8h}{container.\+h}\end{DoxyCompactItemize}

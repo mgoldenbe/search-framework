@@ -1,0 +1,126 @@
+\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT}{}\subsection{slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Total\+UpdateT$<$ My\+Algorithm, partial\+Update\+Flag $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT}\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+Update\+T$<$ My\+Algorithm, partial\+Update\+Flag $>$@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+Update\+T$<$ My\+Algorithm, partial\+Update\+Flag $>$}}
+
+
+Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-\/computed whenever a goal is solved with the required quality.  
+
+
+
+
+{\ttfamily \#include $<$goal\+\_\+handlers.\+h$>$}
+
+
+
+Inheritance diagram for slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Total\+UpdateT$<$ My\+Algorithm, partial\+Update\+Flag $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for slb\+:\+:ext\+:\+:policy\+:\+:goal\+Handler\+:\+:Total\+UpdateT$<$ My\+Algorithm, partial\+Update\+Flag $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a1e2cb7cd8f2f5206c53aece408069b3b}{Direct\+Base} = \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal}{Multiple\+Goal}$<$ My\+Algorithm $>$\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a1e2cb7cd8f2f5206c53aece408069b3b}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a1e2cb7cd8f2f5206c53aece408069b3b}
+
+\begin{DoxyCompactList}\small\item\em The direct base. \end{DoxyCompactList}\item 
+using \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a0bc580c69a1fc7beb7432961a72ecf0d}{Active\+Goals\+It} = typename \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}{Direct\+Base\+::\+Active\+Goals\+It}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a0bc580c69a1fc7beb7432961a72ecf0d}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a0bc580c69a1fc7beb7432961a72ecf0d}
+
+\begin{DoxyCompactList}\small\item\em Iterator over active goal states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a70ad89b79c85a8ff7f5a4dea4efc92d8}{stamp} ()
+\begin{DoxyCompactList}\small\item\em Returns the time stamp of the last found goal. This is also when the open list was re-\/computed last. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_aba339d5e3a3e51d7dd0dcdfd8944da96}{done\+Goal} (Node $\ast$n, \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a6cbdf80decb53458becf058bbaae6971}{Active\+Goals\+It} it)
+\begin{DoxyCompactList}\small\item\em Handles the found goal. Recomputes the open list and saves the time stamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_abfe77fe4fb050fff931cd494ded16059}{stamp\+\_\+}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_abfe77fe4fb050fff931cd494ded16059}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_abfe77fe4fb050fff931cd494ded16059}
+
+\begin{DoxyCompactList}\small\item\em Time stamp when the last goal was found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class My\+Algorithm, bool partial\+Update\+Flag = S\+L\+B\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+L\+AG$>$\\*
+struct slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+Update\+T$<$ My\+Algorithm, partial\+Update\+Flag $>$}
+
+Handling conditions related to goal states for the case when there are multiple goal states and the whole open list must be re-\/computed whenever a goal is solved with the required quality. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em My\+Algorithm} & The search algorithm. \\
+\hline
+{\em partial\+Recompute\+Flag} & {\ttfamily true} if partial (rather than total) re-\/computation of the open list is to be performed. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 319 of file goal\+\_\+handlers.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT}!done\+Goal@{done\+Goal}}
+\index{done\+Goal@{done\+Goal}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT}}
+\paragraph[{\texorpdfstring{done\+Goal(\+Node $\ast$n, Active\+Goals\+It it)}{doneGoal(Node *n, ActiveGoalsIt it)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , bool partial\+Update\+Flag = S\+L\+B\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+L\+AG$>$ virtual void {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT}$<$ My\+Algorithm, partial\+Update\+Flag $>$\+::done\+Goal (
+\begin{DoxyParamCaption}
+\item[{Node $\ast$}]{n, }
+\item[{{\bf Active\+Goals\+It}}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_aba339d5e3a3e51d7dd0dcdfd8944da96}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_aba339d5e3a3e51d7dd0dcdfd8944da96}
+
+
+Handles the found goal. Recomputes the open list and saves the time stamp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The goal node. \\
+\hline
+{\em it} & The iterator to the active goal state. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{structslb_1_1ext_1_1policy_1_1goalHandler_1_1MultipleGoal_a49b937b31fcf0ecb22d71f75d12e0a7c}{slb\+::ext\+::policy\+::goal\+Handler\+::\+Multiple\+Goal$<$ My\+Algorithm $>$}.
+
+
+
+Definition at line 346 of file goal\+\_\+handlers.\+h.
+
+\index{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT}!stamp@{stamp}}
+\index{stamp@{stamp}!slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT@{slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT}}
+\paragraph[{\texorpdfstring{stamp()}{stamp()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class My\+Algorithm , bool partial\+Update\+Flag = S\+L\+B\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+L\+AG$>$ int {\bf slb\+::ext\+::policy\+::goal\+Handler\+::\+Total\+UpdateT}$<$ My\+Algorithm, partial\+Update\+Flag $>$\+::stamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a70ad89b79c85a8ff7f5a4dea4efc92d8}{}\label{structslb_1_1ext_1_1policy_1_1goalHandler_1_1TotalUpdateT_a70ad89b79c85a8ff7f5a4dea4efc92d8}
+
+
+Returns the time stamp of the last found goal. This is also when the open list was re-\/computed last. 
+
+\begin{DoxyReturn}{Returns}
+/// The time stamp when the last goal was found. 
+\end{DoxyReturn}
+
+
+Definition at line 337 of file goal\+\_\+handlers.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/shared\+\_\+policies/\hyperlink{goal__handlers_8h}{goal\+\_\+handlers.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,108 @@
+\hypertarget{structslb_1_1ext_1_1domain_1_1TrivialIndex}{}\subsection{slb\+:\+:ext\+:\+:domain\+:\+:Trivial\+Index$<$ Explicit\+State $>$ Struct Template Reference}
+\label{structslb_1_1ext_1_1domain_1_1TrivialIndex}\index{slb\+::ext\+::domain\+::\+Trivial\+Index$<$ Explicit\+State $>$@{slb\+::ext\+::domain\+::\+Trivial\+Index$<$ Explicit\+State $>$}}
+
+
+The index with inverse for domains whose states are integers (or a type convertible to int), so that the state itself can be used as the index. Note that these integers do not have to be consecutive, i.\+e. a map can have blocks.  
+
+
+
+
+{\ttfamily \#include $<$explicit\+\_\+domain\+\_\+indices.\+h$>$}
+
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1TrivialIndex_aaf8b23f12b9f0e902036b5f5debd9cb6}{to} (const \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State} \&s)
+\begin{DoxyCompactList}\small\item\em Computes index based on state. \end{DoxyCompactList}\item 
+static \hyperlink{structslb_1_1core_1_1sb_1_1ExplicitState}{Explicit\+State} \hyperlink{structslb_1_1ext_1_1domain_1_1TrivialIndex_a893a49225b826a4dcd55a582594f3211}{from} (int index)
+\begin{DoxyCompactList}\small\item\em Computes state based on index. \end{DoxyCompactList}\item 
+static int \hyperlink{structslb_1_1ext_1_1domain_1_1TrivialIndex_a6f85550616eddda8b3477283faf0598a}{size} ()
+\begin{DoxyCompactList}\small\item\em Returns the largest index plus 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \hyperlink{structslb_1_1ext_1_1domain_1_1TrivialIndex_a9364eceff69589a2901002e8e935f618}{kind} = Index\+Kind\+::with\+Inverse\hypertarget{structslb_1_1ext_1_1domain_1_1TrivialIndex_a9364eceff69589a2901002e8e935f618}{}\label{structslb_1_1ext_1_1domain_1_1TrivialIndex_a9364eceff69589a2901002e8e935f618}
+
+\begin{DoxyCompactList}\small\item\em My index kind. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class Explicit\+State$>$\\*
+struct slb\+::ext\+::domain\+::\+Trivial\+Index$<$ Explicit\+State $>$}
+
+The index with inverse for domains whose states are integers (or a type convertible to int), so that the state itself can be used as the index. Note that these integers do not have to be consecutive, i.\+e. a map can have blocks. 
+
+Definition at line 17 of file explicit\+\_\+domain\+\_\+indices.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{slb\+::ext\+::domain\+::\+Trivial\+Index@{slb\+::ext\+::domain\+::\+Trivial\+Index}!from@{from}}
+\index{from@{from}!slb\+::ext\+::domain\+::\+Trivial\+Index@{slb\+::ext\+::domain\+::\+Trivial\+Index}}
+\paragraph[{\texorpdfstring{from(int index)}{from(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+State $>$ static {\bf Explicit\+State} {\bf slb\+::ext\+::domain\+::\+Trivial\+Index}$<$ {\bf Explicit\+State} $>$\+::from (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1ext_1_1domain_1_1TrivialIndex_a893a49225b826a4dcd55a582594f3211}{}\label{structslb_1_1ext_1_1domain_1_1TrivialIndex_a893a49225b826a4dcd55a582594f3211}
+
+
+Computes state based on index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state corresponding to {\ttfamily index}. 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file explicit\+\_\+domain\+\_\+indices.\+h.
+
+\index{slb\+::ext\+::domain\+::\+Trivial\+Index@{slb\+::ext\+::domain\+::\+Trivial\+Index}!size@{size}}
+\index{size@{size}!slb\+::ext\+::domain\+::\+Trivial\+Index@{slb\+::ext\+::domain\+::\+Trivial\+Index}}
+\paragraph[{\texorpdfstring{size()}{size()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+State $>$ static int {\bf slb\+::ext\+::domain\+::\+Trivial\+Index}$<$ {\bf Explicit\+State} $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1ext_1_1domain_1_1TrivialIndex_a6f85550616eddda8b3477283faf0598a}{}\label{structslb_1_1ext_1_1domain_1_1TrivialIndex_a6f85550616eddda8b3477283faf0598a}
+
+
+Returns the largest index plus 1. 
+
+\begin{DoxyReturn}{Returns}
+The largest index plus 1. 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file explicit\+\_\+domain\+\_\+indices.\+h.
+
+\index{slb\+::ext\+::domain\+::\+Trivial\+Index@{slb\+::ext\+::domain\+::\+Trivial\+Index}!to@{to}}
+\index{to@{to}!slb\+::ext\+::domain\+::\+Trivial\+Index@{slb\+::ext\+::domain\+::\+Trivial\+Index}}
+\paragraph[{\texorpdfstring{to(const Explicit\+State \&s)}{to(const ExplicitState &s)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Explicit\+State $>$ static int {\bf slb\+::ext\+::domain\+::\+Trivial\+Index}$<$ {\bf Explicit\+State} $>$\+::to (
+\begin{DoxyParamCaption}
+\item[{const {\bf Explicit\+State} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structslb_1_1ext_1_1domain_1_1TrivialIndex_aaf8b23f12b9f0e902036b5f5debd9cb6}{}\label{structslb_1_1ext_1_1domain_1_1TrivialIndex_aaf8b23f12b9f0e902036b5f5debd9cb6}
+
+
+Computes index based on state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The state of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index corresponding to {\ttfamily s}. 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file explicit\+\_\+domain\+\_\+indices.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extensions/heuristics/differential/\hyperlink{explicit__domain__indices_8h}{explicit\+\_\+domain\+\_\+indices.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,48 @@
+\hypertarget{distance__map_8h}{}\subsection{extensions/heuristics/differential/distance\+\_\+map.h File Reference}
+\label{distance__map_8h}\index{extensions/heuristics/differential/distance\+\_\+map.\+h@{extensions/heuristics/differential/distance\+\_\+map.\+h}}
+
+
+The differential heuristic\textquotesingle{}s distance map.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{distance__map_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1NoIndex}{slb\+::ext\+::heuristic\+::differential\+::\+No\+Index}
+\begin{DoxyCompactList}\small\item\em The type to denote the situation with no index. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap}{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, kind $>$}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. The different kinds of index functions are handled by specializations. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1noInverse_01_4}{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::no\+Inverse $>$}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. This specialization is for an index function without an inverse. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1withInverse_01_4}{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::with\+Inverse $>$}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. This specialization is for the case of an index function with an inverse. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1DistanceMap_3_01State_00_01Index_00_01IndexKind_1_1none_01_4}{slb\+::ext\+::heuristic\+::differential\+::\+Distance\+Map$<$ State, Index, Index\+Kind\+::none $>$}
+\begin{DoxyCompactList}\small\item\em The type for storing distances to pivots. This specialization is for the situation without an index. \end{DoxyCompactList}\item 
+struct \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot}{slb\+::ext\+::heuristic\+::differential\+::\+Pivot$<$ State, Index $>$}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structslb_1_1ext_1_1heuristic_1_1differential_1_1Pivot}{Pivot} with distances to all the states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceslb}{slb}
+\begin{DoxyCompactList}\small\item\em The main namespace of the framework. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext}{slb\+::ext}
+\begin{DoxyCompactList}\small\item\em The user extensions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1heuristic}{slb\+::ext\+::heuristic}
+\begin{DoxyCompactList}\small\item\em The heuristics (not heuristic policies, so they do not accept the algorithm type as a template parameter). \end{DoxyCompactList}\item 
+ \hyperlink{namespaceslb_1_1ext_1_1heuristic_1_1differential}{slb\+::ext\+::heuristic\+::differential}
+\begin{DoxyCompactList}\small\item\em The differential heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The differential heuristic\textquotesingle{}s distance map. 
+
+\begin{DoxyAuthor}{Author}
+Meir Goldenberg 
+\end{DoxyAuthor}
