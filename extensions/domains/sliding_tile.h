@@ -255,7 +255,7 @@ private:
 
     /// Returns all the actions.
     /// \note See http://stackoverflow.com/a/42208278/2725810
-    static const AllActions& allActions_() {
+    static const AllActions& allActions_() noexcept {
         static const AllActions instance = computeAllActions();
         return instance;
     }
