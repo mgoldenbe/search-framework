@@ -112,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li class="level3"><a href="#s-current-policies">4.5.6 Explanation of some of the currently used policies</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#s-events">4.6 Events</a></li>
+<li class="level2"><a href="#s-events">4.6 Events and the logging function</a></li>
 <li class="level2"><a href="#s-nodes">4.7 Managed search nodes</a></li>
 <li class="level2"><a href="#s-structures">4.8 Data structures</a></li>
 </ul>
@@ -339,11 +339,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 </ul>
 <h2><a class="anchor" id="s-events"></a>
-4.6 Events</h2>
-<p>Each algorithm implementation can define event classes. An event object describes something that happened during the algorithm's execution, such as node selection, node generation etc. The event classes must inherit (possibly indirectly) from <a class="el" href="structslb_1_1core_1_1ui_1_1EventBase.html">slb::core::ui::EventBase</a>. This enables storing the events in the log, analyzing the log in the textual mode and visualizing algorithm's execution. See the <a href="https://youtu.be/cElxLWve1Zw">video demo</a> for some examples of these capabilities.</p>
-<p>To make sure that no logging-related run-time overhead is incurred in production runs, we provide the <a class="el" href="namespaceslb_1_1core_1_1ui.html#acdeb0db1847459cac6f4eeb22bbb5998">slb::core::ui::log</a> function. This function employs <em>tag dispatch</em> to choose one of two behaviors <em>at compile time</em> based on the compile-time configuration:</p><ul>
+4.6 Events and the logging function</h2>
+<p>Each algorithm implementation can define event classes. An event object (which is an instance of an event class) describes something that happened during the algorithm's execution, such as node selection, node generation etc. The event classes must inherit, either directly or indirectly, from <a class="el" href="structslb_1_1core_1_1ui_1_1EventBase.html">slb::core::ui::EventBase</a>. This enables storing events of different types in the event log, which in turn enables the capabilities of the framework for visualizing an algorithm's execution and analyzing its behavior. See the <a href="https://youtu.be/cElxLWve1Zw">video demo</a> for some examples of these capabilities.</p>
+<p>To store an event in the even log, the heuristic search algorithm needs to call the <a class="el" href="namespaceslb_1_1core_1_1ui.html#acdeb0db1847459cac6f4eeb22bbb5998">logging function</a>, specifying the desired event type as an explicit template argument. The first two arguments supplied by the call are the reference to the event log and the search node pointer. An overload exists for accepting a unique pointer to the node instead of a raw pointer. Since the logging function is a template, the type of both the log and the search node are automatically deduced by the compiler. There is also a third optional argument, which we designate as the <em>parent substitution node</em>. The idea is that, sometimes, events concern both a node and second node other than the first node's parent. For example, when a non-optimal path to a state is discovered by the A* algorithm (see line 223 in the source code of <a class="el" href="astar_8h.html">astar.h</a>), this needs to be reflected during the visualization without changing the parent of the node that is already stored in the open/closed list. In this case, the current node would be passed as the <em>parent substitution node</em>.</p>
+<p>To make sure that no logging-related run-time overhead is incurred in production runs, the logging function employs <em>tag dispatch</em> to choose one of two behaviors <em>at compile time</em> based on the compile-time configuration:</p><ul>
 <li>Do nothing. (In this case, the call is totally eliminated by inlining and no run-time overhead at all is incurred.)</li>
-<li>Construct an event based on the function arguments and add that event into the log. The function <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Astar.html#af46d0fe401539d7ae297dc4d059f5b5f">slb::ext::algorithm::Astar::run</a> provides an example of how events are logged in the existing code.</li>
+<li>Construct an event based on the function arguments and add that event into the log. The function <a class="el" href="structslb_1_1ext_1_1algorithm_1_1Astar.html#af46d0fe401539d7ae297dc4d059f5b5f">Astar::run</a> provides several examples of how events are logged in the existing code.</li>
 </ul>
 <h2><a class="anchor" id="s-nodes"></a>
 4.7 Managed search nodes</h2>
@@ -395,7 +396,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 17 2017 13:25:48 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 26 2017 12:53:01 for HSRF: Heuristic Search Research Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
