@@ -181,7 +181,7 @@ std::vector<Instance<State>> makeInstances(int n) {
     std::string strategy = CMD_T.instanceStrategy();
 
     // For the random walk strategy.
-    // The next length of random walk is computed by adding walkStep and multiplying by walkMultiplier
+    // The next length of random walk is computed by multiplying by walkMultiplier and adding walkStep.
     int walkFirst = CMD_T.walkFirst();
     int walkRepeat = CMD_T.walkRepeat();
     int walkIncrement = CMD_T.walkIncrement();
@@ -207,7 +207,7 @@ std::vector<Instance<State>> makeInstances(int n) {
                         randomWalkState(goal[0], curWalkLength, goal));
                     if (++curRepeated == walkRepeat) {
                         curWalkLength =
-                            (curWalkLength + walkIncrement) * walkMultiplier;
+                            curWalkLength * walkMultiplier + walkIncrement;
                         curRepeated = 0;
                     }
                 }

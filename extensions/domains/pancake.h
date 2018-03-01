@@ -49,35 +49,55 @@ struct Pancake : DomainBase {
     /// \note The function is a template to avoid instantiation when the domain
     /// is not used. Such an instantiation would result in trying to use
     /// non-existing command line arguments.
-    template <CMD_TPARAM> Pancake() : pancakes_(CMD_T.nPancakes()) {
-        int i = -1;
-        for (auto &el : pancakes_) el = ++i;
+    template <CMD_TPARAM> Pancake() {
+        size_ = CMD_T.nPancakes();
+        pancakes_ = new int8_t[size_];
+        for (int i = 0; i < size_; ++i) pancakes_[i] = i;
     }
 
     /// Initializes the state from a string, e.g. "[1, 4, 2, 3, 0]".
     /// \param s The string.
     Pancake(const std::string &s) {
-        for (auto el : core::util::split(s, {' ', ',', '[', ']'}))
-            pancakes_.push_back(std::stoi(el));
+        const auto &strs = core::util::split(s, {' ', ',', '[', ']'});
+        size_ = strs.size();
+        pancakes_ = new int8_t[size_];
+        for (int i = 0; i < size_; ++i) pancakes_[i] = std::stoi(strs[i]);
     }
 
     /// The default copy constructor.
-    Pancake(const Pancake &) = default;
+    Pancake(const Pancake &s) {
+        size_ = s.size_;
+        pancakes_ = new int8_t[size_];
+        std::copy(s.pancakes_, s.pancakes_ + size_, pancakes_);
+    }
 
     /// The default assignment operator.
     /// \return Reference to the assigned state.
-    Pancake &operator=(const Pancake &) = default;
+    Pancake &operator=(const Pancake &rhs) {
+        Pancake tmp(rhs);
+        swap(tmp);
+        return *this;
+    }
+
+    ~Pancake() {
+        delete[] pancakes_;
+    }
+
+    void swap(Pancake &s) {
+        std::swap(size_, s.size_);
+        std::swap(pancakes_, s.pancakes_);
+    }
 
     /// Returns the raw representation of the state as a vector.
     /// \return The raw representation of the state as a vector.
-    const std::vector<int> &getPancakes() const { return pancakes_; }
+    const int8_t *getPancakes() const { return pancakes_; }
 
     /// Applies an action to the state.
     /// \param a The action to be applied, i.e. the position up to (and
     /// including) which the pancakes are to be reversed.
     /// \return The state after the action.
     Pancake &apply(Action a) {
-        std::reverse(pancakes_.begin(), pancakes_.begin() + a + 1);
+        std::reverse(pancakes_, pancakes_ + a + 1);
         return *this;
     }
 
@@ -85,7 +105,7 @@ struct Pancake : DomainBase {
     /// \return Vector of actions available from the state.
     std::vector<Action> actions() const {
         std::vector<Action> res;
-        for (auto i = 1U; i != pancakes_.size(); ++i) res.push_back(i);
+        for (auto i = 1U; i != size_; ++i) res.push_back(i);
         return res;
     }
 
@@ -119,7 +139,7 @@ struct Pancake : DomainBase {
     /// \return The gap heuristic from the state obtained by applying
     /// the given action to the goal state with ordered pancakes.
     int gapDelta(Action a) const {
-        if (a < pancakes_.size() - 1) {
+        if (a < size_ - 1) {
             if (gap(a, a + 1) && !gap(0, a + 1)) return -1;
             if (gap(0, a + 1) && !gap(a, a + 1)) return 1;
             return 0;
@@ -127,7 +147,7 @@ struct Pancake : DomainBase {
 
         // All pancakes are being reversed
         if (largestInPlace()) return 1;
-        if (pancakes_[0] == pancakes_.size() - 1) return -1;
+        if (pancakes_[0] == size_ - 1) return -1;
         return 0;
     }
 
@@ -139,7 +159,7 @@ struct Pancake : DomainBase {
     /// pancakes.
     int gapHeuristic() const {
         int res = 0;
-        for (unsigned i = 0U; i < pancakes_.size() - 1; i++)
+        for (unsigned i = 0U; i < size_ - 1; i++)
             if (gap(i, i + 1)) res++;
         if (!largestInPlace()) res++;
         return res;
@@ -150,10 +170,10 @@ struct Pancake : DomainBase {
     /// \return The gap heuristic from the state to \c goal.
     int gapHeuristic(const Pancake &goal) const {
         Pancake temp = *this;
-        std::vector<int> transform(goal.pancakes_.size());
-        for (auto i = 0U; i < goal.pancakes_.size(); ++i)
+        std::vector<int8_t> transform(goal.size_);
+        for (auto i = 0U; i < goal.size_; ++i)
             transform[goal.pancakes_[i]] = i;
-        for (auto i = 0U; i < temp.pancakes_.size(); ++i)
+        for (auto i = 0U; i < temp.size_; ++i)
             temp.pancakes_[i] = transform[temp.pancakes_[i]];
         return temp.gapHeuristic();
     }
@@ -161,8 +181,10 @@ struct Pancake : DomainBase {
     /// Computes the hash-code of the state.
     /// \return The hash-code of the state.
     std::size_t hash() const {
-        boost::hash<std::vector<int>> v_hash;
-        return v_hash(pancakes_);
+        std::size_t seed = 0;
+        for (auto i = 0U; i < size_; ++i)
+            boost::hash_combine(seed, pancakes_[i]);
+        return seed;
     }
 
     /// Dumps the state to the given stream.
@@ -175,9 +197,9 @@ struct Pancake : DomainBase {
 
     /// Randomly shuffles the pancakes.
     void shuffle() {
-        auto old = pancakes_;
-        while (old == pancakes_)
-            std::random_shuffle(pancakes_.begin(), pancakes_.end());
+        Pancake old = *this;
+        while (old == *this)
+            std::random_shuffle(pancakes_, pancakes_ + size_);
     }
 
     /// The equality operator.
@@ -185,7 +207,7 @@ struct Pancake : DomainBase {
     /// \return \c true if the two states compare equal and \c false
     /// otherwise.
     bool operator==(const Pancake &rhs) const {
-        return pancakes_ == rhs.pancakes_;
+        return std::equal(pancakes_, pancakes_ + size_, rhs.pancakes_);
     }
 
     /// Returns a random state.
@@ -201,7 +223,10 @@ struct Pancake : DomainBase {
     }
 
 private:
-    std::vector<int> pancakes_; ///< The underlying state representation.
+    /// The underlying state representation.
+    /// Not using vector, since that would take 24 extra bytes per state.
+    int8_t *pancakes_;
+    int8_t size_;
 
     /// Is there a gap between positions i and i+1?
     /// \return \c true if there is a gap and \c false otherwise
@@ -217,7 +242,7 @@ private:
     /// \return \c true if the largest pancake is in place and \c false
     /// otherwise
     bool largestInPlace() const {
-        return (pancakes_.back() == (int)pancakes_.size() - 1);
+        return (pancakes_[size_ - 1] == size_ - 1);
     }
 };
 
