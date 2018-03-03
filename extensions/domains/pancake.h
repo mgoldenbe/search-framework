@@ -192,7 +192,7 @@ struct Pancake : DomainBase {
     /// \param o The stream.
     /// \return The modified stream.
     template <class Stream> Stream &dump(Stream &o) const {
-        return o << pancakes_;
+		return o << std::vector<int>(pancakes_, pancakes_ + size_);
     }
 
     /// Randomly shuffles the pancakes.

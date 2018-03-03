@@ -11,7 +11,7 @@ namespace instanceMeasure {
 
 struct Nothing;
 struct Base;
-struct CostGoal0Goal1;
+struct Radius;
 
 } // namespace
 } // namespace

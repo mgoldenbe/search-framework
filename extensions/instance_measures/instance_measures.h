@@ -34,22 +34,32 @@ struct Base {
     }
 };
 
-/// One additional instance measure -- the distance between the first two goals.
-struct CostGoal0Goal1 : Base {
+/// A radius for each each additional goal.
+/// So, R1 -- radius for 2 goals etc.
+struct Radius : Base {
     /// Call operator to compute the measures.
     /// \tparam Instance The instance type.
     /// \param instance The instance.
     /// \return The measures of \c instance.
     template <class Instance> MeasureSet operator()(const Instance &instance) {
         using State = typename Instance::State;
+	using CostType = SLB_ALGORITHM<false>::CostType;
         MeasureSet res{};
         auto goals = instance.goals();
         assert(goals.size() >= 2);
-        Instance myInstance(std::vector<State>{goals[0]},
-                            std::vector<State>{goals[1]}, MeasureSet{});
-        SLB_ALGORITHM<false> alg(myInstance);
-        res.append(Measure("G0-G1", alg.run()));
-        res.append(static_cast<Base *>(this)->operator()(instance));
+
+	// Add the base measure.
+	res.append(static_cast<Base *>(this)->operator()(instance));
+	
+	CostType radius = (CostType)0;
+	for (auto i = 1U; i < goals.size(); ++i) {
+	  Instance myInstance(std::vector<State>{goals[0]},
+			      std::vector<State>{goals[i]}, MeasureSet{});
+	  SLB_ALGORITHM<false> alg(myInstance);
+	  CostType cur = alg.run();
+	  radius = std::max(radius, cur);
+	  res.append(Measure("R" + std::to_string(i), radius));
+	}
         return res;
     }
 };

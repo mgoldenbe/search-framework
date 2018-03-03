@@ -155,12 +155,14 @@ State uniqueRandomState(const std::vector<State> &v) {
 template <class State>
 State randomWalkState(const State &s, int length, const std::vector<State> &v) {
     State res = s;
-    do {
-        for (int i = 0; i != length; ++i) {
-            auto nn = res.stateSuccessors();
-            res = nn[rand() % nn.size()].state();
-        }
-    } while (core::util::in(v, res));
+    for (int i = 0; i != length; ++i) {
+      auto nn = res.stateSuccessors();
+      res = nn[rand() % nn.size()].state();
+    }
+    while (core::util::in(v, res)) {
+      auto nn = res.stateSuccessors();
+      res = nn[rand() % nn.size()].state();
+    }
     return res;
 }
 
@@ -190,6 +192,7 @@ std::vector<Instance<State>> makeInstances(int n) {
     int curRepeated = 0;
 
     for (int i = 0; i < n; i++) {
+	std::cerr << "Creating instance " << i << "/" << n << std::endl;
         std::vector<State> start;
         std::vector<State> goal;
         if (i > 0 && strategy == "random_walk")
@@ -198,23 +201,24 @@ std::vector<Instance<State>> makeInstances(int n) {
             for (int i = 0; i != nStarts; i++)
                 start.push_back(uniqueRandomState(start));
         }
-        for (int i = 0; i != nGoals; i++)
+        for (int i = 0; i != nGoals; i++) {
             if (i == 0 && CMD_T.defaultGoal())
                 goal.push_back(State{});
             else {
-                if (i > 0 && strategy == "random_walk") {
+                if (i > 0 && strategy == "random_walk")
                     goal.push_back(
                         randomWalkState(goal[0], curWalkLength, goal));
-                    if (++curRepeated == walkRepeat) {
-                        curWalkLength =
-                            curWalkLength * walkMultiplier + walkIncrement;
-                        curRepeated = 0;
-                    }
-                }
                 else
                     goal.push_back(uniqueRandomState(goal));
             }
+	}
         res.push_back(MyInstance(start, goal));
+	if (++curRepeated == walkRepeat) {
+	  curWalkLength =
+	    curWalkLength * walkMultiplier + walkIncrement;
+	  // std::cout << i << "  " << curWalkLength << std::endl;
+	  curRepeated = 0;
+	}
     }
     if (res[0].measures().size()) // otherwise, no measure to sort on
         std::sort(res.begin(), res.end(), [](const MyInstance &i1,
