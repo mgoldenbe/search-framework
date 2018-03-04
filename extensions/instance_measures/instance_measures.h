@@ -27,9 +27,19 @@ struct Base {
     /// \return The measures of \c instance.
     template <class Instance>
     MeasureSet operator()(const Instance &instance) {
+        using State = typename Instance::State;
+        double sum = 0;
         MeasureSet res{};
-        SLB_ALGORITHM<false> alg(instance);
-        res.append(Measure("I. Cost", alg.run()));
+        auto starts = instance.starts();
+        auto goals = instance.goals();
+        for (auto i = 0U; i < goals.size(); ++i) {
+            Instance myInstance(starts, std::vector<State>{goals[i]},
+                                MeasureSet{});
+            SLB_ALGORITHM<false> alg(myInstance);
+            sum += alg.run();
+            res.append(
+                Measure("Cost=Goals-" + std::to_string(i + 1), sum / (i + 1)));
+        }
         return res;
     }
 };
@@ -43,23 +53,25 @@ struct Radius : Base {
     /// \return The measures of \c instance.
     template <class Instance> MeasureSet operator()(const Instance &instance) {
         using State = typename Instance::State;
-	using CostType = SLB_ALGORITHM<false>::CostType;
+        using namespace std;
+        using CostType = SLB_ALGORITHM<false>::CostType;
         MeasureSet res{};
         auto goals = instance.goals();
         assert(goals.size() >= 2);
 
-	// Add the base measure.
-	res.append(static_cast<Base *>(this)->operator()(instance));
-	
-	CostType radius = (CostType)0;
-	for (auto i = 1U; i < goals.size(); ++i) {
-	  Instance myInstance(std::vector<State>{goals[0]},
-			      std::vector<State>{goals[i]}, MeasureSet{});
-	  SLB_ALGORITHM<false> alg(myInstance);
-	  CostType cur = alg.run();
-	  radius = std::max(radius, cur);
-	  res.append(Measure("R" + std::to_string(i), radius));
-	}
+        // Add the base measure.
+        res.append(static_cast<Base *>(this)->operator()(instance));
+
+        CostType radius = (CostType)0;
+        for (auto i = 1U; i < goals.size(); ++i) {
+            Instance myInstance(std::vector<State>{goals[0]},
+                                std::vector<State>{goals[i]}, MeasureSet{});
+            SLB_ALGORITHM<false> alg(myInstance);
+            CostType cur = alg.run();
+            radius = std::max(radius, cur);
+            res.append(
+                Measure("Radius=Goals-" + std::to_string(i + 1), radius));
+        }
         return res;
     }
 };

@@ -53,6 +53,10 @@ struct Measure {
     /// \param x The new value of the measure.
     void set(double x) { x_ = x; }
 
+    /// Sets the name of the measure to the given name.
+    /// \param name The new name of the measure.
+    void setName(const std::string &name) { name_ = name; }
+
 private:
     std::string name_; ///< Measure's name.
 protected:

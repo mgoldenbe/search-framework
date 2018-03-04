@@ -127,10 +127,33 @@ struct Instance {
     /// \return The measure set of the instance.
     MeasureSet &measures() { return measures_; }
 
+    /// Returns the filtered measure set of the instance. The filter is deduced from the names of the measures. For example, Radius=Goals-3 means that the measure Radius should be included only when there are 3 goals.
+    /// \return The filtered measure set of the instance.
+    MeasureSet filteredMeasures() const {
+        MeasureSet res{};
+        for (const auto &m: measures_) {
+            if (measureInFilter(m.name())) {
+                Measure myMeasure(m);
+                myMeasure.setName(util::split(m.name(), {'='})[0]);
+                res.append(myMeasure);
+            }
+        }
+        return res;
+    }
+
 private:
     std::vector<State> start_; ///< The start states.
     std::vector<State> goal_;  ///< The goal states.
     MeasureSet measures_; ///< The measures associated with the instance.
+
+    bool measureInFilter(const std::string &name) const {
+        std::vector<std::string> parts = util::split(name, {'='});
+        std::string title = parts[0];
+        if (title == name) return true; // no =
+        parts = util::split(parts[1], {'-'});
+        assert(parts.size() == 0 && parts[0] == "Goals");
+        return (goal_.size() == std::stoi(parts[1]));
+    }
 };
 
 /// Computes a random state that is not in the given vector of states.

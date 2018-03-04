@@ -82,7 +82,7 @@ void run() {
         for (auto instance : res) {
             SLB_ALGORITHM<false> alg(instance);
             alg.run();
-            auto instanceMeasures = instance.measures();
+            auto instanceMeasures = instance.filteredMeasures();
             stats.append(instanceMeasures.append(alg.measures()),
                          CMD.perInstance());
         }
