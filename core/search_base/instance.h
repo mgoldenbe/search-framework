@@ -123,6 +123,10 @@ struct Instance {
     /// \return The measure set of the instance.
     const MeasureSet &measures() const { return measures_; }
 
+    /// Returns the measure set of the instance.
+    /// \return The measure set of the instance.
+    MeasureSet &measures() { return measures_; }
+
 private:
     std::vector<State> start_; ///< The start states.
     std::vector<State> goal_;  ///< The goal states.
@@ -192,7 +196,7 @@ std::vector<Instance<State>> makeInstances(int n) {
     int curRepeated = 0;
 
     for (int i = 0; i < n; i++) {
-	std::cerr << "Creating instance " << i << "/" << n << std::endl;
+        std::cerr << "Creating instance " << i << "/" << n << std::endl;
         std::vector<State> start;
         std::vector<State> goal;
         if (i > 0 && strategy == "random_walk")
@@ -211,14 +215,16 @@ std::vector<Instance<State>> makeInstances(int n) {
                 else
                     goal.push_back(uniqueRandomState(goal));
             }
-	}
-        res.push_back(MyInstance(start, goal));
-	if (++curRepeated == walkRepeat) {
-	  curWalkLength =
-	    curWalkLength * walkMultiplier + walkIncrement;
-	  // std::cout << i << "  " << curWalkLength << std::endl;
-	  curRepeated = 0;
-	}
+        }
+        MyInstance instance(start, goal);
+        if (strategy == "random_walk")
+            instance.measures().prepend(Measure("Walk", curWalkLength));
+        res.push_back(instance);
+        if (++curRepeated == walkRepeat) {
+            curWalkLength = curWalkLength * walkMultiplier + walkIncrement;
+            // std::cout << i << "  " << curWalkLength << std::endl;
+            curRepeated = 0;
+        }
     }
     if (res[0].measures().size()) // otherwise, no measure to sort on
         std::sort(res.begin(), res.end(), [](const MyInstance &i1,
