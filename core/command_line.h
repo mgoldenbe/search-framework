@@ -80,6 +80,14 @@ struct CommandLine: Base, Additions {
     /// \return The number of problem instances.
     int nInstances() { return nInstances_.getValue(); }
 
+    /// Returns first instance number.
+    /// \return The first instance number.
+    int firstInstance() { return firstInstance_.getValue(); }
+
+    /// Returns last instance number.
+    /// \return The last instance number.
+    int lastInstance() { return lastInstance_.getValue(); }
+
     /// Returns the instance number for which the visualizer is to be run. If
     /// visualization is not to be performed, the function returns -1.
     /// \return The instance number for which the visualizer is to be run or -1
@@ -171,6 +179,12 @@ private:
     /// Command line option for the number of problem instances.
     TCLAP::ValueArg<int> nInstances_;
 
+    /// Command line option for the first instance number.
+    TCLAP::ValueArg<int> firstInstance_;
+
+    /// Command line option for the last instance number.
+    TCLAP::ValueArg<int> lastInstance_;
+
     /// Command line option for the instance number for which the visualizer is
     /// to be run. It would hold -1 if visualization is not to be performed.
     TCLAP::ValueArg<int> visualize_;
@@ -233,6 +247,10 @@ private:
                              "string", cmd_),
           nInstances_("n", "nInstances", "Number of instances to create", false,
                       -1, "int", cmd_),
+          firstInstance_("", "firstInstance", "First instance number", false, -1, "int",
+                         cmd_),
+          lastInstance_("", "lastInstance", "Last instance number", false, -1, "int",
+                         cmd_),
           visualize_("v", "visualize", "Instance to visualize", false, -1,
                      "int", cmd_),
           nStarts_("", "nStarts", "Number of start states in an instance",
@@ -250,8 +268,8 @@ private:
                                       "random_walk instance strategy.",
                      false, 1, "int", cmd_),
           walkRepeat_("", "walkRepeat", "The number of times the same walk "
-                                       "length will be used for the "
-                                       "random_walk instance strategy.",
+                                        "length will be used for the "
+                                        "random_walk instance strategy.",
                       false, 1, "int", cmd_),
           walkIncrement_("", "walkIncrement", "The increment for the length of "
                                               "the walk for the random_walk "

@@ -19,15 +19,24 @@ struct CommandLine {
     /// \return The number of pancakes.
     int nPancakes() { return nPancakes_.getValue(); }
 
+    /// Returns the weakening of GAP heuristic.
+    /// \return The weakening of GAP heuristic.
+    int weakenGap() { return weakenGap_.getValue(); }
+
 private:
     /// Command line option for the number of pancakes.
     TCLAP::ValueArg<int> nPancakes_;
+
+    /// Command line option for weakening of the gap heuristic.
+    TCLAP::ValueArg<int> weakenGap_;
 
 protected:
     /// Injects this addition to the command line object.
     /// \param cmd The command-line object.
     CommandLine(TCLAP::CmdLine &cmd)
         : nPancakes_("", "nPancakes", "Number of pancakes", false, -1, "int",
+                     cmd),
+          weakenGap_("", "weakenGap", "Number of gaps not checked by the GAP heuristic.", false, 0, "int",
                      cmd) {}
 };
 
@@ -154,12 +163,15 @@ struct Pancake : DomainBase {
     /// Computes the gap heuristic from the state to the goal state with
     /// ordered
     /// pancakes.
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used. Such an instantiation would result in trying to use
+    /// non-existing command line arguments.
     /// \return The gap heuristic from the state to the goal state with
     /// ordered
     /// pancakes.
-    int gapHeuristic() const {
+    template <CMD_TPARAM> int gapHeuristic() const {
         int res = 0;
-        for (unsigned i = 0U; i < size_ - 1; i++)
+        for (unsigned i = 0U; i < size_ - 1 - CMD_T.weakenGap(); i++)
             if (gap(i, i + 1)) res++;
         if (!largestInPlace()) res++;
         return res;

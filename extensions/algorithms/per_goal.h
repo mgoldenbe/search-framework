@@ -58,9 +58,7 @@ struct PerGoal {
 
             // Collect expanded sets.
             // TODO: do this only when alg.oc is available.
-            for (const auto &el: alg.oc().hash())
-                if (el.second->bucketPosition() < 0) // closed node
-                    ++expanded[el.first];
+            for (const auto &state : alg.expanded(true)) ++expanded[state];
         }
         return res / instance_.goalInstances().size();
     }

@@ -79,7 +79,10 @@ void run() {
         Visualizer<SLB_NODE> vis(g, alg.log());
         vis.run();
     } else {
-        for (auto instance : res) {
+        int first = CMD.firstInstance() == -1 ? 0 : CMD.firstInstance();
+        int last = CMD.lastInstance() == -1 ? res.size() - 1 : CMD.lastInstance();
+        for (int i = first; i <= last; ++i) {
+            auto &instance = res[i];
             SLB_ALGORITHM<false> alg(instance);
             alg.run();
             auto instanceMeasures = instance.filteredMeasures();

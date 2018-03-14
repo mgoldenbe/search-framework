@@ -98,14 +98,29 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
         return res_;
     }
 
+    /// Returns the vector of expanded states.
+    /// \param necessaryFlag If true, limit to states with f<C*.
+    /// \return The vector of expanded states.
+    std::vector<State> expanded(bool necessaryFlag = false) const {
+        std::vector<State> res;
+        // std::cout << "res: " << cur_->g << std::endl << std::endl;
+        for (const auto &el: oc_.hash())
+            if (el.second->bucketPosition() < 0) // closed
+                if (!goalHandler_.done() || !necessaryFlag || el.second->f < cur_->g)
+                    // using cur_->g in the condition of a necessary node, since
+                    // res_ could be the average for multiple goals
+                    res.push_back(el.first);
+        return res;
+    }
+
     /// Returns the statistics about the search algorithm's
     /// performance for solving the particular instance.
     /// \return The statistics about the search algorithm's
     /// performance for solving the particular instance.
     MeasureSet measures() const {
         return Base::measures().append(MeasureSet{
-            Measure{"Unique", static_cast<double>(oc_.hash().size())},
-            denied_});
+            Measure{"Unique Gen.", static_cast<double>(oc_.hash().size())},
+                Measure{"Necessary Exp.", static_cast<double>(expanded(true).size())}, denied_});
     }
 
     /// Computes the state graph based on the closed list.
@@ -169,6 +184,7 @@ private:
         // goal handler is dealing with the issue of suspending expansions.
         // In the latter case, onSelect returns bool, otherwise it returns
         // void.
+        // std::cout << expanded_ << ". " << cur_->state() << "   " << "g: " << cur_->g << "   " << "f: " << cur_->f << std::endl;
         handleSelected(
             std::integral_constant<
                 bool, policy::goalHandler::onSelectReturns<GoalHandler>()>());
@@ -233,6 +249,7 @@ private:
         newNode->set(myG, h, this->stamp());
         log<ext::event::Generated>(log_, newNode.get());
         log<ext::event::EnteredOpen>(log_, newNode.get());
+        // std::cout << "    " << newNode->state() << "   " << "g: " << newNode->g << "   " << "f: " << newNode->f << std::endl;
         oc_.add(newNode);
     }
 };
