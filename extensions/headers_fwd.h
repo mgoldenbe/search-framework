@@ -9,5 +9,6 @@
 #include "extensions/heuristics/headers_fwd.h"
 #include "extensions/instance_measures/headers_fwd.h"
 #include "extensions/nodes/headers_fwd.h"
+#include "extensions/algorithms/headers_fwd.h"
 
 #endif

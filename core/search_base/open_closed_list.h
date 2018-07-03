@@ -141,6 +141,21 @@ private:
     HashType hash_; ///< The closed list.
 };
 
+/// A functor for comparing pointers to search states.
+/// \tparam State The search state type.
+template<class State> struct PStateEqual {
+    bool operator()(const State *lhs, const State *rhs) const {
+        return *lhs == *rhs;
+    }
+};
+
+/// The type of an auxiliary closed list.
+/// \tparam Node The search node type.
+template <class Node>
+using SecondaryCL = std::unordered_map<const typename Node::State*, Node*,
+                                       util::PStateHash<typename Node::State>,
+                                       PStateEqual<typename Node::State>>;
+
 } // namespace
 } // namespace
 } // namespace

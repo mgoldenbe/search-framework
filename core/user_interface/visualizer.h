@@ -152,6 +152,7 @@ private:
                         this->logWindow_.scrollRight();
                         break;
                     }
+		    break;
                 default:
                     switch (e.xkey.keycode) {
                     case 65: // space

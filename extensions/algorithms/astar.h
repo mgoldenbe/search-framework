@@ -94,25 +94,45 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
             handleSelected();
         }
         if (!goalHandler_.done()) res_ = -1;
-        cost_.set(res_);
+        setCost(res_);
+        //std::cout << "res: " << cur_->g << std::endl << std::endl;
         return res_;
     }
 
     /// Returns the vector of expanded states.
     /// \param necessaryFlag If true, limit to states with f<C*.
+    /// \param costBound If not -1, the largest f-cost to be included.
     /// \return The vector of expanded states.
-    std::vector<State> expanded(bool necessaryFlag = false) const {
+    std::vector<State> expanded(bool necessaryFlag = false,
+                                CostType costBound = -1) const {
         std::vector<State> res;
-        // std::cout << "res: " << cur_->g << std::endl << std::endl;
         for (const auto &el: oc_.hash())
             if (el.second->bucketPosition() < 0) // closed
-                if (!goalHandler_.done() || !necessaryFlag || el.second->f < cur_->g)
-                    // using cur_->g in the condition of a necessary node, since
-                    // res_ could be the average for multiple goals
-                    res.push_back(el.first);
+                if (!goalHandler_.done() || !necessaryFlag ||
+                    el.second->f < cur_->g)
+                    if (costBound == -1 || el.second->f <= costBound)
+                        res.push_back(el.first);
         return res;
     }
 
+    /// Sets the secondary closed list.
+    /// \param secondaryCL The secondary closed list.
+    void setSecondaryCL(core::sb::SecondaryCL<Node> &secondaryCL){
+        secondaryCL_ = &secondaryCL;
+    }
+
+    /// Updates the secondary closed list.
+    void updateSecondaryCL() const {
+        if (!secondaryCL_) return;
+        for (const auto &el: oc_.hash())
+            if (el.second->bucketPosition() < 0) // closed
+                (*secondaryCL_)[&el.first] = el.second.get();
+    }
+
+    /// Set the cost measure.
+    /// \param cost The cost.
+
+    void setCost(CostType cost) { cost_.set(cost); }
     /// Returns the statistics about the search algorithm's
     /// performance for solving the particular instance.
     /// \return The statistics about the search algorithm's
@@ -120,7 +140,7 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     MeasureSet measures() const {
         return Base::measures().append(MeasureSet{
             Measure{"Unique Gen.", static_cast<double>(oc_.hash().size())},
-                Measure{"Necessary Exp.", static_cast<double>(expanded(true).size())}, denied_});
+                Measure{"Necessary Exp.", static_cast<double>(expanded(true).size())}, updated_, denied_});
     }
 
     /// Computes the state graph based on the closed list.
@@ -172,11 +192,14 @@ struct Astar : Algorithm<Astar<ALG_TARGS, Open_>, ALG_TARGS> {
     /// @}
 private:
     OC oc_; ///< The open and closed lists.
+    core::sb::SecondaryCL<Node> *secondaryCL_ =
+        nullptr; ///< The secondary closed list;
 
     Node *cur_; ///< The currently selected node.
 
     // Stats
     Measure denied_{"Denied"}; ///< The number of denied expansions.
+    Measure updated_{"g-updates"}; ///< The number of g-value updates.
 
     /// Handles the selected node.
     void handleSelected() {
@@ -184,7 +207,10 @@ private:
         // goal handler is dealing with the issue of suspending expansions.
         // In the latter case, onSelect returns bool, otherwise it returns
         // void.
-        // std::cout << expanded_ << ". " << cur_->state() << "   " << "g: " << cur_->g << "   " << "f: " << cur_->f << std::endl;
+
+        //if (static_cast<int>(expanded_.value()) % 10000 == 0)
+        //std::cout << expanded_ << ". " << cur_->state() << "   " << "g: " << cur_->g << "   " << "f: " << cur_->f << std::endl;
+        //if (expanded_.value() > 53810) exit(0);
         handleSelected(
             std::integral_constant<
                 bool, policy::goalHandler::onSelectReturns<GoalHandler>()>());
@@ -232,6 +258,7 @@ private:
                 childNode->updateG(myG);
                 childNode->setParent(cur_);
                 oc_.update(childNode, oldPriority);
+                ++updated_;
                 log<ext::event::Generated>(log_, childNode);
                 log<ext::event::EnteredOpen>(log_, childNode);
             }
@@ -244,12 +271,20 @@ private:
         }
         NodeUniquePtr newNode(new Node(childState));
         newNode->setParent(cur_);
+        if (secondaryCL_) {
+            auto it = secondaryCL_->find(&childState);
+            if (it != secondaryCL_->end() && it->second->g < myG) {
+                //std::cout << std::endl << "    " << "myG: " << myG << "   g-previous: " << it->second->g << std::endl;
+                myG = it->second->g;
+                newNode->setParent(it->second->parent());
+            }
+        }
         auto h = generator_.heuristic(
             n, Generator::Heuristic::dynamic ? cur_ : newNode.get());
         newNode->set(myG, h, this->stamp());
         log<ext::event::Generated>(log_, newNode.get());
         log<ext::event::EnteredOpen>(log_, newNode.get());
-        // std::cout << "    " << newNode->state() << "   " << "g: " << newNode->g << "   " << "f: " << newNode->f << std::endl;
+        //std::cout << "    " << generated_ << ". " << newNode->state() << "   " << "g: " << newNode->g << "   " << "f: " << newNode->f << "   " /*<< "goal: " << newNode->responsibleGoal*/ << std::endl;
         oc_.add(newNode);
     }
 };

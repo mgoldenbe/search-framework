@@ -10,6 +10,35 @@
 namespace slb {
 namespace ext {
 namespace algorithm {
+namespace pergoal {
+
+/// Additions to the command line related to the PerGoal algorithm.
+struct CommandLine {
+    /// Returns whether the goal being expanded by a prefious search is checked.
+    /// \return true if the goal being expanded by a prefious search is checked and false otherwise.
+    bool checkGoalExpanded() { return checkGoalExpanded_.isSet(); }
+
+    /// Returns whether the search algorithm should be supplied a secondary closed list.
+    /// \return true if the search algorithm should be supplied a secondary closed list and false otherwise.
+    bool secondaryCL() { return secondaryCL_.isSet(); }
+
+private:
+    /// Command line option for checking the goal in previous searches.
+    TCLAP::SwitchArg checkGoalExpanded_;
+
+    /// Command line option for secondary closed list.
+    TCLAP::SwitchArg secondaryCL_;
+
+protected:
+    /// Injects this addition to the command line object.
+    /// \param cmd The command-line object.
+    CommandLine(TCLAP::CmdLine &cmd)
+        : checkGoalExpanded_("", "checkGoalExpanded",
+                             "Check the goal in previous searches.", cmd,
+                             false),
+          secondaryCL_("", "secondaryCL", "Supply secondary closed list.", cmd,
+                       false) {}
+};
 
 /// \c PerGoal is a meta search algorithm for solving instances with multiple
 /// goals. It runs some other search algorithm for each goal state and combines
@@ -49,17 +78,40 @@ struct PerGoal {
     /// the goals.
     /// \warning There is no special treatment for instances that do not have a
     /// solution at this point.
-    ReturnType run() {
+    template <CMD_TPARAM> ReturnType run() {
         ReturnType res = 0.0;
+        core::sb::SecondaryCL<Node> distanceMap;
+        BaseAlgorithm **algs =
+            new BaseAlgorithm *[instance_.goalInstances().size()];
+        int index = 0;
         for (auto i : instance_.goalInstances()) {
-            BaseAlgorithm alg(i);
-            res += alg.run();
+            BaseAlgorithm *algp = new BaseAlgorithm(i);
+            BaseAlgorithm &alg = *algp;
+            algs[index] = algp;
+            if (CMD_T.secondaryCL()) alg.setSecondaryCL(distanceMap);
+
+            auto it = distanceMap.find(&i.goal());
+            if (CMD_T.checkGoalExpanded() && it != distanceMap.end()) {
+                alg.setCost(it->second->g);
+                res += it->second->g;
+            }
+            else
+                res += alg.run();
             stats_.append(alg.measures());
 
             // Collect expanded sets.
             // TODO: do this only when alg.oc is available.
             for (const auto &state : alg.expanded(true)) ++expanded[state];
+            alg.updateSecondaryCL();
+
+            if (!CMD_T.secondaryCL()) {
+                delete algs[index];
+                algs[index] = nullptr;
+            }
+            index++;
         }
+        for (int i = 0; i < index; ++i) delete algs[i];
+        delete[] algs;
         return res / instance_.goalInstances().size();
     }
 
@@ -98,6 +150,7 @@ private:
     std::unordered_map<State, int, core::util::StateHash<State>> expanded;
 };
 
+} // namespace
 } // namespace
 } // namespace
 } // namespace

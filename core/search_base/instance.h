@@ -151,7 +151,7 @@ private:
         std::string title = parts[0];
         if (title == name) return true; // no =
         parts = util::split(parts[1], {'-'});
-        assert(parts.size() == 0 && parts[0] == "Goals");
+        assert(parts.size() == 0 || parts[0] == "Goals");
         return (goal_.size() == std::stoi(parts[1]));
     }
 };
@@ -201,7 +201,8 @@ State randomWalkState(const State &s, int length, const std::vector<State> &v) {
 /// \warning If the number of different states in the domain is smaller than the
 /// number of start or goal states in an instance), an infinite loop will
 /// result.
-template <class State, CMD_TPARAM>
+template <class State, CMD_TPARAM,
+          class UCS = ext::algorithm::SimpleUniformCost>
 std::vector<Instance<State>> makeInstances(int n) {
     using MyInstance = Instance<State>;
     std::vector<MyInstance> res;
@@ -209,43 +210,64 @@ std::vector<Instance<State>> makeInstances(int n) {
     int nGoals = CMD_T.nGoals('w');
     std::string strategy = CMD_T.instanceStrategy();
 
-    // For the random walk strategy.
-    // The next length of random walk is computed by multiplying by walkMultiplier and adding walkStep.
-    int walkFirst = CMD_T.walkFirst();
-    int walkRepeat = CMD_T.walkRepeat();
-    int walkIncrement = CMD_T.walkIncrement();
-    int walkMultiplier = CMD_T.walkMultiplier();
-    int curWalkLength = walkFirst;
+    // For the radius bound-related strategies.
+    // The next radius bound is computed by multiplying by radiusBoundMultiplier and adding radiusBoundStep.
+    int radiusBoundFirst = CMD_T.radiusBoundFirst();
+    int radiusBoundRepeat = CMD_T.radiusBoundRepeat();
+    int radiusBoundIncrement = CMD_T.radiusBoundIncrement();
+    int radiusBoundMultiplier = CMD_T.radiusBoundMultiplier();
+    int curRadiusBound = radiusBoundFirst;
     int curRepeated = 0;
 
     for (int i = 0; i < n; i++) {
         std::cerr << "Creating instance " << i << "/" << n << std::endl;
         std::vector<State> start;
         std::vector<State> goal;
-        if (i > 0 && strategy == "random_walk")
-            start = res.back().starts();
-        else {
-            for (int i = 0; i != nStarts; i++)
-                start.push_back(uniqueRandomState(start));
-        }
+        std::vector<State> goalCandidates;
+        int goalCandidatesIndex = 0;
+        for (int i = 0; i != nStarts; i++)
+            start.push_back(uniqueRandomState(start));
         for (int i = 0; i != nGoals; i++) {
-            if (i == 0 && CMD_T.defaultGoal())
-                goal.push_back(State{});
-            else {
-                if (i > 0 && strategy == "random_walk")
-                    goal.push_back(
-                        randomWalkState(goal[0], curWalkLength, goal));
+            if (i == 0) {
+                if (CMD_T.defaultGoal())
+                    goal.push_back(State{});
                 else
                     goal.push_back(uniqueRandomState(goal));
+                if (strategy == "ucs") {
+                    MyInstance instance(goal, std::vector<State>(1),
+                                        MeasureSet{});
+                    UCS ucs{instance};
+                    ucs.goalHandler().setBound(curRadiusBound);
+                    ucs.run();
+                    goalCandidates = ucs.expanded(false, curRadiusBound);
+                    std::random_shuffle(goalCandidates.begin(),
+                                        goalCandidates.end());
+                }
+            } else {
+                if (strategy == "random_walk")
+                    goal.push_back(
+                        randomWalkState(goal[0], curRadiusBound, goal));
+                else if (strategy == "ucs") {
+                    if (goalCandidatesIndex < goalCandidates.size())
+                        if (goalCandidates[goalCandidatesIndex] == goal[0])
+                            ++goalCandidatesIndex;
+                    if (goalCandidatesIndex < goalCandidates.size())
+                        goal.push_back(goalCandidates[goalCandidatesIndex++]);
+                    else
+                        goal.push_back(randomWalkState(goal[0], 0, goal));
+                }
+                else
+                    throw std::runtime_error("Wrong strategy name");
             }
         }
         MyInstance instance(start, goal);
-        if (strategy == "random_walk")
-            instance.measures().prepend(Measure("Walk", curWalkLength));
+        if (strategy == "random_walk" || strategy == "ucs")
+            instance.measures().prepend(
+                Measure("RadiusBound", curRadiusBound));
         res.push_back(instance);
-        if (++curRepeated == walkRepeat) {
-            curWalkLength = curWalkLength * walkMultiplier + walkIncrement;
-            // std::cout << i << "  " << curWalkLength << std::endl;
+        if (++curRepeated == radiusBoundRepeat) {
+            curRadiusBound = curRadiusBound * radiusBoundMultiplier + radiusBoundIncrement;
+            // std::cout << i << "  " << curRadiusBound << std::endl;
             curRepeated = 0;
         }
     }

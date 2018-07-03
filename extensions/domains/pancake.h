@@ -60,8 +60,8 @@ struct Pancake : DomainBase {
     /// non-existing command line arguments.
     template <CMD_TPARAM> Pancake() {
         size_ = CMD_T.nPancakes();
-        pancakes_ = new int8_t[size_];
-        for (int i = 0; i < size_; ++i) pancakes_[i] = i;
+        pancakes_ = new int8_t[size_ + 1];
+        for (int i = 0; i < size_ + 1; ++i) pancakes_[i] = i;
     }
 
     /// Initializes the state from a string, e.g. "[1, 4, 2, 3, 0]".
@@ -69,15 +69,16 @@ struct Pancake : DomainBase {
     Pancake(const std::string &s) {
         const auto &strs = core::util::split(s, {' ', ',', '[', ']'});
         size_ = strs.size();
-        pancakes_ = new int8_t[size_];
+        pancakes_ = new int8_t[size_ + 1];
         for (int i = 0; i < size_; ++i) pancakes_[i] = std::stoi(strs[i]);
+        pancakes_[size_] = size_;
     }
 
     /// The default copy constructor.
     Pancake(const Pancake &s) {
         size_ = s.size_;
-        pancakes_ = new int8_t[size_];
-        std::copy(s.pancakes_, s.pancakes_ + size_, pancakes_);
+        pancakes_ = new int8_t[size_ + 1];
+        std::copy(s.pancakes_, s.pancakes_ + size_ + 1, pancakes_);
     }
 
     /// The default assignment operator.
@@ -169,7 +170,7 @@ struct Pancake : DomainBase {
     /// \return The gap heuristic from the state to the goal state with
     /// ordered
     /// pancakes.
-    template <CMD_TPARAM> int gapHeuristic() const {
+    template <CMD_TPARAM> int gapHeuristic_old() const {
         int res = 0;
         for (unsigned i = 0U; i < size_ - 1 - CMD_T.weakenGap(); i++)
             if (gap(i, i + 1)) res++;
@@ -177,9 +178,29 @@ struct Pancake : DomainBase {
         return res;
     }
 
+    /// Computes the gap heuristic from the state to the goal state with
+    /// ordered
+    /// pancakes.
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used. Such an instantiation would result in trying to use
+    /// non-existing command line arguments.
+    /// \return The gap heuristic from the state to the goal state with
+    /// ordered
+    /// pancakes.
+    template <CMD_TPARAM> int gapHeuristic() const {
+        int res = 0;
+        static auto gapMatrix = computeGapMatrix(CMD_T.weakenGap());
+        for (unsigned i = 0U; i < size_; i++)
+            res += gapMatrix[pancakes_[i]][pancakes_[i + 1]];
+        return res;
+    }
+
     /// Computes the gap heuristic from the state to the given goal state.
     /// \param goal The goal state.
     /// \return The gap heuristic from the state to \c goal.
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used (note that it results in calling gapHeuristic()).
+    template <CMD_TPARAM> 
     int gapHeuristic(const Pancake &goal) const {
         Pancake temp = *this;
         std::vector<int8_t> transform(goal.size_);
@@ -250,6 +271,22 @@ private:
         return (abs(pancakes_[i] - pancakes_[j]) > 1);
     }
 
+    std::vector<std::vector<int>> computeGapMatrix(int gapWeakening) const {
+        std::vector<std::vector<int>> res(size_ + 1,
+                                          std::vector<int>(size_ + 1, int{1}));
+        for (int p = 0; p < size_ + 1; ++p) {
+            res[p][p] = 0;
+            if (p < size_) res[p][p + 1] = res[p + 1][p] = 0;
+        }
+        for (int p1 = 0; p1 < size_; ++p1)
+            for (int p2 = p1 + 2; p2 < size_; ++p2)
+                if (gapWeakening) {
+                    --gapWeakening;
+                    res[p1][p2] = res[p2][p1] = 0;
+                }
+        return res;
+    }
+
     /// Is the largest pancake in place?
     /// \return \c true if the largest pancake is in place and \c false
     /// otherwise
@@ -271,6 +308,9 @@ struct GapHeuristic {
     /// \param s The state from which the heuristic value is needed.
     /// \return The gap heuristic from \c s to the goal state with ordered
     /// pancakes.
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used (note that it results in calling gapHeuristic()).
+    template <CMD_TPARAM> 
     int operator()(const Pancake &s) const { return s.gapHeuristic(); }
 };
 
@@ -301,6 +341,9 @@ struct GapHeuristicToGoal {
     /// the given goal state.
     /// \param s The state from which the heuristic value is needed.
     /// \return The gap heuristic from \c s to \c goal_.
+    /// \note The function is a template to avoid instantiation when the domain
+    /// is not used (note that it results in calling gapHeuristic()).
+    template <CMD_TPARAM> 
     int operator()(const Pancake &s) const { return s.gapHeuristic(goal_); }
 
 private:

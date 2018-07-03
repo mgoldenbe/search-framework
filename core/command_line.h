@@ -39,16 +39,17 @@ protected:
     TCLAP::CmdLine cmd_;
 };
 
-#ifndef SLB_CMD_LINE_ADD
+#ifndef SLB_CMD_T_PARAM
 /// Default command line additions.
-#define SLB_CMD_LINE_ADD Nothing
+#define SLB_CMD_T_PARAM class Add = Nothing
+#define SLB_CMD_T_ARG Add
+#define SLB_CMD_INIT Add(cmd_)
 #endif
 
 /// Class handling the command line. It is singleton. The command line would
 /// usually be accessed from the other code using the \ref CMD macro.
-/// \tparam Additions Command line additions.
-template <class Additions = SLB_CMD_LINE_ADD>
-struct CommandLine: Base, Additions {
+template <SLB_CMD_T_PARAM>
+struct CommandLine: Base, SLB_CMD_T_ARG {
     /// Access to the command line object. When this method is called for the
     /// first time, it should be called with proper (i.e. not default) \c argc
     /// and \c argv.
@@ -123,29 +124,23 @@ struct CommandLine: Base, Additions {
     /// \return The strategy for forming instances.
     std::string instanceStrategy() { return instanceStrategy_.getValue(); }
 
-    /// Returns the length of the first walk for the random_walk instance
-    /// strategy.
-    /// \return The length of the first walk for the random_walk instance
-    /// strategy.
-    int walkFirst() { return walkFirst_.getValue(); }
+    /// Returns the length of the first radius bound for the relevant
+    /// strategies.
+    /// \return The length of the first radius bound for the relevant
+    /// strategies.
+    int radiusBoundFirst() { return radiusBoundFirst_.getValue(); }
 
-    /// Returns the number of times the same walk length will be used for the
-    /// random_walk instance strategy.
-    /// \return The number of times the same walk length will be used for the
-    /// random_walk instance strategy.
-    int walkRepeat() { return walkRepeat_.getValue(); }
+    /// Returns the number of times the same radius bound will be used.
+    /// \return The number of times the same radius bound will be used.
+    int radiusBoundRepeat() { return radiusBoundRepeat_.getValue(); }
 
-    /// Returns the increment for the length of the walk for the random_walk
-    /// instance strategy.
-    /// \return The increment for the length of the walk for the random_walk
-    /// instance strategy.
-    int walkIncrement() { return walkIncrement_.getValue(); }
+    /// Returns the increment for the radius bound.
+    /// \return The increment for the radius bound.
+    int radiusBoundIncrement() { return radiusBoundIncrement_.getValue(); }
 
-    /// Returns the multiplier for the length of the walk for the random_walk
-    /// instance strategy.
-    /// \return The multiplier for the length of the walk for the random_walk
-    /// instance strategy.
-    int walkMultiplier() { return walkMultiplier_.getValue(); }
+    /// Returns the multiplier for the length of the radius bound.
+    /// \return The multiplier for the length of the radius bound.
+    int radiusBoundMultiplier() { return radiusBoundMultiplier_.getValue(); }
 
     /// Returns \c true if per-problem-instance statistics are to appear on the
     /// output and \c false otherwise.
@@ -204,20 +199,17 @@ private:
     /// Strategy for forming instances.
     TCLAP::ValueArg<std::string> instanceStrategy_;
 
-    /// The length of the first walk for the random_walk instance strategy.
-    TCLAP::ValueArg<int> walkFirst_;
+    /// The length of the first radius bound for the relevant strategies.
+    TCLAP::ValueArg<int> radiusBoundFirst_;
 
-    /// The number of times the same walk length will be used for the
-    /// random_walk instance strategy.
-    TCLAP::ValueArg<int> walkRepeat_;
+    /// The number of times the same radius bound will be used.
+    TCLAP::ValueArg<int> radiusBoundRepeat_;
 
-    /// The increment for the length of the walk for the random_walk instance
-    /// strategy.
-    TCLAP::ValueArg<int> walkIncrement_;
+    /// The increment for the radius bound.
+    TCLAP::ValueArg<int> radiusBoundIncrement_;
 
-    /// The multiplier for the length of the walk for the random_walk instance
-    /// strategy.
-    TCLAP::ValueArg<int> walkMultiplier_;
+    /// The multiplier for the radius bound.
+    TCLAP::ValueArg<int> radiusBoundMultiplier_;
 
     /// Command line option for the switch showing whether per-problem-instance
     /// statistics are to appear on the output.
@@ -239,7 +231,7 @@ private:
     /// \param argc Number of command line arguments.
     /// \param argv The command line arguments.
     CommandLine(int argc, char **argv)
-        : Additions(cmd_),
+        : SLB_CMD_INIT,
           instancesFileName_("i", "instances", "File with instances", true, "",
                              "string", cmd_),
           spaceInitFileName_("s", "space",
@@ -247,10 +239,10 @@ private:
                              "string", cmd_),
           nInstances_("n", "nInstances", "Number of instances to create", false,
                       -1, "int", cmd_),
-          firstInstance_("", "firstInstance", "First instance number", false, -1, "int",
-                         cmd_),
-          lastInstance_("", "lastInstance", "Last instance number", false, -1, "int",
-                         cmd_),
+          firstInstance_("", "firstInstance", "First instance number", false,
+                         -1, "int", cmd_),
+          lastInstance_("", "lastInstance", "Last instance number", false, -1,
+                        "int", cmd_),
           visualize_("v", "visualize", "Instance to visualize", false, -1,
                      "int", cmd_),
           nStarts_("", "nStarts", "Number of start states in an instance",
@@ -264,22 +256,20 @@ private:
           instanceStrategy_("", "instanceStrategy",
                             "The strategy for forming instances.", false,
                             "random", "string", cmd_),
-          walkFirst_("", "walkFirst", "The length of the first walk for the "
-                                      "random_walk instance strategy.",
-                     false, 1, "int", cmd_),
-          walkRepeat_("", "walkRepeat", "The number of times the same walk "
-                                        "length will be used for the "
-                                        "random_walk instance strategy.",
-                      false, 1, "int", cmd_),
-          walkIncrement_("", "walkIncrement", "The increment for the length of "
-                                              "the walk for the random_walk "
-                                              "instance strategy.",
-                         false, 1, "int", cmd_),
-          walkMultiplier_("", "walkMultiplier",
-                          "The multiplier for the length of "
-                          "the walk for the random_walk "
-                          "instance strategy.",
-                          false, 1, "int", cmd_),
+          radiusBoundFirst_(
+              "", "radiusBoundFirst",
+              "The first radius bound for the relevant strategies.", false, 1,
+              "int", cmd_),
+          radiusBoundRepeat_("", "radiusBoundRepeat",
+                             "The number of times the same radius bound "
+                             "will be used.",
+                             false, 1, "int", cmd_),
+          radiusBoundIncrement_("", "radiusBoundIncrement",
+                                "The increment for the radius bound.",
+                                false, 1, "int", cmd_),
+          radiusBoundMultiplier_("", "radiusBoundMultiplier",
+                                 "The multiplier for the radius bound.",
+                                 false, 1, "int", cmd_),
           perInstance_("p", "perInstance", "Output per-instance stats", cmd_,
                        false),
           hideTitle_("", "hideTitle", "Do not show the title line", cmd_,

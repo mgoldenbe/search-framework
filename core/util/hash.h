@@ -21,6 +21,18 @@ struct StateHash {
     }
 };
 
+/// A functor for computing the hash-value of a pointer to search state.
+/// \tparam State The search state type.
+template <class State>
+struct PStateHash {
+    /// The call operator. Computes the hash-value of a search state.
+    /// \param s State pointer.
+    /// \return The hash-value of \c s.
+    std::size_t operator()(const State *s) const {
+        return s->hash();
+    }
+};
+
 /// A functor for computing the hash-value of a search state based on a smart
 /// pointer.
 /// \tparam State The search state type.

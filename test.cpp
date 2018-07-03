@@ -86,6 +86,7 @@ void run() {
             SLB_ALGORITHM<false> alg(instance);
             alg.run();
             auto instanceMeasures = instance.filteredMeasures();
+            //std::cout << i - first << std::endl;
             stats.append(instanceMeasures.append(alg.measures()),
                          CMD.perInstance());
         }
